@@ -1,0 +1,24 @@
+===== MaleyLean.PaperBivalenceInterfaceStatement =====
+'MaleyLean.PaperBivalenceInterfaceStatement' does not depend on any axioms
+
+===== MaleyLean.PaperSameSideSplitCollapseSummaryStatement =====
+'MaleyLean.PaperSameSideSplitCollapseSummaryStatement' does not depend on any axioms
+
+===== MaleyLean.PaperStandingEmergenceStatement =====
+'MaleyLean.PaperStandingEmergenceStatement' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== MaleyLean.PaperNoSameActRepairStatement =====
+'MaleyLean.PaperNoSameActRepairStatement' does not depend on any axioms
+
+===== MaleyLean.PaperNoGeneratorsStatement =====
+'MaleyLean.PaperNoGeneratorsStatement' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== MaleyLean.PaperNoPrimitiveCarriersStandingFormStatement =====
+'MaleyLean.PaperNoPrimitiveCarriersStandingFormStatement' does not depend on any axioms
+
+===== MaleyLean.PaperUniquenessOfAdmissibleInteriorStatement =====
+'MaleyLean.PaperUniquenessOfAdmissibleInteriorStatement' does not depend on any axioms
+
+===== MaleyLean.PaperStandingConservationStatement =====
+'MaleyLean.PaperStandingConservationStatement' does not depend on any axioms
+
