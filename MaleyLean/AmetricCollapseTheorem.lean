@@ -2,8 +2,6 @@ import MaleyLean.Irrecoverability
 import MaleyLean.StandingCarriesMetricFreedom
 import MaleyLean.NoInformationInFailureRegion
 
-open Classical
-
 namespace MaleyLean
 
 -- Main capstone theorem:
@@ -67,12 +65,8 @@ theorem ametric_collapse_theorem
   (∃ x, m₁ x ≠ m₂ x) ↔ (∃ x, standing S x ∧ m₁ x ≠ m₂ x) := by
   constructor
   · intro hdiff
-    by_cases heq : m₁ = m₂
-    · rcases hdiff with ⟨x, hneqx⟩
-      have hxeq : m₁ x = m₂ x := by
-        rw [heq]
-      exact False.elim (hneqx hxeq)
-    · exact admissible_metrics_can_differ_only_on_standing_region S m₁ m₂ h₁ h₂ heq
+    rcases hdiff with ⟨x, hneqx⟩
+    exact ⟨x, metric_difference_requires_standing_support S m₁ m₂ h₁ h₂ x hneqx, hneqx⟩
   · intro hsupp
     rcases hsupp with ⟨x, hx, hneqx⟩
     exact ⟨x, hneqx⟩

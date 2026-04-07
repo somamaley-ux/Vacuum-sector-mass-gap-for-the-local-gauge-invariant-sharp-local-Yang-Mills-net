@@ -1,0 +1,229 @@
+Math Closure Support Map
+
+Date: 2026-04-07
+
+Primary statement source
+------------------------
+
+Extracted manuscript source:
+
+- [.math_closure_paper/main.tex](/d:/lean/MaleyLean/.math_closure_paper/main.tex)
+- [.math_closure_paper/sections/04_rigidity.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/04_rigidity.tex)
+- [.math_closure_paper/sections/06_exhaustion.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/06_exhaustion.tex)
+- [.math_closure_paper/sections/09_main_theorem.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/09_main_theorem.tex)
+- [.math_closure_paper/sections/08_no_emergence.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/08_no_emergence.tex)
+- [.math_closure_paper/sections/07_case_studies.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/07_case_studies.tex)
+- [.math_closure_paper/appendix/A_extended_cases.tex](/d:/lean/MaleyLean/.math_closure_paper/appendix/A_extended_cases.tex)
+
+Lean support surface
+--------------------
+
+Primary Lean module:
+
+- [MathClosurePaperStatements.lean](/d:/lean/MaleyLean/MaleyLean/MathClosurePaperStatements.lean)
+
+Audit artifacts:
+
+- [MathClosureAxiomCheck.lean](/d:/lean/MaleyLean/MathClosureAxiomCheck.lean)
+- [math_closure_axiom_audit.txt](/d:/lean/MaleyLean/math_closure_axiom_audit.txt)
+
+Theorem correspondence
+----------------------
+
+Rigidity section
+
+- manuscript theorem:
+  "No internal totalization"
+- manuscript location:
+  [04_rigidity.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/04_rigidity.tex)
+- Lean witness:
+  `MaleyLean.PaperNoInternalTotalizationStatement`
+
+Exhaustion section
+
+- manuscript theorem:
+  "Exhaustion theorem"
+- manuscript location:
+  [06_exhaustion.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/06_exhaustion.tex)
+- Lean witness:
+  `MaleyLean.PaperExhaustionTheoremStatement`
+
+- manuscript proposition:
+  "Disposition of the five mechanisms"
+- manuscript location:
+  [06_exhaustion.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/06_exhaustion.tex)
+- Lean witness:
+  `MaleyLean.PaperDispositionOfFiveMechanismsStatement`
+
+- manuscript corollary:
+  "Closure of internal totalization"
+- manuscript location:
+  [06_exhaustion.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/06_exhaustion.tex)
+- Lean witness:
+  `MaleyLean.PaperClosureOfInternalTotalizationStatement`
+
+Main theorem section
+
+- manuscript theorem:
+  "No new internal operator power on a fixed base"
+- manuscript location:
+  [09_main_theorem.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/09_main_theorem.tex)
+- Lean witness:
+  `MaleyLean.PaperNoNewInternalOperatorPowerStatement`
+
+- manuscript corollary:
+  "No internal re-entry principle"
+- manuscript location:
+  [09_main_theorem.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/09_main_theorem.tex)
+- Lean witness:
+  `MaleyLean.PaperNoInternalReentryPrincipleStatement`
+
+No-emergence section
+
+- manuscript lemma:
+  "Conservative closure under composition"
+- manuscript location:
+  [08_no_emergence.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/08_no_emergence.tex)
+- Lean witness:
+  `MaleyLean.PaperConservativeClosureUnderCompositionStatement`
+
+- manuscript theorem:
+  "Composition and iteration do not create a third case"
+- manuscript location:
+  [08_no_emergence.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/08_no_emergence.tex)
+- Lean witness:
+  `MaleyLean.PaperCompositionIterationNoThirdCaseStatement`
+
+- manuscript proposition:
+  "Diagonalization and fixed-point packaging"
+- manuscript location:
+  [08_no_emergence.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/08_no_emergence.tex)
+- Lean witness:
+  `MaleyLean.PaperDiagonalizationPackagingStatement`
+
+- manuscript proposition:
+  "Representation change and foundation swap"
+- manuscript location:
+  [08_no_emergence.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/08_no_emergence.tex)
+- Lean witness:
+  `MaleyLean.PaperRepresentationChangeStatement`
+
+- manuscript theorem:
+  "No-emergent-family theorem"
+- manuscript location:
+  [08_no_emergence.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/08_no_emergence.tex)
+- Lean witness:
+  `MaleyLean.PaperNoEmergentFamilyStatement`
+
+- manuscript corollary:
+  "No internal re-entry by detour"
+- manuscript location:
+  [08_no_emergence.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/08_no_emergence.tex)
+- Lean witness:
+  `MaleyLean.PaperNoInternalReentryByDetourStatement`
+
+Case-study section
+
+- manuscript proposition:
+  "Canonicalization, selection, and quotienting"
+- manuscript location:
+  [07_case_studies.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/07_case_studies.tex)
+- Lean witness:
+  `MaleyLean.PaperCanonicalizationSelectionQuotientingStatement`
+
+- manuscript proposition:
+  "Completion and evaluative closure"
+- manuscript location:
+  [07_case_studies.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/07_case_studies.tex)
+- Lean witness:
+  `MaleyLean.PaperCompletionEvaluativeClosureStatement`
+
+- manuscript proposition:
+  "Compactness, saturation, and model-theoretic existence"
+- manuscript location:
+  [07_case_studies.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/07_case_studies.tex)
+- Lean witness:
+  `MaleyLean.PaperModelTheoreticExistenceStatement`
+
+- manuscript proposition:
+  "Forcing, genericity, and absoluteness"
+- manuscript location:
+  [07_case_studies.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/07_case_studies.tex)
+- Lean witness:
+  `MaleyLean.PaperForcingGenericityAbsolutenessStatement`
+
+- manuscript proposition:
+  "Universal constructions and existence by universal property"
+- manuscript location:
+  [07_case_studies.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/07_case_studies.tex)
+- Lean witness:
+  `MaleyLean.PaperUniversalConstructionStatement`
+
+- manuscript theorem:
+  "Flagship case-study closure"
+- manuscript location:
+  [07_case_studies.tex](/d:/lean/MaleyLean/.math_closure_paper/sections/07_case_studies.tex)
+- Lean witness:
+  `MaleyLean.PaperFlagshipCaseStudyClosureStatement`
+
+Appendix extended cases
+
+- manuscript proposition:
+  "Completion readback yields conservative old-base effect when internally fixed"
+- manuscript location:
+  [A_extended_cases.tex](/d:/lean/MaleyLean/.math_closure_paper/appendix/A_extended_cases.tex)
+- Lean witness:
+  `MaleyLean.PaperCompletionReadbackConservativeStatement`
+
+- manuscript proposition:
+  "Completion readback remains external when unfixed evaluative dependence remains"
+- manuscript location:
+  [A_extended_cases.tex](/d:/lean/MaleyLean/.math_closure_paper/appendix/A_extended_cases.tex)
+- Lean witness:
+  `MaleyLean.PaperCompletionReadbackExternalStatement`
+
+- manuscript proposition:
+  "Forcing extension is external at the level of generic witness import"
+- manuscript location:
+  [A_extended_cases.tex](/d:/lean/MaleyLean/.math_closure_paper/appendix/A_extended_cases.tex)
+- Lean witness:
+  `MaleyLean.PaperForcingExtensionExternalStatement`
+
+- manuscript proposition:
+  "Forcing readback is conservative on old-parameter conclusions"
+- manuscript location:
+  [A_extended_cases.tex](/d:/lean/MaleyLean/.math_closure_paper/appendix/A_extended_cases.tex)
+- Lean witness:
+  `MaleyLean.PaperForcingReadbackConservativeStatement`
+
+Current honesty boundary
+------------------------
+
+What is now encoded honestly:
+
+- a first-pass fixed-base theorem surface for rigidity
+- exhaustion by five mechanisms
+- family-level classification statements for the five flagship case-study families
+- appendix-level completion and forcing readback decompositions
+- disposition/closure packaging
+- the main conservative-vs-external dichotomy
+- the no-internal-reentry corollary shape
+
+What is not yet encoded as full local mathematical machinery:
+
+- detailed partial-algebra semantics for old tuples and primitive graphs
+- detailed local semantics for saturation, universal constructions,
+  canonical representative rules, and full readback-map algebra
+- the detailed family-level semantics behind saturation,
+  universal constructions, and representation detours
+
+Bottom line
+-----------
+
+The current Lean support provides an honest fixed-base theorem surface for the
+paper's main claims, including the appendix-level completion/forcing readback
+split.
+
+It should still be described as a lightweight-to-intermediate fixed-base
+formalization, not as a full mechanization of every family-level and
+case-study-level detail in the manuscript.

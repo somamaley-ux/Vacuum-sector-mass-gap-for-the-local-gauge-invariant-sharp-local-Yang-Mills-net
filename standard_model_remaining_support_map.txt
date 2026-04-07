@@ -1,0 +1,99 @@
+Remaining Support Map - Standard Model L1 Stack
+
+Date: 2026-04-07
+
+This note records the next support papers whose `.tex` sources have now been
+inspected directly.
+
+Available extracted sources
+---------------------------
+
+- .tmp_paper5_main.tex
+- .tmp_paper6_main.tex
+- .tmp_paper8_main.tex
+- .tmp_paper9_main.tex
+- .tmp_paper10_main.tex
+- .tmp_paper11_main.tex
+
+Core theorem shapes
+-------------------
+
+Paper 5
+Equivalence Completion for Neutrino Mixing and Oscillation Invariants
+
+- transport-collapse style paper
+- core claim:
+  only mass-squared differences and rephasing-invariant mixing combinations
+  survive as invariant witnesses in the oscillation regime
+- best Lean pattern:
+  same style as Paper 3 and Paper 4
+
+Paper 6
+Equivalence Completion for Longitudinal Gauge Modes and Goldstone Degrees
+
+- transport-collapse style paper
+- core claim:
+  longitudinal gauge amplitudes and Goldstone amplitudes collapse to a single
+  invariant longitudinal amplitude class in the admissible high-energy regime
+- best Lean pattern:
+  same style as Paper 3 and Paper 4
+
+Paper 8
+Unitary Mixing Saturation under Admissible Transport
+
+- explicit theorem paper
+- core claim:
+  all admissible unitary mixing freedom is saturated by basis choice and Yukawa
+  operator diagonalization; no additional standing-independent unitary mixing
+  parameters remain
+- best Lean pattern:
+  same style as Paper 7
+
+Paper 9
+Rephasing Redundancy Exhaustion under Admissible Transport
+
+- explicit theorem paper
+- core claim:
+  all admissible rephasing freedom is redundant; no independent physical phases
+  exist beyond admissible operator structure
+- best Lean pattern:
+  same style as Paper 7
+
+Paper 10
+Higgs Alignment--FCNC Equivalence
+
+- explicit theorem paper
+- core claim:
+  gauge-Higgs alignment in the unbroken electroweak skin is equivalent to the
+  absence of tree-level flavor-changing neutral currents in the broken-phase skin
+- best Lean pattern:
+  same style as Paper 7
+
+Paper 11
+Hypercharge Normalization and Charge Quantization Equivalence
+
+- explicit theorem paper
+- core claim:
+  hypercharge normalization is fixed up to overall sign and electric charge is
+  necessarily quantized under admissible transport
+- best Lean pattern:
+  same style as Paper 7, but with a uniqueness/collapse corollary surface
+
+Recommended next order
+----------------------
+
+1. Paper 5
+2. Paper 6
+3. Paper 8
+4. Paper 9
+5. Paper 10
+6. Paper 11
+
+Reason
+------
+
+Papers 5 and 6 fit the transport-collapse template already implemented for
+Papers 3 and 4, so they are the quickest honest additions.
+
+Papers 8--11 are theorem-led closure/equivalence papers and should be easier to
+express after the transport-collapse layer is expanded.

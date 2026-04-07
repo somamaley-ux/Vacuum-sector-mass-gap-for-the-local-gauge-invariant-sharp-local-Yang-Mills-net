@@ -1,0 +1,26 @@
+Axiom Audit - QCD CP-Odd Support Surface
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `QCDCPoddAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperQCDBarThetaInvariantCleanStatement
+- MaleyLean.PaperQCDCPoddCollapseCleanStatement
+- MaleyLean.PaperNoQCDCPoddObservableSplitCleanStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current minimal QCD CP-odd support surface is axiom-free.
+
+This certifies the single-witness collapse logic presently formalized in Lean:
+the explicit invariant-combination step for the CP-odd witness under opposite
+rephasing shifts, and the fact that observable CP-odd content factors through a
+single invariant witness channel.
+
+It does not yet certify the full Fujikawa/Jacobian derivation as a detailed
+Lean theorem.

@@ -8,7 +8,9 @@ import MaleyLean.StandingPositiveSideNoGap
 import MaleyLean.StandingEmergenceConstructive
 import MaleyLean.PaperStatementsConstructive
 import MaleyLean.NoGeneratorsConstructive
+import MaleyLean.ATSPaperStatements
 import MaleyLean.AmetricPaperStatements
+import MaleyLean.GodelPaperStatements
 import MaleyLean.UniquenessPaperStatements
 import MaleyLean.BivalentTrajectoryPaperStatements
 import MaleyLean.ClosurePaperStatements

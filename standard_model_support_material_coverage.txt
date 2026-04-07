@@ -1,0 +1,140 @@
+Support Material Coverage - Standard Model Structural Paper
+
+Date: 2026-04-07
+
+Purpose
+-------
+
+This note tracks the current Lean coverage for the support-paper stack underlying
+the Standard-Model structural manuscript.
+
+The support papers currently identified are:
+
+1. L1 Paper 1 Equivalence_Completion_and_Forced_Collapse_of_Charged__Current.pdf
+2. L1_Paper 2 Equivalence_Completion_in_the_QCD_CP__Odd_Sector.pdf
+3. L1___Paper_3___Fermion_Yukawa_Mass_Equivalence.pdf
+4. L1___Paper_4___EW_QED_EM_coupling_collapse.pdf
+5. L1___Paper_5___Neutrino_mixing_invariants.pdf
+6. L1___Paper_6___Longitudinal_Goldstone_Equivalence.pdf
+7. L1___Paper 7 Yukawa_Realizability_under_Minimal_Chiral_Load.pdf
+8. L1___Paper_8__Unitary_Mixing_Saturation.pdf
+9. L1___Paper_9__Rephasing_Redundancy_Exhaustion.pdf
+10. L1___Paper_10_Absence_of_Tree_Level_Flavor_Changing_Neutral_Currents.pdf
+11. L1___Paper_11_Hypercharge_Normalization_Electric_Charge_Quantization.pdf
+12. L1___Paper_12_Exhaustion_and_Closure_of_the_Equivalence_Space.pdf
+
+Current Lean status
+-------------------
+
+The current Lean library does not yet contain direct domain-specific theorem
+families for these L1 papers by topic or by filename. A repo-wide scan of
+`MaleyLean/*.lean` found no dedicated modules for:
+
+- charged-current collapse
+- QCD CP-odd completion
+- fermion Yukawa/mass equivalence
+- electroweak/QED electromagnetic coupling collapse
+- neutrino mixing invariants
+- longitudinal-Goldstone equivalence
+- Yukawa realizability under minimal chiral load
+- unitary mixing saturation
+- rephasing redundancy exhaustion
+- absence of tree-level FCNC
+- hypercharge normalization / electric charge quantization
+- equivalence-space exhaustion and closure
+
+What is already formalized
+--------------------------
+
+The repo does already certify a generic structural core that plausibly supports
+parts of the umbrella manuscript and some abstract closure aspects of the L1 stack:
+
+- quotient-style standing collapse / standing-classifier equivalence
+- no same-scope repair
+- no same-scope canonical representative generation
+- transport closure and same-target transport interfaces
+- standing conservation
+- uniqueness of admissible interior
+- closure propagation under standing-preserving composition
+
+These are exposed in:
+
+- MaleyLean.StandardModelStructuralPaperStatements
+- MaleyLean.StandardModelStructuralMetaClosureStatements
+
+and audited in:
+
+- StandardModelStructuralAxiomCheck.lean
+- standard_model_structural_axiom_audit.txt
+
+Support-paper by support-paper assessment
+-----------------------------------------
+
+1. Charged-current collapse:
+No direct Lean encoding found.
+
+2. QCD CP-odd equivalence completion:
+No direct Lean encoding found.
+
+3. Fermion Yukawa/mass equivalence:
+No direct Lean encoding found.
+
+4. EW/QED/EM coupling collapse:
+No direct Lean encoding found.
+
+5. Neutrino mixing invariants:
+No direct Lean encoding found.
+
+6. Longitudinal-Goldstone equivalence:
+No direct Lean encoding found.
+
+7. Yukawa realizability under minimal chiral load:
+No direct Lean encoding found.
+
+8. Unitary mixing saturation:
+No direct Lean encoding found.
+
+9. Rephasing redundancy exhaustion:
+No direct Lean encoding found.
+Possible abstract overlap only with no-generator / redundancy-style generic results.
+
+10. Absence of tree-level flavor-changing neutral currents:
+No direct Lean encoding found.
+
+11. Hypercharge normalization / electric charge quantization:
+No direct Lean encoding found.
+
+12. Exhaustion and closure of the equivalence space:
+No direct domain-specific Lean encoding found.
+Only partial generic overlap exists through the current structural meta-closure layer.
+
+Artifact check
+--------------
+
+The nearby archives:
+
+- STDM.zip
+- The Standard Model is not derived but forced by admissibility constraints..zip
+
+contain the same L1 support PDFs, not hidden `.tex` sources for them.
+
+Bottom line
+-----------
+
+The Standard-Model umbrella paper is currently only partially formalized in Lean.
+Its generic structural/meta-closure core is present and axiom-free, but the L1
+support-paper theorem ledger is still largely unencoded.
+
+Recommended next order
+----------------------
+
+If we want to expand coverage honestly and incrementally, the best next pass is:
+
+1. charged-current collapse
+2. QCD CP-odd completion
+3. fermion Yukawa/mass equivalence
+4. EM coupling collapse
+5. equivalence-space exhaustion
+
+That order follows the umbrella manuscript's witness-ledger progression and should
+make later support papers easier to package coherently.

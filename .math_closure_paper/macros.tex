@@ -1,0 +1,134 @@
+\makeatletter
+
+% Journal-facing page style: no running heads, centered page numbers.
+\pagestyle{plain}
+
+% Preserve headline capitalization on the title page instead of AMS all-caps.
+\def\@settitle{%
+  \begin{center}%
+    \baselineskip14\p@\relax
+    \normalfont\Large\bfseries
+    \@title\par
+  \end{center}%
+}
+
+% Keep author names in normal case on the title page.
+\def\@setauthors{%
+  \begingroup
+  \def\thanks{\protect\thanks@warning}%
+  \trivlist
+  \centering\footnotesize \@topsep26\p@\relax
+  \advance\@topsep by -\baselineskip
+  \item\relax
+  \author@andify\authors
+  \def\\{\protect\linebreak}%
+  \authors
+  \ifx\@empty\contribs
+  \else
+    ,\penalty-3 \space \@setcontribs
+    \@closetoccontribs
+  \fi
+  \endtrivlist
+  \endgroup
+}
+
+% Slightly calmer section spacing than the AMS default.
+\def\section{\@startsection{section}{1}%
+  \z@{2.2ex plus 0.8ex minus 0.2ex}{1.1ex}%
+  {\normalfont\centering\scshape}}
+\def\subsection{\@startsection{subsection}{2}%
+  \z@{1.8ex plus 0.6ex minus 0.2ex}{0.8ex}%
+  {\normalfont\bfseries}}
+\def\subsubsection{\@startsection{subsubsection}{3}%
+  \z@{1.5ex plus 0.4ex minus 0.2ex}{0.6ex}%
+  {\normalfont\itshape}}
+
+\makeatother
+
+% Theorem styles with slightly more breathing room.
+\newtheoremstyle{paperplain}%
+  {7pt plus 2pt minus 1pt}% Space above
+  {7pt plus 2pt minus 1pt}% Space below
+  {\itshape}% Body font
+  {}% Indent
+  {\bfseries}% Head font
+  {.}% Punctuation after head
+  {0.6em}% Space after head
+  {}% Head spec
+
+\newtheoremstyle{paperdef}%
+  {7pt plus 2pt minus 1pt}% Space above
+  {7pt plus 2pt minus 1pt}% Space below
+  {\normalfont}% Body font
+  {}% Indent
+  {\bfseries}% Head font
+  {.}% Punctuation after head
+  {0.6em}% Space after head
+  {}% Head spec
+
+\newtheoremstyle{paperremark}%
+  {7pt plus 2pt minus 1pt}% Space above
+  {7pt plus 2pt minus 1pt}% Space below
+  {\normalfont}% Body font
+  {}% Indent
+  {\itshape}% Head font
+  {.}% Punctuation after head
+  {0.6em}% Space after head
+  {}% Head spec
+
+\theoremstyle{paperplain}
+\newtheorem{theorem}{Theorem}[section]
+
+\newaliascnt{proposition}{theorem}
+\newtheorem{proposition}[proposition]{Proposition}
+\aliascntresetthe{proposition}
+
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{Corollary}
+\aliascntresetthe{corollary}
+
+\theoremstyle{paperdef}
+\newaliascnt{definition}{theorem}
+\newtheorem{definition}[definition]{Definition}
+\aliascntresetthe{definition}
+
+\newaliascnt{example}{theorem}
+\newtheorem{example}[example]{Example}
+\aliascntresetthe{example}
+
+\theoremstyle{paperremark}
+\newaliascnt{remark}{theorem}
+\newtheorem{remark}[remark]{Remark}
+\aliascntresetthe{remark}
+
+\setlist[enumerate]{itemsep=2pt,topsep=4pt,parsep=0pt,partopsep=0pt}
+\setlist[itemize]{itemsep=2pt,topsep=4pt,parsep=0pt,partopsep=0pt}
+
+\setlength{\emergencystretch}{1.5em}
+\allowdisplaybreaks[1]
+
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\Reg}{\mathfrak{R}}
+\newcommand{\dom}{\operatorname{dom}}
+\newcommand{\Pow}{\mathcal{P}}
+
+\crefname{theorem}{Theorem}{Theorems}
+\Crefname{theorem}{Theorem}{Theorems}
+\crefname{proposition}{Proposition}{Propositions}
+\Crefname{proposition}{Proposition}{Propositions}
+\crefname{lemma}{Lemma}{Lemmas}
+\Crefname{lemma}{Lemma}{Lemmas}
+\crefname{corollary}{Corollary}{Corollaries}
+\Crefname{corollary}{Corollary}{Corollaries}
+\crefname{definition}{Definition}{Definitions}
+\Crefname{definition}{Definition}{Definitions}
+\crefname{remark}{Remark}{Remarks}
+\Crefname{remark}{Remark}{Remarks}
+\crefname{example}{Example}{Examples}
+\Crefname{example}{Example}{Examples}

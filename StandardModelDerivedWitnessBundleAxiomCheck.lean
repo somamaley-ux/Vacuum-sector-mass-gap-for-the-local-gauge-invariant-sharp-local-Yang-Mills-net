@@ -1,0 +1,7 @@
+import MaleyLean.StandardModelDerivedWitnessBundle
+
+namespace MaleyLean
+
+#print axioms PaperStandardModelDerivedWitnessBundleStatement
+
+end MaleyLean

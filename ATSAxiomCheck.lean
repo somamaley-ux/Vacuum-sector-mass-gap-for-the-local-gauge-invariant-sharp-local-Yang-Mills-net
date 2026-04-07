@@ -1,0 +1,12 @@
+import MaleyLean.ATSPaperStatements
+
+namespace MaleyLean
+
+#print axioms ATSTensorRegionCollapseStatement
+#print axioms ATSImportedUniquenessDependencyStatement
+#print axioms ATSRoleMinimalityAndExhaustivenessStatement
+#print axioms ATSSelectorCollapseStatement
+#print axioms ATSNoFourthStandingBearingRoleStatement
+#print axioms ATSRoleFactorizationUniquenessStatement
+
+end MaleyLean

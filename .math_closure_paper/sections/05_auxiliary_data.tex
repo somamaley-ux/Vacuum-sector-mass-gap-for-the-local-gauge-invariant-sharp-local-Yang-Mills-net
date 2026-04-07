@@ -1,0 +1,37 @@
+\section{The Internal/External Auxiliary-Data Theorem}\label{sec:auxiliary-data}
+
+The rigidity theorem handles direct attempts to change the values of old operations on old tuples. A second and more conceptual issue remains. Many purported internal operators do not advertise themselves as changing an old graph. Instead they proceed by introducing an auxiliary selector, witness, evaluator, completion rule, comparison map, or generic object. The right question is then: was that auxiliary datum already fixed by the original base, or has it been supplied from outside?
+
+\begin{theorem}[Auxiliary-data dichotomy]\label{thm:auxiliary-dichotomy}
+Let $F$ be a carrier-preserving operator on admissible input $x\in X$ for a base structure $\B=(X,\Omega,\A)$. Suppose that the old-base-relevant content of $F(x)$ is determined, up to conservative action on old-base-relevant content, by $x$ together with an auxiliary datum $a(x)$. Then:
+\begin{enumerate}[label=(\alph*)]
+    \item if $a(x)$ is internally fixed over $x$, then $F$ acts conservatively on the old-base-relevant content of $x$;
+    \item if $a(x)$ is external, then $F$ is not internal to the base structure.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Assume first that $a(x)$ is internally fixed over $x$. Then every admissibility-preserving redescription of the base that leaves the relevant content of $x$ unchanged also leaves $a(x)$ unchanged up to licensed normalization. So $a(x)$ contributes no genuinely new distinction beyond what was already fixed by the base together with $x$. The effect of $F$ is therefore only to reorganize or read off structure that was already there, which is to say $F$ is conservative on the old base.
+
+Assume instead that $a(x)$ is external. Then the effect of $F$ depends essentially on a datum not determined by the old base together with $x$. By Proposition~\ref{prop:firewall}, such dependence is incompatible with internality relative to the original base structure. Hence $F$ is not internal to that base.
+\end{proof}
+
+\begin{corollary}[No internalization by relabeling]\label{cor:no-internalization-by-relabeling}
+If an external datum is redescribed as latent, semantic, structural, or canonical without becoming internally fixed over the original input, its status does not change. Any operator using it remains external to the base.
+\end{corollary}
+
+\begin{proof}
+A change of description does not make an unfixed datum fixed. If the relevant effect still depends on data not determined by the original base, then the operator still depends on an external parameter or witness.
+\end{proof}
+
+\begin{remark}
+This theorem is the conceptual center of the manuscript. Every case study in the later sections is meant to answer the same question in a different setting: which auxiliary datum does the purported construction need, and is that datum already fixed by the original base or imported from outside?
+\end{remark}
+
+\begin{example}[Canonicalization]
+Suppose an operator assigns to each equivalence class a distinguished representative. If the representative rule is already fixed by the base structure, the operator is conservative. If the rule must be supplied from outside, then the operator is external by \Cref{thm:auxiliary-dichotomy}.
+\end{example}
+
+\begin{example}[Completion]
+Suppose an operator assigns to an object its completed version together with a canonical embedding. If the completion is genuinely a new ambient object or depends on an external comparison rule, then the move is not internal to the original base. The later case-study section will make this more precise.
+\end{example}

@@ -1,0 +1,32 @@
+Axiom Audit - Neutrino Mixing Support Surface
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `NeutrinoMixingAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperNeutrinoMixingInvariantSurfaceStatement
+- MaleyLean.PaperNoIndependentOscillationDegreeStatement
+- MaleyLean.PaperNeutrinoSharedWitnessPairStatement
+- MaleyLean.PaperNoNeutrinoWitnessPairSplitStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current neutrino-mixing support surface is axiom-free.
+
+This certifies the transport-collapse logic presently formalized in Lean:
+once flavor/mass bookkeeping and oscillation bookkeeping agree on the surviving
+mass-difference and rephasing-invariant mixing witnesses, no additional
+independent oscillation degree remains.
+
+It also certifies a stronger derived witness-pair layer:
+if the source-side oscillation bookkeeping is read off the same canonical mass
+and mixing witness pair, then that pair agrees pointwise and admits no witness
+split.
+
+It does not yet certify the full oscillation probability formula or explicit
+PMNS parameter-level arithmetic as formal Lean theorems.

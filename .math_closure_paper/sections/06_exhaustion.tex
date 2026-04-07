@@ -1,0 +1,53 @@
+\section{Exhaustion of Apparent Internal Extension Mechanisms}\label{sec:exhaustion}
+
+\Cref{thm:no-internal-totalization} blocks direct totalization of old partial operations, and \Cref{thm:auxiliary-dichotomy} classifies operators by the status of the data they require. The next task is to show that the main kinds of apparent internal strengthening one might try are exhausted by a short list of mechanisms.
+
+\begin{definition}[Five extension mechanisms]\label{def:five-mechanisms}
+A purported strategy for obtaining new internal operator power on a fixed base typically proceeds, if it succeeds at all, by one or more of the following moves.
+\begin{enumerate}[label=\textup{(\Roman*)}, leftmargin=3em]
+    \item \emph{Domain extension on old tuples}: an old primitive acquires new values on old inputs.
+    \item \emph{Carrier change or quotient}: the effective object under discussion becomes a quotient, completion, extension, or otherwise different carrier.
+    \item \emph{Evaluative closure or completion}: an added global evaluator, comparison rule, semantic predicate, or completion device decides cases that were previously not internally determined.
+    \item \emph{Conservative definitional expansion}: the language changes, but the old base and its old consequences do not.
+    \item \emph{New operator family or admissibility policy}: the regime itself is enlarged in a way not reducible to the first four cases.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Exhaustion theorem]\label{thm:exhaustion-theorem}
+Every apparent internal strengthening of a fixed base structure falls under at least one of the five mechanisms in \Cref{def:five-mechanisms}.
+\end{theorem}
+
+\begin{proof}
+Let $\tau$ be a purported strengthening. If it makes an old primitive newly defined on an old tuple, it is of type (I). If the appearance of strength comes only because the object under discussion has been replaced by a quotient, completion, extension, or other new carrier, it is of type (II). If previously unresolved cases are decided by an added evaluator, global comparison, semantic oracle, or completion procedure, it is of type (III). If none of those changes occurs and only the descriptive apparatus changes, it is of type (IV). Any remaining case changes the operative family of constructions or the admissibility regime itself, which is type (V).
+\end{proof}
+
+\begin{remark}[Coverage rather than partition]
+The five mechanisms are not claimed to be mutually exclusive. A single construction may instantiate more than one mechanism. Exhaustive coverage is enough for the argument.
+\end{remark}
+
+\begin{proposition}[Disposition of the five mechanisms]\label{prop:five-disposition}
+Relative to the framework of \Cref{sec:formal-setting}, each mechanism in \Cref{def:five-mechanisms} is either blocked or else reveals that no genuinely internal strengthening has occurred.
+\begin{enumerate}[label=\textup{(\Roman*)}, leftmargin=3em]
+    \item Domain extension on old tuples is impossible by \Cref{thm:no-internal-totalization}.
+    \item Carrier change or quotient is, by description, not carrier-preserving.
+    \item Evaluative closure or completion depends on additional data or evaluators and is therefore external unless it collapses to conservative action on old-base-relevant content.
+    \item Conservative definitional expansion is explicitly conservative and adds no new internal power.
+    \item A new operator family or admissibility policy is an open change of regime rather than an internal strengthening of the original base.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Clause (I) is exactly the rigidity theorem. Clause (II) restates the meaning of carrier preservation. Clause (III) is an application of the auxiliary-data dichotomy: if the evaluator or completion rule is already fixed by the base, the resulting move is conservative; if not, the move is external. Clause (IV) follows from the definition of conservative action on old-base-relevant content. Clause (V) is a change of the very regime relative to which internality was being measured.
+\end{proof}
+
+\begin{corollary}[Closure of internal totalization]\label{cor:closure-totalization}
+No apparent internal strengthening survives as a genuine carrier-preserving totalization of old partial operations on old tuples.
+\end{corollary}
+
+\begin{proof}
+Any such strengthening would fall under one of the five mechanisms by \Cref{thm:exhaustion-theorem}. By Proposition~\ref{prop:five-disposition}, each mechanism is either blocked or else does not yield genuine internal strengthening.
+\end{proof}
+
+\begin{remark}
+At this point the manuscript has its basic formal spine. The remaining work is to instantiate that spine in the main case studies, then prove that combinations of the case-study mechanisms do not create a new internal family by interaction.
+\end{remark}

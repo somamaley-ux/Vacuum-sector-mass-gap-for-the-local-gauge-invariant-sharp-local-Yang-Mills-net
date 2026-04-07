@@ -1,0 +1,32 @@
+Axiom Audit - Longitudinal/Goldstone Support Surface
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `LongitudinalGoldstoneAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperLongitudinalGoldstoneEquivalenceStatement
+- MaleyLean.PaperNoIndependentLongitudinalDegreeStatement
+- MaleyLean.PaperLongitudinalGoldstoneSharedWitnessStatement
+- MaleyLean.PaperNoLongitudinalGoldstoneWitnessSplitStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current longitudinal/Goldstone support surface is axiom-free.
+
+This certifies the transport-collapse logic presently formalized in Lean:
+once field-level bookkeeping and admissible on-shell high-energy bookkeeping
+agree on the surviving longitudinal amplitude witness, no additional independent
+longitudinal degree remains.
+
+It also certifies a stronger derived witness-collapse layer:
+if the longitudinal-side and Goldstone-side descriptions are both read off the
+same canonical witness channel, then they agree pointwise and admit no witness
+split.
+
+It does not yet certify the full electroweak scattering-amplitude machinery or
+the detailed high-energy equivalence-theorem estimates as formal Lean theorems.

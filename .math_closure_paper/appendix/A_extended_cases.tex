@@ -1,0 +1,120 @@
+\section{Extended Family Proofs}\label{app:extended-cases}
+
+The main text isolates, for each flagship family, the load-bearing datum or ambient move and then applies the formal spine developed in \Cref{sec:rigidity,sec:auxiliary-data,sec:exhaustion}. This appendix records longer reductions and mixed-family examples. The pattern is uniform: first determine whether the maneuver changes the carrier under discussion or imports a selector, witness, evaluator, or comparison map; then apply \Cref{thm:no-internal-totalization,thm:auxiliary-dichotomy,prop:five-disposition,thm:composition-iteration}. The appendix introduces no new theorem family; it makes explicit how the main classification works inside recurring subcases.
+
+\subsection{Selection rules and quotients}
+
+\begin{proposition}[Representative rules factor through auxiliary data]\label{prop:app-representatives}
+Let $D\subseteq X$ be admissible in a base structure $\B=(X,\Omega,\A)$, and let $\sim$ be an admissibility-invariant equivalence relation on $D$. Suppose a purported carrier-preserving normalization $N:D\to D$ is constant on $\sim$-classes and satisfies $N(x)\sim x$ for all $x\in D$. Then the fixed-base status of $N$ is determined entirely by the status of the representative rule
+\[
+[x]_{\sim}\longmapsto N(x).
+\]
+If that rule is internally fixed, $N$ is conservative on old-base-relevant content; if not, $N$ is external. If one passes instead to the quotient $D/{\sim}$, the move is not carrier-preserving.
+\end{proposition}
+
+\begin{proof}
+Because $N$ is constant on classes, its effect factors through the quotient map $q:D\to D/{\sim}$ together with a choice of section on the relevant quotient classes. The section is the load-bearing datum. When the section is internally fixed by the base---for example by a normalization convention, order, or coding already licensed in the regime---the output of $N$ does not add new old-base content beyond what was already determined by the class of the input. The move is therefore conservative by \Cref{thm:auxiliary-dichotomy}.
+
+When the section is not internally fixed, the normalization depends on an imported order, ranking, code, or tie-breaking policy. In that case the operator depends on an external selector and is not internal to $\B$. Finally, if the intended maneuver is not selection of a representative in $D$ but replacement of each element by its equivalence class, then the effective object is $D/{\sim}$ rather than $D$ itself. That is exactly the carrier-change case isolated in \Cref{prop:five-disposition}.
+\end{proof}
+
+\begin{remark}
+This decomposition clarifies what is and is not proved in the canonicalization case. The paper does not deny that a representative rule may be mathematically canonical. It says only that, relative to a fixed base, such canonicity must be carried either by an internally fixed normalization policy or by additional structure that is external to the original base.
+\end{remark}
+
+\subsection{Completion arguments as enlargement plus readback}
+
+\begin{proposition}[Completion decomposes into enlargement and readback]\label{prop:app-completion-readback}
+Let $A$ be an admissible object in a fixed base structure, let $i:A\hookrightarrow \widehat{A}$ be a completion-style embedding into a richer object, and let $R$ be a procedure that reads old-base-relevant consequences about $A$ from work carried out in $\widehat{A}$. Then exactly one of the following occurs.
+\begin{enumerate}[label=(\alph*)]
+    \item The substantive output concerns new points, ideal elements, or totalized operations in $\widehat{A}$. Then the move is external by carrier change.
+    \item The output concerns only the old base $A$, and the readback map $R$ is already internally fixed. Then the move is conservative on old-base-relevant content.
+    \item The output concerns only the old base $A$, but the readback depends on an evaluator, boundary convention, embedding policy, or comparison rule not internally fixed by $A$. Then the move is external.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The completion step itself is a passage to a richer object. That already settles case (a). For cases (b) and (c), the relevant question is no longer whether $\widehat{A}$ exists but how conclusions about $A$ are extracted from reasoning in $\widehat{A}$. That extraction is carried by the readback rule $R$ together with the embedding $i$. If those data are internally fixed relative to the original base, the completion has no old-base effect beyond a conservative reformulation or justification of information already determined there. If not, the completion remains external because the old-base consequence still depends on imported evaluative structure.
+\end{proof}
+
+\begin{example}[Cauchy-sequence presentations]
+In a metric completion one may represent new points by Cauchy sequences of old points, by Dedekind-style cuts, or by another equivalent completion device. Uniqueness up to isometry controls the richer ambient object. It does not change the fixed-base diagnosis. The passage to the completion is external; only an internally fixed readback to the old metric space is conservative.
+\end{example}
+
+\subsection{Compactness and saturation as witness import}
+
+\begin{proposition}[Witness-import schema for model-theoretic arguments]\label{prop:app-model-witness}
+Let $M$ be a structure, let $a\in M$ be old parameters, and suppose a purported operator on $M$ is justified by passing to a larger structure $N\succeq M$, by realizing a type over $M$, or by invoking a compactness-based existence theorem \citep{ChangKeisler1990,Hodges1993,Marker2002}. Then the fixed-base effect is classified as follows.
+\begin{enumerate}[label=(\alph*)]
+    \item If the relevant witness or realization is already definably fixed in $M$, the move is conservative.
+    \item If the argument requires a new element of $N$, a witness model, or an existence theorem whose witness is not part of the original base, the move is external.
+    \item If the larger structure is used only as a detour to prove an invariant statement about $M$, the readback is conservative even though the proving route is external.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+A saturation or compactness argument typically has two layers: an ambient witness layer and a final statement about the original parameters. If the witness is already present and definably fixed in $M$, then the ambient move adds no new old-base content; it only packages what was already there. If the witness lies outside $M$ or exists only by appeal to a separate existence theorem, then the operator is not internal to $M$ because its effect depends on imported structure.
+
+The remaining case is common in practice: one passes to a saturated or elementary extension only to establish a theorem about the original model. Then the ambient structure is still external as a proving environment, but the effect on old-base-relevant content is conservative. This is exactly the distinction drawn in \Cref{thm:composition-iteration}: an external detour does not become a new internal operator merely because the final sentence is stated in the old language.
+\end{proof}
+
+\begin{example}[Realizing a type]
+Suppose one moves from $M$ to a saturated extension in order to realize a type over parameters from $M$ and then uses that realization to prove a statement solely about those original parameters. The realized element is not thereby internal to $M$. What is internal, if anything, is only the final old-language consequence that no longer depends on the realizing witness.
+\end{example}
+
+\subsection{Forcing as extension plus absoluteness readback}
+
+\begin{proposition}[Forcing decomposes into witness import and readback]\label{prop:app-forcing-decomposition}
+Let $M$ be a fixed set-theoretic base, and suppose a purported operator on $M$ is presented via forcing \citep{Jech2003,Kanamori2008}. Then the analysis separates into two stages.
+\begin{enumerate}[label=(\alph*)]
+    \item The passage from $M$ to a forcing extension $M[G]$ is external, since the generic object $G$ is not internally fixed by $M$.
+    \item Any later conclusion about old parameters from $M$ is either a conservative readback, when obtained by absoluteness or invariance, or else still depends on the external extension and remains external.
+\end{enumerate}
+Consequently forcing never supplies a third fixed-base status beyond external extension and conservative readback.
+\end{proposition}
+
+\begin{proof}
+The generic filter or generic real is the load-bearing witness of the forcing argument. Because it is not already part of the original base, the move to $M[G]$ is external. That settles the generative status of the forcing extension itself.
+
+What can still vary is the status of the conclusion one transports back to $M$. If the transported statement concerns only old parameters and is secured by absoluteness, preservation, or an invariance argument, then the effect on old-base-relevant content is conservative: the forcing extension served as an external proving environment. If, however, the purported output still refers to the generic object, to the richer extension, or to data determined only there, then the dependence remains external. The same diagnosis applies to Boolean-valued or algebraic presentations of forcing: these may redescribe the route, but they do not internalize the generic witness.
+\end{proof}
+
+\begin{remark}
+This is the clearest example of the paper's ``no internal re-entry'' theme. One may leave the base, reason in a richer universe, and return with a theorem about the base. What does not happen is that the generic object thereby becomes an internally generated operator on the original universe.
+\end{remark}
+
+\subsection{Universal properties and ambient comparison data}
+
+\begin{proposition}[Universal witnesses depend on ambient comparison data]\label{prop:app-universal-comparison}
+Let $A$ be an object presented by a fixed base structure, and suppose an associated construction is specified by a universal property in an ambient category $\mathcal{C}$ \citep{MacLane1998}. Then the fixed-base status of the construction is carried by the ambient comparison data: the class of comparison maps, the universal condition, and the witness object satisfying it. If those data are used only to justify a conservative reformulation of old-base content, the effect is conservative; otherwise the move is external.
+\end{proposition}
+
+\begin{proof}
+A universal property is not posed over $A$ alone. It quantifies over a wider ambient setting and singles out a witness object by its behavior relative to all comparison maps of the specified sort. That witness is therefore not generated by the original base object in isolation. If the only old-base consequence is an invariant reformulation already determined there, the effect is conservative. In the substantive case, however, the universal witness or the comparison condition does real mathematical work and so functions as external ambient data.
+\end{proof}
+
+\begin{example}[Free objects]
+The free group on a set, a product of a diagram, or a left-adjoint image may be canonical up to unique isomorphism, but that canonicity is relative to the chosen ambient category and class of comparison morphisms. It does not convert the witness object into an operator internal to the original object alone.
+\end{example}
+
+\subsection{Mixed-family worked examples}
+
+\begin{proposition}[Mixed detours inherit the same classification]\label{prop:app-mixed}
+Let $F$ be an old-base-relevant procedure on a fixed base obtained by finitely many stages, where each stage is one of the family moves analyzed in \Cref{sec:case-studies}. Then the total effect of $F$ on the original base is again either conservative or external.
+\end{proposition}
+
+\begin{proof}
+This is an instance of \Cref{thm:composition-iteration}. What matters for appendix purposes is how the reduction looks in concrete mixed cases.
+\end{proof}
+
+\begin{example}[Completion followed by canonicalization]
+One first passes from an old object to a completion, then chooses a ``canonical'' representative or normal form there, and finally reads a statement back to the old base. The completion stage is external. If the representative rule used in the completed object is not internally fixed even relative to that ambient setting, a second external dependence has been added. If the final readback to the old base forgets those witnesses and states only an invariant fact about the original object, the net old-base effect is conservative; otherwise the entire procedure remains external.
+\end{example}
+
+\begin{example}[Forcing followed by absoluteness]
+One passes from $M$ to $M[G]$, proves a statement about old parameters, and then invokes absoluteness to transfer the statement back to $M$. The first stage imports the generic witness and is external. The final transfer is conservative on old-base-relevant content precisely because the transported statement no longer depends on $G$ as part of its content. This is the template behind many fixed-base readback arguments.
+\end{example}
+
+\begin{example}[Monster-model detour followed by quotient or canonical parameter]
+One works in a monster model to compare types or to define a quotient-like invariant and then states a theorem about the original small model. The monster model is an ambient enlargement, and any quotient passage or representative choice must still be classified by the corresponding family analysis. No matter how the stages are combined, the old-base effect is either a conservative theorem about the small model or else an external dependence on the larger ambient setting.
+\end{example}

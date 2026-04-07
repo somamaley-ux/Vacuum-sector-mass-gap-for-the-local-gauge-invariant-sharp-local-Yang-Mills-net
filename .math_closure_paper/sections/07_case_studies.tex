@@ -1,0 +1,165 @@
+\section{Flagship Case Studies}\label{sec:case-studies}
+
+With the formal spine in place, we can now test the framework on five familiar families. The aim is not to rehearse their internal mathematics in full. It is to identify, for each family, the load-bearing datum or ambient move from the standpoint of a fixed base structure. Once that step is isolated, \Cref{thm:no-internal-totalization} and \Cref{thm:auxiliary-dichotomy}, together with Proposition~\ref{prop:five-disposition}, do the substantive work.
+
+\begingroup
+\small
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.23\textwidth} >{\raggedright\arraybackslash}p{0.34\textwidth} >{\raggedright\arraybackslash}p{0.27\textwidth}}
+\caption{Fixed-base classification of the flagship families.}\label{tab:flagship-families}\\
+\toprule
+Family & Load-bearing datum or move & Fixed-base classification \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\footnotesize\itshape Table \thetable{} continued.}\\
+\toprule
+Family & Load-bearing datum or move & Fixed-base classification \\
+\midrule
+\endhead
+Selection, canonical representatives, quotienting & Representative rule, normalization criterion, or quotient passage & Conservative only if the rule is internally fixed; otherwise external. Quotient passage changes carrier. \\
+Completion and evaluative closure & Completion object, embedding, boundary, or evaluator & Either external by carrier change, or conservative on old-base-relevant content if the evaluative rule is already fixed. \\
+Compactness, saturation, model-theoretic existence & Larger model, realized type, witness structure, or existence theorem & Conservative only in the vacuous/definable case; otherwise external ambient enlargement or witness import. \\
+Forcing, genericity, absoluteness & Generic object, forcing extension, or transfer criterion & Generic output is external; absoluteness/read-back is conservative on old-base-relevant content. \\
+Universal constructions & Ambient category, comparison maps, universal witness object & Conservative only if the relevant witness is already fixed; otherwise ambiently external and typically carrier-changing. \\
+\bottomrule
+\end{longtable}
+\endgroup
+
+The subsections justify the last column of the table.
+
+\subsection{Selection, canonical representatives, and quotienting}
+
+Selection and canonicalization are the cleanest test cases for the auxiliary-data theorem. A base structure may determine an equivalence relation, a normalization target, or a family of interchangeable witnesses. The foundational question is whether it also determines a distinguished representative, or whether that representative is chosen by an additional ranking, coding, ordering, or normalization rule.
+
+\begin{proposition}[Canonicalization, selection, and quotienting]\label{prop:case-canonicalization}
+Let $D\subseteq X$ be an admissible domain for a base structure $\B=(X,\Omega,\A)$, and let $\sim$ be an equivalence relation on $D$ invariant under admissibility-preserving redescription. Suppose a purported carrier-preserving operator $N:D\to D$ satisfies
+\[
+N(x)\sim x \qquad\text{and}\qquad x\sim y \Rightarrow N(x)=N(y).
+\]
+Then the following trichotomy governs the case.
+\begin{enumerate}[label=(\alph*)]
+    \item If the representative rule determining $N(x)$ is internally fixed over $x$, then $N$ is conservative on the old-base-relevant content of $x$.
+    \item If that rule is not internally fixed, then $N$ depends on an external selector, ranking, or normalization datum and is not internal to $\B$.
+    \item If the maneuver is really passage from $D$ to the quotient $D/{\sim}$, then the carrier has changed and the move is not carrier-preserving in the first place.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+If $N$ is genuinely a map from $D$ to $D$, then its effect is mediated by the rule that chooses, for each equivalence class, which representative counts as canonical. That rule is exactly the auxiliary datum relevant to the construction. If the datum is internally fixed, then \Cref{thm:auxiliary-dichotomy} yields conservativity: the operator merely reports a representative already determined by the base. If the datum is not internally fixed, then the choice of representative depends on an external ranking, code, or normalization criterion, so \Cref{thm:auxiliary-dichotomy} makes the operator external to $\B$.
+
+If, instead, the supposed canonicalization works by replacing each element with its equivalence class, then the effective object under discussion is no longer $D$ but the quotient $D/{\sim}$. That is a carrier change and so falls under mechanism (II) from \Cref{def:five-mechanisms}, not under internal strengthening of the original base.
+\end{proof}
+
+\begin{example}[Least representative rules]
+Choosing ``the least code,'' ``the lexicographically first form,'' or ``the minimal-complexity representative'' is internal only relative to a base that already fixes the relevant order, coding, or complexity measure. Otherwise the apparent canonicity is carried by imported structure rather than by the original base itself.
+\end{example}
+
+\subsection{Completion and evaluative closure}
+
+Completion constructions are especially instructive because they often feel canonical while still operating by passage to a richer ambient object. In metric, order-theoretic, algebraic, and semantic settings, completion typically works either by adjoining new points, classes, or ideal objects, or by adding a rule that evaluates old data against a richer completion boundary.
+
+\begin{proposition}[Completion and evaluative closure]\label{prop:case-completion}
+Let $C$ be a purported completion operator applied to an admissible object $A$ over a fixed base structure. Then exactly one of the following happens.
+\begin{enumerate}[label=(\alph*)]
+    \item $C(A)$ is genuinely a richer object---for example, a completion, closure object, or ideal enlargement with new points, classes, or totalizations---in which case the move is not carrier-preserving.
+    \item The only old-base-relevant effect of the completion is mediated by an internally fixed comparison, embedding, or evaluative rule, in which case the move is conservative on the old base.
+    \item The read-back from the completion depends on a comparison, embedding, boundary, or evaluator not internally fixed by the original base, in which case the move is external.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+If the completion produces a genuinely new object, then the carrier under discussion has changed. A metric completion, a Dedekind or Cauchy-style enlargement, a closure by ideal elements, or any analogous passage to a richer ambient object is therefore external from the standpoint of the original base. This is mechanism (II) from \Cref{def:five-mechanisms}.
+
+Suppose instead that the completion is used only to obtain old-base-relevant consequences: for example, to justify a limit statement about old parameters, to extend a comparison already implicit in the base, or to read back a property of the original object. Then the effect is governed by an auxiliary datum consisting of the relevant embedding, evaluator, or completion boundary. If that datum is internally fixed, \Cref{thm:auxiliary-dichotomy} shows that the move is conservative on the old base. If it is not internally fixed, the completion works only by importing exactly the additional evaluative structure on which the result depends, and the move is external.
+\end{proof}
+
+\begin{example}[Metric completion]
+The passage from $\mathbb{Q}$ to $\mathbb{R}$ is mathematically canonical, but it is still a passage to a richer object rather than an internal operator on the original carrier $\mathbb{Q}$. Statements about rationals that are later justified by working in $\mathbb{R}$ may be highly informative, but from the fixed-base standpoint they are either conservative read-backs or consequences of an external ambient enlargement.
+\end{example}
+
+\begin{remark}
+Uniqueness up to isomorphism or isometry does not alter this diagnosis. It controls ambiguity in the richer ambient object; it does not turn that richer object into a same-carrier operator on the original base.
+\end{remark}
+
+\subsection{Compactness, saturation, and model-theoretic existence}
+
+Model theory supplies many of the clearest examples of mathematically fruitful external method: compactness arguments, saturated and monster models, elementary extensions, and existence proofs by witness structures \citep{ChangKeisler1990,Hodges1993,Marker2002}. The present claim is not that those methods are dispensable. It is that, from the standpoint of a fixed base structure, they do not generate new internal operator power unless the relevant witness was already fixed.
+
+\begin{proposition}[Compactness, saturation, and model-theoretic existence]\label{prop:case-model-theory}
+Let $M$ be a structure, and let $F$ be a purported operator whose effect is justified by compactness, saturation, a monster-model argument, or a model-existence theorem. Then one of the following holds.
+\begin{enumerate}[label=(\alph*)]
+    \item The relevant witness, realization, or map was already definably fixed on the old base, in which case $F$ is conservative on the old-base-relevant content of $M$.
+    \item The construction proceeds by passing to a larger model, adjoining new realizing elements, invoking a witness structure, or using an existence theorem whose witness is not part of $M$, in which case $F$ is external to the original base.
+\end{enumerate}
+In particular, none of these model-theoretic methods yields new internal operator power on a fixed old carrier except in the vacuous conservative case.
+\end{proposition}
+
+\begin{proof}
+Consider first type realization and saturation. If the purported operator produces a realization already available in $M$, then nothing new has been generated; the effect is conservative. If the realization is not already present, then some new witness element or larger ambient model is required. That is a change of carrier or witness import, not an internal operator on the original base.
+
+The same point applies to saturated envelopes, monster models, and compactness arguments. A monster model is explicitly a richer ambient structure. A compactness argument that establishes the existence of some model or element does so by producing or appealing to a witness structure not identical with the original base. If the only conclusion read back to $M$ is a property already fixed by the old base, then the use of the external witness is conservative on old-base-relevant content. Otherwise the load-bearing datum is external, and \Cref{thm:auxiliary-dichotomy} classifies the move accordingly.
+\end{proof}
+
+\begin{example}[Monster models]
+Working inside a monster model can make independence, type comparison, and canonical parameter arguments much cleaner. But the monster model is an ambient enlargement. It is not an internal operator on the original small structure merely because later conclusions are stated back in the original language.
+\end{example}
+
+\subsection{Forcing, genericity, and absoluteness}
+
+Forcing is the clearest case in which a foundational paper must be careful not to overclaim. The method is one of the great successes of modern logic, and much of its power comes precisely from controlled passage to a richer ambient universe \citep{Jech2003,Kanamori2008}. The fixed-base diagnosis is correspondingly sharp: a forcing extension is an external move, while read-back by absoluteness or invariance is conservative on the old base rather than internally generative.
+
+\begin{proposition}[Forcing, genericity, and absoluteness]\label{prop:case-forcing}
+Let $M$ be a ground model or other fixed set-theoretic base, and let $F$ be a purported forcing-based operator.
+\begin{enumerate}[label=(\alph*)]
+    \item If $F$ works by adjoining a generic filter, generic real, or forcing extension $M[G]$, then it is external to $M$ by imported witness or ambient enlargement.
+    \item If $F$ uses forcing only to transfer a statement about old parameters by absoluteness, invariance, or ground-model forcing analysis, then its effect on old-base-relevant content is conservative rather than a new internal operator on $M$.
+\end{enumerate}
+Hence forcing and genericity do not provide new internal operator power on the original base model.
+\end{proposition}
+
+\begin{proof}
+In the first case the point is immediate. A generic object $G$ is not part of the original base, and the passage from $M$ to $M[G]$ is an explicit move to a richer ambient universe. That is the paradigmatic instance of an external method.
+
+In the second case the conclusion concerns only old parameters or old-base-relevant statements. Then forcing functions as a proof method or transfer method: one studies what is preserved, reflected, or already decided when the situation is viewed through forcing. The result is therefore not a new internal operator on $M$, but a conservative read-back about the old base. Boolean-valued, algebraic, or completion-style presentations of forcing do not change this point. They either redescribe already fixed information conservatively or shift the work onto additional evaluative or completion structure, which is external by Proposition~\ref{prop:five-disposition} and Proposition~\ref{prop:case-completion}.
+\end{proof}
+
+\begin{example}[Generic objects versus absolute statements]
+A Cohen real added over a ground model is not an internal object of that ground model. By contrast, an absoluteness argument that transfers a statement about old natural numbers back to the ground model does not thereby create a new internal operator on the ground model; it certifies old-base-relevant content by an external route.
+\end{example}
+
+\subsection{Universal constructions and existence by universal property}
+
+Universal constructions are often described as canonical, and they are canonical in an important categorical sense. But their canonicity is mediated by an ambient category, a class of comparison maps, and a universal condition imposed across that ambient framework \citep{MacLane1998}. The fixed-base question is therefore not whether the universal construction is mathematically legitimate, but whether the relevant universal witness is already fixed by the old base or supplied through ambient categorical data.
+
+\begin{proposition}[Universal constructions and existence by universal property]\label{prop:case-universal}
+Let $A$ be an object presented by a fixed base structure, and suppose a purported operator assigns to $A$ an object $U(A)$ by a universal property in an ambient category $\mathcal{C}$. Then the following distinction is exhaustive.
+\begin{enumerate}[label=(\alph*)]
+    \item If the universal witness and its comparison maps are already fixed, relative to the chosen ambient framework, strongly enough that the only effect on old-base-relevant content is to redescribe what was already determined, then the move is conservative on the old base.
+    \item Otherwise the construction depends essentially on ambient categorical data or on a genuinely new witness object $U(A)$, and it is therefore external to the original base.
+\end{enumerate}
+In particular, existence by universal property does not by itself furnish new internal operator power on $A$ alone.
+\end{proposition}
+
+\begin{proof}
+A universal property is never posed with respect to $A$ alone. It quantifies over a wider ambient category, over comparison morphisms, and over the uniqueness or mediating property that singles out the witness object. If all of that structure is already fixed tightly enough that the only resulting statement about the original base is a reformulation of information already determined there, then the move is conservative.
+
+In the substantive case, however, the universal witness is either a genuinely new object or depends on comparison data not fixed by the original base alone. Then the construction is external from the standpoint of that base. Uniqueness up to unique isomorphism does not change the diagnosis. It shows that the witness is canonical relative to the ambient framework, not that it is internally generated by the old base without that framework.
+\end{proof}
+
+\begin{example}[Free and adjoint constructions]
+The free group on a set, the product of a diagram, or an adjoint image of an object may all be canonical up to the appropriate universal equivalence. But that canonicity is relative to an ambient categorical setting. It does not turn the resulting witness object into an operator internal to the original base object alone.
+\end{example}
+
+\begin{theorem}[Flagship case-study closure]\label{thm:case-study-closure}
+Each of the five flagship families in this section is governed by the same fixed-base dichotomy. A purported strengthening is either conservative on old-base-relevant content because the load-bearing datum is already internally fixed, or else it depends on external data, witnesses, or ambient extension and is not internal to the original base. In the quotient and completion cases, the move may fail carrier preservation outright by changing the object under discussion.
+\end{theorem}
+
+\begin{proof}
+Combine Propositions~\ref{prop:case-canonicalization}, \ref{prop:case-completion}, \ref{prop:case-model-theory}, \ref{prop:case-forcing}, and \ref{prop:case-universal}. The point of the section is precisely that the five families are not five unrelated exceptions. They are five recurring sites at which the same internal/external classification reappears.
+\end{proof}
+
+\begin{remark}
+This section closes the family-by-family part of the argument. The only remaining loophole is interaction: perhaps composition, iteration, diagonalization, or representation change among already classified families produces genuinely new internal operator power. \Cref{sec:no-emergence} addresses exactly that possibility.
+\end{remark}

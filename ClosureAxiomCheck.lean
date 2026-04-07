@@ -1,0 +1,16 @@
+import MaleyLean.ClosurePaperStatements
+
+namespace MaleyLean
+
+#print axioms PaperSameTargetOrbitReflexivityStatement
+#print axioms PaperOrbitRespectsInvariantsStatement
+#print axioms PaperInvariantsExhaustOrbitsStatement
+#print axioms PaperAdmissibleRedescriptionInvarianceOfActionStatement
+#print axioms PaperRelTransportClosureOfActionStatement
+#print axioms PaperSameTargetRightTransportStatement
+#print axioms PaperSameTargetRelInterfaceFromComponentsStatement
+#print axioms PaperStandingConservationClosureStatement
+#print axioms PaperClosurePropagationCoreStatement
+#print axioms PaperApexClosureVerifiedCoreStatementClosureSurface
+
+end MaleyLean

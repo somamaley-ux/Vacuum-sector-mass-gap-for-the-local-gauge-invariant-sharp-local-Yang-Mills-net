@@ -1,0 +1,2977 @@
+
+\documentclass[11pt]{article}
+
+% --- page + fonts ---
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage[T1]{fontenc}
+
+% --- math ---
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{physics}
+
+% --- misc ---
+\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\hypersetup{pdfborder={0 0 0}}
+% --- camera-ready linebreak tolerance ---
+\setlength{\emergencystretch}{3em}
+
+
+% --- theorem environments ---
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{corollary}[definition]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[definition]{Remark}
+
+% --- macros (notation deliberately minimal) ---
+\newcommand{\SM}{\ensuremath{\mathrm{SM}}}
+\newcommand{\EFT}{\ensuremath{\mathrm{EFT}}}
+\newcommand{\CC}{\ensuremath{\mathrm{CC}}}
+\newcommand{\NC}{\ensuremath{\mathrm{NC}}}
+\newcommand{\EM}{\ensuremath{\mathrm{EM}}}
+\newcommand{\SU}{\ensuremath{\mathrm{SU}}}
+\newcommand{\U}{\ensuremath{\mathrm{U}}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\Skin}{\mathcal{S}}
+\newcommand{\Wit}{\mathcal{W}}
+\newcommand{\Load}{\mathcal{L}}
+\newcommand{\Ad}{\ensuremath{\mathsf{Ad}}}
+\newcommand{\Jarlskog}{\mathcal{J}}
+\DeclareMathOperator{\diag}{diag}
+
+\title{\textbf{Structura Ex Necessitate Standardis Modelis}\\
+\large A standalone forced-derivation ledger for Standard-Model bookkeeping\\
+\large under admissible redescription and transport closure}
+\author{Amos Jay Maley}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This paper is \emph{standalone} and \emph{audit-grade}. It does not propose new dynamics or ontology;
+it audits the internal closure of a fixed renormalizable chiral gauge load
+(Definition~\ref{def:declared-load}) under a single governance requirement:
+\emph{standing} is what survives admissible redescription together with explicit, scope-indexed regime
+transport. Every collapse is exhibited as a \emph{transport certificate}
+(Definition~\ref{def:certificate}): the skins are named, the transport map is written, the invariant
+witness set is computed, and witness rank is compared to apparent parameter rank.
+Low-energy sector results include charged-current matching to $G_F$, electromagnetic matching to $e$,
+Yukawa--mass equivalences, $\bar\theta$ as the unique CP--odd QCD invariant, oscillation invariants, and
+the longitudinal--Goldstone amplitude-class collapse. Discrete-skeleton forcing is then made explicit
+under the minimal chiral skeleton with one Higgs doublet: anomaly cancellation forces the hypercharge
+class and guarantees existence of the charged Yukawa operators; hypercharge normalization is shown
+redundant; tree-level FCNC are excluded. We then define an admissibility envelope and prove a
+\emph{relative} exhaustion theorem: within the envelope and declared load, no further equivalence
+completion exists without introducing new load, leaving the scope, or invoking a standing-failure mode.
+Finally, we state the witness normal form for the full renormalizable scope and certify which
+parameters remain irreducible inputs and why their numerical values are not internally derivable
+without breaking redescription stability. We also prove a meta-closure result: under minimal coherence, the standing quotient and the admissibility groupoid are unique up to isomorphism and admit no proper same-scope standing-preserving extension.
+\end{abstract}
+
+\tableofcontents
+
+\section{Scope and non-negotiables}
+
+\subsection{Method posture}
+This paper is eliminative. It introduces:
+\begin{itemize}[leftmargin=2.2em]
+\item no new primitives, no new ontology, and no new anchoring claims;
+\item no compensating fields, auxiliary sectors, additional $U(1)$ factors, or exotic charge lattices;
+\item no probabilistic/typicality repairs, no semantic standing import, and no privileged representation.
+\end{itemize}
+All results are obtained by explicit calculation plus one governance rule: \emph{standing is what
+survives admissible redescription and admissible transport}. Anything else is redundancy or standing failure.
+
+\subsection{Declared load}
+We fix the following \emph{declared load} for the entire paper.
+
+\begin{definition}[Declared load]\label{def:declared-load}
+The declared load $\Load$ consists of:
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item the renormalizable $\SU(3)_c\times \SU(2)_L\times \U(1)_Y$ gauge framework;
+\item minimal chiral fermion content in the usual representation skeleton (three generations allowed but
+not required for the algebraic derivations);
+\item a single electroweak Higgs doublet $H$ (with conjugate $\tilde H \equiv i\sigma^2 H^\ast$ available
+as usual);
+\item no additional Higgs multiplets, no vectorlike patch pairs, no extra abelian factors, and no
+\emph{ad hoc} patch operators (non-gauge-invariant or higher-dimensional) introduced as independent
+primitives; higher-dimensional operators may appear only as \emph{transport images} (EFT skins) of the
+renormalizable load.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[What is and is not derived]\label{rem:not-derive-gauge}
+Definition~\ref{def:declared-load} fixes the renormalizable chiral gauge skeleton whose internal closure is
+audited. This paper does \emph{not} attempt to derive the gauge group or the representation skeleton from
+scratch; doing so would be a different project with a different scope.
+The present derivations concern (i) collapse of \emph{apparent} parameter freedoms under scope-indexed
+transport, and (ii) closure of \emph{same-scope} modifications relative to the fixed load.
+\end{remark}
+
+\begin{remark}[Fail-closed discipline]\label{rem:fail-closed}
+\emph{Inadmissible} is used in the fail-closed sense: if a purported move cannot be made
+standing-preserving under admissible redescription and explicit transport inside $\Load$, then it is
+rejected as either (a) redundancy (no standing), or (b) standing failure (requiring hidden load,
+representational privilege, illicit scope transport, or compensating structure).
+\end{remark}
+
+
+
+\subsection{Declared load is an envelope, not a hidden derivation anchor}\label{sec:load-envelope}
+A frequent misunderstanding in ``uniqueness'' arguments is to treat a fixed load choice as a covert
+assumption smuggled in to force the desired answer. Here we make the opposite move: we \emph{type} the
+claim. The paper does \emph{not} assert that no other loads are logically possible. It asserts that,
+\emph{relative to the scope and declared load}, there is a unique \emph{minimal standing-preserving
+interior}, and that purported ``extensions'' that claim to remain in the same scope are either
+redundant or scope-changing.
+
+\begin{definition}[Scope-preserving vs.\ scope-changing modification]\label{def:scope-preserving}
+Fix a scope $S$ (Definition~\ref{def:scope}).
+A proposed modification $\Delta$ of the bookkeeping is:
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item \emph{scope-preserving} if it claims to reproduce exactly the same invariant witness set for $S$
+(up to admissible redescription) without introducing additional standing-relevant witnesses;
+\item \emph{scope-changing} otherwise (it enlarges/changes the witness set, the admissibility envelope,
+or the regime content).
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Added-load dichotomy]\label{prop:added-load}
+Let $S$ be a fixed scope and $\Load$ the declared load.
+Consider adding extra fields/operators/sectors $\Delta\Load$.
+If $\Delta\Load$ introduces \emph{no} new invariant witnesses for $S$, then $\Delta\Load$ is redundancy
+for $S$ (it is removable by admissible redescription/transport, e.g.\ integrating out).
+If $\Delta\Load$ \emph{does} introduce new invariant witnesses for $S$, then it is a scope change and
+therefore not a nontrivial \emph{scope-preserving} extension of the \SM interior.
+\end{proposition}
+
+\begin{proof}
+If $\Delta\Load$ introduces no new invariant witnesses for $S$, then by Definition~\ref{def:tensor-load}
+it contributes no standing-relevant data for $S$ and is removable without changing witness content.
+If $\Delta\Load$ introduces new invariant witnesses, then by Definition~\ref{def:scope-preserving} the
+scope has changed: the modified bookkeeping describes strictly more (or different) standing content.
+In neither case does $\Delta\Load$ produce a genuine same-scope enlargement of standing content.
+\end{proof}
+
+
+\begin{remark}[What is \emph{not} being claimed]\label{rem:not-bsm-ban}
+Proposition~\ref{prop:added-load} is not a ``BSM ban.'' It is a typing statement:
+\emph{inside} the present scope and declared load, additional structure is either redundant or a scope
+change. Scope changes may be physically motivated; they are simply different projects and are not
+adjudicated here.
+\end{remark}
+\section{Governance layer: admissibility, transport, witnesses}
+
+\subsection{Minimal coherence forces the admissibility interface}\label{sec:min-coherence}
+
+The governance primitives in this section are not decorative. They are\footnote{In the same sense that
+Myhill--Nerode equivalence is not ``chosen'' but forced once one demands a canonical presentation of
+future-distinguishability classes.} forced by minimal coherence requirements for any scope-indexed
+bookkeeping practice.
+
+\begin{definition}[Minimal coherence requirements]\label{def:coherence}
+Fix a scope $S$.
+A bookkeeping practice for $S$ is \emph{minimally coherent} if it satisfies:
+\begin{enumerate}[label=(\textbf{MC\arabic*}),leftmargin=2.8em]
+\item \textbf{Stable reference.} Empirical referents tracked in $S$ must remain identifiable across lawful
+reformulations; the identity of ``the same'' referent may not depend on a privileged internal
+parameterization.
+\item \textbf{Lawful redescription freedom.} Multiple internal representations may be used (field variables,
+bases, gauge-fixings, parameterizations), and such redescriptions are permitted so long as they preserve
+$S$-predictions.
+\item \textbf{Irreversible commitment.} Once an empirical record is fixed (a completed inference, stored data),
+it cannot be retroactively reindexed by choosing a different internal representation; coherence must be
+maintained under irreversible use of records.
+\item \textbf{Non-triviality.} The bookkeeping makes at least one prediction that can distinguish some admissible
+cases inside $S$ (otherwise all ``states'' collapse vacuously).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[MC1 is a standing postulate, not an ontic prohibition]\label{rem:mc1-standing}
+The minimal-coherence axioms are governance constraints for \emph{standing} in a fixed scope $S$.
+In particular, \textbf{MC1} says that within the same-scope interior we do not treat distinctions with no admissible
+$S$-witness as identity-bearing.
+This is \emph{not} the metaphysical claim that nature contains no additional structure; it is the bookkeeping
+discipline that such additional structure, if asserted, must appear as added load or enlarged scope and hence be
+typed as a scope change (Proposition~\ref{prop:added-load}).
+\end{remark}
+
+
+\begin{theorem}[Minimal coherence forces the standing quotient and admissibility groupoid]\label{thm:coherence-groupoid}
+Assume minimal coherence (Definition~\ref{def:coherence}) for a fixed scope $S$.
+Then:
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item The only identity-bearing objects for $S$ are standing equivalence classes $[\mathbf{p}]\in P(\Skin)/\!\sim_S$
+(Definitions~\ref{def:standing-equiv}--\ref{def:standing-quotient}). In particular, any attempt to treat two
+parameter points $\mathbf{p}\sim_S\mathbf{p}'$ as distinct standing states introduces representational
+privilege or hidden unwitnessed structure (Definition~\ref{def:failure}).
+\item Any claim that two skins $\Skin_A,\Skin_B$ represent the \emph{same} scope content requires transports that
+are transport-complete for $S$ (Definition~\ref{def:transport-complete}); equivalently, the induced maps on
+standing quotients must be injective, and for mutual equivalence bijective.
+\item The class of skins equipped with transport-complete admissible transports that admit inverses on standing
+quotients forms a \emph{groupoid} $\Ad_S$ (objects: skins for $S$; morphisms: transports inducing bijections on
+standing quotients). Standing is functorial: every morphism in $\Ad_S$ induces a bijection of standing state
+spaces.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\textbf{(i)} Let $\Skin$ be any skin used for scope $S$. By (MC2), lawful redescriptions are permitted provided they
+preserve $S$-predictions. Therefore any internal parameter value that does not change $S$-predictions cannot be
+privileged as identity-grounding without violating (MC1): doing so would make referent identity depend on an
+arbitrary representational choice.
+
+Formally, define $\mathbf{p}\sim_S\mathbf{p}'$ exactly as in Definition~\ref{def:standing-equiv}: equality of all
+$S$-predictions within the declared error discipline. If $\mathbf{p}\sim_S\mathbf{p}'$ but one insists they are
+distinct standing states, then the distinction has \emph{no} $S$-observable witness.
+Maintaining the distinction therefore requires either a privileged parameterization (violating MC1/MC2), or
+extra unwitnessed structure imported to ``remember'' which point one is in (hidden load), which is precisely a
+standing-failure mode (Definition~\ref{def:failure}).
+Thus coherence forces identification of standing states with equivalence classes $[\mathbf{p}]$.
+
+\textbf{(ii)} Consider two skins $\Skin_A,\Skin_B$ both purported to describe scope $S$.
+If there is no transport-complete map, then there exist $\mathbf{p},\mathbf{p}'$ in one skin that are
+$S$-distinguishable but whose images in the other skin cannot be distinguished by any invariant witness there.
+Then the identity of the $S$-referent depends on which skin is used, contradicting (MC1) and (MC3).
+Therefore any coherence claim of ``same scope content'' requires transport completeness.
+Injectivity/bijectivity on standing quotients is exactly this requirement in quotient form.
+
+\textbf{(iii)} Define $\Ad_S$ to have as objects those skins used for $S$ and as morphisms the admissible transports
+that induce bijections on standing quotients (equivalently, are transport-complete and admit inverses up to
+$\sim_S$). Composition of such morphisms is again transport-complete and induces bijections on quotients; identity
+morphisms are given by trivial transports. Existence of inverses on quotients makes this a groupoid.
+Functoriality of standing is then immediate: each morphism induces a bijection on $P(\Skin)/\!\sim_S$ by
+construction; Lemma~\ref{lem:quotient-iso} provides the explicit statement.
+\end{proof}
+
+
+
+\subsection{Meta-closure: uniqueness and maximality}\label{sec:meta-closure}
+\paragraph{Referee Proof Obligations.}
+To refute the meta-closure results of Section~\ref{sec:meta-closure}, a critic must do \emph{at least one} of the following:
+(i) explicitly deny at least one Minimal Coherence axiom (MC1--MC4), stating which condition of stable reference, irreversibility, lawful redescription, or non-trivial inference is rejected;
+(ii) exhibit a concrete standing presentation $(X,r)$ satisfying (MC1--MC4) that reproduces all $S$-predictions yet is not isomorphic (via the uniquely induced bijection) to the standing quotient $P(\mathrm{Skin})/\!\sim_S$;
+or (iii) produce a same-scope morphism that introduces a new invariant witness without violating transport completeness, minimal coherence, or declared load.
+Absent one of (i)--(iii), objections reduce to scope change, load augmentation, or representational privilege, each already classified.
+
+The previous subsection established that minimal coherence forces the quotient notion of standing and the
+groupoid form of same-scope equivalence. A hostile reader may still attempt a meta-level escape:
+``perhaps there exists some \emph{other} equally coherent identity/transport scheme.''
+Here we close that route in the same way as a Myhill--Nerode argument closes ``alternative'' state
+presentations: the standing quotient is not one option among many; it is the unique standing state space
+compatible with scope-indexed prediction invariance and stable reference.
+
+\begin{definition}[Standing presentation for a scope]\label{def:standing-presentation}
+Fix a scope $S$ and a skin $\Skin$ with parameter space $P(\Skin)$.
+A \emph{standing presentation} for $S$ is a triple $(X,r,\mathrm{Pred}_X)$ where:
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item $X$ is a set intended to serve as the standing state space for $S$;
+\item $r:P(\Skin)\to X$ is a surjection (``representation map'');
+\item for every $\mathcal{O}\in S$ there is a prediction map
+$\mathrm{Pred}_X(\mathcal{O};\cdot):X\to\mathbb{R}$ such that
+\begin{equation}\label{eq:standing-presentation}
+\mathrm{Pred}_{\Skin}(\mathcal{O};\mathbf{p})=\mathrm{Pred}_X(\mathcal{O};r(\mathbf{p}))
+\qquad (\forall\,\mathbf{p}\in P(\Skin),\ \forall\,\mathcal{O}\in S).
+\end{equation}
+\end{enumerate}
+We call the presentation \emph{sound} if $\mathbf{p}\sim_S\mathbf{p}'\Rightarrow r(\mathbf{p})=r(\mathbf{p}')$,
+and \emph{complete} if $r(\mathbf{p})=r(\mathbf{p}')\Rightarrow \mathbf{p}\sim_S\mathbf{p}'$
+(Definition~\ref{def:standing-equiv}).
+\end{definition}
+
+\begin{lemma}[Completeness of standing presentations]\label{lem:standing-complete}
+Let $(X,r,\mathrm{Pred}_X)$ be a standing presentation for scope $S$ in the sense of
+Definition~\ref{def:standing-presentation}.
+Then the presentation is \emph{complete}:
+\[
+r(\mathbf{p})=r(\mathbf{p}')\ \Longrightarrow\ \mathbf{p}\sim_S \mathbf{p}'.
+\]
+\end{lemma}
+
+\begin{proof}
+Assume $r(\mathbf{p})=r(\mathbf{p}')$.
+Then for every $\mathcal{O}\in S$, the factorization condition \eqref{eq:standing-presentation} gives
+\[
+\mathrm{Pred}_{\Skin}(\mathcal{O};\mathbf{p})
+=\mathrm{Pred}_X(\mathcal{O};r(\mathbf{p}))
+=\mathrm{Pred}_X(\mathcal{O};r(\mathbf{p}'))
+=\mathrm{Pred}_{\Skin}(\mathcal{O};\mathbf{p}').
+\]
+Hence $\mathbf{p}\sim_S\mathbf{p}'$ by Definition~\ref{def:standing-equiv}.
+\end{proof}
+
+\begin{lemma}[Soundness forced by stable reference]\label{lem:standing-sound}
+Assume minimal coherence for scope $S$ (Definition~\ref{def:coherence}).
+Let $(X,r,\mathrm{Pred}_X)$ be a standing presentation for $S$ in the sense of
+Definition~\ref{def:standing-presentation}.
+Then the presentation is \emph{sound}:
+\[
+\mathbf{p}\sim_S\mathbf{p}'\ \Longrightarrow\ r(\mathbf{p})=r(\mathbf{p}').
+\]
+\end{lemma}
+
+\begin{proof}
+Assume $\mathbf{p}\sim_S\mathbf{p}'$.
+Then for every $\mathcal{O}\in S$,
+$\mathrm{Pred}_{\Skin}(\mathcal{O};\mathbf{p})=\mathrm{Pred}_{\Skin}(\mathcal{O};\mathbf{p}')$.
+By \eqref{eq:standing-presentation} this implies
+$\mathrm{Pred}_X(\mathcal{O};r(\mathbf{p}))=\mathrm{Pred}_X(\mathcal{O};r(\mathbf{p}'))$ for all $\mathcal{O}\in S$.
+
+If $r(\mathbf{p})\neq r(\mathbf{p}')$, then $X$ distinguishes two putative ``standing states'' that are
+indistinguishable by \emph{every} admissible $S$-observable. Maintaining such an unwitnessed distinction as
+identity-bearing violates stable reference (MC1) under the fail-closed discipline: it either (i) privileges the
+particular $r$-labeling as identity-grounding (representational privilege), or (ii) imports extra unwitnessed
+structure to remember which label one is in (hidden load). Both are standing-failure modes
+(Definition~\ref{def:failure}). Therefore $r(\mathbf{p})=r(\mathbf{p}')$ and the presentation is sound.
+\end{proof}
+
+\begin{lemma}[Quotient universal property]\label{lem:quotient-universal}
+Let $q:P(\Skin)\to P(\Skin)/\!\sim_S$ be the quotient map.
+For any set $Y$ and any function $F:P(\Skin)\to Y$ that is constant on $\sim_S$-classes
+(i.e.\ $\mathbf{p}\sim_S\mathbf{p}'\Rightarrow F(\mathbf{p})=F(\mathbf{p}')$),
+there exists a unique function $\widetilde F:P(\Skin)/\!\sim_S\to Y$ such that
+\[
+F=\widetilde F\circ q.
+\]
+\end{lemma}
+
+\begin{proof}
+Define $\widetilde F([\mathbf{p}]):=F(\mathbf{p})$.
+This is well-defined precisely because $F$ is constant on $\sim_S$-classes.
+Uniqueness follows because $q$ is surjective: if $F=\widehat F\circ q$ also, then for any $[\mathbf{p}]$,
+$\widehat F([\mathbf{p}])=\widehat F(q(\mathbf{p}))=F(\mathbf{p})=\widetilde F(q(\mathbf{p}))=\widetilde F([\mathbf{p}])$.
+\end{proof}
+
+\begin{theorem}[Uniqueness of the standing quotient]\label{thm:standing-quotient-unique}
+Assume minimal coherence for scope $S$ (Definition~\ref{def:coherence}).
+Let $(X,r,\mathrm{Pred}_X)$ be any standing presentation for $S$ in the sense of
+Definition~\ref{def:standing-presentation}.
+Then $r$ is automatically sound and complete and induces a unique bijection
+\[
+\phi:\ P(\Skin)/\!\sim_S\ \longrightarrow\ X,\qquad \phi([\mathbf{p}])=r(\mathbf{p}).
+\]
+In particular, the standing quotient $P(\Skin)/\!\sim_S$ is the \emph{unique} standing state space for $S$
+(up to unique isomorphism) compatible with stable reference and scope-indexed prediction invariance.
+Equivalently: there is no non-isomorphic coherent identity framework for $S$ that reproduces all $S$-predictions.
+\end{theorem}
+
+\begin{proof}
+By Lemmas~\ref{lem:standing-complete} and \ref{lem:standing-sound}, the presentation is complete and sound.
+Define $\phi([\mathbf{p}]):=r(\mathbf{p})$.
+
+Soundness implies $\phi$ is well-defined (it is constant on $\sim_S$-classes).
+Completeness implies $\phi$ is injective: if $\phi([\mathbf{p}])=\phi([\mathbf{p}'])$ then
+$r(\mathbf{p})=r(\mathbf{p}')$ and Lemma~\ref{lem:standing-complete} gives $\mathbf{p}\sim_S\mathbf{p}'$, hence
+$[\mathbf{p}]=[\mathbf{p}']$.
+Surjectivity holds because $r$ is surjective.
+
+Uniqueness of $\phi$ is exactly the quotient universal property (Lemma~\ref{lem:quotient-universal}):
+$r$ is constant on $\sim_S$-classes (soundness), so it factors through $q$ uniquely as $r=\phi\circ q$.
+\end{proof}
+
+\paragraph{Realist coherence variant: continuation-separability as normal form.}
+A recurring hostile move is to claim that \textbf{MC1} is ``operationalist'': a realist may allow additional
+structure not distinguished by the base observable list. The meta-closure results above do not require that
+stronger metaphysical denial. What is required for \emph{identity-bearing standing} is that alleged identity
+distinctions be \emph{separable by some admissible continuation} in the declared scope.
+We therefore make the Myhill--Nerode analogy literal by defining admissible histories $\mathcal{H}_S$ as the
+closure of admitted tests under admissible interventions, and by exhibiting a canonical \emph{reduction} of any
+standing presentation whose standing states are continuation-separated. In this sense \textbf{CR-Sep} is not an
+additional metaphysical axiom; it is the minimality (no redundant labels) normal form of any same-scope standing
+presentation.
+
+\begin{definition}[Admissible histories $\mathcal{H}_S$ as closure under composition]\label{def:histories}
+Fix a scope declaration $S=(S_0,\mathcal{U}_S)$ and a skin $\Skin$ with parameter space $P(\Skin)$, where $S_0$ is the admitted observable family and $\mathcal{U}_S(\Skin)$ is the monoid of admissible interventions/updates.
+Let $\mathcal{U}_S(\Skin)\subseteq \mathrm{End}(P(\Skin))$ denote the monoid of admissible
+interventions/updates in scope $S$ (it contains $\mathrm{id}$ and is closed under composition).
+For each admitted observable $\mathcal{O}\in S_0$ define the associated \emph{test map}
+$t_{\mathcal{O}}:P(\Skin)\to\mathbb{R}$ by
+\[
+t_{\mathcal{O}}(\mathbf{p}) := \mathrm{Pred}_{\Skin}(\mathcal{O};\mathbf{p}).
+\]
+Define the set of admissible \emph{histories/continuations} to be the closure of the primitive tests under
+precomposition by admissible interventions:
+\[
+\mathcal{H}_S(\Skin)\ :=\ \{\,t_{\mathcal{O}}\circ u\ :\ \mathcal{O}\in S_0,\ u\in\mathcal{U}_S(\Skin)\,\}.
+\]
+Equivalently we may index a history by a pair $h=(u,\mathcal{O})$ with $u\in\mathcal{U}_S(\Skin)$ and
+$\mathcal{O}\in S_0$ and write
+\[
+\mathrm{Pred}_{\Skin}(h;\mathbf{p})\ :=\ \mathrm{Pred}_{\Skin}(\mathcal{O};u(\mathbf{p})).
+\]
+Define the \emph{continuation signature} map
+\[
+\Sigma_{\Skin}:\ P(\Skin)\longrightarrow \mathbb{R}^{\mathcal{H}_S(\Skin)},\qquad
+\Sigma_{\Skin}(\mathbf{p}) := \big(\mathrm{Pred}_{\Skin}(h;\mathbf{p})\big)_{h\in\mathcal{H}_S(\Skin)}.
+\]
+When $\Skin$ is fixed we write $\mathcal{H}_S:=\mathcal{H}_S(\Skin)$.
+We call a scope $S$ \emph{history-saturated} (relative to $\mathcal{U}_S$) if it already contains all composite
+tests $t_{\mathcal{O}}\circ u$ as admitted observables.
+In that case Definition~\ref{def:standing-equiv} may be read as quantifying over $\mathcal{H}_S$, and the present
+notation makes the Myhill--Nerode ``future-distinguishability'' content explicit rather than rhetorical.
+\end{definition}
+
+\begin{lemma}[Kernel equivalence is the maximal update-stable refinement of primitive prediction equivalence]
+\label{lem:kernel-equivalence}
+Fix a scope declaration $S=(S_0,\mathcal{U}_S)$ and a skin $\Skin$.
+Define the \emph{primitive} (snapshot) prediction-equivalence relation $\sim_{0}$ on $P(\Skin)$ by
+\[
+\mathbf{p}\sim_{0}\mathbf{p}' \quad\Longleftrightarrow\quad
+\mathrm{Pred}_{\Skin}(\mathcal{O};\mathbf{p})=\mathrm{Pred}_{\Skin}(\mathcal{O};\mathbf{p}')
+\ \ \forall\,\mathcal{O}\in S_0.
+\]
+Define the \emph{continuation} (kernel) equivalence relation $\sim_{\ker}$ by
+\[
+\mathbf{p}\sim_{\ker}\mathbf{p}' \quad\Longleftrightarrow\quad
+\Sigma_{\Skin}(\mathbf{p})=\Sigma_{\Skin}(\mathbf{p}'),
+\]
+where $\Sigma_{\Skin}$ is the continuation-signature map of Definition~\ref{def:histories}.
+Equivalently, $\mathbf{p}\sim_{\ker}\mathbf{p}'$ iff
+$\mathrm{Pred}_{\Skin}(\mathcal{O};u(\mathbf{p}))=\mathrm{Pred}_{\Skin}(\mathcal{O};u(\mathbf{p}'))$
+for all $\mathcal{O}\in S_0$ and all $u\in\mathcal{U}_S(\Skin)$.
+
+Then:
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item $\sim_{\ker}$ is a right-congruence for admissible update composition:
+if $\mathbf{p}\sim_{\ker}\mathbf{p}'$ then $u(\mathbf{p})\sim_{\ker}u(\mathbf{p}')$ for all $u\in\mathcal{U}_S(\Skin)$.
+\item $\sim_{\ker}$ is the \emph{largest} right-congruence contained in $\sim_{0}$.
+That is: if $\approx$ is any equivalence relation on $P(\Skin)$ such that
+(a) $\mathbf{p}\approx \mathbf{p}'\Rightarrow \mathbf{p}\sim_{0}\mathbf{p}'$ and
+(b) $\mathbf{p}\approx \mathbf{p}'\Rightarrow u(\mathbf{p})\approx u(\mathbf{p}')$ for all $u\in\mathcal{U}_S(\Skin)$,
+then $\mathbf{p}\approx \mathbf{p}'\Rightarrow \mathbf{p}\sim_{\ker}\mathbf{p}'$.
+\item Consequently, if there exist $\mathbf{p},\mathbf{p}'$ with $\mathbf{p}\sim_{0}\mathbf{p}'$ but $\mathbf{p}\not\sim_{\ker}\mathbf{p}'$
+(kernel-inequivalent but snapshot-equivalent), then no quotient that identifies $\mathbf{p}$ and $\mathbf{p}'$ can admit
+a well-defined induced action of $\mathcal{U}_S(\Skin)$ by $[\mathbf{p}]\mapsto [u(\mathbf{p})]$.
+Under (MC3) irreversible commitment (Definition~\ref{def:coherence}), this ambiguity cannot be repaired post hoc by
+retroactive representative selection; any coherent identity notion compatible with composed updates must refine to $\sim_{\ker}$.
+In a history-saturated scope, $\sim_{\ker}$ coincides with $\sim_S$ (Definition~\ref{def:histories}), so identity collapses to the standing quotient.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\textbf{(i)} Assume $\mathbf{p}\sim_{\ker}\mathbf{p}'$, i.e.\ $\Sigma_{\Skin}(\mathbf{p})=\Sigma_{\Skin}(\mathbf{p}')$.
+Fix any $u_0\in\mathcal{U}_S(\Skin)$.
+For any history $h=(u,\mathcal{O})\in\mathcal{H}_S$,
+\[
+\mathrm{Pred}_{\Skin}(h;u_0(\mathbf{p}))
+=\mathrm{Pred}_{\Skin}(\mathcal{O};u(u_0(\mathbf{p})))
+=\mathrm{Pred}_{\Skin}(\mathcal{O};(u\circ u_0)(\mathbf{p})),
+\]
+and similarly for $\mathbf{p}'$.
+Since $\mathcal{U}_S(\Skin)$ is a monoid, $u\circ u_0\in\mathcal{U}_S(\Skin)$, so the equalities encoded in
+$\Sigma_{\Skin}(\mathbf{p})=\Sigma_{\Skin}(\mathbf{p}')$ imply
+$\mathrm{Pred}_{\Skin}(h;u_0(\mathbf{p}))=\mathrm{Pred}_{\Skin}(h;u_0(\mathbf{p}'))$ for all $h\in\mathcal{H}_S$.
+Thus $\Sigma_{\Skin}(u_0(\mathbf{p}))=\Sigma_{\Skin}(u_0(\mathbf{p}'))$, i.e.\ $u_0(\mathbf{p})\sim_{\ker}u_0(\mathbf{p}')$.
+
+\textbf{(ii)} Let $\approx$ satisfy (a)--(b) and assume $\mathbf{p}\approx \mathbf{p}'$.
+Then by (b), $u(\mathbf{p})\approx u(\mathbf{p}')$ for all $u\in\mathcal{U}_S(\Skin)$.
+By (a), this implies $u(\mathbf{p})\sim_{0}u(\mathbf{p}')$ for all $u$, i.e.\ for all $\mathcal{O}\in S_0$,
+\[
+\mathrm{Pred}_{\Skin}(\mathcal{O};u(\mathbf{p}))=\mathrm{Pred}_{\Skin}(\mathcal{O};u(\mathbf{p}')).
+\]
+By Definition~\ref{def:histories} this is exactly $\Sigma_{\Skin}(\mathbf{p})=\Sigma_{\Skin}(\mathbf{p}')$, hence $\mathbf{p}\sim_{\ker}\mathbf{p}'$.
+
+\textbf{(iii)} If $\mathbf{p}\sim_{0}\mathbf{p}'$ but not $\mathbf{p}\sim_{\ker}\mathbf{p}'$, then by definition there exist
+$u\in\mathcal{U}_S(\Skin)$ and $\mathcal{O}\in S_0$ with
+$\mathrm{Pred}_{\Skin}(\mathcal{O};u(\mathbf{p}))\neq \mathrm{Pred}_{\Skin}(\mathcal{O};u(\mathbf{p}'))$.
+Thus $u(\mathbf{p})\not\sim_{0}u(\mathbf{p}')$, so the induced map $[\mathbf{p}]_{\sim_0}\mapsto [u(\mathbf{p})]_{\sim_0}$ on
+$P(\Skin)/\!\sim_0$ is not well-defined: the value depends on the chosen representative.
+Treating this dependence as standing-relevant is representational privilege, and attempting to ``repair'' it by retroactive representative selection violates (MC3) irreversible commitment.
+Therefore update-compatible identity must refine to $\sim_{\ker}$, which in a history-saturated scope agrees with $\sim_S$.
+\end{proof}
+
+
+\begin{definition}[Continuation-separability condition \textnormal{(CR-Sep)}]\label{def:cr-sep}
+Let $(X,r,\mathrm{Pred}_X)$ be a standing presentation for the history-saturated scope determined by
+Definition~\ref{def:histories}. Concretely: for every $h\in\mathcal{H}_S$ there is a prediction map
+$\mathrm{Pred}_X(h;\cdot):X\to\mathbb{R}$ such that
+\[
+\mathrm{Pred}_{\Skin}(h;\mathbf{p})=\mathrm{Pred}_X(h;r(\mathbf{p}))
+\qquad (\forall\,\mathbf{p}\in P(\Skin)).
+\]
+Define the \emph{continuation signature} of a standing state $x\in X$ by
+\[
+\Sigma_X(x) := \big(\mathrm{Pred}_X(h;x)\big)_{h\in\mathcal{H}_S}\ \in\ \mathbb{R}^{\mathcal{H}_S}.
+\]
+We say the presentation satisfies \textbf{CR-Sep} (continuation-separability) if $\Sigma_X$ is injective:
+for any $x\neq x'$ there exists $h\in\mathcal{H}_S$ with $\mathrm{Pred}_X(h;x)\neq \mathrm{Pred}_X(h;x')$.
+\end{definition}
+
+\begin{definition}[Continuation-kernel reduction of a standing presentation]\label{def:cr-reduction}
+Let $(X,r,\mathrm{Pred}_X)$ be a standing presentation for the history-saturated scope determined by
+Definition~\ref{def:histories}. Define an equivalence relation $\approx_S$ on $X$ by
+\[
+x\approx_S x' \quad\Longleftrightarrow\quad \mathrm{Pred}_X(h;x)=\mathrm{Pred}_X(h;x')\ \text{for all }h\in\mathcal{H}_S .
+\]
+Let $\pi_X:X\to X^{\mathrm{red}}:=X/\!\approx_S$ be the quotient map. Define the \emph{reduced} representation
+\[
+r^{\mathrm{red}}:=\pi_X\circ r : P(\Skin)\to X^{\mathrm{red}},
+\]
+and define reduced predictions by
+\begin{equation}\label{eq:PredXred}
+\mathrm{Pred}_{X^{\mathrm{red}}}(h;[x])\ :=\ \mathrm{Pred}_X(h;x)\qquad (h\in\mathcal{H}_S).
+\end{equation}
+\end{definition}
+
+\begin{lemma}[Reduction yields continuation-separability and forces soundness]\label{lem:cr-reduction}
+Let $(X,r,\mathrm{Pred}_X)$ be any standing presentation for the history-saturated scope determined by
+Definition~\ref{def:histories}, and let $(X^{\mathrm{red}},r^{\mathrm{red}},\mathrm{Pred}_{X^{\mathrm{red}}})$
+be its reduction (Definition~\ref{def:cr-reduction}). Then:
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item $(X^{\mathrm{red}},r^{\mathrm{red}},\mathrm{Pred}_{X^{\mathrm{red}}})$ is a standing presentation for $S$.
+\item The reduced presentation is sound and complete.
+\item The reduced presentation satisfies \textbf{CR-Sep} (Definition~\ref{def:cr-sep}).
+\end{enumerate}
+Consequently, \textbf{CR-Sep} can be taken \emph{without loss of generality}: any same-scope standing presentation
+admits a canonical reduction whose standing states are continuation-separated.
+\end{lemma}
+
+\begin{proof}
+(i) First note that $\approx_S$ is an equivalence relation (reflexive, symmetric, transitive) by the
+corresponding properties of equality of real numbers, quantified over $h\in\mathcal{H}_S$.
+To see that \eqref{eq:PredXred} is well-defined, suppose $[x]=[x']$ in $X^{\mathrm{red}}$, i.e.\ $x\approx_S x'$.
+Then by definition $\mathrm{Pred}_X(h;x)=\mathrm{Pred}_X(h;x')$ for all $h$, so the right-hand side of
+\eqref{eq:PredXred} does not depend on the chosen representative. Surjectivity of $r^{\mathrm{red}}$ follows
+because $r$ and $\pi_X$ are surjective. Finally, for any $\mathbf{p}\in P(\Skin)$ and any $h\in\mathcal{H}_S$,
+\[
+\mathrm{Pred}_{\Skin}(h;\mathbf{p})
+=\mathrm{Pred}_X(h;r(\mathbf{p}))
+=\mathrm{Pred}_{X^{\mathrm{red}}}\big(h;\pi_X(r(\mathbf{p}))\big)
+=\mathrm{Pred}_{X^{\mathrm{red}}}\big(h;r^{\mathrm{red}}(\mathbf{p})\big),
+\]
+so the factorization condition holds and $(X^{\mathrm{red}},r^{\mathrm{red}},\mathrm{Pred}_{X^{\mathrm{red}}})$
+is a standing presentation.
+
+(ii) Soundness: assume $\mathbf{p}\sim_S \mathbf{p}'$. By Definition~\ref{def:standing-equiv} (read as quantifying
+over histories via Definition~\ref{def:histories}), we have
+$\mathrm{Pred}_{\Skin}(h;\mathbf{p})=\mathrm{Pred}_{\Skin}(h;\mathbf{p}')$ for all $h\in\mathcal{H}_S$.
+By factorization this implies
+$\mathrm{Pred}_X(h;r(\mathbf{p}))=\mathrm{Pred}_X(h;r(\mathbf{p}'))$ for all $h$, hence
+$r(\mathbf{p})\approx_S r(\mathbf{p}')$ and therefore
+$r^{\mathrm{red}}(\mathbf{p})=\pi_X(r(\mathbf{p}))=\pi_X(r(\mathbf{p}'))=r^{\mathrm{red}}(\mathbf{p}')$.
+
+Completeness: assume $r^{\mathrm{red}}(\mathbf{p})=r^{\mathrm{red}}(\mathbf{p}')$. Then
+$\pi_X(r(\mathbf{p}))=\pi_X(r(\mathbf{p}'))$, i.e.\ $r(\mathbf{p})\approx_S r(\mathbf{p}')$, so
+$\mathrm{Pred}_X(h;r(\mathbf{p}))=\mathrm{Pred}_X(h;r(\mathbf{p}'))$ for all $h$ and hence
+$\mathrm{Pred}_{\Skin}(h;\mathbf{p})=\mathrm{Pred}_{\Skin}(h;\mathbf{p}')$ for all $h$ by factorization.
+Thus $\mathbf{p}\sim_S \mathbf{p}'$.
+
+(iii) Define the continuation signature on $X^{\mathrm{red}}$ by
+\[
+\Sigma_{X^{\mathrm{red}}}([x]) := \big(\mathrm{Pred}_{X^{\mathrm{red}}}(h;[x])\big)_{h\in\mathcal{H}_S}
+=\big(\mathrm{Pred}_X(h;x)\big)_{h\in\mathcal{H}_S}.
+\]
+If $\Sigma_{X^{\mathrm{red}}}([x])=\Sigma_{X^{\mathrm{red}}}([x'])$, then
+$\mathrm{Pred}_X(h;x)=\mathrm{Pred}_X(h;x')$ for all $h$, i.e.\ $x\approx_S x'$, hence $[x]=[x']$.
+So $\Sigma_{X^{\mathrm{red}}}$ is injective and the reduced presentation satisfies CR-Sep.
+\end{proof}
+
+
+\begin{lemma}[CR-Sep implies soundness without invoking the weakest reading of MC1]\label{lem:cr-sound}
+Let $(X,r,\mathrm{Pred}_X)$ be a standing presentation for scope $S$ and assume \textbf{CR-Sep}
+(Definition~\ref{def:cr-sep}).
+Then the presentation is sound:
+\[
+\mathbf{p}\sim_S\mathbf{p}'\ \Longrightarrow\ r(\mathbf{p})=r(\mathbf{p}').
+\]
+\end{lemma}
+
+\begin{proof}
+Assume $\mathbf{p}\sim_S\mathbf{p}'$.
+By Definition~\ref{def:standing-presentation}, for every $h\in\mathcal{H}_S$,
+\[
+\mathrm{Pred}_{\Skin}(h;\mathbf{p})
+=\mathrm{Pred}_X(h;r(\mathbf{p})),\qquad
+\mathrm{Pred}_{\Skin}(h;\mathbf{p}')
+=\mathrm{Pred}_X(h;r(\mathbf{p}')).
+\]
+Since $\mathbf{p}\sim_S\mathbf{p}'$ implies $\mathrm{Pred}_{\Skin}(h;\mathbf{p})=\mathrm{Pred}_{\Skin}(h;\mathbf{p}')$
+for all $h$ (Definition~\ref{def:histories}), we have
+$\mathrm{Pred}_X(h;r(\mathbf{p}))=\mathrm{Pred}_X(h;r(\mathbf{p}'))$ for all $h\in\mathcal{H}_S$, i.e.
+$\Sigma_X(r(\mathbf{p}))=\Sigma_X(r(\mathbf{p}'))$.
+Injectivity of $\Sigma_X$ (CR-Sep) gives $r(\mathbf{p})=r(\mathbf{p}')$.
+\end{proof}
+
+\begin{theorem}[Coherent realist identity collapses to the standing quotient]\label{thm:realist-collapse}
+Fix a scope declaration $S=(S_0,\mathcal{U}_S)$ and a skin $\Skin$.
+Let $(X,r,\mathrm{Pred}_X)$ be any standing presentation for the history-saturated scope determined by
+Definition~\ref{def:histories}, and let $(X^{\mathrm{red}},r^{\mathrm{red}},\mathrm{Pred}_{X^{\mathrm{red}}})$
+be its reduction (Definition~\ref{def:cr-reduction}).
+Then there exists a unique bijection
+\[
+\phi:\ P(\Skin)/\!\sim_S\ \longrightarrow\ X^{\mathrm{red}},\qquad \phi([\mathbf{p}]):=r^{\mathrm{red}}(\mathbf{p}).
+\]
+In particular, the identity-bearing content of any same-scope standing presentation is (up to unique isomorphism)
+the standing quotient $P(\Skin)/\!\sim_S$; any additional same-scope structure in $X$ beyond its reduction
+$X^{\mathrm{red}}$ is continuation-inert label redundancy.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:cr-reduction}, the reduced representation $r^{\mathrm{red}}$ is sound and complete.
+
+Well-definedness of $\phi$: if $[\mathbf{p}]=[\mathbf{p}']$ in $P(\Skin)/\!\sim_S$, then $\mathbf{p}\sim_S\mathbf{p}'$
+and soundness gives $r^{\mathrm{red}}(\mathbf{p})=r^{\mathrm{red}}(\mathbf{p}')$.
+
+Injectivity: if $\phi([\mathbf{p}])=\phi([\mathbf{p}'])$, then
+$r^{\mathrm{red}}(\mathbf{p})=r^{\mathrm{red}}(\mathbf{p}')$ and completeness implies $\mathbf{p}\sim_S\mathbf{p}'$,
+hence $[\mathbf{p}]=[\mathbf{p}']$.
+
+Surjectivity: $r^{\mathrm{red}}$ is surjective because $r$ and $\pi_X$ are surjective.
+
+Uniqueness: if $\psi:P(\Skin)/\!\sim_S\to X^{\mathrm{red}}$ also satisfies $\psi([\mathbf{p}])=r^{\mathrm{red}}(\mathbf{p})$,
+then $\psi=\phi$ because the quotient map $q:P(\Skin)\to P(\Skin)/\!\sim_S$ is surjective
+(Lemma~\ref{lem:quotient-universal}).
+\end{proof}
+
+
+\begin{remark}[Relation to $\Ad_S$ and $\mathrm{NF}_S$]\label{rem:cr-nf}
+Theorem~\ref{thm:realist-collapse} shows that a realist can accept additional \emph{unmodeled} structure only by
+either enlarging scope (admitting new histories/observables) or adding new load (new witnesses); otherwise any
+same-scope identity refinement is eliminated by the reduction of Definition~\ref{def:cr-reduction} (Lemma~\ref{lem:cr-reduction}) and becomes haecceitistic.
+In particular, duality-related reorganizations that preserve all $S$-predictions cannot introduce new standing
+witnesses beyond the canonical normal form $\mathrm{NF}_S$ (Definition~\ref{def:NF-skin}) and correspond to
+isomorphisms in the admissibility groupoid $\Ad_S$ (Theorem~\ref{thm:coherence-groupoid}).
+\end{remark}
+
+
+
+\begin{corollary}[Transport completeness is forced by ``same-scope'' claims]\label{cor:transport-forced}
+Let $\Skin_A,\Skin_B$ be skins both used for scope $S$.
+If one asserts that $\Skin_A$ and $\Skin_B$ represent the \emph{same} standing content for $S$
+(i.e.\ there exists a presentation $X$ for which both factor as in \eqref{eq:standing-presentation}),
+then any admissible transport implementing that assertion must induce a bijection on standing quotients
+and is therefore transport-complete for $S$ (Definition~\ref{def:transport-complete}).
+Equivalently: within minimal coherence, ``empirical equivalence on $S$'' plus ``same-scope identity''
+already implies transport completeness; it is not an optional strengthening.
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:standing-quotient-unique}, each skin's standing state space is uniquely
+$P(\Skin_\bullet)/\!\sim_S$ up to bijection.
+A transport implementing ``same-scope identity'' must therefore identify standing classes bijectively.
+If it failed transport completeness, some $S$-distinguishable pair in one skin would map to an
+$S$-indistinguishable pair in the other, contradicting the uniqueness of standing state spaces and violating
+stable reference (MC1/MC3). Hence any same-scope transport must be transport-complete.
+\end{proof}
+
+\begin{theorem}[No nontrivial standing-repair or canonical-selection operators]\label{thm:no-repair}
+Fix a scope $S$ and assume minimal coherence.
+There is no admissible operator that, without enlarging the scope or adding new load, refines standing beyond
+$\sim_S$ or selects a standing-relevant canonical representative from each standing class.
+More precisely:
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item Any rule that distinguishes two points $\mathbf{p}\sim_S\mathbf{p}'$ as different identity-bearing
+states is a standing failure (Definition~\ref{def:failure}).
+\item Any ``canonical representative'' selector $s:P(\Skin)/\!\sim_S\to P(\Skin)$ (a section of the quotient map)
+may be used as a calculational convenience (gauge choice), but cannot be standing-relevant:
+treating $s([\mathbf{p}])$ as identity-grounding constitutes representational privilege and breaks (MC1).
+\item Consequently, typicality/measure/choice-selection operators that require a canonical representative or a
+non-invariant measure on representatives are inadmissible inside the same-scope interior; using them is an
+illicit scope transport (Definition~\ref{def:failure}(c)).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) If $\mathbf{p}\sim_S\mathbf{p}'$ then by definition no $S$-observable witnesses any distinction between them.
+Declaring them different identity-bearing states therefore introduces hidden unwitnessed structure or privileged
+representation, i.e.\ a standing failure.
+
+(ii) A section $s$ chooses one representative per standing class. If $s$ is treated as standing-relevant, then the
+identity of the referent depends on the choice of section, i.e.\ on a privileged representation. This violates
+(MC1). Therefore $s$ can exist only as gauge convenience: any two choices of section are admissibly related and
+must not be used to generate new standing content.
+
+(iii) A typicality or choice-selection operator requires additional structure beyond the standing class to define
+``most'' or ``selected'' representatives (a measure, reference class, selector).
+If that structure is not invariant under admissible redescription, it is representational privilege; if it is
+kept fixed anyway, it imports non-witnessed anchoring and is therefore an illicit scope transport.
+Either way it is inadmissible inside the same-scope interior.
+\end{proof}
+
+\begin{remark}[Common ``standing repairs'' and why they fail fast]\label{rem:repair-catalog}
+Hostile reports often propose a meta-level ``repair'' to evade a closure result: add a selector, add a measure,
+add a completion operator, add a genericity/typicality rule, etc.
+Inside the present governance discipline these all reduce to the same typed failure:
+they attempt to introduce standing-relevant structure not fixed by $\sim_S$ and therefore not witnessed in scope $S$.
+Typical examples include:
+\begin{itemize}[leftmargin=2.2em]
+\item \emph{Canonical representative selection} (choose a preferred element of each $[\mathbf{p}]$): violates
+Theorem~\ref{thm:no-repair}(ii) unless treated as pure gauge convenience.
+\item \emph{Typicality/measure postulates} on representatives (``most'' points in a class): require a non-invariant
+measure or reference-class choice and are therefore representational privilege or illicit scope transport.
+\item \emph{Choice-selection operators} (pick one completion/branch when multiple are $S$-indistinguishable):
+introduce hidden unwitnessed structure unless the choice is itself witnessed (scope change).
+\item \emph{Completion/totalization operators} that claim to make partial data ``total'' without new load:
+they are either redundant relabelings of $\mathrm{NF}_S$ (no new standing) or alter witness content (scope change).
+\item \emph{Genericity forcing / saturation / compactness-as-operator} repairs: these are meta-existence moves that
+select a privileged enlargement or completion; absent new standing witnesses they collapse back to representational
+privilege, and with witnesses they are scope changes.
+\end{itemize}
+The paper therefore fail-closes: such repairs are admissible only if they are exhibited as explicit load and scope
+changes with new witnesses, not as same-scope ``equivalence completions.''
+\end{remark}
+
+
+
+
+\begin{corollary}[Duality reduction]\label{cor:duality-reduction}
+Let $\Skin_A,\Skin_B$ be any two skins (including duality-related reorganizations) that agree on all
+$S$-predictions and preserve standing under minimal coherence.
+Then they determine the same standing quotient up to isomorphism:
+\[
+P(\Skin_A)/\!\sim_S\ \cong\ P(\Skin_B)/\!\sim_S,
+\]
+and hence cannot introduce additional invariant witnesses for $S$ beyond those already present in the
+canonical normal form $\mathrm{NF}_S$ (Definition~\ref{def:NF-skin}).
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:standing-quotient-unique}, each skin's standing state space is uniquely its quotient.
+Agreement on all $S$-predictions implies the quotients have identical prediction rule, hence are isomorphic as
+standing presentations. Any purported new witness would refine standing beyond $\sim_S$, contradicting
+Theorem~\ref{thm:no-repair}(i).
+\end{proof}
+
+\begin{theorem}[Maximality: no proper standing-preserving extension of $\Ad_S$]\label{thm:maximality}
+Fix a scope $S$ and assume minimal coherence.
+Let $\Ad_S$ be the admissibility groupoid of same-scope equivalences (Theorem~\ref{thm:coherence-groupoid}).
+There is no proper enlargement of $\Ad_S$ that preserves the same scope $S$, introduces no new load,
+and remains minimally coherent. Any additional ``operator'' or ``morphism'' either:
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item factors through the standing quotient and therefore adds no new standing content (redundancy), or
+\item changes the witness content and is therefore a scope change, or
+\item violates minimal coherence via a standing-failure mode.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Let $F$ be any additional same-scope map introduced on top of $\Ad_S$.
+If $F$ preserves $S$-predictions, then it cannot distinguish $\sim_S$-equivalent points: if
+$\mathbf{p}\sim_S\mathbf{p}'$ but $F(\mathbf{p})\neq F(\mathbf{p}')$, then $F$ would introduce an identity-bearing
+distinction with no $S$-witness, contradicting Theorem~\ref{thm:no-repair}(i). Thus $F$ is constant on
+$\sim_S$-classes. Let $q:P(\Skin)\to P(\Skin)/\!\sim_S$ be the quotient map and define
+$\widetilde F([\mathbf{p}]):=F(\mathbf{p})$. This is well-defined and satisfies $F=\widetilde F\circ q$; uniqueness
+follows from surjectivity of $q$. Hence $F$ adds no standing content beyond the quotient and is redundancy.
+
+If $F$ does not preserve $S$-predictions, then by definition it changes the witness content and is a scope change.
+If $F$ purports to preserve $S$ while distinguishing $\sim_S$-equivalent points or selecting standing-relevant
+representatives, it violates Theorem~\ref{thm:no-repair} and hence minimal coherence.
+Therefore there is no proper same-scope standing-preserving extension of $\Ad_S$.
+\end{proof}
+
+\subsection{Typed primitives}
+
+\begin{definition}[Bookkeeping skin]\label{def:skin}
+A \emph{bookkeeping skin} $\Skin$ is a regime-scoped representational scheme: it specifies
+(i) a choice of variables/fields/parameters, and (ii) rules for computing predictions or invariant
+quantities in that regime.
+\end{definition}
+
+
+
+\begin{definition}[Scope]\label{def:scope}
+A \emph{scope} $S$ is a specification of:
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item a regime (energy/momentum range, on-shell/off-shell conditions, and degrees retained);
+\item a class of admissible questions/observables (e.g.\ low-energy CC contact amplitudes; pure QED
+scattering; on-shell high-energy longitudinal amplitudes);
+\item an admissible error discipline, if approximations are used (e.g.\ ``up to $\cO(p^2/m_W^2)$'').
+\end{enumerate}
+All standing and witness claims in this paper are \emph{scope-indexed}: a parameter can be redundant for
+one scope and standing-relevant for a larger scope.
+\end{definition}
+
+\begin{definition}[Scope-equivalent skins]\label{def:scope-equivalent}
+Two skins $\Skin_A,\Skin_B$ are \emph{scope-equivalent} for $S$ if there exist admissible transports
+$T_{A\to B}$ and $T_{B\to A}$ such that, for every observable $\mathcal{O}$ admitted by $S$,
+the predictions agree:
+\[
+\mathrm{Pred}_{A}(\mathcal{O};\mathbf{p})=\mathrm{Pred}_{B}(\mathcal{O};T_{A\to B}(\mathbf{p}))
+\quad\text{and}\quad
+\mathrm{Pred}_{B}(\mathcal{O};\mathbf{q})=\mathrm{Pred}_{A}(\mathcal{O};T_{B\to A}(\mathbf{q})).
+\]
+\end{definition}
+
+\begin{definition}[Transport completeness]\label{def:transport-complete}
+An admissible transport $T:\Skin_A\to\Skin_B$ is \emph{transport-complete} for scope $S$ if $\Skin_B$
+retains enough data to reproduce \emph{all} standing-relevant distinctions of $\Skin_A$ that affect
+$S$-observables. Equivalently: whenever two parameter points $\mathbf{p},\mathbf{p}'$ in $\Skin_A$ yield
+different predictions for some $\mathcal{O}\in S$, their transports $T(\mathbf{p}),T(\mathbf{p}')$ differ
+in at least one invariant witness of $\Skin_B$.
+\end{definition}
+
+\begin{remark}[EFT truncation is not ``admissible equivalence'' without an error envelope]\label{rem:eft}
+An $\EFT$ may be an admissible skin for a scope $S$ only if it is \emph{matching-complete for $S$}:
+all operators whose coefficients affect $S$ within the declared error tolerance are included, or else an
+explicit error envelope is carried as part of the witness bookkeeping.
+A truncated $\EFT$ presented as exact equivalence is inadmissible under the fail-closed discipline.
+\end{remark}
+
+\begin{remark}[No existence-by-assertion of admissible skins]\label{rem:no-existence-by-assertion}
+Admissibility is fail-closed: the existence of an admissible skin, transport, or ``further equivalence'' is
+not a matter of plausibility. Any alleged additional admissible move must be exhibited by explicit construction
+and supplied with a transport certificate (Definition~\ref{def:certificate}) inside the declared load and the
+declared scope. Bare existential claims (``there may exist some other admissible skin not considered'') do not
+reopen the space.
+\end{remark}
+
+
+\begin{definition}[Standing]\label{def:standing}
+\emph{Standing} is the referential identity of the quantities tracked by the bookkeeping.
+A datum has standing if it is invariant under all admissible redescriptions \emph{and} is transportable
+across admissible regime interfaces without importing extra load.
+\end{definition}
+
+\begin{definition}[Admissible redescription]\label{def:redescription}
+An \emph{admissible redescription} within a skin is any transformation that preserves (i) regime of
+applicability and (ii) standing of tracked referents. Examples in \SM bookkeeping include:
+field redefinitions, unitary flavor-basis rotations, rephasings, gauge-fixing changes, and
+reparameterizations that leave invariant content unchanged.
+\end{definition}
+
+\begin{definition}[Admissible transport]\label{def:transport}
+A \emph{transport map} $T:\Skin_A\to\Skin_B$ is an explicit rule mapping data in $\Skin_A$ to data in
+$\Skin_B$ that describe the same physical content in an overlapping regime (matching, integrating out,
+unbroken$\leftrightarrow$broken transport, on-shell reduction, etc.).
+Transport is \emph{admissible} if it preserves standing and introduces no new load outside
+Definition~\ref{def:declared-load}.
+\end{definition}
+
+\begin{definition}[Invariant witness set]\label{def:witness}
+Let $\Skin$ be a skin. An \emph{invariant witness set} $\Wit(\Skin)$ is a set of quantities
+(or equivalence classes) such that:
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item each element of $\Wit(\Skin)$ is invariant under every admissible redescription in $\Skin$;
+\item for every admissible transport $T:\Skin\to\Skin'$, the transported standing-relevant content depends
+only on the images of $\Wit(\Skin)$.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Witness rank]\label{def:witness-rank}
+Fix a scope $S$.
+The \emph{witness rank} for $S$ is the minimal \emph{cardinality} (finite or infinite) of independent real
+parameters required to specify a minimal invariant witness set sufficient to determine all $S$-predictions,
+with discrete skeleton labels held fixed.
+Independence is understood within the explicit certificate discipline of this paper: admissible witnesses and
+transports must be finitely presented and evaluable from the declared load, so pathological ``oracle encodings''
+(e.g.\ hiding unbounded information in digits of a single real) are excluded as inadmissible.
+(Throughout, ``rank'' comparisons concern this continuous coordinate cardinality; discrete skeleton data are
+treated separately.)
+\end{definition}
+
+\begin{remark}[Finite vs.\ functional witness rank]\label{rem:witness-rank-functional}
+The witness rank may be infinite when the admitted scope requires genuinely functional data (e.g.\ a spectral
+density rather than finitely many numbers). In such cases, ``rank'' comparisons are understood as cardinal
+comparisons. See Proposition~\ref{prop:em-hvp} for an explicit example in the electromagnetic sector.
+\end{remark}
+
+\begin{remark}[Finite-dimensional regular case]\label{rem:witness-rank-regular}
+In the finite-parameter sectors treated in this paper, prediction maps and witness functions are analytic in the
+continuous parameters away from thresholds. In that regular setting the witness-rank bound of
+Theorem~\ref{thm:witness-counting} matches ordinary parameter counting: if the standing quotient carries the structure
+of a finite-dimensional smooth manifold, any smooth injective witness map into $\mathbb{R}^m$ implies
+$\dim\!\left(P(\Skin)/\!\sim_S\right)\le m$ (invariance of domain / rank theorem). The cardinal formulation is retained
+only to accommodate scopes with functional witnesses (Remark~\ref{rem:witness-rank-functional}).
+\end{remark}
+
+
+\begin{definition}[Standing equivalence for a scope]\label{def:standing-equiv}
+Fix a scope $S$ and a skin $\Skin$ with parameter space $P(\Skin)$.
+For $\mathbf{p},\mathbf{p}'\in P(\Skin)$ write $\mathbf{p}\sim_S \mathbf{p}'$ iff, for every observable
+$\mathcal{O}$ admitted by $S$,
+\[
+\mathrm{Pred}_{\Skin}(\mathcal{O};\mathbf{p})=\mathrm{Pred}_{\Skin}(\mathcal{O};\mathbf{p}')
+\]
+within the error discipline declared by $S$ (Definition~\ref{def:scope}).
+\end{definition}
+
+\begin{definition}[Standing state space / quotient]\label{def:standing-quotient}
+The \emph{standing state space} of $\Skin$ for scope $S$ is the quotient set $P(\Skin)/\!\sim_S$.
+No canonical representative is assumed or required: only equivalence classes are used.
+\end{definition}
+
+\begin{lemma}[Scope-equivalence induces an isomorphism of standing quotients]\label{lem:quotient-iso}
+Let $\Skin_A,\Skin_B$ be scope-equivalent skins for $S$ (Definition~\ref{def:scope-equivalent}).
+Assume there are admissible transports $T_{A\to B}$ and $T_{B\to A}$ that are transport-complete for $S$
+(Definition~\ref{def:transport-complete}).
+Then $T_{A\to B}$ induces a bijection of standing state spaces
+\[
+P(\Skin_A)/\!\sim_S\;\cong\; P(\Skin_B)/\!\sim_S.
+\]
+\end{lemma}
+
+\begin{proof}
+If $\mathbf{p}\sim_S \mathbf{p}'$ in $\Skin_A$, then for every $\mathcal{O}\in S$ we have
+$\mathrm{Pred}_A(\mathcal{O};\mathbf{p})=\mathrm{Pred}_A(\mathcal{O};\mathbf{p}')$.
+By scope-equivalence, $\mathrm{Pred}_B(\mathcal{O};T_{A\to B}(\mathbf{p}))=
+\mathrm{Pred}_A(\mathcal{O};\mathbf{p})$ and similarly for $\mathbf{p}'$, hence
+$T_{A\to B}(\mathbf{p})\sim_S T_{A\to B}(\mathbf{p}')$.
+Thus $T_{A\to B}$ is well-defined on the quotient.
+
+If $\mathbf{p}\not\sim_S \mathbf{p}'$, then some $\mathcal{O}\in S$ differs in prediction.
+Transport completeness implies the transported points differ in standing-relevant witness content for $S$ in
+$\Skin_B$, hence are not $\sim_S$-equivalent. Therefore the induced map on quotients is injective.
+Applying the same argument to $T_{B\to A}$ yields an inverse on quotients, hence bijectivity.
+\end{proof}
+
+
+
+\begin{definition}[Tensor load]\label{def:tensor-load}
+For a fixed scope, the \emph{tensor load} is the minimal data required to fix all invariant witnesses
+across all admissible skins for that scope. Parameters not required to fix witnesses have no standing
+for that scope (redundancy) unless supported by additional invariant witnesses \emph{in every} admissible skin.
+\end{definition}
+
+\subsection{Standing failures: the diagnostic taxonomy}
+
+\begin{definition}[Standing-failure modes]\label{def:failure}
+A purported independent degree of freedom is a \emph{standing failure} if maintaining its independence
+requires at least one of:
+\begin{enumerate}[label=(\alph*),leftmargin=2.2em]
+\item \textbf{hidden unwitnessed structure}: dependence on data not represented by any invariant witness;
+\item \textbf{representational privilege}: privileging a particular skin/basis/parameterization as identity-grounding;
+\item \textbf{illicit scope transport}: importing structure justified only outside the declared scope;
+\item \textbf{compensating load/patching}: adding fields/operators/sectors forbidden by the declared load.
+\end{enumerate}
+\end{definition}
+
+\subsection{The engine theorem}
+
+\begin{theorem}[Standing rank bound (witness counting)]\label{thm:witness-counting}
+Fix a scope $S$ (Definition~\ref{def:scope}) and the declared load.
+Let $\Skin_A,\Skin_B$ be scope-equivalent skins for $S$ (Definition~\ref{def:scope-equivalent}) and assume
+there exist admissible transports between them that are transport-complete for $S$
+(Definition~\ref{def:transport-complete}).
+Let $P(\Skin_A)$ be parameterized by $n$ real coordinates $\mathbf{p}=(p_1,\dots,p_n)$, with all discrete
+skeleton labels held fixed.
+
+Let $m$ be the witness rank for $S$ (Definition~\ref{def:witness-rank}); equivalently, $m$ is the minimal
+cardinality of real parameters needed to coordinatize the standing state space $P(\Skin_B)/\!\sim_S$
+(Definition~\ref{def:standing-quotient}).
+Then $\Skin_A$ cannot carry more than $m$ independent standing-relevant continuous degrees of freedom for $S$.
+In particular, if $n>m$ then $\mathbf{p}$ contains redundancy directions for $S$; maintaining them as
+``standing'' requires a standing failure (Definition~\ref{def:failure}).
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:quotient-iso}, scope-equivalence with transport completeness induces a bijection
+\[
+P(\Skin_A)/\!\sim_S\ \cong\ P(\Skin_B)/\!\sim_S.
+\]
+Hence it suffices to bound the standing coordinate cardinality in $\Skin_B$.
+
+Let $\Wit_S(\Skin_B)=\{w_i\}_{i\in I}$ be a \emph{minimal} invariant witness set determining all $S$-predictions,
+where $I$ is an index set of cardinality $|I|=m$ (Definition~\ref{def:witness-rank}).
+Define the \emph{witness evaluation map}
+\[
+w_B:\ P(\Skin_B)\longrightarrow \mathbb{R}^{I},\qquad
+w_B(\mathbf{p}) := \big(w_i(\mathbf{p})\big)_{i\in I},
+\]
+where $\mathbb{R}^{I}$ denotes the set of functions $I\to\mathbb{R}$ (finite-dimensional vectors when $I$ is finite).
+
+Because $\Wit_S(\Skin_B)$ determines all $S$-predictions, for each $\mathcal{O}\in S$ there exists a function
+$F_{\mathcal{O}}:\mathbb{R}^{I}\to\mathbb{R}$ such that
+\[
+\mathrm{Pred}_{\Skin_B}(\mathcal{O};\mathbf{p}) \;=\; F_{\mathcal{O}}\!\big(w_B(\mathbf{p})\big)
+\qquad (\forall\,\mathbf{p}\in P(\Skin_B)).
+\]
+In particular, if $w_B(\mathbf{p})=w_B(\mathbf{p}')$, then $\mathrm{Pred}_{\Skin_B}(\mathcal{O};\mathbf{p})
+=\mathrm{Pred}_{\Skin_B}(\mathcal{O};\mathbf{p}')$ for all $\mathcal{O}\in S$, hence
+$\mathbf{p}\sim_S\mathbf{p}'$ by Definition~\ref{def:standing-equiv}.
+Thus $w_B$ is constant on $\sim_S$-classes and induces a well-defined map on the quotient,
+\[
+\overline w_B:\ P(\Skin_B)/\!\sim_S\ \longrightarrow\ \mathbb{R}^{I},
+\qquad \overline w_B([\mathbf{p}]):=w_B(\mathbf{p}).
+\]
+
+Moreover, $\overline w_B$ is injective: if $[\mathbf{p}]\neq[\mathbf{p}']$ then $\mathbf{p}\not\sim_S\mathbf{p}'$,
+so some $\mathcal{O}\in S$ has $\mathrm{Pred}_{\Skin_B}(\mathcal{O};\mathbf{p})\neq
+\mathrm{Pred}_{\Skin_B}(\mathcal{O};\mathbf{p}')$.
+But then necessarily $w_B(\mathbf{p})\neq w_B(\mathbf{p}')$, otherwise all $S$-predictions would coincide by the
+display above. Hence $\overline w_B([\mathbf{p}])\neq \overline w_B([\mathbf{p}'])$.
+
+Therefore $P(\Skin_B)/\!\sim_S$ embeds into $\mathbb{R}^{I}$ and can carry at most $|I|=m$ independent real
+coordinates (in the cardinal sense when $m$ is infinite). The same bound holds for $\Skin_A$ because its
+standing quotient is bijective to that of $\Skin_B$.
+
+If $\Skin_A$ is written with $n>m$ real coordinates, then the quotient map
+$P(\Skin_A)\to P(\Skin_A)/\!\sim_S$ cannot be injective: there exist distinct parameter points in $P(\Skin_A)$
+representing the same standing class. Any coordinate direction along such fibers is redundancy for scope $S$.
+Maintaining such coordinates as ``standing'' would require either denying transport completeness/scope-equivalence,
+or importing additional standing structure (new witnesses, privileged parameterization, or hidden load),
+i.e.\ a standing-failure mode (Definition~\ref{def:failure}).
+\end{proof}
+
+\begin{remark}[Scope-indexed, not global]\label{rem:scope-index}
+Theorem~\ref{thm:witness-counting} does \emph{not} claim that a parameter redundant for one scope is
+redundant in all scopes. Enlarging $S$ (e.g.\ by including higher-energy observables) can increase the
+minimal witness rank and restore standing to parameters previously redundant in a restricted regime.
+\end{remark}
+
+
+\subsection{Transport certificates: how every collapse will be audited}
+
+\begin{definition}[Transport certificate schema]\label{def:certificate}
+A \emph{transport certificate} for a collapse lemma consists of:
+\begin{enumerate}[label=(\textbf{C\arabic*}),leftmargin=2.8em]
+\item explicit identification of the input skin $\Skin_A$ (variables and parameters);
+\item explicit identification of the output skin $\Skin_B$ (witness quantities);
+\item an explicit admissible transport $T:\Skin_A\to\Skin_B$ (matching, reduction, or redescription);
+\item an explicit computation of $\Wit(\Skin_B)$ and its rank;
+\item the rank comparison and the resulting redundancy/standing-failure diagnosis by
+Theorem~\ref{thm:witness-counting}.
+\end{enumerate}
+\end{definition}
+
+\section{Parameter normal form: fully worked witness collapses}
+
+\subsection{Charged-current collapse to $G_F$ (fully worked)}
+
+\begin{lemma}[Charged-current collapse in the contact-interaction scope]\label{lem:cc}
+Let $S_{\CC}^{(6)}$ be the \emph{charged-current contact scope} defined by $p^2\ll m_W^2$ and retention
+of the leading dimension-6 four-fermion operator, with corrections treated as
+$\cO(p^2/m_W^2)$ (Definition~\ref{def:scope}).
+In $S_{\CC}^{(6)}$, admissible transport from the renormalizable mediator skin to the four-fermion
+$\EFT$ skin exposes a single invariant witness $G_F$. Consequently, the pair $(g_2,v)$ overcounts
+tensor load for \emph{this restricted scope}: only the combination $G_F/\sqrt2=g_2^2/(8m_W^2)$ has
+standing as charged-current strength in $S_{\CC}^{(6)}$.
+\end{lemma}
+
+\begin{proof}
+We present a transport certificate in the sense of Definition~\ref{def:certificate}.
+
+\paragraph{(C1) Input skin $\Skin_W$ (mediator bookkeeping).}
+In the electroweak gauge skin, charged currents couple to $W^\pm$ with coupling $g_2$:
+\begin{equation}\label{eq:LintW}
+\mathcal{L}_{\text{int}}^{\CC} \;=\; -\frac{g_2}{\sqrt{2}}\Big(W^+_\mu J_-^\mu + W^-_\mu J_+^\mu\Big),
+\qquad
+J_+^\mu := \bar\psi_1\gamma^\mu P_L \psi_2,
+\end{equation}
+where $P_L=(1-\gamma_5)/2$ and $J_-^\mu=(J_+^\mu)^\dagger$.
+
+\paragraph{(C2) Mediator mass from the Higgs kinetic term.}
+Write the Higgs doublet in unitary gauge as
+\begin{equation}
+H(x)=\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0\\ v+h(x)
+\end{pmatrix}.
+\end{equation}
+The gauge-covariant derivative is
+\begin{equation}
+D_\mu = \partial_\mu - i\frac{g_2}{2}\tau^a W^a_\mu - i g_1 Y B_\mu.
+\end{equation}
+The Higgs kinetic term $(D_\mu H)^\dagger(D^\mu H)$ contains the charged gauge-boson mass term.
+Using $W^\pm_\mu=(W^1_\mu\mp i W^2_\mu)/\sqrt2$ and the Pauli matrices,
+one finds the quadratic term
+\begin{equation}\label{eq:mWterm}
+(D_\mu H)^\dagger(D^\mu H)\supset \frac{g_2^2 v^2}{4}\,W^+_\mu W^{-\mu}.
+\end{equation}
+Therefore
+\begin{equation}\label{eq:mW}
+m_W^2=\frac{g_2^2 v^2}{4}, \qquad m_W=\frac{g_2 v}{2}.
+\end{equation}
+
+\paragraph{(C3) Output skin $\Skin_F$ (low-energy four-fermion bookkeeping).}
+In the low-energy charged-current $\EFT$ skin,
+\begin{equation}\label{eq:GFdef}
+\mathcal{L}_{\EFT}^{\CC} \;=\; -\frac{G_F}{\sqrt2}\,
+\big(\bar\psi_1\gamma^\mu (1-\gamma_5)\psi_2\big)
+\big(\bar\psi_3\gamma_\mu (1-\gamma_5)\psi_4\big).
+\end{equation}
+Here $G_F$ is the \emph{single} coupling witnessing charged-current strength in this regime.
+
+\paragraph{(C4) Admissible transport $T:\Skin_W\to\Skin_F$ (integrate out $W$).}
+In the regime $p^2\ll m_W^2$, kinetic terms for $W$ are subleading for matching and we may integrate out
+$W$ at tree level by solving its algebraic equation of motion from the mass plus interaction terms:
+\begin{equation}
+\mathcal{L}\supset m_W^2 W^+_\mu W^{-\mu} -\frac{g_2}{\sqrt2}\Big(W^+_\mu J_-^\mu+W^-_\mu J_+^\mu\Big).
+\end{equation}
+Varying with respect to $W^-_\mu$ gives
+\begin{equation}
+m_W^2 W^{+\mu} - \frac{g_2}{\sqrt2}J_+^\mu =0
+\quad\Rightarrow\quad
+W^{+\mu}=\frac{g_2}{\sqrt2 m_W^2}J_+^\mu,
+\end{equation}
+and similarly $W^{-\mu}=\frac{g_2}{\sqrt2 m_W^2}J_-^\mu$. Substituting back yields the effective operator
+\begin{equation}\label{eq:LeffJJ}
+\mathcal{L}_{\mathrm{eff}}^{\CC}
+=
+-\frac{g_2^2}{2m_W^2}\, J_+^\mu J_{-\mu}.
+\end{equation}
+Now rewrite the left-handed currents in terms of $(1-\gamma_5)$:
+\begin{equation}
+J_+^\mu J_{-\mu}
+=
+\big(\bar\psi_1\gamma^\mu P_L\psi_2\big)\big(\bar\psi_3\gamma_\mu P_L\psi_4\big)
+=
+\frac{1}{4}\big(\bar\psi_1\gamma^\mu (1-\gamma_5)\psi_2\big)\big(\bar\psi_3\gamma_\mu (1-\gamma_5)\psi_4\big).
+\end{equation}
+Hence
+\begin{equation}\label{eq:matchGF}
+\mathcal{L}_{\mathrm{eff}}^{\CC}
+=
+-\frac{g_2^2}{8m_W^2}\,
+\big(\bar\psi_1\gamma^\mu (1-\gamma_5)\psi_2\big)\big(\bar\psi_3\gamma_\mu (1-\gamma_5)\psi_4\big),
+\end{equation}
+and matching to \eqref{eq:GFdef} gives
+\begin{equation}\label{eq:GFmatch}
+\frac{G_F}{\sqrt2}=\frac{g_2^2}{8m_W^2}.
+\end{equation}
+Using \eqref{eq:mW} yields
+\begin{equation}\label{eq:GFv}
+\frac{G_F}{\sqrt2}=\frac{g_2^2}{8(g_2^2 v^2/4)}=\frac{1}{2v^2}
+\quad\Rightarrow\quad
+G_F=\frac{1}{\sqrt2\,v^2}.
+\end{equation}
+
+\paragraph{(C5) Witness rank and collapse.}
+The low-energy $\CC$ skin witnesses interaction strength by the single parameter $G_F$.
+The mediator skin uses $(g_2,v)$, but transport collapses all charged-current dependence to the
+single combination in \eqref{eq:GFmatch} (equivalently \eqref{eq:GFv}).
+
+Therefore $\Wit(\Skin_F)$ has rank $1$ while $(g_2,v)$ has rank $2$ in the mediator parameterization.
+By Theorem~\ref{thm:witness-counting}, $(g_2,v)$ cannot represent two independent standing-relevant
+degrees for low-energy charged-current phenomena. The extra degree is redundancy for this scope.
+\end{proof}
+
+\begin{remark}[Scope warning for Lemma~\ref{lem:cc}]\label{rem:cc-scope}
+Lemma~\ref{lem:cc} is deliberately restricted to the contact-interaction scope $S_{\CC}^{(6)}$.
+If the scope is enlarged to resolve momentum dependence of the $W$ propagator (or higher-dimension
+operators in the $\EFT$), additional invariant witnesses appear (e.g.\ a witness for $m_W$),
+and the ``collapse to $G_F$ alone'' no longer holds. This is an instance of
+Remark~\ref{rem:scope-index}.
+\end{remark}
+
+\begin{proposition}[Worked example: enlarging $S_{\CC}^{(6)}$ forces an additional witness]\label{prop:cc-p2}
+Let $S_{\CC}^{(8)}$ be the \emph{extended charged-current scope} in which one resolves the leading
+momentum dependence of the $W$ propagator: one retains the first correction of order $p^2/m_W^2$
+beyond the contact limit, with residual errors treated as $\cO(p^4/m_W^4)$.
+Equivalently, in the $\EFT$ skin one retains the dimension-6 four-fermion operator together with the
+leading derivative-dressed (dimension-8) correction required to reproduce the $p^2/m_W^2$ term.
+Then $S_{\CC}^{(8)}$ contains \emph{two} independent invariant witnesses, which may be taken as
+$\{G_F,m_W\}$ (or equivalently $\{C_6,C_8\}$, the coefficients of the dimension-6 and dimension-8 operators).
+In particular, $m_W$ is an invariant witness in $S_{\CC}^{(8)}$ and cannot be eliminated as redundancy in
+that enlarged scope.
+\end{proposition}
+
+\begin{proof}
+Work at tree level and consider a generic left-handed current--current process mediated by $W$
+exchange with momentum transfer $p$.
+The full mediator skin gives the amplitude factor (suppressing spinors and group factors already fixed
+in Lemma~\ref{lem:cc})
+\begin{equation}\label{eq:cc-prop-factor}
+\mathcal{M}(p^2)\;\propto\; -\frac{g_2^2}{8}\,\frac{1}{m_W^2-p^2}\,\mathcal{O}_6 \;+\;\cdots ,
+\end{equation}
+where $\mathcal{O}_6$ denotes the Dirac/field structure
+\[
+\mathcal{O}_6 :=
+\big(\bar\psi_1\gamma^\mu(1-\gamma_5)\psi_2\big)\big(\bar\psi_3\gamma_\mu(1-\gamma_5)\psi_4\big),
+\]
+and the ellipsis includes terms proportional to $p_\mu p_\nu/m_W^2$ in the massive-vector propagator.
+Those terms induce additional derivative operators but are suppressed by the same scale $m_W$; they do
+not change the witness-counting point made here.
+
+For $p^2\ll m_W^2$, expand the propagator denominator:
+\begin{equation}\label{eq:prop-expand}
+\frac{1}{m_W^2-p^2}
+=
+\frac{1}{m_W^2}\,\frac{1}{1-p^2/m_W^2}
+=
+\frac{1}{m_W^2}\left(1+\frac{p^2}{m_W^2}+\cO\!\left(\frac{p^4}{m_W^4}\right)\right).
+\end{equation}
+Substituting \eqref{eq:prop-expand} into \eqref{eq:cc-prop-factor} yields
+\begin{equation}\label{eq:cc-expanded}
+\mathcal{M}(p^2)\;\propto\;
+-\frac{g_2^2}{8m_W^2}\left(1+\frac{p^2}{m_W^2}+\cO\!\left(\frac{p^4}{m_W^4}\right)\right)\mathcal{O}_6.
+\end{equation}
+Matching the $p^0$ term reproduces Lemma~\ref{lem:cc}:
+\begin{equation}\label{eq:C6def}
+C_6 := \frac{G_F}{\sqrt2}=\frac{g_2^2}{8m_W^2}.
+\end{equation}
+In the enlarged scope $S_{\CC}^{(8)}$, one must also match the $p^2$ term. This requires an additional
+(local) operator in the $\EFT$ skin whose matrix element contributes a factor of $p^2$ relative to
+$\mathcal{O}_6$. One convenient representative (basis-dependent, but sufficient for witness extraction) is
+\begin{equation}\label{eq:O8}
+\mathcal{O}_8 :=
+\big(\bar\psi_1\gamma^\mu(1-\gamma_5)\psi_2\big)\,\Box\,
+\big(\bar\psi_3\gamma_\mu(1-\gamma_5)\psi_4\big),
+\end{equation}
+up to integration by parts and equivalent operator-basis choices.
+The corresponding Wilson coefficient is fixed by \eqref{eq:cc-expanded} as
+\begin{equation}\label{eq:C8def}
+C_8 = \frac{g_2^2}{8m_W^4}=\frac{C_6}{m_W^2}=\frac{G_F}{\sqrt2}\frac{1}{m_W^2}.
+\end{equation}
+Hence the ratio of the two invariant coefficients is
+\begin{equation}\label{eq:ratio}
+\frac{C_8}{C_6}=\frac{1}{m_W^2}.
+\end{equation}
+Within $S_{\CC}^{(8)}$, this ratio is an \emph{invariant witness}: it is extractable from the measured
+momentum dependence of charged-current amplitudes at order $p^2/m_W^2$, and it is not determined by
+$G_F$ alone. Therefore $m_W$ (equivalently $C_8$) is standing-relevant in the enlarged scope and cannot be
+classified as redundancy there. This is precisely the mechanism described abstractly in
+Remark~\ref{rem:scope-index}.
+\end{proof}
+
+
+
+
+\subsection{Electromagnetic collapse to $e$ (fully worked)}
+
+\begin{lemma}[Electromagnetic collapse in the pure-photon scope]\label{lem:em}
+Let $S_{\EM}^{(\gamma)}$ be the \emph{pure-photon electromagnetic scope} in which $Z$ exchange is
+integrated out (or kinematically irrelevant) and electromagnetic observables are mediated by the
+massless gauge field $A_\mu$ alone (Definition~\ref{def:scope}).
+In $S_{\EM}^{(\gamma)}$, admissible transport from electroweak gauge bookkeeping to the QED skin
+exposes a single invariant witness $e$. Consequently, treating $(g_1,g_2)$ as independent
+\emph{electromagnetic} couplings overcounts tensor load for $S_{\EM}^{(\gamma)}$:
+only the combination $e=\frac{g_1 g_2}{\sqrt{g_1^2+g_2^2}}$ has standing as electromagnetic strength in
+that scope.
+\end{lemma}
+
+\begin{proof}
+We again provide a transport certificate.
+
+\paragraph{(C1) Input skin $\Skin_{\mathrm{EW}}$ (neutral gauge bookkeeping).}
+For a fermion field $\psi$ with weak isospin generator $T^3$ and hypercharge $Y$ (convention
+$Q=T^3+Y$),
+\begin{equation}\label{eq:neutral-coupling}
+\mathcal{L}\supset
+\bar\psi\gamma^\mu\big(g_2 T^3 W^3_\mu + g_1 Y B_\mu\big)\psi.
+\end{equation}
+
+\paragraph{(C2) Neutral gauge-boson mass matrix from the Higgs kinetic term.}
+Using the Higgs VEV as in Lemma~\ref{lem:cc}, the neutral part of $(D_\mu H)^\dagger(D^\mu H)$ gives
+\begin{equation}\label{eq:neutral-mass}
+(D_\mu H)^\dagger(D^\mu H)\supset \frac{v^2}{8}\,(g_2 W^3_\mu - g_1 B_\mu)^2.
+\end{equation}
+This quadratic form has one zero eigenvalue (massless photon) and one massive eigenstate ($Z$).
+
+\paragraph{(C3) Diagonalization and definition of $\theta_W$.}
+Define the Weinberg angle by
+\begin{equation}\label{eq:thetaW}
+\tan\theta_W=\frac{g_1}{g_2},\qquad
+\sin\theta_W=\frac{g_1}{\sqrt{g_1^2+g_2^2}},\qquad
+\cos\theta_W=\frac{g_2}{\sqrt{g_1^2+g_2^2}}.
+\end{equation}
+Then the orthogonal rotation
+\begin{equation}\label{eq:rotAZ}
+\begin{pmatrix} A_\mu \\ Z_\mu\end{pmatrix}
+=
+\begin{pmatrix}
+\cos\theta_W & \sin\theta_W\\
+-\sin\theta_W&\cos\theta_W
+\end{pmatrix}
+\begin{pmatrix} B_\mu\\ W^3_\mu\end{pmatrix}
+\end{equation}
+diagonalizes \eqref{eq:neutral-mass}, with $A_\mu$ massless.
+
+\paragraph{(C4) Output skin $\Skin_{\mathrm{QED}}$ (electromagnetic bookkeeping).}
+The QED skin records electromagnetic interactions as
+\begin{equation}\label{eq:qed-skin}
+\mathcal{L}_{\mathrm{QED}}\supset e\,A_\mu\,\bar\psi\gamma^\mu Q \psi,
+\end{equation}
+with a single coupling $e$ and charge operator $Q$.
+
+\paragraph{(C5) Transport map and identification of the witness $e$.}
+Insert \eqref{eq:rotAZ} into \eqref{eq:neutral-coupling}.
+The coefficient of $A_\mu$ becomes
+\begin{align}
+g_2 T^3(\sin\theta_W) + g_1 Y(\cos\theta_W)
+&=
+(g_2\sin\theta_W)\,T^3+(g_1\cos\theta_W)\,Y.
+\end{align}
+Using \eqref{eq:thetaW}, define
+\begin{equation}\label{eq:e-def}
+e:=g_2\sin\theta_W=g_1\cos\theta_W=\frac{g_1 g_2}{\sqrt{g_1^2+g_2^2}}.
+\end{equation}
+Then the $A_\mu$ coupling is
+\begin{equation}
+e\,(T^3+Y)=eQ,
+\end{equation}
+which reproduces the QED form \eqref{eq:qed-skin}. Thus transport identifies \emph{one} electromagnetic
+witness $e$.
+
+\paragraph{(C6) Witness rank and collapse.}
+The QED skin has a single coupling witness $e$ for electromagnetic interaction strength.
+Electroweak bookkeeping uses $(g_1,g_2)$, but in the electromagnetic regime their only standing-relevant
+combination is \eqref{eq:e-def}. Therefore $(g_1,g_2)$ overcounts tensor load for electromagnetic phenomena,
+and Theorem~\ref{thm:witness-counting} forces collapse to $e$ as the unique electromagnetic witness.
+\end{proof}
+
+\begin{remark}[Scope warning for Lemma~\ref{lem:em}]\label{rem:em-scope}
+Lemma~\ref{lem:em} is a statement about the pure-photon scope $S_{\EM}^{(\gamma)}$.
+If the scope is enlarged to include $Z$ exchange, parity-violating neutral currents, or energies where
+electroweak symmetry is effectively restored, then additional invariant witnesses (e.g.\ $\sin\theta_W$,
+$m_Z$) become standing-relevant and the collapse to $e$ alone does not apply.
+\end{remark}
+
+\begin{proposition}[Worked example: enlarging $S_{\EM}^{(\gamma)}$ to include $Z$ exchange forces new witnesses]
+\label{prop:em-Z}
+Let $S_{\EM}^{(\gamma)}$ be the pure-photon scope of Lemma~\ref{lem:em}.
+Define an enlarged scope $S_{\EM}^{(\gamma Z,6)}$ that additionally admits the leading ($q^2\ll m_Z^2$)
+neutral-current correction from $Z$ exchange in scattering of charged fermions, including polarization-
+dependent observables. Then the witness set is strictly enlarged: beyond $e$, a new invariant witness is
+forced, and one may take it to be $s_W^2\equiv\sin^2\theta_W$.
+If the scope is further enlarged to $S_{\EM}^{(\gamma Z,8)}$ which resolves the first propagator correction
+at order $q^2/m_Z^2$, then an additional invariant witness is forced, and one may take it to be $m_Z$.
+\end{proposition}
+
+\begin{proof}
+We exhibit the mechanism explicitly, in the same certificate style as Proposition~\ref{prop:cc-p2}.
+
+\paragraph{(E1) $Z$ coupling and current structure.}
+From the rotation \eqref{eq:rotAZ}, the $Z$ coupling to a fermion with generators $(T^3,Q)$ is
+\begin{equation}\label{eq:Z-coupling}
+\mathcal{L}\supset g_Z\,Z_\mu\,\bar\psi\gamma^\mu\big(T^3-s_W^2 Q\big)\psi,
+\qquad g_Z:=\frac{g_2}{\cos\theta_W}=\sqrt{g_1^2+g_2^2},\qquad s_W\equiv\sin\theta_W.
+\end{equation}
+In particular, for the electron ($Q_e=-1$) one has
+\begin{equation}\label{eq:e-chiral-Z}
+g_L^e = T^3_{e_L}-s_W^2 Q_e=-\frac12+s_W^2,\qquad
+g_R^e = T^3_{e_R}-s_W^2 Q_e=0+s_W^2=s_W^2.
+\end{equation}
+
+\paragraph{(E2) $Z$-exchange amplitude and low-energy expansion.}
+Consider $t$-channel exchange in (for definiteness) electron--electron scattering with momentum transfer
+$q^2$ (spacelike in elastic scattering). The $Z$-exchange contribution has the schematic form
+\begin{equation}\label{eq:MZschem}
+\mathcal{M}_Z(q^2)\;\propto\;-
+\frac{g_Z^2}{m_Z^2-q^2}\,
+\big[g_L^e\,\big(\bar e_L\gamma^\mu e_L\big)+g_R^e\,\big(\bar e_R\gamma^\mu e_R\big)\big]^2,
+\end{equation}
+where $m_Z$ is the $Z$ mass. For $|q^2|\ll m_Z^2$, expand
+\begin{equation}\label{eq:Zprop-expand}
+\frac{1}{m_Z^2-q^2}=\frac{1}{m_Z^2}\left(1+\frac{q^2}{m_Z^2}+\cO\!\left(\frac{q^4}{m_Z^4}\right)\right).
+\end{equation}
+
+\paragraph{(E3) Matching at dimension six: $s_W^2$ becomes a witness.}
+Keeping only the leading term of \eqref{eq:Zprop-expand} (the scope $S_{\EM}^{(\gamma Z,6)}$), the $Z$ exchange
+is represented in an EFT skin by local four-fermion operators. A convenient (chiral) basis is
+\begin{equation}\label{eq:O6em}
+\mathcal{O}^{ee}_{6,ab}:=\big(\bar e_a\gamma^\mu e_a\big)\big(\bar e_b\gamma_\mu e_b\big),\qquad a,b\in\{L,R\},
+\end{equation}
+with Wilson coefficients read off from \eqref{eq:MZschem} at order $q^0/m_Z^2$:
+\begin{equation}\label{eq:C6em}
+C^{ee}_{6,ab}=\frac{g_Z^2}{m_Z^2}\,g_a^e g_b^e\qquad (a,b\in\{L,R\}).
+\end{equation}
+Crucially, the \emph{relative} chiral strengths depend on $s_W^2$ through \eqref{eq:e-chiral-Z}. For example,
+\begin{equation}\label{eq:ratio-sW}
+\frac{C^{ee}_{6,RR}}{C^{ee}_{6,LL}}=\left(\frac{g_R^e}{g_L^e}\right)^2
+=\left(\frac{s_W^2}{s_W^2-\tfrac12}\right)^2,
+\end{equation}
+which is independent of the overall prefactor $g_Z^2/m_Z^2$.
+Within $S_{\EM}^{(\gamma Z,6)}$ (where polarization-dependent observables are admitted), the left--left and
+right--right neutral-current contact strengths are separately measurable in principle, so the ratio
+\eqref{eq:ratio-sW} is an \emph{invariant witness}. It is \emph{not} determined by the pure-photon witness $e$,
+since $e$ does not fix $s_W^2$ (Lemma~\ref{lem:em} only identifies the $A_\mu$ coupling).
+Thus enlarging $S_{\EM}^{(\gamma)}$ to $S_{\EM}^{(\gamma Z,6)}$ forces at least one new witness; a convenient
+choice is $s_W^2$.
+
+\paragraph{(E4) Matching at dimension eight: $m_Z$ becomes a witness.}
+If the scope is enlarged further to $S_{\EM}^{(\gamma Z,8)}$ so that the $q^2/m_Z^2$ term in
+\eqref{eq:Zprop-expand} is within the admitted accuracy, then additional (derivative) operators are required.
+A representative choice mirroring \eqref{eq:O8} is
+\begin{equation}\label{eq:O8em}
+\mathcal{O}^{ee}_{8,ab}:=\big(\bar e_a\gamma^\mu e_a\big)\,\Box\,\big(\bar e_b\gamma_\mu e_b\big)
+\qquad (a,b\in\{L,R\}).
+\end{equation}
+Matching the $q^2$ term yields
+\begin{equation}\label{eq:C8em}
+C^{ee}_{8,ab}=\frac{g_Z^2}{m_Z^4}\,g_a^e g_b^e.
+\end{equation}
+Therefore, for any fixed chiral channel $(a,b)$,
+\begin{equation}\label{eq:ratio-mZ}
+\frac{C^{ee}_{8,ab}}{C^{ee}_{6,ab}}=\frac{1}{m_Z^2}.
+\end{equation}
+In $S_{\EM}^{(\gamma Z,8)}$, the momentum dependence of the neutral-current correction determines the ratio
+\eqref{eq:ratio-mZ}, hence $m_Z$ is a standing-relevant invariant witness there.
+
+\paragraph{Conclusion.}
+The $Z$ contribution is not ``redundancy suppressed by heaviness'': it is simply outside
+$S_{\EM}^{(\gamma)}$. Once the scope is enlarged to admit the corresponding observables (contact neutral currents
+and/or their $q^2$ dependence), additional witnesses are forced by explicit matching, exactly as in
+Proposition~\ref{prop:cc-p2}.
+\end{proof}
+
+\begin{proposition}[Worked example: enlarging a pure-QED photon scope to include hadronic vacuum polarization forces new witnesses]
+\label{prop:em-hvp}
+Let $S_{\EM}^{(\gamma,\ell)}$ denote a \emph{pure-photon QED scope} in which electromagnetic processes are mediated by the photon alone and vacuum-polarization effects are admitted only from the \emph{leptonic} sector (so that the photon vacuum polarization is perturbatively computable within QED, given $e$ and lepton masses).
+Define an enlarged scope $S_{\EM}^{(\gamma,\ell+\mathrm{had})}$ that additionally admits hadronic vacuum-polarization (HVP) corrections to photon exchange at the same perturbative order.
+Then the witness set is strictly enlarged: beyond $e$, additional invariant witnesses are forced.
+If the enlarged scope admits only a \emph{finite} family of HVP-sensitive observables, a finite witness set may be taken as the corresponding finite list of spectral integrals.
+If the enlarged scope admits energy-resolved hadronic production (so that $R_{\mathrm{had}}(s)$ itself is an observable function of $s$) or otherwise a separating family of kernels, the witness is naturally represented by the hadronic spectral function $R_{\mathrm{had}}(s)$ (equivalently the subtracted hadronic vacuum polarization $\Pi_{\mathrm{had}}(q^2)-\Pi_{\mathrm{had}}(0)$), which enters electromagnetic observables through explicit dispersion integrals.
+\end{proposition}
+
+\begin{proof}
+We exhibit the scope enlargement explicitly and identify the new witnesses.
+
+\paragraph{(H1) Photon vacuum polarization and the running coupling as a witness.}
+Let $j_{\rm em}^\mu$ be the electromagnetic current (defined so that the interaction is $\mathcal{L}_{\rm int}=e A_\mu j_{\rm em}^\mu$).
+Define the (transverse) current correlator
+\begin{equation}\label{eq:Pi-def}
+\Pi^{\mu\nu}(q):= i\int d^4x\,e^{iq\cdot x}\,\langle 0|T\,j_{\rm em}^\mu(x)j_{\rm em}^\nu(0)|0\rangle
+=\big(q^\mu q^\nu-q^2 g^{\mu\nu}\big)\,\Pi(q^2).
+\end{equation}
+The photon self-energy is $e^2\Pi^{\mu\nu}$, so resumming vacuum-polarization insertions yields (in a convenient gauge)
+\begin{equation}\label{eq:photon-resummed}
+D_{\mu\nu}(q)=\frac{-ig_{\mu\nu}}{q^2\big(1-\widehat\Pi(q^2)\big)}+\cdots,
+\qquad \widehat\Pi(q^2):=-e^2\big(\Pi(q^2)-\Pi(0)\big),
+\end{equation}
+where the subtraction at $q^2=0$ fixes the on-shell normalization and ``$\cdots$'' are gauge terms that do not affect conserved currents.
+Accordingly, photon-mediated amplitudes acquire the replacement
+\begin{equation}\label{eq:alpha-running}
+\frac{e^2}{q^2}\quad\longmapsto\quad\frac{e^2}{q^2\big(1-\widehat\Pi(q^2)\big)}\equiv \frac{e^2_{\rm eff}(q^2)}{q^2},
+\qquad e^2_{\rm eff}(q^2):=\frac{e^2}{1-\widehat\Pi(q^2)}.
+\end{equation}
+Thus, once vacuum polarization is admitted in the scope, the \emph{function} $\widehat\Pi(q^2)$ (equivalently the running coupling $e_{\rm eff}(q^2)$) is an invariant witness: it is extractable from momentum-dependent electromagnetic observables and cannot be removed by admissible redescription.
+
+\paragraph{(H2) Leptonic-only scope $S_{\EM}^{(\gamma,\ell)}$.}
+In the leptonic-only scope, $\widehat\Pi(q^2)=\widehat\Pi_{\ell}(q^2)$ is perturbatively computable in QED in terms of $e$ and lepton masses.
+No additional, nonperturbative witness is required.
+
+\paragraph{(H3) Enlarged scope $S_{\EM}^{(\gamma,\ell+\mathrm{had})}$ and extraction of a new witness.}
+In the enlarged scope, the vacuum polarization splits as
+\begin{equation}\label{eq:Pi-split}
+\widehat\Pi(q^2)=\widehat\Pi_{\ell}(q^2)+\widehat\Pi_{\mathrm{had}}(q^2).
+\end{equation}
+Consider, for definiteness, $e^+e^-\to\mu^+\mu^-$ at center-of-mass energy $s=q^2$ in a regime where $Z$ exchange is outside the scope (so the amplitude is photon-dominated).
+At leading order in the resummed vacuum polarization, the total cross section can be written as
+\begin{equation}\label{eq:sigma-mumu-running}
+\sigma_{\mu\mu}(s)=\sigma^{(0)}_{\mu\mu}(s)\,\left|\frac{1}{1-\widehat\Pi(s)}\right|^2,
+\qquad \sigma^{(0)}_{\mu\mu}(s)=\frac{4\pi\alpha^2}{3s},\qquad \alpha:=\frac{e^2}{4\pi}.
+\end{equation}
+Therefore the measured ratio
+\begin{equation}\label{eq:Pi-extract}
+\left(\frac{\sigma_{\mu\mu}(s)}{\sigma^{(0)}_{\mu\mu}(s)}\right)^{1/2}-1
+\;\approx\;\Re\,\widehat\Pi(s)
+\end{equation}
+extracts $\widehat\Pi(s)$ as an invariant witness (to the admitted perturbative order).
+Since $\widehat\Pi_{\ell}(s)$ is computable in QED, the hadronic contribution
+\begin{equation}\label{eq:Pi-had-extract}
+\widehat\Pi_{\mathrm{had}}(s)=\widehat\Pi(s)-\widehat\Pi_{\ell}(s)
+\end{equation}
+is itself an invariant witness in the enlarged scope.
+Crucially, $\widehat\Pi_{\mathrm{had}}$ is \emph{not} determined by $e$ (or by the leptonic data) within the pure-QED skin.
+
+\paragraph{(H4) Spectral representation: the hadronic witness is a dispersion integral.}
+Analyticity of the correlator \eqref{eq:Pi-def} implies a subtracted dispersion relation for the scalar function $\Pi(q^2)$:
+\begin{equation}\label{eq:dispersion}
+\Pi(q^2)-\Pi(0)=\frac{q^2}{\pi}\int_{s_{\rm th}}^{\infty}ds\,\frac{\Im\Pi(s)}{s\,(s-q^2-i\epsilon)},
+\end{equation}
+where $s_{\rm th}$ is the hadronic threshold.
+By the optical theorem, the hadronic spectral function is determined by the ratio
+\begin{equation}\label{eq:Rdef}
+R_{\mathrm{had}}(s):=\frac{\sigma(e^+e^-\to\mathrm{hadrons};s)}{\sigma^{(0)}_{\mu\mu}(s)},\qquad \sigma^{(0)}_{\mu\mu}(s)=\frac{4\pi\alpha^2}{3s},
+\end{equation}
+and one has the standard relation
+\begin{equation}\label{eq:ImPi-R}
+R_{\mathrm{had}}(s)=12\pi\,\Im\Pi_{\mathrm{had}}(s).
+\end{equation}
+Inserting \eqref{eq:ImPi-R} into \eqref{eq:dispersion} and multiplying by $-e^2$ yields the explicit spectral integral for the hadronic witness:
+\begin{equation}\label{eq:DeltaAlphaHVP}
+\widehat\Pi_{\mathrm{had}}(q^2)
+=-e^2\,\Re\big(\Pi_{\mathrm{had}}(q^2)-\Pi_{\mathrm{had}}(0)\big)
+=-\frac{\alpha q^2}{3\pi}\,\mathrm{PV}\!\int_{s_{\rm th}}^{\infty}ds\,\frac{R_{\mathrm{had}}(s)}{s\,(s-q^2)}.
+\end{equation}
+Equation \eqref{eq:DeltaAlphaHVP} exhibits the new witness explicitly as a \emph{spectral integral}.
+
+\paragraph{(H5) Kernel families and witness dimension.}
+More generally, in any enlarged electromagnetic scope $S$ admitting HVP-sensitive observables whose hadronic contribution depends linearly on $R_{\mathrm{had}}$, one may write
+\begin{equation}\label{eq:kernel-functional}
+\Delta \mathcal{O}_K \;=\;\int_{s_{\rm th}}^{\infty} ds\,K(s)\,R_{\mathrm{had}}(s),\qquad K\in\mathcal{K}_S,
+\end{equation}
+for a set of admitted kernels $\mathcal{K}_S$ determined by which observables are included in $S$.
+The kernel set $\mathcal{K}_S$ fixes the minimal witness requirement:
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item If $\mathcal{K}_S$ is finite, then a witness set may be taken as the finite list of numbers
+$\big\{\int ds\,K_i(s)\,R_{\mathrm{had}}(s)\big\}$ associated with those kernels.
+\item If $\mathcal{K}_S$ \emph{separates} spectral functions on the admissible class (i.e.\ whenever
+$R\neq R'$ there exists $K\in\mathcal{K}_S$ with $\int K R\neq \int K R'$), then $R_{\mathrm{had}}(s)$ itself is forced as a standing-relevant witness (and the witness rank is infinite in the sense of Remark~\ref{rem:witness-rank-functional}).
+In particular, if the scope admits the energy-resolved ratio $R_{\mathrm{had}}(s)$ of \eqref{eq:Rdef} as an observable function of $s$ (as is typical once HVP is admitted beyond a single integrated observable), then the separating condition holds trivially and a functional witness is unavoidable.
+\end{enumerate}
+Thus, admitting HVP effects enlarges witness rank: at minimum it adds the required spectral integrals, and in the energy-resolved scope it forces the full function $R_{\mathrm{had}}(s)$ (equivalently $\Pi_{\mathrm{had}}(q^2)$), not merely the single coupling witness $e$.
+
+\paragraph{Conclusion.}
+Hadronic vacuum polarization is not ``redundancy suppressed by nonperturbativity''; it is outside the leptonic-only scope.
+Once the scope is enlarged so that HVP-sensitive observables are within the admitted accuracy, new invariant witnesses are forced and are naturally represented by spectral integrals such as \eqref{eq:DeltaAlphaHVP}.
+\end{proof}
+
+\begin{remark}[Scope interface: QED bookkeeping vs.\ QCD content]\label{rem:hvp-scope}
+Proposition~\ref{prop:em-hvp} is a scope statement about what a \emph{pure-QED electromagnetic skin} must import once HVP effects are admitted.
+Within the full Standard Model declared load, the hadronic spectral function $R_{\mathrm{had}}(s)$ is not posited as a new primitive; it is a witness of the QCD sector and can, in principle, be obtained either by direct measurement (via \eqref{eq:Rdef}) or by QCD computation.
+The point here is that it is \emph{not determined by $e$ alone} within the pure-photon QED skin, so enlarging the electromagnetic scope forces new witnesses and therefore cannot be misclassified as ``redundancy.''
+\end{remark}
+
+
+
+
+
+\subsection{Yukawa--mass equivalence (fully worked, scope-explicit)}
+
+\begin{lemma}[Yukawa--mass equivalence, per species]\label{lem:yukawa-mass}
+Fix a fermion species $f$ and work within the declared load.
+In the broken-phase skin, the Yukawa coupling $y_f$ and the electroweak scale $v$ do not represent
+independent standing-relevant degrees: they enter observables only through
+\begin{equation}\label{eq:mf}
+m_f=\frac{y_f v}{\sqrt2},
+\end{equation}
+and (when Higgs interactions are kept) through the ratio $m_f/v$.
+Consequently, $y_f$ has no independent standing beyond $(m_f,v)$, and in the low-energy \emph{mass-only}
+scope the unique witness is $m_f$.
+\end{lemma}
+
+\begin{proof}
+Write the Yukawa operator (schematically; $H$ or $\tilde H$ as appropriate)
+\begin{equation}\label{eq:yukawa}
+\mathcal{L}_Y=-y_f\,\bar f_L H f_R+\mathrm{h.c.}
+\end{equation}
+Insert $H=\frac{1}{\sqrt2}(0,v+h)^T$ to obtain
+\begin{equation}\label{eq:yukawa-expanded}
+\mathcal{L}_Y=-\frac{y_f v}{\sqrt2}\,\bar f f -\frac{y_f}{\sqrt2}\,h\,\bar f f.
+\end{equation}
+The first term is the fermion mass term, hence \eqref{eq:mf}.
+The second term is the Higgs--fermion coupling; using \eqref{eq:mf} it becomes
+\begin{equation}
+-\frac{m_f}{v}\,h\,\bar f f.
+\end{equation}
+Thus, in any broken-phase skin that retains the Higgs field $h$, the Yukawa data appear only as
+$(m_f,v)$ rather than $(y_f,v)$.
+In any low-energy scope where Higgs exchange is integrated out (or irrelevant), standing-relevant
+fermion-sector content is witnessed by $m_f$ alone (thresholds, propagators, kinematics), so $y_f$
+has no independent standing for that restricted scope.
+
+Formally: the input parameterization $(y_f,v)$ has rank $2$, while the witness set for the mass-only
+scope has rank $1$ ($m_f$). By Theorem~\ref{thm:witness-counting}, $(y_f,v)$ cannot be two independent
+standing-relevant degrees in that scope.
+\end{proof}
+
+\begin{remark}[Interpretation warning]\label{rem:yuk-interpret}
+Lemma~\ref{lem:yukawa-mass} does not deny that Higgs--fermion couplings are measurable. It states that,
+within the declared load, such measurements witness the \emph{quotient combinations} $m_f$ and $m_f/v$,
+not an additional standing degree beyond those witnesses for the chosen scope.
+\end{remark}
+
+
+\subsection{QCD CP--odd collapse to $\bar\theta$ (fully worked)}
+
+\begin{lemma}[Strong CP: unique invariant $\bar\theta$]\label{lem:theta}
+In the QCD CP--odd sector, admissible chiral rephasing collapses apparent independence of the
+$\theta$ term and quark-mass phases. The unique standing-relevant invariant is
+\begin{equation}\label{eq:thetabar}
+\bar\theta:=\theta+\arg\det M,
+\end{equation}
+where $M$ is the quark mass matrix.
+\end{lemma}
+
+\begin{proof}
+We show explicitly how admissible rephasing acts, and compute the invariant.
+
+\paragraph{(1) CP--odd operators in the ultraviolet skin.}
+The relevant terms are
+\begin{equation}\label{eq:qcd-cpodd}
+\mathcal{L}\supset
+-\bar q_R M q_L -\bar q_L M^\dagger q_R
++ \frac{g_s^2}{32\pi^2}\,\theta\,G^a_{\mu\nu}\tilde G^{a\mu\nu}.
+\end{equation}
+
+\paragraph{(2) Global axial rephasing of all quark flavors.}
+Consider the (classically admissible) field redefinition
+\begin{equation}\label{eq:axial}
+q\mapsto e^{i\alpha\gamma_5}q,
+\qquad
+q_L\mapsto e^{-i\alpha}q_L,\quad q_R\mapsto e^{+i\alpha}q_R.
+\end{equation}
+Under \eqref{eq:axial}, the mass term transforms as
+\begin{equation}
+-\bar q_R M q_L \;\mapsto\; -\bar q_R e^{-2i\alpha} M q_L,
+\end{equation}
+so
+\begin{equation}\label{eq:argdet-shift}
+\arg\det M\;\mapsto\;\arg\det M -2N_f\alpha,
+\end{equation}
+where $N_f$ is the number of quark flavors rotated.
+
+\paragraph{(3) Anomalous Jacobian and the $\theta$ shift.}
+In the quantum theory, the transformation \eqref{eq:axial} changes the path-integral measure
+(Fujikawa) and induces an additional term in the effective action:
+\begin{equation}\label{eq:theta-shift}
+\theta\;\mapsto\;\theta+2N_f\alpha.
+\end{equation}
+(Equivalently: the axial current has an anomaly proportional to $G\tilde G$, and the chiral rotation
+shifts the coefficient of $G\tilde G$.)
+
+\paragraph{(4) Invariant combination.}
+Combining \eqref{eq:argdet-shift} and \eqref{eq:theta-shift} gives
+\begin{equation}
+\theta+\arg\det M\;\mapsto\;(\theta+2N_f\alpha)+(\arg\det M-2N_f\alpha)=\theta+\arg\det M.
+\end{equation}
+Thus $\bar\theta$ in \eqref{eq:thetabar} is invariant under admissible chiral rephasing.
+Neither $\theta$ nor $\arg\det M$ is separately invariant; hence they do not have independent standing.
+
+\paragraph{(5) Witness rank.}
+Infrared CP--odd hadronic observables depend on a single parameter in this sector; $\bar\theta$ is the
+unique candidate invariant under admissible rephasing.
+Therefore this scope has rank $1$ witness content, forcing collapse to $\bar\theta$ as claimed.
+\end{proof}
+
+\subsection{Neutrino oscillation invariants (fully worked)}
+
+\begin{lemma}[Oscillation witness set]\label{lem:osc}
+In the neutrino oscillation regime, transition probabilities depend only on:
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item mass-squared differences $\Delta m^2_{ij}=m_i^2-m_j^2$,
+\item rephasing-invariant products $U_{\alpha i}U_{\beta i}^\ast U_{\alpha j}^\ast U_{\beta j}$.
+\end{enumerate}
+Absolute mass offsets and rephasing-removable phases are redundancy for oscillation phenomena.
+\end{lemma}
+
+\begin{proof}
+Let $U$ be the mixing matrix relating flavor and mass eigenstates:
+\begin{equation}\label{eq:mix}
+\ket{\nu_\alpha}=\sum_i U_{\alpha i}^\ast \ket{\nu_i}.
+\end{equation}
+In the relativistic limit, propagation of $\ket{\nu_i}$ over baseline $L$ with energy $E$ yields a phase
+$\exp(-i m_i^2 L/(2E))$ (up to an overall common phase that cancels in probabilities). Therefore the
+transition amplitude is
+\begin{equation}\label{eq:amp}
+\mathcal{A}_{\alpha\to\beta}
+=
+\sum_i U_{\beta i}\,e^{-i m_i^2 L/(2E)}\,U_{\alpha i}^\ast.
+\end{equation}
+The probability is
+\begin{align}\label{eq:probfull}
+P_{\alpha\to\beta}
+&=
+|\mathcal{A}_{\alpha\to\beta}|^2
+=
+\sum_{i,j}U_{\beta i}U_{\alpha i}^\ast U_{\beta j}^\ast U_{\alpha j}\,
+\exp\!\left(-i\frac{(m_i^2-m_j^2)L}{2E}\right)\\
+&=
+\sum_{i,j}U_{\beta i}U_{\alpha i}^\ast U_{\beta j}^\ast U_{\alpha j}\,
+\exp\!\left(-i\frac{\Delta m^2_{ij}L}{2E}\right).\nonumber
+\end{align}
+This exhibits the witness set directly: only $\Delta m^2_{ij}$ appear, and only the quartic products
+of $U$ appear.
+
+Now check admissible rephasing invariance. Rephase flavor and mass states by
+\begin{equation}
+\ket{\nu_\alpha}\mapsto e^{i\varphi_\alpha}\ket{\nu_\alpha},
+\qquad
+\ket{\nu_i}\mapsto e^{i\psi_i}\ket{\nu_i}.
+\end{equation}
+Then $U_{\alpha i}\mapsto e^{i\varphi_\alpha}U_{\alpha i}e^{-i\psi_i}$, and the quartic product in
+\eqref{eq:probfull} is invariant:
+\begin{equation}
+U_{\beta i}U_{\alpha i}^\ast U_{\beta j}^\ast U_{\alpha j}
+\mapsto
+(e^{i\varphi_\beta}U_{\beta i}e^{-i\psi_i})
+(e^{-i\varphi_\alpha}U_{\alpha i}^\ast e^{i\psi_i})
+(e^{-i\varphi_\beta}U_{\beta j}^\ast e^{i\psi_j})
+(e^{i\varphi_\alpha}U_{\alpha j}e^{-i\psi_j})
+=
+U_{\beta i}U_{\alpha i}^\ast U_{\beta j}^\ast U_{\alpha j}.
+\end{equation}
+Finally, shifting $m_i^2\mapsto m_i^2+c$ leaves all $\Delta m^2_{ij}$ unchanged and thus produces no
+new witness.
+
+Therefore the oscillation regime witnesses only $\Delta m^2_{ij}$ and the rephasing-invariant quartic
+products, as claimed.
+\end{proof}
+
+\subsection{Longitudinal--Goldstone equivalence (worked proof skeleton)}
+
+\begin{lemma}[Longitudinal amplitude-class collapse]\label{lem:LG}
+In the electroweak high-energy regime $E\gg m_W$, on-shell transport identifies longitudinal vector
+boson amplitudes with Goldstone amplitudes up to $\cO(m_W/E)$ corrections. Consequently, treating
+longitudinal polarizations and Goldstone modes as independent tensor degrees overcounts
+standing-relevant longitudinal content in that regime.
+\end{lemma}
+
+\begin{proof}
+We provide the minimal verifiable chain (the full BRST proof is standard; the steps below isolate the
+standing-relevant content).
+
+\paragraph{(1) On-shell skin and longitudinal polarization.}
+Consider an amplitude with an external massive gauge boson of momentum $p^\mu$.
+A longitudinal polarization vector can be chosen to satisfy
+\begin{equation}\label{eq:epsL}
+\epsilon_L^\mu(p)=\frac{p^\mu}{m_W}+\cO\!\left(\frac{m_W}{E}\right),
+\qquad E\sim |p^0|\gg m_W.
+\end{equation}
+
+\paragraph{(2) Ward/Slavnov--Taylor identity in a broken gauge theory.}
+In $R_\xi$ gauges, BRST invariance yields a Slavnov--Taylor identity relating the contraction of the
+(amputated) gauge amplitude with $p_\mu$ to the amplitude with the corresponding Goldstone field $\pi$.
+A derivation in the present conventions is given in Appendix~\ref{app:LG-proof}.
+For the standing-relevant content we need, it suffices to record the identity in the form
+\begin{equation}\label{eq:ward}
+p_\mu\,\mathcal{M}^\mu(W^a(p),\dots)= i\,m_W\,\mathcal{M}(\pi^a(p),\dots),
+\end{equation}
+up to terms that vanish for physical on-shell external states. The overall phase is a convention
+artifact of LSZ normalization and plays no role in the amplitude-class identification used here.
+\paragraph{(3) High-energy reduction.}
+Contract the gauge amplitude with the longitudinal polarization:
+\begin{equation}
+\mathcal{M}(W_L^a(p),\dots)
+=
+\epsilon_{L\mu}(p)\,\mathcal{M}^\mu(W^a(p),\dots)
+=
+\left(\frac{p_\mu}{m_W}+\cO\!\left(\frac{m_W}{E}\right)\right)\mathcal{M}^\mu(W^a(p),\dots).
+\end{equation}
+Using \eqref{eq:ward} gives
+\begin{equation}
+\mathcal{M}(W_L^a(p),\dots)
+=
+i\,\mathcal{M}(\pi^a(p),\dots)+\cO\!\left(\frac{m_W}{E}\right).
+\end{equation}
+
+\paragraph{(4) Standing consequence.}
+In the high-energy on-shell regime, the amplitude class is witnessed by $\mathcal{M}$; the above shows
+that the longitudinal gauge-boson amplitude and Goldstone amplitude are the \emph{same witness} up to a convention-dependent overall phase (here $i$) and
+controlled regime-suppressed corrections. Therefore counting $W_L$ and $\pi$ as independent tensor
+degrees overcounts standing-relevant content for that regime.
+\end{proof}
+
+\subsection{Parameter normal form (global statement)}
+
+\begin{proposition}[Parameter normal form: witnesses exhaust standing]\label{prop:normal-form}
+Fix the declared load and a scope. A parameter has standing as an independent tensor degree for that
+scope only if it corresponds to an independent invariant witness across all admissible skins and
+survives admissible transport. Any parameter not so witnessed is redundancy for that scope, unless
+its retention can be justified without invoking standing-failure modes.
+\end{proposition}
+
+\section{Forced discrete skeleton: operators, anomalies, charges, FCNC}
+
+\subsection{Operator existence is transport-invariant}
+
+\begin{lemma}[Operator existence invariance]\label{lem:operator}
+Within the declared load, existence of a broken-phase mass pairing for a chiral fermion is equivalent
+to existence of a corresponding gauge-invariant Yukawa operator in the unbroken-phase skin.
+Absent the operator, no admissible redescription can create the pairing without forbidden patches.
+\end{lemma}
+
+\begin{proof}
+In the declared load, the renormalizable Lagrangian in the unbroken phase contains only gauge-invariant
+operators built from the available fields.
+Electroweak symmetry breaking is a \emph{substitution} (choose a gauge and expand $H$ around its VEV),
+followed by admissible field redefinitions (diagonalization, basis change). Such operations cannot
+create a term that is not the image of an existing gauge-invariant operator.
+
+Therefore if a broken-phase mass term $\bar f f$ appears, it must arise from some gauge-invariant
+operator $\bar f_L H f_R$ or $\bar f_L\tilde H f_R$ already present (possibly after field relabeling).
+Conversely, if the corresponding gauge-invariant Yukawa operator is absent, producing the mass pairing
+requires adding (i) a new Higgs multiplet with different charges, (ii) new fermions enabling an
+effective pairing, or (iii) non-gauge-invariant/higher-dimensional patch operators. Each is forbidden
+by the declared load (Definition~\ref{def:declared-load}). Hence operator existence is transport-invariant.
+\end{proof}
+
+\subsection{Anomaly cancellation and Yukawa compatibility (full algebra)}\label{sec:anom-yuk}
+
+We now show, explicitly, how the hypercharge structure is forced under the declared load.
+This subsection uses a \emph{single consistent convention} throughout:
+\[
+Q = T^3 + Y,
+\]
+and the Higgs VEV is taken in the electrically neutral component of the doublet
+$H=(0,(v+h)/\sqrt2)^T$, which fixes $Y_H$ relative to $T^3$ by $Q(H^0)=0$.
+
+\subsubsection{One-generation notation (right-handed hypercharges)}
+Work with one generation of fermions in the standard representation skeleton, written in terms of
+their usual chiralities:
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Field & $\SU(3)_c\times \SU(2)_L$ rep & Hypercharge \\ \midrule
+$Q_L$ (quark doublet) & $(\mathbf{3},\mathbf{2})$ & $Y_Q$ \\
+$u_R$ (up singlet) & $(\mathbf{3},\mathbf{1})$ & $Y_u$ \\
+$d_R$ (down singlet) & $(\mathbf{3},\mathbf{1})$ & $Y_d$ \\
+$L_L$ (lepton doublet) & $(\mathbf{1},\mathbf{2})$ & $Y_L$ \\
+$e_R$ (charged-lepton singlet) & $(\mathbf{1},\mathbf{1})$ & $Y_e$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The Higgs doublet has hypercharge $Y_H$ and its conjugate $\tilde H=i\sigma^2 H^\ast$ has hypercharge
+$-Y_H$.
+
+\subsubsection{Yukawa gauge-invariance conditions}
+The renormalizable Yukawa terms in the declared load are
+\begin{equation}\label{eq:yukawas}
+\mathcal{L}_Y\supset
+-\bar Q_L\,Y_u\,\tilde H\,u_R
+-\bar Q_L\,Y_d\,H\,d_R
+-\bar L_L\,Y_e\,H\,e_R
++\mathrm{h.c.}
+\end{equation}
+Gauge invariance under $\U(1)_Y$ fixes the hypercharge relations
+\begin{equation}\label{eq:yuk-rel}
+Y_u = Y_Q + Y_H,\qquad
+Y_d = Y_Q - Y_H,\qquad
+Y_e = Y_L - Y_H.
+\end{equation}
+(These are the familiar Standard-Model relations in the convention $Q=T^3+Y$.)
+
+\subsubsection{Anomaly cancellation conditions (one generation)}
+Local anomaly constraints in chiral gauge theories are standard; see e.g.\ \cite{Bertlmann1996,WeinbergQTF2}.
+Anomaly cancellation for a gauged $\U(1)_Y$ requires vanishing of:
+\begin{align}
+[\SU(3)]^2\U(1):\quad & 2Y_Q - Y_u - Y_d =0, \label{eq:A3}\\
+[\SU(2)]^2\U(1):\quad & 3Y_Q + Y_L=0, \label{eq:A2}\\
+[\text{grav}]^2\U(1):\quad & 6Y_Q + 2Y_L - 3Y_u - 3Y_d - Y_e =0, \label{eq:Agrav}\\
+[\U(1)]^3:\quad & 6Y_Q^3+2Y_L^3-3Y_u^3-3Y_d^3-Y_e^3=0. \label{eq:A1}
+\end{align}
+The minus signs for right-handed fields appear because anomalies are computed for left-handed Weyl
+fermions, so $u_R,d_R,e_R$ contribute with opposite hypercharge.
+
+\begin{lemma}[Global $\SU(2)$ (Witten) anomaly check]\label{lem:witten}
+In addition to the local triangle anomalies \eqref{eq:A3}--\eqref{eq:A1}, a consistent $\SU(2)_L$ gauge theory of
+left-handed Weyl fermions must have an even number of $\SU(2)$ doublets (the Witten $\mathbb{Z}_2$ anomaly)
+\cite{Witten1982}. In the minimal chiral skeleton, one generation contains $3$ quark doublets (one per color) plus
+one lepton doublet, for a total of $4$ doublets; hence the global $\SU(2)$ anomaly cancels (and for $n_g$ generations,
+$4n_g$ remains even).
+\end{lemma}
+
+\begin{proof}
+The nontrivial element of $\pi_4(\SU(2))\cong\mathbb{Z}_2$ can flip the sign of the fermion determinant for an odd
+number of left-handed doublets; consistency requires the sign be trivial. Counting $\SU(2)$ doublets in the minimal
+skeleton gives $3+1=4$ per generation, hence even.
+\end{proof}
+
+
+
+\begin{proposition}[Constraint coupling inside the declared skeleton]\label{prop:constraint-coupling}
+Within the minimal chiral skeleton:
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item If the Yukawa relations \eqref{eq:yuk-rel} hold, then the $[\SU(3)]^2\U(1)$ anomaly
+\eqref{eq:A3} cancels identically.
+\item If the Yukawa relations \eqref{eq:yuk-rel} hold and the linear anomalies \eqref{eq:A2} and
+\eqref{eq:Agrav} vanish, then the cubic anomaly \eqref{eq:A1} vanishes automatically.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) Substitute \eqref{eq:yuk-rel} into \eqref{eq:A3}:
+\[
+2Y_Q-(Y_Q+Y_H)-(Y_Q-Y_H)=0.
+\]
+
+(ii) Under \eqref{eq:yuk-rel}, the mixed gravitational anomaly becomes
+\[
+6Y_Q+2Y_L-3(Y_Q+Y_H)-3(Y_Q-Y_H)-(Y_L-Y_H)=Y_L+Y_H.
+\]
+Thus \eqref{eq:Agrav}=0 forces $Y_L=-Y_H$.
+Together with \eqref{eq:A2} (which gives $Y_L=-3Y_Q$) we obtain $Y_H=3Y_Q$.
+Substituting $Y_L=-3Y_Q$ and $Y_H=3Y_Q$ into \eqref{eq:yuk-rel} gives
+$Y_u=4Y_Q$, $Y_d=-2Y_Q$, $Y_e=-6Y_Q$.
+A direct substitution of these relations into \eqref{eq:A1} gives $0$ (see
+Appendix~\ref{app:cubic-check} for the explicit algebra).
+\end{proof}
+
+\begin{theorem}[Discrete-skeleton hypercharge collapse]\label{thm:anomaly-yukawa}
+Within the declared load (minimal chiral skeleton + one Higgs doublet with the charged Yukawa operator content
+\eqref{eq:yukawas}), anomaly cancellation forces the one-generation hypercharges to the one-parameter family
+\begin{equation}\label{eq:hyper-solution}
+Y_L=-3Y_Q,\qquad
+Y_e=-6Y_Q,\qquad
+Y_H=3Y_Q,\qquad
+Y_u=4Y_Q,\qquad
+Y_d=-2Y_Q,
+\end{equation}
+unique up to an overall normalization (absorbed into $g_1$) and an overall sign (charge conjugation).
+
+Equivalently: the local anomaly equations alone determine $Y_L=-3Y_Q$, $Y_e=-6Y_Q$, and the unordered pair
+$\{Y_u,Y_d\}=\{4Y_Q,-2Y_Q\}$; the requirement that the charged lepton Yukawa term
+$-\bar L_L\,Y_e\,H\,e_R$ in \eqref{eq:yukawas} is gauge invariant fixes $Y_H=Y_L-Y_e=3Y_Q$, and then the quark Yukawa
+relations \eqref{eq:yuk-rel} select the ordered assignment in \eqref{eq:hyper-solution} with $u_R$ the singlet that
+couples via $\tilde H$.
+\end{theorem}
+
+\begin{proof}
+Assume the anomaly conditions \eqref{eq:A3}--\eqref{eq:A1} with $Y_Q\neq 0$.
+
+From \eqref{eq:A2} we obtain $Y_L=-3Y_Q$.
+From \eqref{eq:A3} we obtain $Y_u+Y_d=2Y_Q$.
+From \eqref{eq:Agrav}, using $Y_u+Y_d=2Y_Q$, we obtain
+\[
+0=6Y_Q+2Y_L-3(Y_u+Y_d)-Y_e
+=6Y_Q+2(-3Y_Q)-3(2Y_Q)-Y_e
+=-6Y_Q-Y_e,
+\]
+so $Y_e=-6Y_Q$.
+
+Now write $Y_d=2Y_Q-Y_u$ and substitute $Y_L=-3Y_Q$, $Y_e=-6Y_Q$ into the cubic constraint \eqref{eq:A1}.
+Expanding (Appendix~\ref{app:cubic-check}) yields the quadratic equation
+\begin{equation}\label{eq:Yu-quad}
+Y_u^2-2Y_QY_u-8Y_Q^2=0,
+\end{equation}
+and hence $Y_u\in\{4Y_Q,-2Y_Q\}$ with $Y_d=2Y_Q-Y_u\in\{-2Y_Q,4Y_Q\}$.
+Thus the anomaly equations fix the unordered pair $\{Y_u,Y_d\}=\{4Y_Q,-2Y_Q\}$.
+
+Now impose existence of the charged lepton Yukawa operator $-\bar L_L\,Y_e\,H\,e_R$ in \eqref{eq:yukawas}.
+Gauge invariance under $\U(1)_Y$ requires the third relation in \eqref{eq:yuk-rel}, $Y_e=Y_L-Y_H$, hence
+\begin{equation}\label{eq:YH-from-anom}
+Y_H = Y_L-Y_e = (-3Y_Q)-(-6Y_Q)=3Y_Q.
+\end{equation}
+With this $Y_H$, the quark Yukawa relations \eqref{eq:yuk-rel} force
+$Y_u=Y_Q+Y_H=4Y_Q$ and $Y_d=Y_Q-Y_H=-2Y_Q$, yielding \eqref{eq:hyper-solution}.
+
+The overall normalization $Y_Q$ is redundant (absorbed into $g_1$) and the overall sign corresponds to charge
+conjugation (Theorem~\ref{thm:hypercharge}).
+\end{proof}
+
+\begin{corollary}[Charge lattice rigidity]\label{cor:charge-lattice}
+Within the declared load, all anomaly-free hypercharge assignments are proportional to the standard
+solution; the only freedom is an overall normalization (absorbed into $g_1$) and a global sign.
+Consequently, once the redundancy of hypercharge normalization is fixed (Theorem~\ref{thm:hypercharge}),
+electric charge $Q=T^3+Y$ is quantized on a discrete lattice.
+\end{corollary}
+
+\begin{remark}[Neutrino mass does not affect the forcing of hypercharge]\label{rem:nu-hyper}
+Neutrino oscillation bookkeeping (Section~3.5) can be accommodated either by adding gauge-singlet
+right-handed neutrinos (which are anomaly-inert if $Y_{\nu_R}=0$) or by an effective Weinberg operator.
+Neither option alters the hypercharge forcing in Theorem~\ref{thm:anomaly-yukawa} because the anomaly
+constraints and the charged Yukawa compatibility are already fixed by the charged chiral skeleton.
+\end{remark}
+\subsection{Hypercharge normalization and charge quantization}
+
+\begin{theorem}[Hypercharge normalization collapse (redundancy elimination)]\label{thm:hypercharge}
+Fix the declared load and the anomaly/Yukawa skeleton.
+The apparent continuous freedom to rescale hypercharge assignments is redundancy: it is removable by
+admissible redescription (a simultaneous rescaling of $Y$ and $g_1$) and collapses to a canonical charge
+lattice choice, unique up to overall sign.
+Consequently, electric charge $Q=T^3+Y$ is quantized on a discrete lattice fixed by the skeleton.
+\end{theorem}
+
+\begin{proof}
+Start in the unbroken gauge skin where hypercharge enters only through the product $g_1 Y$ in the
+covariant derivative. For any nonzero real $\lambda$, the simultaneous rescaling
+\begin{equation}\label{eq:rescale}
+Y\mapsto \lambda Y,\qquad g_1\mapsto g_1/\lambda
+\end{equation}
+leaves $g_1 Y$ invariant and therefore leaves all gauge-phase interactions unchanged. Thus $\lambda$ is
+\emph{not} a standing-relevant degree; it is a redundancy in the gauge-phase parameterization.
+
+In the broken-phase skin, the unbroken electromagnetic generator is
+\begin{equation}\label{eq:Q}
+Q=T^3+Y,
+\end{equation}
+with $T^3$ fixed by the non-abelian representation content. Given Corollary~\ref{cor:charge-lattice},
+all hypercharges are proportional to a single normalization choice; choosing the representative in which
+the charge lattice is minimal (no common integer factor) fixes the redundancy \eqref{eq:rescale}.
+Only the global sign remains (charge conjugation).
+
+Therefore hypercharge normalization is fixed up to sign as a redundancy elimination, and the resulting
+electric charges lie on a discrete lattice determined by the skeleton (hence are quantized).
+\end{proof}
+
+\subsection{Absence of tree-level FCNC (fully worked)}
+
+\begin{theorem}[No tree-level flavor-changing neutral currents in the minimal load]\label{thm:fcnc}
+Within the declared load (single Higgs doublet; generation-universal gauge charges), neutral currents
+remain flavor-diagonal at tree level in the mass basis. Tree-level flavor-changing neutral currents
+(FCNC) require forbidden additional structure (extra Higgs multiplets, non-universal gauge generators,
+or compensating sectors).
+\end{theorem}
+
+\begin{proof}
+We show the diagonalization explicitly.
+
+\paragraph{(1) Yukawa matrices and mass diagonalization.}
+For $n$ generations, the quark Yukawa terms are
+\begin{equation}
+\mathcal{L}_Y\supset -\bar Q_L Y_d H d_R - \bar Q_L Y_u \tilde H u_R + \mathrm{h.c.},
+\end{equation}
+with complex $n\times n$ matrices $Y_u,Y_d$. After EWSB, $M_{u,d}=Y_{u,d}v/\sqrt2$.
+There exist unitary matrices $U_{uL},U_{uR},U_{dL},U_{dR}$ such that
+\begin{equation}
+U_{uL}^\dagger M_u U_{uR}=\diag(m_u,m_c,\dots),\qquad
+U_{dL}^\dagger M_d U_{dR}=\diag(m_d,m_s,\dots).
+\end{equation}
+Define mass eigenstate fields
+\begin{equation}
+u_L'=U_{uL}^\dagger u_L,\quad u_R'=U_{uR}^\dagger u_R,\quad
+d_L'=U_{dL}^\dagger d_L,\quad d_R'=U_{dR}^\dagger d_R.
+\end{equation}
+
+\paragraph{(2) Charged currents produce CKM.}
+The left-handed charged current in the gauge basis is
+\begin{equation}
+\mathcal{L}_{\CC}\supset -\frac{g_2}{\sqrt2}\,W^+_\mu\,\bar u_L\gamma^\mu d_L + \mathrm{h.c.}
+\end{equation}
+In the mass basis,
+\begin{equation}
+\bar u_L\gamma^\mu d_L
+=
+\bar u_L' U_{uL}\gamma^\mu U_{dL}^\dagger d_L'
+=
+\bar u_L'\gamma^\mu (U_{uL}^\dagger U_{dL})\,d_L'.
+\end{equation}
+Thus the CKM matrix is $V\equiv U_{uL}^\dagger U_{dL}$ and charged currents are flavor-mixing.
+
+\paragraph{(3) Neutral currents remain diagonal.}
+The $Z$ boson couples to neutral currents of the form
+\begin{equation}\label{eq:neutral-current}
+\mathcal{L}_{\NC}\supset Z_\mu\,\bar f\,\gamma^\mu\left(g_L^f P_L+g_R^f P_R\right)f,
+\end{equation}
+where $g_{L,R}^f$ depend only on the gauge charges of $f$ (and are generation-universal in the declared load).
+For example, for left-handed up-type quarks $f=u$ one has
+\begin{equation}
+\bar u_L\gamma^\mu u_L = \bar u_L' U_{uL}\gamma^\mu U_{uL}^\dagger u_L' = \bar u_L'\gamma^\mu u_L',
+\end{equation}
+since $U_{uL}$ is unitary. The same holds for $d_L$, $u_R$, $d_R$, and all leptons: a flavor-space unitary
+rotation cancels in $\bar f \gamma^\mu f$. Therefore all neutral currents in \eqref{eq:neutral-current} are
+flavor-diagonal at tree level in the mass basis.
+
+\paragraph{(4) Why FCNC require extra structure.}
+Tree-level FCNC arise if (and essentially only if) the neutral current couplings are not proportional to
+the identity in flavor space \emph{in the same basis that diagonalizes the mass matrices}. In the declared
+load, gauge charges are generation-universal and the neutral current generators are fixed, so the couplings
+are proportional to identity and remain diagonal after unitary rotations.
+To obtain non-universal neutral couplings one must add new Higgs multiplets with misaligned Yukawas,
+new gauge generators with non-universal charges, or compensating sectors---all forbidden by the declared load.
+\end{proof}
+
+\section{Mixing and rephasing: saturation and redundancy (fully shown)}
+
+\subsection{Parameter counting and invariants}
+We state and prove the standard parameter-counting result, because it is the audit point for
+``mixing saturation'' and ``phase exhaustion''.
+
+\begin{theorem}[Physical mixing parameters as quotient invariants]\label{thm:mixing-count}
+For $n$ generations of quarks in the declared load, the Yukawa sector contains, after quotienting by
+admissible field redefinitions, the following physical invariants:
+\begin{itemize}[leftmargin=2.2em]
+\item $2n$ quark masses;
+\item $\frac{n(n-1)}{2}$ mixing angles;
+\item $\frac{(n-1)(n-2)}{2}$ CP-odd phases (Dirac-type).
+\end{itemize}
+For $n=3$, this is $6$ masses, $3$ angles, and $1$ phase.
+\end{theorem}
+
+\begin{proof}
+The two Yukawa matrices $Y_u,Y_d$ are complex $n\times n$ matrices, hence contain $2n^2$ real parameters each,
+for a total of $4n^2$.
+
+Admissible field redefinitions in the quark kinetic terms permit independent unitary rotations
+\begin{equation}
+Q_L\mapsto U_Q Q_L,\qquad u_R\mapsto U_u u_R,\qquad d_R\mapsto U_d d_R,
+\end{equation}
+with $U_Q,U_u,U_d\in U(n)$, without changing gauge interactions (they are flavor-universal).
+These transformations act on Yukawas by
+\begin{equation}
+Y_u\mapsto U_Q Y_u U_u^\dagger,\qquad
+Y_d\mapsto U_Q Y_d U_d^\dagger.
+\end{equation}
+The group $U(n)^3$ has real dimension $3n^2$. However, one overall $U(1)$ corresponds to baryon number and
+does not change $Y_u,Y_d$ (it acts trivially on both); therefore only $3n^2-1$ parameters can be removed.
+Hence the physical parameter count is
+\begin{equation}
+4n^2-(3n^2-1)=n^2+1.
+\end{equation}
+On the other hand, $n^2+1$ decomposes as
+\begin{equation}
+n^2+1 = 2n + \frac{n(n-1)}{2} + \frac{(n-1)(n-2)}{2},
+\end{equation}
+corresponding to $2n$ masses, $\frac{n(n-1)}{2}$ angles, and $\frac{(n-1)(n-2)}{2}$ phases. This matches
+the standard CKM parameterization count. For $n=3$, one obtains $10$ invariants: $6$ masses, $3$ angles, $1$
+phase.
+\end{proof}
+
+\subsection{Saturation and redundancy statements}
+
+\begin{corollary}[Unitary mixing saturation]\label{cor:mixing-saturation}
+In the declared load, all unitary mixing freedom is exhausted by admissible basis choice and Yukawa
+diagonalization. The CKM (and similarly PMNS, in the appropriate neutrino mass assumptions) is a
+\emph{quotient invariant} of Yukawa operator content, not an additional independent tensor load.
+\end{corollary}
+
+\begin{remark}[Not ``unphysical mixing'']\label{rem:not-unphysical-mixing}
+Corollary~\ref{cor:mixing-saturation} is often misread as a denial of physical mixing.
+It is not. It states that, within the declared load, mixing data are \emph{quotient invariants} of the
+Yukawa operator content (misalignment of $Y_u$ and $Y_d$) rather than an additional independent tensor
+load that can be specified on top of the Yukawas without changing witness content.
+\end{remark}
+
+
+\begin{corollary}[Rephasing redundancy exhaustion]\label{cor:rephasing}
+All rephasing freedom beyond the physical CP-odd quotient phases is redundancy. Any claim of additional
+independent phases requires representational privilege or hidden structure and is therefore a standing
+failure (Definition~\ref{def:failure}).
+\end{corollary}
+
+\section{Exhaustion: no further admissible equivalence completion remains}
+
+\subsection{What ``equivalence completion'' means here}
+An \emph{equivalence completion} is any forced identification of an apparent parameter freedom as redundancy
+under admissible redescription and admissible transport, resulting in a smaller witness-determined tensor
+load for a fixed scope.
+
+\subsection{Admissibility envelope and a normal-form map}\label{sec:envelope-nf}
+The word ``exhaustion'' is strong, so we explicitly delimit what is being exhausted.
+
+\begin{definition}[Admissibility envelope used here]\label{def:envelope}
+The \emph{admissibility envelope} $\Ad_{\Load}$ used for the exhaustion claim is the closure of the
+renormalizable gauge-phase skin under finite compositions of the following \emph{explicitly licensed}
+moves inside the declared load:
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item admissible redescriptions (Definition~\ref{def:redescription}): gauge-fixing changes, field
+redefinitions, flavor-basis rotations, and rephasings;
+\item broken$\leftrightarrow$unbroken transport by explicit Higgs expansion and mass diagonalization;
+\item regime transport by explicit matching/integration-out inside $\Load$ (e.g.\ $W$-exchange $\to$
+four-fermion, $A/Z$ rotation $\to$ QED), with an explicit scope and error order when approximations are used
+(Definition~\ref{def:scope} and Remark~\ref{rem:eft});
+\item on-shell reduction and high-energy limits with controlled corrections (e.g.\ the longitudinal--Goldstone
+transport).
+\end{enumerate}
+We do \emph{not} claim to classify arbitrary skins outside $\Ad_{\Load}$; leaving the envelope is a scope
+change by Definition~\ref{def:scope-preserving}.
+\end{definition}
+
+\begin{remark}[Renormalization scheme and running are scope data]\label{rem:rg-scope}
+If a scope $S$ includes variation in renormalization scale or scheme, then those choices are part of the scope
+specification (Definition~\ref{def:scope}) and any change of scale/scheme must be exhibited as an explicit transport
+(map of couplings and counterterms) inside the declared load.
+In this paper, couplings are treated as witnesses at a chosen reference scale; renormalization-group running to
+another scale is a controlled transport, not an additional standing degree of freedom.
+Claims that treat scheme dependence as an extra ``physical parameter'' without an explicit transport certificate
+are standing failures of type (b) or (c) (Definition~\ref{def:failure}).
+\end{remark}
+
+
+\begin{definition}[Witness normal form for a scope]\label{def:witness-normal-form}
+Fix a scope $S$.
+A skin $\Skin$ is in \emph{witness normal form for $S$} if its explicit parameterization consists only of
+(i) discrete-skeleton data required by $S$ (e.g.\ hypercharge class, representation labels), and
+(ii) a minimal invariant witness set $\Wit_S(\Skin)$ whose values determine all $S$-predictions.
+\end{definition}
+
+\begin{definition}[Canonical standing normal form skin]\label{def:NF-skin}
+Fix a scope $S$ and a skin $\Skin$ with parameter space $P(\Skin)$.
+Define the \emph{canonical standing normal form} $\mathrm{NF}_S(\Skin)$ to be the bookkeeping skin with
+parameter space
+\[
+P(\mathrm{NF}_S(\Skin))\;:=\;P(\Skin)/\!\sim_S
+\]
+(Definition~\ref{def:standing-quotient}), and prediction rule inherited from $\Skin$ by
+\begin{equation}\label{eq:NF-pred}
+\mathrm{Pred}_{\mathrm{NF}_S(\Skin)}(\mathcal{O};[\mathbf{p}])\;:=\;\mathrm{Pred}_{\Skin}(\mathcal{O};\mathbf{p})
+\qquad (\mathcal{O}\in S).
+\end{equation}
+This is well-defined because $\mathbf{p}\sim_S\mathbf{p}'$ implies equality of all $S$-predictions.
+No canonical representative is assumed: only standing classes $[\mathbf{p}]$ appear.
+\end{definition}
+
+\begin{lemma}[Compilation lemma: quotient transport and universal property]\label{lem:compile}
+Let $S$ be a fixed scope and $\Skin$ any skin.
+Let $q:P(\Skin)\to P(\Skin)/\!\sim_S$ denote the quotient map.
+Then:
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item $q$ defines an admissible transport $q:\Skin\to \mathrm{NF}_S(\Skin)$ that is transport-complete for $S$.
+\item (Universal property.) For any set $X$ and any map $F:P(\Skin)\to X$ that is constant on $\sim_S$-classes
+(i.e.\ $\mathbf{p}\sim_S\mathbf{p}'\Rightarrow F(\mathbf{p})=F(\mathbf{p}')$), there exists a unique map
+$\widetilde F:P(\Skin)/\!\sim_S\to X$ such that $F=\widetilde F\circ q$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+For (i), admissibility is immediate: $q$ introduces no new load and preserves standing by construction.
+Transport completeness holds because if $\mathbf{p},\mathbf{p}'$ yield different $S$-predictions, then
+$\mathbf{p}\not\sim_S \mathbf{p}'$, hence $q(\mathbf{p})\neq q(\mathbf{p}')$; the normal form retains exactly the
+standing distinctions.
+
+For (ii), define $\widetilde F([\mathbf{p}]):=F(\mathbf{p})$. This is well-defined precisely because $F$ is constant
+on $\sim_S$-classes. Uniqueness follows because $q$ is surjective.
+\end{proof}
+
+\begin{theorem}[Skin normal form completeness for a scope]\label{thm:skin-nf}
+Fix a scope $S$.
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item (Terminal compression.) For any admissible transport $T:\Skin\to\Skin'$ that is scope-preserving for $S$,
+the induced map on parameter spaces factors uniquely through the quotient transport $q:\Skin\to\mathrm{NF}_S(\Skin)$.
+Equivalently: no admissible same-scope map can depend on more than the standing class $[\mathbf{p}]$.
+\item (Completeness.) Within the admissibility groupoid $\Ad_S$ (Theorem~\ref{thm:coherence-groupoid}), the normal
+form is a complete invariant: if $\Skin_A\simeq \Skin_B$ in $\Ad_S$, then
+$\mathrm{NF}_S(\Skin_A)\cong \mathrm{NF}_S(\Skin_B)$ as standing state spaces with prediction rule.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) Scope-preserving admissible transport means: if $\mathbf{p}\sim_S\mathbf{p}'$ then the transported states are
+$S$-indistinguishable in $\Skin'$, hence $T(\mathbf{p})$ depends only on $[\mathbf{p}]$.
+Thus the underlying map on parameters is constant on $\sim_S$-classes and factors uniquely through the quotient by
+Lemma~\ref{lem:compile}(ii).
+
+(ii) If $\Skin_A\simeq\Skin_B$ in $\Ad_S$, then by definition there exist transport-complete admissible transports
+in both directions. Lemma~\ref{lem:quotient-iso} then gives a bijection of standing quotients preserving
+$S$-predictions, which is exactly an isomorphism
+$\mathrm{NF}_S(\Skin_A)\cong\mathrm{NF}_S(\Skin_B)$.
+\end{proof}
+
+\begin{lemma}[Existence/uniqueness of witness normal form inside $\Ad_{\Load}$]\label{lem:nf}
+For each scope treated in Sections~3--5, every skin in the envelope $\Ad_{\Load}$ can be brought, by a finite
+sequence of admissible redescriptions and admissible transports, to witness normal form for that scope.
+Any two witness normal forms for the same scope differ only by admissible redescription.
+\end{lemma}
+
+\begin{proof}
+Existence is constructive: Sections~3--5 explicitly exhibit the required transports, redundancy quotients,
+and matching maps for the relevant scope classes (contact CC, pure QED, CP--odd QCD, oscillations,
+high-energy longitudinal limits, and flavor-quotient mixing), thereby displaying explicit witness-coordinate
+presentations inside the envelope.
+
+Uniqueness is a quotient statement: any two witness normal forms for the same $S$ present the same standing
+state space and hence differ only by admissible redescription.
+Formally, the quotient $P(\Skin)/\!\sim_S$ is canonical and any standing-preserving map factors through it
+uniquely (Lemma~\ref{lem:compile}); there is no additional standing left to encode.
+\end{proof}
+
+\begin{theorem}[Equivalence exhaustion (relative to $\Ad_{\Load}$)]\label{thm:exhaustion}
+Within the declared load, and relative to the admissibility envelope $\Ad_{\Load}$ (Definition~\ref{def:envelope}),
+there is no further admissible equivalence completion for the scope family treated in Sections~3--5 beyond:
+\begin{itemize}[leftmargin=2.2em]
+\item the parameter normal-form collapses (Section~3),
+\item the forced discrete skeleton (Section~4),
+\item the mixing/rephasing quotient classification (Section~5).
+\end{itemize}
+Any purported additional completion must either (i) leave $\Ad_{\Load}$ (a scope change),
+(ii) introduce new load, or (iii) invoke a standing-failure mode.
+\end{theorem}
+
+\begin{proof}
+Fix one of the scopes treated in Sections~3--5 and let $\Skin$ be any skin in $\Ad_{\Load}$.
+By Lemma~\ref{lem:nf}, $\Skin$ reduces (by explicit licensed moves) to a witness normal form presentation for $S$
+inside the envelope.
+Independently of which presentation is used, the standing content for $S$ is the canonical quotient
+$P(\Skin)/\!\sim_S$ (Definition~\ref{def:standing-quotient}), and $\mathrm{NF}_S(\Skin)$ is the canonical
+compression (Definition~\ref{def:NF-skin}).
+
+A further ``equivalence completion'' would have to identify (or remove) additional degrees of freedom while
+preserving all $S$-predictions.
+But any admissible scope-preserving transport out of $\Skin$ factors uniquely through the quotient transport
+to $\mathrm{NF}_S(\Skin)$ (Theorem~\ref{thm:skin-nf}(i)).
+Thus the quotient already performs the \emph{maximal} standing-preserving identification: any stricter
+identification corresponds to a relation coarser than $\sim_S$, and therefore would identify two points that
+are $S$-distinguishable by definition of $\sim_S$.
+That changes an $S$-prediction and is therefore not a same-scope admissible completion.
+
+Equivalently, in witness normal form every explicit parameter is either discrete skeleton data required by $S$ or
+part of a \emph{minimal} invariant witness set determining $S$-predictions.
+Removing a witness changes some $S$-prediction; keeping a parameter while denying its witness status contradicts
+Theorem~\ref{thm:witness-counting} (or requires denying transport completeness), which is a standing failure.
+
+Therefore no additional admissible completion exists \emph{inside} $\Ad_{\Load}$. Any escape must import new
+transport moves or new structure (scope change/new load) or invoke standing-failure modes.
+\end{proof}
+
+
+\section{Capstone: the Standard-Model bookkeeping interior is closed (standalone statement)}
+
+\begin{definition}[SM bookkeeping interior (in this paper)]\label{def:interior}
+The \emph{\SM bookkeeping interior} is the equivalence class (under admissible redescription) of skins
+within the declared load whose discrete skeleton satisfies:
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item anomaly/Yukawa compatibility (Theorem~\ref{thm:anomaly-yukawa});
+\item hypercharge/charge-lattice rigidity (Corollary~\ref{cor:charge-lattice} and Theorem~\ref{thm:hypercharge});
+\item transport-closed parameter normal form (Proposition~\ref{prop:normal-form});
+\item flavor/phase quotient classification (Theorem~\ref{thm:mixing-count}).
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Interior closure and uniqueness (relative to the declared load)]\label{thm:closure}
+Within the declared load, the \SM bookkeeping interior is closed and unique up to admissible redescription:
+any purported same-scope ``extension'' either (a) reduces to the same interior by admissible redescription,
+or (b) violates standing preservation by importing forbidden load, representational privilege, or illicit
+scope transport.
+\end{theorem}
+
+\begin{proof}
+The discrete skeleton is forced up to overall normalization/sign by Theorem~\ref{thm:anomaly-yukawa} and
+Corollary~\ref{cor:charge-lattice}, and normalization freedom is redundancy by Theorem~\ref{thm:hypercharge}.
+Within that skeleton, all apparent continuous freedoms not tied to invariant witnesses collapse under the
+transport certificates of Section~3, yielding the parameter normal form (Proposition~\ref{prop:normal-form}).
+Mixing and phase freedoms are fully classified as quotient invariants (Theorem~\ref{thm:mixing-count}),
+and tree-level FCNC are excluded in the declared load (Theorem~\ref{thm:fcnc}).
+Finally, Theorem~\ref{thm:exhaustion} closes the equivalence space: no further admissible equivalence
+completion exists.
+
+Therefore any proposed modification that stays inside the declared load is either an admissible redescription
+of existing structure (hence reduces), or it introduces new operators/fields/sectors or privileges a
+representation to maintain standing---which is inadmissible by Definition~\ref{def:failure} and
+Remark~\ref{rem:fail-closed}. Uniqueness is thus relative to the declared load and admissibility envelope.
+\end{proof}
+
+\section{Certification: irreducible inputs and structural non-derivability}\label{sec:certification}
+
+\subsection{The full renormalizable scope and the witness ledger}
+
+The collapses in Sections~3--5 are \emph{scope-indexed}: in restricted regimes (contact CC, pure QED, etc.)
+some couplings collapse to fewer witnesses. A hostile reader may then ask which data remain standing-relevant
+once the scope is enlarged back to the full renormalizable bookkeeping interior.
+
+\begin{definition}[Full renormalizable \SM scope]\label{def:scope-SM-ren}
+Let $S_{\SM}^{\mathrm{ren}}$ be the scope consisting of all predictions of the most general
+\emph{renormalizable} Lagrangian built from the declared load (Definition~\ref{def:declared-load}), including
+processes sensitive to $W$, $Z$, Higgs exchange, QCD interactions, and flavor-changing charged currents.
+No low-energy truncation is assumed; basis/gauge choices are treated as admissible redescriptions.
+\end{definition}
+
+\begin{proposition}[Witness normal form for $S_{\SM}^{\mathrm{ren}}$]\label{prop:SM-ren-NF}
+Fix the declared load and the full renormalizable scope $S_{\SM}^{\mathrm{ren}}$.
+Up to admissible redescription (gauge fixing, field redefinitions, flavor rotations, and rephasings),
+the standing-relevant data reduce to the following witness ledger:
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em]
+\item \textbf{Discrete skeleton:} gauge group and representation content (Definition~\ref{def:declared-load}),
+generation count $n_g$, and the hypercharge class fixed up to overall sign (Theorem~\ref{thm:anomaly-yukawa}
+and Corollary~\ref{cor:charge-lattice}).
+\item \textbf{Gauge-sector witnesses:} three gauge couplings $(g_s,g_2,g_1)$ at a chosen renormalization
+scheme/scale (or any equivalent invariant reparameterization, e.g.\ $(\alpha_s, e,\sin^2\theta_W)$ once the
+scope includes $Z$ exchange).
+\item \textbf{Higgs-sector witnesses:} two independent invariants of the renormalizable Higgs potential, e.g.\
+$(v,m_h)$ (equivalently $(\mu^2,\lambda)$ in $V(H)=-\mu^2 H^\dagger H+\lambda(H^\dagger H)^2$).
+\item \textbf{Yukawa/flavor witnesses:} fermion mass eigenvalues (equivalently Yukawa singular values) together
+with the quotient mixing invariants (angles and CP phases, or equivalently Jarlskog-type invariants) as
+classified in Section~5.
+\item \textbf{CP--odd strong-sector witness:} the unique invariant $\bar\theta$ (Lemma~\ref{lem:theta}).
+\item \textbf{Neutrino-sector witnesses (if neutrino masses are included in scope):} mass-squared differences and
+rephasing-invariant mixing products as in Lemma~\ref{lem:osc}, with the precise ledger depending on the
+Dirac/Majorana load choice (a scope/load choice, not fixed here).
+\end{enumerate}
+No other continuous parameter in the renormalizable Lagrangian has independent standing for
+$S_{\SM}^{\mathrm{ren}}$.
+\end{proposition}
+
+\begin{proof}
+Within the declared load, the most general renormalizable Lagrangian consists of:
+\begin{enumerate}[label=(\alph*),leftmargin=2.2em]
+\item gauge kinetic terms for $\SU(3)_c$, $\SU(2)_L$, and $\U(1)_Y$ with couplings $(g_s,g_2,g_1)$;
+\item fermion kinetic terms with covariant derivatives fixed by the representation skeleton (no new parameters);
+\item the Higgs kinetic term and a renormalizable potential $V(H)=-\mu^2 H^\dagger H+\lambda(H^\dagger H)^2$;
+\item the Yukawa operator family \eqref{eq:yukawas} with complex matrices $(Y_u,Y_d,Y_e)$;
+\item the CP--odd topological density term with coefficient $\theta$, whose standing-relevant invariant is
+$\bar\theta$ by Lemma~\ref{lem:theta}.
+\end{enumerate}
+There are no additional renormalizable gauge-invariant operators built from the declared fields.
+
+Admissible redescriptions remove gauge-fixing parameters, field-redefinition artifacts, and the flavor-basis
+redundancies of Section~5. The hypercharge class is forced up to normalization/sign by
+Theorem~\ref{thm:anomaly-yukawa} and Corollary~\ref{cor:charge-lattice}, and the normalization freedom is
+redundancy by Theorem~\ref{thm:hypercharge}. The remaining independent invariant witnesses are exactly the items
+listed in (i)--(vi).
+\end{proof}
+
+\begin{remark}[Why this does not contradict the low-energy collapses]\label{rem:global-vs-restricted}
+Proposition~\ref{prop:SM-ren-NF} concerns the full renormalizable scope $S_{\SM}^{\mathrm{ren}}$.
+In restricted scopes (e.g.\ $S_{\CC}^{(6)}$ or $S_{\EM}^{(\gamma)}$), transport collapses reduce witness rank,
+and fewer combinations (e.g.\ $G_F$ or $e$) suffice. Enlarging the scope reintroduces additional witnesses
+(e.g.\ $m_W,m_Z,\sin^2\theta_W$) exactly as in Remarks~\ref{rem:cc-scope} and \ref{rem:em-scope}.
+\end{remark}
+
+\subsection{Relational identities vs.\ ``ontic'' value derivations}
+
+\begin{definition}[Relational identity vs.\ internal value derivation]\label{def:ontic}
+A \emph{relational identity} is a standing-preserving relation among invariant witnesses that holds across all
+admissible skins in a scope (e.g.\ $m_W=g_2 v/2$, $G_F=1/(\sqrt2\,v^2)$, or $\bar\theta=\theta+\arg\det M$).
+An \emph{internal value derivation} claim is the stronger assertion that a specific numerical value of a witness
+parameter (e.g.\ $\alpha_s(m_Z)$, a Yukawa eigenvalue, or a mixing angle) is forced \emph{purely} by interior
+constraints without importing any additional standing.
+\end{definition}
+
+\begin{theorem}[Structural non-derivability of numerical witness values]\label{thm:non-derivability}
+Within the declared load and the admissibility discipline of this paper, no internal value derivation of an
+irreducible witness parameter in Proposition~\ref{prop:SM-ren-NF} is admissible.
+Any such claim necessarily invokes at least one standing-failure mode
+(Definition~\ref{def:failure})---typically representational privilege, illicit scope transport (e.g.\ measure or
+typicality postulates), or compensating load.
+\end{theorem}
+
+\begin{proof}
+Let $w$ be an irreducible invariant witness for $S_{\SM}^{\mathrm{ren}}$.
+By definition, $w$ is invariant under admissible redescriptions, but its \emph{value} is not fixed by the
+relations among witnesses exhibited inside the declared load: otherwise it would not be irreducible.
+
+An internal value derivation would have to supply additional structure that selects $w=w_0$ without reference to
+external boundary data. Any such selection must come from somewhere:
+\begin{itemize}[leftmargin=2.2em]
+\item If it is asserted as necessary by privileging a particular representation, parameterization, or basis as
+identity-grounding, then the claim violates redescription stability and is a representational-privilege failure.
+\item If it is asserted as ``generic''/``typical''/``measure-selected'', then the required measure/typicality
+operator is not generated by standing-preserving transport inside the declared load; importing it is illicit
+scope transport.
+\item If it is produced by adding new fields/operators/sectors or an external ``selector'' principle, that is
+compensating load forbidden by Definition~\ref{def:declared-load}.
+\end{itemize}
+These exhaust the ways to force a numerical value without empirical boundary input. Therefore any purported
+internal value derivation violates admissibility by invoking a standing-failure mode.
+\end{proof}
+
+\begin{remark}[Classification, not a ban]\label{rem:nonfund-class}
+Theorem~\ref{thm:non-derivability} is a classification statement: it does not forbid scope changes (e.g.\ UV
+completions) that introduce additional standing-relevant witnesses. It states only that the numerical values
+of the irreducible witnesses of the \SM interior are not derivable \emph{inside} that interior without breaking
+the admissibility discipline.
+\end{remark}
+
+\section{Hostile-referee attack map (standalone)}
+
+The table below lists common attack moves and the exact result that must be denied to reopen the space.
+Any objection not listed must identify which hypothesis of the cited result is being rejected.
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{0.56\textwidth}p{0.36\textwidth}@{}}
+\toprule
+\textbf{Objection / escape attempt} & \textbf{Must deny or else blocked by} \\
+\midrule
+``You are conflating redundancy with regime suppression / integrating-out. The witness theorem is not justified.'' &
+Definitions~\ref{def:scope}--\ref{def:standing-quotient}, Lemma~\ref{lem:quotient-iso},
+Remark~\ref{rem:eft}, and Theorem~\ref{thm:witness-counting}.\\
+``Declared load is a hidden anchor: you assumed the SM field content.'' &
+Remark~\ref{rem:not-derive-gauge}, Section~\ref{sec:load-envelope}, and Proposition~\ref{prop:added-load}.\\
+``You did not derive the gauge group / representation skeleton, so this is not a derivation of the SM.'' &
+Remark~\ref{rem:not-derive-gauge} (typed scope: closure relative to a fixed load).\\
+``There may exist other admissible skins or further equivalences you did not consider.'' &
+Remark~\ref{rem:no-existence-by-assertion} and Definition~\ref{def:envelope} (construction requirement).\\
+``$G_F$ matching is just a convention; $g_2$ and $v$ are independent in CC physics.'' &
+Lemma~\ref{lem:cc} (explicit matching \eqref{eq:GFmatch}) \emph{for scope $S_{\CC}^{(6)}$} and
+Remark~\ref{rem:cc-scope} (scope warning).\\
+``$e$ is not the only electromagnetic witness; $g_1$ and $g_2$ are separately physical in EM.'' &
+Lemma~\ref{lem:em} (rotation \eqref{eq:rotAZ} and identification \eqref{eq:e-def}) \emph{for scope
+$S_{\EM}^{(\gamma)}$} and Remark~\ref{rem:em-scope}.\\
+``$\theta$ and $\arg\det M$ are independent physical parameters.'' &
+Lemma~\ref{lem:theta} (explicit shifts \eqref{eq:argdet-shift}--\eqref{eq:theta-shift}).\\
+``You overstate anomaly$\to$Yukawa forcing / the algebra is inconsistent.'' &
+Section~\ref{sec:anom-yuk}, Proposition~\ref{prop:constraint-coupling}, and
+Theorem~\ref{thm:anomaly-yukawa} (fully worked, convention-consistent forcing).\\
+``Hypercharge normalization is a genuine extra continuous freedom.'' &
+Theorem~\ref{thm:hypercharge} (rescaling redundancy \eqref{eq:rescale}).\\
+``Mixing saturation denies physical mixing.'' &
+Theorem~\ref{thm:mixing-count} and Remark~\ref{rem:not-unphysical-mixing}.\\
+``Tree-level FCNC can appear without extra structure; your theorem is not new.'' &
+Theorem~\ref{thm:fcnc} (explicit unitary cancellation; novelty is the scope/standing interpretation).\\
+``You claim to determine the numerical values of the remaining \SM parameters.'' &
+Definition~\ref{def:ontic}, Theorem~\ref{thm:non-derivability}, and Remark~\ref{rem:nonfund-class}.\\
+``There are further equivalence completions left; your exhaustion claim is hand-wavy.'' &
+Remark~\ref{rem:no-existence-by-assertion}, Definition~\ref{def:envelope}, Lemma~\ref{lem:nf}, and
+Theorem~\ref{thm:exhaustion}.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+
+\appendix
+
+\section{Cubic anomaly check algebra}\label{app:cubic-check}
+This appendix records the explicit expansion used in Theorem~\ref{thm:anomaly-yukawa} to reduce the
+cubic anomaly constraint to the quadratic equation \eqref{eq:Yu-quad}.
+
+Start from the one-generation anomaly conditions \eqref{eq:A3}--\eqref{eq:A1}.
+From \eqref{eq:A2} and \eqref{eq:Agrav} we have
+\[
+Y_L=-3Y_Q,\qquad Y_e=-6Y_Q.
+\]
+From \eqref{eq:A3} we have $Y_d=2Y_Q-Y_u$.
+Insert these into \eqref{eq:A1}:
+\begin{align}
+0
+&=6Y_Q^3+2(-3Y_Q)^3-3Y_u^3-3(2Y_Q-Y_u)^3-(-6Y_Q)^3\\
+&=6Y_Q^3-54Y_Q^3-3Y_u^3-3\Big(8Y_Q^3-12Y_Q^2Y_u+6Y_QY_u^2-Y_u^3\Big)+216Y_Q^3\\
+&=(6-54-24+216)Y_Q^3+36Y_Q^2Y_u-18Y_QY_u^2\\
+&=144Y_Q^3+36Y_Q^2Y_u-18Y_QY_u^2.
+\end{align}
+Assuming $Y_Q\neq 0$ and dividing by $-18Y_Q$ gives
+\[
+Y_u^2-2Y_QY_u-8Y_Q^2=0,
+\]
+which is \eqref{eq:Yu-quad}. Its solutions are $Y_u=4Y_Q$ or $Y_u=-2Y_Q$, with $Y_d=2Y_Q-Y_u$.
+\section{Fujikawa derivation of the chiral Jacobian and the $\theta$ shift}\label{app:fujikawa}
+The path-integral measure computation follows the standard Fujikawa method \cite{Fujikawa1979,Fujikawa1980}.
+
+This appendix gives a line-by-line computation of the Jacobian of the fermionic path-integral measure
+under a global axial rotation, and the induced shift of the $\theta$ term used in
+Lemma~\ref{lem:theta}. We write the calculation in Euclidean signature (where the regulator is
+well-defined) and then translate the result back to the Minkowski $\theta\,G\tilde G$ normalization.
+
+\subsection{Setup: mode expansion and the measure}
+Consider one Dirac fermion in a background $\SU(3)$ gauge field $A_\mu = A_\mu^a T^a$ with
+$T^a$ Hermitian and $\Tr(T^a T^b)=\frac12\delta^{ab}$.
+Let
+\begin{equation}
+\not{D}\equiv \gamma^\mu(\partial_\mu - i g_s A_\mu),\qquad
+S_E=\int d^4x\;\bar\psi\,\not{D}\,\psi+\cdots .
+\end{equation}
+Choose a complete orthonormal eigenbasis of the Euclidean Dirac operator,
+\begin{equation}
+\not{D}\,\phi_n(x)=\lambda_n\,\phi_n(x),\qquad
+\int d^4x\;\phi_n^\dagger(x)\phi_m(x)=\delta_{nm}.
+\end{equation}
+Expand the Grassmann fields in this basis:
+\begin{equation}
+\psi(x)=\sum_n a_n \phi_n(x),\qquad \bar\psi(x)=\sum_n \bar a_n \phi_n^\dagger(x),
+\end{equation}
+so that (up to an overall constant) the functional measure is
+\begin{equation}
+\mathcal{D}\psi\,\mathcal{D}\bar\psi=\prod_n da_n\,d\bar a_n.
+\end{equation}
+
+\subsection{Axial rotation and the formal Jacobian}
+Perform a global axial rotation with parameter $\alpha$,
+\begin{equation}\label{eq:fuj-axial}
+\psi \mapsto \psi' = e^{i\alpha\gamma_5}\psi,\qquad
+\bar\psi \mapsto \bar\psi'=\bar\psi\,e^{i\alpha\gamma_5},
+\end{equation}
+(where in Euclidean signature we take $\gamma_5^\dagger=\gamma_5$, $\gamma_5^2=\mathbf{1}$).
+At the level of mode coefficients,
+\begin{equation}
+a_n'=\sum_m \left(\int d^4x\;\phi_n^\dagger e^{i\alpha\gamma_5}\phi_m\right)a_m
+\equiv \sum_m (U_\alpha)_{nm}\,a_m,
+\end{equation}
+and similarly $\bar a_n'=\sum_m \bar a_m (U_\alpha)_{mn}$.
+Hence
+\begin{equation}
+\prod_n da_n' = (\det U_\alpha)^{-1}\prod_n da_n,\qquad
+\prod_n d\bar a_n' = (\det U_\alpha)^{-1}\prod_n d\bar a_n,
+\end{equation}
+so the full Jacobian is
+\begin{equation}\label{eq:fuj-Jformal}
+\mathcal{D}\psi'\,\mathcal{D}\bar\psi' = J(\alpha)\,\mathcal{D}\psi\,\mathcal{D}\bar\psi,
+\qquad
+J(\alpha)=(\det U_\alpha)^{-2}.
+\end{equation}
+For infinitesimal $\alpha$, $U_\alpha = \mathbf{1}+ i\alpha\,M + \cO(\alpha^2)$ with
+\begin{equation}
+M_{nm}=\int d^4x\;\phi_n^\dagger(x)\gamma_5\phi_m(x),
+\end{equation}
+so
+\begin{equation}\label{eq:fuj-Jinf}
+\ln J(\alpha)= -2\Tr\ln U_\alpha
+= -2\,\Tr\!\left(i\alpha\,M\right)+\cO(\alpha^2)
+= -2i\alpha \sum_n \int d^4x\;\phi_n^\dagger(x)\gamma_5\phi_n(x)+\cO(\alpha^2).
+\end{equation}
+The trace $\sum_n \phi_n^\dagger\gamma_5\phi_n$ is ultraviolet divergent and must be regulated.
+
+\subsection{Gauge-covariant regulator and reduction to a local trace}
+Introduce the gauge-covariant heat-kernel regulator with mass scale $M$:
+\begin{equation}\label{eq:fuj-reg}
+\sum_n \phi_n^\dagger(x)\gamma_5\phi_n(x)
+\;\mapsto\;
+\lim_{M\to\infty}\sum_n \phi_n^\dagger(x)\gamma_5 e^{-\lambda_n^2/M^2}\phi_n(x)
+=
+\lim_{M\to\infty}\Tr\!\left[\gamma_5 e^{-\not{D}^2/M^2}\right]_{x,x}.
+\end{equation}
+Define the regulated local quantity
+\begin{equation}\label{eq:fuj-Ax}
+\mathcal{A}(x)\equiv \lim_{M\to\infty}\Tr\!\left[\gamma_5 e^{-\not{D}^2/M^2}\right]_{x,x}.
+\end{equation}
+Then, to leading order in $\alpha$,
+\begin{equation}\label{eq:fuj-J-A}
+\ln J(\alpha) = -2i\alpha \int d^4x\;\mathcal{A}(x)
+\qquad\Rightarrow\qquad
+J(\alpha)=\exp\!\left(-2i\alpha\int d^4x\;\mathcal{A}(x)\right).
+\end{equation}
+
+\subsection{Compute $\not{D}^2$ explicitly}
+We now reduce $\not{D}^2$ to a Laplacian plus a field-strength term. Start from
+\begin{equation}
+\not{D}^2=\gamma^\mu\gamma^\nu D_\mu D_\nu,
+\qquad D_\mu=\partial_\mu - i g_s A_\mu.
+\end{equation}
+Use the decomposition
+\begin{equation}
+\gamma^\mu\gamma^\nu=\frac12\{\gamma^\mu,\gamma^\nu\}+\frac12[\gamma^\mu,\gamma^\nu]
+= g^{\mu\nu}\mathbf{1} + \sigma^{\mu\nu},
+\qquad
+\sigma^{\mu\nu}\equiv \frac12[\gamma^\mu,\gamma^\nu],
+\end{equation}
+(where in Euclidean signature $g^{\mu\nu}=\delta^{\mu\nu}$; the calculation below is signature-agnostic
+as long as the standard Clifford algebra holds).
+Then
+\begin{equation}
+\not{D}^2 = D^\mu D_\mu + \sigma^{\mu\nu}D_\mu D_\nu.
+\end{equation}
+Split $D_\mu D_\nu$ into symmetric and antisymmetric parts:
+\begin{equation}
+D_\mu D_\nu = \frac12\{D_\mu,D_\nu\}+\frac12[D_\mu,D_\nu].
+\end{equation}
+Because $\sigma^{\mu\nu}$ is antisymmetric, $\sigma^{\mu\nu}\{D_\mu,D_\nu\}=0$, so
+\begin{equation}
+\sigma^{\mu\nu}D_\mu D_\nu = \frac12\sigma^{\mu\nu}[D_\mu,D_\nu].
+\end{equation}
+With our convention $D_\mu=\partial_\mu-i g_s A_\mu$, the commutator is
+\begin{equation}
+[D_\mu,D_\nu]= -i g_s\,G_{\mu\nu},\qquad
+G_{\mu\nu} \equiv \partial_\mu A_\nu-\partial_\nu A_\mu - i g_s[A_\mu,A_\nu] = G_{\mu\nu}^a T^a.
+\end{equation}
+Therefore
+\begin{equation}\label{eq:fuj-Dslash2}
+\not{D}^2 = D^2 - \frac{i g_s}{2}\sigma^{\mu\nu}G_{\mu\nu}.
+\end{equation}
+
+\subsection{Heat-kernel expansion: isolate the $\gamma_5$ term}
+Insert \eqref{eq:fuj-Dslash2} into \eqref{eq:fuj-Ax}:
+\begin{equation}
+\mathcal{A}(x)=\lim_{M\to\infty}\Tr\!\left[\gamma_5\exp\!\left(-\frac{1}{M^2}\left(D^2 - \frac{i g_s}{2}\sigma^{\mu\nu}G_{\mu\nu}\right)\right)\right]_{x,x}.
+\end{equation}
+Expand the exponential in powers of $1/M$ and keep only terms that can contribute to a $\gamma_5$
+trace. Write
+\begin{equation}
+\exp\!\left(-\frac{1}{M^2}(D^2+X)\right)
+=
+e^{-D^2/M^2}\left[\mathbf{1}-\frac{X}{M^2}+\frac{1}{2}\frac{X^2}{M^4}+\cO\!\left(\frac{1}{M^6}\right)\right],
+\qquad
+X\equiv +\frac{i g_s}{2}\sigma^{\mu\nu}G_{\mu\nu}.
+\end{equation}
+Then
+\begin{align}
+\mathcal{A}(x)
+&=\lim_{M\to\infty}\Tr\!\left[\gamma_5 e^{-D^2/M^2}\right]_{x,x} \notag\\
+&\quad -\lim_{M\to\infty}\frac{1}{M^2}\Tr\!\left[\gamma_5 e^{-D^2/M^2}X\right]_{x,x} \notag\\
+&\quad +\lim_{M\to\infty}\frac{1}{2M^4}\Tr\!\left[\gamma_5 e^{-D^2/M^2}X^2\right]_{x,x}
++\cdots . \notag
+\end{align}
+The first term vanishes because $\Tr_{\mathrm{spin}}(\gamma_5)=0$.
+The second term vanishes because $\Tr_{\mathrm{spin}}(\gamma_5\sigma^{\mu\nu})=0$.
+Thus the leading contribution comes from the $X^2$ term:
+\begin{equation}\label{eq:fuj-leading}
+\mathcal{A}(x)=\lim_{M\to\infty}\frac{1}{2M^4}\Tr\!\left[\gamma_5 e^{-D^2/M^2}\left(\frac{i g_s}{2}\sigma^{\mu\nu}G_{\mu\nu}\right)^2\right]_{x,x}.
+\end{equation}
+
+\subsection{Coincident-point kernel and the momentum integral}
+To extract the leading $M\to\infty$ limit, use that the coincident-point kernel of $e^{-D^2/M^2}$
+is dominated by short distances. To the order needed in \eqref{eq:fuj-leading}, one may replace
+$D^2$ by the free Laplacian in the coincident kernel, because any insertion of gauge fields from $D^2$
+brings additional powers of $1/M$ that vanish in the $M\to\infty$ limit.
+Thus,
+\begin{equation}\label{eq:fuj-kernel}
+\left\langle x\middle| e^{-D^2/M^2}\middle|x\right\rangle
+=
+\int\frac{d^4k}{(2\pi)^4}\,e^{-k^2/M^2} + \cO\!\left(\frac{1}{M^2}\right)
+=
+\frac{M^4}{16\pi^2}+\cO(M^2).
+\end{equation}
+(We used $\int d^4k\,e^{-k^2/M^2}=\pi^2 M^4$ and divided by $(2\pi)^4$.)
+
+Insert \eqref{eq:fuj-kernel} into \eqref{eq:fuj-leading} and pull out the slowly varying fields:
+\begin{equation}\label{eq:fuj-pullout}
+\mathcal{A}(x)=\lim_{M\to\infty}\frac{1}{2M^4}\left(\frac{M^4}{16\pi^2}\right)
+\Tr_{\mathrm{spin,color}}\!\left[\gamma_5\left(\frac{i g_s}{2}\sigma^{\mu\nu}G_{\mu\nu}\right)^2\right] + \cO\!\left(\frac{1}{M^2}\right).
+\end{equation}
+
+\subsection{Spinor and color traces}
+Compute the trace in \eqref{eq:fuj-pullout}.
+First expand
+\begin{equation}
+\left(\frac{i g_s}{2}\sigma^{\mu\nu}G_{\mu\nu}\right)^2
+=
+-\frac{g_s^2}{4}\,\sigma^{\mu\nu}\sigma^{\rho\sigma}\,G_{\mu\nu}^a G_{\rho\sigma}^b\,T^a T^b.
+\end{equation}
+Therefore
+\begin{equation}
+\Tr_{\mathrm{spin,color}}\!\left[\gamma_5\left(\frac{i g_s}{2}\sigma^{\mu\nu}G_{\mu\nu}\right)^2\right]
+=
+-\frac{g_s^2}{4}\,\Tr_{\mathrm{spin}}\!\left(\gamma_5\sigma^{\mu\nu}\sigma^{\rho\sigma}\right)
+\,\Tr_{\mathrm{color}}(T^a T^b)\,G_{\mu\nu}^a G_{\rho\sigma}^b.
+\end{equation}
+Using $\Tr_{\mathrm{color}}(T^a T^b)=\tfrac12\delta^{ab}$, this becomes
+\begin{equation}\label{eq:fuj-tr1}
+\Tr_{\mathrm{spin,color}}[\cdots]
+=
+-\frac{g_s^2}{8}\,\Tr_{\mathrm{spin}}\!\left(\gamma_5\sigma^{\mu\nu}\sigma^{\rho\sigma}\right)
+\,G_{\mu\nu}^a G_{\rho\sigma}^a.
+\end{equation}
+
+Now compute the spinor trace. Using $\sigma^{\mu\nu}=\tfrac12[\gamma^\mu,\gamma^\nu]$ and cyclicity,
+\begin{align}
+\Tr_{\mathrm{spin}}\!\left(\gamma_5\sigma^{\mu\nu}\sigma^{\rho\sigma}\right)
+&=\frac14 \Tr_{\mathrm{spin}}\!\left(\gamma_5[\gamma^\mu,\gamma^\nu][\gamma^\rho,\gamma^\sigma]\right)\nonumber\\
+&=\frac14\Tr_{\mathrm{spin}}\!\left(\gamma_5(\gamma^\mu\gamma^\nu-\gamma^\nu\gamma^\mu)(\gamma^\rho\gamma^\sigma-\gamma^\sigma\gamma^\rho)\right)\nonumber\\
+&=\frac14\Big(
+\Tr(\gamma_5\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma)
+-\Tr(\gamma_5\gamma^\mu\gamma^\nu\gamma^\sigma\gamma^\rho)\nonumber\\
+&\qquad\qquad
+-\Tr(\gamma_5\gamma^\nu\gamma^\mu\gamma^\rho\gamma^\sigma)
++\Tr(\gamma_5\gamma^\nu\gamma^\mu\gamma^\sigma\gamma^\rho)
+\Big).
+\end{align}
+Use the standard identity (valid in four dimensions with $\epsilon^{0123}=+1$ in Minkowski signature,
+and with corresponding Euclidean continuation)
+\begin{equation}\label{eq:fuj-tr5}
+\Tr(\gamma_5\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma)=4\,\epsilon^{\mu\nu\rho\sigma}.
+\end{equation}
+Because $\epsilon^{\mu\nu\sigma\rho}=-\epsilon^{\mu\nu\rho\sigma}$ and
+$\epsilon^{\nu\mu\rho\sigma}=-\epsilon^{\mu\nu\rho\sigma}$, each of the four terms contributes the same
+$\epsilon^{\mu\nu\rho\sigma}$. Therefore
+\begin{equation}\label{eq:fuj-spintrace}
+\Tr_{\mathrm{spin}}\!\left(\gamma_5\sigma^{\mu\nu}\sigma^{\rho\sigma}\right)
+=
+4\,\epsilon^{\mu\nu\rho\sigma}.
+\end{equation}
+(If one uses a different $\gamma_5$ convention, the overall sign is absorbed into the definition of
+$\tilde G^{\mu\nu}$ and the sign of $\theta$; the physical invariant $\bar\theta$ in Lemma~\ref{lem:theta}
+is unaffected.)
+
+Insert \eqref{eq:fuj-spintrace} into \eqref{eq:fuj-tr1}:
+\begin{equation}\label{eq:fuj-tr2}
+\Tr_{\mathrm{spin,color}}[\cdots]
+=
+-\frac{g_s^2}{8}\,(4\epsilon^{\mu\nu\rho\sigma})\,G_{\mu\nu}^a G_{\rho\sigma}^a
+=
+-\frac{g_s^2}{2}\,\epsilon^{\mu\nu\rho\sigma}G_{\mu\nu}^a G_{\rho\sigma}^a.
+\end{equation}
+Using $\tilde G^{a\mu\nu}\equiv \tfrac12\epsilon^{\mu\nu\rho\sigma}G_{\rho\sigma}^a$, we have
+$\epsilon^{\mu\nu\rho\sigma}G_{\mu\nu}^a G_{\rho\sigma}^a = 2\,G_{\mu\nu}^a\tilde G^{a\mu\nu}$.
+Thus
+\begin{equation}\label{eq:fuj-tr3}
+\Tr_{\mathrm{spin,color}}[\cdots]
+=
+- g_s^2\,G_{\mu\nu}^a\tilde G^{a\mu\nu}.
+\end{equation}
+
+\subsection{Assemble the coefficient}
+Combine \eqref{eq:fuj-pullout} and \eqref{eq:fuj-tr3}:
+\begin{equation}
+\mathcal{A}(x)
+=
+\frac{1}{2}\cdot\frac{1}{16\pi^2}\cdot\Big(- g_s^2\,G_{\mu\nu}^a\tilde G^{a\mu\nu}\Big)
+=
+-\frac{g_s^2}{32\pi^2}\,G_{\mu\nu}^a\tilde G^{a\mu\nu}.
+\end{equation}
+For $N_f$ flavors rotated simultaneously, $\mathcal{A}(x)$ is multiplied by $N_f$.
+
+Insert this into \eqref{eq:fuj-J-A}:
+\begin{equation}\label{eq:fuj-Jfinal}
+J(\alpha)=\exp\!\left(+2i\alpha N_f\int d^4x\;\frac{g_s^2}{32\pi^2}G_{\mu\nu}^a\tilde G^{a\mu\nu}\right),
+\end{equation}
+where the sign follows our conventions above.
+
+\subsection{Read off the $\theta$ shift}
+The Jacobian contributes to the effective action as $\Delta S_E = -\ln J(\alpha)$, i.e.
+\begin{equation}
+\Delta S_E
+=
+-2i\alpha N_f\int d^4x\;\frac{g_s^2}{32\pi^2}G_{\mu\nu}^a\tilde G^{a\mu\nu}.
+\end{equation}
+Translating back to Minkowski signature and comparing with
+\begin{equation}
+\mathcal{L}_\theta = \frac{g_s^2}{32\pi^2}\theta\,G_{\mu\nu}^a\tilde G^{a\mu\nu},
+\end{equation}
+we obtain the shift
+\begin{equation}
+\theta \mapsto \theta + 2N_f\alpha,
+\end{equation}
+which is the step used in Lemma~\ref{lem:theta}.
+
+\section{Broken-gauge Ward/Slavnov--Taylor identity and longitudinal--Goldstone equivalence}\label{app:LG-proof}
+The equivalence theorem is standard; see e.g.\ \cite{Cornwall1974,Chanowitz1985}.
+
+This appendix gives a self-contained derivation of the identity used in Lemma~\ref{lem:LG}.
+We work in an $R_\xi$ gauge and use BRST invariance to derive a Slavnov--Taylor relation that links
+amplitudes with an external longitudinal massive gauge boson to amplitudes with the corresponding
+would-be Goldstone boson. We then take the high-energy limit $E\gg m_W$ to obtain the equivalence
+of longitudinal and Goldstone amplitude classes.
+
+\subsection{Gauge fixing with an auxiliary field}
+Consider (for definiteness) the $\SU(2)$ part of the electroweak sector after spontaneous symmetry
+breaking, with massive gauge bosons $W_\mu^a$ and would-be Goldstones $\pi^a$ (the argument applies
+componentwise to $W^\pm$ and $Z$).
+Choose the $R_\xi$ gauge-fixing function
+\begin{equation}\label{eq:LG-F}
+F^a \equiv \partial^\mu W_\mu^a + \xi\,m_W\,\pi^a.
+\end{equation}
+Introduce the Nakanishi--Lautrup auxiliary field $B^a$ and write the gauge-fixing Lagrangian as
+\begin{equation}\label{eq:LG-LgfB}
+\mathcal{L}_{\mathrm{gf}} = B^a F^a + \frac{\xi}{2} B^a B^a.
+\end{equation}
+Eliminating $B^a$ by its algebraic equation of motion gives $B^a = -\frac{1}{\xi}F^a$ and hence
+\begin{equation}\label{eq:LG-Lgf}
+\mathcal{L}_{\mathrm{gf}} = -\frac{1}{2\xi}(F^a)^2
+= -\frac{1}{2\xi}\left(\partial\!\cdot\! W^a + \xi m_W \pi^a\right)^2,
+\end{equation}
+which is the standard $R_\xi$ gauge fixing used in the main text.
+
+\subsection{Ghost term and BRST transformations}
+Introduce Faddeev--Popov ghosts $c^a$ and antighosts $\bar c^a$.
+The gauge-fixed action is made BRST invariant by adding the ghost term
+\begin{equation}\label{eq:LG-Lgh}
+\mathcal{L}_{\mathrm{gh}} = -\bar c^a\,\frac{\delta F^a}{\delta\theta^b}\,c^b,
+\end{equation}
+where $\theta^b$ are the infinitesimal gauge parameters and $\delta F^a/\delta\theta^b$ is computed
+from the gauge transformations of $W_\mu^a$ and $\pi^a$.
+
+BRST transformations $s$ are defined so that gauge transformations are reproduced with ghost parameters
+and $s^2=0$. The only pieces we will need explicitly are the linearized transformations around the
+vacuum (the nonlinear terms are fixed by the gauge algebra but do not enter the identity we derive):
+\begin{align}
+s\,W_\mu^a &= \partial_\mu c^a + \cdots ,\label{eq:LG-sW}\\
+s\,\pi^a &= -m_W\,c^a + \cdots ,\label{eq:LG-spi}\\
+s\,c^a &= -\frac{g_2}{2}\,\epsilon^{abc}c^b c^c ,\label{eq:LG-sc}\\
+s\,\bar c^a &= B^a,\qquad s\,B^a=0.\label{eq:LG-sbarc}
+\end{align}
+A key structural fact is that the gauge-fixing plus ghost Lagrangian is BRST-exact:
+\begin{equation}\label{eq:LG-exact}
+\mathcal{L}_{\mathrm{gf}}+\mathcal{L}_{\mathrm{gh}} = s\!\left[\bar c^a\left(F^a + \frac{\xi}{2}B^a\right)\right].
+\end{equation}
+BRST invariance of the full gauge-fixed action follows immediately from $s^2=0$.
+
+\subsection{$F^a$ is BRST-exact on shell}
+Because $s\,\bar c^a = B^a$ and $B^a$ is algebraic, the $B$ equation of motion gives
+\begin{equation}\label{eq:LG-BEOM}
+B^a = -\frac{1}{\xi}F^a.
+\end{equation}
+Therefore
+\begin{equation}\label{eq:LG-Fexact}
+F^a = -\xi\,B^a = -\xi\,s\,\bar c^a.
+\end{equation}
+Thus $F^a$ is BRST-exact (after eliminating the auxiliary field). This is the algebraic origin of the
+Slavnov--Taylor identity relating $\partial\!\cdot\!W^a$ and $\pi^a$.
+
+\subsection{Vanishing of BRST-exact insertions between physical states}
+Physical asymptotic states are taken to be BRST-closed (they are annihilated by the BRST charge)
+and BRST-exact states are regarded as null. Consequently, matrix elements of BRST-exact operators
+between physical states vanish:
+\begin{equation}\label{eq:LG-BRSTnull}
+\bra{\mathrm{phys}}\,s(\mathcal{O})\,\ket{\mathrm{phys}}=0.
+\end{equation}
+Applying \eqref{eq:LG-BRSTnull} to $\mathcal{O}=\bar c^a$ and using \eqref{eq:LG-Fexact} yields
+\begin{equation}\label{eq:LG-Fzero}
+\bra{\mathrm{phys}}\,F^a(x)\,\ket{\mathrm{phys}}=0
+\qquad\Rightarrow\qquad
+\bra{\mathrm{phys}}\,\partial^\mu W_\mu^a(x)\,\ket{\mathrm{phys}}
+=
+-\xi m_W\,\bra{\mathrm{phys}}\,\pi^a(x)\,\ket{\mathrm{phys}}.
+\end{equation}
+Equation \eqref{eq:LG-Fzero} is the configuration-space form of the Ward/Slavnov--Taylor identity needed.
+
+\subsection{From \texorpdfstring{$\partial\!\cdot\!W^a$}{div W} insertions to amputated amplitudes}
+Let $\mathcal{G}^{a}_{\mu}(x;\{y\})$ denote a connected Green function with one $W^a_\mu(x)$ insertion and
+other insertions collectively denoted by $\{y\}$ (all taken to correspond to physical external legs in
+an $S$-matrix element). Fourier transforming the $x$ dependence gives
+\begin{equation}
+\widetilde{\mathcal{G}}^{a}_{\mu}(p;\{y\})=\int d^4x\;e^{ip\cdot x}\,\mathcal{G}^{a}_{\mu}(x;\{y\}).
+\end{equation}
+Then the Fourier transform of $\partial^\mu W_\mu^a$ corresponds to multiplication by $i p^\mu$:
+\begin{equation}
+\widetilde{\mathcal{G}}^{a}_{\partial\cdot W}(p;\{y\}) \equiv
+\int d^4x\;e^{ip\cdot x}\,\langle 0|T\{\partial^\mu W_\mu^a(x)\cdots\}|0\rangle
+= i p^\mu \widetilde{\mathcal{G}}^{a}_{\mu}(p;\{y\}).
+\end{equation}
+Likewise define $\widetilde{\mathcal{G}}^{a}_{\pi}(p;\{y\})$ with a $\pi^a$ insertion.
+
+Equation \eqref{eq:LG-Fzero} implies, at the level of such Green functions with only physical external
+legs,
+\begin{equation}\label{eq:LG-green}
+i p^\mu \widetilde{\mathcal{G}}^{a}_{\mu}(p;\{y\}) = -\xi m_W\,\widetilde{\mathcal{G}}^{a}_{\pi}(p;\{y\}).
+\end{equation}
+
+Now apply LSZ reduction. For an external massive vector boson, the amputated object that becomes the
+scattering amplitude is obtained by multiplying by $(p^2-m_W^2)$ and taking the on-shell limit; for an
+external scalar Goldstone, one multiplies by $(p^2-\xi m_W^2)$ (because in $R_\xi$ gauge the Goldstone
+propagator pole is at $p^2=\xi m_W^2$).
+Denote the amputated, on-shell objects by $\mathcal{M}_\mu(W^a(p),\dots)$ and
+$\mathcal{M}(\pi^a(p),\dots)$. The amputated version of \eqref{eq:LG-green} becomes the standard
+Slavnov--Taylor relation
+\begin{equation}\label{eq:LG-ST}
+p^\mu\,\mathcal{M}_\mu(W^a(p),\dots) = i\,m_W\,\mathcal{M}(\pi^a(p),\dots),
+\end{equation}
+where we set $\xi=1$ in the final on-shell relation so that the Goldstone pole coincides with $m_W$
+('t~Hooft--Feynman gauge). More general $\xi$ versions differ by $\xi$-dependent normalization factors
+that cancel from physical $S$-matrix elements; the high-energy equivalence statement below is unchanged
+in its standing-relevant content.
+
+\subsection{Longitudinal polarization and the high-energy limit}
+For an on-shell massive vector with momentum $p^\mu=(E,\mathbf{p})$ and $p^2=m_W^2$, a longitudinal
+polarization can be chosen as
+\begin{equation}\label{eq:LG-epsL}
+\epsilon_L^\mu(p)=\frac{1}{m_W}\left(|\mathbf{p}|,\,E\,\hat{\mathbf{p}}\right),
+\qquad \hat{\mathbf{p}}=\mathbf{p}/|\mathbf{p}|.
+\end{equation}
+One checks directly that $p\cdot \epsilon_L=0$ and $\epsilon_L^2=-1$ (Minkowski signature).
+In the high-energy regime $E\gg m_W$, we have $E=|\mathbf{p}|+\cO(m_W^2/E)$, so
+\begin{equation}\label{eq:LG-epsapprox}
+\epsilon_L^\mu(p)=\frac{p^\mu}{m_W}+\cO\!\left(\frac{m_W}{E}\right).
+\end{equation}
+
+\subsection{Equivalence theorem (tree level, audit form)}
+Combine \eqref{eq:LG-ST} with \eqref{eq:LG-epsapprox}:
+\begin{align}
+\mathcal{M}(W_L^a(p),\dots)
+&= \epsilon_{L}^{\mu}(p)\,\mathcal{M}_\mu(W^a(p),\dots)\nonumber\\
+&=\left(\frac{p^\mu}{m_W}+\cO\!\left(\frac{m_W}{E}\right)\right)\mathcal{M}_\mu(W^a(p),\dots)\nonumber\\
+&=\frac{1}{m_W}\left(i m_W\,\mathcal{M}(\pi^a(p),\dots)\right)+\cO\!\left(\frac{m_W}{E}\right)\nonumber\\
+&= i\,\mathcal{M}(\pi^a(p),\dots)+\cO\!\left(\frac{m_W}{E}\right).
+\end{align}
+The overall phase $i$ depends only on the convention used to define the scalar vs.\ vector LSZ
+normalizations; at tree level and with consistent conventions it may be absorbed so that the
+standing-relevant statement is:
+\begin{equation}\label{eq:LG-final}
+\mathcal{M}(W_L^a(p),\dots)
+=
+\mathcal{M}(\pi^a(p),\dots)
++\cO\!\left(\frac{m_W}{E}\right).
+\end{equation}
+Equation \eqref{eq:LG-final} is precisely the amplitude-class identification used in Lemma~\ref{lem:LG}.
+
+
+
+\section*{References}
+\begin{thebibliography}{99}
+
+\bibitem{PeskinSchroeder}
+M.~E.~Peskin and D.~V.~Schroeder,
+\emph{An Introduction to Quantum Field Theory},
+Addison--Wesley (1995).
+
+\bibitem{WeinbergQTF1}
+S.~Weinberg,
+\emph{The Quantum Theory of Fields, Vol.\ 1: Foundations},
+Cambridge University Press (1995).
+
+\bibitem{WeinbergQTF2}
+S.~Weinberg,
+\emph{The Quantum Theory of Fields, Vol.\ 2: Modern Applications},
+Cambridge University Press (1996).
+
+\bibitem{Bertlmann1996}
+R.~A.~Bertlmann,
+\emph{Anomalies in Quantum Field Theory},
+Oxford University Press (1996).
+
+\bibitem{Witten1982}
+E.~Witten,
+``An $\SU(2)$ anomaly,''
+\emph{Phys.\ Lett.\ B} \textbf{117} (1982) 324--328.
+
+\bibitem{Fujikawa1979}
+K.~Fujikawa,
+``Path-Integral Measure for Gauge-Invariant Fermion Theories,''
+\emph{Phys.\ Rev.\ Lett.} \textbf{42} (1979) 1195--1198.
+
+\bibitem{Fujikawa1980}
+K.~Fujikawa,
+``Path Integral for Gauge Theories with Fermions,''
+\emph{Phys.\ Rev.\ D} \textbf{21} (1980) 2848--2858.
+
+\bibitem{Cornwall1974}
+J.~M.~Cornwall, D.~N.~Levin and G.~Tiktopoulos,
+``Derivation of Gauge Invariance from High-Energy Unitarity Bounds on the $S$ Matrix,''
+\emph{Phys.\ Rev.\ D} \textbf{10} (1974) 1145--1167;
+erratum \textbf{11} (1975) 972.
+
+\bibitem{Chanowitz1985}
+M.~S.~Chanowitz and M.~K.~Gaillard,
+``The TeV Physics of Strongly Interacting $W$'s and $Z$'s,''
+\emph{Nucl.\ Phys.\ B} \textbf{261} (1985) 379--431.
+
+\end{thebibliography}
+
+
+\end{document}
+

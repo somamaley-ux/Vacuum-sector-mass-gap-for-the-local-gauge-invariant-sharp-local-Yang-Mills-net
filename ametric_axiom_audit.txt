@@ -1,0 +1,44 @@
+Axiom Audit — AMetric Paper Surface
+
+This audit reflects direct kernel-level results obtained via Lean `#print axioms`
+in `AmetricAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperAmetricCollapseStatement
+- MaleyLean.PaperStandingContentStatement
+- MaleyLean.PaperFailureRegionContentStatement
+- MaleyLean.PaperIrrecoverabilityMetricInvarianceStatement
+- MaleyLean.PaperStandingPreservationCompositionStatement
+- MaleyLean.PaperClosurePropagationStatement
+- MaleyLean.PaperIntermediateContainmentExclusionStatement
+- MaleyLean.PaperCompositeUnusabilityDecompositionStatement
+- MaleyLean.PaperNoDeferredRepairTwoStepStatement
+- MaleyLean.PaperNoDeferredRepairTwoStepBlocksLegalityStatement
+- MaleyLean.PaperNoDeferredRepairTwoStepUnusabilityStatement
+- MaleyLean.PaperNoStagedRepairThreeStepStatement
+- MaleyLean.PaperNoStagedRepairThreeStepBlocksLegalityStatement
+- MaleyLean.PaperNoStagedRepairThreeStepUnusabilityStatement
+- MaleyLean.PaperNoFiniteRepairFourStepStatement
+- MaleyLean.PaperNoFiniteRepairFourStepBlocksLegalityStatement
+- MaleyLean.PaperNoFiniteRepairFourStepUnusabilityStatement
+- MaleyLean.PaperChainThreeCompositionStandingPreservationStatement
+- MaleyLean.PaperChainFourCompositionStandingPreservationStatement
+- MaleyLean.PaperChainThreeIrrecoverabilityStatement
+- MaleyLean.PaperChainThreeBlocksLegalityStatement
+- MaleyLean.PaperChainThreeYieldsUnusabilityStatement
+- MaleyLean.PaperChainFourIrrecoverabilityStatement
+- MaleyLean.PaperChainFourBlocksLegalityStatement
+- MaleyLean.PaperChainFourYieldsUnusabilityStatement
+- MaleyLean.PaperStandingBivalenceStatement
+- MaleyLean.PaperBivalenceUniquenessStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current AMetric paper-facing surface is axiom-free.
+
+All audited declarations listed above do not depend on any axioms.

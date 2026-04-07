@@ -1,0 +1,25 @@
+Axiom Audit - Equivalence Exhaustion Support Surface
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `EquivalenceExhaustionAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperEquivalenceExhaustionStatement
+- MaleyLean.PaperEquivalenceSpaceClosureStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current minimal equivalence-exhaustion support surface is axiom-free.
+
+This certifies the relative closure logic presently formalized in Lean:
+if every purported further equivalence completion is either inadmissible or a
+reintroduction of an already-classified failure mode, then no genuine new
+equivalence completion remains and the equivalence space is closed.
+
+It does not yet certify the full Standard-Model failure-class ledger of Papers
+1--11 as a single detailed formal object.

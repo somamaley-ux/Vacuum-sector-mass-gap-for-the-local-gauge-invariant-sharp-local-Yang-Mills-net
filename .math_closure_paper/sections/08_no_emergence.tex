@@ -1,0 +1,102 @@
+\section{No Emergent Internal Power Under Combination}\label{sec:no-emergence}
+
+After \Cref{thm:case-study-closure}, the remaining loophole is interaction rather than family-by-family classification. One can still ask whether combinations of already classified moves---composition, iteration, diagonal packaging, or representation change---produce a genuinely new internal mechanism. The claim of this section is that they do not. Interaction can increase mathematical reach, but it does not create a third status beyond conservative readback and external dependence.
+
+\begin{definition}[Interaction-generated closure]\label{def:interaction-closure}
+Let $\mathcal{F}_0$ be the class of purported carrier-preserving operators on a fixed base structure $\B$ already classified by \Cref{prop:five-disposition,thm:case-study-closure}. The \emph{interaction-generated closure} $\langle \mathcal{F}_0\rangle$ is the smallest class of old-base-relevant procedures containing $\mathcal{F}_0$ and closed under:
+\begin{enumerate}[label=(\roman*)]
+    \item finite composition;
+    \item finite iteration;
+    \item admissibility-preserving coding, diagonal packaging, or fixed-point presentation of an already classified procedure; and
+    \item admissibility-preserving representation change, intertranslation, or temporary foundation change followed by readback to old-base-relevant content.
+\end{enumerate}
+\end{definition}
+
+\subsection{Composition and iteration}
+
+\begin{lemma}[Conservative closure under composition]\label{lem:cons-composition}
+If $F$ and $G$ each act conservatively on the old-base-relevant content of a fixed base structure $\B$, then $G\circ F$ acts conservatively on that same content.
+\end{lemma}
+
+\begin{proof}
+An operator that acts conservatively on old-base-relevant content adds no new values for old operations on old tuples and no new old-base consequences. Composing two such operators preserves that status.
+\end{proof}
+
+\begin{theorem}[Composition and iteration do not create a third case]\label{thm:composition-iteration}
+Let $F_1,\dots,F_n$ be procedures on a fixed base structure $\B$, each already classified as either conservative on old-base-relevant content or external to $\B$. Then the composite
+\[
+F_n\circ\cdots\circ F_1
+\]
+has old-base-relevant effect of exactly one of the following two kinds.
+\begin{enumerate}[label=(\alph*)]
+    \item It is conservative on the old base.
+    \item It depends essentially on an external parameter, witness, evaluator, or ambient enlargement and is therefore external to the old base.
+\end{enumerate}
+In particular, finite iteration of a conservative operator remains conservative, and finite iteration of an externally dependent operator does not become internal merely by repetition.
+\end{theorem}
+
+\begin{proof}
+Proceed by induction on $n$. The case $n=1$ is the standing classification. If the $(n-1)$-stage composite is conservative and $F_n$ acts conservatively on old-base-relevant content, then the full composite is conservative by \Cref{lem:cons-composition}. If the $(n-1)$-stage composite is already external and its old-base-relevant effect still depends on the load-bearing external datum, then no later stage can make that datum internally fixed; the full composite remains external by \Cref{thm:auxiliary-dichotomy,cor:no-internalization-by-relabeling}.
+
+The only other possibility is that one or more earlier stages use an external detour but the final readback to old-base-relevant content no longer depends on the external witness except as a proving environment. Then the effect of the total composite is conservative rather than internally generative. This is the fixed-base status of many forcing, completion, and monster-model arguments when only an invariant statement about the original base is read back.
+\end{proof}
+
+\begin{corollary}[No internal bootstrapping by repetition]\label{cor:no-bootstrapping}
+Repeated application of a fixed procedure does not convert external dependence into internal operator power on the original base. Any apparent gain from iteration is either conservative stabilization on old-base-relevant content or further dependence on external data.
+\end{corollary}
+
+\begin{proof}
+Apply \Cref{thm:composition-iteration} to the iterates $F,F^2,\dots,F^n$.
+\end{proof}
+
+\subsection{Diagonalization and fixed-point detours}
+
+Diagonalization and fixed-point arguments are the most plausible remaining loophole because self-reference can look like a source of fresh internal strength. The fixed-base question, however, is the familiar one: which coding, substitution, evaluation, or semantic resources are doing the work?
+
+\begin{proposition}[Diagonalization and fixed-point packaging]\label{prop:diagonalization}
+Let $D$ be a purported carrier-preserving operator on a fixed base structure $\B$ whose presentation proceeds by coding, self-application, diagonalization, or fixed-point packaging. Then exactly one of the following holds.
+\begin{enumerate}[label=(\alph*)]
+    \item The relevant coding, substitution, and readback apparatus are already internally fixed by $\B$. In that case adjoining $D$ amounts only to a conservative definitional expansion or admissible repackaging.
+    \item The construction depends essentially on an external satisfaction device, evaluation rule, witness structure, or ambient semantic framework not internally fixed by $\B$. In that case $D$ is external to $\B$.
+\end{enumerate}
+Therefore diagonalization and fixed-point methods do not create new internal operator power on a fixed base merely by virtue of self-reference.
+\end{proposition}
+
+\begin{proof}
+If the relevant coding and substitution maps are already fixed by the base, then the purported diagonal operator only repackages material already available in the original regime; in the language of \Cref{sec:exhaustion}, it is conservative definitional expansion or admissible redescription. If stronger evaluative apparatus is required, then the operator depends on auxiliary data not fixed by the old base and is external by \Cref{thm:auxiliary-dichotomy}. Finally, self-reference does not bypass \Cref{thm:no-internal-totalization}: any claim that diagonalization makes an old partial operation newly defined on an old tuple still changes the old graph on old data.
+\end{proof}
+
+\subsection{Representation change and foundation swap}
+
+A second common reply is that one can change presentation, recode the subject matter, or move temporarily to a different foundational background and thereby expose a new operator. The paper's answer is again classificatory rather than eliminative: representation change matters in practice, but its fixed-base status is still either conservative or external \citep{ChangKeisler1990,BarrettHalvorson2016,MacLane1998,Simpson2009}.
+
+\begin{proposition}[Representation change and foundation swap]\label{prop:representation-change}
+Let $T$ be a procedure that changes notation, coding, signature, presentation, or ambient foundational background and then reads results back to a fixed original base $\B$. Then exactly one of the following holds.
+\begin{enumerate}[label=(\alph*)]
+    \item The translation preserves and reflects the old-base-relevant content of $\B$. Then the procedure is conservative on that content.
+    \item The translation changes the admissibility regime, the permitted witnesses, the carrier under discussion, or the ambient existence assumptions. Then it is an explicit scope change and not an internal strengthening of the original base.
+\end{enumerate}
+Hence changing representation or foundation does not by itself create new internal operator power on the original base.
+\end{proposition}
+
+\begin{proof}
+If the translation preserves and reflects old-base-relevant content, then the move is a change of presentation. It may simplify proofs or clarify dependencies, but it does not add new values for old operations on old tuples and does not alter the old-base consequences. Relative to the original base, it is conservative.
+
+If instead the move changes what counts as admissible, what witnesses may be invoked, what objects are available, or what carrier is under discussion, then the procedure is no longer measured against the original regime alone. It is an open change of scope of the kind already isolated in \Cref{prop:five-disposition}. Reading a conclusion back to the original base may still yield a conservative theorem about that base, but the route is external rather than internally generative.
+\end{proof}
+
+\begin{theorem}[No-emergent-family theorem]\label{thm:no-emergent-family}
+Let $\B$ be a fixed base structure, and let $F\in\langle\mathcal{F}_0\rangle$ be any old-base-relevant procedure obtained from the already classified families by finite composition, iteration, diagonal packaging, or representation/foundation detour with readback. Then the effect of $F$ on the old base is either conservative or external. In particular, interaction among the classified families does not generate a new source of internal operator power on $\B$.
+\end{theorem}
+
+\begin{proof}
+Every generator in $\mathcal{F}_0$ is already classified by \Cref{prop:five-disposition,thm:case-study-closure}. \Cref{thm:composition-iteration} handles finite composition and iteration, \Cref{prop:diagonalization} handles diagonal and fixed-point packaging, and \Cref{prop:representation-change} handles coding, translation, and foundation change. Hence every element of the closure $\langle\mathcal{F}_0\rangle$ is again either conservative on old-base-relevant content or external to the original base.
+\end{proof}
+
+\begin{corollary}[No internal re-entry by detour]\label{cor:no-reentry}
+No procedure that leaves a fixed base for external work and later returns with a readback thereby becomes a new internal operator on that base unless the readback is conservative on the old base.
+\end{corollary}
+
+\begin{proof}
+Immediate from \Cref{thm:no-emergent-family}. The detour may be mathematically essential, but its fixed-base status is either external or conservative.
+\end{proof}

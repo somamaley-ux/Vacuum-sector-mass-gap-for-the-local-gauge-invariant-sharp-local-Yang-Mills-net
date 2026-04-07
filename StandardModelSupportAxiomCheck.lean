@@ -1,0 +1,7 @@
+import MaleyLean.StandardModelSupportPaperStatements
+
+namespace MaleyLean
+
+#print axioms PaperStandardModelSupportSurfaceStatement
+
+end MaleyLean

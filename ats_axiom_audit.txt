@@ -1,0 +1,26 @@
+Axiom Audit - ATS Paper Surface
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `ATSAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.ATSTensorRegionCollapseStatement
+- MaleyLean.ATSImportedUniquenessDependencyStatement
+- MaleyLean.ATSRoleMinimalityAndExhaustivenessStatement
+- MaleyLean.ATSSelectorCollapseStatement
+- MaleyLean.ATSNoFourthStandingBearingRoleStatement
+- MaleyLean.ATSRoleFactorizationUniquenessStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current ATS paper-facing surface in this repo is axiom-free.
+
+This certifies the imported fixed-domain ATS support surface now present in the
+Lean layer: tensor-region collapse, imported uniqueness dependency,
+role minimality/exhaustiveness, selector collapse, no fourth standing-bearing
+role, and role-factorization uniqueness.

@@ -1,0 +1,355 @@
+Godel Support Map
+
+Date: 2026-04-07
+
+Primary statement source
+------------------------
+
+Extracted manuscript source:
+
+- [.godel_paper/main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+
+Lean support surface
+--------------------
+
+Primary Lean module:
+
+- [GodelPaperStatements.lean](/d:/lean/MaleyLean/MaleyLean/GodelPaperStatements.lean)
+
+Audit artifacts:
+
+- [GodelAxiomCheck.lean](/d:/lean/MaleyLean/GodelAxiomCheck.lean)
+- [godel_axiom_audit.txt](/d:/lean/MaleyLean/godel_axiom_audit.txt)
+
+Theorem correspondence
+----------------------
+
+Threat-bridge section
+
+- manuscript definitions:
+  "Instantiability on a fixed domain", "Same-domain faithful coding layer",
+  and "Readback of a code-predicate"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witnesses:
+  `MaleyLean.PaperInstantiabilityOnFixedDomainStatement`
+  `MaleyLean.PaperSameDomainReadbackStatement`
+  `MaleyLean.PaperGovernanceRelevantCodePredicateReadbackStatement`
+
+- manuscript definitions:
+  "Content carrier and lawful content equivalence"
+  together with the paper's typed content-claim convention
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witnesses:
+  `MaleyLean.PaperLawfulContentEquivalenceForNegatedCodeStatement`
+  `MaleyLean.PaperSelfSubstitutionClosureStatement`
+  `MaleyLean.PaperNegativeFixedPointSynthesisStatement`
+
+- manuscript theorem:
+  "Fixed-domain inferential-life exhaustion"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperFixedDomainInferentialLifeExhaustionStatement`
+
+- manuscript lemma:
+  "Closure-relevance transmission"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperClosureRelevanceTransmissionStatement`
+
+- manuscript theorem:
+  "Inferential Necessity of Closure Distinctions"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperInferentialNecessityOfClosureDistinctionsStatement`
+
+- manuscript corollary:
+  "External undecidability inertness"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperExternalUndecidabilityInertnessStatement`
+
+- manuscript corollary:
+  "Trajectory-neutral closure relevance is act-level"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperTrajectoryNeutralClosureRelevanceActLevelStatement`
+
+Code-predicate section
+
+- manuscript theorem:
+  "Exhaustion of same-domain code-predicate roles"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperCodePredicateRoleExhaustionStatement`
+
+- manuscript theorem:
+  "Necessary package for a same-domain Godel threat"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperNecessaryPackageForSameDomainGodelThreatStatement`
+
+- manuscript definition/theorem:
+  "Same-domain negative fixed-point construction"
+  with concrete apparatus packaging
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperConcreteDiagonalApparatusStatement`
+
+- manuscript theorem:
+  "No independent governance-relevant code-predicate"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperNoIndependentGovernanceRelevantCodePredicateStatement`
+
+- manuscript proposition:
+  "Gate-renaming collapse"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperGateRenamingCollapseStatement`
+
+Diagonalization section
+
+- manuscript theorem:
+  "Exhaustion of same-domain self-reference prerequisites"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperSelfReferencePrerequisiteExhaustionStatement`
+
+- manuscript theorem:
+  "Non-existence of admissible same-domain diagonalization"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperNoSameDomainDiagonalizationStatement`
+
+- manuscript theorem:
+  "Gate-collapsed negative fixed point" and
+  "No governance-relevant negative fixed point"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witnesses:
+  `MaleyLean.PaperGateCollapsedNegativeFixedPointStatement`
+  `MaleyLean.PaperNoGovernanceRelevantNegativeFixedPointStatement`
+
+- manuscript proof step:
+  the concrete contradiction in the admitted/standing-positive branch of
+  same-domain diagonalization
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witnesses:
+  `MaleyLean.PaperConcreteGateCollapsedContradictionStatement`
+  `MaleyLean.PaperConcreteNoSameDomainDiagonalizationStatement`
+
+- manuscript proof step:
+  the concrete contradiction in the non-admitted / failed-trajectory branch of
+  same-domain diagonalization
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witnesses:
+  `MaleyLean.PaperConcreteFailedFixedPointInertnessStatement`
+  `MaleyLean.PaperConcreteFailedBranchNoDiagonalizationStatement`
+
+- manuscript proof step:
+  the non-admitted branch tied directly to same-act repair, generation, and
+  downstream irrecoverability on retained lineage
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witnesses:
+  `MaleyLean.PaperTrajectoryLinkedFailedBranchBlockStatement`
+  `MaleyLean.PaperTrajectoryLinkedFailedBranchNoDiagonalizationStatement`
+
+Semantic / infinitary / extension rescue section
+
+- manuscript theorem:
+  "No semantic standing import on the fixed domain"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperNoSemanticStandingImportStatement`
+
+- manuscript theorem:
+  "No meta-foundational re-anchoring on the old scope"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperNoMetaFoundationalReanchoringStatement`
+
+- manuscript theorem:
+  "Infinitary admissibility collapse"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperInfinitaryAdmissibilityCollapseStatement`
+
+- manuscript definition/theorem:
+  "Finite same-domain witness"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperFiniteSameDomainWitnessStatement`
+
+- manuscript theorem:
+  "Extension trichotomy for same-domain incompleteness rescue"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperExtensionTrichotomyStatement`
+
+- manuscript theorem:
+  "Same-domain extension classification"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperSameDomainExtensionClassificationStatement`
+
+- manuscript theorem:
+  "Exhaustion of semantic, infinitary, and extension rescue routes"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperRescueRouteExhaustionStatement`
+
+- manuscript theorem:
+  "Godel threat alignment"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperGodelThreatAlignmentStatement`
+
+- manuscript theorem:
+  "Translation filter for ordinary Godel objections"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperTranslationFilterForOrdinaryGodelObjectionsStatement`
+
+Terminal theorem section
+
+- manuscript theorem:
+  "Exhaustion of same-domain incompleteness objection routes"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperIncompletenessObjectionRouteExhaustionStatement`
+
+- manuscript theorem:
+  "Exhaustion of same-domain incompleteness objection routes"
+  using explicit objection-data packaging
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperIncompletenessObjectionDataRouteExhaustionStatement`
+
+- manuscript theorem:
+  "Non-instantiability of Godel incompleteness in the unique admissible interior"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperNonInstantiabilityOfGodelIncompletenessStatement`
+
+- manuscript theorem:
+  "Non-instantiability of Godel incompleteness in the unique admissible interior"
+  using explicit objection-data packaging
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperNonInstantiabilityOfGodelIncompletenessDataStatement`
+
+- manuscript corollary:
+  "No governance-relevant true but unprovable split"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperNoGovernanceRelevantTrueButUnprovableSplitStatement`
+
+- manuscript corollary:
+  "Stability of the unique admissible interior"
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.godel_paper/main.tex)
+- Lean witness:
+  `MaleyLean.PaperStabilityOfUniqueAdmissibleInteriorStatement`
+
+Imported dependency spine
+-------------------------
+
+The new Godel-facing surface reuses existing fixed-domain Lean support from:
+
+- `MaleyLean.PaperUniquenessOfAdmissibleInteriorStatement`
+- `MaleyLean.PaperUniquenessOfAdmissibleInteriorCoreStatement`
+- `MaleyLean.PaperStandingEmergenceStatement`
+- `MaleyLean.PaperNoSameActRepairStatement`
+- `MaleyLean.PaperNoGeneratorsStatement`
+- `MaleyLean.PaperStandingConservationStatement`
+
+Audit-facing imported witness ledger:
+
+- `MaleyLean.PaperImportedAppendixWitnessLedgerCertifiedStatement`
+- `MaleyLean.PaperImportedAppendixLabelLedgerCertifiedStatement`
+
+Exact appendix-label coverage now surfaced in Lean:
+
+- `thm:B-standing` -> `MaleyLean.PaperImportedAppendixLabelLedgerCertifiedStatement`
+- `cor:B-unique-gate` -> `MaleyLean.PaperImportedAppendixLabelLedgerCertifiedStatement`
+- `thm:B-no-repair` -> `MaleyLean.PaperImportedAppendixLabelLedgerCertifiedStatement`
+- `thm:B-no-generators` -> `MaleyLean.PaperImportedAppendixLabelLedgerCertifiedStatement`
+- `thm:B-no-carriers` -> `MaleyLean.PaperImportedAppendixLabelLedgerCertifiedStatement`
+- `thm:B-interior-unique` -> `MaleyLean.PaperImportedAppendixLabelLedgerCertifiedStatement`
+- `thm:B-conservation` -> `MaleyLean.PaperImportedAppendixLabelLedgerCertifiedStatement`
+- `prop:B-no-semantic-import` -> `MaleyLean.PaperImportedAppendixLabelLedgerCertifiedStatement`
+- `thm:C-quotient-unique` -> `MaleyLean.PaperImportedAppendixLabelLedgerCertifiedStatement`
+- `thm:C-no-proper-extension` -> `MaleyLean.PaperImportedAppendixLabelLedgerCertifiedStatement`
+- `lem:D-failure` -> `MaleyLean.PaperImportedAppendixLabelLedgerCertifiedStatement`
+- `thm:D-no-deferred` -> `MaleyLean.PaperImportedAppendixLabelLedgerCertifiedStatement`
+- `thm:D-irrecoverable` -> `MaleyLean.PaperImportedAppendixLabelLedgerCertifiedStatement`
+- `thm:D-terminal` -> `MaleyLean.PaperImportedAppendixLabelLedgerCertifiedStatement`
+- `thm:E-no-second-equivalence` -> `MaleyLean.PaperImportedAppendixLabelLedgerCertifiedStatement`
+
+Current honesty boundary
+------------------------
+
+What is now encoded honestly:
+
+- a strengthened same-domain theorem surface for the paper's main theorem chain
+- the opening inferential-life and closure-transmission bridge lemmas
+- coding-layer, readback, and negative-fixed-point witness objects
+- concrete syntax/substitution/readback objects and witness synthesis
+- a concrete gate-collapsed contradiction layer for synthesized fixed points
+- a concrete failed-branch inertness layer for repair/generation/downstream restoration
+- a trajectory-linked failed-branch layer using existing `System`/`Redescription` primitives
+- prerequisite packaging for same-domain Godel threats
+- code-predicate role classification and gate-collapse packaging
+- semantic, infinitary, meta-foundational, and extension rescue-route classification
+- alignment and translation-filter compression theorems
+- an explicit imported appendix-witness ledger for reused repo theorems
+- a label-level appendix import ledger for the exact prose-cited theorem labels
+- the terminal route-exhaustion theorem and main non-instantiability theorem
+- the interior-stability corollary surface
+
+What is not yet encoded as full local mathematical machinery:
+
+- richer internal syntax algebra beyond the current token-level `SyntaxToken` layer
+- deeper typed content-carrier semantics proving lawful equivalence from lower-level content rules
+- the full standing-quotient and trajectory package cited in prose as theorem-by-theorem imported witnesses
+
+Bottom line
+-----------
+
+The current Lean support provides an honest strengthened theorem surface for the
+paper's same-domain route-exhaustion and non-instantiability claims.
+
+It should still be described as a lightweight-to-intermediate paper-facing
+formalization, not as a full mechanization of the manuscript's coding,
+diagonal, and semantic infrastructure.

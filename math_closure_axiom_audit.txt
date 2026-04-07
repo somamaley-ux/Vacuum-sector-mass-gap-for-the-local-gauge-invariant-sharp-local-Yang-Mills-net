@@ -1,0 +1,43 @@
+Axiom Audit - Math Closure Paper Surface
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `MathClosureAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperNoInternalTotalizationStatement
+- MaleyLean.PaperExhaustionTheoremStatement
+- MaleyLean.PaperDispositionOfFiveMechanismsStatement
+- MaleyLean.PaperClosureOfInternalTotalizationStatement
+- MaleyLean.PaperNoNewInternalOperatorPowerStatement
+- MaleyLean.PaperNoInternalReentryPrincipleStatement
+- MaleyLean.PaperConservativeClosureUnderCompositionStatement
+- MaleyLean.PaperCompositionIterationNoThirdCaseStatement
+- MaleyLean.PaperDiagonalizationPackagingStatement
+- MaleyLean.PaperRepresentationChangeStatement
+- MaleyLean.PaperNoEmergentFamilyStatement
+- MaleyLean.PaperNoInternalReentryByDetourStatement
+- MaleyLean.PaperCanonicalizationSelectionQuotientingStatement
+- MaleyLean.PaperCompletionEvaluativeClosureStatement
+- MaleyLean.PaperModelTheoreticExistenceStatement
+- MaleyLean.PaperForcingGenericityAbsolutenessStatement
+- MaleyLean.PaperUniversalConstructionStatement
+- MaleyLean.PaperFlagshipCaseStudyClosureStatement
+- MaleyLean.PaperCompletionReadbackConservativeStatement
+- MaleyLean.PaperCompletionReadbackExternalStatement
+- MaleyLean.PaperForcingExtensionExternalStatement
+- MaleyLean.PaperForcingReadbackConservativeStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current math-closure paper-facing surface in this repo is axiom-free.
+
+This certifies a first-pass fixed-base theorem surface covering the paper's
+rigidity, exhaustion, interaction/no-emergence, main theorem,
+case-study family classification, closure-of-totalization,
+no-internal-reentry statements, and appendix-level completion/forcing
+readback decompositions.

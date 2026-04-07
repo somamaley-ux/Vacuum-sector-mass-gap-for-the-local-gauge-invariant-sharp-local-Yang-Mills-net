@@ -13,10 +13,12 @@ Paper-facing statements
 - MaleyLean.PaperSameSideSplitCollapseSummaryStatement
 - MaleyLean.PaperStandingEmergenceStatement
 - MaleyLean.PaperNoSameActRepairStatement
+- MaleyLean.PaperNoCrossDomainStandingTransferStatement
 - MaleyLean.PaperNoGeneratorsStatement
 - MaleyLean.PaperNoPrimitiveCarriersStandingFormStatement
 - MaleyLean.PaperUniquenessOfAdmissibleInteriorStatement
 - MaleyLean.PaperStandingConservationStatement
+- MaleyLean.PaperApexClosureVerifiedCoreStatement
 
 ----------------------------------------
 Constructive certification path

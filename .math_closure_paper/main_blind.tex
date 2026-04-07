@@ -1,0 +1,55 @@
+\documentclass[reqno]{amsart}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage{microtype}
+\usepackage{mathtools}
+\usepackage{aliascnt}
+\usepackage{enumitem}
+\usepackage{booktabs,longtable,array}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,capitalise,noabbrev]{cleveref}
+\input{macros}
+
+\hypersetup{
+  pdftitle={Fixed-Base Exhaustion for Internal Operators},
+  pdfauthor={Anonymous},
+  pdfsubject={Foundational logic manuscript},
+  pdfkeywords={foundations of mathematics, conservative extension, external data, forcing, model theory, universal constructions}
+}
+
+\title[Fixed-Base Exhaustion]{Fixed-Base Exhaustion for Internal Operators}
+\author[Anonymous]{Anonymous}
+\date{}
+\keywords{foundations of mathematics, conservative extension, external data, forcing, model theory, universal constructions}
+\subjclass[2020]{Primary 03A05; Secondary 03C52, 03E40, 18A30}
+
+\begin{document}
+
+\begin{abstract}
+We study fixed base structures equipped with an admissibility regime for partial operations and ask whether a carrier-preserving operator can yield genuinely new internal power on that same base. The paper proves a fixed-base exhaustion theorem: no carrier-preserving extension makes an old genuinely partial operation newly defined on old tuples, and once the effect of a purported operator is mediated by selectors, witnesses, evaluators, generic objects, or comparison data, the operator is conservative when those data are already fixed by the base and external otherwise. Applications cover canonical selection, completion, saturation and model-theoretic existence, forcing and absoluteness, and universal constructions.
+\end{abstract}
+
+\maketitle
+
+\input{sections/01_introduction}
+\input{sections/02_prior_work}
+\input{sections/03_formal_setting}
+\input{sections/04_rigidity}
+\input{sections/05_auxiliary_data}
+\input{sections/06_exhaustion}
+\input{sections/07_case_studies}
+\input{sections/08_no_emergence}
+\input{sections/09_main_theorem}
+\input{sections/10_conclusion}
+
+\appendix
+\input{appendix/A_extended_cases}
+\input{appendix/B_glossary}
+\input{appendix/C_dependency_map}
+
+\input{appendix/D_references}
+
+\end{document}

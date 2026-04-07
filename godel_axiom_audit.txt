@@ -1,0 +1,69 @@
+Axiom Audit - Godel Non-Instantiability Paper Surface
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+for the paper-facing declarations in `MaleyLean/GodelPaperStatements.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperInstantiabilityOnFixedDomainStatement
+- MaleyLean.PaperSameDomainReadbackStatement
+- MaleyLean.PaperGovernanceRelevantCodePredicateReadbackStatement
+- MaleyLean.PaperLawfulContentEquivalenceForNegatedCodeStatement
+- MaleyLean.PaperSelfSubstitutionClosureStatement
+- MaleyLean.PaperNegativeFixedPointSynthesisStatement
+- MaleyLean.PaperInferentialNecessityOfClosureDistinctionsStatement
+- MaleyLean.PaperFixedDomainInferentialLifeExhaustionStatement
+- MaleyLean.PaperClosureRelevanceTransmissionStatement
+- MaleyLean.PaperExternalUndecidabilityInertnessStatement
+- MaleyLean.PaperTrajectoryNeutralClosureRelevanceActLevelStatement
+- MaleyLean.PaperCodePredicateRoleExhaustionStatement
+- MaleyLean.PaperNecessaryPackageForSameDomainGodelThreatStatement
+- MaleyLean.PaperConcreteDiagonalApparatusStatement
+- MaleyLean.PaperNoIndependentGovernanceRelevantCodePredicateStatement
+- MaleyLean.PaperGateRenamingCollapseStatement
+- MaleyLean.PaperSelfReferencePrerequisiteExhaustionStatement
+- MaleyLean.PaperGateCollapsedNegativeFixedPointStatement
+- MaleyLean.PaperConcreteGateCollapsedContradictionStatement
+- MaleyLean.PaperNoSameDomainDiagonalizationStatement
+- MaleyLean.PaperConcreteNoSameDomainDiagonalizationStatement
+- MaleyLean.PaperConcreteFailedFixedPointInertnessStatement
+- MaleyLean.PaperConcreteFailedBranchNoDiagonalizationStatement
+- MaleyLean.PaperTrajectoryLinkedFailedBranchBlockStatement
+- MaleyLean.PaperTrajectoryLinkedFailedBranchNoDiagonalizationStatement
+- MaleyLean.PaperNoGovernanceRelevantNegativeFixedPointStatement
+- MaleyLean.PaperNoSemanticStandingImportStatement
+- MaleyLean.PaperNoMetaFoundationalReanchoringStatement
+- MaleyLean.PaperInfinitaryAdmissibilityCollapseStatement
+- MaleyLean.PaperFiniteSameDomainWitnessStatement
+- MaleyLean.PaperExtensionTrichotomyStatement
+- MaleyLean.PaperSameDomainExtensionClassificationStatement
+- MaleyLean.PaperRescueRouteExhaustionStatement
+- MaleyLean.PaperGodelThreatAlignmentStatement
+- MaleyLean.PaperTranslationFilterForOrdinaryGodelObjectionsStatement
+- MaleyLean.PaperImportedAppendixWitnessLedgerCertifiedStatement
+- MaleyLean.PaperImportedAppendixLabelLedgerCertifiedStatement
+- MaleyLean.PaperIncompletenessObjectionRouteExhaustionStatement
+- MaleyLean.PaperIncompletenessObjectionDataRouteExhaustionStatement
+- MaleyLean.PaperNonInstantiabilityOfGodelIncompletenessStatement
+- MaleyLean.PaperNonInstantiabilityOfGodelIncompletenessDataStatement
+- MaleyLean.PaperNoGovernanceRelevantTrueButUnprovableSplitStatement
+- MaleyLean.PaperStabilityOfUniqueAdmissibleInteriorStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current Godel paper-facing surface in this repo is axiom-free.
+
+This certifies a strengthened same-domain theorem surface covering the paper's
+coding-layer/readback definitions, concrete syntax/substitution/readback
+packaging, prerequisite packaging, code-predicate role exhaustion,
+gate-collapse/self-reference packaging, a concrete fixed-point contradiction
+layer, a concrete failed-branch inertness layer, direct linkage to the repo's
+trajectory primitives, inferential-life and translation-filter bridge lemmas,
+semantic/infinitary/extension rescue-route classification, an imported
+appendix-witness ledger, a label-level appendix import ledger, terminal
+incompleteness-route exhaustion, the main non-instantiability statement, and
+the closing corollary surfaces.

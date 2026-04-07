@@ -1,0 +1,10 @@
+import MaleyLean.RephasingDerivedPaperStatements
+
+namespace MaleyLean
+
+#print axioms PaperRephasingRedundancyStatement
+#print axioms PaperNoResidualRephasingStatement
+#print axioms PaperRephasingSharedWitnessStatement
+#print axioms PaperNoRephasingWitnessSplitStatement
+
+end MaleyLean

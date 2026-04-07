@@ -1,0 +1,56 @@
+\section{Formal Setting: Base Structures, Admissibility, and Internal Operators}\label{sec:formal-setting}
+
+This section fixes the formal framework used throughout. The definitions are phrased in standard mathematical language while preserving the distinctions that drive the later proofs.
+
+\begin{definition}[Base structure]
+A \emph{base structure} is a triple
+\[
+\B=(X,\Omega,\A),
+\]
+where $X$ is a carrier, $\Omega$ is a family of partial operations
+\[
+\omega:X^{n_\omega}\rightharpoonup X
+\]
+of finite arities, and $\A$ is an admissibility regime specifying which primitive applications and compositions count as licensed on the carrier under discussion.
+\end{definition}
+
+\begin{remark}
+The admissibility regime may be presented in more than one equivalent way: by primitive domains of definition, by closure constraints on compositions, or by an explicit class of licensed constructions. The essential point is that admissibility is part of the structure under analysis, not a temporary gap to be repaired later.
+\end{remark}
+
+\begin{definition}[Carrier-preserving operator]
+Let $\B=(X,\Omega,\A)$ be a base structure. A purported operator $F$ on admissible inputs from $X$ is \emph{carrier-preserving} if it is presented as acting on the same base carrier $X$ rather than by openly replacing $X$ with a quotient, completion, extension, or new ambient structure.
+\end{definition}
+
+\begin{definition}[Conservative Action on Old-Base-Relevant Content]
+A purported operator or redescription on a base structure $\B=(X,\Omega,\A)$ \emph{acts conservatively on old-base-relevant content} if it adds no new values for old operations on old tuples and no new consequences about the old base beyond those already fixed by the original regime.
+\end{definition}
+
+\begin{remark}
+Depending on the application, conservative action may be sharpened into a more specific standard notion, such as definitional extension, interdefinability, or conservative extension over an old signature. The arguments below use only the common core of those notions: no new old-tuple values for old operations and no new old-base consequences.
+\end{remark}
+
+\begin{definition}[Internally fixed auxiliary datum]
+Let $x\in X$ be an admissible input. An auxiliary datum $a(x)$ is \emph{internally fixed over $x$} if every admissibility-preserving redescription of the base structure that leaves the standing content of $x$ unchanged also leaves $a(x)$ unchanged up to the normalizations already licensed by the regime.
+\end{definition}
+
+\begin{definition}[External parameter or witness]
+An auxiliary datum relevant to a purported operator on $x$ is \emph{external} if it is not internally fixed over $x$ and must therefore be supplied by an extra selector, witness, evaluator, generic object, comparison map, completion rule, or ambient construction not already determined by the original base structure.
+\end{definition}
+
+\begin{proposition}[Internality firewall]\label{prop:firewall}
+Throughout this paper, the following principles are fixed.
+\begin{enumerate}[label=(\roman*)]
+    \item Admissibility is structural rather than merely provisional.
+    \item A carrier-preserving redescription cannot create new values for old operations on old tuples.
+    \item If a purported carrier-preserving operator depends essentially on external parameters or witnesses, then it is not internal to the original base structure.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Clause (i) is built into the role assigned to the admissibility regime. Clause (ii) is exactly the content of conservative action on old-base-relevant content in this setting. Clause (iii) then follows immediately: if the effect of an operator depends on data not already fixed by the base, the operator's action is no longer determined by the base alone and so is not internal to it.
+\end{proof}
+
+\begin{remark}[Terminological boundary]
+The manuscript's use of ``admissibility'' should not be read as a claim about admissible set theory in the sense of Barwise \citep{Barwise1975}. The intended notion here is regime-relative admissibility internal to a chosen base structure.
+\end{remark}

@@ -1,0 +1,32 @@
+Axiom Audit - FCNC Support Surface
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `FCNCAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperHiggsAlignmentFCNCEquivalenceStatement
+- MaleyLean.PaperNoAlignmentFCNCSplitStatement
+- MaleyLean.PaperFCNCSharedWitnessStatement
+- MaleyLean.PaperNoFCNCWitnessSplitStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current FCNC support surface is axiom-free.
+
+This certifies the equivalence logic presently formalized in Lean:
+once admissible Higgs alignment and tree-level FCNC absence are mutually
+transport-forcing requirements, they are equivalent and admit no admissible
+split.
+
+It also certifies a stronger derived witness-collapse layer:
+if the alignment-side and FCNC-side descriptions are both read off the same
+canonical witness channel, then they agree pointwise and admit no witness
+split.
+
+It does not yet certify the full Higgs/flavor alignment algebra or explicit
+neutral-current matrix computations of the paper as detailed Lean objects.

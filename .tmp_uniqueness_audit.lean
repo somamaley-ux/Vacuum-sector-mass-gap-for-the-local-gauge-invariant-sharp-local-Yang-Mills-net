@@ -1,0 +1,16 @@
+import MaleyLean.InteriorUniqueness
+import MaleyLean.BivalenceUniqueness
+import MaleyLean.StandingClassifierBridge
+import MaleyLean.StandingPositiveSideCollapse
+import MaleyLean.PaperStatements
+
+#print axioms MaleyLean.uniqueness_of_admissible_interior
+#print axioms MaleyLean.no_plural_admissible_cores
+#print axioms MaleyLean.standing_classifier_extensionality
+#print axioms MaleyLean.standing_classifier_lawful_equivalence
+#print axioms MaleyLean.positive_side_classifier_collapse
+#print axioms MaleyLean.positive_side_classifier_collapse_lawful
+#print axioms MaleyLean.positive_side_classifier_collapse_from_no_split
+#print axioms MaleyLean.positive_side_classifier_collapse_from_no_split_lawful
+#print axioms MaleyLean.PaperUniquenessOfAdmissibleInteriorStatement
+#print axioms MaleyLean.bivalence_uniqueness_theorem

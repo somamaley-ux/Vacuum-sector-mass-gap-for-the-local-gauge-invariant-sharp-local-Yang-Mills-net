@@ -1,0 +1,114 @@
+Support Paper 1 Gap Note - Charged-Current Collapse
+
+Date: 2026-04-07
+
+Target support paper
+--------------------
+
+L1 Paper 1
+Equivalence_Completion_and_Forced_Collapse_of_Charged__Current.pdf
+
+Primary statement source used here
+----------------------------------
+
+The PDF itself does not text-extract cleanly in the current environment, so this
+note uses the umbrella manuscript source `.tmp_standard_model_main.tex` as the
+primary local source for the charged-current theorem cluster.
+
+Relevant umbrella sections
+--------------------------
+
+- "Charged-current collapse to G_F (fully worked)"
+- Lemma `lem:cc`
+- Proposition `prop:cc-p2`
+
+Theorem content currently identifiable
+--------------------------------------
+
+1. Restricted-scope collapse
+
+In the charged-current contact scope `S_CC^(6)`, admissible transport from the
+renormalizable mediator skin to the four-fermion EFT skin exposes a single
+invariant witness `G_F`.
+
+The umbrella manuscript states the collapse as:
+
+- only the combination `G_F / sqrt 2 = g_2^2 / (8 m_W^2)` has standing as
+  charged-current strength in this restricted scope
+- using `m_W = g_2 v / 2`, this yields `G_F = 1 / (sqrt 2 * v^2)`
+- therefore the pair `(g_2, v)` overcounts standing-relevant load for the
+  restricted low-energy charged-current scope
+
+2. Enlarged-scope reappearance of a second witness
+
+In the enlarged scope `S_CC^(8)`, where the first momentum-dependent correction
+is retained, the manuscript states that there are now two independent invariant
+witnesses, which may be taken as:
+
+- `{G_F, m_W}`
+- equivalently `{C_6, C_8}`
+
+The umbrella manuscript gives:
+
+- `C_6 = G_F / sqrt 2 = g_2^2 / (8 m_W^2)`
+- `C_8 = g_2^2 / (8 m_W^4) = C_6 / m_W^2`
+- hence `C_8 / C_6 = 1 / m_W^2`
+
+This is used to justify that `m_W` is standing-relevant in the enlarged scope
+and cannot be treated as redundancy there.
+
+Current Lean mismatch
+---------------------
+
+The present Lean library does not yet have the domain objects needed to state
+this theorem family faithfully. In particular, there is no current formal layer
+for:
+
+- Standard-Model charged-current mediator bookkeeping
+- EFT bookkeeping for four-fermion charged-current contact operators
+- scope-indexed observable families such as `S_CC^(6)` and `S_CC^(8)`
+- transport certificates from one physical skin to another
+- invariant witness sets and witness rank comparisons
+- formulas involving the domain quantities `g_2`, `v`, `m_W`, `G_F`, `C_6`, `C_8`
+
+What existing Lean does cover abstractly
+----------------------------------------
+
+The current repo can support only very high-level generic analogues:
+
+- quotient-style collapse of apparent alternatives
+- no same-scope repair
+- no same-scope privileged selector / canonical representative
+- closure under admissible transport
+
+Those generic results are too weak to certify the charged-current paper itself.
+
+Why no paper-facing wrapper was added
+-------------------------------------
+
+Adding a theorem with a paper-looking name right now would overstate coverage.
+The missing issue is not merely a wrapper: the required physical primitives and
+scope-indexed witness machinery are absent from the library.
+
+Minimal formalization requirements
+----------------------------------
+
+A truthful first Lean pass for this support paper would need at least:
+
+1. a typed charged-current scope object
+2. a mediator skin carrying parameters corresponding to `g_2`, `v`, `m_W`
+3. a low-energy EFT skin carrying a parameter corresponding to `G_F`
+4. a transport notion expressing the low-energy matching map
+5. a witness interface stating which combinations determine all observables in a scope
+6. a statement that restricted-scope witness content factors through `G_F`
+7. a second statement that enlarged-scope witness content requires both `G_F`
+   and `m_W` (or equivalently `C_6` and `C_8`)
+
+Bottom line
+-----------
+
+Support Paper 1 is not currently encoded in Lean.
+
+Only its broad philosophical pattern matches the generic structural core already
+formalized. The actual charged-current theorem family would require new
+domain-specific primitives before an honest paper-facing theorem can be added.

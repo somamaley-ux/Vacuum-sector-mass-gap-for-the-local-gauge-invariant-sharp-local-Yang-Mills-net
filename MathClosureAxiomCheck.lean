@@ -1,0 +1,28 @@
+import MaleyLean.MathClosurePaperStatements
+
+namespace MaleyLean
+
+#print axioms PaperNoInternalTotalizationStatement
+#print axioms PaperExhaustionTheoremStatement
+#print axioms PaperDispositionOfFiveMechanismsStatement
+#print axioms PaperClosureOfInternalTotalizationStatement
+#print axioms PaperNoNewInternalOperatorPowerStatement
+#print axioms PaperNoInternalReentryPrincipleStatement
+#print axioms PaperConservativeClosureUnderCompositionStatement
+#print axioms PaperCompositionIterationNoThirdCaseStatement
+#print axioms PaperDiagonalizationPackagingStatement
+#print axioms PaperRepresentationChangeStatement
+#print axioms PaperNoEmergentFamilyStatement
+#print axioms PaperNoInternalReentryByDetourStatement
+#print axioms PaperCanonicalizationSelectionQuotientingStatement
+#print axioms PaperCompletionEvaluativeClosureStatement
+#print axioms PaperModelTheoreticExistenceStatement
+#print axioms PaperForcingGenericityAbsolutenessStatement
+#print axioms PaperUniversalConstructionStatement
+#print axioms PaperFlagshipCaseStudyClosureStatement
+#print axioms PaperCompletionReadbackConservativeStatement
+#print axioms PaperCompletionReadbackExternalStatement
+#print axioms PaperForcingExtensionExternalStatement
+#print axioms PaperForcingReadbackConservativeStatement
+
+end MaleyLean

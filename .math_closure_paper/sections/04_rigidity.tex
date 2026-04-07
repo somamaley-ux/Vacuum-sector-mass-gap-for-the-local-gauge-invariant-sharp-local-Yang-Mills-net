@@ -1,0 +1,88 @@
+\section{Rigidity of Carrier-Preserving Extension}\label{sec:rigidity}
+
+We now formulate the first theorem engine in standard language. The underlying idea is simple: if an old partial operation becomes newly defined on an old tuple, then the old base structure has changed. The point of the section is to make that observation formal enough to support the later foundational claims.
+
+\begin{definition}[Admissible extension]
+Let $\B=(X,\Omega,\A)$ be a base structure. An \emph{admissible extension} of $\B$ is a structure
+\[
+\B^*=(X^*,\Omega^*,\A^*)
+\]
+such that:
+\begin{enumerate}[label=(\roman*)]
+    \item $X\subseteq X^*$;
+    \item for each primitive $\omega\in\Omega$ there is a primitive $\omega^*\in\Omega^*$ of the same arity whose restriction to old defined tuples agrees with $\omega$;
+    \item compositions of old primitives in the extension restrict to the old compositions on old admissible tuples; and
+    \item the old admissibility profile is preserved as the induced profile on the old carrier unless the extension is explicitly announced as a change of carrier or regime.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Carrier-preserving extension]
+An admissible extension $\B^*$ of $\B$ is \emph{carrier-preserving} if it is presented as leaving $X$ fixed as the base carrier under discussion rather than replacing $X$ by a quotient, completion, or new ambient domain.
+\end{definition}
+
+\begin{definition}[Nondegeneracy]
+A base structure $\B=(X,\Omega,\A)$ is \emph{nondegenerate} if at least one primitive operation in $\Omega$ has a proper, non-total domain on $X$.
+\end{definition}
+
+\begin{lemma}[Old-graph rigidity]\label{lem:old-graph-rigidity}
+Let $\B=(X,\Omega,\A)$ be a base structure and let $\B^*=(X^*,\Omega^*,\A^*)$ be an admissible extension. Suppose there exist a primitive $\omega\in\Omega$ of arity $n$ and a tuple $a\in X^n$ such that
+\[
+a\notin \dom(\omega)
+\qquad\text{but}\qquad
+ a\in \dom(\omega^*).
+\]
+Then the induced partial structure on the old carrier $X$ has changed. In particular, the move is not conservative on the old base.
+\end{lemma}
+
+\begin{proof}
+The graph of an old primitive operation on old tuples is part of the old structure. If a tuple that was previously outside the domain of $\omega$ becomes newly defined under $\omega^*$, then the graph of that primitive has been enlarged on old data. That is not a mere change of notation or presentation. It is a change in the induced structure on $X$ itself.
+\end{proof}
+
+\begin{lemma}[Domain fixity on the old carrier]\label{lem:domain-fixity}
+Let $\B=(X,\Omega,\A)$ be a nondegenerate base structure, and let $\B^*$ be a carrier-preserving extension of $\B$. Then for every primitive $\omega\in\Omega$ of arity $n$,
+\[
+\dom(\omega^*)\cap X^n = \dom(\omega).
+\]
+\end{lemma}
+
+\begin{proof}
+Because each old primitive is preserved by restriction, every old defined tuple remains defined, so
+\[
+\dom(\omega)\subseteq \dom(\omega^*)\cap X^n.
+\]
+Assume the inclusion is strict. Then some old tuple becomes newly defined in the extension. By \Cref{lem:old-graph-rigidity}, the induced partial structure on the old carrier has changed. But a carrier-preserving extension is, by definition, one that leaves the old carrier and its old induced structure in place rather than replacing it by a new regime. So strict inclusion is impossible.
+\end{proof}
+
+\begin{theorem}[No internal totalization]\label{thm:no-internal-totalization}
+Let $\B=(X,\Omega,\A)$ be a nondegenerate base structure. No carrier-preserving extension of $\B$ totalizes a genuinely partial old operation on old tuples.
+\end{theorem}
+
+\begin{proof}
+Suppose some old primitive $\omega\in\Omega$ is partial on $X$ but becomes total on old tuples in a carrier-preserving extension. Then
+\[
+\dom(\omega^*)\cap X^n = X^n
+\qquad\text{while}\qquad
+\dom(\omega)\subsetneq X^n,
+\]
+contradicting \Cref{lem:domain-fixity}.
+\end{proof}
+
+\begin{corollary}[No post hoc repair]\label{cor:no-posthoc}
+An old undefined primitive application cannot be made admissible later by a carrier-preserving extension of the same base structure.
+\end{corollary}
+
+\begin{proof}
+Any such repair would assign a new value to an old tuple for an old primitive operation, which is the graph change excluded by \Cref{lem:domain-fixity,thm:no-internal-totalization}.
+\end{proof}
+
+\begin{corollary}[No deferred admissibility]\label{cor:no-deferred}
+If an old tuple is outside the domain of an old operation at the stage of formation, no later carrier-preserving extension makes that old application defined on the same old data.
+\end{corollary}
+
+\begin{proof}
+Deferral changes only the timing of the same forbidden move. The old tuple would still have to become newly defined on the old carrier.
+\end{proof}
+
+\begin{remark}
+This section provides the first formal reason the broader foundational thesis is plausible. Any later construction that appears to rescue an old undefined case must either fail, collapse to conservative action on old-base-relevant content, or else reveal itself as a move to a different carrier or a richer ambient setting.
+\end{remark}

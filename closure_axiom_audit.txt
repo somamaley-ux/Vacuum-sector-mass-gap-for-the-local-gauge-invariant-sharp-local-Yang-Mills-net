@@ -1,0 +1,27 @@
+Axiom Audit - Closure Paper Surface
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `ClosureAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperSameTargetOrbitReflexivityStatement
+- MaleyLean.PaperOrbitRespectsInvariantsStatement
+- MaleyLean.PaperInvariantsExhaustOrbitsStatement
+- MaleyLean.PaperAdmissibleRedescriptionInvarianceOfActionStatement
+- MaleyLean.PaperRelTransportClosureOfActionStatement
+- MaleyLean.PaperSameTargetRightTransportStatement
+- MaleyLean.PaperSameTargetRelInterfaceFromComponentsStatement
+- MaleyLean.PaperStandingConservationClosureStatement
+- MaleyLean.PaperClosurePropagationCoreStatement
+- MaleyLean.PaperApexClosureVerifiedCoreStatementClosureSurface
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current closure paper-facing surface is axiom-free.
+
+All audited declarations listed above do not depend on any axioms.

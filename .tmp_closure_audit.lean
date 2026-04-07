@@ -1,0 +1,16 @@
+import MaleyLean.RedescriptionAction
+import MaleyLean.TargetToRedescription
+import MaleyLean.PaperStatements
+import MaleyLean.StandingConservation
+import MaleyLean.ClosurePropagation
+
+#print axioms MaleyLean.same_target_orbit_refl
+#print axioms MaleyLean.orbit_respects_of_quotient_characterization
+#print axioms MaleyLean.invariants_exhaust_of_quotient_characterization
+#print axioms MaleyLean.admissible_redescription_invariance_of_action
+#print axioms MaleyLean.rel_transport_closure_of_action
+#print axioms MaleyLean.same_target_right_transport_of_invariance
+#print axioms MaleyLean.same_target_rel_interface_of_components
+#print axioms MaleyLean.PaperStandingConservationStatement
+#print axioms MaleyLean.PaperClosurePropagationStatement
+#print axioms MaleyLean.PaperApexClosureVerifiedCoreStatement

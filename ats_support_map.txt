@@ -1,0 +1,107 @@
+ATS Support Map
+
+Date: 2026-04-07
+
+Primary statement source
+------------------------
+
+Extracted manuscript source:
+
+- [.ats_paper/main.tex](/d:/lean/MaleyLean/.ats_paper/main.tex)
+
+Lean support surface
+--------------------
+
+Primary Lean module:
+
+- [ATSPaperStatements.lean](/d:/lean/MaleyLean/MaleyLean/ATSPaperStatements.lean)
+
+Audit artifacts:
+
+- [ATSAxiomCheck.lean](/d:/lean/MaleyLean/ATSAxiomCheck.lean)
+- [ats_axiom_audit.txt](/d:/lean/MaleyLean/ats_axiom_audit.txt)
+
+Theorem correspondence
+----------------------
+
+Theorem 5A
+Role minimality and exhaustiveness
+
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.ats_paper/main.tex)
+- Lean witness:
+  `MaleyLean.ATSRoleMinimalityAndExhaustivenessStatement`
+- role in support:
+  packages the fixed-domain statement that any additional same-scope
+  standing-bearing role predicate collapses to the tensor region once tensor
+  content is already pinned to the standing-bearing region
+
+Theorem 5B
+Selector collapse: no composition-gating fourth role
+
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.ats_paper/main.tex)
+- Lean witness:
+  `MaleyLean.ATSSelectorCollapseStatement`
+- role in support:
+  records the paper's selector-collapse pattern in fixed-domain form: a
+  purported selector that preserves standing and tensor content yields no new
+  standing-bearing role
+
+Theorem 5C
+Role factorization uniqueness
+
+- manuscript location:
+  [main.tex](/d:/lean/MaleyLean/.ats_paper/main.tex)
+- Lean witness:
+  `MaleyLean.ATSRoleFactorizationUniquenessStatement`
+- role in support:
+  expresses ATS role-isomorphism as equality of the induced anchor/tensor/skin
+  partition on the fixed carrier
+
+Imported dependency spine
+-------------------------
+
+The ATS manuscript explicitly says its uniqueness burden is imported from the
+fixed-domain consequence layer rather than re-founded locally. The current Lean
+support reflects that posture.
+
+Imported ATS-facing Lean witnesses:
+
+- `MaleyLean.ATSTensorRegionCollapseStatement`
+- `MaleyLean.ATSImportedUniquenessDependencyStatement`
+- `MaleyLean.ATSNoFourthStandingBearingRoleStatement`
+
+Underlying fixed-domain consequence witnesses reused by ATS:
+
+- `MaleyLean.PaperStandingEmergenceStatement`
+- `MaleyLean.PaperNoPrimitiveCarriersStandingFormStatement`
+- `MaleyLean.PaperUniquenessOfAdmissibleInteriorStatement`
+- `MaleyLean.PaperStandingConservationStatement`
+
+Current honesty boundary
+------------------------
+
+What is now encoded honestly:
+
+- the imported fixed-domain ATS support surface
+- the tensor-region collapse used by the manuscript's dependency note
+- the no-fourth-standing-bearing-role corollary shape
+- Theorem 5A / 5B / 5C style fixed-domain ATS packaging
+
+What is not yet encoded as direct ATS-local theorem families:
+
+- the full quotient-history derivation spine from early ATS sections
+- the meta-control necessity derivation
+- the stress-localization ladder
+- the anchor-motion and tensor-mechanism exclusion theorem stack as separate
+  ATS-local Lean modules
+
+Bottom line
+-----------
+
+The current ATS Lean support is now sufficient to back the manuscript's own
+declared corollary-level uniqueness/import posture.
+
+It should still be described as an imported fixed-domain ATS support surface,
+not as a full end-to-end mechanization of every theorem in the ATS `.tex`.

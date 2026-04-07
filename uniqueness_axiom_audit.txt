@@ -1,0 +1,26 @@
+Axiom Audit - Uniqueness Paper Surface
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `UniquenessAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperUniquenessOfAdmissibleInteriorCoreStatement
+- MaleyLean.PaperNoPluralAdmissibleCoresStatement
+- MaleyLean.PaperStandingClassifierExtensionalityStatement
+- MaleyLean.PaperStandingClassifierLawfulEquivalenceStatement
+- MaleyLean.PaperPositiveSideClassifierCollapseStatement
+- MaleyLean.PaperPositiveSideClassifierCollapseLawfulStatement
+- MaleyLean.PaperNoSplitYieldsClassifierCollapseStatement
+- MaleyLean.PaperNoSplitYieldsClassifierCollapseLawfulStatement
+- MaleyLean.PaperNoSplitExcludesGapStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current uniqueness paper-facing surface is axiom-free.
+
+All audited declarations listed above do not depend on any axioms.

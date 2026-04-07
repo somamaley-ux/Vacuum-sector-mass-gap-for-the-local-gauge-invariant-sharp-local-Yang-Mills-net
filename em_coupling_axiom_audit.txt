@@ -1,0 +1,33 @@
+Axiom Audit - Electroweak/EM Coupling Support Surface
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `EMCouplingAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperElectroweakElectromagneticCouplingEquivalenceStatement
+- MaleyLean.PaperNoIndependentEMCouplingDegreeStatement
+- MaleyLean.PaperEMCouplingSharedWitnessStatement
+- MaleyLean.PaperNoEMCouplingWitnessSplitStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current electroweak/electromagnetic support surface is axiom-free.
+
+This certifies the transport-collapse logic presently formalized in Lean:
+once electroweak bookkeeping and electromagnetic bookkeeping agree on a single
+transported witness, no additional independent electromagnetic coupling degree
+remains.
+
+It also certifies a stronger derived witness-collapse layer:
+if the electroweak-side and electromagnetic-side descriptions are both read off
+the same canonical witness channel, then they agree pointwise and admit no
+witness split.
+
+It does not yet certify the full field-level Standard-Model arithmetic content
+of the paper, such as an explicit formal derivation of
+`e = g_2 sin theta_W = g_1 cos theta_W`.
