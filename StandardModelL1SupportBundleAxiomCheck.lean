@@ -1,0 +1,7 @@
+import MaleyLean.StandardModelL1SupportBundle
+
+namespace MaleyLean
+
+#print axioms PaperStandardModelL1SupportBundleStatement
+
+end MaleyLean

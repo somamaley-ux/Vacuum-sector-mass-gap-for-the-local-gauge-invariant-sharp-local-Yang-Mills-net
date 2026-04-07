@@ -1,0 +1,2708 @@
+\documentclass[11pt]{article}
+
+% --- layout ---
+\usepackage[margin=1.05in]{geometry}
+\usepackage{microtype}
+
+% --- math + theorem ---
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{stmaryrd}
+\usepackage{enumitem}
+\usepackage{booktabs}
+
+% --- links + references ---
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+% --- theorem environments ---
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+% --- notation helpers (standing core) ---
+\newcommand{\Act}{\mathsf{Act}}
+\newcommand{\Dom}{\mathsf{Dom}}
+\newcommand{\Ev}{\mathsf{Ev}}
+\newcommand{\Tar}{\mathsf{Tar}}
+\newcommand{\Val}{\mathsf{Val}}
+
+\newcommand{\Eval}{\mathsf{Eval}}
+\newcommand{\Red}{\mathsf{Red}}
+\newcommand{\Sub}{\mathsf{Sub}}
+\newcommand{\About}{\mathsf{About}}
+
+\newcommand{\DAC}{\mathsf{DAC}}
+\newcommand{\Adm}{\mathsf{Adm}}
+\newcommand{\Gate}{\mathsf{G}}
+\newcommand{\Stand}{\mathsf{L}}
+
+% --- partial-algebra helpers ---
+\newcommand{\pdom}{\operatorname{dom}}
+\newcommand{\ppar}{\rightharpoonup} % partial function arrow
+
+\title{\textbf{The AMetric Boundary: Necessity, Non-Parameterization, and Closure by Exhaustion}\\}
+\author{Amos Jay Maley}
+\date{February 16, 2026}
+
+\hypersetup{
+  pdftitle={The AMetric Boundary: Necessity, Non-Parameterization, and Closure by Exhaustion},
+  pdfauthor={Amos Jay Maley}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We derive the \emph{AMetric boundary} as a necessary structural consequence of pre-fixational non-reference, relabeling indifference, and the prohibition of admissibility-relevant asymmetry without witness.
+From this we prove that no admissibility-relevant parameterization, selector, grading, ordering, or discrete indexing can exist at the boundary.
+Closure by exhaustion in the standing--admissibility framework then follows.
+
+The technical core is an \emph{apex closure theorem}: under intelligibility, irreversibility, unrestricted composition, scope discipline, and meta-invariance of admissibility (MIAX), together with a derived binary and non-eventful \emph{AMetric boundary}, we prove (i) gate existence and bivalent standing on the evaluated fragment, (ii) prohibition of admissibility-relevant parameterization (including discrete indexing of multiple admissible alternatives), (iii) no repairs, no generators, and no primitive standing-carriers, (iv) prohibition of cross-domain standing transfer without independent target gating and target domain-of-application closure, (v) necessity of reference-fixation commutation for theory-level confirmation, and (vi) uniqueness of the admissible interior.
+To remove ``bivalence as preference'' objections, we also include a governance-necessity theorem: \emph{reference + standing + irreversible commitment} forces fail-closed admissibility gating (a strict bivalence theorem for non-degenerate reasoning).
+
+We then formalize \emph{operator closure by exhaustion} using partial algebras: operators are partial by default and admissibility is encoded in their domains.
+We make explicit envelope-maximality domain-fixity and prove an impossibility theorem forbidding admissible totalization on the original carrier, yielding a conservative-extension collapse for admissibility-preserving mathematical extensions.
+
+Finally, we apply the exhaustion schema to the mathematical spectrum (operator families: totalization, completion, choice/selection, forcing/genericity, compactness/saturation, universal-property existence, model-theoretic existence, infinity escalation, typicality/measure, canonical quotients, meta-foundational re-anchoring, and all repair schemes) and to the physical spectrum.
+Two additional hostile-referee eliminators are included: (i) symmetry does not rescue canonical selection (characterization of automorphism-fixed linear extensions of posets), and (ii) if locality is retained as a structural constraint, most familiar physical theory-extension strategies fail \emph{before} dynamics or data.
+We conclude with a two-spectrum exhaustion: once mathematics and physics are closed, \emph{reality} (defined as the totality of admissible descriptions under standing preservation) is closed by exhaustion.
+
+All claims are internal to the typed-domain framework: the paper introduces no empirical predictions.
+\end{abstract}
+
+\tableofcontents
+
+\section{Scope, semantics, and audit stance}
+
+\subsection{What this paper is}
+This paper is a theorem--definition--proof package designed for hostile refereeing.
+Its primary result is the derivation of the \emph{AMetric boundary} as necessary; closure by exhaustion is then proved as a consequence of that boundary.
+Its subject is not a particular physical model; it is a structural constraint on any regime that:
+(i) intends meaningful, reference-bearing discourse, (ii) employs irreversible commitment, and (iii) regulates legitimacy (\emph{standing}) by admissibility criteria.
+The paper is self-contained for correctness: companion manuscripts and closure certificates are supplementary and are not required for the validity of the main proof chain.
+
+\subsection{Fail-closed semantics and the evaluated fragment}
+A recurring failure mode in referee exchanges is confusing \emph{bivalence} with \emph{totality}.
+We therefore make undefinedness explicit.
+
+\begin{definition}[Evaluated fragment]
+Fix a typed domain $D$. The \emph{evaluated fragment} of $D$ is the set of acts $a$ for which evaluation is instantiated:
+\[ \Eval_D(a). \]
+Standing values are defined only on the evaluated fragment.
+\end{definition}
+
+\begin{definition}[Standing is partial]
+Fix a typed domain $D$.
+Standing is a partial function
+\[ \Stand_D : \Act \ppar \{0,1\} \]
+whose domain of definition is the evaluated fragment:
+\[ a \in \pdom(\Stand_D) \iff \Eval_D(a). \]
+Thus \emph{undefined} is not a third value; it is absence of evaluation.
+\end{definition}
+
+\begin{remark}[Binary boundary vs undefinedness]
+Binary claims in this paper are always \emph{on the evaluated fragment}. Fail-closed typing governs whether evaluation is instantiated.
+There is no logical tension between ``binary'' and ``undefined'' once undefinedness is treated as non-membership in $\pdom(\Stand_D)$.
+\end{remark}
+
+
+
+\section{Meta-control and the meta-necessity of admissibility}
+\label{sec:meta}
+
+This section hardens the corpus' meta-level claims into explicit theorems.
+The objective is to remove ``axiom-as-preference'' objections: admissibility with standing conservation is treated as \emph{structurally forced} by intelligibility under irreversible commitment and unrestricted composition.
+
+\subsection{Anchors, legitimacy, and the meta-control layer}
+
+We use the corpus' non-metaphorical vocabulary:
+\emph{legitimacy} (standing) is a binary authorization status produced solely by admissibility gating under fixed scope; it is not trust, consensus, justification, success, or moral endorsement.
+
+\begin{definition}[Legitimacy without metaphor]
+Fix a scope (typed domain) $D$.
+\emph{Legitimacy} is the authorization status of an inference, action, or use, produced solely by admissibility gating under the active scope.
+Equivalently, on the evaluated fragment, legitimacy is the bivalent standing value $\Stand_D(a)\in\{0,1\}$.
+\end{definition}
+
+\begin{definition}[Anchors (eligibility conditions)]
+The following are treated as \emph{eligibility conditions} for standing-bearing discourse:
+\begin{enumerate}[label=\textbf{A\arabic*}, leftmargin=2.2em]
+\item \textbf{Standing requirement:} reference must be stable under licensed redescription; attempts that collapse reference are ineligible.
+\item \textbf{Admissibility requirement:} only scope-licensed moves are eligible; illicit scope transport is ineligible.
+\item \textbf{No anchor motion:} anchors are not objects of explanation, optimization, or derivation; attempts that ``justify'' anchors are ill-typed.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Meta-control layer]
+A \emph{meta-control layer} is a pre-evaluation structural gate that checks: (i) scope is fixed, (ii) anchors are untouched, (iii) terms are stable under explicit redescription, (iv) claim modality is explicit and licensed, and (v) rhetorical skin confers no authority.
+Failure of any check terminates the attempt (fail-closed).
+\end{definition}
+
+\begin{remark}[Why meta-control is not optional]
+Without a meta-control layer, illegitimate scope expansion and silent redescription can reclassify failures as successes \emph{after the fact}.
+Then standing is no longer well-defined even in principle: the system cannot distinguish constraint from narrative, nor preserve reference across recomposition.
+\end{remark}
+
+\subsection{Irreversible decision systems}
+
+We now formalize the meta-necessity claim.
+
+\begin{definition}[Reasoning system]
+A \emph{reasoning system} is a tuple
+\[
+\mathcal{R}=(S,\mathcal{C},\circ,\Red,\varepsilon),
+\]
+where $S$ is a set of system states, $\mathcal{C}$ a set of claims/acts, $\circ$ a composition operation producing candidate composites from finite tuples, $\Red\subseteq \mathcal{C}\times\mathcal{C}$ a redescription relation, and $\varepsilon:S\times \mathcal{C}\ppar \{0,1\}$ a partial evaluation map (instantiated only on the evaluated fragment).
+\end{definition}
+\subsection{Modeling necessity: coherent reasoning is state-transition representable}
+\label{sec:modeling-necessity}
+
+A hostile referee may object that introducing an explicit \emph{state space} $S$ is itself a modeling assumption.
+We now show it is without loss of generality: any coherent evaluation interface with composition and standing-preserving
+redescription induces a canonical partial state-transition system on equivalence classes of histories.
+Moreover, non-degeneracy forces at least one \emph{irreversible} commitment.
+
+\begin{definition}[History interface]
+Fix a set of acts $\Act$ and write $\Act^{<\omega}$ for the set of finite act-sequences (histories), with concatenation $\cdot$
+and empty history $\epsilon$.
+A \emph{history interface} is a partial evaluation map
+\[
+\hat\varepsilon:\Act^{<\omega}\times \Act \ppar \{0,1\},
+\]
+where $\hat\varepsilon(h,a)$ is interpreted as the standing value assigned to attempting act $a$ after history $h$ (when
+defined).  We write $\hat\varepsilon(h,a)\downarrow$ if defined.
+\end{definition}
+
+\begin{definition}[Standing coherence of the interface]
+The interface is \emph{standing-coherent} if evaluation is stable under lawful redescription and recomposition, in the
+following concrete sense:
+for all histories $h,h'\in\Act^{<\omega}$ and acts $a\in\Act$, if $h$ and $h'$ are related by a finite chain of licensed
+redescriptions and rebracketings, then $\hat\varepsilon(h,a)$ is defined iff $\hat\varepsilon(h',a)$ is defined, and when
+defined they are equal.
+\end{definition}
+
+\begin{definition}[Future-behavior equivalence (Myhill--Nerode form)]
+Given a history interface $\hat\varepsilon$, define an equivalence relation $\sim$ on histories by:
+\[
+h\sim h' \quad\Longleftrightarrow\quad
+\forall \sigma\in\Act^{<\omega}\ \forall a\in\Act:\ 
+\hat\varepsilon(h\cdot\sigma,a)\downarrow \iff \hat\varepsilon(h'\cdot\sigma,a)\downarrow,\ \text{and if defined then }
+\hat\varepsilon(h\cdot\sigma,a)=\hat\varepsilon(h'\cdot\sigma,a).
+\]
+\end{definition}
+
+\begin{theorem}[Modeling necessity theorem]
+\label{thm:modeling-necessity}
+Let $\hat\varepsilon$ be a standing-coherent history interface.
+Define the quotient set $S:=\Act^{<\omega}/\sim$ and write $[h]$ for the $\sim$-class of a history $h$.
+Then:
+\begin{enumerate}[label=\textbf{(M\arabic*)}, leftmargin=2.6em]
+\item \textbf{State-transition representation.}
+There is a canonical partial update operator
+\[
+U:S\times \Act \ppar S,\qquad
+U([h],a):=[h\cdot a]\ \text{ whenever }\ \hat\varepsilon(h,a)=1,
+\]
+and a canonical evaluation map $\varepsilon:S\times\Act\ppar\{0,1\}$ given by $\varepsilon([h],a):=\hat\varepsilon(h,a)$
+(when defined), such that the original interface is recovered exactly: for every history $h$ and act $a$,
+$\varepsilon([h],a)$ agrees with $\hat\varepsilon(h,a)$ (definedness and value).
+\item \textbf{Identity preservation is forced by coherence.}
+If one attempts to treat two histories related by lawful redescription as ``the same content'' while allowing them to
+diverge in some future evaluated context, then standing is not well-defined: reference becomes presentation-dependent.
+The quotient by $\sim$ is therefore the coarsest identity-preserving state space.
+\item \textbf{Irreversible commitments exist under non-degeneracy.}
+If, in addition, evaluation decisions have persistent constraint effect on the set of reachable future evaluated
+configurations (the non-degeneracy condition used in \Cref{def:nondegeneracy}),
+then there exists an act $a$ and history $h$ with $\hat\varepsilon(h,a)=1$ such that in the induced transition graph on
+$S$ there is no directed path from $[h\cdot a]$ back to $[h]$.
+Equivalently, the system executes at least one irreversible commitment.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\textbf{(M1)} By definition of $\sim$, if $h\sim h'$ then for every continuation $\sigma$ and act $a$ the values of
+$\hat\varepsilon(h\cdot\sigma,a)$ and $\hat\varepsilon(h'\cdot\sigma,a)$ agree in definedness and value.
+Taking $\sigma=\epsilon$ shows $\varepsilon([h],a)$ is well-defined.
+Moreover, taking continuations $\sigma$ of the form $a\cdot\sigma'$ shows $h\cdot a \sim h'\cdot a$ whenever the update is
+standing-positive, hence $U$ is well-defined on classes.
+Iterating $U$ along a history recovers the corresponding $\sim$-class, and stepwise evaluation agrees by construction.
+
+\textbf{(M2)} Standing-coherence means that lawful redescription/recomposition does not change evaluated behavior.
+If two histories are treated as ``the same'' but permit a divergence under some continuation, then future admissibility and
+standing outcomes become presentation-dependent; that is incoherent reference.
+Thus any identity-preserving state abstraction must identify histories at least up to $\sim$.
+Conversely, $\sim$ identifies exactly the histories indistinguishable by any future evaluated context, so it is the coarsest
+such abstraction.
+
+\textbf{(M3)} Suppose, for contradiction, that every standing-positive update edge $[h]\to[h\cdot a]$ in the induced graph is
+reversible in the sense that $[h]$ is reachable from $[h\cdot a]$.
+Fix such an edge $s\to s'$.
+Because $s\to s'$ is an edge, every configuration reachable from $s'$ is reachable from $s$ (first take the edge $s\to s'$).
+By assumption there is also a return path from $s'$ to $s$, so every configuration reachable from $s$ is reachable from $s'$
+(first follow the return path, then follow the old path).
+Hence $s$ and $s'$ have the same set of reachable future evaluated configurations.
+Therefore no standing-positive decision can have persistent constraint effect on the set of reachable future evaluated configurations,
+contradicting the stated non-degeneracy condition.
+Hence some standing-positive update edge has no return path; that edge is an irreversible commitment.
+\end{proof}
+
+\subsubsection{Coherence necessity: stable reference and inferential content force identity persistence and irreversibility}
+\label{sec:coherence-necessity}
+
+The modeling theorem above removes the need to \emph{postulate} an explicit state space.
+A remaining hostile move is to deny that coherent discourse must satisfy the structural hypotheses used later
+(identity persistence and non-degenerate commitment).
+We now show that two minimal coherence claims---stable reference and non-trivial inferential content---already force them.
+
+\begin{definition}[Stable reference]
+\label{def:stable-reference}
+A history interface $\hat\varepsilon:\Act^{<\omega}\times\Act\ppar\{0,1\}$ has \emph{stable reference} if there exists at least one
+evaluated act (non-vacuity) and evaluation is invariant under lawful redescription/rebracketing:
+for all histories $h,h'\in\Act^{<\omega}$ related by a finite chain of licensed redescriptions and rebracketings and all $a\in\Act$,
+\[
+\hat\varepsilon(h,a)\downarrow \iff \hat\varepsilon(h',a)\downarrow,
+\qquad\text{and if defined then}\qquad
+\hat\varepsilon(h,a)=\hat\varepsilon(h',a).
+\]
+This is exactly the standing-coherence condition isolated as a reference-stability axiom.
+\end{definition}
+
+\begin{definition}[Reachability set]
+Let $S=\Act^{<\omega}/\sim$ and let $U:S\times\Act\ppar S$ be the induced update operator of \Cref{thm:modeling-necessity}(M1).
+Write $s\leadsto t$ if there exists a finite sequence of acts $(a_1,\dots,a_n)$ and intermediate states
+$s=s_0,s_1,\dots,s_n=t$ such that $U(s_{i-1},a_i)=s_i$ for all $i$ (i.e.\ a path of standing-positive updates).
+Define the \emph{reachability set} of $s$ by
+\[
+\mathrm{Reach}(s):=\{t\in S: s\leadsto t\}.
+\]
+\end{definition}
+
+\begin{definition}[Non-trivial inferential content]
+\label{def:nontrivial-inference}
+A stable-reference interface has \emph{non-trivial inferential content} if there exist a history $h\in\Act^{<\omega}$ and an act $a\in\Act$
+with $\hat\varepsilon(h,a)=1$ such that, writing $s:=[h]$ and $s':=U(s,a)=[h\cdot a]$,
+\[
+\mathrm{Reach}(s')\subsetneq \mathrm{Reach}(s).
+\]
+Equivalently: committing $a$ at $s$ has \emph{persistent constraint effect} on what evaluated configurations remain reachable.
+\end{definition}
+
+\begin{lemma}[Canonical quotient and identity persistence]
+\label{lem:canonical-quotient}
+For any stable-reference interface, the Myhill--Nerode relation $\sim$ is a congruence for concatenation:
+if $h\sim h'$ then $h\cdot\sigma\sim h'\cdot\sigma$ for all $\sigma\in\Act^{<\omega}$.
+Consequently, the quotient $S=\Act^{<\omega}/\sim$ supports a canonical partial update operator $U([h],a):=[h\cdot a]$ on standing-positive steps.
+In particular, admissible evolution preserves $\sim$-classes: identity persistence is forced by stable reference.
+\end{lemma}
+
+\begin{proof}
+Let $h\sim h'$ and fix $\sigma\in\Act^{<\omega}$.
+To show $h\cdot\sigma\sim h'\cdot\sigma$, take any continuation $\tau\in\Act^{<\omega}$ and act $a\in\Act$.
+Then $(h\cdot\sigma)\cdot\tau = h\cdot(\sigma\cdot\tau)$, and likewise for $h'$.
+Applying the defining condition of $h\sim h'$ with continuation $\sigma\cdot\tau$ yields agreement of
+$\hat\varepsilon((h\cdot\sigma)\cdot\tau,a)$ and $\hat\varepsilon((h'\cdot\sigma)\cdot\tau,a)$ in definedness and value.
+Thus $h\cdot\sigma\sim h'\cdot\sigma$.
+
+The congruence property implies that the map $[h]\mapsto [h\cdot a]$ is well-defined on $\sim$-classes.
+Restricting to standing-positive steps (those with $\hat\varepsilon(h,a)=1$) yields the partial update operator $U$ of \Cref{thm:modeling-necessity}(M1).
+Because $U$ is defined on equivalence classes and preserves them under admissible evolution, identity persistence is not an additional axiom:
+it is the canonical quotient induced by stable reference.
+\end{proof}
+
+\begin{lemma}[Mutual reachability implies reachability-set equality]
+\label{lem:mutual-reachability}
+If $s\leadsto s'$ and $s'\leadsto s$, then $\mathrm{Reach}(s)=\mathrm{Reach}(s')$.
+\end{lemma}
+
+\begin{proof}
+Let $t\in \mathrm{Reach}(s)$.
+Then $s\leadsto t$.
+Since $s'\leadsto s$ by assumption, concatenating the path $s'\leadsto s$ with $s\leadsto t$ gives $s'\leadsto t$,
+so $t\in\mathrm{Reach}(s')$.
+Thus $\mathrm{Reach}(s)\subseteq \mathrm{Reach}(s')$.
+The reverse inclusion is symmetric using $s\leadsto s'$.
+\end{proof}
+
+\begin{theorem}[Coherence necessity theorem]
+\label{thm:coherence-necessity}
+Let $\hat\varepsilon$ be a history interface with stable reference and non-trivial inferential content.
+Then coherent discourse necessarily instantiates:
+\begin{enumerate}[label=\textbf{(C\arabic*)}, leftmargin=2.6em]
+\item \textbf{Identity persistence.} The induced identity relation $\equiv_D$ exists and is given by $\equiv_D:=\sim$.
+Admissible evolution preserves $\equiv_D$-classes (and undefinedness produces no standing-bearing successor under fail-closed semantics).
+\item \textbf{Non-degenerate commitment.} There exists an irreversible commitment: some standing-positive update edge $s\to s'$
+has no return path $s'\leadsto s$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\textbf{(C1)} This is \Cref{lem:canonical-quotient}: stable reference induces the canonical Myhill--Nerode identity quotient, and admissible updates
+preserve identity classes by construction.
+
+\textbf{(C2)} By non-trivial inferential content, choose $s\to s'$ with $\mathrm{Reach}(s')\subsetneq \mathrm{Reach}(s)$.
+If there were a return path $s'\leadsto s$, then mutual reachability would hold and \Cref{lem:mutual-reachability} would give
+$\mathrm{Reach}(s')=\mathrm{Reach}(s)$, contradiction.
+Hence $s'\not\leadsto s$, so the update $s\to s'$ is irreversible.
+\end{proof}
+
+\begin{remark}[What this forbids]
+The theorem rules out ``reference without persistence'' (presentation-dependent evaluation) and ``inference without commitment''
+(standing-positive steps that never constrain future reachable evaluated configurations).
+It strengthens the modeling block by showing that state-transition form and irreversible commitment are forced consequences of
+stable reference plus a single non-vacuity/persistent-constraint condition.
+\end{remark}
+
+\begin{remark}[Why this closes the last ``modeling'' escape]
+The state-transition formalism used later is not an extra assumption.
+It is the canonical quotient representation of any stable-reference (standing-coherent) evaluation interface.
+Moreover, \Cref{thm:coherence-necessity} shows that stable reference together with non-trivial inferential content already forces
+identity persistence and at least one irreversible commitment.
+Therefore, any theorem proved for $(S,U,\varepsilon)$ applies to any coherent reasoning system, not merely to systems
+postulated in advance to be state machines.
+\end{remark}
+
+
+
+%\clearpage
+
+\subsubsection{Coherence meta-theorem: coherence forces stable reference, compositional closure, state-transition form, and finitary explicitness}
+\label{sec:coherence-meta}
+
+\begin{definition}[Coherent reasoning system (meta-level)]
+\label{def:coherent-reasoning}
+Fix a discourse/reasoning practice $D$ whose moves are \emph{acts} $a\in\Act$ and whose evaluation interface assigns standing values to some act-context pairs.
+We say $D$ is \emph{coherent} (at the governance layer) iff all of the following hold.
+\begin{enumerate}[label=\textbf{(CR\arabic*)}, leftmargin=2.4em]
+\item \textbf{Stable reference.} There exists a nonempty family of standing-bearing claims whose evaluations are invariant under lawful relabeling/redescription of contexts (as in Def.~\ref{def:stable-reference}).
+\item \textbf{Compositional closure.} The practice treats finite recombination of previously evaluated material as \emph{candidate} material (evaluation may still fail-closed); i.e., unrestricted composition in the sense of Def.~\ref{def:unrestricted-composition} holds.
+\item \textbf{Non-trivial inferential content.} There exists at least one standing-positive step that yields a persistent constraint effect on reachable evaluated configurations (Def.~\ref{def:nontrivial-inference}).
+\item \textbf{Finitary explicitness (no oracle standing).} The permissibility/standing interface is \emph{explicitly checkable} in the following sense: for each act $a$ and context/state $s$, whether the update is standing-positive is determined by a finite certificate in the object-language of $D$ (equivalently: the induced closure operator on commitments is finitary/algebraic in the sense of Def.~\ref{def:finitary-closure}).
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Coherence meta-theorem]
+\label{thm:coherence-meta}
+Let $D$ be any reasoning practice that \emph{claims} to be coherent in the minimal sense of supporting stable reference and non-trivial inferential content (i.e., it purports to preserve referential identity across lawful reformulation while producing at least one nontrivial standing-bearing consequence).
+Then coherence forces the following structural form.
+\begin{enumerate}[label=\textbf{(M\arabic*)}, leftmargin=2.4em]
+\item \textbf{Stable reference is necessary.} If Def.~\ref{def:stable-reference} fails, then $D$ cannot sustain claim identity and therefore is not coherent discourse (standing is undefined).
+\item \textbf{Compositional closure is necessary.} If unrestricted composition fails, then either the system is degenerate (blocked recombinations can silently launder standing) or it imports an unlicensed scope restriction; in either case it forfeits coherence under non-degenerate reuse.
+\item \textbf{State-transition representation is forced.} Under (M1)--(M2) and non-trivial inferential content, $D$ admits a canonical partial state-transition representation and induces identity persistence and an irreversible commitment: \Cref{thm:modeling-necessity,thm:coherence-necessity}.
+\item \textbf{Finitary explicitness is necessary for coherence without standing import.} If the permissibility/standing interface is not finitary/algebraic, then standing depends on an infinitary or semantic oracle not generated by the system's own standing-preserving action, yielding illicit standing import. Hence any coherent system (in the governance sense) must be finitary-explicit.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\textbf{(M1)} If evaluation varies under lawful redescription, then the same syntactic move can be made to refer to different targets depending on presentation. In that case, the discourse cannot maintain claim identity across reformulation. By fail-closed discipline, standing is undefined rather than graded; thus the practice is not coherent reasoning.
+
+\textbf{(M2)} Suppose unrestricted composition fails while the practice nonetheless claims nontrivial inferential content.
+Then there exist previously evaluated claims whose finite recombination is disallowed \emph{for reasons not expressed as explicit standing failure}. Any such hidden restriction either (i) functions as an untyped scope governor (illicit transport of envelope constraints), or (ii) permits laundering: a forbidden composite can be reintroduced by redescription, pipeline, or encoding, making admissibility depend on presentation. Either way, stable reference under reuse is lost. Hence, for coherence under non-degenerate reuse, finite recombination must be treated as candidate material; evaluation may still fail-closed on inadmissibility.
+
+\textbf{(M3)} Given (M1)--(M2) and nontrivial inferential content, the hypotheses of \Cref{thm:modeling-necessity} (stable evaluative behavior on histories) and \Cref{thm:coherence-necessity} (persistent constraint effect) hold. Therefore $D$ admits a canonical partial state-transition form and, necessarily, identity persistence (Myhill--Nerode congruence) and an irreversible commitment (existence of a standing-positive edge with no return path).
+
+\textbf{(M4)} Let $\mathsf{Cl}$ be the closure operator induced by standing-positive updates on commitment states (Def.~\ref{def:closure-operator}).
+If $\mathsf{Cl}$ is not finitary/algebraic, then there exists a set of commitments $X$ and a sentence/act $\varphi$ such that $\varphi\in\mathsf{Cl}(X)$ but for every finite $F\subseteq X$, $\varphi\notin\mathsf{Cl}(F)$. In such a regime, whether $\varphi$ is standing-positive depends on an essentially infinitary condition.
+Any attempt to operationalize that condition requires importing a semantic/global oracle (e.g., ``true in all models,'' ``in the limit,'' ``for almost all,'' ``under all extensions''), which is exactly a standing-bearing authorizer not generated by the system's own admissible action.
+This constitutes illicit standing import (blocked by \Cref{lem:no-semantic-import,lem:no-meta-reanchor} and the typicality collapse obstruction; cf.~\Cref{rem:typicality}).
+Therefore coherence (standing produced solely by admissible internal action) forces finitary explicitness: $\mathsf{Cl}$ must be finitary/algebraic, hence rule-presentable and covered by the encoding-universality result.
+\end{proof}
+
+\subsubsection*{Hostile-referee attack map: objection $\to$ blocking result}
+\label{sec:attack-map}
+
+\noindent The table below records standard hostile moves and the \emph{exact} labeled results they must deny.
+Any objection not listed must identify which hypothesis of \Cref{thm:modeling-necessity,thm:coherence-necessity} (or which
+typed-domain constraint in \S\ref{sec:typed}) is being rejected.
+
+\begin{center}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{p{0.46\textwidth} p{0.50\textwidth}}
+\toprule
+\textbf{Objection / escape attempt} & \textbf{Must deny (premise) \quad or else blocked by (result)} \\
+\midrule
+``State machines are assumed; coherent reasoning need not be state-transition representable.'' &
+Deny stable reference or non-trivial inferential content; otherwise canonical state-transition form is forced by \Cref{thm:modeling-necessity,thm:coherence-necessity}. \\[2pt]
+
+``Identity persistence is optional (reference may drift under update).'' &
+Deny stable reference; otherwise the Myhill--Nerode congruence forces a canonical identity quotient \Cref{lem:canonical-quotient}. \\[2pt]
+
+``All admissible updates are reversible (no irreversible commitments).'' &
+Deny persistent constraint effect (Def.\ \emph{Non-trivial inferential content}); otherwise \Cref{thm:coherence-necessity} via \Cref{lem:mutual-reachability}. \\[2pt]
+
+``Standing/admissibility can be graded or lattice-valued.'' &
+Either extra values are reachability-inert bookkeeping or they change the admissible edge set; the standing-relevant core is binary by \Cref{thm:combinatorial-binary-core,thm:binary-state-transition}. \\[2pt]
+
+``Completion/totalization creates new admissible coverage on the same envelope.'' &
+Deny algebraic rigidity (domain fixity / no domain extension); otherwise blocked by \Cref{lem:domain-fixity,lem:no-domain-extension,thm:no-totalization}. \\[2pt]
+
+``An extension escapes operator-introduction / case exhaustion.'' &
+Deny the explicit finitary-closure hypothesis; otherwise any such extension is rule-presentable and covered by \Cref{thm:encoding-universality,thm:syntactic-exhaustion}. \\[2pt]
+
+``Infinitary rules ($\omega$-rule, reflection) escape finitary exhaustion.'' &
+Deny finitary-certificate admissibility; otherwise infinitary standing gain collapses by \Cref{thm:infinitary-collapse,cor:no-infinitary-gain,rem:omega-rule} (see also \Cref{lem:no-semantic-import,lem:no-meta-reanchor,rem:typicality}). \\[2pt]
+
+``Infinitary primitive acts (packing an $\omega$-premise family into a single act token) escape the rule analysis.'' &
+Must deny finite presentability of acts (Def.\ \Cref{def:finite-act-premise}); otherwise primitive-infinitary acts collapse by \Cref{thm:no-primitive-infinitary-acts} (hence cannot evade \Cref{thm:infinitary-collapse}). \\[2pt]
+
+``Conservative extensions can add new standing-bearing primitives.'' &
+Deny interpretability collapse (USE/Beth) or allow non-definable standing-bearing symbols; otherwise definitional/interpretability collapse \Cref{thm:conservative-collapse,thm:interpretability-collapse}. \\[2pt]
+
+``Truth/satisfaction/models/extensions can authorize standing.'' &
+Deny standing-preserving satisfiability under admissible extension; otherwise blocked by \Cref{lem:no-semantic-import} (cf.\ \cite{MaleyModelTheoreticCollapse2026}). \\[2pt]
+
+``Meta-foundational re-anchoring (new foundations, truth predicates) authorizes.'' &
+Deny generator-terminal closure; otherwise blocked by \Cref{lem:no-meta-reanchor}. \\[2pt]
+
+``Symmetry yields an intrinsic canonical representative/choice.'' &
+Must exhibit an automorphism-fixed linear extension; generically impossible by \Cref{thm:aut-fixed}. \\[2pt]
+
+``Probability/typicality yields canonical selection.'' &
+Must exhibit an automorphism-equivariant selector; blocked by \Cref{rem:typicality} and \cite{MaleyTypicalityCollapse2026}. \\[2pt]
+
+``There exists a third admissible spectrum, or physics extends while preserving locality.'' &
+Deny the fixation dichotomy / deny locality; otherwise blocked by \Cref{thm:two-spectrum,thm:locality-eliminator,thm:physics-closed}. \\
+\bottomrule
+\end{tabular}
+\end{center}
+\clearpage
+
+
+\begin{definition}[Unrestricted composition]
+\label{def:unrestricted-composition}
+Composition is \emph{unrestricted} if for every finite tuple $(c_1,\dots,c_n)$ of previously evaluated claims, the composite $c_1\circ\cdots\circ c_n$ is a candidate claim in $\mathcal{C}$ (evaluation may still fail-closed).
+\end{definition}
+
+\begin{definition}[Non-degeneracy]
+\label{def:nondegeneracy}
+$\mathcal{R}$ is \emph{non-degenerate} if evaluation has persistent constraint effect: there exist a state $s$ and evaluated claims $c$ such that changing $\varepsilon(s,c)$ changes the set of reachable future evaluated configurations.
+Equivalently, acceptance/rejection is not vacuous under reuse.
+\end{definition}
+
+\begin{definition}[Irreversible commitment]
+In a partial update system $(S,U)$, write $s\leadsto t$ for reachability by a finite path of standing-positive updates
+(as in the reachability definition above).
+A reasoning system executes an \emph{irreversible commitment} if there exist a state $s\in S$ and act $a\in\Act$ such that
+$U(s,a)$ is defined (standing-positive) and, writing $s':=U(s,a)$, there is \emph{no} return path $s'\leadsto s$.
+Equivalently, $s\notin \mathrm{Reach}(s')$.
+\end{definition}
+
+\subsection{Bivalence theorem for non-degenerate reasoning (governance necessity)}
+\label{sec:bivalence}
+
+A frequent hostile-referee move is to treat admissibility, bivalence, and fail-closed behavior as \emph{stylistic} rather than \emph{forced}.
+We therefore include a compact necessity result: if a system (i) achieves non-collapsed reference, (ii) preserves identity/standing across inference, and (iii) performs irreversible commitment, then admissibility governance is mandatory.
+
+\begin{definition}[Commitment-form presentation]
+A reasoning system may be presented in \emph{commitment form} as a tuple
+\[
+\mathfrak{R}=(L,\mathsf{C},\vdash,\llbracket\cdot\rrbracket,\mathrm{Id}),
+\]
+where $L$ is a language, $\mathsf{C}$ is a space of commitment states, $\vdash$ is an inference/update relation on $(\mathsf{C},L)$, $\llbracket\cdot\rrbracket_{C}:L\ppar O$ is a partial interpretation at state $C$, and $\mathrm{Id}$ is an explicit identity criterion for interpreted objects.
+This is equivalent to the $(S,\mathcal{C},\circ,\Red,\varepsilon)$ presentation above by taking $S=\mathsf{C}$ and letting $\vdash$ implement admissible composition and licensed redescription steps.
+\end{definition}
+
+\begin{definition}[Reference axiom]
+\emph{Reference} holds if for each commitment state $C$ there is a partial interpretation $\llbracket\cdot\rrbracket_{C}$ such that at least one expression denotes and not all expressions collapse to a single trivial denotation.
+\end{definition}
+
+\begin{definition}[Standing axiom]
+\emph{Standing} holds if identity is preserved across inference/update:
+for any step $C\vdash C'$ and any expression $\varphi\in L$ with defined denotation, $\mathrm{Id}(\llbracket\varphi\rrbracket_{C})$ and $\mathrm{Id}(\llbracket\varphi\rrbracket_{C'})$ agree unless an \emph{explicit} identity-reset is declared.
+Silent identity drift (``same symbol, different target'') is forbidden.
+\end{definition}
+
+\begin{definition}[Irreversibility axiom]
+\emph{Irreversibility} holds if there exists at least one commitment operation $\mathsf{Commit}(\varphi)$ such that, after applying it, the system cannot return to an equivalent prior commitment state while preserving reference and standing, except by an explicit identity-reset (which is not a repair but a scope break).
+\end{definition}
+
+\begin{definition}[Maley-class governance]
+A reasoning system is \emph{Maley-class} if it enforces an admissibility gate $\Adm(\varphi,C)$ \emph{prior} to commitment and reuse, forbids silent redescription and scope drift, and is \emph{fail-closed}: violations trigger termination or explicit identity-reset, never implicit reinterpretation/repair.
+\end{definition}
+
+\begin{lemma}[No standing-preserving repair]
+\label{lem:no-standing-repair}
+In any system satisfying Reference, Standing, and Irreversibility, there is no admissibility-violation repair that preserves all three axioms.
+\end{lemma}
+
+\begin{proof}
+Any purported repair must act by at least one of the following mechanisms.
+
+\textbf{(i) Reinterpretation / relabeling.} Reclassifying an illegitimate act as legitimate by changing ``what it was about'' changes denotation $\llbracket\cdot\rrbracket$ or its identity criterion without an explicit reset, violating Reference or Standing (silent redescription/identity drift).
+
+\textbf{(ii) Identity drift.} Declaring the repaired act to concern a different target while treating it as the same standing-bearing act violates Standing unless an explicit identity-reset is performed.
+
+\textbf{(iii) Undoing commitment.} If repair is achieved by returning to a prior commitment configuration that treats the original violation as not having occurred, irreversibility is violated.
+
+These cases exhaust the ways to ``repair'' without introducing a new independent authorizer (which would itself be a new meta-constraint). Hence no standing-preserving repair exists.
+\end{proof}
+
+\begin{theorem}[Bivalence theorem for non-degenerate reasoning]
+\label{thm:bivalence}
+If a reasoning system satisfies Reference, Standing, and Irreversibility and is non-degenerate, then it must be Maley-class.
+Equivalently, any system that is not Maley-class fails to be a non-degenerate reasoning system: it collapses reference, violates standing, or permits reversibility.
+\end{theorem}
+
+\begin{proof}
+Assume Reference, Standing, Irreversibility, and non-degeneracy.
+By \Cref{lem:no-standing-repair}, admissibility violations cannot be repaired post hoc while preserving the axioms.
+Therefore admissibility must be enforced \emph{prior} to commitment and reuse: otherwise the system can generate unrepairable violations and non-degeneracy makes those violations consequential.
+Pre-commitment enforcement requires an admissibility gate $\Adm(\varphi,C)$ together with explicit scope typing and prohibition of silent redescription/scope drift.
+Fail-closed behavior is mandatory because any non-fail-closed ``soft'' handling of violations constitutes an implicit repair (ruled out by \Cref{lem:no-standing-repair}).
+These are exactly the defining properties of Maley-class governance.
+\end{proof}
+
+\begin{remark}[AI governance and governed execution interfaces]
+The same necessity applies to artificial reasoning systems: if they are to count as non-degenerate reasoning, they must be Maley-class (\Cref{thm:bivalence}).
+Implementation artifacts such as governed execution interfaces are engineering reflections of the same fail-closed, non-negotiable boundary discipline; they contribute no new epistemic authority.
+\end{remark}
+
+\subsection{Meta-necessity: irreversibility forces an admissibility invariant}
+
+The next lemma is the technical heart of the ``proof-of-proof'' papers.
+
+\begin{lemma}[Irreversibility without an invariant is undefined]
+\label{lem:irreversibility-undefined}
+Let $\mathcal{R}$ be non-degenerate with unrestricted composition and at least one irreversible commitment.
+If there is no redescription-stable invariant identifying when two claims count as ``the same standing-bearing content'' under recomposition, then \emph{irreversibility is not well-defined}: the effect of a purported commitment can be recompositionally undone without rule violation.
+\end{lemma}
+
+\begin{proof}
+Assume there is no such invariant.
+Then evaluation can depend on representational form: there exist claims $c,d$ linked by lawful redescription/composition patterns (i.e.\ reachable by $\Red$-moves and $\circ$-construction) for which $\varepsilon(s,c)$ and $\varepsilon(s,d)$ need not agree when both are evaluated.
+Because composition is unrestricted, after any commitment involving $c$ the system can later form a composite/redescription $d$ that plays the same inferential role as $c$ but is evaluated differently.
+Non-degeneracy guarantees that this difference can affect future states, so the later evaluation can negate or reintroduce the constraint effects of the earlier commitment.
+Hence the system cannot specify which constraints are \emph{invariantly} preserved by commitment.
+That is exactly failure of the definition of irreversibility: nothing persists under the system's own recomposition freedoms.
+\end{proof}
+
+\begin{theorem}[Meta-necessity of admissibility with standing conservation]
+\label{thm:meta-necessity}
+Every non-degenerate reasoning system with unrestricted composition that executes at least one irreversible commitment must enforce an admissibility invariant sufficient to preserve standing under admissible redescription and recomposition.
+\end{theorem}
+
+\begin{proof}
+By \Cref{lem:irreversibility-undefined}, irreversibility is undefined unless some invariant survives recomposition/redescription strongly enough to stabilize reference.
+Any such invariant must be:
+(i) representation-invariant (i.e. invariant under licensed redescription),
+(ii) non-metric and non-probabilistic at the pre-admissible interface (else it presupposes the very stability it is meant to ground), and
+(iii) fail-closed (else illegitimacy can be softened into legitimacy by grading).
+What remains is exactly an admissibility gate that classifies evaluated acts into eligible vs ineligible, with standing conserved under admissible redescription.
+\end{proof}
+
+\subsection{Singleton status and binary inevitability}
+
+We now harden the ``singleton'' claim: at the meta-level of intelligibility, there is no admissible second independent constraint beyond admissibility-with-standing.
+
+\begin{definition}[Meta-constraint]
+A \emph{meta-constraint} is any rule that purports to regulate intelligibility by constraining which descriptions count as reference-bearing and composable without collapse.
+\end{definition}
+
+\begin{theorem}[Singleton meta-necessity]
+\label{thm:singleton}
+There exists exactly one terminal meta-constraint governing intelligibility in non-degenerate irreversible compositional systems: admissibility with standing conservation.
+Any putative independent meta-constraint either (i) presupposes admissibility-with-standing (hence is derivative) or (ii) permits collapse of reference under redescription/composition (hence is inadmissible).
+\end{theorem}
+
+\begin{proof}
+Let $C$ denote admissibility-with-standing (the constraint required by \Cref{thm:meta-necessity}).
+Consider any candidate $C'\neq C$.
+If $C'$ is to constrain intelligibility, it must be stable under admissible redescription and composition; otherwise it can be defeated by the system's own recomposition freedoms, producing collapse.
+But stability under admissible redescription already presupposes $C$ (standing conservation), because ``stability'' is defined only relative to admissible redescription.
+Thus any stable $C'$ is derivative.
+If $C'$ is not stable under admissible redescription/composition, then it allows self-undermining redescriptions and therefore fails intelligibility (collapse).
+Hence no independent $C'$ is admissible.
+\end{proof}
+
+\begin{remark}[Falsification target]
+\label{rem:falsification}
+Theorems \Cref{thm:meta-necessity,thm:singleton} are structural and therefore falsifiable in a precise way.
+To refute them it would suffice to exhibit a non-degenerate reasoning system with unrestricted composition and at least one irreversible commitment \emph{for which no standing-preserving admissibility gate exists} (equivalently: for which irreversibility remains well-defined while evaluation varies arbitrarily across admissible redescriptions/recompositions).
+Any such witness would contradict \Cref{lem:irreversibility-undefined}.
+\end{remark}
+
+
+
+\begin{corollary}[Binary standing at the admissibility interface]
+\label{cor:binary}
+On the evaluated fragment, standing/legitimacy has exactly two values: eligible vs.\ ineligible.
+Any third standing-relevant status (graded, probabilistic, or indexed) either introduces an independent authorizer (a second meta-constraint) or reintroduces repair/override, contradicting \Cref{thm:bivalence,thm:singleton}.
+\end{corollary}
+
+\begin{proof}
+By \Cref{thm:bivalence}, any non-degenerate reasoning system with reference, standing, and irreversibility must be Maley-class and therefore enforce admissibility by a fail-closed gate: at the point of admission, an act is either admitted or not.
+Suppose, for contradiction, that the interface admits at least three standing-relevant statuses.
+Then there exist two distinct positive statuses $p\neq q$.
+Define a new meta-constraint $C'$ by
+\[
+C'(a)=1 \ \text{iff}\ a\ \text{has status }p\quad (\text{and }0\text{ otherwise}).
+\]
+$C'$ refines admissibility beyond eligibility and is not equivalent to admissibility-with-standing (since both $p$ and $q$ are eligible under the original gate).
+Thus $C'$ is an independent meta-constraint, contradicting singleton meta-necessity \Cref{thm:singleton}.
+Operationally, it would also force non-bivalent gate behavior, contradicting \Cref{thm:bivalence}.
+Therefore only two standing-relevant statuses exist: eligible/ineligible.
+\end{proof}
+
+
+\subsection{Binary invariant necessity (structural inevitability)}
+\label{sec:binary-necessity}
+
+Hostile refereeing sometimes grants bivalent \emph{standing} but proposes a finer multi-valued
+\emph{invariant} to stabilize irreversibility (e.g.\ a lattice of ``degrees of admissibility'') while allegedly
+avoiding repair.
+The following theorem closes that loophole: any invariant sufficient to make irreversibility
+well-defined is, up to definitional refinement, exactly the binary standing gate.
+
+\begin{definition}[Standing-complete invariant]
+An invariant $I:\Act\ppar V$ (defined on the evaluated fragment) is \emph{standing-complete}
+for a domain $D$ if there exists a surjection $\pi:V\twoheadrightarrow\{0,1\}$ such that
+\[
+\Stand_D(a)=\pi(I(a))
+\quad\text{for all }a\in\pdom(\Stand_D).
+\]
+Equivalently, $I$ carries at least the information of the standing gate.
+\end{definition}
+
+\begin{definition}[Irreversibility-stabilizing invariant]
+A standing-complete invariant $I$ is \emph{irreversibility-stabilizing} if it is redescription-stable
+and compositional in the following minimal sense:
+whenever $a,b$ are evaluated acts with $I(a)=I(b)$, substituting $a$ for $b$ inside any admissible
+finite composition context preserves standing outcomes (no recompositional undoing of commitments).
+\end{definition}
+
+\begin{theorem}[Binary core of irreversibility-stabilizing invariants]
+\label{thm:binary-invariant-necessity}
+Let $D$ be a standing-governed domain satisfying Reference, Standing, Irreversibility, non-degeneracy,
+and unrestricted composition (\Cref{thm:bivalence,thm:meta-necessity}).
+Let $I:\Act\ppar V$ be any irreversibility-stabilizing invariant on the evaluated fragment and let
+$\pi:V\twoheadrightarrow\{0,1\}$ witness standing-completeness (so $\Stand_D=\pi\circ I$ wherever $\Stand_D$ is defined).
+Then, on the old scope, exactly one of the following holds:
+\begin{enumerate}[label=\textbf{(B\arabic*)}, leftmargin=2.6em]
+\item \emph{Binary up to definitional equivalence.}
+$I$ is constant on each fiber of $\Stand_D$; hence it factors through $\Stand_D$ and any extra values are
+standing-irrelevant bookkeeping.
+\item \emph{Reachability refinement (not an additional standing value).}
+$I$ distinguishes two standing-positive evaluated acts and this distinction has operational consequences under admissible
+composition.
+In that case, using $I$ to regulate permissibility replaces the admissible reachability relation of $D$
+by a strict subrelation; equivalently, it selects a strict subgraph of admissible updates on $\mathcal{C}/\equiv_D$.
+Thus $I$ does not provide an additional ``degree'' of standing inside $D$; it specifies a different admissible update
+relation.
+\end{enumerate}
+In particular, any irreversibility-stabilizing invariant has a binary standing-relevant core: the indicator of admissible
+update existence; see the purely combinatorial collapse theorem \Cref{thm:combinatorial-binary-core}.
+\end{theorem}
+
+\begin{proof}
+By \Cref{thm:bivalence}, $D$ enforces a fail-closed admissibility gate; thus on the evaluated fragment,
+$\Stand_D$ is bivalent.
+Let $I$ be irreversibility-stabilizing with surjection $\pi$ as assumed.
+
+If $I$ is constant on each fiber of $\Stand_D$ (i.e.\ if $I(a)=I(b)$ whenever $\Stand_D(a)=\Stand_D(b)$),
+then $I$ carries no standing-relevant refinement beyond eligibility/ineligibility.
+In that case $I$ factors through $\Stand_D$ and any extra values are bookkeeping; collapsing them yields
+the binary invariant $\Stand_D$ without affecting irreversibility-stability.
+
+Otherwise, there exist evaluated acts $a,b$ with the same standing value but $I(a)\neq I(b)$; assume
+$\Stand_D(a)=\Stand_D(b)=1$.
+If the distinction $I(a)\neq I(b)$ has no effect in any admissible composition context (i.e.\ it never changes definedness
+or standing outcomes of composites), then it is behaviorally inert and collapses to the bookkeeping case \textbf{(B1)}.
+
+If it has an effect, then there exists an admissible context $K[-]$ such that $K[a]$ and $K[b]$ differ in definedness or
+standing outcome.
+Then permissibility of some downstream step depends on whether a prior standing-positive act was of $I$-type $I(a)$ or $I(b)$.
+Equivalently, the admissible reachability relation on commitment states depends on the refinement.
+By \Cref{thm:combinatorial-binary-core}, any such dependence is captured by selecting a strict subset of admissible edges
+(a strict subgraph) using a binary predicate derived from $I$.
+Hence the extra values of $I$ do not constitute additional standing values inside $D$; they amount to a different admissible
+update relation.
+This is exactly case \textbf{(B2)}.
+\end{proof}
+
+\subsection{State-transition normal form of bivalence}
+\label{sec:state-transition-bivalence}
+
+To remove any remaining conceptual compression in the ``binary inevitability'' layer, we give an explicit
+state-transition presentation.  A reasoning system is treated as a partial update dynamics on commitment states; 
+undefinedness is terminal and corresponds to standing collapse (identity loss) \cite{MaleyStandingCollapseIdentity2026}.
+
+\begin{definition}[Commitment state space and partial updates]
+A \emph{commitment state} is a finite record $C$ of standing-positive commitments together with scope declarations.
+A \emph{reasoning step} is a partial update operator
+\[
+U:\mathcal{C}\times\Act \ppar \mathcal{C},
+\]
+where $U(C,a)$ is \emph{defined} exactly when the act $a$ is admissible at $C$ and yields a standing-bearing successor state.
+If $U(C,a)$ is undefined, the attempted step is terminal: there is no standing-bearing successor state.
+\end{definition}
+
+\begin{definition}[Standing-preserving equivalence of states]
+Write $C\equiv_D C'$ if $C'$ is obtainable from $C$ by a finite chain of \emph{admissible redescriptions}
+(scope-preserving renamings/substitutions) such that every commitment has the same standing value.
+This is the state-level form of MIAX.
+\end{definition}
+
+\begin{definition}[Irreversible commitment]
+An act $a$ is an \emph{irreversible commitment} at $C$ if $U(C,a)$ is defined and
+$U(C,a)\not\equiv_D C$, and there exists no finite chain of defined updates from $U(C,a)$ back to any state
+$C''$ with $C''\equiv_D C$.
+Non-degeneracy requires the existence of at least one such act.
+\end{definition}
+
+\begin{theorem}[Binary eligibility in state-transition form]
+\label{thm:binary-state-transition}
+Let $D$ satisfy Reference, Standing, Irreversibility, non-degeneracy, and unrestricted composition
+(\Cref{thm:bivalence,thm:meta-necessity}).
+Then:
+\begin{enumerate}[label=\textbf{(S\arabic*)}, leftmargin=2.6em]
+\item \textbf{Fail-closedness is forced.}
+The step relation must be partial: if an act is inadmissible at $C$, there is no
+standing-bearing successor state.
+Equivalently, admissibility at the governance layer is the bivalent predicate
+\[
+\Adm(C,a)\;:\!\!\iff\; U(C,a)\downarrow.
+\]
+\item \textbf{Binarization of any evaluator.}
+Let $E:\Act\times\mathcal{C}\to V$ be any evaluator stable under $C\equiv_D C'$
+(redescription stability), and suppose $E$ is used to decide which steps are permitted.
+Then the only standing-relevant information in $E$ is the induced bivalent predicate
+\[
+\Adm_E(C,a)\;:\!\!\iff\;E(a,C)\in V_+,
+\]
+where $V_+\subseteq V$ is the set of values permitting a defined update.
+Any further distinctions among values in $V_+$ are either:
+(i) reachability-inert bookkeeping (they do not change the reachability relation on $\mathcal{C}/\equiv_D$), or
+(ii) equivalent to replacing the admissible step relation by a strict subrelation (a strict subgraph of admissible updates).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\textbf{(S1)} By the bivalence theorem for non-degenerate reasoning (\Cref{thm:bivalence}),
+any non-fail-closed handling of violations constitutes implicit repair and violates Reference, Standing, or Irreversibility.
+Therefore an inadmissible act cannot yield a standing-bearing successor state.
+Modeling the step relation by a partial update $U$ is exactly the state-transition expression of fail-closedness:
+definedness is admissibility; undefinedness is standing collapse \cite{MaleyStandingCollapseIdentity2026}.
+Thus admissibility at the governance layer is bivalent.
+
+\textbf{(S2)} Let $V_+\subseteq V$ be the set of evaluator values treated as permissive.
+By hypothesis, for every $(C,a)$ we have $U(C,a)\downarrow$ iff $E(a,C)\in V_+$.
+Hence $E$ induces the bivalent admissibility predicate $\Adm_E(C,a)\iff E(a,C)\in V_+$, and $\Adm_E$ coincides with $\Adm$.
+
+If $E$ takes multiple values on permissive steps but those values never affect any reachability fact on the quotient state graph
+$\mathcal{C}/\equiv_D$ (e.g.\ they never change which downstream updates are defined and never change any $\equiv_D$-class of a
+successor), then they are reachability-inert bookkeeping.
+
+If one insists that two distinct permissive values are \emph{operationally distinct}, that insistence can only manifest by
+changing the set of defined downstream updates in some context (otherwise there is no observable distinction within the system).
+But changing which updates are defined is exactly replacing the admissible step relation by a strict subrelation.
+By the combinatorial collapse theorem below (\Cref{thm:combinatorial-binary-core}), irreversibility depends only on the resulting
+(unlabelled) reachability relation; therefore the only standing-relevant core of $E$ is again the binary predicate selecting
+which edges exist.
+\end{proof}
+
+\begin{theorem}[Combinatorial invariant collapse (binary core of irreversibility)]
+\label{thm:combinatorial-binary-core}
+Fix a domain $D$ with commitment states $\mathcal{C}$, acts $\Act$, partial update $U:\mathcal{C}\times\Act\ppar\mathcal{C}$,
+and standing-preserving state equivalence $\equiv_D$ as in \Cref{sec:state-transition-bivalence}.
+Form the quotient directed graph $G_D$ whose vertices are $\equiv_D$-classes and whose edges are \emph{defined} updates:
+there is an edge $[C]\to[C']$ in $G_D$ iff there exists $a\in\Act$ with $U(C,a)\downarrow$ and $C'\equiv_D U(C,a)$.
+Then:
+\begin{enumerate}[label=\textbf{(G\arabic*)}, leftmargin=2.6em]
+\item \textbf{Irreversibility is graph-theoretic.}
+Whether an act is an irreversible commitment (in the sense of \Cref{sec:state-transition-bivalence}) depends only on
+reachability in $G_D$ (existence/nonexistence of directed paths), not on any additional labels assigned to edges.
+\item \textbf{Every permissibility scheme has a binary core.}
+Let $E:\Act\times\mathcal{C}\to V$ be any redescription-stable evaluator and let $V_+\subseteq V$ be the set of values treated as
+permissive.
+Define the binary indicator
+\[
+\chi_E(C,a)=\mathbf{1}[E(a,C)\in V_+]\in\{0,1\}.
+\]
+Then the admissible update graph generated by $E$ is exactly the subgraph of $G_D$ determined by $\chi_E$.
+In particular, the standing-relevant content of $E$ factors through the binary indicator $\chi_E$.
+\item \textbf{Multivalence cannot do irreversibility work.}
+If $E$ takes multiple values on permissive steps, those values can influence irreversibility only by changing which edges are
+present in $G_D$, i.e.\ only through a further binary restriction of $\chi_E$.
+Otherwise the extra values are reachability-inert bookkeeping and are irrelevant to irreversibility.
+\end{enumerate}
+Consequently, no multi-valued invariant is required to define or stabilize irreversibility beyond the binary edge-existence
+predicate.
+\end{theorem}
+
+\begin{proof}
+\textbf{(G1)} By definition, irreversibility in \Cref{sec:state-transition-bivalence} is the nonexistence of a return path
+(from the post-commitment state class to the pre-commitment state class) in the quotient transition dynamics.
+This depends only on reachability in $G_D$.
+
+\textbf{(G2)} Fix $E$ and $V_+$.
+An update step is declared permissive exactly when $E(a,C)\in V_+$, i.e.\ when $\chi_E(C,a)=1$.
+Thus the directed edges present under the permissibility scheme $(E,V_+)$ are exactly those for which $\chi_E(C,a)=1$.
+Therefore the induced admissible dynamics is determined entirely by the binary indicator $\chi_E$, and all reachability
+properties (hence all irreversibility facts by \textbf{(G1)}) depend only on this induced subgraph.
+
+\textbf{(G3)} Suppose $E$ takes at least two distinct values on permissive steps.
+If these values do not alter which edges are present (i.e.\ they do not alter $\chi_E$) then, by \textbf{(G1)}--\textbf{(G2)},
+they do not change reachability and therefore cannot affect irreversibility.
+If they are made to matter, they can only matter by changing which updates count as permissible in some context, which is
+exactly changing $\chi_E$ (selecting a strict subset of edges).
+Either way, any irreversibility-relevant content of the scheme is captured by a binary edge-selection predicate.
+\end{proof}
+
+\begin{remark}[Typicality cannot supply intermediate standing]
+\label{rem:typicality}
+Probability/typicality language cannot generate intermediate standing.
+In a standard non-atomic probability space, ``typical'' properties are either invariant cores (deterministic invariants) or
+presentation-dependent under the full redescription group \cite{MaleyTypicalityCollapse2026}.
+In particular, there is no automorphism-equivariant rule selecting a nontrivial ``typical subset,'' blocking typicality-based
+canonical selection.
+\end{remark}
+
+
+\begin{remark}[What this theorem does not forbid]
+Theorem \Cref{thm:binary-invariant-necessity} does not forbid multi-valued \emph{internal} quantities
+defined \emph{after} admissibility (e.g.\ local metrics) so long as they do not function as standing
+authorizers.
+It forbids only multi-valued invariants at the admissibility interface that would refine standing.
+\end{remark}
+
+
+\section{The AMetric boundary package and the derivation of Axiom 6}
+\label{sec:ametric}
+
+This section makes the boundary explicit and derives the ``binary, non-eventful boundary'' condition used later.
+All proofs here are short, but they are load-bearing.
+
+
+\subsection{AMetricity from the logic of distinction}
+\label{sec:ametric-distinction}
+
+We now derive the \emph{AMetric} character of the admissibility interface from the \emph{logic of distinction itself},
+without invoking governance axioms.
+The key issue is not whether relabeling indifference is aesthetically natural, but whether it is \emph{forced} by the typing of pre-fixational discourse.
+We therefore begin by hardening the relabeling premise itself.
+
+\begin{definition}[Fixation and pre-fixational domain]
+\label{def:pre-fixational-domain}
+Fixation is the first admissible act that makes a target determinately identity-bearing for subsequent standing-preserving use.
+A domain is \emph{pre-fixational} iff its elements are candidate relata prior to any such admissible target-fixing act.
+In particular, before fixation no element is yet licensed as \emph{this} target rather than merely a representative in a proposal space.
+\end{definition}
+
+\begin{definition}[Pre-fixational anti-haecceity]
+\label{def:anti-haecceity}
+A predicate or structure on a pre-fixational domain is \emph{haecceitic} iff it treats representative identity---which token rather than which standing-preserving content---as admissibility-relevant prior to fixation.
+The pre-fixational anti-haecceity principle is the requirement that no such haecceitic structure is licensed before fixation.
+\end{definition}
+
+\begin{definition}[Licensed individuator]
+\label{def:licensed-individuator}
+A licensed individuator on a pre-fixational domain is any admissibility-relevant feature that distinguishes elements as identity-bearing prior to fixation: e.g. a privileged name, index, coordinate, selector, order, rank, score, or representative-specific parameter.
+\end{definition}
+
+\begin{lemma}[Non-invariant pre-fixational predicates presuppose fixation]
+\label{lem:noninvariant-presupposes-fixation}
+Let $X$ be a pre-fixational domain and let $P\subseteq X^n$ be a predicate intended to be admissibility-relevant prior to fixation.
+If $P$ is not invariant under some bijection $\pi:X\to X$, then $P$ presupposes a licensed individuator on $X$.
+Consequently, absent licensed individuators, any admissibility-relevant pre-fixational predicate must be invariant under all bijections of $X$.
+\end{lemma}
+
+\begin{proof}
+If $P$ is not invariant under $\pi$, there exists $\bar x\in X^n$ such that $\bar x\in P$ while $\pi(\bar x)\notin P$ or vice versa.
+But $\bar x$ and $\pi(\bar x)$ differ only by representative assignment: no target has yet been fixed, so the tuples do not differ by any licensed standing-bearing content.
+Therefore the difference in $P$-status can be explained only by some pre-fixational feature that privileges one representative assignment over another.
+That feature is precisely a licensed individuator in the sense of \Cref{def:licensed-individuator}.
+Hence, if no licensed individuator is available, $P$ must be invariant under every bijection of $X$.
+\end{proof}
+
+\begin{lemma}[Canonicalization collapse]
+\label{lem:canonicalization-collapse}
+Denying relabeling indifference at the pre-fixational layer forces one of two outcomes:
+\begin{enumerate}[label=\textbf{(\roman*)}, leftmargin=2.6em]
+\item admissibility becomes presentation-dependent, or
+\item a canonicalization act is required to privilege one representative form.
+\end{enumerate}
+Neither outcome is available at the pre-fixational layer.
+\end{lemma}
+
+\begin{proof}
+Suppose admissibility-relevant content is not invariant under relabeling.
+Then either distinct presentations are simply allowed to produce distinct admissibility outcomes, in which case admissibility depends on presentation and stable reference fails already at the proposal layer; or one insists that one presentation is the \emph{right} one, in which case some canonicalization principle must select that presentation.
+But canonicalization is itself a selector or act of representative privilege.
+Prior to fixation, no such selector is licensed; after fixation, it cannot ground the boundary because it presupposes the very fixation relation the boundary is meant to regulate.
+Thus neither branch is coherent.
+\end{proof}
+
+\begin{lemma}[Defeasibility does not legalize pre-fixational asymmetry]
+\label{lem:defeasibility-not-enough}
+Making a pre-fixational individuator provisional, defeasible, approximate, or revisable does not change its role-type.
+A provisional selector is still a selector; a defeasible order is still an order; a revisable privileged representative is still representative privilege.
+\end{lemma}
+
+\begin{proof}
+Defeasibility changes only persistence conditions: whether a distinction may later be withdrawn or revised.
+It does not change what kind of work the distinction is doing \emph{now}.
+If a feature currently differentiates representatives in an admissibility-relevant way prior to fixation, then it is currently functioning as an individuator.
+Therefore provisionality cannot remove the illicit pre-fixational load; it can only make that load revisable.
+\end{proof}
+
+\begin{theorem}[Relabeling indifference is forced by pre-fixational non-reference]
+\label{thm:relabeling-forced}
+Let $X$ be a pre-fixational domain with no licensed individuators.
+Then every admissibility-relevant predicate or structure on $X$ must be invariant under the full symmetric group $\operatorname{Sym}(X)$.
+Equivalently: before fixation, arbitrary relabelings cannot change admissibility-relevant content.
+\end{theorem}
+
+\begin{proof}
+By \Cref{lem:noninvariant-presupposes-fixation}, any non-invariant admissibility-relevant predicate presupposes a licensed individuator.
+But by hypothesis no such individuator exists on $X$.
+Hence every admissibility-relevant predicate must be invariant under every bijection of $X$.
+Since the admissible relabelings are exactly the bijections of $X$ in the absence of extra structure, invariance is with respect to the full symmetric group $\operatorname{Sym}(X)$.
+\end{proof}
+
+\begin{corollary}[No admissibility-relevant asymmetry without witness]
+\label{cor:no-asymmetry-without-witness}
+Any admissibility-relevant asymmetry prior to fixation requires a licensed individuator, selector, order, metric, or target witness.
+Absent such witnesses, pre-fixational asymmetry is inadmissible.
+\end{corollary}
+
+\begin{proof}
+An admissibility-relevant asymmetry is a non-invariant structure.
+By \Cref{lem:noninvariant-presupposes-fixation}, such a structure requires a licensed individuator.
+The standard ways to supply one are exactly by selector, order, metric, coordinate, or target witness.
+If none is available, the asymmetry is unwitnessed and therefore inadmissible.
+\end{proof}
+
+Accordingly, any meaningful pre-ontological predicate must be invariant under arbitrary relabeling.
+
+\begin{definition}[Pre-ontological domain and relabeling symmetry]
+\label{def:preont-domain}
+A \emph{pre-ontological domain} is a nonempty set $X$ equipped with no structure beyond equality.
+Its relabeling group is the full symmetric group $\operatorname{Sym}(X)$ acting on $X$ by bijections.
+\end{definition}
+
+\begin{definition}[Invariant (structure-free) predicate]
+\label{def:invariant-predicate}
+Let $n\ge 1$. A predicate $P\subseteq X^n$ is \emph{pre-ontologically meaningful} if it is invariant under relabeling:
+for all $\pi\in\operatorname{Sym}(X)$ and all $\bar x\in X^n$,
+\[
+\bar x\in P \quad\Longleftrightarrow\quad \pi(\bar x)\in P,
+\]
+where $\pi(\bar x):=(\pi(x_1),\ldots,\pi(x_n))$.
+\end{definition}
+
+\begin{definition}[Equality-pattern type]
+\label{def:equality-pattern}
+For $\bar x=(x_1,\ldots,x_n)\in X^n$, its \emph{equality pattern} is the partition of $\{1,\ldots,n\}$ into blocks
+such that $i,j$ lie in the same block iff $x_i=x_j$.
+Two tuples $\bar x,\bar y\in X^n$ have the same equality pattern iff
+$x_i=x_j \Leftrightarrow y_i=y_j$ for all $i,j$.
+\end{definition}
+
+\begin{lemma}[Orbit classification in pure distinction]
+\label{lem:orbit-classification}
+Fix $n\ge 1$. Two tuples $\bar x,\bar y\in X^n$ lie in the same $\operatorname{Sym}(X)$-orbit
+iff they have the same equality pattern.
+\end{lemma}
+
+\begin{proof}
+($\Rightarrow$) If $\bar y=\pi(\bar x)$ for some bijection $\pi$, then $x_i=x_j$ iff $\pi(x_i)=\pi(x_j)$ iff $y_i=y_j$.
+
+($\Leftarrow$) If equality patterns match, define $\pi$ on the finite set of values appearing in $\bar x$ by mapping each
+distinct value to the corresponding distinct value in $\bar y$ occupying the same pattern-block; extend to a bijection of $X$.
+Then $\pi(\bar x)=\bar y$.
+\end{proof}
+
+\begin{theorem}[AMetric boundary as the maximal pre-ontological invariant]
+\label{thm:ametric-from-distinction}
+Let $X$ be a pre-ontological domain.
+Every pre-ontologically meaningful predicate $P\subseteq X^n$ is determined \emph{only} by equality patterns
+(hence only by binary distinction).
+Consequently:
+\begin{enumerate}[label=\textbf{(\alph*)}, leftmargin=2.6em]
+\item (\emph{No invariant grading / parameterization}) there is no nontrivial relabeling-invariant map $f:X\to A$
+into any set $A$ with $|A|\ge 2$; in particular no invariant discrete indexing.
+\item (\emph{No invariant order}) there is no relabeling-invariant total order $<$ on $X$.
+\item (\emph{No invariant selector}) there is no $\operatorname{Sym}(X)$-equivariant choice function
+$c:\mathcal P(X)\setminus\{\emptyset\}\to X$ (hence no canonical representative selection).
+\item (\emph{Only binary metrics survive}) any relabeling-invariant metric $d:X\times X\to\mathbb R_{\ge 0}$
+collapses to the discrete form: $d(x,x)=0$ and $d(x,y)=\lambda$ for all $x\neq y$ and some constant $\lambda>0$.
+Thus it encodes only the binary distinction $x=y$ vs.\ $x\neq y$ and introduces no graded structure.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Let $P\subseteq X^n$ be relabeling-invariant.
+By \Cref{lem:orbit-classification}, $\operatorname{Sym}(X)$ acts transitively on tuples of the same equality pattern.
+Invariance forces $P$ to be constant on each orbit; hence $P$ is determined by equality patterns only.
+
+\medskip\noindent\textbf{(a)}
+If $f:X\to A$ is relabeling-invariant, then for any $x,y\in X$ there exists $\pi$ with $\pi(x)=y$, so
+$f(y)=f(\pi(x))=f(x)$.
+Thus $f$ is constant.
+
+\medskip\noindent\textbf{(b)}
+If $<$ were a relabeling-invariant total order, pick $x\neq y$ with $x<y$.
+Let $\pi$ swap $x$ and $y$; invariance yields $x<y \iff y<x$, contradiction.
+
+\medskip\noindent\textbf{(c)}
+Suppose $c$ is $\operatorname{Sym}(X)$-equivariant.
+Take $A$ with $x\neq y\in A$ and let $\pi$ swap $x$ and $y$ while fixing all else; then $\pi(A)=A$.
+Equivariance gives $c(A)=\pi(c(A))$, so $c(A)$ is fixed by $\pi$; hence $c(A)\notin\{x,y\}$.
+As $x,y\in A$ were arbitrary, this forces $c(A)\notin A$, impossible.
+
+\medskip\noindent\textbf{(d)}
+If $d$ is relabeling-invariant, then by transitivity on ordered pairs of distinct elements, $d(x,y)$ is constant for $x\neq y$.
+Let $\lambda:=d(x,y)$ for any $x\neq y$.
+Metric axioms give $d(x,x)=0$ and force $\lambda>0$.
+\end{proof}
+
+\begin{corollary}[Binary, non-parameterized pre-ontological boundary]
+\label{cor:binary-ametric-boundary}
+Any pre-ontological differentiation is exhausted by binary distinction (equality patterns).
+Any purported deeper invariant that produces grading, indexing, canonical selection, or nontrivial metric/order structure
+necessarily introduces extra structure beyond the logic of distinction, hence is \emph{post}-fixation rather than pre-ontological.
+\end{corollary}
+
+\subsection{Pre-admissible dimensionlessness}
+
+\begin{definition}[Pre-admissible proposal regime]
+A \emph{pre-admissible proposal regime} is any regime that generates candidate descriptions \emph{prior} to admissibility fixation.
+Pre-ontologically, no names, indices, coordinates, or representatives are privileged; hence any meaningful pre-ontological predicate must be invariant under relabeling (\Cref{def:preont-domain,def:invariant-predicate}).
+In particular, no pre-admissible metric, order, grading, or selector is available beyond the binary distinction of equality/disequality (\Cref{thm:ametric-from-distinction}).
+\end{definition}
+
+\begin{lemma}[Dimensionlessness]
+\label{lem:dimensionless}
+A pre-admissible proposal regime is necessarily dimensionless in the strong sense: there is no relabeling-invariant
+metric or monotone ordering on the pre-ontological substrate beyond equality/disequality.
+\end{lemma}
+
+\begin{proof}
+Pre-admissibly, only relabeling-invariant predicates are meaningful (\Cref{def:invariant-predicate}).
+By \Cref{thm:ametric-from-distinction}(b,d), there is no relabeling-invariant order and any relabeling-invariant metric collapses to the discrete equality metric.
+Hence no graded cross-state comparison is available pre-admissibly.
+\end{proof}
+
+\subsection{The AMetric boundary: definitions and theorems}
+
+\begin{definition}[AMetric boundary]
+\label{def:AB}
+The \emph{AMetric boundary} is the structural interface separating (i) pre-admissible classification and eligibility determination from (ii) post-admissible licensed operation.
+At this boundary objects may be classified and standing may be determined, but no admissible transformation may be performed.
+The boundary is \emph{non-transmissive}: no admissible structure propagates backward across it.
+\end{definition}
+
+\begin{definition}[Standing at the boundary]
+\label{def:standing-boundary}
+\emph{Standing} at the boundary is the authorization status assigned to a coherently classified object indicating whether it is eligible to enter admissible reasoning.
+By \Cref{cor:binary}, standing has exactly two values on the evaluated fragment (standing-positive / standing-negative), and standing determination is single-shot and terminal (no revision or repair is defined at the boundary).
+\end{definition}
+
+\begin{definition}[Classification coherence]
+A classification is \emph{coherent} iff it assigns an object a determinate structural role and that role does not internally contradict admissibility constraints.
+Classification is not an action on the object; it effects no transformation of the object or system state.
+\end{definition}
+
+\begin{theorem}[Boundary non-action]
+\label{thm:boundary-nonaction}
+No action, operation, execution, or transformation occurs at the AMetric boundary.
+\end{theorem}
+
+\begin{proof}
+Action presupposes admissibility. Admissibility presupposes standing.
+Standing is determined at the boundary and therefore cannot be presupposed there.
+Any action at the boundary would presuppose itself, which is incoherent.
+\end{proof}
+
+\begin{theorem}[Operator undefinedness]
+\label{thm:operator-undef}
+Operators are undefined at the AMetric boundary.
+\end{theorem}
+
+\begin{proof}
+An operator is a licensed constraint on admissible transformation.
+At the AMetric boundary admissibility has not yet been established, so license conditions lack a domain of application.
+Any purported latent or schematic operator is therefore not an operator but an illicit projection.
+\end{proof}
+
+\begin{theorem}[No scope transport across the boundary]
+\label{thm:no-scope-transport-boundary}
+No operator, license, redescription, or admissible structure may be transported across the AMetric boundary.
+\end{theorem}
+
+\begin{proof}
+Transporting admissible structure across the boundary implies admissibility prior to standing determination.
+This collapses the boundary distinction and violates the architectural ordering.
+\end{proof}
+
+\subsection{No deeper invariants}
+
+\begin{lemma}[Constraint requires transport]
+\label{lem:constraint-requires-transport}
+Any invariant claimed to be \emph{deeper than admissibility} must constrain admissibility itself; therefore it must be expressible and operative on the pre-admissible side of the AMetric boundary.
+\end{lemma}
+
+\begin{proof}
+A post-admissible invariant cannot ground admissibility without circularity.
+Thus any deeper invariant must operate pre-admissibly, i.e. be transportable across the AMetric boundary.
+\end{proof}
+
+\begin{lemma}[Non-transmissivity blocks constraining structure]
+\label{lem:nontrans-blocks}
+The AMetric boundary forbids transport of any metric, temporal, probabilistic, causal, modal, or process-based structure.
+Any structure capable of evaluative or constraining force relies on at least one of these forbidden forms.
+\end{lemma}
+
+\begin{proof}
+If a structure can constrain admissibility outcomes, it must distinguish cases and remain stable under admissible redescription.
+Such stability requires at least one of: metric/order, temporal/process comparability, probabilistic/measure structure, causal/modal structure, or an operational transition.
+All are barred pre-admissibly by \Cref{lem:dimensionless,thm:boundary-nonaction,thm:operator-undef,thm:no-scope-transport-boundary}.
+\end{proof}
+
+\begin{theorem}[Impossibility of deeper invariants under the AMetric boundary]
+\label{thm:no-deeper-invariants}
+Under the AMetric boundary and eventless governance, no invariant deeper than admissibility can exist.
+Any purported deeper invariant either (i) imports illicit structure across the boundary, (ii) is vacuous and carries no constraining power, or (iii) collapses to admissibility/standing under renaming.
+\end{theorem}
+
+\begin{proof}
+By \Cref{lem:constraint-requires-transport}, any deeper invariant must constrain admissibility pre-admissibly.
+By \Cref{lem:nontrans-blocks}, no constraining structure can cross the boundary.
+Hence any purported deeper invariant either imports illicit structure, does no work (vacuous), or is merely admissibility/standing in new notation.
+No fourth category exists.
+\end{proof}
+
+\subsection{Derived Axiom 6: binary, non-eventful, non-parameterized}
+
+The apex closure chain uses one load-bearing boundary fact:
+there is no admissibility-relevant parameterization (continuous or discrete) of boundary crossing.
+Rather than assume it as an axiom, we derive it.
+
+\begin{theorem}[Derived boundary axiom (binary, non-eventful; no parameterization)]
+\label{thm:derived-A6}
+On the evaluated fragment, the admissibility boundary is binary and non-eventful.
+Consequently it admits no admissibility-relevant parameterization, including discrete indexing of multiple admissible alternatives.
+\end{theorem}
+
+\begin{proof}
+\textbf{Binary.} By \Cref{def:standing-boundary}, standing at the boundary takes exactly two values (standing-positive / standing-negative).
+Thus boundary eligibility has exactly two statuses on the evaluated fragment.
+
+\textbf{Non-eventful.} By \Cref{thm:boundary-nonaction,thm:operator-undef}, no action, process, execution, or operator is defined at the boundary.
+Thus ``crossing'' is not a process or trajectory.
+
+\textbf{No admissibility-relevant parameterization.}
+Suppose, for contradiction, that there exists an admissibility-relevant parameterization of crossing.
+This means there is a family of distinct admissible boundary outcomes beyond mere positivity, e.g. types indexed by $i\in I$ (continuous or discrete), that matter to eligibility.
+Then the boundary would have at least three admissibility-relevant statuses: ``standing-negative'' and ``standing-positive of type $i$'' and ``standing-positive of type $j\neq i$''.
+That contradicts binarity.
+Moreover, selecting which $i$ obtains is itself a boundary event/selector.
+But boundary events/operators are excluded by non-eventfulness and operator undefinedness.
+Finally, any attempt to treat $i$ as a pre-admissible structural invariant is blocked by \Cref{lem:dimensionless,thm:no-scope-transport-boundary} and collapses under \Cref{thm:no-deeper-invariants}.
+Thus no admissibility-relevant parameterization exists.
+\end{proof}
+
+\section{Typed domains and the standing--gate kernel}
+\label{sec:typed}
+
+\begin{definition}[Acts]
+An \emph{act} is any unit that purports to be standing-bearing: asserting a claim as truth-apt, invoking an admissibility criterion, transporting confirmation, upgrading performance to authority, transferring standing across domains, or proposing a regime translation.
+\end{definition}
+
+\begin{definition}[Typed domain]
+A \emph{typed domain} is an envelope
+\[ D := (E, A, F, C), \]
+where $E$ is the evidence-carrier class, $A$ the admissibility criterion class, $F$ reference fixation, and $C$ the truth-apt discriminator.
+We treat domain-of-application closure $\DAC(D)$ as derived, not primitive (defined below).
+\end{definition}
+
+\begin{definition}[Derived domain-of-application closure]
+$\DAC(D)$ holds iff:
+\begin{enumerate}[label=(\alph*), leftmargin=2em]
+\item \textbf{Evidence closure:} admissible redescriptions map admissible reports to admissible reports;
+\item \textbf{Fixation totality:} fixation is invariant on the admissible orbit (no retargeting required);
+\item \textbf{Discriminator totality:} $C$ is defined on the admissible orbit without post-hoc restrictions.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Gate predicate and standing]
+Fix a typed domain $D$.
+A \emph{gate predicate} is a predicate $\Gate_D(a)$ intended to classify evaluated acts into eligible vs ineligible.
+On the evaluated fragment, standing is induced by
+\[ \Stand_D(a)=1 \iff \Gate_D(a),\qquad \Stand_D(a)=0 \iff \neg \Gate_D(a). \]
+If $\Gate_D$ is not instantiated (or $D$ is ill-typed), standing in $D$ is undefined.
+\end{definition}
+
+\subsection{Minimal standing axioms}
+We now state the minimal non-boundary axioms used in the apex chain.
+
+\begin{definition}[Admissible redescription]
+An \emph{admissible redescription} in $D$ is any transformation permitted by $A$.
+We write $\Red_D(x,y)$ when $y$ is an admissible redescription of $x$.
+\end{definition}
+
+\begin{definition}[Scope discipline]
+A \emph{scope transport} is any move that changes the intended domain typing (envelope components) post hoc to legalize an otherwise-illicit act.
+Scope transport used as repair is inadmissible.
+\end{definition}
+
+\begin{definition}[MIAX]
+Meta-invariance of admissibility criteria (MIAX): admissibility criteria must be invariant under admissible redescription. Any criterion depending on privileged representations or silent redescription is null.
+\end{definition}
+
+\begin{definition}[Irreversibility]
+Irreversibility means there are commitment operations after which an illicit evaluated act cannot later be repaired as \emph{the same} evaluated act.
+\end{definition}
+
+\subsection{The apex lemma chain (expanded proofs)}
+
+\begin{lemma}[Gate existence is forced]
+\label{lem:gate-existence}
+Assume intelligibility and irreversibility.
+If a domain $D$ contains irreversible commitments and intends meaningful standing-bearing discourse, then some gate predicate $\Gate_D$ must be instantiated on the evaluated fragment.
+\end{lemma}
+
+\begin{proof}
+If no gate predicate is instantiated, then no principled eligible/ineligible partition exists for evaluated acts.
+Either (i) all evaluated acts are treated as eligible, permitting post-hoc reversal of illegitimacy (contradicting irreversibility), or
+(ii) eligibility is decided ad hoc per case, destroying determinacy of standing and thus intelligibility.
+Therefore a gate predicate must exist.
+\end{proof}
+
+\begin{lemma}[Standing is bivalent when defined]
+\label{lem:bivalent-standing}
+On the evaluated fragment of a fixed domain $D$, standing is bivalent: for each evaluated act $a$, exactly one of $\Stand_D(a)=1$ or $\Stand_D(a)=0$ holds.
+\end{lemma}
+
+\begin{proof}
+On the evaluated fragment, standing is defined by the gate predicate: $\Stand_D(a)=1$ iff $\Gate_D(a)$ and $\Stand_D(a)=0$ iff $\neg \Gate_D(a)$.
+No third status is available on the evaluated fragment.
+\end{proof}
+
+\begin{lemma}[No admissibility-relevant parameterization (internal form)]
+\label{lem:no-parameterization}
+Within a fixed domain $D$, there is no admissibility-relevant parameterization that refines eligibility beyond bivalence.
+In particular, there are no discrete plural admissible alternatives indexed by $i\in I$ that matter to eligibility.
+\end{lemma}
+
+\begin{proof}
+Immediate from \Cref{thm:derived-A6}: any admissibility-relevant parameterization would contradict boundary binarity or induce a boundary selector/event.
+\end{proof}
+
+\begin{lemma}[Uniqueness of admissibility classification (no competing gates)]
+\label{lem:no-competing-gates}
+Assume intelligibility and \Cref{lem:no-parameterization}.
+Let $\Gate_D$ and $\Gate_D'$ be two candidate gate predicates for the same typed domain $D$.
+If there exists an act $a$ with $\Gate_D(a)\neq \Gate_D'(a)$, then either standing in $D$ is indeterminate (violating intelligibility) or the boundary admits an admissibility-relevant differentiator selecting between them (contradicting \Cref{lem:no-parameterization}).
+Therefore admissibility classification for a fixed domain is unique up to extensional equivalence.
+\end{lemma}
+
+\begin{proof}
+If $\Gate_D(a)\neq \Gate_D'(a)$ for some $a$, then the system has two incompatible admissibility classifications for the same act in the same domain.
+To preserve determinacy of standing, the system must specify which classification governs.
+Any such specification is an admissibility-relevant differentiator selecting between outcomes.
+But admissibility-relevant selection beyond bivalence is forbidden by \Cref{lem:no-parameterization}.
+Hence no disagreement is permissible and the gates must coincide extensionally.
+\end{proof}
+
+\subsection{No repairs, no generators, no carriers}
+
+\begin{theorem}[No repairs for an evaluated act]
+\label{thm:no-repairs}
+Assume irreversibility.
+If $\Stand_D(a)=0$ for an evaluated act $a$ in $D$, then no internal post-processing operation on the \emph{same evaluated act} yields $\Stand_D(a)=1$.
+Any legitimate ``repair'' must be an identity-reset producing a new act $a'$ that is evaluated afresh.
+\end{theorem}
+
+\begin{proof}
+Suppose an internal operation $R$ purports to make $a$ legitimate.
+If $R$ preserves the identity of $a$ as the evaluated act, then it changes standing from $0$ to $1$ for the same act, contradicting irreversibility.
+If $R$ produces a distinct act $a'$, then $a'$ must be evaluated independently; any legitimacy is not a repaired standing of $a$.
+\end{proof}
+
+\begin{theorem}[No generators]
+\label{thm:no-generators}
+There is no operation $T$ on acts such that, for some evaluated act $a$ with $\Stand_D(a)=0$, one has $\Stand_D(T(a))=1$ \emph{as a consequence of $a$ alone} without $T(a)$ constituting a fresh gated act.
+\end{theorem}
+
+\begin{proof}
+If $T(a)$ is treated as the same evaluated act as $a$, this is a repair, forbidden by \Cref{thm:no-repairs}.
+If $T(a)$ is a distinct act $a'$, then $\Stand_D(a')=1$ holds only if $\Gate_D(a')$ holds.
+Thus legitimacy of $a'$ is not a function of $a$ alone.
+\end{proof}
+
+\begin{definition}[Carrier attempt]
+A \emph{carrier attempt} is any derived predicate $Q_D(a)$ proposed to substitute for gating as the primitive authorizer of standing, i.e. a rule of the form
+\[ \Stand_D(a)=1 \text{ because } Q_D(a), \]
+where $Q_D$ is not merely a renaming of $\Gate_D$.
+Carrier attempts include scalar rules ($q>\tau$), probabilities/typicalities, confidence scores, losses/utilities, information criteria, and non-scalar structural invariants (algebraic, categorical, symmetry, embedding, etc.) proposed to authorize standing.
+\end{definition}
+
+\begin{lemma}[Any primitive authorizer is a gate predicate]
+\label{lem:authorizer-is-gate}
+If $Q_D$ is used primitively to decide eligibility, then $Q_D$ functions as a gate predicate: it partitions evaluated acts into eligible vs ineligible.
+\end{lemma}
+
+\begin{proof}
+Primitive authorization means the system uses $Q_D$ to decide which acts are eligible.
+That decision is a partition into two classes on the evaluated fragment (\Cref{lem:bivalent-standing}).
+Thus $Q_D$ is a gate predicate in role, regardless of its internal form.
+\end{proof}
+
+\begin{theorem}[No carriers (numeric or structural)]
+\label{thm:no-carriers}
+Assume MIAX and \Cref{thm:derived-A6}.
+No carrier attempt $Q_D$ can serve as a primitive authorizer of standing except by coinciding extensionally with the unique gate predicate guaranteed by \Cref{lem:no-competing-gates}.
+Any admissible use of $Q_D$ must be downstream bookkeeping inside an already gated envelope and has no authority over eligibility.
+\end{theorem}
+
+\begin{proof}
+Let $Q_D$ be a carrier attempt.
+By \Cref{lem:authorizer-is-gate}, if $Q_D$ is used primitively then it functions as a gate.
+If $Q_D$ depends on metric/probabilistic/graded structure to decide eligibility, it violates \Cref{thm:derived-A6} (boundary non-parameterization).
+If $Q_D$ depends on privileged encoding or silent redescription, it violates MIAX.
+If $Q_D$ is claimed purely structural and representation-invariant, then it is a candidate gate.
+By \Cref{lem:no-competing-gates}, it must coincide extensionally with $\Gate_D$ or disagree, the latter being impossible.
+Therefore no nontrivial carrier attempt exists.
+\end{proof}
+
+\begin{corollary}[Standing conservation]
+\label{cor:conservation}
+Within the regime above, standing is conserved: no internal operation creates, amplifies, transfers, or recovers standing.
+\end{corollary}
+
+\begin{proof}
+Creation/recovery would require a repair or generator, excluded by \Cref{thm:no-repairs,thm:no-generators}.
+Amplification or transfer by derived criteria would require a carrier attempt, excluded by \Cref{thm:no-carriers}.
+\end{proof}
+
+\subsection{Scope discipline and cross-domain transfer}
+
+\begin{definition}[Transfer claim]
+A \emph{transfer claim} asserts that standing in a target domain $D_2$ is licensed on the basis of standing in a distinct source domain $D_1$, without independent instantiation of target gating and target $\DAC(D_2)$.
+\end{definition}
+
+\begin{theorem}[Transfer without standing]
+\label{thm:transfer}
+Let $D_1$ and $D_2$ be distinct domains.
+Standing does not inherit from $D_1$ to $D_2$ by default.
+Standing in $D_2$ is defined only if $D_2$ independently instantiates a gate predicate and satisfies $\DAC(D_2)$.
+Any attempt to import standing from $D_1$ without independent target gating is illicit scope transport or carrier laundering and is fail-closed.
+\end{theorem}
+
+\begin{proof}
+Assume a transfer claim licenses standing in $D_2$ from $D_1$ without independent target gating.
+Either it uses $D_1$'s gate to evaluate acts in $D_2$ (a post-hoc envelope substitution: scope transport) or it uses a derived predicate to justify import (a carrier attempt).
+Both are blocked by scope discipline and \Cref{thm:no-carriers}.
+Therefore, absent independent target gating and $\DAC(D_2)$, standing in $D_2$ is undefined.
+\end{proof}
+
+\subsection{Reference fixation and confirmation}
+
+\begin{definition}[Fixation commutation]
+Fix a domain $D$.
+Fixation commutes with admissible redescription if transporting a report under any admissible redescription preserves what the report is about (no retargeting).
+\end{definition}
+
+\begin{definition}[Theory-level confirmation (minimal)]
+A theory-level confirmation claim is truth-apt only if the identity of the confirmed claim is invariant under admissible redescription.
+\end{definition}
+
+\begin{theorem}[Reference fixation is necessary for theory-level confirmation]
+\label{thm:fixation}
+If fixation fails to commute with admissible redescription, then theory-level confirmation is undefined.
+Predictive success alone cannot repair this failure.
+\end{theorem}
+
+\begin{proof}
+If fixation does not commute, admissible redescriptions change what the evidence is about.
+Then the ``same'' confirmation claim lacks a fixed target: under admissible operations, different targets are being ``confirmed.''
+This violates intelligibility or forces privileged representation (violating MIAX).
+By bivalence on the evaluated fragment, there is no ``weakened but defined'' confirmation relation under such identity failure.
+Any appeal to success/probability/typicality to repair is a carrier attempt and is blocked by \Cref{thm:no-carriers}.
+\end{proof}
+
+\subsection{Uniqueness of the admissible interior}
+
+\begin{definition}[Admissible interior]
+An \emph{admissible interior} $I$ is the set of acts that are eligible (standing-positive) on the evaluated fragment of the standing-governed regime.
+Equivalently: it is the closure of admissible acts under admissibility-preserving operations and admissible redescription.
+\end{definition}
+
+\begin{definition}[Admissible distinguishability]
+Two purported interiors $I_1$ and $I_2$ are \emph{admissibly distinguishable} iff there exists an admissible act/predicate that witnesses their difference.
+\end{definition}
+
+\begin{lemma}[Discrete multiplicity elimination (gate form)]
+\label{lem:no-multiple-interiors}
+Let $I_1$ and $I_2$ be purported admissible interiors for the same standing-governed regime.
+Then $I_1=I_2$.
+In particular, discrete plurality of admissible interiors is impossible.
+\end{lemma}
+
+\begin{proof}
+Assume for contradiction $I_1\neq I_2$.
+Then there exists an act $a$ with $a\in I_1$ and $a\notin I_2$ (or vice versa).
+Define gate predicates $G_1(x)\!:\Leftrightarrow x\in I_1$ and $G_2(x)\!:\Leftrightarrow x\in I_2$.
+Then $G_1(a)\neq G_2(a)$, giving two competing admissibility classifications.
+By \Cref{lem:no-competing-gates}, disagreement forces an admissibility-relevant selector, contradicting \Cref{lem:no-parameterization}.
+Therefore $I_1=I_2$.
+\end{proof}
+
+\begin{theorem}[Apex closure theorem (standing regime closure and uniqueness)]
+\label{thm:apex}
+Under the commitments proved in \Cref{sec:ametric} and the standing axioms used in \Cref{sec:typed}, the standing--admissibility regime is closed and unique:
+\begin{enumerate}[label=(\roman*), leftmargin=2em]
+\item standing is bivalent when defined and gate existence is forced;
+\item there are no repairs, no generators, and no primitive carriers; standing is conserved;
+\item standing does not transfer across domains without independent target gating and $\DAC$;
+\item theory-level confirmation is defined only with fixation commutation;
+\item exactly one admissible interior exists.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) is \Cref{lem:gate-existence,lem:bivalent-standing}. (ii) is \Cref{thm:no-repairs,thm:no-generators,thm:no-carriers,cor:conservation}.
+(iii) is \Cref{thm:transfer}. (iv) is \Cref{thm:fixation}. (v) follows from \Cref{lem:no-multiple-interiors}.
+\end{proof}
+
+\section{Operator closure by exhaustion via partial algebras}
+\label{sec:partial}
+
+This section translates ``closure by exhaustion'' into algebra.
+The key point is that admissibility is encoded in \emph{operator domains}; undefinedness is not an error state but non-membership.
+
+\subsection{Partial algebras and envelopes}
+
+\begin{definition}[Partial algebra]
+A \emph{partial algebra} is a pair $\mathcal{A}=(X,\Omega)$ where $X$ is a set and $\Omega$ is a collection of partial functions $\omega: X^n\ppar X$ of various arities $n\ge 1$.
+Composition is defined only where all intermediate evaluations are defined.
+\end{definition}
+
+\begin{definition}[Constraint bundle]
+A \emph{constraint bundle} is a jointly admissible set of operators $\Omega'\subseteq\Omega$ that may be simultaneously taken as defined on a common envelope.
+\end{definition}
+
+\begin{definition}[Envelope]
+Given a partial algebra $\mathcal{A}=(X,\Omega')$, an \emph{envelope} $E\subseteq X$ is a maximal subset such that $E$ is closed under all operators in $\Omega'$ wherever those operators are defined.
+\end{definition}
+
+\begin{proposition}[Uniqueness of envelopes]
+\label{prop:unique-envelope}
+If a nonempty envelope exists for $(X,\Omega')$, it is unique.
+\end{proposition}
+
+\begin{proof}
+If $E_1$ and $E_2$ are envelopes, then by maximality $E_1\cup E_2$ must also be closed under $\Omega'$, hence $E_1=E_2$.
+\end{proof}
+
+\subsection{Admissible extensions and totalization}
+
+\begin{definition}[Admissible extension of a partial algebra]
+Let $\mathcal{A}=(X,\Omega)$.
+An extension $\mathcal{A}^*=(X^*,\Omega^*)$ is \emph{admissible} if:
+\begin{enumerate}[label=(\alph*), leftmargin=2em]
+\item $X\subseteq X^*$;
+\item each $\omega\in\Omega$ is the restriction of some $\omega^*\in\Omega^*$;
+\item operator composition in $\Omega^*$ restricts to operator composition in $\Omega$;
+\item envelopes of $\mathcal{A}$ embed as envelopes of $\mathcal{A}^*$.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Non-degenerate]
+A partial algebra is \emph{non-degenerate} if it admits a nontrivial envelope and at least one operator with a proper (non-total) domain.
+\end{definition}
+
+\begin{lemma}[Envelope-maximality domain fixity]
+\label{lem:domain-fixity}
+In a non-degenerate admissible partial algebra, envelope maximality fixes operator domains on the original carrier: no admissible extension can enlarge those domains without violating admissibility.
+\end{lemma}
+
+\begin{proof}
+Let $\mathcal{A}=(X,\Omega)$ be non-degenerate and let $\mathcal{A}^*=(X^*,\Omega^*)$ be an admissible extension in the sense of \S\ref{sec:partial}.
+Fix $\omega\in\Omega$ of arity $n$ and let $\omega^*\in\Omega^*$ extend it.
+
+Assume, for contradiction, that $\pdom(\omega^*)\cap X^n$ strictly enlarges $\pdom(\omega)$.
+Then there exists a tuple $\bar x\in X^n$ such that $\omega(\bar x)$ is undefined in $\mathcal{A}$ but $\omega^*(\bar x)$ is defined in $\mathcal{A}^*$.
+Interpreting partiality as admissibility (undefined means ``not a licensed move''), this is exactly an admissible-coverage expansion on the \emph{same} carrier: a previously undefined old-language operator application on old admissible inputs becomes defined without any scope reset.
+
+But such expansion is prohibited by standing conservation: it is a generator/repair form of legitimacy creation on the old scope (cf.\ \Cref{thm:no-generators,thm:no-repairs,cor:conservation}).
+Hence no such $\bar x$ exists, and operator domains on $X$ are fixed under admissible extension.
+\end{proof}
+
+\begin{lemma}[No nontrivial domain extension]
+\label{lem:no-domain-extension}
+Let $\mathcal{A}=(X,\Omega)$ be a non-degenerate partial algebra with envelope and let $\mathcal{A}^*=(X^*,\Omega^*)$ be any admissible extension.
+For any $\omega\in\Omega$ of arity $n$,
+\[
+\pdom(\omega^*)\cap X^n = \pdom(\omega),
+\]
+and $\omega^*=\omega$ on this common domain.
+\end{lemma}
+
+\begin{proof}
+Because $\omega$ is the restriction of $\omega^*$, we always have $\pdom(\omega)\subseteq \pdom(\omega^*)\cap X^n$ and $\omega^*=\omega$ on $\pdom(\omega)$.
+If the inclusion were strict, then $\omega$ would gain new defined inputs on the original carrier, contradicting domain fixity \Cref{lem:domain-fixity}.
+Thus equality holds, and agreement of values is by restriction.
+\end{proof}
+
+\begin{theorem}[Impossibility of totalization on the original carrier]
+\label{thm:no-totalization}
+Let $\mathcal{A}=(X,\Omega)$ be a non-degenerate partial algebra admitting an envelope.
+There exists no admissible extension $\mathcal{A}^*=(X^*,\Omega^*)$ in which any operator in $\Omega$ becomes total on $X$.
+\end{theorem}
+
+\begin{proof}
+If some $\omega\in\Omega$ became total on $X$ in an admissible extension, then $\pdom(\omega^*)\cap X^n=X^n$, strictly enlarging $\pdom(\omega)$ for a non-total operator.
+This contradicts \Cref{lem:no-domain-extension}.
+\end{proof}
+
+\begin{corollary}[No post-hoc repair; no deferred admissibility]
+\label{cor:no-deferred}
+No post-hoc repair can render an undefined operator admissible on its original carrier, and admissibility cannot be deferred: operators undefined at formation remain undefined under all admissible extensions.
+\end{corollary}
+
+\begin{proof}
+Either phenomenon would enlarge the domain of some operator on $X$, contradicting \Cref{lem:no-domain-extension}.
+\end{proof}
+
+\begin{corollary}[Envelope invariance under admissible extension]
+\label{cor:envelope-invariance}
+Envelopes (hence standing-bearing consequences on the original carrier) are invariant under admissible extension.
+\end{corollary}
+
+\begin{proof}
+By \Cref{lem:no-domain-extension}, the restriction of every old operator to $X$ has the same domain and values under any admissible extension.
+Therefore closure behavior and induced standing consequences on the original carrier are unchanged.
+\end{proof}
+
+\begin{remark}[Connection to standing closure]
+In the standing regime, ``making an undefined move defined'' is precisely what repair/generator programs attempt.
+\Cref{thm:no-totalization} is the algebraic form of \Cref{thm:no-repairs,thm:no-generators,cor:conservation}.
+\end{remark}
+
+\subsection{Conservative extension collapse (mathematics closure hinge)}
+\label{sec:conservative}
+
+Hostile refereeing typically targets a single gap: \emph{conservative extensions}.
+The partial-algebra impossibility of admissible totalization closes direct enlargement of old operator domains, but a referee may still ask whether one can \emph{conservatively enrich} mathematics by adding new symbols, new axioms, or semantic machinery without changing old-language consequences.
+In the standing regime, such enrichment is admissible only if it is \emph{bookkeeping}: new symbols must be explicitly definable and may not import standing via meta-foundational semantics.
+We make this precise and prove that every admissibility-preserving conservative extension collapses to a definitional extension.
+
+\begin{definition}[Language--theory presentation of a mathematical domain]
+Fix a typed domain $D$ with admissible interior $I_D$ and envelope $E$.
+Let $L$ be the object-language used to formulate standing-bearing claims about $E$ (terms built from the admissible operator family and predicates/discriminators licensed by $D$), and let
+$T\subseteq \mathrm{Sent}(L)$ be the set of $L$-sentences that have standing $1$ under $D$.
+We call $(L,T)$ the \emph{standing theory} of $D$.
+\end{definition}
+
+\begin{definition}[Admissible theory extension]
+An extension $(L,T)\leadsto (L^*,T^*)$ is \emph{admissible} if it preserves standing governance: all standing-positive sentences in $T^*$ are obtained without
+(i) enlarging old operator domains on the old envelope,
+(ii) post-hoc repair or generator behavior,
+(iii) scope transport/standing transfer, or
+(iv) meta-foundational re-anchoring treated as authorizer.
+\end{definition}
+
+\begin{definition}[Conservative and definitional extension]
+Let $(L,T)$ be a standing theory.
+An extension $(L,T)\leadsto(L^*,T^*)$ with $L\subseteq L^*$ and $T\subseteq T^*$ is:
+\begin{enumerate}[label=(\alph*), leftmargin=2.0em]
+\item \emph{conservative (on $L$)} if for every $L$-sentence $\varphi$, $\varphi\in T$ iff $\varphi\in T^*$;
+\item \emph{definitional} if every new symbol in $L^*\setminus L$ that occurs in standing-bearing claims is introduced by an \emph{explicit} old-language definition (axioms of the form $\sigma(\bar x)\leftrightarrow \delta_\sigma(\bar x)$ with $\delta_\sigma$ an $L$-formula) and these definitions do not change $T$.
+\end{enumerate}
+\end{definition}
+
+\begin{lemma}[Algebraic rigidity on the original carrier]
+\label{lem:algebraic-rigidity}
+Let $\mathcal{A}=(X,\Omega)$ be a non-degenerate admissible partial algebra with envelope $E\subseteq X$, and let $\mathcal{A}^*=(X^*,\Omega^*)$ be an admissible extension.
+Then every old-language operator $\omega\in\Omega$ has the same domain and values on $X$ in $\mathcal{A}^*$ as in $\mathcal{A}$:
+\[
+\pdom(\omega^*)\cap X^n=\pdom(\omega),\qquad \omega^*=\omega\ \text{on }\pdom(\omega).
+\]
+In particular, no admissible extension yields new standing-bearing consequences about $E$ in the old language.
+\end{lemma}
+
+\begin{proof}
+This is exactly \Cref{lem:no-domain-extension,cor:envelope-invariance}.
+\end{proof}
+
+\begin{lemma}[Model-theoretic collapse: no semantic standing import]
+\label{lem:no-semantic-import}
+In the standing regime, first-order model-theoretic results (Completeness, Compactness, L{\"o}wenheim--Skolem) do not provide independent authorizing operators.
+They are surface projections of a single invariant: \emph{standing-preserving satisfiability is conserved under admissible extension}.
+Consequently, no admissible extension may promote semantic notions---truth, satisfaction, existence-in-an-extension, ``all models,'' etc.---into standing-bearing authorizers for new operators or new old-language consequences.
+\end{lemma}
+
+\begin{proof}
+In the model-theoretic collapse classification \cite{MaleyModelTheoreticCollapse2026}, a \emph{model} is defined as a standing-admissible witness of a theory and \emph{admissible extension} is defined as standing-preserving enlargement.
+If satisfiability were destroyed by an admissible extension, the extension would destroy standing and is therefore inadmissible.
+Likewise, a divergence between syntactic derivability and semantic satisfaction would make standing depend on representational regime, violating redescription stability (MIAX).
+Cardinality-sensitive standing would make cardinal parameters standing-bearing, violating the AMetric boundary.
+Thus semantic machinery cannot act as an independent generator of standing; it is already subsumed by the admissibility invariant.
+\end{proof}
+
+\begin{lemma}[Generator-terminal closure: meta-foundational re-anchoring is inadmissible]
+\label{lem:no-meta-reanchor}
+Any operator schema that certifies admissibility, legitimacy, or grounding by appeal to a meta-foundational authority (truth predicates, satisfaction predicates, global closure predicates, foundation swaps treated as authorizers) is inadmissible: it imports standing not generated by the operator's standing-preserving action.
+This generator is terminally closed under weakening, internalization, or redescription.
+\end{lemma}
+
+\begin{proof}
+This is the Phase-B$'$ generator-terminal closure for meta-foundational re-anchoring \cite{MaleyMetaReAnchorTerminal2026}.
+Its single obstruction is standing provenance: meta-foundational appeals cannot be made standing-bearing without importing standing from outside the operator action.
+Internalization (``assume the meta-foundation as axiom'') does not generate standing and therefore does not evade the obstruction.
+\end{proof}
+
+\begin{theorem}[Conservative extension collapse]
+\label{thm:conservative-collapse}
+Let $(L,T)$ be the standing theory of a non-degenerate admissible mathematical domain presented by a partial algebra $\mathcal{A}=(X,\Omega)$ with envelope $E$.
+Let $(L^*,T^*)$ be any admissible extension with $L\subseteq L^*$ and $T\subseteq T^*$ that is conservative on $L$.
+Then the extension is definitional (bookkeeping-equivalent) on the old scope:
+every new symbol in $L^*\setminus L$ that participates in standing-bearing claims is explicitly definable from $L$ on $E$, and no new standing-bearing consequence about $E$ in the old language is obtained.
+Equivalently, every admissibility-preserving conservative extension is a definitional extension or else is ill-typed (lacks standing) or inadmissible.
+\end{theorem}
+
+\begin{proof}
+By algebraic rigidity \Cref{lem:algebraic-rigidity}, all old-language operator behavior on $X$ (hence all old-language standing on the envelope $E$) is fixed under admissible extension.
+So no conservative admissible extension can change $T$.
+
+It remains to show that any \emph{new} symbol $\sigma\in L^*\setminus L$ that occurs in a standing-bearing claim must be explicitly definable in the old language.
+Assume, for contradiction, that $\sigma$ is not explicitly definable from $L$ on $E$ but is used in some standing-positive sentence of $T^*$.
+Because standing is bivalent and fail-closed (\Cref{thm:bivalence,cor:binary}), $\sigma$ must have a stable referential role: its admissibility-relevant behavior must be invariant under licensed redescription and reuse.
+
+There are only two ways to supply stability for a genuinely new primitive:
+\begin{enumerate}[label=\textbf{Case \arabic*:}, leftmargin=3.1em]
+\item \textbf{Operational grounding.} One fixes $\sigma$ by giving it a primitive operator/predicate role on the old envelope.
+But then either $\sigma$ is \emph{definable} from old operators/predicates (hence the extension is definitional after all), or $\sigma$ is not definable.
+In the non-definable subcase, the extension introduces an admissibility-relevant selector distinguishing multiple admissibly compatible primitive interpretations of $\sigma$ on the same old scope, contradicting the derived non-parameterization boundary (\Cref{thm:derived-A6}) and the singleton/bivalence necessities (\Cref{thm:bivalence,thm:singleton}).
+\item \textbf{Semantic/meta-foundational grounding.} One fixes $\sigma$ by appeal to a meta-level authority---e.g. a truth/satisfaction predicate, existence in some extension, ``the class of all admissible models,'' or a foundation swap treated as an authorizer.
+But semantic standing import is not an independent operator by \Cref{lem:no-semantic-import}, and treating meta-semantics as certifying standing is exactly the meta-foundational re-anchoring schema, which is terminally inadmissible by \Cref{lem:no-meta-reanchor}.
+\end{enumerate}
+
+Both cases are impossible.
+Therefore no such non-definable standing-bearing $\sigma$ exists.
+Hence every new symbol admitted into standing-bearing discourse must be introduced by explicit old-language definition: the extension is definitional/bookkeeping on the old scope.
+\end{proof}
+
+\subsection{Interpretability collapse (model-theoretic form of conservative closure)}
+\label{sec:interpretability}
+
+The conservative-collapse theorem above is formulated syntactically (definitional extension).
+Hostile review often demands a standard \emph{interpretability} statement: any admissibility-preserving conservative
+extension must be interpretable in the base theory, i.e.\ adds no genuine structure on the old scope.
+
+\begin{definition}[Standing models and expansions]
+Let $(L,T)$ be a standing theory.
+A \emph{standing model} of $T$ is an $L$-structure $M$ that satisfies every sentence in $T$ and is a standing-admissible witness.
+For an extended language $L^*\supseteq L$, an $L^*$-\emph{expansion} of $M$ is an $L^*$-structure $M^*$ whose reduct to $L$ is $M$.
+\end{definition}
+
+\begin{definition}[Unique standing expansion (USE)]
+An extension $(L,T)\leadsto(L^*,T^*)$ has the \emph{unique standing expansion property} if for every standing model $M\models T$
+there exists at most one standing model $M^*\models T^*$ whose $L$-reduct is $M$.
+\end{definition}
+
+\begin{lemma}[Admissibility forces USE]
+\label{lem:USE}
+If $(L,T)\leadsto(L^*,T^*)$ is admissible and permits any new symbol in $L^*\setminus L$ to participate in standing-bearing claims,
+then the extension has USE.
+\end{lemma}
+
+\begin{proof}
+Assume USE fails.
+Then there is a standing model $M\models T$ and two standing expansions $M_1^*,M_2^*\models T^*$ with the same $L$-reduct $M$
+but disagreeing on the interpretation of some new symbol $\sigma\in L^*\setminus L$.
+Then there exists an $L^*$-sentence $\psi$ that distinguishes $M_1^*$ and $M_2^*$ (e.g.\ an atomic instance of $\sigma$ or its negation).
+
+Assigning standing to $\psi$ would require selecting one expansion as authoritative.
+But any such selection is either:
+\begin{enumerate}[label=\textbf{(i)}, leftmargin=2.4em]
+\item a \emph{selector/canonicalization} over admissibly compatible expansions, forbidden at the boundary (derived A6) and
+unsupported by symmetry or typicality: automorphism-fixed canonicalizations generally do not exist \cite{MaleyAutFixedLinearExtension2026}, and
+typicality cannot supply an equivariant choice rule \cite{MaleyTypicalityCollapse2026}; or
+\item a \emph{meta-semantic authorizer} (``true in some model/extension,'' ``satisfied in all models,'' etc.), which is an instance of
+semantic standing import and meta-foundational re-anchoring, blocked by model-theoretic collapse \cite{MaleyModelTheoreticCollapse2026}
+and terminal meta-reanchoring closure \cite{MaleyMetaReAnchorTerminal2026}.
+\end{enumerate}
+Thus $\psi$ (and any standing-bearing use of $\sigma$) is ill-typed: standing is undefined.
+This contradicts the assumption that new symbols are used in standing-bearing claims.
+Therefore admissible standing-bearing extensions must satisfy USE.
+\end{proof}
+
+\begin{lemma}[Beth definability (standing form)]
+\label{lem:beth-standing}
+Assume a finitary first-order presentation.
+If an extension has USE, then every new relation/function symbol in $L^*\setminus L$ is explicitly definable by an $L$-formula.
+\end{lemma}
+
+\begin{proof}
+USE is exactly \emph{implicit definability}: any two models of $T^*$ with the same $L$-reduct agree on each new symbol.
+By the classical Beth definability theorem (a corollary of first-order completeness), implicit definability implies explicit definability.
+Under the standing regime, completeness is forced (no regime-dependent standing) as part of model-theoretic collapse \cite{MaleyModelTheoreticCollapse2026},
+so Beth definability carries no independent standing and may be used as a derived tool.
+\end{proof}
+
+\begin{theorem}[Interpretability theorem for conservative collapse]
+\label{thm:interpretability-collapse}
+Let $(L,T)$ be the standing theory of an admissible mathematical domain, and let $(L^*,T^*)$ be an admissible extension conservative on $L$.
+Then:
+\begin{enumerate}[label=\textbf{(I\arabic*)}, leftmargin=2.6em]
+\item every new symbol in $L^*\setminus L$ used in standing-bearing claims is explicitly definable in $L$;
+\item $T^*$ is a definitional extension of $T$, hence interpretable in $T$ via the definitional translation $\tau$;
+\item on the old scope, $T^*$ introduces no new standing-bearing content beyond $T$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+By \\Cref{lem:USE}, admissibility forces USE for any standing-bearing use of new symbols.
+Then \\Cref{lem:beth-standing} yields explicit definers for each new symbol, so $T^*$ is definitional.
+The standard definitional translation $\tau$ replaces each new symbol by its defining $L$-formula; it is sound, so any derivation in $T^*$
+translates to a derivation in $T$.
+Conservativity gives the converse direction for old-language sentences, so $T^*$ adds no new standing-bearing content about the old scope.
+\end{proof}
+
+\begin{remark}[Expressive freedom cannot be created by restriction]
+Any attempt to evade USE by restricting to a preferred subclass of expansions is an \emph{admissible restriction} and can only
+decrease expressive freedom monotonically \cite{MaleyRichnessCollapse2026}.  Restriction cannot generate new standing; it can only remove options.
+\end{remark}
+
+
+\begin{corollary}[Trichotomy for admissibility-preserving extensions]
+\label{cor:extension-exhaustion}
+Fix a mathematical domain $D$.
+Every attempted extension falls into exactly one of:
+\begin{enumerate}[label=\textbf{(X\arabic*)}, leftmargin=2.6em]
+\item \emph{definitional extension} (pure bookkeeping, admissible);
+\item \emph{non-conservative scope change} (new gating, hence no standing about the old scope);
+\item \emph{inadmissible extension} (violates domain-fixity/no-repair/no-generator or uses meta-foundational re-anchoring).
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+If an extension is admissible and conservative, \Cref{thm:conservative-collapse} makes it definitional.
+If it changes the standing of some old-language sentence, then it is either a repair/generator (inadmissible) or a scope change (new gating).
+If it attempts to authorize new primitives semantically, it is blocked by \Cref{lem:no-meta-reanchor}.
+Exhaustiveness of coverage-expansion mechanisms at rule level is given by \Cref{thm:syntactic-exhaustion}.
+\end{proof}
+\subsection{Syntactic exhaustiveness for admissibility expansion}
+\label{sec:syntactic}
+
+The phrase ``these cases exhaust the possibilities'' is load-bearing in hostile review: one must show that there is \emph{no fifth way} to expand admissible coverage besides the listed obstruction classes.
+We now make this precise as a syntactic classification theorem over an explicit operator-introduction schema.
+
+\begin{definition}[Closure operator induced by finitary rules]
+\label{def:closure-operator}
+A \emph{finitary rule} is a pair $(\Gamma\Rightarrow a)$ where $\Gamma\subseteq\Act$ is finite and $a\in\Act$.
+Given a rule set $\mathcal{R}$, define its induced closure operator
+\[
+\mathrm{Cl}_{\mathcal{R}}:\mathcal{P}(\Act)\to\mathcal{P}(\Act)
+\]
+by letting $\mathrm{Cl}_{\mathcal{R}}(S)$ be the least superset of $S$ closed under $\mathcal{R}$:
+if $\Gamma\subseteq \mathrm{Cl}_{\mathcal{R}}(S)$ and $(\Gamma\Rightarrow a)\in\mathcal{R}$, then $a\in \mathrm{Cl}_{\mathcal{R}}(S)$.
+Base eligibility clauses are included as rules with empty premise $\varnothing\Rightarrow a$.
+\end{definition}
+
+\begin{definition}[Finitary (algebraic) closure]
+\label{def:finitary-closure}
+A closure operator $\mathrm{Cl}$ on $\Act$ is \emph{finitary} if for all $S\subseteq\Act$ and all $a\in\Act$,
+\[
+a\in \mathrm{Cl}(S)\ \Rightarrow\ \exists S_0\subseteq S \text{ finite with } a\in \mathrm{Cl}(S_0).
+\]
+\end{definition}
+
+\begin{lemma}[Rule presentation of finitary closure]
+\label{lem:rule-presentation}
+Let $\mathrm{Cl}$ be a finitary closure operator on $\Act$.
+Define the rule set
+\[
+\mathcal{R}_{\mathrm{Cl}} := \{\,(\Gamma\Rightarrow a)\mid \Gamma\subseteq\Act\text{ finite and } a\in \mathrm{Cl}(\Gamma)\,\}.
+\]
+Then $\mathrm{Cl}_{\mathcal{R}_{\mathrm{Cl}}}=\mathrm{Cl}$.
+\end{lemma}
+
+\begin{proof}
+First observe that $\mathrm{Cl}(S)$ is closed under $\mathcal{R}_{\mathrm{Cl}}$ by construction: if $\Gamma\subseteq \mathrm{Cl}(S)$ and $(\Gamma\Rightarrow a)\in\mathcal{R}_{\mathrm{Cl}}$, then $a\in \mathrm{Cl}(\Gamma)\subseteq \mathrm{Cl}(\mathrm{Cl}(S))=\mathrm{Cl}(S)$ (idempotence).
+By minimality of $\mathrm{Cl}_{\mathcal{R}_{\mathrm{Cl}}}(S)$, this implies $\mathrm{Cl}_{\mathcal{R}_{\mathrm{Cl}}}(S)\subseteq \mathrm{Cl}(S)$.
+
+Conversely, let $a\in \mathrm{Cl}(S)$.
+By finitarity (\Cref{def:finitary-closure}), there exists a finite $S_0\subseteq S$ with $a\in \mathrm{Cl}(S_0)$.
+But then $(S_0\Rightarrow a)\in \mathcal{R}_{\mathrm{Cl}}$ by definition, and $S_0\subseteq \mathrm{Cl}_{\mathcal{R}_{\mathrm{Cl}}}(S)$ because $\mathrm{Cl}_{\mathcal{R}_{\mathrm{Cl}}}$ is extensive.
+Hence $a\in \mathrm{Cl}_{\mathcal{R}_{\mathrm{Cl}}}(S)$.
+So $\mathrm{Cl}(S)\subseteq \mathrm{Cl}_{\mathcal{R}_{\mathrm{Cl}}}(S)$.
+\end{proof}
+
+\begin{theorem}[Encoding universality (operator-introduction normal form)]
+\label{thm:encoding-universality}
+Let $D$ be a typed domain whose admissible interior $I_D$ is presented by a \emph{finitary} standing calculus (\Cref{def:standing-calculus}); equivalently,
+\[
+I_D=\mathrm{Cl}_{\mathcal{R}_D}(\varnothing)
+\]
+for some finitary rule set $\mathcal{R}_D$.
+Let $D'$ be any \emph{explicit} finitary extension attempt that purports to expand admissible coverage on the \emph{old scope} (no silent redescription and no post hoc scope transport).
+Then, after definitional expansion of notation, $D'$ admits an equivalent presentation as an operator-introduction extension $D\leadsto D^+$ in the sense of \Cref{def:op-intro-schema}:
+there exists a finitary rule set $\mathcal{R}^+$ such that
+\[
+I_{D^+}=\mathrm{Cl}_{\mathcal{R}_D\cup \mathcal{R}^+}(\varnothing)
+\]
+and for every old-language act $a$,
+\[
+a\in I_{D'}\iff a\in I_{D^+}.
+\]
+In particular, every old-scope coverage expansion has a derivation whose final step uses a rule instance from $\mathcal{R}^+$; hence the syntactic classification theorem \Cref{thm:syntactic-exhaustion} applies to \emph{all} finitary admissibility-preserving extension attempts.
+\end{theorem}
+
+\begin{proof}
+Because $D'$ is explicit and finitary, it determines a finitary closure operator $\mathrm{Cl}'$ on the same universe of acts (after definitional expansion of any purely notational additions) whose least closed set is $I_{D'}$.
+By \Cref{lem:rule-presentation}, $\mathrm{Cl}'=\mathrm{Cl}_{\mathcal{R}_{\mathrm{Cl}'}}$ for the finitary rule set $\mathcal{R}_{\mathrm{Cl}'}$.
+Write $\mathcal{R}_{\mathrm{Cl}'}=\mathcal{R}_D\cup \mathcal{R}^+$, where $\mathcal{R}^+$ collects those rule instances not already subsumed by $\mathcal{R}_D$.
+Define $D^+$ to be the standing calculus obtained by adjoining $\mathcal{R}^+$.
+
+By construction,
+\[
+I_{D^+}=\mathrm{Cl}_{\mathcal{R}_D\cup \mathcal{R}^+}(\varnothing)=\mathrm{Cl}_{\mathcal{R}_{\mathrm{Cl}'}}(\varnothing)=\mathrm{Cl}'(\varnothing)=I_{D'}.
+\]
+Hence $D'$ and $D^+$ have identical admissible interiors on the old scope.
+
+Finally, each new rule instance in $\mathcal{R}^+$ has a membership conclusion and finite premises.
+Any side condition used by $D'$ (semantic test, typing/equality constraint, reflection schema, etc.) can be made explicit as an additional predicate premise of type (d) in \Cref{def:op-intro-schema}.
+If instead an ``extension'' changes evaluation, identity, or redescription behavior on the old scope without explicit premises, it is silent scope drift/repair and is not admissibility-preserving.
+Therefore $D^+$ is an operator-introduction extension in the sense of \Cref{def:op-intro-schema}.
+Moreover, any derivation witnessing old-scope expansion must end with a rule instance from $\mathcal{R}^+$, since $\mathcal{R}_D$ alone cannot derive new old-scope membership facts.
+\end{proof}
+
+\begin{remark}[Semantic and higher-order escape routes are still classified]
+The encoding theorem does not assume the extension is admissible.
+It shows that \emph{any} finitary extension attempt that claims to expand old-scope admissibility can be compiled into rule form with explicit premises.
+If those premises appeal to truth, satisfaction, reflection, large cardinals, higher-order comprehension, or other meta-semantic authority, they appear as extra predicate parameters and are then classified as carrier/meta-reanchoring attempts (obstruction classes \textbf{(E3)} and \textbf{(E1)}).
+\end{remark}
+
+
+\begin{definition}[Standing calculus (rule presentation)]
+\label{def:standing-calculus}
+Fix a typed domain $D$.
+A \emph{standing calculus} for $D$ is a presentation of the admissible interior $I_D\subseteq\Act$ as the least set closed under a rule set $\mathcal{R}_D$ whose judgments have the form
+\[ a\in I_D \qquad (\text{read: } \Gate_D(a)\text{ holds on the evaluated fragment}). \]
+The rule set $\mathcal{R}_D$ includes:
+\begin{enumerate}[label=(\roman*), leftmargin=2.0em]
+\item base eligibility clauses for primitive admissible acts (if any);
+\item closure under admissible redescription: if $\Red_D(a,b)$ and $a\in I_D$, then $b\in I_D$;
+\item closure under admissible operator application/composition whenever operators are defined.
+\end{enumerate}
+MIAX is the requirement that $I_D$ is invariant under admissible redescription.
+\end{definition}
+
+\begin{definition}[Operator-introduction extension schema]
+\label{def:op-intro-schema}
+An \emph{operator-introduction extension} of $D$ is obtained by enlarging the rule set to
+\[ \mathcal{R}_{D^+} := \mathcal{R}_D \cup \mathcal{R}^+, \]
+where each rule in $\mathcal{R}^+$ has a conclusion of the form $t\in I_{D^+}$ for some term/act $t$ (possibly involving new operator symbols), and whose premises are built from:
+\begin{enumerate}[label=(\alph*), leftmargin=2.0em]
+\item membership statements $u\in I_{D^+}$ for input acts $u$;
+\item admissible redescription facts $\Red_{D^+}(u,v)$;
+\item explicit scope typing premises (domain tags, envelope components) declared \emph{prior} to evaluation;
+\item optionally, additional predicates or parameters not definable from (a)--(c).
+\end{enumerate}
+The extension is said to \emph{claim admissibility-preserving expansion} if it purports to make some previously non-eligible act eligible \emph{without} retagging to a new scope (no post hoc scope transport).
+\end{definition}
+
+\begin{definition}[Coverage expansion]
+\label{def:coverage-expansion}
+An operator-introduction extension $D\leadsto D^+$ \emph{expands admissible coverage on the old scope} if there exists an act $a\in\Act$ expressible in the old language such that
+\[ a\notin I_D \quad\text{but}\quad a\in I_{D^+}, \]
+where $a$ is treated as the same scoped act (no scope change).
+\end{definition}
+
+\begin{definition}[Derivation rank]
+\label{def:rank}
+Given a rule set $\mathcal{R}$, define the \emph{rank} $\rho_{\mathcal{R}}(t)$ of an act/term $t$ to be the length of the shortest derivation of $t\in I$ from $\mathcal{R}$ (and $\infty$ if no derivation exists).
+\end{definition}
+
+\begin{definition}[Obstruction classes for admissibility expansion]
+\label{def:obstruction-classes}
+We say an operator-introduction rule instance (or a family of such instances) falls into an \emph{obstruction class} if it expands admissible coverage only by one of the following mechanisms:
+\begin{enumerate}[label=\textbf{(E\arabic*)}, leftmargin=2.6em]
+\item \emph{Boundary action/selector}: eligibility depends on an admissibility-relevant parameter, ordering, metric/proximity notion, or explicit selection at/into the AMetric boundary.
+\item \emph{Repair/generator}: eligibility is obtained by changing standing of the same evaluated act (repair) or by producing eligibility from an ineligible act as a function of that act alone (generator).
+\item \emph{Carrier laundering}: eligibility is licensed by a derived predicate/quantity $Q_D$ treated as primitive authorization rather than by the gate.
+\item \emph{Scope transport}: eligibility is obtained only by retagging/retyping the act or importing new envelope components post hoc (changing the active scope).
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Syntactic exhaustiveness of admissibility expansion]
+\label{thm:syntactic-exhaustion}
+Let $D$ be a standing-governed domain satisfying \Cref{thm:derived-A6,lem:no-competing-gates,thm:no-repairs,thm:no-generators,thm:no-carriers,thm:transfer}.
+Let $D\leadsto D^+$ be an operator-introduction extension in the sense of \Cref{def:op-intro-schema}.
+Assume $D\leadsto D^+$ expands admissible coverage on the old scope in the sense of \Cref{def:coverage-expansion}.
+Then there exists a rule instance in $\mathcal{R}^+$ whose use forces at least one of the four obstruction classes \textbf{(E1)--(E4)} of \Cref{def:obstruction-classes}:
+\begin{enumerate}[label=\textbf{(S\arabic*)}, leftmargin=2.8em]
+\item \textbf{Boundary selector form:} the instance makes eligibility depend on an admissibility-relevant parameter, ordering, metric/proximity notion, or explicit selection among alternatives (hence violates \Cref{thm:derived-A6});
+\item \textbf{Repair/generator form:} the instance directly reclassifies an old-scoped act $a$ (changing whether $a\in I$) or produces an eligible act from an ineligible one \emph{as a consequence of that ineligible act alone} (hence violates \Cref{thm:no-repairs} or \Cref{thm:no-generators});
+\item \textbf{Carrier form:} the instance licenses eligibility via a predicate or quantity not definable from the existing gate/standing structure (hence is a carrier attempt, violating \Cref{thm:no-carriers});
+\item \textbf{Scope-transport form:} the instance derives eligibility only after retagging/retyping the act or importing a new domain component post hoc (hence violates \Cref{thm:transfer} and scope discipline).
+\end{enumerate}
+In particular, there is no fifth syntactic route to admissible-coverage expansion.
+\end{theorem}
+
+\begin{proof}
+Let $a$ be an old-language act witnessing coverage expansion, chosen with minimal rank $\rho_{\mathcal{R}_{D^+}}(a)$ among all such witnesses.
+Consider a shortest derivation of $a\in I_{D^+}$ from $\mathcal{R}_{D^+}$.
+The final rule instance used in this derivation cannot lie in $\mathcal{R}_D$, because otherwise $a\in I_D$ (contradicting that $a$ witnesses expansion).
+Hence the final rule instance lies in $\mathcal{R}^+$.
+
+Examine that rule instance.
+Its conclusion is membership of the specific old-scoped act $a$.
+There are only four ways for a new rule to make such a conclusion hold.
+
+\textbf{(i) Direct reclassification.}
+The rule asserts $a\in I_{D^+}$ outright or from premises that do not already require $a\in I_{D^+}$.
+Then the extension changes the standing of the \emph{same} scoped act $a$.
+This is a repair if $a$ was evaluated with standing $0$ in $D$, contradicting \Cref{thm:no-repairs}; and it is a generator if $a$ was previously ineligible and becomes eligible as a function of itself, contradicting \Cref{thm:no-generators}.
+Thus (S2) holds.
+
+\textbf{(ii) Eligibility via a new authorizer.}
+If the rule derives $a\in I_{D^+}$ from a premise involving a predicate/quantity $Q(a)$ not definable from the preexisting gate/standing structure (membership facts and redescription stability), then the rule treats $Q$ as an authorizer.
+This is exactly a carrier attempt (\Cref{thm:no-carriers}), yielding (S3).
+
+\textbf{(iii) Eligibility via parameter/selection.}
+If the rule's premises distinguish cases by an admissibility-relevant index, score, proximity, ordering, or selection among multiple candidates (for example, ``take the nearest admissible completion,'' ``choose a representative,'' ``select a generic''), then the boundary is being parameterized.
+By \Cref{thm:derived-A6}, admissibility-relevant parameterization/selection is forbidden; hence (S1) holds.
+
+\textbf{(iv) Retyping / scope transport.}
+If the rule reaches $a\in I_{D^+}$ only after changing the active scope (retagging the act, importing new envelope components, or interpreting $a$ as a statement of a different domain), then it is scope transport.
+This is blocked by \Cref{thm:transfer} and scope discipline, yielding (S4).
+
+No other form is available.
+Indeed, any rule whose premises are built solely from (a)--(c) of \Cref{def:op-intro-schema} and that does not instantiate (i)--(iv) cannot create a new old-scoped admissibility fact: if it depends only on existing membership and redescription closure, then it is already subsumed by the closure of $I_D$ under $\mathcal{R}_D$.
+Thus there is no fifth syntactic route.
+Mapping (S1)--(S4) to (E1)--(E4) is by definition of the obstruction classes.
+\end{proof}
+
+
+
+
+\subsection{A finite exhaustion schema for standing-extending operators}
+
+\begin{definition}[Standing-extending operator attempt]
+An \emph{operator attempt} is any proposed operator family $\mathcal{O}$ together with a standing claim that $\mathcal{O}$ expands admissible coverage: it makes previously-illicit or undefined acts eligible (or makes previously undefined operator applications defined) \emph{without resetting identity and re-gating}.
+\end{definition}
+
+\begin{theorem}[Exhaustion schema]
+\label{thm:exhaustion-schema}
+Every standing-extending operator attempt falls into at least one of the following obstruction classes:
+\begin{enumerate}[label=\textbf{(E\arabic*)}, leftmargin=2.6em]
+\item \emph{Boundary action/selector}: it requires an action, operator, metric, or selection at the AMetric boundary.
+\item \emph{Repair/generator}: it changes standing of the same evaluated act or produces eligibility from an illegitimate act as a function of that act alone.
+\item \emph{Carrier laundering}: it uses a derived invariant $Q_D$ as primitive authorization.
+\item \emph{Scope transport}: it changes domain typing/envelope components post hoc to legalize the move.
+\end{enumerate}
+Each class is inadmissible by \Cref{thm:derived-A6,thm:no-repairs,thm:no-generators,thm:no-carriers,thm:transfer}.
+Hence no standing-extending operator exists.
+\end{theorem}
+
+\begin{proof}
+Let an operator attempt claim to expand admissible coverage.
+If it locates its authorization at the boundary (e.g. ``near-admissible,'' metric emergence, probabilistic justification, or an index/selector), it is (E1) and violates \Cref{thm:derived-A6}.
+If it purports to change the standing of the same evaluated act, it is a repair (E2), violating \Cref{thm:no-repairs}.
+If it outputs a new act $a'$ but claims $\Stand(a')=1$ as a consequence of $a$ alone, it is a generator (E2), violating \Cref{thm:no-generators}.
+If it authorizes standing by any derived predicate rather than gating, it is (E3), violating \Cref{thm:no-carriers}.
+If it modifies the domain components (e.g. retyping $E,A,F,C$) post hoc to force legality, it is (E4), violating \Cref{thm:transfer} and scope discipline.
+That (E1)--(E4) are exhaustive is a syntactic fact about operator-introduction extensions: any admissible-coverage expansion must introduce a new rule instance of one of these forms. See \Cref{thm:syntactic-exhaustion}.
+\end{proof}
+
+\subsection{Infinitary rule collapse under admissibility}
+\label{sec:infinitary-collapse}
+
+A persistent hostile-referee escape is to invoke \emph{infinitary} rule power (e.g.\ $\omega$-rules,
+reflection schemata, or transfinite closure rules) as a route around finitary operator exhaustion.
+This subsection closes that avenue in the standing regime.
+The key observation is that \emph{rule application is itself an act}: in a bivalent, fail-closed
+state-transition semantics, any standing-extending step must be justified by a \emph{finite}
+standing-bearing certificate, or else it imports semantic / typicality / meta-foundational authority
+already blocked (\Cref{lem:no-semantic-import,lem:no-meta-reanchor,rem:typicality}).
+
+\begin{definition}[Admissible rule system]
+\label{def:admissible-rule-system}
+Fix a typed domain and its state-transition semantics $(S,U,\varepsilon)$ as induced by
+\Cref{thm:modeling-necessity,thm:coherence-necessity}.
+An \emph{(object-level) rule system} is a pair $\mathcal R=(\Gamma,\Delta)$ where:
+\begin{enumerate}[label=(\alph*), leftmargin=2.0em]
+\item $\Gamma$ is a set of standing-positive base acts (axioms / initial commitments);
+\item $\Delta$ is a set of inference rules, each understood as a schematic act that may be
+\emph{applied} at a state to extend standing.
+\end{enumerate}
+A rule application is \emph{admissible} only if it is a standing-preserving act in the transition
+semantics: whenever it is applied at a state $s$, the corresponding update is defined and the
+conclusion has standing~$1$ at the successor state.
+\end{definition}
+
+\begin{definition}
+\textbf{Finitary and infinitary rules.} A rule schema $\delta\in\Delta$ has the form
+\[
+\frac{\{\phi_i\}_{i\in I}}{\psi}
+\]
+where $I$ is an index set (possibly infinite).
+It is \emph{finitary} if $I$ is finite, and \emph{infinitary} if $I$ is infinite.
+Let $\mathcal R^f$ denote the subsystem obtained by removing all infinitary rules from $\Delta$.
+\end{definition}
+
+\begin{definition}[Rule-application act and finite certificate]
+\label{def:rule-application-act}
+A \emph{rule-application act} for $\delta$ at state $s$ is an act token
+\[
+ a_{\delta,w}(s)
+\]
+whose payload $w$ is a \emph{finite certificate} (finite syntactic object) presented as the
+standing-bearing justification for applying $\delta$ at $s$.
+Because acts are formed in a syntactic language (finite presentations), every admissible
+rule-application act must be witnessed by some finite $w$; there is no standing-bearing act whose
+content is ``verify infinitely many premises one-by-one.''
+\end{definition}
+
+\begin{definition}[Finitary witness operator for an infinitary rule]
+\label{def:finitary-witness}
+Let $\delta$ be an infinitary rule schema $\frac{\{\phi_i\}_{i\in I}}{\psi}$.
+A \emph{finitary witness operator} for $\delta$ is a partial operator
+\[
+ W_\delta : S\times \mathsf{Cert}_\delta \rightharpoonup \{0,1\}
+\]
+(where $\mathsf{Cert}_\delta$ is a set of finite certificates) such that:
+\begin{enumerate}[label=(\roman*), leftmargin=2.2em]
+\item (\emph{standing-preserving}) if $W_\delta(s,w)\downarrow=1$, then the $\delta$-application act
+$a_{\delta,w}(s)$ is admissible and produces a successor state $s' = U(s,a_{\delta,w})$ with
+$\varepsilon_{s'}(\psi)=1$;
+\item (\emph{no semantic import}) $W_\delta$ does not appeal to truth/satisfaction/``all models'' or
+any meta-foundational authorizer (\Cref{lem:no-semantic-import,lem:no-meta-reanchor});
+\item (\emph{finite witnessing}) $w$ is finite and its verification uses only standing-bearing moves
+available at $s$ (no typicality postulates; cf.\ \Cref{rem:typicality}).
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Infinitary admissibility collapse]
+\label{thm:infinitary-collapse}
+Let $\mathcal R=(\Gamma,\Delta)$ be an admissible rule system in a coherent standing-governed
+regime with bivalent standing and fail-closed updates
+(\Cref{thm:binary-state-transition,thm:coherence-necessity}).
+Let $\delta\in\Delta$ be an infinitary rule schema $\frac{\{\phi_i\}_{i\in I}}{\psi}$.
+If $\delta$ is usable as a \emph{standing-extending} mechanism (i.e.\ there exists a state $s$ and a
+certificate $w$ such that applying $\delta$ at $s$ yields $\varepsilon(\psi)=1$), then $\delta$
+admits a finitary witness operator $W_\delta$ in the sense of \Cref{def:finitary-witness}.
+Equivalently: every admissible standing-extending use of an infinitary rule collapses to a
+finitary certificate principle; otherwise the rule’s use is inadmissible (undefined) or imports
+forbidden authorizing structure.
+\end{theorem}
+
+\begin{proof}
+Fix an infinitary rule schema $\delta=\frac{\{\phi_i\}_{i\in I}}{\psi}$ and assume there exists a
+state $s$ and a rule-application act $a_{\delta,w}(s)$ that is standing-bearing and yields
+$\varepsilon_{U(s,a_{\delta,w})}(\psi)=1$.
+
+By \Cref{def:rule-application-act}, the application act must be witnessed by a \emph{finite}
+certificate $w$. The certificate must justify the standing-bearing assertion
+\[
+(\forall i\in I)\ \varepsilon_s(\phi_i)=1
+\]
+in a way that is invariant under lawful redescription and compatible with fail-closed semantics.
+
+There are only three structural possibilities for what $w$ could be doing:
+
+\medskip
+\noindent\textbf{(A) Infinite verification encoded finitely.}
+$w$ purports to certify that infinitely many premises hold by ``having verified them all.''
+But verification is an act-chain in the transition semantics; a finite act token cannot contain an
+actually infinite verification trace.
+Treating such a token as standing-bearing would constitute a standing transfer from a non-existent
+(infinite) verification history, contradicting fail-closed admissibility
+(\Cref{thm:binary-state-transition}).
+Hence (A) is impossible.
+
+\medskip
+\noindent\textbf{(B) Semantic / meta-foundational authorization.}
+$w$ purports to certify $(\forall i)\phi_i$ (or directly $\psi$) by appealing to truth,
+satisfaction, ``in all models,'' reflection, intended semantics, or any external grounding.
+This is exactly semantic standing import / meta-foundational re-anchoring.
+It is blocked by \Cref{lem:no-semantic-import,lem:no-meta-reanchor}.
+Hence (B) is impossible.
+
+\medskip
+\noindent\textbf{(C) Finitary witness compression.}
+$w$ certifies applicability by providing a \emph{finite} witness that the infinite premise family is
+already governed by a finitary standing-bearing core at $s$ (e.g.\ a uniform derivation scheme,
+an induction certificate already available in the finitary regime, a finite generating set under a
+standing-preserving closure operator, etc.).
+This is precisely the content of a finitary witness operator $W_\delta$:
+define $W_\delta(s,w)\downarrow=1$ iff $w$ verifies (in standing-bearing manner at $s$) the finite
+compression needed to license the $\delta$-step, and $0$ otherwise.
+No semantic import is used, and typicality cannot play the role of witness (\Cref{rem:typicality}).
+
+Since (A) and (B) are impossible for an admissible standing-bearing step, the standing-bearing use
+of $\delta$ must be of type (C). Therefore a finitary witness operator $W_\delta$ exists.
+\end{proof}
+
+\begin{corollary}[No infinitary standing gain beyond finitary witness principles]
+\label{cor:no-infinitary-gain}
+In the standing regime, infinitary rule schemata do not provide independent standing-bearing
+strength on the old scope.
+Any admissible derivation that appears to use infinitary rules can be transformed into a derivation
+in which each infinitary step is replaced by its finitary witness certificate (hence is either
+bookkeeping/definitional) or else the step is inadmissible.
+Consequently, adding infinitary rules cannot produce new standing-bearing theorems without
+either (i) collapsing to finitary witness operators, or (ii) violating admissibility via semantic,
+typicality, or meta-foundational import.
+\end{corollary}
+
+\begin{proof}
+Apply \Cref{thm:infinitary-collapse} to each infinitary rule application occurring in a
+standing-bearing derivation.
+Each such application either admits a finitary witness operator (hence the step is a finitary
+certificate move) or is inadmissible and therefore cannot occur in a standing-bearing derivation.
+Replacing every infinitary application by its finitary witnessed form yields a derivation that does
+not rely on infinitary standing power.
+Interpretability/conservative-collapse results then classify the net extension as definitional
+bookkeeping on the old scope (\Cref{thm:interpretability-collapse}).
+\end{proof}
+
+\begin{remark}
+\label{rem:omega-rule}
+\textbf{Omega-rule as a worked instance.} Consider the $\omega$-rule:
+\[
+\frac{\phi(0)\ \ \phi(1)\ \ \phi(2)\ \ \cdots}{\forall n\,\phi(n)}.
+\]
+A standing-bearing use of this rule requires an admissible certificate $w$ whose content is a
+finite witness that \emph{all} instances $\phi(n)$ hold.
+By \Cref{thm:infinitary-collapse}, such a use is admissible only if there is a finitary witness
+operator $W_\omega$ (e.g.\ an induction certificate already available in the finitary regime, or a
+uniform derivation scheme producing $\phi(n)$ for arbitrary $n$ within the standing calculus).
+If no such finitary witness exists, then applying the $\omega$-rule would require either:
+(i) semantic standing import (``true in the intended model''), blocked by
+\Cref{lem:no-semantic-import,lem:no-meta-reanchor}; or
+(ii) typicality/probabilistic substitution for universality, blocked by \Cref{rem:typicality}; or
+(iii) an impossible infinite verification encoded as a standing-bearing act, blocked by fail-closed
+standing (\Cref{thm:binary-state-transition}).
+Thus the $\omega$-rule adds no admissible standing-bearing power beyond finitary witness
+principles already present; otherwise it is inadmissible.
+\end{remark}
+
+
+\subsection{Finite presentability of acts and primitive infinitary escapes}
+\label{sec:finite-act}
+
+The infinitary-collapse theorem (\Cref{thm:infinitary-collapse}) rules out standing gain from
+infinitary \emph{rules}. A final escape attempt is to treat ``infinitary verification'' as a
+\emph{primitive act} (an atomic token whose intended content encodes an infinite premise family).
+This is blocked once we make explicit a minimal coherence condition: acts are finitely presentable.
+
+\begin{definition}[Finite presentability of acts]
+\label{def:finite-act-premise}
+An act space $\Act$ is \emph{finitely presentable} if there exists an injection
+$\mathrm{enc}:\Act\hookrightarrow \Sigma^*$ into the set of finite strings over a finite alphabet
+$\Sigma$. Equivalently, every act token carries only finite syntactic payload.
+This is a coherence condition for discourse: standing-bearing evaluation must be well-defined on
+finite presentations.
+\end{definition}
+
+\begin{definition}[Primitive infinitary act]
+\label{def:primitive-infinitary-act}
+A \emph{primitive infinitary act} is an act token $a\in\Act$ whose standing-bearing success would
+require, in its intended justification, verification of an infinite premise family
+(e.g.\ ``all instances $\phi(n)$ hold'') \emph{without} providing a finite witness certificate in the
+sense of \Cref{def:finitary-witness}.
+\end{definition}
+
+\begin{theorem}[No primitive infinitary standing acts]
+\label{thm:no-primitive-infinitary-acts}
+In a coherent standing-governed regime with finitely presentable acts
+(\Cref{def:finite-act-premise}) and fail-closed bivalent standing
+(\Cref{thm:binary-state-transition,thm:coherence-necessity}), no primitive infinitary act is
+standing-bearing.
+More precisely: if an act token $a$ purports to extend standing by certifying an infinitary premise
+family, then either
+\begin{enumerate}[label=(\alph*), leftmargin=2.0em]
+\item $a$ reduces to a finitary witness certificate move (hence is covered by
+\Cref{thm:infinitary-collapse}), or
+\item $a$ is inadmissible (its update is undefined), or
+\item $a$ imports semantic/typicality/meta-foundational authority and is blocked by
+\Cref{lem:no-semantic-import,lem:no-meta-reanchor,rem:typicality}.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Let $a$ be an act token that is claimed to be standing-bearing and whose intended role is to
+certify an infinitary premise family (e.g.\ ``$\forall i\in I,\ \phi_i$'') so as to conclude some
+$\psi$ with standing~$1$.
+
+By finite presentability (\Cref{def:finite-act-premise}), $a$ carries only finite payload; therefore
+any standing-bearing justification carried by $a$ must be finitely checkable within the standing
+regime. If this finite payload constitutes a finitary witness certificate (Def.\ \Cref{def:finitary-witness}),
+then $a$ is simply an instance of finitary witness compression and is covered by
+\Cref{thm:infinitary-collapse}.
+
+If the payload is not a finitary witness, then the act's success would require either:
+(i) an impossible infinite verification encoded in a finite token, contradicting fail-closed
+standing (\Cref{thm:binary-state-transition}); or
+(ii) an appeal to semantic truth/satisfaction/``all models'' (semantic standing import), blocked by
+\Cref{lem:no-semantic-import}; or
+(iii) an appeal to typicality/probability to stand in for infinitary universality, blocked by
+\Cref{rem:typicality}; or
+(iv) a meta-foundational certifier, blocked by \Cref{lem:no-meta-reanchor}.
+In all such cases the update is inadmissible (undefined) or imports forbidden standing.
+\end{proof}
+
+\begin{corollary}[No infinitary primitive-act escape]
+\label{cor:no-primitive-act-escape}
+Treating infinitary verification as an atomic act token cannot evade finitary exhaustion: any such
+move either collapses to a finitary witness principle (\Cref{thm:infinitary-collapse}) or is
+inadmissible. Therefore the only admissible standing-bearing extensions remain those already
+classified by the exhaustion schema.
+\end{corollary}
+
+\begin{proof}
+Immediate from \Cref{thm:no-primitive-infinitary-acts}.
+\end{proof}
+
+
+\section{Mathematics is closed by admissible operator exhaustion}
+\label{sec:math}
+
+We now specialize \Cref{thm:exhaustion-schema} to mathematics understood as an operator discipline.
+
+\subsection{Mathematical domains}
+
+\begin{definition}[Mathematical spectrum (internal characterization)]
+A domain is in the \emph{mathematical spectrum} if its fixation structure $F$ is purely internal (symbolic aboutness) and its admissible transformations are operator-generated redescriptions.
+This definition is classificatory: it picks out domains in which ``existence'' is asserted via operator families.
+\end{definition}
+
+\begin{theorem}[Operator totalization closure]
+\label{thm:math-totalization-closure}
+In any admissible mathematical domain with a non-degenerate partial-algebra presentation, no operator can be admissibly totalized on its original carrier.
+Any purported totalization strategy either (i) attempts domain enlargement, (ii) quotient/collapse, (iii) adds evaluative completion (metric/measure/probability/limit), (iv) is conservative definitional extension (vacuous), or (v) is non-conservative scope change.
+No admissible totalization strategy exists.
+\end{theorem}
+
+\begin{proof}
+The impossibility of admissible totalization on the original carrier is \Cref{thm:no-totalization}.
+Any totalization attempt must alter at least one of: operator domains, the carrier, an equivalence relation (quotienting), or the operator family (adding evaluative completion). Conservative definitional extension changes none of these and leaves undefinedness unchanged.
+Thus the listed classes exhaust totalization strategies and each is blocked by \Cref{thm:no-totalization} or by the AMetric boundary (evaluative completion).
+\end{proof}
+
+\begin{theorem}[Inadmissibility of completion as an operator]
+\label{thm:no-completion-operator}
+There exists no admissible completion operator $\mathrm{Comp}$ that maps an admissible object $O$ to a ``completed'' object $O^*$ while preserving standing and introducing no new primitives.
+Every purported completion operator is either bookkeeping-equivalent to identity or illicit scope transport.
+\end{theorem}
+
+\begin{proof}
+Any completion claim is relative to a domain parameter $D$ with respect to which ``completeness'' is evaluated.
+Either $D$ is fixed by standing of $O$ or it is not.
+If $D$ is fixed by standing, then $O$ is already complete with respect to $D$ under all admissible redescriptions, so $\mathrm{Comp}$ produces no standing-relevant change (bookkeeping identity).
+If $D$ is not fixed by standing, asserting completeness imports a domain condition not licensed by $O$, thereby extending the admissible envelope.
+That is scope transport and is inadmissible.
+\end{proof}
+
+\subsection{Closure of major mathematical operator families (by reduction to the exhaustion schema)}
+
+The full ``math closure'' suite in the corpus closes each of the following operator families.
+Here we record the core reduction: each family is a standing-extending operator attempt and therefore collapses by \Cref{thm:exhaustion-schema}.
+
+\begin{theorem}[Mathematical operator families are exhausted]
+\label{thm:math-exhausted}
+Each of the following operator families is either inadmissible or bookkeeping-only in any admissible mathematical domain:
+\begin{enumerate}[label=(\alph*), leftmargin=2em]
+\item choice/selection operators;
+\item genericity/forcing operators;
+\item compactness/saturation operators;
+\item universal-property existence operators;
+\item model-theoretic existence operators;
+\item infinity escalation operators;
+\item typicality/measure operators;
+\item canonical representatives/quotients;
+\item meta-foundational re-anchoring operators;
+\item admissibility/standing repair operators.
+\end{enumerate}
+No additional standing-bearing mathematical operator remains.
+\end{theorem}
+
+\begin{proof}
+Consider any listed family.
+Each is proposed precisely to (i) make previously undefined evaluations defined (totalization/completion/compactness/saturation), or (ii) promote existence/selection claims without new primitives (choice/forcing/universal property/model-theoretic existence), or (iii) authorize standing by derived evaluative structure (typicality/measure), or (iv) re-anchor admissibility at a meta level (meta-foundational re-anchoring), or (v) repair standing.
+Each is therefore a standing-extending operator attempt.
+By \Cref{thm:exhaustion-schema}, such an attempt must instantiate one of (E1)--(E4) and is blocked.
+The only admissible residue is bookkeeping within an already-gated envelope.
+\end{proof}
+
+\begin{remark}[Symmetry does not rescue canonical selection]
+\label{rem:poset-symmetry}
+A standard objection to ``no canonical representative'' arguments is: \emph{use symmetry to define the canonical choice}.
+The following combinatorial result blocks this escape in the precise sense a hostile referee will demand: even when a poset is highly structured, an automorphism-invariant linearization (hence an intrinsic ``first element''/``canonical block ordering'') typically does not exist.
+\end{remark}
+
+\begin{definition}[Automorphism-fixed linear extension]
+Let $P=(X,\le)$ be a finite poset and $\mathrm{Aut}(P)$ its automorphism group.
+A \emph{linear extension} is a total order $L$ on $X$ extending $\le$.
+It is \emph{automorphism-fixed} if $g\cdot L=L$ for all $g\in \mathrm{Aut}(P)$ (where the action relabels $L$ by automorphisms).
+\end{definition}
+
+\begin{theorem}[Characterization of automorphism-fixed linear extensions]
+\label{thm:aut-fixed}
+Let $P=(X,\le)$ be a finite poset and let $\mathcal{O}=\{O_1,\dots,O_k\}$ be the orbit partition of $X$ under $\mathrm{Aut}(P)$.
+Define the induced orbit relation $\preceq$ on $\mathcal{O}$ by
+\[
+O_i\preceq O_j \quad\text{iff}\quad x\le y\ \text{for all }x\in O_i,\ y\in O_j.
+\]
+Then $P$ admits an automorphism-fixed linear extension if and only if:
+\begin{enumerate}[label=(\roman*), leftmargin=2.0em]
+\item each orbit is internally compatible with $P$ (it can be linearly ordered without violating $\le$), and
+\item the induced orbit poset $(\mathcal{O},\preceq)$ is totally ordered.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(\emph{Necessity.}) If an invariant linear extension exists, each orbit must appear as a contiguous block; otherwise an automorphism swapping two orbit elements would move an outside element across the block and break invariance.
+Moreover, any two distinct orbits must be comparable: if neither $O_i\preceq O_j$ nor $O_j\preceq O_i$, then any total order would place one block before the other and thereby violate some order constraint between elements of the two orbits.
+
+(\emph{Sufficiency.}) If the orbit poset is totally ordered, order the orbits by $\preceq$ and choose within each orbit any linear order compatible with $\le$.
+Concatenating these orbit-block orders yields a linear extension invariant under all automorphisms, since automorphisms permute elements only within orbits and preserve the orbit order.
+\end{proof}
+
+\begin{corollary}[No symmetry-based canonical selector without extra structure]
+\label{cor:no-symmetry-selector}
+In particular, many highly symmetric posets (e.g.\ Boolean lattices $B_n$ for $n\ge 2$) admit \emph{no} automorphism-fixed linear extension.
+Therefore symmetry does not, in general, supply a canonical ``choice'' or ``representative'' operator without importing extra structure.
+Any such import is an admissibility-relevant parameterization/selector and falls under obstruction \textbf{(E1)} or carrier laundering \textbf{(E3)} in \Cref{thm:exhaustion-schema}.
+\end{corollary}
+
+\begin{proof}
+If $\mathrm{Aut}(P)$ is highly transitive on levels, the induced orbit poset typically fails to be totally ordered, so \Cref{thm:aut-fixed} blocks invariance.
+Any attempted canonicalization must then break symmetry by adding an extra predicate/order/parameter not fixed by standing, which is exactly a selector/carrier move.
+\end{proof}
+
+\subsection{Explicit obstruction mapping (hostile-referee convenience)}
+
+\begin{table}[h]
+\centering
+\smallskip
+\noindent\textbf{Table 1.} Major mathematical operator families and their forced obstruction class in the exhaustion schema theorem.
+\medskip
+
+\begin{tabular}{@{}p{0.34\textwidth}p{0.52\textwidth}p{0.1\textwidth}@{}}
+\toprule
+Operator family (intent) & Why it is standing-extending (minimal) & Class \\
+\midrule
+Choice / selection & Selects a privileged admissible alternative (requires selector not fixed by standing) & (E1)/(E3) \\
+Genericity / forcing & Promotes existence by selecting a generic object/filter; imports a selection criterion & (E1)/(E4) \\
+Compactness / saturation & Guarantees models/realizers beyond current envelope; acts as completion/totalization & (E2)/(E4) \\
+Universal-property existence & Turns a universal property into existence without new primitives (existence-promotion) & (E2)/(E4) \\
+Model-theoretic existence & Same pattern: existence-promotion by semantic closure or compactness-like move & (E2)/(E4) \\
+Infinity as operator & Adds unbounded domain not fixed by standing; shifts admissible envelope & (E4) \\
+Typicality / measure & Authorizes claims by probability/``a.e.'' typicality, i.e. an evaluative carrier & (E3) \\
+Canonical reps / quotients & Declares canonical choice of representative; requires a choice/selector & (E1)/(E3) \\
+Meta-foundational re-anchoring & Re-anchors admissibility/standing by semantics/foundation swap & (E4) \\
+Standing/admissibility repair & Post-hoc legitimacy recovery (often probabilistic/ensemble/semantic) & (E2)/(E3)/(E4) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{remark}[How to read Table 1]
+The ``Class'' column lists a \emph{first forced obstruction}. In many cases a proposal violates several classes simultaneously.
+The point is that each family violates \emph{at least one} and therefore collapses fail-closed.
+\end{remark}
+
+\subsection{Two concrete closure lemmas (totalization and repair)}
+
+\begin{lemma}[Finite exhaustion of totalization moves]
+\label{lem:totalization-exhaustion}
+Any strategy that attempts to render a partial operator total must alter at least one of:
+operator domains, the carrier set, an equivalence relation on the carrier (quotient/collapse), or the operator family (by adjoining evaluative completion).
+These possibilities exhaust totalization moves.
+\end{lemma}
+
+\begin{proof}
+To make an operator total, one must either (i) enlarge where it is defined (domain change), or
+(ii) change what it acts on (carrier change), or
+(iii) identify elements to remove undefined distinctions (quotient/collapse), or
+(iv) add new operators/structure (e.g. metrics/measures/probabilities/limits) that ``fill in'' undefinedness.
+If none of these are changed, the operator remains partial and undefinedness is unchanged.
+\end{proof}
+
+\begin{lemma}[Finite exhaustion of repair moves]
+\label{lem:repair-exhaustion}
+Any attempt to repair admissibility or standing must instantiate at least one of the following classes:
+post-hoc correction, temporal deferral, localized isolation, probabilistic/typicality recovery, ensemble/averaging recovery,
+semantic redescription, or authoritative override.
+No admissible repair exists.
+\end{lemma}
+
+\begin{proof}
+To ``repair'' illegitimacy, a scheme must either (i) act after the fact (post-hoc), (ii) defer evaluation,
+(iii) claim the failure is local, (iv) soften legitimacy by probabilistic confidence/typicality,
+(v) average many failures into success, (vi) relabel/reinterpret the act, or (vii) override by fiat.
+These cover the available degrees of freedom for recovery.
+Each is blocked respectively by irreversibility/no-repair, scope discipline/no-deferral, non-locality of standing failure (in the standing regime),
+no-carriers, non-factorizability of admissibility (in the operator-envelope regime), MIAX (no silent redescription), and the definition of standing as structural rather than discretionary.
+\end{proof}
+
+\begin{corollary}[Mathematics closure]
+\label{cor:math-closed}
+Mathematics (as an operator system under admissibility) is closed by exhaustion.
+After closure, admissible mathematical work is restricted to standing-preserving bookkeeping and representational refinement within the unique admissible interior.
+\end{corollary}
+
+\begin{proof}
+Immediate from \Cref{thm:math-exhausted}.
+\end{proof}
+
+\section{Physics is closed under the same invariant}
+\label{sec:physics}
+
+We now classify the physical spectrum.
+The core point is that physics and mathematics share the same closure invariant: standing cannot be generated by formal operators.
+
+\subsection{Metric description is licensed, not generative}
+
+\begin{definition}[L-metric boundary (licensed projection)]
+The \emph{L-metric boundary} is the minimal admissible projection of the AMetric boundary that admits metric descriptors solely as licensed interior parameters, without conferring generative status to metric structure.
+\end{definition}
+
+\begin{theorem}[Licensing theorem]
+\label{thm:licensing}
+All admissible interior metric descriptions are licensed by the boundary and the boundary does not generate interior structure.
+Any account treating the (L-metric) boundary as generative, causal, or productive of interior structure is inadmissible.
+\end{theorem}
+
+\begin{proof}
+If the boundary were generative, it would be standing-bearing: it would be responsible for existence/fixation of interior structure.
+But standing-bearing roles must remain invariant under admissible redescription.
+Treating the boundary as generative differentiates its role across redescriptions that vary interior structure, inducing boundary mutation.
+Boundary mutation is a scope-transport move and is inadmissible.
+Therefore the only admissible role is licensing.
+\end{proof}
+
+\begin{remark}[Anti-emergence closure at the boundary]
+The AMetric boundary is non-eventful (\Cref{thm:boundary-nonaction}) and admits no operators (\Cref{thm:operator-undef}).
+Consequently, all ``metric emergence'' narratives at the boundary are ill-typed: they treat admissibility as a process.
+Likewise, probabilistic/typicality justifications at the boundary are ill-typed because probability presupposes evaluative/metric structure.
+\end{remark}
+
+\subsection{Local metric articulation without global structure}
+
+\begin{theorem}[No cross-fixation comparability from metricity alone]
+\label{thm:no-cross-metric}
+If a fixation admits metric articulation, that license applies only to relations whose evaluation is entirely internal to that fixation.
+No cross-fixation relational claims (comparability, transport, identification) are licensed by metricity alone.
+\end{theorem}
+
+\begin{proof}
+A cross-fixation comparison presupposes a cross-scope identification aligning relata, standards of comparison, or relational structure.
+Such identification is a form of scope transport: it quantifies over more than one fixation and presupposes a common relational domain of fixations.
+Absent an explicit standing-preserving cross-scope licensing gate, no such identification is admissible.
+\end{proof}
+
+\subsection{Locality alone forbids most theory extensions}
+\label{sec:locality}
+
+A hostile physical referee may concede admissibility but insist that ``new sectors/interactions'' remain open.
+We therefore include a conditional eliminator: if \emph{locality} is retained as a structural constraint on admissible physical description, then most familiar theory-extension strategies fail \emph{before} dynamics or data.
+
+\begin{definition}[Locality as a structural constraint]
+A description is \emph{local} if:
+\begin{enumerate}[label=(\roman*), leftmargin=2.0em]
+\item all dependencies are mediated through local relations,
+\item no global coordination is required to maintain consistency, and
+\item constraint enforcement does not rely on non-local bookkeeping.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Theory extension (structural)]
+A \emph{locality-preserving theory extension} is any proposal that claims to retain locality while enlarging descriptive content by introducing additional symmetry factors, new interaction terms, hidden/mirror sectors, or extra degrees of freedom at the same descriptive level.
+Pure reformulations that re-express existing structure without new constraint content are not counted as extensions.
+\end{definition}
+
+\begin{theorem}[Locality eliminator for extension attempts]
+\label{thm:locality-eliminator}
+Assume locality is retained as a structural admissibility constraint.
+Then any purported locality-preserving theory extension is forced into one of the following failure modes:
+\begin{enumerate}[label=\textbf{(L\arabic*)}, leftmargin=2.6em]
+\item \emph{constraint duplication (redundancy):} the new machinery adds no genuine constraint content beyond locality and is bookkeeping-only;
+\item \emph{hidden global dependence:} the extension requires global coordination or globally shared structure to remain coherent, violating locality and constituting scope transport;
+\item \emph{illicit enforcement smuggling:} the extension offloads enforcement onto existing constraints, making the new structure parasitic (either redundant or non-local).
+\end{enumerate}
+In no case does such an extension yield new standing-bearing physical content within the same admissible scope.
+\end{theorem}
+
+\begin{proof}
+Any extension that adds interactions/symmetries at the same descriptive level must introduce additional constraint imposition to regulate them.
+If the constraints are already implied by locality, the extension is redundant (L1).
+If the constraints are genuinely additional, their enforcement requires coordination across local descriptions; this introduces non-local bookkeeping (violating locality) and therefore silently enlarges the active scope to include global coordinating structure (L2), a scope-transport move in the sense of \Cref{thm:transfer}.
+
+Hidden-sector proposals similarly require globally shared charges, couplings, or organizing principles to connect the sectors; this is hidden global dependence (L2).
+Finally, attempts to make the new structure ``free'' by relying on pre-existing locality enforcement are parasitic: either nothing new is enforced (redundant) or independent enforcement is required (non-local), yielding (L3).
+Thus locality alone eliminates most extension strategies independently of empirical adequacy.
+\end{proof}
+
+\begin{remark}
+This lemma is conditional: abandoning or revising locality voids it.
+The physics closure theorem below does not require locality, but locality provides an independent structural eliminator that is orthogonal to empirical debate.
+\end{remark}
+
+\subsection{Physics closure}
+
+\begin{definition}[Physical spectrum (internal characterization)]
+A domain is in the \emph{physical spectrum} if it includes external reference fixation $F$ (reports are about nontrivial targets) and admits interior metric description as licensed parameters.
+\end{definition}
+
+\begin{theorem}[Physics closure]
+\label{thm:physics-closed}
+Physics is closed under admissibility: no physical theory can generate standing, and no ontic primitive survives boundary enforcement.
+All admissible physical descriptions are standing-preserving bookkeeping within the unique admissible interior.
+\end{theorem}
+
+\begin{proof}
+Any attempt for a physical theory to generate standing would be either (i) a carrier attempt (standing from success/fit/likelihood), blocked by \Cref{thm:no-carriers};
+(ii) a boundary-story (metric emergence, typicality at the boundary), blocked by \Cref{thm:derived-A6,thm:boundary-nonaction};
+or (iii) a scope transport importing standing across domains, blocked by \Cref{thm:transfer}.
+Metric structure inside physics is licensed but non-generative by \Cref{thm:licensing}.
+If locality is retained as a structural constraint on admissible physical description, most familiar extension strategies are eliminated independently by \Cref{thm:locality-eliminator}.
+
+Moreover, metric articulation is fixation-local by \Cref{thm:no-cross-metric}, so no global ontic structure can be smuggled from metricity alone.
+Thus physical descriptions remain bookkeeping under the same standing-conservation invariant.
+\end{proof}
+
+\section{Eadem natura, duo spectra: the post-closure unity}
+\label{sec:eadem}
+
+\begin{corollary}[Shared invariant]
+\label{cor:shared}
+Mathematics and physics share the same post-closure invariant:
+\emph{standing cannot be generated by formal operators}.
+They differ only by representational spectrum.
+\end{corollary}
+
+\begin{proof}
+Mathematics closure \Cref{cor:math-closed} and physics closure \Cref{thm:physics-closed} both derive from \Cref{cor:conservation} and the exhaustion schema \Cref{thm:exhaustion-schema}.
+Thus the same invariant governs both spectra.
+\end{proof}
+
+\section{Reality is closed by exhaustion}
+\label{sec:reality}
+
+\begin{definition}[Reality (fixative, not generative)]
+\label{def:reality}
+\emph{Reality} is defined as the totality of admissible descriptions under standing preservation.
+This is classificatory: it posits no substance or external standpoint.
+\end{definition}
+
+\begin{theorem}[Two-spectrum exhaustion]
+\label{thm:two-spectrum}
+All admissible descriptions are exhausted by exactly two spectra:
+(1) mathematical descriptions and (2) physical descriptions.
+No admissible description exists that is simultaneously neither mathematical nor physical and capable of carrying standing about reality.
+\end{theorem}
+
+\begin{proof}
+Let $\mathcal{D}$ be any admissible descriptive domain.
+If its fixation is purely internal and its operators are formal, it lies in the mathematical spectrum by definition.
+If it includes external fixation and licensed metric description, it lies in the physical spectrum.
+A purported third spectrum would need standing-bearing descriptive content not reducible to either.
+But any such content would require either:
+(i) a new standing-bearing operator family (blocked by mathematical exhaustion \Cref{thm:math-exhausted}),
+(ii) a new physical ontic primitive or cross-fixation structure (blocked by physics closure \Cref{thm:physics-closed} and \Cref{thm:no-cross-metric}),
+or (iii) a meta-descriptive vantage outside admissible description (a scope-transport move across the AMetric boundary, blocked by \Cref{thm:no-scope-transport-boundary}).
+Thus no admissible third spectrum exists.
+\end{proof}
+
+\begin{theorem}[Reality closure]
+\label{thm:reality-closed}
+Reality is closed by exhaustion.
+Formally: there exist no further admissible descriptions, no admissible extensions, no admissible re-anchoring moves, and no admissible ontic supplements beyond bookkeeping refinement within the already closed envelope.
+\end{theorem}
+
+\begin{proof}
+By \Cref{thm:two-spectrum}, admissible description is exhausted by the two closed spectra.
+Any proposed ``extension'' would have to add a third spectrum or reopen a closed one.
+Reopening is blocked by the apex closure theorem \Cref{thm:apex} and by the operator exhaustion results.
+Therefore admissible extension is impossible; only refinement inside the unique interior remains.
+\end{proof}
+
+\begin{remark}[Non-vacuity: closure is not nihilism]
+Reality closure is not a collapse into vacuity.
+The \emph{null admissible regime} (a putative admissible description whose total content is vacuity) is structurally inadmissible:
+vacuity cannot be an admissible fixed point of constraint-bundle governance under standing conservation \cite{MaleyNonCollapseReality2026}.
+Thus closure-by-exhaustion does not entail triviality; it entails exhaustion of \emph{standing-bearing} description.
+\end{remark}
+
+
+\section{A minimal consistency witness (first-order core)}
+\label{sec:consistency}
+
+A hostile referee often asks whether the axiom cores used above are jointly satisfiable.
+We give a compact witness model for the \emph{cores} of the standing theory.
+This is not a claim of completeness; it is a non-vacuity check.
+
+\begin{proposition}[Nontrivial satisfiability of the standing cores]
+\label{prop:consistency}
+There exists a finite first-order structure in which:
+(i) some acts are evaluated and bivalent standing is induced by a gate,
+(ii) irreversibility holds in the sense that evaluated illegitimacy is not reversed for the same act,
+(iii) MIAX holds as extensional invariance of the gate under admissible redescription,
+and (iv) no parameterization beyond bivalence is present.
+\end{proposition}
+
+\begin{proof}
+Let the domain of discourse contain: two evaluated acts $a_0,a_1$ and a third non-evaluated act $a_2$.
+Let $\Eval(a_0)$ and $\Eval(a_1)$ hold and $\Eval(a_2)$ fail.
+Define a gate predicate $\Gate$ by $\Gate(a_0)$ true and $\Gate(a_1)$ false.
+Define standing as $\Stand(a)=1$ iff $\Gate(a)$ on the evaluated fragment; undefined off it.
+Let admissible redescription be only the identity on evaluated acts (so MIAX holds trivially: the gate is invariant under admissible redescriptions).
+Irreversibility holds because there is no operation in the structure that maps the same evaluated act to a distinct standing value.
+No additional boundary selector or index exists in the language, so no parameterization beyond bivalence is expressible.
+Thus the core constraints used in the proof chain are jointly satisfiable in a nontrivial finite model.
+\end{proof}
+
+\section{Concluding remarks}
+
+The closure results here are structural: if one accepts the boundary discipline (AMetric boundary, fail-closed standing, MIAX, irreversibility, and scope discipline), then closure is forced.
+Conversely, to reopen the space one must weaken at least one of those commitments.
+
+
+
+
+\begin{thebibliography}{9}
+
+\bibitem{MaleyModelTheoreticCollapse2026}
+A.~J.~Maley,
+\emph{Model-Theoretic Collapse} (corpus manuscript), 2026.
+
+\bibitem{MaleyMetaReAnchorTerminal2026}
+A.~J.~Maley,
+\emph{Generator-Terminal Closure --- Meta-Foundational Re-Anchoring} (Family VII Phase-B$'$ closure), 2026.
+
+\bibitem{MaleyAutFixedLinearExtension2026}
+A.~J.~Maley,
+\emph{When Does a Poset Admit an Automorphism-Fixed Linear Extension?} (corpus manuscript), 2026.
+
+\bibitem{MaleyStandingCollapseIdentity2026}
+A.~J.~Maley,
+\emph{Standing Collapse as Identity Loss} (corpus clarification), 2026.
+
+\bibitem{MaleyTypicalityCollapse2026}
+A.~J.~Maley,
+\emph{Admissibility and the Collapse of Typicality} (corpus manuscript), 2026.
+
+\bibitem{MaleyRichnessCollapse2026}
+A.~J.~Maley,
+\emph{Richness Collapse Under Admissible Restriction} (corpus manuscript), 2026.
+
+\bibitem{MaleyNonCollapseReality2026}
+A.~J.~Maley,
+\emph{Non-Collapse of Constraint-Generated Reality: Structural Exclusion of the Null Admissible Regime} (corpus manuscript), 2026.
+
+\end{thebibliography}
+
+\end{document}

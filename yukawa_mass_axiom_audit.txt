@@ -1,0 +1,30 @@
+Axiom Audit - Yukawa/Mass Support Surface
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `YukawaMassAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperFermionYukawaMassEquivalenceStatement
+- MaleyLean.PaperNoIndependentYukawaDegreeStatement
+- MaleyLean.PaperYukawaMassSharedWitnessStatement
+- MaleyLean.PaperNoYukawaMassWitnessSplitStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current minimal Yukawa/mass support surface is axiom-free.
+
+This certifies the transport-collapse logic presently formalized in Lean:
+once UV bookkeeping and low-energy bookkeeping agree on a single transported
+witness, no additional independent low-energy Yukawa degree remains.
+
+It also certifies a stronger derived witness-collapse layer:
+if the mass-side and Yukawa-side descriptions are both read off the same
+canonical witness channel, then they agree pointwise and admit no witness split.
+
+It does not yet certify the full field-level Standard-Model arithmetic content
+of the paper, such as an explicit formal derivation of `m_f = y_f v / sqrt(2)`.

@@ -1,0 +1,8 @@
+import MaleyLean.EquivalenceExhaustionPaperStatements
+
+namespace MaleyLean
+
+#print axioms PaperEquivalenceExhaustionStatement
+#print axioms PaperEquivalenceSpaceClosureStatement
+
+end MaleyLean

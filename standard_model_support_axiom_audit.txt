@@ -1,0 +1,26 @@
+Axiom Audit - Standard Model Support Surface
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `StandardModelSupportAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperStandardModelSupportSurfaceStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The currently formalized aggregate Standard-Model support surface is axiom-free.
+
+This audit certifies the support-paper layers presently represented in Lean:
+
+- Paper 3: Yukawa/mass transport collapse
+- Paper 4: electroweak/electromagnetic coupling collapse
+- Paper 7: anomaly/Yukawa equivalence under minimal chiral load
+- Paper 12: relative equivalence exhaustion / closure
+
+It does not certify the full L1 support stack, since the remaining support-paper
+theorem families are not yet encoded as Lean modules.

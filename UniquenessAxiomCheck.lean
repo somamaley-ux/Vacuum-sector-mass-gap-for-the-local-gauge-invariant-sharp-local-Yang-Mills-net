@@ -1,0 +1,15 @@
+import MaleyLean.UniquenessPaperStatements
+
+namespace MaleyLean
+
+#print axioms PaperUniquenessOfAdmissibleInteriorCoreStatement
+#print axioms PaperNoPluralAdmissibleCoresStatement
+#print axioms PaperStandingClassifierExtensionalityStatement
+#print axioms PaperStandingClassifierLawfulEquivalenceStatement
+#print axioms PaperPositiveSideClassifierCollapseStatement
+#print axioms PaperPositiveSideClassifierCollapseLawfulStatement
+#print axioms PaperNoSplitYieldsClassifierCollapseStatement
+#print axioms PaperNoSplitYieldsClassifierCollapseLawfulStatement
+#print axioms PaperNoSplitExcludesGapStatement
+
+end MaleyLean

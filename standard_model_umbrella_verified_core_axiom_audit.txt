@@ -1,0 +1,27 @@
+Axiom Audit - Standard Model Umbrella Verified Core
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `StandardModelUmbrellaVerifiedCoreAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperStandardModelUmbrellaVerifiedCoreStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current umbrella verified core for the Standard Model manuscript is
+axiom-free.
+
+This certifies one integrated Lean checkpoint combining:
+- the structural/meta-closure core
+- the current charged-current support surface
+- the clean CP-odd QCD support surface
+- the derived witness bundle for Papers 3 through 11
+- the current equivalence-exhaustion closure surface
+
+It remains an honest verified core rather than a full field-level encoding of
+the umbrella manuscript.

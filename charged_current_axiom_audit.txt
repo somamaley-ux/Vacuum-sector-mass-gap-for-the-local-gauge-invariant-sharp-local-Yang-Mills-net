@@ -1,0 +1,28 @@
+Axiom Audit - Charged-Current Support Surface
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `ChargedCurrentAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperChargedCurrentRestrictedCollapseStatement
+- MaleyLean.PaperNoIndependentRestrictedChargedCurrentDegreeStatement
+- MaleyLean.PaperChargedCurrentExtendedScopeWitnessStatement
+- MaleyLean.PaperChargedCurrentRestrictedFormulaChainStatement
+- MaleyLean.PaperChargedCurrentExtendedWitnessReconstructionStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current charged-current support surface is axiom-free.
+
+This certifies the transport-collapse logic presently formalized in Lean:
+the restricted charged-current scope collapses to a single surviving witness,
+the enlarged scope can track an additional witness channel, and a derived
+restricted-scope formula chain is recorded explicitly in abstract witness form.
+
+It does not yet certify the full electroweak EFT matching arithmetic, including
+explicit formulae such as `G_F / sqrt 2 = g_2^2 / (8 m_W^2)`.

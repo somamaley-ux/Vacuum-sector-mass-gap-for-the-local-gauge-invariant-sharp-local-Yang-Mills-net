@@ -1,0 +1,26 @@
+Axiom Audit - Standard Model L1 Support Bundle
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `StandardModelL1SupportBundleAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperStandardModelL1SupportBundleStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current integrated L1 support bundle for the Standard Model manuscript is
+axiom-free.
+
+This certifies one combined Lean checkpoint for Papers 1 through 12:
+- charged-current support surface
+- clean CP-odd QCD support surface
+- derived witness bundle for Papers 3 through 11
+- equivalence-exhaustion closure surface
+
+It remains a support-stack checkpoint rather than a full field-level encoding of
+the umbrella manuscript.

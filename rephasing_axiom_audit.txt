@@ -1,0 +1,31 @@
+Axiom Audit - Rephasing Support Surface
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `RephasingAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperRephasingRedundancyStatement
+- MaleyLean.PaperNoResidualRephasingStatement
+- MaleyLean.PaperRephasingSharedWitnessStatement
+- MaleyLean.PaperNoRephasingWitnessSplitStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current rephasing support surface is axiom-free.
+
+This certifies the redundancy logic presently formalized in Lean:
+if all admissible residual phase freedom is already forced by operator
+structure, then no residual independent physical phase survives.
+
+It also certifies a stronger derived witness-collapse layer:
+if the operator-side and residual-phase descriptions are both read off the same
+canonical witness channel, then they agree pointwise and admit no witness
+split.
+
+It does not yet certify the full field-redefinition or operator-coefficient
+algebra of the paper as detailed Lean objects.

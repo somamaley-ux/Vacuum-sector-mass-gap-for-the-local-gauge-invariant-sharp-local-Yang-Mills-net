@@ -1,0 +1,32 @@
+Axiom Audit - Anomaly/Yukawa Support Surface
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `AnomalyYukawaAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperAnomalyYukawaEquivalenceStatement
+- MaleyLean.PaperNoAnomalyYukawaSplitStatement
+- MaleyLean.PaperAnomalyYukawaSharedWitnessStatement
+- MaleyLean.PaperNoAnomalyYukawaWitnessSplitStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current anomaly/Yukawa support surface is axiom-free.
+
+This certifies the equivalence logic presently formalized in Lean:
+once anomaly freedom and complete Yukawa realizability are mutually transport-
+forcing requirements for the fixed declared load, they are equivalent and admit
+no admissible split.
+
+It also certifies a stronger derived witness-collapse layer:
+if the anomaly-side and Yukawa-side descriptions are both read off the same
+canonical witness channel, then they agree pointwise and admit no witness
+split.
+
+It does not yet certify the full Standard-Model anomaly equations, charge-class
+normalization collapse, or explicit operator-level Yukawa realizability proofs.

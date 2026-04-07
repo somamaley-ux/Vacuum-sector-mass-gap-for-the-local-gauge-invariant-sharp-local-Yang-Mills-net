@@ -1,0 +1,93 @@
+﻿\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{Equivalence Completion for Neutrino Mixing and Oscillation Invariants}
+\author{Amos Jay Maley}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Abstract}
+We complete an equivalence map between flavor--mass bookkeeping and observable weak-transition bookkeeping for neutrino propagation in the oscillation regime. Parameters commonly treated as independently physical in a flavor-basis parameterization are shown to overcount tensor load once admissible redescription and regime transport are enforced. Only mass-squared differences and rephasing-invariant mixing combinations survive as invariant witnesses. The result is eliminative, invariant under admissible redescription, and introduces no new physics.
+
+\section{Apparent Independence in Flavor--Mass Bookkeeping}
+Let flavor states $\nu_\alpha$ be related to mass eigenstates $\nu_i$ by a unitary matrix $U$,
+\begin{equation}
+\nu_\alpha = \sum_i U_{\alpha i}\,\nu_i .
+\end{equation}
+In flavor--mass bookkeeping, one parameterizes $U$ by angles and phases and treats these parameters together with masses $\{m_i\}$ as independent physical inputs.
+
+\section{Observable Transition Bookkeeping}
+In the oscillation regime, transition amplitudes depend on interference between mass eigenstates. For baseline $L$ and energy $E$, the transition probability takes the form
+\begin{equation}
+P_{\alpha\to\beta}
+=\sum_{i,j} U_{\alpha i}U_{\beta i}^*U_{\alpha j}^*U_{\beta j}
+\exp\!\left(-i\,\frac{\Delta m_{ij}^2 L}{2E}\right),
+\end{equation}
+where
+\begin{equation}
+\Delta m_{ij}^2 \equiv m_i^2 - m_j^2 .
+\end{equation}
+
+\section{Admissible Redescription: Rephasing}
+Consider admissible flavor and mass rephasings,
+\begin{equation}
+\nu_\alpha \rightarrow e^{i\phi_\alpha}\nu_\alpha,
+\qquad
+\nu_i \rightarrow e^{i\psi_i}\nu_i.
+\end{equation}
+These induce
+\begin{equation}
+U_{\alpha i} \rightarrow e^{i\phi_\alpha}U_{\alpha i}e^{-i\psi_i}.
+\end{equation}
+Under these admissible redescriptions, the quantities
+\begin{equation}
+U_{\alpha i}U_{\beta i}^*U_{\alpha j}^*U_{\beta j}
+\end{equation}
+are invariant, while many individual parameterization phases are not.
+
+\section{Lemma: Invariant Witness Counting}
+If a tensor load contains $n$ independent degrees of freedom, admissible redescription and regime transport must preserve $n$ independent invariant witnesses across all admissible skins describing the same regime. A parameter that can be varied without changing any invariant witness is redundancy and has no standing as an independent tensor degree.
+
+\section{Failure of Independence}
+Assume that the full parameterization degrees of freedom of $U$ (angles and phases) together with $\{m_i\}$ correspond to independent tensor degrees. Observable transition bookkeeping exposes only:
+\begin{itemize}
+\item mass-squared differences $\Delta m_{ij}^2$ (not absolute mass offsets), and
+\item rephasing-invariant products $U_{\alpha i}U_{\beta i}^*U_{\alpha j}^*U_{\beta j}$.
+\end{itemize}
+No additional independent invariant witnesses exist. Preservation of the assumed independence would require hidden unwitnessed structure, loss of tensor load under transport, or representational privilege. Each constitutes standing failure.
+
+\section{Forced Tensor Relation}
+The neutrino oscillation tensor load is uniquely specified by the invariant set:
+\begin{equation}
+\boxed{\;\Delta m_{ij}^2 \equiv m_i^2 - m_j^2\;}
+\end{equation}
+together with the rephasing-invariant mixing factors
+\begin{equation}
+\boxed{\;U_{\alpha i}U_{\beta i}^*U_{\alpha j}^*U_{\beta j}\;}
+\end{equation}
+appearing in
+\begin{equation}
+\boxed{\;
+P_{\alpha\to\beta}
+=\sum_{i,j} U_{\alpha i}U_{\beta i}^*U_{\alpha j}^*U_{\beta j}
+\exp\!\left(-i\,\frac{\Delta m_{ij}^2 L}{2E}\right)
+\;}
+\end{equation}
+Any parameterization freedom in $U$ beyond these rephasing invariants is redundancy. Absolute mass offsets are not invariant witnesses in this skin.
+
+\section{Corollaries}
+\begin{itemize}
+\item Rephasing-removable phases in $U$ have no standing as independent tensor degrees.
+\item Any two parameter sets producing the same $\Delta m_{ij}^2$ and the same rephasing-invariant products are tensor-identical for oscillation phenomena.
+\item Any framework asserting additional independently tunable observable transition degrees beyond $\Delta m^2$ and rephasing invariants violates standing unless it introduces forbidden tensor load.
+\end{itemize}
+
+\section*{Conclusion}
+Equivalence completion collapses apparent freedom in neutrino mixing parameterizations to an invariant witness set. The result is eliminative, representation-invariant, and irreversible under admissible redescription.
+
+\end{document}
+

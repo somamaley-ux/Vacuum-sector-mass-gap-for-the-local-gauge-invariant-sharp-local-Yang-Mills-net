@@ -1,0 +1,31 @@
+Axiom Audit - Standard Model Derived Witness Bundle
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `StandardModelDerivedWitnessBundleAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperStandardModelDerivedWitnessBundleStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The aggregate derived witness bundle for the Standard Model L1 support stack is
+axiom-free.
+
+This certifies the strengthened shared-witness layers currently formalized for
+Papers 3 through 11:
+- Yukawa/mass
+- electroweak/electromagnetic coupling
+- neutrino mixing invariants
+- longitudinal/Goldstone equivalence
+- anomaly/Yukawa equivalence
+- unitary mixing saturation
+- rephasing redundancy exhaustion
+- Higgs alignment / tree-level FCNC equivalence
+- hypercharge normalization / charge quantization
+
+It does not yet claim a single combined bundle for Papers 1, 2, or 12.

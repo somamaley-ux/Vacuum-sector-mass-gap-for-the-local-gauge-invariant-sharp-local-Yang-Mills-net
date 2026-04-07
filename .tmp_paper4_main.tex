@@ -1,0 +1,80 @@
+﻿\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{Equivalence Completion Between Electroweak and Electromagnetic Coupling Bookkeeping}
+\author{Amos Jay Maley}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Abstract}
+We complete an equivalence map between electroweak gauge bookkeeping and low-energy electromagnetic bookkeeping. Parameters commonly treated as independent in the ultraviolet description are shown to overcount tensor load once admissible redescription and regime transport are enforced. The electromagnetic sector admits a single invariant interaction strength. The result is eliminative, invariant under admissible redescription, and introduces no new physics.
+
+\section{Apparent Independence in Electroweak Gauge Bookkeeping}
+In electroweak gauge bookkeeping, the interaction terms are written as
+\begin{equation}
+\mathcal{L}_{\text{gauge}} \supset g_2\, W^a_\mu J^{a\mu} + g_1\, B_\mu J_Y^\mu ,
+\end{equation}
+with the weak mixing angle defined by
+\begin{equation}
+\tan\theta_W = \frac{g_1}{g_2}.
+\end{equation}
+The parameters $g_2$, $g_1$, and $\theta_W$ are often treated as independent physical inputs in this skin.
+
+\section{Admissible Electromagnetic Bookkeeping}
+An admissible low-energy description of electromagnetic interactions is given by quantum electrodynamics, in which all electromagnetic processes are governed by a single coupling $e$,
+\begin{equation}
+\mathcal{L}_{\text{EM}} \supset e\, A_\mu J_{\text{EM}}^\mu .
+\end{equation}
+No independent parameters corresponding to $g_2$, $g_1$, or $\theta_W$ appear in this skin.
+
+\section{Lemma 1: Cross-Skin Transport}
+Electroweak symmetry breaking induces a field rotation
+\begin{equation}
+\begin{pmatrix}
+A_\mu \\
+Z_\mu
+\end{pmatrix}
+=
+\begin{pmatrix}
+\cos\theta_W & \sin\theta_W \\
+-\sin\theta_W & \cos\theta_W
+\end{pmatrix}
+\begin{pmatrix}
+B_\mu \\
+W^3_\mu
+\end{pmatrix}.
+\end{equation}
+Under this admissible redescription, the electromagnetic coupling is identified as
+\begin{equation}
+e = g_2 \sin\theta_W = g_1 \cos\theta_W .
+\end{equation}
+
+\section{Lemma 2: Invariant Witness Counting}
+If a tensor load contains $n$ independent degrees of freedom, admissible redescription and regime transport must preserve $n$ independent invariant witnesses across all admissible skins describing the same regime. A skin exposing fewer invariant witnesses implies redundancy in higher-dimensional parameterizations.
+
+\section{Failure of Independence}
+Assume $(g_2, g_1)$ constitute independent tensor degrees of freedom for electromagnetic interaction strength. By Lemma~2, two independent invariant witnesses must survive admissible transport. The electromagnetic skin exposes only one invariant witness, $e$. Preserving independence would require loss of tensor load, hidden unwitnessed structure, or representational privilege. Each constitutes standing failure.
+
+\section{Forced Tensor Relation}
+The electromagnetic tensor load is uniquely specified by
+\begin{equation}
+\boxed{\;e = g_2 \sin\theta_W = g_1 \cos\theta_W,\qquad \tan\theta_W = \frac{g_1}{g_2}\;}
+\end{equation}
+For the electromagnetic sector, $g_2$, $g_1$, and $\theta_W$ are not independently admissible tensor degrees once $e$ is fixed.
+
+\section{Corollaries}
+\begin{itemize}
+\item The electromagnetic sector admits a one-dimensional tensor load.
+\item Electroweak and electromagnetic descriptions are tensor-identical for EM interactions after redundancy elimination.
+\item Any framework asserting two independently tunable electromagnetic invariant couplings violates standing unless it introduces forbidden tensor load.
+\end{itemize}
+
+\section*{Conclusion}
+Equivalence completion enforces collapse of apparent freedom in electroweak coupling bookkeeping for the electromagnetic sector. The result is eliminative, representation-invariant, and irreversible under admissible redescription.
+
+\end{document}
+

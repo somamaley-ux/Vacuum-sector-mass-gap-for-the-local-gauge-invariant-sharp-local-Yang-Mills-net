@@ -1,0 +1,38 @@
+Axiom Audit - Bivalent Trajectory Paper Surface
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `BivalentTrajectoryAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperTrajectoryStandingBivalenceStatement
+- MaleyLean.PaperTrajectoryStandingPreservationCompositionStatement
+- MaleyLean.PaperTrajectoryClosurePropagationStatement
+- MaleyLean.PaperTrajectoryCompositeUnusabilityDecompositionStatement
+- MaleyLean.PaperTrajectoryNoDeferredRepairTwoStepStatement
+- MaleyLean.PaperTrajectoryNoDeferredRepairTwoStepBlocksLegalityStatement
+- MaleyLean.PaperTrajectoryNoDeferredRepairTwoStepUnusabilityStatement
+- MaleyLean.PaperTrajectoryNoStagedRepairThreeStepStatement
+- MaleyLean.PaperTrajectoryNoStagedRepairThreeStepBlocksLegalityStatement
+- MaleyLean.PaperTrajectoryNoStagedRepairThreeStepUnusabilityStatement
+- MaleyLean.PaperTrajectoryNoFiniteRepairFourStepStatement
+- MaleyLean.PaperTrajectoryNoFiniteRepairFourStepBlocksLegalityStatement
+- MaleyLean.PaperTrajectoryNoFiniteRepairFourStepUnusabilityStatement
+- MaleyLean.PaperTrajectoryChainThreeCompositionStatement
+- MaleyLean.PaperTrajectoryChainFourCompositionStatement
+- MaleyLean.PaperTrajectoryChainThreeIrrecoverabilityStatement
+- MaleyLean.PaperTrajectoryChainThreeBlocksLegalityStatement
+- MaleyLean.PaperTrajectoryChainThreeUnusabilityStatement
+- MaleyLean.PaperTrajectoryChainFourIrrecoverabilityStatement
+- MaleyLean.PaperTrajectoryChainFourBlocksLegalityStatement
+- MaleyLean.PaperTrajectoryChainFourUnusabilityStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current bivalent trajectory paper-facing surface is axiom-free.
+
+All audited declarations listed above do not depend on any axioms.

@@ -1,0 +1,26 @@
+Axiom Audit - Standard Model Structural Verified Core
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `StandardModelStructuralAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperStandardModelStandingQuotientUniquenessStatement
+- MaleyLean.PaperStandardModelNoStandingRepairStatement
+- MaleyLean.PaperStandardModelNoCanonicalRepresentativeStatement
+- MaleyLean.PaperStandardModelStructuralVerifiedCoreStatement
+- MaleyLean.PaperStandardModelStructuralMetaClosureStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current verified structural core for the Standard-Model manuscript is axiom-free.
+Its paper-facing meta-closure refinements are also axiom-free.
+
+This audit certifies the generic meta-closure core already formalized in Lean.
+It does not yet certify the manuscript's domain-specific Standard-Model witness
+ledger (anomaly, hypercharge, FCNC, Yukawa/mixing, or low-energy collapse lemmas)
+as a dedicated Lean theorem family.

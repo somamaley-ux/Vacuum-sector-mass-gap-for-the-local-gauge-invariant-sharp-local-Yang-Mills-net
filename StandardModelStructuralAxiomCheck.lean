@@ -1,0 +1,11 @@
+import MaleyLean.StandardModelStructuralMetaClosureStatements
+
+namespace MaleyLean
+
+#print axioms PaperStandardModelStandingQuotientUniquenessStatement
+#print axioms PaperStandardModelNoStandingRepairStatement
+#print axioms PaperStandardModelNoCanonicalRepresentativeStatement
+#print axioms PaperStandardModelStructuralVerifiedCoreStatement
+#print axioms PaperStandardModelStructuralMetaClosureStatement
+
+end MaleyLean

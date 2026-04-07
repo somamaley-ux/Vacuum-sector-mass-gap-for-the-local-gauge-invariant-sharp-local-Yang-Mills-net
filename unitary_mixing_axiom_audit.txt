@@ -1,0 +1,31 @@
+Axiom Audit - Unitary Mixing Support Surface
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `UnitaryMixingAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperUnitaryMixingSaturationStatement
+- MaleyLean.PaperNoResidualUnitaryMixingStatement
+- MaleyLean.PaperUnitaryMixingSharedWitnessStatement
+- MaleyLean.PaperNoUnitaryMixingWitnessSplitStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current unitary-mixing support surface is axiom-free.
+
+This certifies the saturation logic presently formalized in Lean:
+if all admissible unitary mixing freedom is already forced by operator
+structure, then no residual independent unitary mixing degree survives.
+
+It also certifies a stronger derived witness-collapse layer:
+if the operator-side and residual-side descriptions are both read off the same
+canonical witness channel, then they agree pointwise and admit no witness
+split.
+
+It does not yet certify the full operator-diagonalization or flavor-basis
+algebra of the paper as detailed Lean objects.

@@ -1,0 +1,10 @@
+import MaleyLean.NeutrinoMixingDerivedPaperStatements
+
+namespace MaleyLean
+
+#print axioms PaperNeutrinoMixingInvariantSurfaceStatement
+#print axioms PaperNoIndependentOscillationDegreeStatement
+#print axioms PaperNeutrinoSharedWitnessPairStatement
+#print axioms PaperNoNeutrinoWitnessPairSplitStatement
+
+end MaleyLean

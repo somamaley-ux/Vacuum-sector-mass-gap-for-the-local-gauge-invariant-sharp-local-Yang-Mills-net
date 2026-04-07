@@ -1,0 +1,10 @@
+import MaleyLean.FCNCDerivedPaperStatements
+
+namespace MaleyLean
+
+#print axioms PaperHiggsAlignmentFCNCEquivalenceStatement
+#print axioms PaperNoAlignmentFCNCSplitStatement
+#print axioms PaperFCNCSharedWitnessStatement
+#print axioms PaperNoFCNCWitnessSplitStatement
+
+end MaleyLean

@@ -1,0 +1,10 @@
+import MaleyLean.EMCouplingDerivedPaperStatements
+
+namespace MaleyLean
+
+#print axioms PaperElectroweakElectromagneticCouplingEquivalenceStatement
+#print axioms PaperNoIndependentEMCouplingDegreeStatement
+#print axioms PaperEMCouplingSharedWitnessStatement
+#print axioms PaperNoEMCouplingWitnessSplitStatement
+
+end MaleyLean

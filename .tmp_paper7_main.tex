@@ -1,0 +1,104 @@
+﻿\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+
+\title{L1 --- Equivalence Completion (Paper 7):\\
+Anomaly Freedom $\Longleftrightarrow$ Yukawa Realizability under Minimal Chiral Load}
+\author{Amos Jay Maley}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{0. Scope and Non-Negotiables}
+This paper is eliminative. It introduces no new primitives, no new ontology, no new anchors, and no new tensor load.
+All results are invariant under admissible redescription.
+
+We work within two admissible Standard-Model skins:
+(i) a chiral gauge (unbroken-phase) bookkeeping skin and
+(ii) a broken-phase (mass-eigenstate) bookkeeping skin.
+The declared load is fixed: the minimal chiral fermion content and a single electroweak Higgs doublet.
+No compensating sectors, additional multiplets, or anomaly-cancellation patches are permitted.
+
+\section*{1. Apparent Freedom}
+In Skin A (chiral gauge bookkeeping), anomaly constraints appear to restrict only representation/charge assignments,
+while Yukawa structure is treated as modular additional data.
+In Skin B (broken-phase bookkeeping), masses and mixings are encoded in Yukawa matrices and appear continuously specifiable,
+with anomaly freedom treated as already handled upstream.
+This motivates an \emph{apparent independence}: (charges/anomalies) $\perp$ (Yukawas/masses).
+
+\section*{2. Admissibility Envelope}
+Allowed redescriptions:
+\begin{itemize}
+\item gauge-basis $\leftrightarrow$ mass-basis unitary field redefinitions preserving the gauge-covariant kinetic structure,
+\item unbroken $\leftrightarrow$ broken electroweak-phase bookkeeping,
+\item reparameterizations preserving invariant content (phase reshufflings, equivalent parameterizations).
+\end{itemize}
+
+Standing fails (fail-closed) if any choice is non-transportable between these skins without importing structure.
+
+\section*{3. Cross-Skin Transport: Operator Existence as an Invariant}
+A Yukawa term in Skin B corresponds to a gauge-invariant operator in Skin A.
+Conversely, if a gauge-invariant Yukawa operator does not exist in Skin A,
+then no admissible redescription can create it in Skin B without adding new load or altering anchors.
+
+Therefore, \emph{complete Yukawa realizability} is a transport-invariant requirement:
+it is not optional data, but a constraint on the charge/representation bookkeeping.
+
+\section*{4. Failure of Independence (Transport Contradiction)}
+Assume charges/representations are chosen independently of Yukawa realizability, subject only to anomaly cancellation in Skin A.
+Transport to Skin B.
+
+If the chosen charges do not permit the full set of gauge-invariant Yukawa operators needed to pair each chiral fermion
+into a mass term after symmetry breaking, then Skin B contains massless chiral remnants.
+Such remnants cannot be removed by admissible field redefinition.
+
+Eliminating them requires one of:
+(i) additional Higgs multiplets,
+(ii) additional fermions (including vectorlike pairs used as compensators), or
+(iii) non-gauge-invariant effective operators.
+Each is disallowed: (i) and (ii) add tensor load; (iii) is an external patch.
+Hence independence produces standing/closure failure.
+
+Conversely, assume Yukawa structure is freely specifiable independently in Skin B.
+Transport back to Skin A.
+A generic Yukawa choice presupposes the existence of corresponding gauge-invariant operators.
+If charges are also freely specifiable, generically those operators do not exist.
+Thus ``free Yukawas'' is not an admissible independent degree of freedom under transport.
+
+\section*{5. Forced Tensor Relation (Core Result)}
+\begin{theorem}[Anomaly--Yukawa Equivalence under Minimal Chiral Load]
+Fix the minimal chiral fermion load and a single electroweak Higgs doublet in the Standard-Model skins.
+Under admissible redescription and under the global constraints (no new load, no patches),
+the following are equivalent tensor requirements:
+\begin{enumerate}
+\item \textbf{Anomaly-freedom:} all gauge and mixed anomalies vanish (the chiral-gauge skin is admissible).
+\item \textbf{Complete Yukawa realizability:} there exists a complete set of gauge-invariant Yukawa operators
+that generates masses for all chiral fermions in the broken-phase skin without introducing any new multiplets
+or non-gauge-invariant effective terms.
+\end{enumerate}
+Equivalently, anomaly cancellation and full Yukawa operator realizability are the same tensor constraint expressed in different skins.
+\end{theorem}
+
+\begin{corollary}[Parameter Collapse]
+Within the fixed declared load, requiring complete Yukawa realizability collapses the apparent charge freedom:
+the admissible U(1) charge assignments reduce to at most an overall normalization
+(i.e., a pure representational scale choice), with no additional independent parameters compatible with closure.
+\end{corollary}
+
+\begin{corollary}[Uniqueness Upgrade]
+Once the equivalence is enforced, the minimal chiral gauge bookkeeping is closure-unique up to admissible redescription.
+Any purported alternative that preserves the declared load but breaks the equivalence
+either (i) leaves massless chiral remnants (non-transportable) or (ii) requires compensating additions or patches (forbidden).
+\end{corollary}
+
+\section*{6. Closure Statement}
+The apparent modularity (anomaly constraints vs Yukawa/mass data) is a skin illusion.
+Cross-skin admissibility forces their identification as a single tensor constraint.
+No patching is required.
+
+\end{document}
+

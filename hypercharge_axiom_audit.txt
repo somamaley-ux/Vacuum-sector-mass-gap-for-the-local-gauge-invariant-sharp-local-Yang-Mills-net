@@ -1,0 +1,31 @@
+Axiom Audit - Hypercharge/Charge Quantization Support Surface
+
+This audit tracks direct kernel-level results obtained via Lean `#print axioms`
+in `HyperchargeAxiomCheck.lean`.
+
+----------------------------------------
+Axiom-free declarations
+----------------------------------------
+
+- MaleyLean.PaperHyperchargeChargeQuantizationEquivalenceStatement
+- MaleyLean.PaperNoHyperchargeQuantizationSplitStatement
+- MaleyLean.PaperHyperchargeSharedWitnessStatement
+- MaleyLean.PaperNoHyperchargeSharedWitnessSplitStatement
+
+----------------------------------------
+Conclusion
+----------------------------------------
+
+The current minimal hypercharge/charge-quantization support surface is axiom-free.
+
+This certifies the equivalence logic presently formalized in Lean:
+once admissible hypercharge normalization and electric charge quantization are
+mutually transport-forcing requirements, they are equivalent and admit no
+admissible split.
+
+It also certifies a stronger derived witness-collapse layer:
+if both constraints are read off the same canonical witness channel, then the
+shared-witness equivalence and no-split consequences are likewise axiom-free.
+
+It does not yet certify the full hypercharge-assignment algebra or explicit
+charge-table derivations of the paper as detailed Lean objects.

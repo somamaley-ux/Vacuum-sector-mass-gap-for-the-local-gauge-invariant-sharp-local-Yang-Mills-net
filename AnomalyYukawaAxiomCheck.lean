@@ -1,0 +1,10 @@
+import MaleyLean.AnomalyYukawaDerivedPaperStatements
+
+namespace MaleyLean
+
+#print axioms PaperAnomalyYukawaEquivalenceStatement
+#print axioms PaperNoAnomalyYukawaSplitStatement
+#print axioms PaperAnomalyYukawaSharedWitnessStatement
+#print axioms PaperNoAnomalyYukawaWitnessSplitStatement
+
+end MaleyLean
