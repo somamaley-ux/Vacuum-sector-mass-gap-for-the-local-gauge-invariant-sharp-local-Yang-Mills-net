@@ -32,6 +32,10 @@ Conclusion
 The current Gauge Constraint Dynamics paper-facing surface in this repo is
 axiom-free.
 
+Together with the dedicated substrate audits for the geometry, canonical-GR,
+selector, toy-model, and decoherence layers, this paper can be treated in this
+repo as fully integrated to the no-axiom standard.
+
 This certifies an explicit manuscript-facing theorem surface covering:
 
 - involutive admissible-redescription structure
@@ -48,5 +52,6 @@ This audit should be read together with the support map and status note so the
 repo records both facts at once:
 
 1. the present theorem surface is axiom-free
-2. the current certification level is a paper-facing structural formalization,
-   not yet a full low-level symplectic / GR / Hilbert-space substrate
+2. the currently used support layers for this paper are also axiom-free
+3. the current certification level is still short of a full low-level
+   symplectic / ADM-GR / Hilbert-space foundational library

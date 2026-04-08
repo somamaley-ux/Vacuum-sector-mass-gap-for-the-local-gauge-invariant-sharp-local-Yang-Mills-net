@@ -6,7 +6,10 @@ The manuscript
 
 `Admissibility and the Structural Origin of Gauge and Constraint Dynamics`
 
-is now reflected in the Lean workspace at the paper-facing no-axiom level.
+is now fully integrated in the Lean workspace to the repo's no-axiom standard.
+
+That means the paper's current formal surface and its present support layers are
+axiom-free under the repo's audit workflow.
 
 ## What is in Lean
 
@@ -51,7 +54,8 @@ rather than importing hidden axioms or pretending that full low-level symplectic
 ADM-GR, or Hilbert-space machinery is already internalized.
 
 This means the paper is now integrated honestly at the same certified paper-facing
-level as the other manuscript modules in the repo.
+level as the other manuscript modules in the repo, with its current derived
+support layers also carried axiom-free.
 
 ## Main files
 
@@ -78,11 +82,14 @@ level as the other manuscript modules in the repo.
 The dedicated module and axiom check build successfully, and the root
 `MaleyLean` / `Checks` targets still build with the new import surface included.
 
-The current paper-facing theorem surface is axiom-free.
+The current paper-facing theorem surface is axiom-free, and the current
+geometry, canonical-GR, selector, toy-model, and decoherence support modules
+for this paper are axiom-free as well.
 
 ## Honest boundary
 
-What is certified here is the manuscript-facing structural theorem layer.
+What is certified here is the manuscript-facing structural theorem layer together
+with the support layers currently used to derive it in this repo.
 
 What is not yet internalized in full detail is:
 
@@ -90,9 +97,12 @@ What is not yet internalized in full detail is:
 - a full ADM/canonical-GR derivation stack beyond the current constrained-Hamiltonian realization layer
 - a full Hilbert-space dynamics and decoherence formalization
 
-So the current result should be read as a no-hidden-axiom certified paper surface,
-not as a complete foundational library for every mathematical object mentioned in
-the manuscript.
+So the current result should be read as:
+
+- fully formalized to the repo's no-axiom standard
+- fully derived relative to the support layers currently internalized here
+- not yet a complete bottom-to-top foundational library for every mathematical
+  object named in the manuscript
 
 ## Best next move
 
