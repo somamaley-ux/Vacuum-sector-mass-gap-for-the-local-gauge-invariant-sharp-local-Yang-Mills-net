@@ -27,6 +27,9 @@ the remaining analytic burden sits.
 - A verbatim dependency spine showing which theorem titles are structurally
   closed, which title marks the named failure boundary, and which endpoint
   titles remain downstream of that boundary.
+- A vortex-stretching non-load-bearing layer stating that once the observable
+  is typed as bookkeeping-visible only, it cannot also function as a
+  same-scope continuation gate.
 
 ### What is closed
 
@@ -36,11 +39,12 @@ axiom-free. In particular, the current finalized manuscript-facing layers are:
 - `MaleyLean.NavierStokesVerbatimSubsectionRegister`
 - `MaleyLean.NavierStokesVerbatimTheoremRegister`
 - `MaleyLean.NavierStokesVerbatimDependencySpineSimple`
-- `MaleyLean.NavierStokesPaperSurfaceSummary`
+- `MaleyLean.NavierStokesVortexStretchingNonLoadBearing`
+- `MaleyLean.NavierStokesPaperSurfaceSummaryClean`
 
 The top-level summary theorem in
-`MaleyLean.NavierStokesPaperSurfaceSummary` packages the current state into one
-axiom-free manuscript-facing statement.
+`MaleyLean.NavierStokesPaperSurfaceSummaryClean` packages the current state
+into one axiom-free manuscript-facing statement.
 
 ### What is not claimed
 
@@ -50,6 +54,19 @@ This repository does not currently claim:
   in the usual PDE sense
 - closure of the missing analytic bridge at the vortex-stretching step
 - replacement of the named analytic burden with a hidden structural shortcut
+
+### Methodological posture
+
+This project is explicit about method: a successful resolution does not need to
+be a purely PDE-native proof in order to matter. The Clay target is the
+official periodic regularity theorem itself, not allegiance to one pre-fixed
+proof style.
+
+Accordingly, this repository does not assume that the remaining work must be
+completed by extracting one more classical vortex-stretching estimate. It
+proceeds on the view that genuinely new methods may be required, and that a
+structural or primitive route is legitimate so long as it closes the official
+theorem honestly and without hidden scope changes.
 
 ### Named analytic boundary
 
@@ -66,6 +83,13 @@ the development.
 In the current Lean surface, those endpoint titles are marked as downstream of
 the named vortex-stretching failure line.
 
+The current formalization also sharpens the interpretation of that line: it is
+not treated as "one more PDE estimate waiting to be found." Instead, the Lean
+surface now records that if vortex-stretching data is only bookkeeping-visible
+at fixed scope, then it is non-load-bearing and cannot itself decide
+continuation. On that reading, any attempt to make it continuation-decisive
+would amount to introducing a hidden second gate.
+
 ### How to read the current surface
 
 If you want the shortest path through the finalized Navier--Stokes layer, read
@@ -76,7 +100,8 @@ these in order:
 3. `MaleyLean/NavierStokesVerbatimSubsectionRegister.lean`
 4. `MaleyLean/NavierStokesVerbatimTheoremRegister.lean`
 5. `MaleyLean/NavierStokesVerbatimDependencySpineSimple.lean`
-6. `MaleyLean/NavierStokesPaperSurfaceSummary.lean`
+6. `MaleyLean/NavierStokesVortexStretchingNonLoadBearing.lean`
+7. `MaleyLean/NavierStokesPaperSurfaceSummaryClean.lean`
 
 ### Verification
 
@@ -86,6 +111,7 @@ including:
 - `NavierStokesVerbatimSubsectionRegisterAxiomCheck.lean`
 - `NavierStokesVerbatimTheoremRegisterAxiomCheck.lean`
 - `NavierStokesVerbatimDependencySpineSimpleAxiomCheck.lean`
-- `NavierStokesPaperSurfaceSummaryAxiomCheck.lean`
+- `NavierStokesVortexStretchingNonLoadBearingAxiomCheck.lean`
+- `NavierStokesPaperSurfaceSummaryCleanAxiomCheck.lean`
 
 Their audit files report the finalized surface as axiom-free.

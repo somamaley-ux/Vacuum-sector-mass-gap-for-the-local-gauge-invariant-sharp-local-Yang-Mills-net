@@ -1,0 +1,11 @@
+import MaleyLean.NavierStokesVortexStretchingNonLoadBearing
+
+namespace MaleyLean
+
+#print axioms PaperVortexStretchingNonLoadBearingStatement
+#print axioms PaperVortexStretchingCannotDecideContinuationStatement
+#print axioms PaperVortexStretchingRequiresHiddenSecondGateStatement
+#print axioms PaperVerbatimFailureTitleMatchesNonLoadBearingBoundaryStatement
+#print axioms PaperEndpointTitlesRemainDownstreamOfNonLoadBearingBoundaryStatement
+
+end MaleyLean

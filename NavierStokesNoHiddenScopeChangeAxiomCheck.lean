@@ -1,0 +1,10 @@
+import MaleyLean.NavierStokesNoHiddenScopeChange
+
+namespace MaleyLean
+
+#print axioms PaperIllicitVortexGateIsBookkeepingVisibleStatement
+#print axioms PaperNoSameScopeVortexRescueStatement
+#print axioms PaperVortexRescueRequiresScopeChangeOrHiddenSecondGateStatement
+#print axioms PaperNoHiddenScopeChangeMatchesFailureBoundaryStatement
+
+end MaleyLean

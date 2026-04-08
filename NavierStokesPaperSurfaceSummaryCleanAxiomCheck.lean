@@ -1,0 +1,7 @@
+import MaleyLean.NavierStokesPaperSurfaceSummaryClean
+
+namespace MaleyLean
+
+#print axioms NavierStokesPaperSurfaceSummaryCleanStatement
+
+end MaleyLean

@@ -1,0 +1,7 @@
+Axiom audit for `NavierStokesVortexStretchingNonLoadBearingAxiomCheck.lean`.
+
+'MaleyLean.PaperVortexStretchingNonLoadBearingStatement' does not depend on any axioms
+'MaleyLean.PaperVortexStretchingCannotDecideContinuationStatement' does not depend on any axioms
+'MaleyLean.PaperVortexStretchingRequiresHiddenSecondGateStatement' does not depend on any axioms
+'MaleyLean.PaperVerbatimFailureTitleMatchesNonLoadBearingBoundaryStatement' does not depend on any axioms
+'MaleyLean.PaperEndpointTitlesRemainDownstreamOfNonLoadBearingBoundaryStatement' does not depend on any axioms

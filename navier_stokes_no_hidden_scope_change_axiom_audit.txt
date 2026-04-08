@@ -1,0 +1,6 @@
+Axiom audit for `NavierStokesNoHiddenScopeChangeAxiomCheck.lean`.
+
+'MaleyLean.PaperIllicitVortexGateIsBookkeepingVisibleStatement' does not depend on any axioms
+'MaleyLean.PaperNoSameScopeVortexRescueStatement' does not depend on any axioms
+'MaleyLean.PaperVortexRescueRequiresScopeChangeOrHiddenSecondGateStatement' does not depend on any axioms
+'MaleyLean.PaperNoHiddenScopeChangeMatchesFailureBoundaryStatement' does not depend on any axioms
