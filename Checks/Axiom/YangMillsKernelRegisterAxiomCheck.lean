@@ -1,0 +1,7 @@
+import MaleyLean.YangMillsKernelRegister
+
+namespace MaleyLean
+
+#print axioms YangMillsKernelLiveEntriesStayOnLiveClaimSideStatement
+
+end MaleyLean

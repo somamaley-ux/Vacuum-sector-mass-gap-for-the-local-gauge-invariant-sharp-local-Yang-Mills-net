@@ -1,0 +1,7 @@
+import MaleyLean.YangMillsVerbatimTheoremRegister
+
+namespace MaleyLean
+
+#print axioms YangMillsVerbatimTheoremOwnerMatchesSectionStatement
+
+end MaleyLean

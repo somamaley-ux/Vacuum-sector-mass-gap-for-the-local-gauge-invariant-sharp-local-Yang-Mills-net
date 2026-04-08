@@ -1,0 +1,340 @@
+Yang--Mills Packet Support Map
+
+Date: 2026-04-09
+
+Purpose
+-------
+
+This report gives a packet-by-packet manuscript-facing support map for the
+current Yang--Mills Lean scaffold.
+
+It does not claim native Lean proofs of the analytic Yang--Mills arguments.
+Its purpose is narrower and structural:
+
+- identify the public packet architecture,
+- identify the corresponding Lean registers,
+- identify the main witness theorems that certify the packet structure,
+- and make expert attack points visible outside the code tree.
+
+Global support layers
+---------------------
+
+Packet-level registry:
+
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Kernel/PacketRegister.lean`
+
+Seam-level registry:
+
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Kernel/SeamRegister.lean`
+
+Theorem-level registry:
+
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Verbatim/TheoremRegister.lean`
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Verbatim/DependencySpineSimple.lean`
+
+Claim/obligation architecture:
+
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Obligations/Inventory.lean`
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Obligations/PaperLedger.lean`
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Obligations/ClaimLedger.lean`
+
+Kernel extraction and reading order:
+
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Kernel/Register.lean`
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Kernel/ReadingOrder.lean`
+
+Canonical source crosswalk:
+
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/SourceCrosswalk/Register.lean`
+
+Top-level summary:
+
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Surface/Summary.lean`
+
+Packet 1: UV gate
+-----------------
+
+Manuscript role:
+
+- compact-simple A1 ultraviolet gate
+- public group-scope export
+
+Primary Lean witnesses:
+
+- `MaleyLean.YangMillsVerbatimTheoremOwnershipStatement`
+- `MaleyLean.YangMillsTenPacketKernelStatement`
+- `MaleyLean.YangMillsPacketOwnerExamplesStatement`
+- `MaleyLean.YangMillsCrosswalkExamplesStatement`
+
+Canonical source labels:
+
+- `N.20`
+- `N.21`
+
+Packet 2: Entrance
+------------------
+
+Manuscript role:
+
+- one-shot entrance into the KP/Dobrushin basin at bounded physical scale
+
+Primary Lean witnesses:
+
+- `MaleyLean.YangMillsRoute1TransportSpineStatement`
+- `MaleyLean.YangMillsPacketEdgeExamplesStatement`
+- `MaleyLean.YangMillsPacketCrosswalkExamplesStatement`
+
+Canonical source labels:
+
+- `F.3`
+- `F.317`
+- `F.318`
+
+Packet 3: Fixed-lattice gap
+---------------------------
+
+Manuscript role:
+
+- tuned full fixed-lattice OS gap
+
+Primary Lean witnesses:
+
+- `MaleyLean.YangMillsRoute1TransportSpineStatement`
+- `MaleyLean.YangMillsPacketEdgeExamplesStatement`
+- `MaleyLean.YangMillsCrosswalkExamplesStatement`
+
+Canonical source labels:
+
+- `F.4`
+- `F.308`
+
+Packet 4: Flowed state
+----------------------
+
+Manuscript role:
+
+- unique flowed continuum state
+- tuned bounded positive-time base state
+- dyadic OS input later consumed at QE3
+
+Primary Lean witnesses:
+
+- `MaleyLean.YangMillsLaneASpineOwnershipStatement`
+- `MaleyLean.YangMillsPacketCrosswalkExamplesStatement`
+- `MaleyLean.YangMillsKernelReadingOrderStatement`
+
+Canonical source labels:
+
+- `4.92`
+- `4.93`
+- `4.94`
+- `4.95`
+
+Packet 5: Finite-truncation
+---------------------------
+
+Manuscript role:
+
+- exact-dimension quotient control
+- one-shell transport
+- finite-truncation inverse control
+- capwise SFTE/remainder package
+
+Primary Lean witnesses:
+
+- `MaleyLean.YangMillsLaneASpineOwnershipStatement`
+- `MaleyLean.YangMillsPacketCrosswalkExamplesStatement`
+- `MaleyLean.YangMillsKernelReadingOrderStatement`
+
+Canonical source labels:
+
+- `L.8`
+- `L.11`
+- `5.39`
+- `5.69`
+- `F.245`
+
+Packet 6: Finite-cap closure
+----------------------------
+
+Manuscript role:
+
+- finite mixed bounded-family packaging
+- mixed-correlator closure at finite cap
+- theorem-facing positive/unital finite-cap bridge
+- finite-cap sharp-local extension
+- bounded-state compatibility
+- inductive-union passage
+
+Primary Lean witnesses:
+
+- `MaleyLean.YangMillsPacketOwnerExamplesStatement`
+- `MaleyLean.YangMillsPacketCrosswalkExamplesStatement`
+- `MaleyLean.YangMillsSeamBridgeNodesStatement`
+- `MaleyLean.YangMillsSeamPacketAlignmentStatement`
+- `MaleyLean.YangMillsSeamCrosswalkExamplesStatement`
+
+Canonical source labels:
+
+- `F.330A`
+- `F.331`
+- `5.74A`
+- `5.74`
+- `5.75`
+- `5.76`
+
+Packet 7: Cyclicity
+-------------------
+
+Manuscript role:
+
+- bounded-base cyclicity in the reconstructed sharp-local Hilbert space
+
+Primary Lean witnesses:
+
+- `MaleyLean.YangMillsLaneASpineOwnershipStatement`
+- `MaleyLean.YangMillsSeamPacketAlignmentStatement`
+- `MaleyLean.YangMillsKernelReadingOrderStatement`
+
+Canonical source labels:
+
+- `5.77`
+
+Packet 8: QE3 transport
+-----------------------
+
+Manuscript role:
+
+- same-scale Wilson return
+- bounded Wilson/dyadic OS limit
+- continuum-time OS upgrade
+- density/graph-core handoff
+- continuum vacuum-gap transport
+- sharp-local vacuum-gap corollary
+
+Primary Lean witnesses:
+
+- `MaleyLean.YangMillsPacket8ContainsQE3SeamStatement`
+- `MaleyLean.YangMillsQE3TransportOwnershipStatement`
+- `MaleyLean.YangMillsSeamPacketAlignmentStatement`
+- `MaleyLean.YangMillsReadingOrderCrosswalkStatement`
+
+Canonical source labels:
+
+- `III.18`
+- `F.211`
+- `F.212`
+- `F.213`
+- `F.214`
+- `F.216`
+- `F.5`
+
+Packet 9: Reconstruction
+------------------------
+
+Manuscript role:
+
+- Euclidean OS dossier
+- Wightman reconstruction
+- field correspondence
+- Minkowski-gap transfer
+- non-triviality
+
+Primary Lean witnesses:
+
+- `MaleyLean.YangMillsEndpointSpineOwnershipStatement`
+- `MaleyLean.YangMillsPacketOwnerExamplesStatement`
+- `MaleyLean.YangMillsCrosswalkExamplesStatement`
+
+Canonical source labels:
+
+- `M.1`
+- `M.2`
+- `M.3`
+- `M.4`
+- `M.5`
+- `M.6`
+
+Packet 10: Endpoint
+-------------------
+
+Manuscript role:
+
+- faithful-Wilson universality
+- quantitative ledger remains rho-indexed
+- exact local-net endpoint
+
+Primary Lean witnesses:
+
+- `MaleyLean.YangMillsEndpointSpineOwnershipStatement`
+- `MaleyLean.YangMillsPacketCrosswalkExamplesStatement`
+- `MaleyLean.YangMillsCrosswalkExamplesStatement`
+
+Canonical source labels:
+
+- `O.2`
+- `O.3`
+- `O.4`
+- `O.5`
+- `O.7`
+
+Auxiliary certification node
+----------------------------
+
+Manuscript role:
+
+- sole live weak-window sufficiency certificate on the public spine
+
+Primary Lean witnesses:
+
+- `MaleyLean.YangMillsQE3TransportOwnershipStatement`
+- `MaleyLean.YangMillsSeamCrosswalkExamplesStatement`
+- `MaleyLean.YangMillsReadingOrderCrosswalkStatement`
+- `MaleyLean.YangMillsSourceCrosswalkFollowsPacketMapStatement`
+
+Canonical source label:
+
+- `F.298`
+
+Decisive attack points
+----------------------
+
+Ultraviolet/public-scope gate:
+
+- packets:
+  `Packet 1`, `Packet 2`, `Packet 3`
+- Lean witnesses:
+  `MaleyLean.YangMillsAttackPointPacketStatement`
+
+Finite-cap to inductive-union Lane A seam:
+
+- packets:
+  `Packet 6`, `Packet 7`
+- seam nodes:
+  mixed-correlator closure, positive/unital bridge, finite-cap OS node,
+  bounded-state compatibility, inductive union, cyclicity
+- Lean witnesses:
+  `MaleyLean.YangMillsAttackPointPacketStatement`
+  `MaleyLean.YangMillsAttackPointSeamStatement`
+
+QE3 transport seam:
+
+- packet:
+  `Packet 8`
+- seam nodes:
+  graph-core handoff, continuum gap transport
+- Lean witnesses:
+  `MaleyLean.YangMillsAttackPointPacketStatement`
+  `MaleyLean.YangMillsAttackPointSeamStatement`
+
+Coverage note
+-------------
+
+This support map certifies the manuscript-facing architecture of the hardened
+Yang--Mills suite.
+
+It does not certify:
+
+- full native Lean proofs of the analytic packet contents
+- theorem-by-theorem reconstruction of every companion-local proof table entry
+- low-level QFT/PDE mathematics beyond the current structural surface

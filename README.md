@@ -116,3 +116,54 @@ under `Checks/Axiom/`, including:
 
 Their audit files now live under `reports/audits/` and report the finalized
 surface as axiom-free.
+
+## Yang--Mills formalization status
+
+This repository now also contains a manuscript-facing Lean scaffold for the
+Yang--Mills project built from the hardened core-plus-companions archive.
+
+The current Yang--Mills formalization is structural and manuscript-facing. It
+does not claim a full Lean formalization of the underlying QFT/PDE proofs.
+Instead, it encodes:
+
+- the live proof surface and companion ownership map
+- the verbatim theorem register
+- the dependency spine
+- the obligation, paper, and claim ledgers
+- the proof-kernel extraction
+- the ten-packet kernel reduction
+- the decisive seam nodes
+- the source-label crosswalk back to the canonical manuscript
+
+### Current Yang--Mills surface
+
+The main Yang--Mills entry points are:
+
+- `MaleyLean.Papers.YangMills.Verbatim.TheoremRegister`
+- `MaleyLean.Papers.YangMills.Verbatim.DependencySpineSimple`
+- `MaleyLean.Papers.YangMills.Obligations.ClaimLedger`
+- `MaleyLean.Papers.YangMills.Kernel.Register`
+- `MaleyLean.Papers.YangMills.Kernel.PacketRegister`
+- `MaleyLean.Papers.YangMills.Kernel.SeamRegister`
+- `MaleyLean.Papers.YangMills.SourceCrosswalk.Register`
+- `MaleyLean.Papers.YangMills.Surface.Summary`
+
+The top-level summary theorem in
+`MaleyLean.Papers.YangMills.Surface.Summary` packages the current
+manuscript-facing Yang--Mills scaffold into one axiom-free statement.
+
+### Yang--Mills verification
+
+The current Yang--Mills scaffold has dedicated axiom checks under
+`Checks/Axiom/`, including:
+
+- `Checks/Axiom/YangMillsVerbatimTheoremRegisterAxiomCheck.lean`
+- `Checks/Axiom/YangMillsClaimLedgerAxiomCheck.lean`
+- `Checks/Axiom/YangMillsKernelRegisterAxiomCheck.lean`
+- `Checks/Axiom/YangMillsPacketRegisterAxiomCheck.lean`
+- `Checks/Axiom/YangMillsSeamRegisterAxiomCheck.lean`
+- `Checks/Axiom/YangMillsSourceCrosswalkAxiomCheck.lean`
+- `Checks/Axiom/YangMillsPaperSurfaceSummaryAxiomCheck.lean`
+
+See `reports/status/yang_mills_status.md` for the current Yang--Mills project
+status note.

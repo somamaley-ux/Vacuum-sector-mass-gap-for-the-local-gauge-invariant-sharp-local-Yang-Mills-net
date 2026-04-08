@@ -1,0 +1,7 @@
+import MaleyLean.YangMillsClaimLedger
+
+namespace MaleyLean
+
+#print axioms YangMillsVerbatimRegisterAgreesWithClaimLedgerStatement
+
+end MaleyLean

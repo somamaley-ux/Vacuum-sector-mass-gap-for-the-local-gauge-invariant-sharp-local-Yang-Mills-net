@@ -1,0 +1,147 @@
+Yang--Mills Support Map
+
+Date: 2026-04-09
+
+Primary statement sources
+-------------------------
+
+Canonical manuscript source suite:
+
+- `ym_manuscript_hardened_v2_source.zip`
+- live roots:
+  `core.tex`
+  `companion1.tex`
+  `companion2.tex`
+  `companion3.tex`
+- expert-audit extraction:
+  `proofkernel.tex`
+
+Lean support surface
+--------------------
+
+Primary Lean modules:
+
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Verbatim/TheoremRegister.lean`
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Verbatim/DependencySpineSimple.lean`
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Obligations/Inventory.lean`
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Obligations/PaperLedger.lean`
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Obligations/ClaimLedger.lean`
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Kernel/Register.lean`
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Kernel/PacketRegister.lean`
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Kernel/SeamRegister.lean`
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Kernel/ReadingOrder.lean`
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/SourceCrosswalk/Register.lean`
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Surface/Summary.lean`
+
+Wrapper entry points:
+
+- `/d:/lean/MaleyLean/MaleyLean/YangMillsVerbatimTheoremRegister.lean`
+- `/d:/lean/MaleyLean/MaleyLean/YangMillsClaimLedger.lean`
+- `/d:/lean/MaleyLean/MaleyLean/YangMillsKernelRegister.lean`
+- `/d:/lean/MaleyLean/MaleyLean/YangMillsPacketRegister.lean`
+- `/d:/lean/MaleyLean/MaleyLean/YangMillsSeamRegister.lean`
+- `/d:/lean/MaleyLean/MaleyLean/YangMillsReadingOrder.lean`
+- `/d:/lean/MaleyLean/MaleyLean/YangMillsSourceCrosswalk.lean`
+- `/d:/lean/MaleyLean/MaleyLean/YangMillsPaperSurfaceSummary.lean`
+
+Audit artifacts:
+
+- `/d:/lean/MaleyLean/Checks/Axiom/YangMillsVerbatimTheoremRegisterAxiomCheck.lean`
+- `/d:/lean/MaleyLean/Checks/Axiom/YangMillsClaimLedgerAxiomCheck.lean`
+- `/d:/lean/MaleyLean/Checks/Axiom/YangMillsKernelRegisterAxiomCheck.lean`
+- `/d:/lean/MaleyLean/Checks/Axiom/YangMillsPacketRegisterAxiomCheck.lean`
+- `/d:/lean/MaleyLean/Checks/Axiom/YangMillsSeamRegisterAxiomCheck.lean`
+- `/d:/lean/MaleyLean/Checks/Axiom/YangMillsReadingOrderAxiomCheck.lean`
+- `/d:/lean/MaleyLean/Checks/Axiom/YangMillsSourceCrosswalkAxiomCheck.lean`
+- `/d:/lean/MaleyLean/Checks/Axiom/YangMillsPaperSurfaceSummaryAxiomCheck.lean`
+- `/d:/lean/MaleyLean/reports/audits/yang_mills_axiom_audit.txt`
+
+Support correspondence
+----------------------
+
+Stage I: live proof surface and companion ownership
+
+- manuscript surface:
+  four live roots, one proof kernel, one closure gate, reserve/editorial packet
+- Lean witnesses:
+  `MaleyLean.YangMillsLiveProofSurfaceRootsStatement`
+  `MaleyLean.YangMillsKernelRoleStatement`
+  `MaleyLean.YangMillsClosureGateRoleStatement`
+  `MaleyLean.YangMillsReserveRootsStatement`
+  `MaleyLean.YangMillsCoreSectionOwnershipStatement`
+
+Stage II: verbatim theorem surface and dependency spine
+
+- manuscript surface:
+  theorem-facing core titles and the public dependency split over Route 1,
+  Lane A, QE3 transport, and endpoint packet
+- Lean witnesses:
+  `MaleyLean.YangMillsVerbatimTheoremSectionAlignmentStatement`
+  `MaleyLean.YangMillsVerbatimTheoremOwnershipStatement`
+  `MaleyLean.YangMillsRoute1TransportSpineStatement`
+  `MaleyLean.YangMillsLaneASpineOwnershipStatement`
+  `MaleyLean.YangMillsEndpointSpineOwnershipStatement`
+
+Stage III: paper/claim architecture
+
+- manuscript surface:
+  live theorem burden vs audit extraction vs organizational closure vs reserve
+  materials
+- Lean witnesses:
+  `MaleyLean.YangMillsInventoryCompleteStatement`
+  `MaleyLean.YangMillsPaperSectionLedgerCompleteStatement`
+  `MaleyLean.YangMillsClaimSupportClassificationStatement`
+  `MaleyLean.YangMillsVerbatimRegisterAgreesWithClaimLedgerStatement`
+
+Stage IV: proof-kernel reduction
+
+- manuscript surface:
+  kernel main theorem, ten-packet proof kernel, extracted live theorem nodes
+- Lean witnesses:
+  `MaleyLean.YangMillsKernelPackagingEntriesStatement`
+  `MaleyLean.YangMillsKernelLiveExtractionExamplesStatement`
+  `MaleyLean.YangMillsKernelLiveEntriesStayOnLiveClaimSideStatement`
+  `MaleyLean.YangMillsKernelAddsNoNewMathematicsStatement`
+
+Stage V: packet and seam structure
+
+- manuscript surface:
+  packets 1--10, auxiliary weak-window certificate, decisive seam nodes
+- Lean witnesses:
+  `MaleyLean.YangMillsTenPacketKernelStatement`
+  `MaleyLean.YangMillsPacketEdgeExamplesStatement`
+  `MaleyLean.YangMillsPacket8ContainsQE3SeamStatement`
+  `MaleyLean.YangMillsSeamBridgeNodesStatement`
+  `MaleyLean.YangMillsSeamPacketAlignmentStatement`
+  `MaleyLean.YangMillsSeamLiveNodeExamplesStatement`
+
+Stage VI: source-number crosswalk and reading order
+
+- manuscript surface:
+  canonical source labels, compressed reading routes, first-pass attack points
+- Lean witnesses:
+  `MaleyLean.YangMillsCrosswalkExamplesStatement`
+  `MaleyLean.YangMillsPacketCrosswalkExamplesStatement`
+  `MaleyLean.YangMillsSeamCrosswalkExamplesStatement`
+  `MaleyLean.YangMillsKernelReadingOrderStatement`
+  `MaleyLean.YangMillsAttackPointPacketStatement`
+  `MaleyLean.YangMillsAttackPointSeamStatement`
+
+Top-level summary
+-----------------
+
+- Lean witness:
+  `MaleyLean.YangMillsPaperSurfaceSummaryStatement`
+
+Coverage note
+-------------
+
+This Lean layer certifies the hardened Yang--Mills manuscript architecture as a
+structured, axiom-free public surface.
+
+It does not currently claim:
+
+- a full internal Lean proof of the QFT/PDE arguments cited in the manuscript
+- native Lean discharge of the companion/source analytic proof homes
+- theorem-by-theorem reconstruction of the canonical source appendices beyond
+  the explicit crosswalk layer
