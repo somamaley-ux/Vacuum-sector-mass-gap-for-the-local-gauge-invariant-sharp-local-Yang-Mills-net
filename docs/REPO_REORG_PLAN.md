@@ -83,9 +83,9 @@ Suggested moves:
 - `*_support_map.txt` and `*_support_gap.txt` -> `reports/support_maps/`
 - `*_status.md` -> `reports/status/`
 - `Tmp*.lean`, `.tmp_*`, `*.olean.tmp.*` -> `tmp/lean/` or ignored scratch
-- manuscript draft directories like `drafts/navier_stokes` and
-  `drafts/godel` -> keep under `drafts/` if they are intentionally
-  in-progress manuscripts
+- completed manuscript directories like `papers/navier_stokes` and
+  `papers/godel` -> keep under `papers/` so the repo reads as canonical rather
+  than provisional
 
 ## Concrete Module Mapping
 
