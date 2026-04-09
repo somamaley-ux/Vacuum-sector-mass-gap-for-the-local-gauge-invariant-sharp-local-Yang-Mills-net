@@ -46,6 +46,7 @@ import MaleyLean.Papers.YangMills.Kernel.TheoremBridgeConsequences
 import MaleyLean.Papers.YangMills.Kernel.TheoremAssemblyWitness
 import MaleyLean.Papers.YangMills.Kernel.TheoremAssemblyNativeAlignment
 import MaleyLean.Papers.YangMills.Kernel.TheoremAssemblyNativeInterHeartAlignment
+import MaleyLean.Papers.YangMills.Kernel.TheoremAssemblyNativeCrossHeartLawAlignment
 import MaleyLean.Papers.YangMills.Kernel.VacuumGapCore
 import MaleyLean.Papers.YangMills.Kernel.VacuumGapRelationalInterface
 import MaleyLean.Papers.YangMills.Kernel.VacuumGapSemanticBundle
@@ -92,6 +93,7 @@ import MaleyLean.Papers.YangMills.Surface.TheoremBridgeConsequencesSummary
 import MaleyLean.Papers.YangMills.Surface.TheoremAssemblyWitnessSummary
 import MaleyLean.Papers.YangMills.Surface.TheoremAssemblyNativeAlignmentSummary
 import MaleyLean.Papers.YangMills.Surface.TheoremAssemblyNativeInterHeartAlignmentSummary
+import MaleyLean.Papers.YangMills.Surface.TheoremAssemblyNativeCrossHeartLawAlignmentSummary
 import MaleyLean.Papers.YangMills.Surface.VacuumGapRelationalSummary
 import MaleyLean.Papers.YangMills.Surface.VacuumGapTransportRealizeLawPackageSummary
 import MaleyLean.Papers.YangMills.Surface.WitnessBundleSummary
