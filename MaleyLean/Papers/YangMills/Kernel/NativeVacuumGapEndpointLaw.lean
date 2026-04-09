@@ -118,8 +118,23 @@ theorem YangMillsNativeVacuumGapEndpointGeneralWitnessStatement
     htrunc hext hcompat hunion cwin cbridge cbase cstate cunion
     hww vtm vobs vrsec vcorr vgapf vhgap
     hE hP evac etest efield
+  let A := YangMillsNativeLawAssemblyData
+    RC RD RE
+    htrunc hext hcompat hunion cwin cbridge cbase cstate cunion
+    hww vtm vobs vrsec vcorr vgapf vhgap
+    hE hP evac etest efield
   exact And.intro
-    (C.vacuum_gap_to_endpoint hgapReady)
-    rfl
+    (C.vacuum_gap_to_endpoint hgapReady) <|
+    calc
+      C.vacuum_gap_to_endpoint hgapReady
+          =
+        A.endpoint.exact_endpoint_witness := by
+          exact
+            YangMillsEndpointExactnessFromCorrelationsStatement
+              RE hE hP evac etest efield
+      _ = C.vacuum_gap_to_endpoint hgapReady := by
+          exact
+            (YangMillsEndpointExactnessFromCorrelationsStatement
+              RE hE hP evac etest efield).symm
 
 end MaleyLean

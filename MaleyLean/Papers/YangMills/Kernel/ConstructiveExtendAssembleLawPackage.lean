@@ -132,4 +132,42 @@ theorem YangMillsConstructiveAssemblyCompatibilityStatement
     R htrunc hext hcompat hunion win bridge base state unionData
   exact P.assembly_compatibility win bridge base state unionData
 
+theorem YangMillsConstructiveAssemblyBoundedBaseStatement
+  (R : YMConstructiveRoute)
+  (htrunc : R.finite_truncation_ready)
+  (hext : R.finite_cap_extension_ready)
+  (hcompat : R.bounded_state_compatibility_ready)
+  (hunion : R.inductive_union_ready)
+  (win : (YangMillsConstructiveSemanticBundleData R htrunc hext hcompat hunion).finite_cap_window)
+  (bridge : (YangMillsConstructiveSemanticBundleData R htrunc hext hcompat hunion).positive_bridge_map)
+  (base : (YangMillsConstructiveSemanticBundleData R htrunc hext hcompat hunion).bounded_base_carrier)
+  (state : (YangMillsConstructiveSemanticBundleData R htrunc hext hcompat hunion).bounded_state_data)
+  (unionData :
+    (YangMillsConstructiveSemanticBundleData R htrunc hext hcompat hunion).inductive_union_data) :
+  let P := YangMillsConstructiveExtendAssembleLawPackageData
+    R htrunc hext hcompat hunion win bridge base state unionData
+  P.bounded_base_from_assembly (P.assemble_state base state unionData) =
+    P.bounded_base_witness := by
+  let P := YangMillsConstructiveExtendAssembleLawPackageData
+    R htrunc hext hcompat hunion win bridge base state unionData
+  rfl
+
+theorem YangMillsConstructiveExtendAssembleBoundedBaseStatement
+  (R : YMConstructiveRoute)
+  (htrunc : R.finite_truncation_ready)
+  (hext : R.finite_cap_extension_ready)
+  (hcompat : R.bounded_state_compatibility_ready)
+  (hunion : R.inductive_union_ready)
+  (win : (YangMillsConstructiveSemanticBundleData R htrunc hext hcompat hunion).finite_cap_window)
+  (bridge : (YangMillsConstructiveSemanticBundleData R htrunc hext hcompat hunion).positive_bridge_map)
+  (base : (YangMillsConstructiveSemanticBundleData R htrunc hext hcompat hunion).bounded_base_carrier)
+  (state : (YangMillsConstructiveSemanticBundleData R htrunc hext hcompat hunion).bounded_state_data)
+  (unionData :
+    (YangMillsConstructiveSemanticBundleData R htrunc hext hcompat hunion).inductive_union_data) :
+  let P := YangMillsConstructiveExtendAssembleLawPackageData
+    R htrunc hext hcompat hunion win bridge base state unionData
+  P.bounded_base_from_assembly (P.extend_then_assemble win bridge base state unionData) =
+    P.bounded_base_witness := by
+  rfl
+
 end MaleyLean

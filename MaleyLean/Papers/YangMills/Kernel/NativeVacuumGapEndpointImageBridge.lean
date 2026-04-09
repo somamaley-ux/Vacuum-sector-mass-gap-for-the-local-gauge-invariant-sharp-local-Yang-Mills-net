@@ -70,11 +70,11 @@ def YangMillsNativeVacuumGapEndpointImageBridgeData
         O.compatibility.vacuum_gap_to_endpoint O.vacuum_gap_ready
       image_bridge_compatibility := by
         exact
-          YangMillsNativeVacuumGapEndpointRouteAgreementStatement
+          (YangMillsNativeVacuumGapEndpointChosenGapWitnessStatement
             RC RD RE
             htrunc hext hcompat hunion cwin cbridge cbase cstate cunion
             hww vtm vobs vrsec vcorr vgapf vhgap
-            hE hP evac etest efield }
+            hE hP evac etest efield).2.2 }
 
 theorem YangMillsNativeVacuumGapEndpointImageBridgeWitnessStatement
   (RC : YMConstructiveRoute)
