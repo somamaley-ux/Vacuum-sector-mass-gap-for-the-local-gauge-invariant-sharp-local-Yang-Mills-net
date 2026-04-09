@@ -20,8 +20,13 @@ structure YMEndpointReconstructionPackage where
   test_function_space : Type
   smeared_field_operator : Type
   vacuum_correlation_family : Type
+  smear_field : test_function_space -> field_family -> smeared_field_operator
+  evaluate_vacuum_correlation :
+    vacuum_vector -> smeared_field_operator -> vacuum_correlation_family
   vacuum_vector_present : Prop
   wightman_fields_present : Prop
+  smearing_defined : Prop
+  vacuum_correlations_defined : Prop
   from_dossier : YMEndpointDossier
 
 structure YMEndpointCore where
@@ -43,6 +48,10 @@ structure YMEndpointCore where
     reconstruction_ready -> reconstruction_package.wightman_fields_present
   reconstruction_exhibits_vacuum :
     reconstruction_ready -> reconstruction_package.vacuum_vector_present
+  reconstruction_exhibits_smearing :
+    reconstruction_ready -> reconstruction_package.smearing_defined
+  reconstruction_exhibits_vacuum_correlations :
+    reconstruction_ready -> reconstruction_package.vacuum_correlations_defined
   endpoint_packet_exhibits_exact_endpoint :
     endpoint_packet_ready -> endpoint_object.exact_local_net_endpoint
 
@@ -80,10 +89,16 @@ theorem YangMillsEndpointReconstructionPackageStatement
   (R : YMEndpointCore)
   (hR : R.reconstruction_ready) :
   R.reconstruction_package.wightman_fields_present /\
-  R.reconstruction_package.vacuum_vector_present := by
+  R.reconstruction_package.vacuum_vector_present /\
+  R.reconstruction_package.smearing_defined /\
+  R.reconstruction_package.vacuum_correlations_defined := by
   exact And.intro
     (R.reconstruction_exhibits_fields hR)
-    (R.reconstruction_exhibits_vacuum hR)
+    (And.intro
+      (R.reconstruction_exhibits_vacuum hR)
+      (And.intro
+        (R.reconstruction_exhibits_smearing hR)
+        (R.reconstruction_exhibits_vacuum_correlations hR)))
 
 theorem YangMillsEndpointPacketExhibitsExactEndpointStatement
   (R : YMEndpointCore)
@@ -115,10 +130,17 @@ theorem YangMillsEndpointCoreExhibitsNamedOutputsStatement
   R.reconstruction_ready /\
   R.reconstruction_package.wightman_fields_present /\
   R.reconstruction_package.vacuum_vector_present /\
+  R.reconstruction_package.smearing_defined /\
+  R.reconstruction_package.vacuum_correlations_defined /\
   R.endpoint_object.exact_local_net_endpoint := by
   have hR := YangMillsEndpointDossierFeedsReconstructionStatement R hE
   have hpack := YangMillsEndpointReconstructionPackageStatement R hR
   have hend := YangMillsEndpointPacketExhibitsExactEndpointStatement R hP
-  exact And.intro hR <| And.intro hpack.1 <| And.intro hpack.2 hend
+  exact
+    And.intro hR <|
+      And.intro hpack.1 <|
+        And.intro hpack.2.1 <|
+          And.intro hpack.2.2.1 <|
+            And.intro hpack.2.2.2 hend
 
 end MaleyLean

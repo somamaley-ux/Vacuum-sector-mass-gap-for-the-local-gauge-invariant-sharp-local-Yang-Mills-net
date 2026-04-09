@@ -35,7 +35,7 @@ theorem YangMillsWitnessBundleFromNamedOutputsStatement
       positive_gap := h.2.2.2.2.2.2.2.2.1
       minkowski_gap_ready := h.2.2.2.2.2.2.2.2.2.2.2.2.1
       wightman_fields_present := h.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
-      exact_endpoint := h.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2 }
+      exact_endpoint := h.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2 }
 
 theorem YangMillsSpineFeedsWitnessBundleStatement
   (S : YMLoadBearingSpine)

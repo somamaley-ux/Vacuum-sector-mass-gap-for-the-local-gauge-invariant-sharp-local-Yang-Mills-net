@@ -34,6 +34,8 @@ theorem YangMillsAllCoreNamedOutputsStatement
   RE.reconstruction_ready /\
   RE.reconstruction_package.wightman_fields_present /\
   RE.reconstruction_package.vacuum_vector_present /\
+  RE.reconstruction_package.smearing_defined /\
+  RE.reconstruction_package.vacuum_correlations_defined /\
   RE.endpoint_object.exact_local_net_endpoint := by
   have hC :=
     YangMillsConstructiveCoreExhibitsNamedOutputsStatement
@@ -60,7 +62,9 @@ theorem YangMillsAllCoreNamedOutputsStatement
                             And.intro hD.2.2.2.2.2.2.2 <|
                               And.intro hE.1 <|
                                 And.intro hE.2.1 <|
-                                  And.intro hE.2.2.1 hE.2.2.2
+                                  And.intro hE.2.2.1 <|
+                                    And.intro hE.2.2.2.1 <|
+                                      And.intro hE.2.2.2.2.1 hE.2.2.2.2.2
 
 theorem YangMillsSpineFeedsAllNamedOutputsStatement
   (S : YMLoadBearingSpine)
@@ -134,7 +138,7 @@ theorem YangMillsSpineFeedsAllNamedOutputsStatement
   have hEfields : RE.reconstruction_package.wightman_fields_present :=
     hwitnesses.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
   have hEexact : RE.endpoint_object.exact_local_net_endpoint :=
-    hwitnesses.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2
+    hwitnesses.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2
   exact And.intro hboth.1 <|
     And.intro hboth.2 <|
       And.intro hendpoint.2.2.2 <|

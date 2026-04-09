@@ -16,10 +16,15 @@ structure YMEndpointSemanticBundle (R : YMEndpointCore) where
   test_function_space : Type
   smeared_field_operator : Type
   vacuum_correlation_family : Type
+  smear_field : test_function_space -> field_family -> smeared_field_operator
+  evaluate_vacuum_correlation :
+    vacuum_vector -> smeared_field_operator -> vacuum_correlation_family
   reconstruction_source_dossier : YMEndpointDossier
   reconstruction_ready : R.reconstruction_ready
   wightman_fields_present : R.reconstruction_package.wightman_fields_present
   vacuum_vector_present : R.reconstruction_package.vacuum_vector_present
+  smearing_defined : R.reconstruction_package.smearing_defined
+  vacuum_correlations_defined : R.reconstruction_package.vacuum_correlations_defined
   exact_endpoint : R.endpoint_object.exact_local_net_endpoint
 
 theorem YangMillsEndpointDossierStatement
@@ -43,6 +48,10 @@ theorem YangMillsEndpointReconstructionMetadataStatement
       R.reconstruction_package.smeared_field_operator /\
   R.reconstruction_package.vacuum_correlation_family =
       R.reconstruction_package.vacuum_correlation_family /\
+  R.reconstruction_package.smear_field =
+      R.reconstruction_package.smear_field /\
+  R.reconstruction_package.evaluate_vacuum_correlation =
+      R.reconstruction_package.evaluate_vacuum_correlation /\
   R.reconstruction_package.from_dossier =
       R.reconstruction_package.from_dossier := by
   exact And.intro rfl <|
@@ -50,7 +59,9 @@ theorem YangMillsEndpointReconstructionMetadataStatement
       And.intro rfl <|
         And.intro rfl <|
           And.intro rfl <|
-            And.intro rfl rfl
+            And.intro rfl <|
+              And.intro rfl <|
+                And.intro rfl rfl
 
 def YangMillsEndpointSemanticBundleData
   (R : YMEndpointCore)
@@ -69,11 +80,15 @@ def YangMillsEndpointSemanticBundleData
       test_function_space := R.reconstruction_package.test_function_space
       smeared_field_operator := R.reconstruction_package.smeared_field_operator
       vacuum_correlation_family := R.reconstruction_package.vacuum_correlation_family
+      smear_field := R.reconstruction_package.smear_field
+      evaluate_vacuum_correlation := R.reconstruction_package.evaluate_vacuum_correlation
       reconstruction_source_dossier := R.reconstruction_package.from_dossier
       reconstruction_ready := hnamed.1
       wightman_fields_present := hnamed.2.1
       vacuum_vector_present := hnamed.2.2.1
-      exact_endpoint := hnamed.2.2.2 }
+      smearing_defined := hnamed.2.2.2.1
+      vacuum_correlations_defined := hnamed.2.2.2.2.1
+      exact_endpoint := hnamed.2.2.2.2.2 }
 
 theorem YangMillsEndpointSemanticBundleExistsStatement
   (R : YMEndpointCore)
