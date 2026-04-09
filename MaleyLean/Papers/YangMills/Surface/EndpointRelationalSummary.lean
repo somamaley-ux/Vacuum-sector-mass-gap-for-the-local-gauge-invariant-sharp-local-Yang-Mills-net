@@ -17,9 +17,9 @@ theorem YangMillsEndpointRelationalSummaryStatement :
             R.reconstruction_package.smearing_defined /\
             R.reconstruction_package.vacuum_correlations_defined /\
             R.endpoint_object.exact_local_net_endpoint := by
-  intro R hE hP vac testFn field
+  intro R hE hP _vac _testFn _field
   exact
     YangMillsEndpointRelationalCompatibilityStatement
-      R hE hP vac testFn field
+      R hE hP _vac _testFn _field
 
 end MaleyLean

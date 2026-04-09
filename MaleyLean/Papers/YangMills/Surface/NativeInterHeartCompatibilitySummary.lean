@@ -13,51 +13,51 @@ theorem YangMillsNativeInterHeartCompatibilitySummaryStatement :
           forall hext : RC.finite_cap_extension_ready,
             forall hcompat : RC.bounded_state_compatibility_ready,
               forall hunion : RC.inductive_union_ready,
-                forall cwin :
+                forall _cwin :
                   (YangMillsConstructiveSemanticBundleData RC htrunc hext hcompat hunion).finite_cap_window,
-                  forall cbridge :
+                  forall _cbridge :
                     (YangMillsConstructiveSemanticBundleData RC htrunc hext hcompat hunion).positive_bridge_map,
-                    forall cbase :
+                    forall _cbase :
                       (YangMillsConstructiveSemanticBundleData RC htrunc hext hcompat hunion).bounded_base_carrier,
-                      forall cstate :
+                      forall _cstate :
                         (YangMillsConstructiveSemanticBundleData RC htrunc hext hcompat hunion).bounded_state_data,
-                        forall cunion :
+                        forall _cunion :
                           (YangMillsConstructiveSemanticBundleData RC htrunc hext hcompat hunion).inductive_union_data,
                           forall hww : RD.weak_window_certificate_ready,
-                            forall vtm : (YangMillsVacuumGapSemanticBundleData RD hww).transport_map,
-                              forall vobs :
+                            forall _vtm : (YangMillsVacuumGapSemanticBundleData RD hww).transport_map,
+                              forall _vobs :
                                 (YangMillsVacuumGapSemanticBundleData RD hww).lattice_observable_family,
-                                forall vrsec :
+                                forall _vrsec :
                                   (YangMillsVacuumGapSemanticBundleData RD hww).reconstructed_sector,
-                                  forall vcorr :
+                                  forall _vcorr :
                                     (YangMillsVacuumGapSemanticBundleData RD hww).os_correlation_family,
-                                    forall vgapf :
+                                    forall _vgapf :
                                       (YangMillsVacuumGapSemanticBundleData RD hww).minkowski_gap_functional,
-                                      forall vhgap :
+                                      forall _vhgap :
                                         (YangMillsVacuumGapSemanticBundleData RD hww).evaluate_minkowski_gap
-                                          vgapf
-                                          ((YangMillsVacuumGapSemanticBundleData RD hww).realize_os_sector vrsec vcorr),
+                                          _vgapf
+                                          ((YangMillsVacuumGapSemanticBundleData RD hww).realize_os_sector _vrsec _vcorr),
                                         forall hE : RE.euclidean_dossier_ready,
                                           forall hP : RE.endpoint_packet_ready,
-                                            forall evac :
+                                            forall _evac :
                                               (YangMillsEndpointSemanticBundleData RE hE hP).vacuum_vector,
-                                              forall etest :
+                                              forall _etest :
                                                 (YangMillsEndpointSemanticBundleData RE hE hP).test_function_space,
-                                                forall efield :
+                                                forall _efield :
                                                   (YangMillsEndpointSemanticBundleData RE hE hP).field_family,
                                                   Nonempty (YMNativeInterHeartCompatibility RC RD RE) /\
                                                   YMNativeConstructiveToVacuumGapCompatibility RC RD /\
                                                   YMNativeVacuumGapToEndpointCompatibility RD RE /\
                                                   YMNativeConstructiveToEndpointCompatibility RC RE := by
   intro RC RD RE htrunc hext hcompat hunion
-  intro cwin cbridge cbase cstate cunion
-  intro hww vtm vobs vrsec vcorr vgapf vhgap
-  intro hE hP evac etest efield
+  intro _cwin _cbridge _cbase _cstate _cunion
+  intro hww _vtm _vobs _vrsec _vcorr _vgapf _vhgap
+  intro hE hP _evac _etest _efield
   exact
     YangMillsNativeInterHeartCompatibilityWitnessStatement
       RC RD RE
-      htrunc hext hcompat hunion cwin cbridge cbase cstate cunion
-      hww vtm vobs vrsec vcorr vgapf vhgap
-      hE hP evac etest efield
+      htrunc hext hcompat hunion _cwin _cbridge _cbase _cstate _cunion
+      hww _vtm _vobs _vrsec _vcorr _vgapf _vhgap
+      hE hP _evac _etest _efield
 
 end MaleyLean
