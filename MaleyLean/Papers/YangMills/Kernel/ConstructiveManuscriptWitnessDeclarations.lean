@@ -1,69 +1,35 @@
 import MaleyLean.Papers.YangMills.Kernel.ConstructiveManuscriptCarrierDeclarations
 import MaleyLean.Papers.YangMills.Kernel.ConstructiveSemanticDefinitions
+import MaleyLean.Papers.YangMills.Kernel.ManuscriptDeclarations
 import MaleyLean.Papers.YangMills.Kernel.ConstructiveManuscriptWitnessData
 
 namespace MaleyLean
 
-/--
-The concrete payload carried by the manuscript's global `5.76` full-scope
-extension step: the assembled sharp-local state extends the bounded base state.
--/
-abbrev ym_constructive_576_extension_payload : Prop :=
-  (ym_constructive_manuscript_carrier_base.assemble_sharp_local_state
-    ym_constructive_manuscript_carrier_base.bounded_base_one
-    ym_constructive_manuscript_carrier_base.omega_bd
-    ym_constructive_manuscript_carrier_base.omega_sharp).extends_bounded_base
-
-/--
-Remaining Lane A theorem-core bundle.
-
-Manuscript reading:
-- `flowed_state_ready` is the `4.92` flowed continuum state step, with the
-  tuned bounded-base export recorded at `4.94`.
-- `finite_truncation_ready` is the `5.69` finite-truncation inverse-control
-  step, with the closure/remainder package at `5.70`.
-- `finite_cap_extension_ready` is the `5.74` finite-cap sharp-local extension
-  step, built on the promoted bridge `5.74A`.
-- `inductive_union_extends_bounded_base` is the global extension claim of
-  `5.76`, with `5.75` the finite-cap compatibility node.
--/
-structure YMConstructiveDeclBundle where
-  thm_492_flowed_state : Prop
-  thm_569_finite_truncation : Prop
-  thm_574_finite_cap_extension : Prop
-  thm_576_full_scope_extension : Prop
-  h492 : thm_492_flowed_state
-  h569 : thm_569_finite_truncation
-  h574 : thm_574_finite_cap_extension
-  h576 : thm_576_full_scope_extension
-  thm_576_exhibits_bounded_base_extension :
-    thm_576_full_scope_extension -> ym_constructive_576_extension_payload
-
-axiom ym_constructive_decl_bundle : YMConstructiveDeclBundle
-
 abbrev ym_constructive_492_flowed_state_statement : Prop :=
-  ym_constructive_decl_bundle.thm_492_flowed_state
+  YMConstructiveFlowedStateReady ym_constructive_manuscript_carrier_base
 
 abbrev ym_constructive_494_bounded_base_export_statement : Prop :=
   ym_constructive_492_flowed_state_statement
 
 abbrev ym_constructive_569_truncation_statement : Prop :=
-  ym_constructive_decl_bundle.thm_569_finite_truncation
+  YMConstructiveTruncationWindowReady ym_constructive_manuscript_carrier_base
 
 abbrev ym_constructive_570_closure_package_statement : Prop :=
   ym_constructive_569_truncation_statement
 
 abbrev ym_constructive_574A_bridge_statement : Prop :=
-  ym_constructive_decl_bundle.thm_574_finite_cap_extension
+  YMConstructivePositiveBridgeReady ym_constructive_manuscript_carrier_base
 
 abbrev ym_constructive_574_extension_statement : Prop :=
-  ym_constructive_574A_bridge_statement
+  YMConstructiveFiniteCapExtensionPackageReady
+    ym_constructive_manuscript_carrier_base
 
 abbrev ym_constructive_575_compatibility_statement : Prop :=
-  ym_constructive_574_extension_statement
+  YMConstructiveSharpLocalBoundedStateCompatibilityReady
+    ym_constructive_manuscript_carrier_base
 
 abbrev ym_constructive_576_union_statement : Prop :=
-  ym_constructive_decl_bundle.thm_576_full_scope_extension
+  YMConstructive576ExtensionPayload ym_constructive_manuscript_carrier_base
 
 abbrev ym_constructive_577_cyclicity_statement : Prop :=
   ym_constructive_576_union_statement
@@ -75,13 +41,13 @@ abbrev ym_constructive_decl_finite_truncation_ready : Prop :=
 abbrev ym_constructive_decl_finite_cap_extension_ready : Prop :=
   ym_constructive_574_extension_statement
 abbrev ym_constructive_decl_bounded_state_compatibility_ready : Prop :=
-  ym_constructive_decl_finite_cap_extension_ready
+  ym_constructive_575_compatibility_statement
 abbrev ym_constructive_decl_inductive_union_ready : Prop :=
   ym_constructive_576_union_statement
 abbrev ym_constructive_decl_cyclicity_ready : Prop :=
   ym_constructive_decl_inductive_union_ready
 abbrev ym_constructive_decl_finite_cap_bridge_ready : Prop :=
-  ym_constructive_decl_finite_cap_extension_ready
+  ym_constructive_574A_bridge_statement
 
 theorem ym_constructive_decl_htrunc :
   ym_constructive_decl_finite_truncation_ready := by
@@ -89,7 +55,7 @@ theorem ym_constructive_decl_htrunc :
 
 theorem ym_constructive_decl_hext :
   ym_constructive_decl_finite_cap_extension_ready := by
-  exact ym_constructive_decl_bundle.h574
+  exact ym_constructive_decl_bundle.h574.2
 
 theorem ym_constructive_492 :
   ym_constructive_492_flowed_state_statement := by
@@ -108,16 +74,18 @@ theorem ym_constructive_570 : ym_constructive_570_closure_package_statement := b
   exact ym_constructive_569
 
 theorem ym_constructive_574A : ym_constructive_574A_bridge_statement := by
-  exact ym_constructive_decl_bundle.h574
+  exact ym_constructive_decl_bundle.h574.1
 
 theorem ym_constructive_574 : ym_constructive_574_extension_statement := by
-  exact ym_constructive_574A
+  exact ym_constructive_decl_bundle.h574.2
 
 theorem ym_constructive_575 :
   ym_constructive_574_extension_statement ->
   ym_constructive_575_compatibility_statement := by
-  intro h575
-  exact h575
+  intro _
+  exact
+    ym_constructive_sharp_local_bounded_state_compatibility_ready_holds
+      ym_constructive_manuscript_carrier_base
 
 theorem ym_constructive_576 :
   ym_constructive_576_union_statement := by
@@ -135,7 +103,7 @@ theorem ym_constructive_decl_hunion :
 
 theorem ym_constructive_decl_hcompat :
   ym_constructive_decl_bounded_state_compatibility_ready := by
-  exact ym_constructive_decl_hext
+  exact ym_constructive_575 ym_constructive_574
 
 abbrev ym_constructive_decl_constructive_part : Prop :=
   ym_constructive_decl_flowed_state_ready /\
@@ -214,9 +182,9 @@ theorem ym_constructive_decl_inductive_union_exhibits_sharp_local :
 
 theorem ym_constructive_decl_inductive_union_extends_bounded_base :
   ym_constructive_decl_inductive_union_ready ->
-  ym_constructive_576_extension_payload := by
+  YMConstructive576ExtensionPayload ym_constructive_manuscript_carrier_base := by
   intro hUnion
-  exact ym_constructive_decl_bundle.thm_576_exhibits_bounded_base_extension hUnion
+  exact hUnion
 
 noncomputable def ym_constructive_manuscript_witness_data :
   YMConstructiveManuscriptWitnessData ym_constructive_manuscript_carrier_base :=

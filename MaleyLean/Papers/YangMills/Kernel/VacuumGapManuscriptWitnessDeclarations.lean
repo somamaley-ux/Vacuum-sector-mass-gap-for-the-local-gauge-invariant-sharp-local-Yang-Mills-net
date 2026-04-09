@@ -1,80 +1,31 @@
 import MaleyLean.Papers.YangMills.Kernel.VacuumGapManuscriptCarrierDeclarations
 import MaleyLean.Papers.YangMills.Kernel.VacuumSemanticDefinitions
+import MaleyLean.Papers.YangMills.Kernel.ManuscriptDeclarations
 import MaleyLean.Papers.YangMills.Kernel.VacuumGapManuscriptWitnessData
 
 namespace MaleyLean
 
-structure YMF216TransportPayload where
-  os_transport_ready : Prop
-  positive_gap_exhibited : Prop
-  lattice_gap_input : Prop
-
-structure YMVacuumReconstructionPayload where
-  os_sector_ready : Prop
-  minkowski_gap_ready : Prop
-  obtained_from_transport : Prop
-
-/--
-Remaining Route 1 / QE3 theorem-core bundle.
-
-Manuscript reading:
-- ultraviolet/public-scope readiness is the `III.1` ultraviolet gate with the
-  public export at `III.2`.
-- entrance readiness is `III.3`.
-- fixed-lattice gap readiness is `IV.1`.
-- weak-window readiness is `IV.4`, with proof-home certificate `F.298`.
-- continuum-gap transport readiness is `F.216`, with the sharp-local continuum
-  gap summarized at `F.5`.
-- The manuscript flow is
-  `N.21 -> F.3 -> F.4 -> III.18 -> F.211 -> F.212 -> F.213 -> F.214 -> F.216`,
-  with `F.298` certifying the repaired weak-window use.
--/
-structure YMVacuumDeclBundle where
-  thm_III1_ultraviolet_gate : Prop
-  thm_III3_entrance : Prop
-  thm_IV1_fixed_lattice_gap : Prop
-  thm_IV4_weak_window : Prop
-  thm_F216_transport : Prop
-  hIII1 : thm_III1_ultraviolet_gate
-  hIII3 : thm_III3_entrance
-  hIV4 : thm_IV4_weak_window
-  hF216 : thm_F216_transport
-  hIV1 : thm_IV1_fixed_lattice_gap
-  F216_transport_payload : YMF216TransportPayload
-  F216_reconstruction_payload : YMVacuumReconstructionPayload
-  thm_F216_exhibits_transport_payload :
-    thm_F216_transport ->
-      F216_transport_payload.os_transport_ready /\
-      F216_transport_payload.positive_gap_exhibited /\
-      F216_transport_payload.lattice_gap_input
-  thm_F216_exhibits_reconstruction_payload :
-    thm_F216_transport ->
-      F216_reconstruction_payload.os_sector_ready /\
-      F216_reconstruction_payload.minkowski_gap_ready /\
-      F216_reconstruction_payload.obtained_from_transport
-
-axiom ym_vacuum_decl_bundle : YMVacuumDeclBundle
-
 abbrev ym_vacuum_III1_ultraviolet_gate_statement : Prop :=
-  ym_vacuum_decl_bundle.thm_III1_ultraviolet_gate
+  YMVacuumUltravioletScopeReady ym_vacuum_gap_manuscript_carrier_base
 
 abbrev ym_vacuum_III2_public_scope_export_statement : Prop :=
   ym_vacuum_III1_ultraviolet_gate_statement
 
 abbrev ym_vacuum_III3_entrance_statement : Prop :=
-  ym_vacuum_decl_bundle.thm_III3_entrance
+  YMVacuumEntranceReady ym_vacuum_gap_manuscript_carrier_base
 
 abbrev ym_vacuum_IV1_fixed_lattice_gap_statement : Prop :=
-  ym_vacuum_decl_bundle.thm_IV1_fixed_lattice_gap
+  YMVacuumLatticeGapInputReady ym_vacuum_gap_manuscript_carrier_base
 
 abbrev ym_vacuum_IV4_weak_window_statement : Prop :=
-  ym_vacuum_decl_bundle.thm_IV4_weak_window
+  YMVacuumWeakWindowCertificateReady ym_vacuum_gap_manuscript_carrier_base
 
 abbrev ym_vacuum_F298_weak_window_certificate_statement : Prop :=
   ym_vacuum_IV4_weak_window_statement
 
 abbrev ym_vacuum_F216_transport_statement : Prop :=
-  ym_vacuum_decl_bundle.thm_F216_transport
+  YMVacuumOSTransportReady ym_vacuum_gap_manuscript_carrier_base /\
+  YMVacuumPositiveGapExhibited ym_vacuum_gap_manuscript_carrier_base
 
 abbrev ym_vacuum_F5_continuum_gap_statement : Prop :=
   ym_vacuum_F216_transport_statement

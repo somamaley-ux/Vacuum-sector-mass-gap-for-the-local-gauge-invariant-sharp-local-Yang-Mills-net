@@ -1,66 +1,24 @@
 import MaleyLean.Papers.YangMills.Kernel.EndpointManuscriptCarrierDeclarations
 import MaleyLean.Papers.YangMills.Kernel.EndpointSemanticDefinitions
 import MaleyLean.Papers.YangMills.Kernel.StandardOSWightmanBackground
+import MaleyLean.Papers.YangMills.Kernel.ManuscriptDeclarations
 import MaleyLean.Papers.YangMills.Kernel.EndpointManuscriptWitnessData
 
 namespace MaleyLean
 
-structure YMO5EndpointPayload where
-  faithful_wilson_universality : Prop
-  exact_local_net_endpoint : Prop
-
-/--
-Remaining endpoint theorem-core bundle.
-
-Manuscript reading:
-- `euclidean_dossier_ready` is the `M.1` Euclidean OS dossier step on the full
-  sharp-local algebra.
-- `endpoint_packet_ready` is the `O.5` exact local-net endpoint step.
-- The Lean-side reconstruction passage is the manuscript flow
-  `M.1 -> M.3 -> M.4 -> O.3 -> O.5`, with `O.7` only a group-only restatement.
--/
-structure YMEndpointDeclBundle where
-  M1_dossier_statement : Prop
-  O3_universality_statement : Prop
-  O5_exact_local_net_endpoint_statement : Prop
-  imported_reconstruction_ready : Prop
-  O5_payload : YMO5EndpointPayload
-  imported_os_background :
-    YMStandardOSWightmanBackground
-      M1_dossier_statement
-      imported_reconstruction_ready
-      (YMEndpointVacuumVectorPresent ym_endpoint_manuscript_carrier_base)
-      (YMEndpointWightmanFieldsPresent ym_endpoint_manuscript_carrier_base)
-      (YMEndpointSmearingDefined ym_endpoint_manuscript_carrier_base)
-      (YMEndpointVacuumCorrelationsDefined ym_endpoint_manuscript_carrier_base)
-  hM1 : M1_dossier_statement
-  hO3 : O3_universality_statement
-  hO5 : O5_exact_local_net_endpoint_statement
-  M1_exhibits_reflection_positive :
-    M1_dossier_statement ->
-      YMEndpointReflectionPositive ym_endpoint_manuscript_carrier_base
-  M1_exhibits_os_data_complete :
-    M1_dossier_statement ->
-      YMEndpointOSDataComplete ym_endpoint_manuscript_carrier_base
-  O3_exhibits_universality_payload :
-    O3_universality_statement -> O5_payload.faithful_wilson_universality
-  O5_exhibits_endpoint_payload :
-    O5_exact_local_net_endpoint_statement -> O5_payload.exact_local_net_endpoint
-
-axiom ym_endpoint_decl_bundle : YMEndpointDeclBundle
-
 abbrev ym_endpoint_M1_dossier_statement : Prop :=
-  ym_endpoint_decl_bundle.M1_dossier_statement
+  YMEndpointReflectionPositive ym_endpoint_manuscript_carrier_base /\
+  YMEndpointOSDataComplete ym_endpoint_manuscript_carrier_base
 
 abbrev ym_endpoint_O5_exact_local_net_endpoint_statement : Prop :=
-  ym_endpoint_decl_bundle.O5_exact_local_net_endpoint_statement
+  YMEndpointExactLocalNetEndpoint ym_endpoint_manuscript_carrier_base
 
 abbrev ym_endpoint_decl_euclidean_dossier_ready : Prop :=
   ym_endpoint_M1_dossier_statement
 abbrev ym_endpoint_decl_endpoint_packet_ready : Prop :=
   ym_endpoint_O5_exact_local_net_endpoint_statement
 abbrev ym_endpoint_decl_reconstruction_ready : Prop :=
-  ym_endpoint_decl_bundle.imported_reconstruction_ready
+  ym_endpoint_decl_bundle.imported_os_background.reconstruction_ready
 abbrev ym_endpoint_decl_vacuum_vector_present : Prop :=
   YMEndpointVacuumVectorPresent ym_endpoint_manuscript_carrier_base
 abbrev ym_endpoint_decl_wightman_fields_present : Prop :=
@@ -80,7 +38,7 @@ abbrev ym_endpoint_M4_field_correspondence_statement : Prop :=
   ym_endpoint_decl_vacuum_correlations_defined
 
 abbrev ym_endpoint_O3_universality_statement : Prop :=
-  ym_endpoint_decl_bundle.O3_universality_statement
+  YMEndpointFaithfulWilsonUniversality ym_endpoint_manuscript_carrier_base
 
 abbrev ym_endpoint_O7_group_only_restatement_statement : Prop :=
   ym_endpoint_O5_exact_local_net_endpoint_statement
@@ -121,9 +79,9 @@ abbrev ym_endpoint_decl_reflection_positive : Prop :=
 abbrev ym_endpoint_decl_os_data_complete : Prop :=
   YMEndpointOSDataComplete ym_endpoint_manuscript_carrier_base
 abbrev ym_endpoint_decl_faithful_wilson_universality : Prop :=
-  ym_endpoint_decl_bundle.O5_payload.faithful_wilson_universality
+  ym_endpoint_O3_universality_statement
 abbrev ym_endpoint_decl_exact_local_net_endpoint : Prop :=
-  ym_endpoint_decl_bundle.O5_payload.exact_local_net_endpoint
+  ym_endpoint_O5_exact_local_net_endpoint_statement
 abbrev ym_endpoint_decl_part : Prop :=
   ym_endpoint_decl_euclidean_dossier_ready /\
   ym_endpoint_decl_reconstruction_ready /\
@@ -166,22 +124,22 @@ theorem ym_endpoint_decl_reconstruction_exhibits_vacuum_correlations :
 theorem ym_endpoint_decl_endpoint_packet_exhibits_exact_endpoint :
   ym_endpoint_decl_endpoint_packet_ready -> ym_endpoint_decl_exact_local_net_endpoint := by
   intro hP
-  exact ym_endpoint_decl_bundle.O5_exhibits_endpoint_payload hP
+  exact hP
 
 theorem ym_endpoint_decl_M1_exhibits_reflection_positive :
   ym_endpoint_decl_euclidean_dossier_ready -> ym_endpoint_decl_reflection_positive := by
-  intro hM1
-  exact ym_endpoint_decl_bundle.M1_exhibits_reflection_positive hM1
+  intro _
+  exact ym_endpoint_reflection_positive_holds ym_endpoint_manuscript_carrier_base
 
 theorem ym_endpoint_decl_M1_exhibits_os_data_complete :
   ym_endpoint_decl_euclidean_dossier_ready -> ym_endpoint_decl_os_data_complete := by
-  intro hM1
-  exact ym_endpoint_decl_bundle.M1_exhibits_os_data_complete hM1
+  intro _
+  exact ym_endpoint_os_data_complete_holds ym_endpoint_manuscript_carrier_base
 
 theorem ym_endpoint_decl_O3_exhibits_universality :
   ym_endpoint_O3_universality_statement -> ym_endpoint_decl_faithful_wilson_universality := by
   intro hO3
-  exact ym_endpoint_decl_bundle.O3_exhibits_universality_payload hO3
+  exact hO3
 
 noncomputable def ym_endpoint_manuscript_witness_data :
   YMEndpointManuscriptWitnessData ym_endpoint_manuscript_carrier_base :=

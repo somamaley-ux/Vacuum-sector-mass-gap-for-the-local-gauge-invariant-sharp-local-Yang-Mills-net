@@ -9,11 +9,11 @@ paper cites as imported standard input.
 -/
 structure YMStandardOSWightmanBackground
     (dossier_ready : Prop)
-    (reconstruction_ready : Prop)
     (vacuum_vector_present : Prop)
     (wightman_fields_present : Prop)
     (smearing_defined : Prop)
     (vacuum_correlations_defined : Prop) where
+  reconstruction_ready : Prop
   dossier_implies_reconstruction :
     dossier_ready -> reconstruction_ready
   reconstruction_exhibits_vacuum :

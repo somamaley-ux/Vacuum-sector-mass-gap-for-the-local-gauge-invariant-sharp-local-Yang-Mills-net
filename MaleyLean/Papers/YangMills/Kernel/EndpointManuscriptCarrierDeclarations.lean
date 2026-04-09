@@ -1,6 +1,7 @@
-import MaleyLean.Papers.YangMills.Kernel.EndpointManuscriptCarrierBase
-
+import MaleyLean.Papers.YangMills.Kernel.ManuscriptDeclarations
 namespace MaleyLean
+
+noncomputable section
 
 /--
 Concrete manuscript-facing endpoint carrier declarations.
@@ -9,33 +10,53 @@ These are object-level declarations only: the carrier types, chosen inhabitants,
 and basic operations needed to instantiate the endpoint packet's manuscript
 base. They do not add any theorem-strengthening proof data.
 -/
-axiom EndpointEuclideanInput : Type
-axiom EndpointReconstructedHilbert : Type
-axiom EndpointFieldFamily : Type
-axiom EndpointTestFunctionSpace : Type
-axiom EndpointSmearedFieldOperator : Type
-axiom EndpointVacuumCorrelationFamily : Type
-axiom EndpointLocalNet : Type
-axiom EndpointVacuumSector : Type
+abbrev EndpointEuclideanInput : Type :=
+  ym_endpoint_carrier_decls.EndpointEuclideanInput
 
-axiom endpoint_smear_field :
+abbrev EndpointReconstructedHilbert : Type :=
+  ym_endpoint_carrier_decls.EndpointReconstructedHilbert
+
+abbrev EndpointFieldFamily : Type :=
+  ym_endpoint_carrier_decls.EndpointFieldFamily
+
+abbrev EndpointTestFunctionSpace : Type :=
+  ym_endpoint_carrier_decls.EndpointTestFunctionSpace
+
+abbrev EndpointSmearedFieldOperator : Type :=
+  ym_endpoint_carrier_decls.EndpointSmearedFieldOperator
+
+abbrev EndpointVacuumCorrelationFamily : Type :=
+  ym_endpoint_carrier_decls.EndpointVacuumCorrelationFamily
+
+abbrev EndpointLocalNet : Type :=
+  ym_endpoint_carrier_decls.EndpointLocalNet
+
+abbrev EndpointVacuumSector : Type :=
+  ym_endpoint_carrier_decls.EndpointVacuumSector
+
+abbrev endpoint_smear_field :
   EndpointTestFunctionSpace ->
   EndpointFieldFamily ->
-  EndpointSmearedFieldOperator
+  EndpointSmearedFieldOperator :=
+  ym_endpoint_carrier_decls.endpoint_smear_field
 
-axiom endpoint_evaluate_vacuum_correlation :
+abbrev endpoint_evaluate_vacuum_correlation :
   EndpointReconstructedHilbert ->
   EndpointSmearedFieldOperator ->
-  EndpointVacuumCorrelationFamily
+  EndpointVacuumCorrelationFamily :=
+  ym_endpoint_carrier_decls.endpoint_evaluate_vacuum_correlation
 
 /-- Reconstructed vacuum vector from the Appendix M reconstruction package. -/
-axiom Omega_loc : EndpointReconstructedHilbert
+abbrev Omega_loc : EndpointReconstructedHilbert :=
+  ym_endpoint_carrier_decls.Omega_loc
 
 /-- Canonical witness test function from the non-triviality witness theorem. -/
-axiom phi_star : EndpointTestFunctionSpace
+abbrev phi_star : EndpointTestFunctionSpace :=
+  ym_endpoint_carrier_decls.phi_star
 
 /-- Canonical centered CP-even dimension-4 scalar witness field. -/
-axiom E_ren : EndpointFieldFamily
+abbrev E_ren : EndpointFieldFamily :=
+  ym_endpoint_carrier_decls.E_ren
 
 noncomputable def ym_endpoint_manuscript_carrier_base :
   YMEndpointManuscriptCarrierBase :=
@@ -58,5 +79,7 @@ theorem ym_endpoint_manuscript_carrier_base_named_outputs :
   ym_endpoint_manuscript_carrier_base.phi_star = phi_star /\
   ym_endpoint_manuscript_carrier_base.E_ren = E_ren := by
   exact ⟨rfl, rfl, rfl⟩
+
+end
 
 end MaleyLean

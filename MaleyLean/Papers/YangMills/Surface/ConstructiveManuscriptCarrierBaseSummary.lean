@@ -4,6 +4,7 @@ namespace MaleyLean
 
 theorem YangMillsConstructiveManuscriptCarrierBaseSummaryStatement
   (B : YMConstructiveManuscriptCarrierBase) :
+  B.omega_flow = B.omega_flow /\
   B.DeltaMax = B.DeltaMax /\
   B.finite_cap_bridge = B.finite_cap_bridge /\
   B.bounded_base_one = B.bounded_base_one /\

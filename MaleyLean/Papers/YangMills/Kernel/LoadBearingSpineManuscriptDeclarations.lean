@@ -195,7 +195,9 @@ theorem ym_load_bearing_spine_manuscript_object_named_outputs :
       ym_spine_packet9_reconstruction /\
   ym_load_bearing_spine_manuscript_object.theorem_parts =
       ym_spine_theorem_parts := by
-  simpa [ym_load_bearing_spine_manuscript_object] using
-    YangMillsLoadBearingSpineManuscriptObjectStatement ym_load_bearing_spine_manuscript_object
+  exact by
+    simpa [ym_load_bearing_spine_manuscript_object] using
+      YangMillsLoadBearingSpineManuscriptObjectStatement
+        ym_load_bearing_spine_manuscript_object
 
 end MaleyLean

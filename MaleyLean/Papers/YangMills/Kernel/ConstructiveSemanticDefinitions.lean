@@ -3,12 +3,20 @@ import MaleyLean.Papers.YangMills.Kernel.ConstructiveManuscriptCarrierBase
 namespace MaleyLean
 
 /--
+Carrier-level semantic shadow for the unique flowed continuum state selected in
+the constructive manuscript packet.
+-/
+def YMConstructiveFlowedStateReady
+    (B : YMConstructiveManuscriptCarrierBase) : Prop :=
+  Exists fun omega : B.FlowedStateData => omega = B.omega_flow
+
+/--
 Carrier-level semantic shadow for the finite-cap window selected in the
 constructive manuscript packet.
 -/
 def YMConstructiveTruncationWindowReady
     (B : YMConstructiveManuscriptCarrierBase) : Prop :=
-  ∃ Δ : B.FiniteCapWindow, Δ = B.DeltaMax
+  Exists fun delta : B.FiniteCapWindow => delta = B.DeltaMax
 
 /--
 Carrier-level semantic shadow for the finite-cap extension package attached to
@@ -16,7 +24,7 @@ the chosen cap and positive bridge.
 -/
 def YMConstructiveFiniteCapExtensionPackageReady
     (B : YMConstructiveManuscriptCarrierBase) : Prop :=
-  ∃ pkg : B.FiniteCapExtensionData,
+  Exists fun pkg : B.FiniteCapExtensionData =>
     pkg = B.extend_finite_cap B.DeltaMax B.finite_cap_bridge
 
 /--
@@ -25,7 +33,7 @@ constructive manuscript.
 -/
 def YMConstructivePositiveBridgeReady
     (B : YMConstructiveManuscriptCarrierBase) : Prop :=
-  ∃ br : B.PositiveBridgeMap, br = B.finite_cap_bridge
+  Exists fun br : B.PositiveBridgeMap => br = B.finite_cap_bridge
 
 /--
 Carrier-level semantic shadow for the assembled sharp-local state used on the
@@ -33,8 +41,8 @@ constructive side of the manuscript.
 -/
 def YMConstructiveSharpLocalStatePresent
     (B : YMConstructiveManuscriptCarrierBase) : Prop :=
-  ∃ S : YMSharpLocalState,
-    S =
+  Exists fun s : YMSharpLocalState =>
+    s =
       B.assemble_sharp_local_state
         B.bounded_base_one
         B.omega_bd
@@ -52,6 +60,11 @@ def YMConstructiveSharpLocalBoundedStateCompatibilityReady
 def YMConstructiveSharpLocalInductiveUnionReady
     (B : YMConstructiveManuscriptCarrierBase) : Prop :=
   YMConstructiveSharpLocalStatePresent B
+
+theorem ym_constructive_flowed_state_ready_holds
+    (B : YMConstructiveManuscriptCarrierBase) :
+    YMConstructiveFlowedStateReady B := by
+  exact ⟨B.omega_flow, rfl⟩
 
 theorem ym_constructive_truncation_window_ready_holds
     (B : YMConstructiveManuscriptCarrierBase) :

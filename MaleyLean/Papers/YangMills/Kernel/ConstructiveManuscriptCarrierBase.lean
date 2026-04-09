@@ -13,6 +13,7 @@ This is the lowest honest object-level constructive layer:
 No theorem/proof fields live here.
 -/
 structure YMConstructiveManuscriptCarrierBase where
+  FlowedStateData : Type
   FiniteCapWindow : Type
   FiniteCapExtensionData : Type
   PositiveBridgeMap : Type
@@ -26,6 +27,7 @@ structure YMConstructiveManuscriptCarrierBase where
     BoundedStateData ->
     InductiveUnionData ->
     YMSharpLocalState
+  omega_flow : FlowedStateData
   DeltaMax : FiniteCapWindow
   finite_cap_bridge : PositiveBridgeMap
   bounded_base_one : BoundedBaseCarrier
@@ -34,11 +36,13 @@ structure YMConstructiveManuscriptCarrierBase where
 
 theorem YangMillsConstructiveManuscriptCarrierBaseStatement
   (B : YMConstructiveManuscriptCarrierBase) :
+  B.omega_flow = B.omega_flow /\
   B.DeltaMax = B.DeltaMax /\
   B.finite_cap_bridge = B.finite_cap_bridge /\
   B.bounded_base_one = B.bounded_base_one /\
   B.omega_bd = B.omega_bd /\
   B.omega_sharp = B.omega_sharp := by
-  exact ⟨rfl, rfl, rfl, rfl, rfl⟩
+  exact And.intro rfl <| And.intro rfl <| And.intro rfl <|
+    And.intro rfl <| And.intro rfl rfl
 
 end MaleyLean

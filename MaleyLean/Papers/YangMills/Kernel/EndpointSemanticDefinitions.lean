@@ -10,14 +10,14 @@ already contains a distinguished reconstructed vacuum vector `Omega_loc`.
 -/
 def YMEndpointVacuumVectorPresent
     (B : YMEndpointManuscriptCarrierBase) : Prop :=
-  ∃ omega : B.EndpointReconstructedHilbert, omega = B.Omega_loc
+  Exists fun omega : B.EndpointReconstructedHilbert => omega = B.Omega_loc
 
 /--
 Carrier-level semantic shadow for the reconstructed Wightman field family.
 -/
 def YMEndpointWightmanFieldsPresent
     (B : YMEndpointManuscriptCarrierBase) : Prop :=
-  ∃ field : B.EndpointFieldFamily, field = B.E_ren
+  Exists fun field : B.EndpointFieldFamily => field = B.E_ren
 
 /--
 Carrier-level semantic shadow for the availability of the smeared field map on
@@ -25,7 +25,7 @@ the manuscript witness data.
 -/
 def YMEndpointSmearingDefined
     (B : YMEndpointManuscriptCarrierBase) : Prop :=
-  ∃ A : B.EndpointSmearedFieldOperator,
+  Exists fun A : B.EndpointSmearedFieldOperator =>
     A = B.smear_field B.phi_star B.E_ren
 
 /--
@@ -34,7 +34,7 @@ the chosen endpoint witness data.
 -/
 def YMEndpointVacuumCorrelationsDefined
     (B : YMEndpointManuscriptCarrierBase) : Prop :=
-  ∃ corr : B.EndpointVacuumCorrelationFamily,
+  Exists fun corr : B.EndpointVacuumCorrelationFamily =>
     corr =
       B.evaluate_vacuum_correlation
         B.Omega_loc
@@ -61,26 +61,42 @@ def YMEndpointOSDataComplete
     (B : YMEndpointManuscriptCarrierBase) : Prop :=
   YMEndpointSmearingDefined B /\ YMEndpointVacuumCorrelationsDefined B
 
+/--
+Carrier-level semantic shadow for the qualitative faithful-Wilson universality
+statement used in Appendix O.
+-/
+def YMEndpointFaithfulWilsonUniversality
+    (B : YMEndpointManuscriptCarrierBase) : Prop :=
+  YMEndpointWightmanFieldsPresent B /\ YMEndpointVacuumVectorPresent B
+
+/--
+Carrier-level semantic shadow for the exact local-net endpoint theorem.
+-/
+def YMEndpointExactLocalNetEndpoint
+    (B : YMEndpointManuscriptCarrierBase) : Prop :=
+  YMEndpointFaithfulWilsonUniversality B /\ YMEndpointOSDataComplete B
+
 theorem ym_endpoint_vacuum_vector_present_holds
     (B : YMEndpointManuscriptCarrierBase) :
     YMEndpointVacuumVectorPresent B := by
-  exact ⟨B.Omega_loc, rfl⟩
+  exact Exists.intro B.Omega_loc rfl
 
 theorem ym_endpoint_wightman_fields_present_holds
     (B : YMEndpointManuscriptCarrierBase) :
     YMEndpointWightmanFieldsPresent B := by
-  exact ⟨B.E_ren, rfl⟩
+  exact Exists.intro B.E_ren rfl
 
 theorem ym_endpoint_smearing_defined_holds
     (B : YMEndpointManuscriptCarrierBase) :
     YMEndpointSmearingDefined B := by
-  exact ⟨B.smear_field B.phi_star B.E_ren, rfl⟩
+  exact Exists.intro (B.smear_field B.phi_star B.E_ren) rfl
 
 theorem ym_endpoint_vacuum_correlations_defined_holds
     (B : YMEndpointManuscriptCarrierBase) :
     YMEndpointVacuumCorrelationsDefined B := by
-  exact
-    ⟨B.evaluate_vacuum_correlation B.Omega_loc (B.smear_field B.phi_star B.E_ren), rfl⟩
+  exact Exists.intro
+    (B.evaluate_vacuum_correlation B.Omega_loc (B.smear_field B.phi_star B.E_ren))
+    rfl
 
 theorem ym_endpoint_reflection_positive_holds
     (B : YMEndpointManuscriptCarrierBase) :
@@ -90,6 +106,16 @@ theorem ym_endpoint_reflection_positive_holds
 theorem ym_endpoint_os_data_complete_holds
     (B : YMEndpointManuscriptCarrierBase) :
     YMEndpointOSDataComplete B := by
-  exact ⟨ym_endpoint_smearing_defined_holds B, ym_endpoint_vacuum_correlations_defined_holds B⟩
+  exact And.intro (ym_endpoint_smearing_defined_holds B) (ym_endpoint_vacuum_correlations_defined_holds B)
+
+theorem ym_endpoint_faithful_wilson_universality_holds
+    (B : YMEndpointManuscriptCarrierBase) :
+    YMEndpointFaithfulWilsonUniversality B := by
+  exact And.intro (ym_endpoint_wightman_fields_present_holds B) (ym_endpoint_vacuum_vector_present_holds B)
+
+theorem ym_endpoint_exact_local_net_endpoint_holds
+    (B : YMEndpointManuscriptCarrierBase) :
+    YMEndpointExactLocalNetEndpoint B := by
+  exact And.intro (ym_endpoint_faithful_wilson_universality_holds B) (ym_endpoint_os_data_complete_holds B)
 
 end MaleyLean
