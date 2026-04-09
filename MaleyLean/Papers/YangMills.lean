@@ -30,6 +30,8 @@ import MaleyLean.Papers.YangMills.Kernel.NativeLawAssembly
 import MaleyLean.Papers.YangMills.Kernel.NativeConstructiveEndpointLaw
 import MaleyLean.Papers.YangMills.Kernel.NativeConstructiveVacuumGapLaw
 import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartLawSummary
+import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartLawObject
+import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartLawConsequences
 import MaleyLean.Papers.YangMills.Kernel.NativeLawConsequences
 import MaleyLean.Papers.YangMills.Kernel.NativeVacuumGapEndpointLaw
 import MaleyLean.Papers.YangMills.Kernel.NativeInterHeartCompatibility
@@ -76,6 +78,8 @@ import MaleyLean.Papers.YangMills.Surface.HeartBridgeTheoremAlignmentSummary
 import MaleyLean.Papers.YangMills.Surface.InterHeartCompatibilitySummary
 import MaleyLean.Papers.YangMills.Surface.NativeLawAssemblySummary
 import MaleyLean.Papers.YangMills.Surface.NativeCrossHeartLawSummary
+import MaleyLean.Papers.YangMills.Surface.NativeCrossHeartLawObjectSummary
+import MaleyLean.Papers.YangMills.Surface.NativeCrossHeartLawConsequencesSummary
 import MaleyLean.Papers.YangMills.Surface.NativeLawConsequencesSummary
 import MaleyLean.Papers.YangMills.Surface.NativeInterHeartCompatibilitySummary
 import MaleyLean.Papers.YangMills.Surface.RelationalAssemblySummary
