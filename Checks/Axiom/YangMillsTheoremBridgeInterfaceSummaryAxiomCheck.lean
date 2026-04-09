@@ -1,0 +1,7 @@
+import MaleyLean.YangMillsTheoremBridgeInterfaceSummary
+
+namespace MaleyLean
+
+#print axioms YangMillsTheoremBridgeInterfaceSummaryExportStatement
+
+end MaleyLean

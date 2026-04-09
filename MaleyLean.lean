@@ -74,6 +74,7 @@ import MaleyLean.Papers.YangMills.Kernel.SemanticAssembly
 import MaleyLean.Papers.YangMills.Kernel.SemanticCompatibility
 import MaleyLean.Papers.YangMills.Kernel.SeamRegister
 import MaleyLean.Papers.YangMills.Kernel.TheoremPartAlignment
+import MaleyLean.Papers.YangMills.Kernel.TheoremBridgeInterface
 import MaleyLean.Papers.YangMills.Kernel.VacuumGapCore
 import MaleyLean.Papers.YangMills.Kernel.VacuumGapRelationalInterface
 import MaleyLean.Papers.YangMills.Kernel.VacuumGapSemanticBundle
@@ -103,6 +104,7 @@ import MaleyLean.Papers.YangMills.Surface.SemanticCompatibilitySummary
 import MaleyLean.Papers.YangMills.Surface.SemanticAssemblySummary
 import MaleyLean.Papers.YangMills.Surface.Summary
 import MaleyLean.Papers.YangMills.Surface.SummaryWitnessed
+import MaleyLean.Papers.YangMills.Surface.TheoremBridgeInterfaceSummary
 import MaleyLean.Papers.YangMills.Surface.VacuumGapRelationalSummary
 import MaleyLean.Papers.YangMills.Surface.WitnessBundleSummary
 import MaleyLean.Papers.YangMills.Surface.WitnessHeartSummary
