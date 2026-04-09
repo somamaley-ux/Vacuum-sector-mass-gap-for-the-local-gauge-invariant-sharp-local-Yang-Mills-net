@@ -1,0 +1,7 @@
+import MaleyLean.YangMillsBridgeLawConsequences
+
+namespace MaleyLean
+
+#print axioms YangMillsBridgeLawConsequencesExportStatement
+
+end MaleyLean
