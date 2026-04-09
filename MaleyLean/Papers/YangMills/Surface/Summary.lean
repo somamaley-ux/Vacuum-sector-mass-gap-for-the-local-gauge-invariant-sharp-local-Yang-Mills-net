@@ -66,19 +66,18 @@ theorem YangMillsPaperSurfaceSummaryStatement :
       .laneASharpLocalConstruction /\
     ym_verbatim_theorem_owner .exactLocalNetEndpointAndExclusionOfExtendedSupportSectorData =
       .reconstructionAndUniversality) /\
-  ((∀ RC : YMConstructiveRoute,
+  ((forall RC : YMConstructiveRoute,
       RC.finite_truncation_ready ->
       RC.finite_cap_extension_ready ->
       RC.bounded_state_compatibility_ready ->
       RC.inductive_union_ready ->
       RC.finite_cap_package.positive_bridge_ready /\
         RC.sharp_local_package.sharp_local_state.extends_bounded_base) /\
-    (∀ RD : YMVacuumGapRoute,
+    (forall RD : YMVacuumGapRoute,
       RD.weak_window_certificate_ready ->
-      RD.reconstruction_ready ->
       RD.transport_package.positive_gap_exhibited /\
         RD.reconstruction_package.minkowski_gap_ready) /\
-    (∀ RE : YMEndpointCore,
+    (forall RE : YMEndpointCore,
       RE.euclidean_dossier_ready ->
       RE.endpoint_packet_ready ->
       RE.reconstruction_package.wightman_fields_present /\
@@ -127,9 +126,9 @@ theorem YangMillsPaperSurfaceSummaryStatement :
           exact And.intro h.2.2.1 h.2.2.2.2.2)
         <| And.intro
           (by
-            intro RD hww hrec
-            have h := YangMillsVacuumGapCoreExhibitsNamedOutputsStatement RD hww hrec
-            exact And.intro h.2.1 h.2.2.2.2)
+            intro RD hww
+            have h := YangMillsVacuumGapCoreExhibitsNamedOutputsStatement RD hww
+            exact And.intro h.2.2.1 h.2.2.2.2.2.2.1)
           (by
             intro RE hE hP
             have h := YangMillsEndpointCoreExhibitsNamedOutputsStatement RE hE hP
