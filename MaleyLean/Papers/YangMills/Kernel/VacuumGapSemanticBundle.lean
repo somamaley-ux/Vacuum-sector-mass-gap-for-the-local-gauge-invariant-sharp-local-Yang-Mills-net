@@ -9,8 +9,12 @@ reconstruction data, and transport origin together in one typed object.
 structure YMVacuumGapSemanticBundle (R : YMVacuumGapRoute) where
   transport_package_shape : YMTransportPackage
   transport_state : Type
+  lattice_observable_family : Type
+  transport_map : Type
   reconstructed_sector : Type
   os_sector : Type
+  minkowski_gap_functional : Type
+  os_correlation_family : Type
   reconstruction_package_shape : YMVacuumReconstructionPackage
   continuum_gap_transport_ready : R.continuum_gap_transport_ready
   os_transport_ready : R.transport_package.os_transport_ready
@@ -26,12 +30,27 @@ theorem YangMillsVacuumGapPackageMetadataStatement
   R.transport_package = R.transport_package /\
   R.transport_package.transport_state =
       R.transport_package.transport_state /\
+  R.transport_package.lattice_observable_family =
+      R.transport_package.lattice_observable_family /\
+  R.transport_package.transport_map =
+      R.transport_package.transport_map /\
   R.reconstruction_package.reconstructed_sector =
       R.reconstruction_package.reconstructed_sector /\
   R.reconstruction_package.os_sector =
       R.reconstruction_package.os_sector /\
+  R.reconstruction_package.minkowski_gap_functional =
+      R.reconstruction_package.minkowski_gap_functional /\
+  R.reconstruction_package.os_correlation_family =
+      R.reconstruction_package.os_correlation_family /\
   R.reconstruction_package = R.reconstruction_package := by
-  exact And.intro rfl <| And.intro rfl <| And.intro rfl <| And.intro rfl rfl
+  exact And.intro rfl <|
+    And.intro rfl <|
+      And.intro rfl <|
+        And.intro rfl <|
+          And.intro rfl <|
+            And.intro rfl <|
+              And.intro rfl <|
+                And.intro rfl rfl
 
 def YangMillsVacuumGapSemanticBundleData
   (R : YMVacuumGapRoute)
@@ -41,8 +60,12 @@ def YangMillsVacuumGapSemanticBundleData
   refine
     { transport_package_shape := R.transport_package
       transport_state := R.transport_package.transport_state
+      lattice_observable_family := R.transport_package.lattice_observable_family
+      transport_map := R.transport_package.transport_map
       reconstructed_sector := R.reconstruction_package.reconstructed_sector
       os_sector := R.reconstruction_package.os_sector
+      minkowski_gap_functional := R.reconstruction_package.minkowski_gap_functional
+      os_correlation_family := R.reconstruction_package.os_correlation_family
       reconstruction_package_shape := R.reconstruction_package
       continuum_gap_transport_ready := h.1
       os_transport_ready := h.2.1
