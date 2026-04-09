@@ -1,4 +1,5 @@
 import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartLawObject
+import MaleyLean.Papers.YangMills.Kernel.NativeInterHeartCompatibility
 import MaleyLean.Papers.YangMills.Kernel.NativeLawAssembly
 
 namespace MaleyLean
@@ -84,7 +85,13 @@ def YangMillsNativeVacuumGapEndpointFactorizationData
         O.compatibility.vacuum_gap_to_endpoint A.vacuum_gap.minkowski_gap_witness
       composite_image_definition := rfl
       direct_image_definition := rfl
-      factorization_agrees := rfl }
+      factorization_agrees := by
+        exact
+          YangMillsNativeVacuumGapEndpointRouteAgreementStatement
+            RC RD RE
+            htrunc hext hcompat hunion cwin cbridge cbase cstate cunion
+            hww vtm vobs vrsec vcorr vgapf vhgap
+            hE hP evac etest efield }
 
 theorem YangMillsNativeVacuumGapEndpointFactorizationWitnessStatement
   (RC : YMConstructiveRoute)

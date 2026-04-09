@@ -1,4 +1,5 @@
 import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartLawObject
+import MaleyLean.Papers.YangMills.Kernel.NativeInterHeartCompatibility
 
 namespace MaleyLean
 
@@ -56,12 +57,24 @@ def YangMillsNativeVacuumGapEndpointImageBridgeData
       htrunc hext hcompat hunion cwin cbridge cbase cstate cunion
       hww vtm vobs vrsec vcorr vgapf vhgap
       hE hP evac etest efield
+  let A :=
+    YangMillsNativeLawAssemblyData
+      RC RD RE
+      htrunc hext hcompat hunion cwin cbridge cbase cstate cunion
+      hww vtm vobs vrsec vcorr vgapf vhgap
+      hE hP evac etest efield
   refine
     { law_object := O
       chosen_vacuum_gap_ready := O.vacuum_gap_ready
       endpoint_image :=
         O.compatibility.vacuum_gap_to_endpoint O.vacuum_gap_ready
-      image_bridge_compatibility := rfl }
+      image_bridge_compatibility := by
+        exact
+          YangMillsNativeVacuumGapEndpointRouteAgreementStatement
+            RC RD RE
+            htrunc hext hcompat hunion cwin cbridge cbase cstate cunion
+            hww vtm vobs vrsec vcorr vgapf vhgap
+            hE hP evac etest efield }
 
 theorem YangMillsNativeVacuumGapEndpointImageBridgeWitnessStatement
   (RC : YMConstructiveRoute)

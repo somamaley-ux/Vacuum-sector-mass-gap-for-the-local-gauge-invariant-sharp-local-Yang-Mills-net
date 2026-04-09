@@ -1,4 +1,5 @@
 import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartLawObject
+import MaleyLean.Papers.YangMills.Kernel.NativeInterHeartCompatibility
 
 namespace MaleyLean
 
@@ -68,7 +69,13 @@ def YangMillsNativeConstructiveVacuumGapStateBridgeData
       state_level_vacuum_gap_ready :=
         O.compatibility.constructive_state_to_vacuum_gap
           A.constructive.interface.chosen_sharp_local_state
-      state_bridge_compatibility := rfl }
+      state_bridge_compatibility := by
+        exact
+          YangMillsNativeConstructiveStateToVacuumGapChosenAgreementStatement
+            RC RD RE
+            htrunc hext hcompat hunion cwin cbridge cbase cstate cunion
+            hww vtm vobs vrsec vcorr vgapf vhgap
+            hE hP evac etest efield }
 
 theorem YangMillsNativeConstructiveVacuumGapStateBridgeWitnessStatement
   (RC : YMConstructiveRoute)

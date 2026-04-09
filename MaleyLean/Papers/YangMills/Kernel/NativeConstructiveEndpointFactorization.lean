@@ -1,4 +1,5 @@
 import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartLawObject
+import MaleyLean.Papers.YangMills.Kernel.NativeInterHeartCompatibility
 import MaleyLean.Papers.YangMills.Kernel.NativeLawAssembly
 
 namespace MaleyLean
@@ -73,9 +74,8 @@ def YangMillsNativeConstructiveEndpointFactorizationData
       hE hP evac etest efield
   let f :
       YMSharpLocalState -> RE.endpoint_object.exact_local_net_endpoint :=
-    fun s =>
-      O.compatibility.vacuum_gap_to_endpoint
-        (O.compatibility.constructive_state_to_vacuum_gap s).down
+    YangMillsNativeConstructiveStateToEndpointExactnessData
+      RC RD RE O.compatibility
   refine
     { law_object := O
       composite_endpoint_map := f
@@ -86,7 +86,63 @@ def YangMillsNativeConstructiveEndpointFactorizationData
         O.compatibility.constructive_to_endpoint A.constructive.bounded_base_witness
       composite_image_definition := rfl
       direct_image_definition := rfl
-      factorization_agrees := rfl }
+      factorization_agrees := by
+        exact
+          YangMillsNativeConstructiveStateToEndpointChosenAgreementStatement
+            RC RD RE
+            htrunc hext hcompat hunion cwin cbridge cbase cstate cunion
+            hww vtm vobs vrsec vcorr vgapf vhgap
+            hE hP evac etest efield }
+
+theorem YangMillsNativeConstructiveEndpointFactorizationGeneralStateStatement
+  (RC : YMConstructiveRoute)
+  (RD : YMVacuumGapRoute)
+  (RE : YMEndpointCore)
+  (htrunc : RC.finite_truncation_ready)
+  (hext : RC.finite_cap_extension_ready)
+  (hcompat : RC.bounded_state_compatibility_ready)
+  (hunion : RC.inductive_union_ready)
+  (cwin : (YangMillsConstructiveSemanticBundleData RC htrunc hext hcompat hunion).finite_cap_window)
+  (cbridge :
+    (YangMillsConstructiveSemanticBundleData RC htrunc hext hcompat hunion).positive_bridge_map)
+  (cbase :
+    (YangMillsConstructiveSemanticBundleData RC htrunc hext hcompat hunion).bounded_base_carrier)
+  (cstate :
+    (YangMillsConstructiveSemanticBundleData RC htrunc hext hcompat hunion).bounded_state_data)
+  (cunion :
+    (YangMillsConstructiveSemanticBundleData RC htrunc hext hcompat hunion).inductive_union_data)
+  (hww : RD.weak_window_certificate_ready)
+  (vtm : (YangMillsVacuumGapSemanticBundleData RD hww).transport_map)
+  (vobs : (YangMillsVacuumGapSemanticBundleData RD hww).lattice_observable_family)
+  (vrsec : (YangMillsVacuumGapSemanticBundleData RD hww).reconstructed_sector)
+  (vcorr : (YangMillsVacuumGapSemanticBundleData RD hww).os_correlation_family)
+  (vgapf : (YangMillsVacuumGapSemanticBundleData RD hww).minkowski_gap_functional)
+  (vhgap :
+    (YangMillsVacuumGapSemanticBundleData RD hww).evaluate_minkowski_gap
+      vgapf
+      ((YangMillsVacuumGapSemanticBundleData RD hww).realize_os_sector vrsec vcorr))
+  (hE : RE.euclidean_dossier_ready)
+  (hP : RE.endpoint_packet_ready)
+  (evac : (YangMillsEndpointSemanticBundleData RE hE hP).vacuum_vector)
+  (etest : (YangMillsEndpointSemanticBundleData RE hE hP).test_function_space)
+  (efield : (YangMillsEndpointSemanticBundleData RE hE hP).field_family)
+  (s : YMSharpLocalState) :
+  let F :=
+    YangMillsNativeConstructiveEndpointFactorizationData
+      RC RD RE
+      htrunc hext hcompat hunion cwin cbridge cbase cstate cunion
+      hww vtm vobs vrsec vcorr vgapf vhgap
+      hE hP evac etest efield
+  F.composite_endpoint_map s =
+    F.law_object.compatibility.vacuum_gap_to_endpoint
+      ((F.law_object.compatibility.constructive_state_to_vacuum_gap s).down) := by
+  exact
+    YangMillsNativeConstructiveStateToEndpointFactorsThroughVacuumGapStatement
+      RC RD RE
+      htrunc hext hcompat hunion cwin cbridge cbase cstate cunion
+      hww vtm vobs vrsec vcorr vgapf vhgap
+      hE hP evac etest efield
+      s
 
 theorem YangMillsNativeConstructiveEndpointFactorizationWitnessStatement
   (RC : YMConstructiveRoute)

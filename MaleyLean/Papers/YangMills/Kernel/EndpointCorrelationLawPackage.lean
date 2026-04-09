@@ -107,4 +107,16 @@ theorem YangMillsEndpointCorrelationOperatorCompatibilityStatement
   let P := YangMillsEndpointCorrelationLawPackageData R hE hP vac testFn field
   exact P.operator_compatibility vac testFn field
 
+theorem YangMillsEndpointExactnessFromCorrelationsStatement
+  (R : YMEndpointCore)
+  (hE : R.euclidean_dossier_ready)
+  (hP : R.endpoint_packet_ready)
+  (vac : (YangMillsEndpointSemanticBundleData R hE hP).vacuum_vector)
+  (testFn : (YangMillsEndpointSemanticBundleData R hE hP).test_function_space)
+  (field : (YangMillsEndpointSemanticBundleData R hE hP).field_family) :
+  let P := YangMillsEndpointCorrelationLawPackageData R hE hP vac testFn field
+  P.exact_endpoint_from_correlations P.interface.bundle.vacuum_correlations_defined =
+    P.exact_endpoint_witness := by
+  rfl
+
 end MaleyLean
