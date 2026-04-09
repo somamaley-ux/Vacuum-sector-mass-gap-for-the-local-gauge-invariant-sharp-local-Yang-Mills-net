@@ -1,0 +1,3 @@
+import MaleyLean.YangMillsNativeCrossHeartImageAssembly
+
+#print axioms MaleyLean.YangMillsNativeCrossHeartImageAssemblyExportStatement

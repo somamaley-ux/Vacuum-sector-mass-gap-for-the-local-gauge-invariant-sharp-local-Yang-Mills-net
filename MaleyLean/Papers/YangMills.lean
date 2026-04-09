@@ -34,6 +34,7 @@ import MaleyLean.Papers.YangMills.Kernel.NativeConstructiveVacuumGapStateBridge
 import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartLawSummary
 import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartLawObject
 import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartLawConsequences
+import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartImageAssembly
 import MaleyLean.Papers.YangMills.Kernel.NativeLawConsequences
 import MaleyLean.Papers.YangMills.Kernel.NativeVacuumGapEndpointLaw
 import MaleyLean.Papers.YangMills.Kernel.NativeVacuumGapEndpointImageBridge
