@@ -15,6 +15,7 @@ import MaleyLean.Papers.YangMills.Kernel.EndpointSemanticBundle
 import MaleyLean.Papers.YangMills.Kernel.LoadBearingSpine
 import MaleyLean.Papers.YangMills.Kernel.NamedOutputsAssembly
 import MaleyLean.Papers.YangMills.Kernel.ReadingOrder
+import MaleyLean.Papers.YangMills.Kernel.RelationalAssembly
 import MaleyLean.Papers.YangMills.Kernel.SemanticAssembly
 import MaleyLean.Papers.YangMills.Kernel.SemanticCompatibility
 import MaleyLean.Papers.YangMills.Kernel.SeamRegister
@@ -33,6 +34,7 @@ import MaleyLean.Papers.YangMills.Verbatim.TheoremRegister
 import MaleyLean.Papers.YangMills.Verbatim.DependencySpineSimple
 import MaleyLean.Papers.YangMills.Surface.ConstructiveRelationalSummary
 import MaleyLean.Papers.YangMills.Surface.EndpointRelationalSummary
+import MaleyLean.Papers.YangMills.Surface.RelationalAssemblySummary
 import MaleyLean.Papers.YangMills.Surface.SemanticCompatibilitySummary
 import MaleyLean.Papers.YangMills.Surface.SemanticAssemblySummary
 import MaleyLean.Papers.YangMills.Surface.Summary
