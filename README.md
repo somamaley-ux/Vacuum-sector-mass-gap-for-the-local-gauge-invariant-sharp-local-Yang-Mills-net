@@ -140,7 +140,10 @@ Instead, it encodes:
 - an additive endpoint witness crosswalk for reconstruction and exact-endpoint exports
 - a witness-to-packet/source crosswalk for those named abstract exports
 - an additive Part D witness crosswalk for OS transport and transport-origin exports
+- a structured witness bundle object collecting the three theorem-heart exports
 - a unified witness-heart summary tying the constructive, vacuum-gap, and endpoint witness bundles together
+- a surface-level witness-bundle summary exporting that bundle at manuscript-facing level
+- a surface-level semantic-assembly summary exporting the unified three-heart semantic object
 
 ### Current Yang--Mills surface
 
@@ -161,6 +164,10 @@ The main Yang--Mills entry points are:
 - `MaleyLean.Papers.YangMills.SourceCrosswalk.EndpointWitnessRegister`
 - `MaleyLean.Papers.YangMills.SourceCrosswalk.WitnessRegister`
 - `MaleyLean.Papers.YangMills.SourceCrosswalk.VacuumGapWitnessRegister`
+- `MaleyLean.Papers.YangMills.Kernel.WitnessBundle`
+- `MaleyLean.Papers.YangMills.Kernel.SemanticAssembly`
+- `MaleyLean.Papers.YangMills.Surface.SemanticAssemblySummary`
+- `MaleyLean.Papers.YangMills.Surface.WitnessBundleSummary`
 - `MaleyLean.Papers.YangMills.Surface.WitnessHeartSummary`
 - `MaleyLean.Papers.YangMills.Surface.Summary`
 
@@ -187,6 +194,10 @@ The current Yang--Mills scaffold has dedicated axiom checks under
 - `Checks/Axiom/YangMillsEndpointWitnessCrosswalkAxiomCheck.lean`
 - `Checks/Axiom/YangMillsWitnessCrosswalkAxiomCheck.lean`
 - `Checks/Axiom/YangMillsVacuumGapWitnessCrosswalkAxiomCheck.lean`
+- `Checks/Axiom/YangMillsWitnessBundleAxiomCheck.lean`
+- `Checks/Axiom/YangMillsSemanticAssemblyAxiomCheck.lean`
+- `Checks/Axiom/YangMillsSemanticAssemblySummaryAxiomCheck.lean`
+- `Checks/Axiom/YangMillsWitnessBundleSummaryAxiomCheck.lean`
 - `Checks/Axiom/YangMillsWitnessHeartSummaryAxiomCheck.lean`
 - `Checks/Axiom/YangMillsPaperSurfaceSummaryAxiomCheck.lean`
 

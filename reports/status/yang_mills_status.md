@@ -22,7 +22,10 @@ What is finished:
 - the endpoint reconstruction and exact-endpoint witnesses are crosswalked separately too
 - those named witnesses are crosswalked back to packet ownership and source labels
 - the stronger Part D transport-side witnesses are crosswalked separately too
+- the three theorem-heart exports are also packaged as a structured witness bundle object
 - the three theorem-heart witness bundles are also summarized together in one additive Lean surface theorem
+- that witness bundle is now exported again at manuscript-facing surface level
+- the three theorem-heart semantic bundles are assembled into one unified semantic object and re-exported at surface level
 - the top-level manuscript-facing summary is axiom-free
 
 What is not finished:
@@ -54,6 +57,10 @@ The current Yang--Mills surface is centered on:
 - `MaleyLean/Papers/YangMills/SourceCrosswalk/EndpointWitnessRegister.lean`
 - `MaleyLean/Papers/YangMills/SourceCrosswalk/WitnessRegister.lean`
 - `MaleyLean/Papers/YangMills/SourceCrosswalk/VacuumGapWitnessRegister.lean`
+- `MaleyLean/Papers/YangMills/Kernel/WitnessBundle.lean`
+- `MaleyLean/Papers/YangMills/Kernel/SemanticAssembly.lean`
+- `MaleyLean/Papers/YangMills/Surface/SemanticAssemblySummary.lean`
+- `MaleyLean/Papers/YangMills/Surface/WitnessBundleSummary.lean`
 - `MaleyLean/Papers/YangMills/Surface/WitnessHeartSummary.lean`
 - `MaleyLean/Papers/YangMills/Surface/Summary.lean`
 
@@ -85,6 +92,12 @@ The current Lean development supports the following reading.
 - The three theorem-heart witness bundles are now also collected in one
   additive summary theorem, so the manuscript-facing surface can talk about
   the constructive, vacuum-gap, and endpoint anchors together.
+- The same three-heart exports are now also exposed as a structured witness
+  bundle object and then re-exported at surface level, so later semantic
+  deepening can target one bundle interface instead of many parallel facts.
+- The three theorem hearts are now also assembled at the semantic-bundle level
+  into one unified typed object, and that object is re-exported at surface
+  level under explicit readiness hypotheses.
 - The richer Part D package is now also tracked at the witness level via
   explicit OS-transport and transport-origin crosswalk entries.
 
@@ -121,6 +134,10 @@ The most relevant axiom checks are:
 - `YangMillsEndpointWitnessCrosswalkAxiomCheck.lean`
 - `YangMillsWitnessCrosswalkAxiomCheck.lean`
 - `YangMillsVacuumGapWitnessCrosswalkAxiomCheck.lean`
+- `YangMillsWitnessBundleAxiomCheck.lean`
+- `YangMillsSemanticAssemblyAxiomCheck.lean`
+- `YangMillsSemanticAssemblySummaryAxiomCheck.lean`
+- `YangMillsWitnessBundleSummaryAxiomCheck.lean`
 - `YangMillsWitnessHeartSummaryAxiomCheck.lean`
 - `YangMillsPaperSurfaceSummaryAxiomCheck.lean`
 

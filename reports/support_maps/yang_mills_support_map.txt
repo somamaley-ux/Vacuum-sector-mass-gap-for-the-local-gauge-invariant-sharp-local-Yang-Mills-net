@@ -39,6 +39,10 @@ Primary Lean modules:
 - `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/SourceCrosswalk/EndpointWitnessRegister.lean`
 - `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/SourceCrosswalk/WitnessRegister.lean`
 - `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/SourceCrosswalk/VacuumGapWitnessRegister.lean`
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Kernel/WitnessBundle.lean`
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Kernel/SemanticAssembly.lean`
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Surface/SemanticAssemblySummary.lean`
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Surface/WitnessBundleSummary.lean`
 - `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Surface/WitnessHeartSummary.lean`
 - `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Surface/Summary.lean`
 
@@ -59,6 +63,10 @@ Wrapper entry points:
 - `/d:/lean/MaleyLean/MaleyLean/YangMillsEndpointWitnessCrosswalk.lean`
 - `/d:/lean/MaleyLean/MaleyLean/YangMillsWitnessCrosswalk.lean`
 - `/d:/lean/MaleyLean/MaleyLean/YangMillsVacuumGapWitnessCrosswalk.lean`
+- `/d:/lean/MaleyLean/MaleyLean/YangMillsWitnessBundle.lean`
+- `/d:/lean/MaleyLean/MaleyLean/YangMillsSemanticAssembly.lean`
+- `/d:/lean/MaleyLean/MaleyLean/YangMillsSemanticAssemblySummary.lean`
+- `/d:/lean/MaleyLean/MaleyLean/YangMillsWitnessBundleSummary.lean`
 - `/d:/lean/MaleyLean/MaleyLean/YangMillsWitnessHeartSummary.lean`
 - `/d:/lean/MaleyLean/MaleyLean/YangMillsPaperSurfaceSummary.lean`
 
@@ -79,6 +87,10 @@ Audit artifacts:
 - `/d:/lean/MaleyLean/Checks/Axiom/YangMillsEndpointWitnessCrosswalkAxiomCheck.lean`
 - `/d:/lean/MaleyLean/Checks/Axiom/YangMillsWitnessCrosswalkAxiomCheck.lean`
 - `/d:/lean/MaleyLean/Checks/Axiom/YangMillsVacuumGapWitnessCrosswalkAxiomCheck.lean`
+- `/d:/lean/MaleyLean/Checks/Axiom/YangMillsWitnessBundleAxiomCheck.lean`
+- `/d:/lean/MaleyLean/Checks/Axiom/YangMillsSemanticAssemblyAxiomCheck.lean`
+- `/d:/lean/MaleyLean/Checks/Axiom/YangMillsSemanticAssemblySummaryAxiomCheck.lean`
+- `/d:/lean/MaleyLean/Checks/Axiom/YangMillsWitnessBundleSummaryAxiomCheck.lean`
 - `/d:/lean/MaleyLean/Checks/Axiom/YangMillsWitnessHeartSummaryAxiomCheck.lean`
 - `/d:/lean/MaleyLean/Checks/Axiom/YangMillsPaperSurfaceSummaryAxiomCheck.lean`
 - `/d:/lean/MaleyLean/reports/audits/yang_mills_axiom_audit.txt`
@@ -218,6 +230,26 @@ Stage XII: unified theorem-heart witness summary
   and endpoint witness anchors together
 - Lean witnesses:
   `MaleyLean.YangMillsWitnessHeartSummaryStatement`
+
+Stage XIII: structured witness bundle surface
+
+- manuscript surface:
+  structured witness bundle object for the three theorem hearts, re-exported at
+  surface level under explicit readiness hypotheses
+- Lean witnesses:
+  `MaleyLean.YangMillsWitnessBundleFromNamedOutputsStatement`
+  `MaleyLean.YangMillsSpineFeedsWitnessBundleStatement`
+  `MaleyLean.YangMillsWitnessBundleSummaryStatement`
+
+Stage XIV: unified semantic assembly surface
+
+- manuscript surface:
+  unified semantic assembly object for the three theorem hearts, re-exported at
+  surface level under explicit readiness hypotheses
+- Lean witnesses:
+  `MaleyLean.YangMillsSemanticAssemblyExistsStatement`
+  `MaleyLean.YangMillsSpineFeedsSemanticAssemblyStatement`
+  `MaleyLean.YangMillsSemanticAssemblySummaryStatement`
 
 Top-level summary
 -----------------

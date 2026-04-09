@@ -1,0 +1,7 @@
+import MaleyLean.YangMillsEndpointSemanticBundle
+
+namespace MaleyLean
+
+#print axioms YangMillsEndpointSemanticBundleExportStatement
+
+end MaleyLean

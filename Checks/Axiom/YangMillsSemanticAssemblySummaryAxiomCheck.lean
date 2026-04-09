@@ -1,0 +1,7 @@
+import MaleyLean.YangMillsSemanticAssemblySummary
+
+namespace MaleyLean
+
+#print axioms YangMillsSemanticAssemblySummaryExportStatement
+
+end MaleyLean
