@@ -140,6 +140,7 @@ Instead, it encodes:
 - an additive endpoint witness crosswalk for reconstruction and exact-endpoint exports
 - a witness-to-packet/source crosswalk for those named abstract exports
 - an additive Part D witness crosswalk for OS transport and transport-origin exports
+- a unified witness-heart summary tying the constructive, vacuum-gap, and endpoint witness bundles together
 
 ### Current Yang--Mills surface
 
@@ -160,6 +161,7 @@ The main Yang--Mills entry points are:
 - `MaleyLean.Papers.YangMills.SourceCrosswalk.EndpointWitnessRegister`
 - `MaleyLean.Papers.YangMills.SourceCrosswalk.WitnessRegister`
 - `MaleyLean.Papers.YangMills.SourceCrosswalk.VacuumGapWitnessRegister`
+- `MaleyLean.Papers.YangMills.Surface.WitnessHeartSummary`
 - `MaleyLean.Papers.YangMills.Surface.Summary`
 
 The top-level summary theorem in
@@ -185,6 +187,7 @@ The current Yang--Mills scaffold has dedicated axiom checks under
 - `Checks/Axiom/YangMillsEndpointWitnessCrosswalkAxiomCheck.lean`
 - `Checks/Axiom/YangMillsWitnessCrosswalkAxiomCheck.lean`
 - `Checks/Axiom/YangMillsVacuumGapWitnessCrosswalkAxiomCheck.lean`
+- `Checks/Axiom/YangMillsWitnessHeartSummaryAxiomCheck.lean`
 - `Checks/Axiom/YangMillsPaperSurfaceSummaryAxiomCheck.lean`
 
 See `reports/status/yang_mills_status.md` for the current Yang--Mills project

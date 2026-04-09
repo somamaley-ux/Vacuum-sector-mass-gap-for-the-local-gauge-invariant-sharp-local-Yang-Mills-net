@@ -39,6 +39,7 @@ Primary Lean modules:
 - `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/SourceCrosswalk/EndpointWitnessRegister.lean`
 - `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/SourceCrosswalk/WitnessRegister.lean`
 - `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/SourceCrosswalk/VacuumGapWitnessRegister.lean`
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Surface/WitnessHeartSummary.lean`
 - `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Surface/Summary.lean`
 
 Wrapper entry points:
@@ -58,6 +59,7 @@ Wrapper entry points:
 - `/d:/lean/MaleyLean/MaleyLean/YangMillsEndpointWitnessCrosswalk.lean`
 - `/d:/lean/MaleyLean/MaleyLean/YangMillsWitnessCrosswalk.lean`
 - `/d:/lean/MaleyLean/MaleyLean/YangMillsVacuumGapWitnessCrosswalk.lean`
+- `/d:/lean/MaleyLean/MaleyLean/YangMillsWitnessHeartSummary.lean`
 - `/d:/lean/MaleyLean/MaleyLean/YangMillsPaperSurfaceSummary.lean`
 
 Audit artifacts:
@@ -77,6 +79,7 @@ Audit artifacts:
 - `/d:/lean/MaleyLean/Checks/Axiom/YangMillsEndpointWitnessCrosswalkAxiomCheck.lean`
 - `/d:/lean/MaleyLean/Checks/Axiom/YangMillsWitnessCrosswalkAxiomCheck.lean`
 - `/d:/lean/MaleyLean/Checks/Axiom/YangMillsVacuumGapWitnessCrosswalkAxiomCheck.lean`
+- `/d:/lean/MaleyLean/Checks/Axiom/YangMillsWitnessHeartSummaryAxiomCheck.lean`
 - `/d:/lean/MaleyLean/Checks/Axiom/YangMillsPaperSurfaceSummaryAxiomCheck.lean`
 - `/d:/lean/MaleyLean/reports/audits/yang_mills_axiom_audit.txt`
 
@@ -207,6 +210,14 @@ Stage XI: enriched Part D witness anchoring
   `MaleyLean.YangMillsVacuumGapWitnessOwnerStatement`
   `MaleyLean.YangMillsVacuumGapWitnessSourceLabelStatement`
   `MaleyLean.YangMillsVacuumGapWitnessCrosswalkExamplesStatement`
+
+Stage XII: unified theorem-heart witness summary
+
+- manuscript surface:
+  additive summary theorem bundling representative constructive, vacuum-gap,
+  and endpoint witness anchors together
+- Lean witnesses:
+  `MaleyLean.YangMillsWitnessHeartSummaryStatement`
 
 Top-level summary
 -----------------
