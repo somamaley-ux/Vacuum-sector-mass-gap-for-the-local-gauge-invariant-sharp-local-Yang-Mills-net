@@ -1,0 +1,5 @@
+import MaleyLean.YangMillsNativeCrossHeartFactorizationTriangleData
+
+open MaleyLean
+
+#print axioms YangMillsNativeCrossHeartFactorizationTriangleDataExportStatement

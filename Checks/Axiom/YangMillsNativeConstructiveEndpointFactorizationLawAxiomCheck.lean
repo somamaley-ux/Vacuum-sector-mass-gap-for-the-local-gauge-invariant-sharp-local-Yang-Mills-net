@@ -1,0 +1,5 @@
+import MaleyLean.YangMillsNativeConstructiveEndpointFactorizationLaw
+
+open MaleyLean
+
+#print axioms YangMillsNativeConstructiveEndpointFactorizationLawExportStatement

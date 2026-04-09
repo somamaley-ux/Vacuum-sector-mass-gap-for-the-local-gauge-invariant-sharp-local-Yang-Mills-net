@@ -1,0 +1,5 @@
+import MaleyLean.YangMillsNativeConstructiveVacuumGapFactorizationLaw
+
+open MaleyLean
+
+#print axioms YangMillsNativeConstructiveVacuumGapFactorizationLawExportStatement

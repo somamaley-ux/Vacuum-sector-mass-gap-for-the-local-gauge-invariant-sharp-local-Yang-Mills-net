@@ -1,0 +1,5 @@
+import MaleyLean.YangMillsNativeCrossHeartFactorizationLawAssembly
+
+open MaleyLean
+
+#print axioms YangMillsNativeCrossHeartFactorizationLawAssemblyExportStatement

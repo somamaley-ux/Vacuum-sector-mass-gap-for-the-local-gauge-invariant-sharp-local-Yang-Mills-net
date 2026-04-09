@@ -30,12 +30,16 @@ import MaleyLean.Papers.YangMills.Kernel.NativeLawAssembly
 import MaleyLean.Papers.YangMills.Kernel.NativeConstructiveEndpointLaw
 import MaleyLean.Papers.YangMills.Kernel.NativeConstructiveEndpointImageBridge
 import MaleyLean.Papers.YangMills.Kernel.NativeConstructiveEndpointFactorization
+import MaleyLean.Papers.YangMills.Kernel.NativeConstructiveEndpointFactorizationLaw
 import MaleyLean.Papers.YangMills.Kernel.NativeConstructiveVacuumGapLaw
 import MaleyLean.Papers.YangMills.Kernel.NativeConstructiveVacuumGapFactorization
+import MaleyLean.Papers.YangMills.Kernel.NativeConstructiveVacuumGapFactorizationLaw
 import MaleyLean.Papers.YangMills.Kernel.NativeConstructiveVacuumGapStateBridge
 import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartFactorizationAssembly
+import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartFactorizationLawAssembly
 import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartFactorizationConsequences
 import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartFactorizationCoherence
+import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartFactorizationTriangleData
 import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartFactorizationTriangleCoherence
 import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartLawSummary
 import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartLawObject
@@ -47,6 +51,7 @@ import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartImageTriangleCoherence
 import MaleyLean.Papers.YangMills.Kernel.NativeLawConsequences
 import MaleyLean.Papers.YangMills.Kernel.NativeVacuumGapEndpointLaw
 import MaleyLean.Papers.YangMills.Kernel.NativeVacuumGapEndpointFactorization
+import MaleyLean.Papers.YangMills.Kernel.NativeVacuumGapEndpointFactorizationLaw
 import MaleyLean.Papers.YangMills.Kernel.NativeVacuumGapEndpointImageBridge
 import MaleyLean.Papers.YangMills.Kernel.NativeInterHeartCompatibility
 import MaleyLean.Papers.YangMills.Kernel.ReadingOrder
