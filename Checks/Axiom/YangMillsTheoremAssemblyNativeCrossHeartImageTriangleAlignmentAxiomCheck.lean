@@ -1,0 +1,3 @@
+import MaleyLean.YangMillsTheoremAssemblyNativeCrossHeartImageTriangleAlignment
+
+#print axioms MaleyLean.YangMillsTheoremAssemblyNativeCrossHeartImageTriangleAlignmentWrapperExportStatement

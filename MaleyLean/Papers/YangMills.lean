@@ -29,7 +29,9 @@ import MaleyLean.Papers.YangMills.Kernel.NamedOutputsAssembly
 import MaleyLean.Papers.YangMills.Kernel.NativeLawAssembly
 import MaleyLean.Papers.YangMills.Kernel.NativeConstructiveEndpointLaw
 import MaleyLean.Papers.YangMills.Kernel.NativeConstructiveEndpointImageBridge
+import MaleyLean.Papers.YangMills.Kernel.NativeConstructiveEndpointFactorization
 import MaleyLean.Papers.YangMills.Kernel.NativeConstructiveVacuumGapLaw
+import MaleyLean.Papers.YangMills.Kernel.NativeConstructiveVacuumGapFactorization
 import MaleyLean.Papers.YangMills.Kernel.NativeConstructiveVacuumGapStateBridge
 import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartLawSummary
 import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartLawObject
@@ -40,6 +42,7 @@ import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartImageCoherence
 import MaleyLean.Papers.YangMills.Kernel.NativeCrossHeartImageTriangleCoherence
 import MaleyLean.Papers.YangMills.Kernel.NativeLawConsequences
 import MaleyLean.Papers.YangMills.Kernel.NativeVacuumGapEndpointLaw
+import MaleyLean.Papers.YangMills.Kernel.NativeVacuumGapEndpointFactorization
 import MaleyLean.Papers.YangMills.Kernel.NativeVacuumGapEndpointImageBridge
 import MaleyLean.Papers.YangMills.Kernel.NativeInterHeartCompatibility
 import MaleyLean.Papers.YangMills.Kernel.ReadingOrder
@@ -55,6 +58,7 @@ import MaleyLean.Papers.YangMills.Kernel.TheoremAssemblyNativeAlignment
 import MaleyLean.Papers.YangMills.Kernel.TheoremAssemblyNativeInterHeartAlignment
 import MaleyLean.Papers.YangMills.Kernel.TheoremAssemblyNativeCrossHeartLawAlignment
 import MaleyLean.Papers.YangMills.Kernel.TheoremAssemblyNativeCrossHeartImageAlignment
+import MaleyLean.Papers.YangMills.Kernel.TheoremAssemblyNativeCrossHeartImageTriangleAlignment
 import MaleyLean.Papers.YangMills.Kernel.VacuumGapCore
 import MaleyLean.Papers.YangMills.Kernel.VacuumGapRelationalInterface
 import MaleyLean.Papers.YangMills.Kernel.VacuumGapSemanticBundle
@@ -74,6 +78,7 @@ import MaleyLean.Papers.YangMills.Surface.AssemblyTopNativeSummary
 import MaleyLean.Papers.YangMills.Surface.AssemblyTopNativeInterHeartSummary
 import MaleyLean.Papers.YangMills.Surface.AssemblyTopNativeCrossHeartLawSummary
 import MaleyLean.Papers.YangMills.Surface.AssemblyTopNativeCrossHeartImageSummary
+import MaleyLean.Papers.YangMills.Surface.AssemblyTopNativeCrossHeartImageTriangleSummary
 import MaleyLean.Papers.YangMills.Surface.BridgeLawAssemblySummary
 import MaleyLean.Papers.YangMills.Surface.BridgeLawConsequencesSummary
 import MaleyLean.Papers.YangMills.Surface.ConstructiveExtendAssembleLawPackageSummary
