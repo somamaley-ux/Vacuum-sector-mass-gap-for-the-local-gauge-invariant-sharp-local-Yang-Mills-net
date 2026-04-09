@@ -1,0 +1,7 @@
+import MaleyLean.YangMillsTheoremAssemblyWitnessSummary
+
+namespace MaleyLean
+
+#print axioms YangMillsTheoremAssemblyWitnessSummaryTopExportStatement
+
+end MaleyLean
