@@ -15,6 +15,7 @@ import MaleyLean.Papers.YangMills.Kernel.EndpointRelationalInterface
 import MaleyLean.Papers.YangMills.Kernel.EndpointSemanticBundle
 import MaleyLean.Papers.YangMills.Kernel.CrossHeartLawObjects
 import MaleyLean.Papers.YangMills.Kernel.CrossHeartLaws
+import MaleyLean.Papers.YangMills.Kernel.GapTransportEndpointLawPackage
 import MaleyLean.Papers.YangMills.Kernel.InterHeartCompatibility
 import MaleyLean.Papers.YangMills.Kernel.LoadBearingSpine
 import MaleyLean.Papers.YangMills.Kernel.NamedOutputsAssembly
@@ -41,6 +42,7 @@ import MaleyLean.Papers.YangMills.Surface.ConstructiveRelationalSummary
 import MaleyLean.Papers.YangMills.Surface.CrossHeartLawObjectsSummary
 import MaleyLean.Papers.YangMills.Surface.CrossHeartLawsSummary
 import MaleyLean.Papers.YangMills.Surface.EndpointRelationalSummary
+import MaleyLean.Papers.YangMills.Surface.GapTransportEndpointLawPackageSummary
 import MaleyLean.Papers.YangMills.Surface.InterHeartCompatibilitySummary
 import MaleyLean.Papers.YangMills.Surface.RelationalAssemblySummary
 import MaleyLean.Papers.YangMills.Surface.SemanticCompatibilitySummary
