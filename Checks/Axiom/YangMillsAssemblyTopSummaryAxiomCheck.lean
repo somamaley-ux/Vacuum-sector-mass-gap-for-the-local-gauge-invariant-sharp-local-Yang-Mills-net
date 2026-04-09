@@ -1,0 +1,7 @@
+import MaleyLean.YangMillsAssemblyTopSummary
+
+namespace MaleyLean
+
+#print axioms YangMillsAssemblyTopSummaryExportStatement
+
+end MaleyLean

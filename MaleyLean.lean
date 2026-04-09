@@ -90,6 +90,7 @@ import MaleyLean.Papers.YangMills.SourceCrosswalk.VacuumGapWitnessRegister
 import MaleyLean.Papers.YangMills.Verbatim.TheoremRegister
 import MaleyLean.Papers.YangMills.Verbatim.DependencySpineSimple
 import MaleyLean.Papers.YangMills.Surface.BoundedBaseTransportLawPackageSummary
+import MaleyLean.Papers.YangMills.Surface.AssemblyTopSummary
 import MaleyLean.Papers.YangMills.Surface.BridgeLawAssemblySummary
 import MaleyLean.Papers.YangMills.Surface.BridgeLawConsequencesSummary
 import MaleyLean.Papers.YangMills.Surface.ConstructiveEndpointLawPackageSummary
