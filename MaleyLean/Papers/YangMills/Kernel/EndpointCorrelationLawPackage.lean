@@ -65,8 +65,8 @@ def YangMillsEndpointCorrelationLawPackageData
           _ = I.chosen_vacuum_correlation := I.vacuum_correlation_relation
       exact_endpoint_from_correlations := by
         intro _
-        exact I.bundle.exact_endpoint
-      exact_endpoint_witness := I.bundle.exact_endpoint }
+        exact YangMillsEndpointPacketExhibitsExactEndpointStatement R hP
+      exact_endpoint_witness := YangMillsEndpointPacketExhibitsExactEndpointStatement R hP }
 
 theorem YangMillsEndpointCorrelationLawPackageExistsStatement
   (R : YMEndpointCore)
@@ -130,5 +130,61 @@ theorem YangMillsEndpointExactnessFromArbitraryCorrelationsStatement
   let P := YangMillsEndpointCorrelationLawPackageData R hE hP vac testFn field
   P.exact_endpoint_from_correlations hcorr = P.exact_endpoint_witness := by
   rfl
+
+theorem YangMillsEndpointExactnessFactorsThroughEndpointPacketStatement
+  (R : YMEndpointCore)
+  (hE : R.euclidean_dossier_ready)
+  (hP : R.endpoint_packet_ready)
+  (vac : (YangMillsEndpointSemanticBundleData R hE hP).vacuum_vector)
+  (testFn : (YangMillsEndpointSemanticBundleData R hE hP).test_function_space)
+  (field : (YangMillsEndpointSemanticBundleData R hE hP).field_family)
+  (hcorr : R.reconstruction_package.vacuum_correlations_defined) :
+  let P := YangMillsEndpointCorrelationLawPackageData R hE hP vac testFn field
+  P.exact_endpoint_from_correlations hcorr =
+    YangMillsEndpointPacketExhibitsExactEndpointStatement R hP := by
+  rfl
+
+theorem YangMillsEndpointChosenSmearCorrelationFeedsExactnessStatement
+  (R : YMEndpointCore)
+  (hE : R.euclidean_dossier_ready)
+  (hP : R.endpoint_packet_ready)
+  (vac : (YangMillsEndpointSemanticBundleData R hE hP).vacuum_vector)
+  (testFn : (YangMillsEndpointSemanticBundleData R hE hP).test_function_space)
+  (field : (YangMillsEndpointSemanticBundleData R hE hP).field_family) :
+  let P := YangMillsEndpointCorrelationLawPackageData R hE hP vac testFn field
+  R.endpoint_object.exact_local_net_endpoint /\
+  (P.correlate_operator
+      P.interface.chosen_vacuum_vector
+      (P.interface.bundle.smear_field
+        P.interface.chosen_test_function
+        P.interface.chosen_field) =
+    P.interface.chosen_vacuum_correlation) /\
+  (P.exact_endpoint_from_correlations P.interface.bundle.vacuum_correlations_defined =
+    YangMillsEndpointPacketExhibitsExactEndpointStatement R hP) := by
+  let P := YangMillsEndpointCorrelationLawPackageData R hE hP vac testFn field
+  refine And.intro ?_ <| And.intro ?_ ?_
+  · exact YangMillsEndpointPacketExhibitsExactEndpointStatement R hP
+  · calc
+      P.correlate_operator
+          P.interface.chosen_vacuum_vector
+          (P.interface.bundle.smear_field
+            P.interface.chosen_test_function
+            P.interface.chosen_field)
+          =
+        P.correlate_smeared_field
+          P.interface.chosen_vacuum_vector
+          P.interface.chosen_test_function
+          P.interface.chosen_field := by
+            exact
+              (P.operator_compatibility
+                P.interface.chosen_vacuum_vector
+                P.interface.chosen_test_function
+                P.interface.chosen_field).symm
+      _ = P.interface.chosen_vacuum_correlation := by
+            exact P.chosen_site_law
+  · exact
+      YangMillsEndpointExactnessFactorsThroughEndpointPacketStatement
+        R hE hP vac testFn field
+        P.interface.bundle.vacuum_correlations_defined
 
 end MaleyLean

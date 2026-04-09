@@ -175,6 +175,14 @@ The top-level summary theorem in
 `MaleyLean.Papers.YangMills.Surface.Summary` packages the current
 manuscript-facing Yang--Mills scaffold into one axiom-free statement.
 
+### Yang--Mills human-readable status artifacts
+
+For a current human-readable snapshot of the Yang--Mills formalization state in
+this checkout, see:
+
+- `MaleyLean/Papers/YangMills/FormalizationStatus.md`
+- `MaleyLean/Papers/YangMills/CoverageMatrix.md`
+
 ### Yang--Mills verification
 
 The current Yang--Mills scaffold has dedicated axiom checks under
@@ -201,5 +209,6 @@ The current Yang--Mills scaffold has dedicated axiom checks under
 - `Checks/Axiom/YangMillsWitnessHeartSummaryAxiomCheck.lean`
 - `Checks/Axiom/YangMillsPaperSurfaceSummaryAxiomCheck.lean`
 
-See `reports/status/yang_mills_status.md` for the current Yang--Mills project
-status note.
+The current repo-level workflow check is:
+
+- `.github/workflows/AxiomCheck.lean`

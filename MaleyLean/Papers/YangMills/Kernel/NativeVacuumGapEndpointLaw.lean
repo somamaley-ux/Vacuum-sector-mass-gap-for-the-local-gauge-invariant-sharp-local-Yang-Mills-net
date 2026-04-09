@@ -124,7 +124,8 @@ theorem YangMillsNativeVacuumGapEndpointGeneralWitnessStatement
     hww vtm vobs vrsec vcorr vgapf vhgap
     hE hP evac etest efield
   exact And.intro
-    (C.vacuum_gap_to_endpoint hgapReady) <|
+    (YangMillsEndpointChosenSmearCorrelationFeedsExactnessStatement
+      RE hE hP evac etest efield).1 <|
     calc
       C.vacuum_gap_to_endpoint hgapReady
           =
