@@ -8,11 +8,21 @@ smear-then-correlate operation around one chosen relational evaluation site.
 -/
 structure YMEndpointCorrelationLawPackage (R : YMEndpointCore) where
   interface : YMEndpointRelationalInterface R
+  correlate_operator :
+    interface.bundle.vacuum_vector ->
+    interface.bundle.smeared_field_operator ->
+    interface.bundle.vacuum_correlation_family
   correlate_smeared_field :
     interface.bundle.vacuum_vector ->
     interface.bundle.test_function_space ->
     interface.bundle.field_family ->
     interface.bundle.vacuum_correlation_family
+  operator_compatibility :
+    forall vac : interface.bundle.vacuum_vector,
+      forall testFn : interface.bundle.test_function_space,
+        forall field : interface.bundle.field_family,
+          correlate_smeared_field vac testFn field =
+            correlate_operator vac (interface.bundle.smear_field testFn field)
   chosen_site_law :
     correlate_smeared_field
       interface.chosen_vacuum_vector
@@ -35,8 +45,13 @@ def YangMillsEndpointCorrelationLawPackageData
   let I := YangMillsEndpointRelationalInterfaceData R hE hP vac testFn field
   refine
     { interface := I
+      correlate_operator := fun vac' op' =>
+        I.bundle.evaluate_vacuum_correlation vac' op'
       correlate_smeared_field := fun vac' testFn' field' =>
         I.bundle.evaluate_vacuum_correlation vac' (I.bundle.smear_field testFn' field')
+      operator_compatibility := by
+        intro vac' testFn' field'
+        rfl
       chosen_site_law := by
         calc
           I.bundle.evaluate_vacuum_correlation
@@ -78,5 +93,18 @@ theorem YangMillsEndpointCorrelationLawPackageWitnessStatement
   exact And.intro
     (Nonempty.intro P)
     (And.intro P.chosen_site_law P.exact_endpoint_witness)
+
+theorem YangMillsEndpointCorrelationOperatorCompatibilityStatement
+  (R : YMEndpointCore)
+  (hE : R.euclidean_dossier_ready)
+  (hP : R.endpoint_packet_ready)
+  (vac : (YangMillsEndpointSemanticBundleData R hE hP).vacuum_vector)
+  (testFn : (YangMillsEndpointSemanticBundleData R hE hP).test_function_space)
+  (field : (YangMillsEndpointSemanticBundleData R hE hP).field_family) :
+  let P := YangMillsEndpointCorrelationLawPackageData R hE hP vac testFn field
+  P.correlate_smeared_field vac testFn field =
+    P.correlate_operator vac (P.interface.bundle.smear_field testFn field) := by
+  let P := YangMillsEndpointCorrelationLawPackageData R hE hP vac testFn field
+  exact P.operator_compatibility vac testFn field
 
 end MaleyLean
