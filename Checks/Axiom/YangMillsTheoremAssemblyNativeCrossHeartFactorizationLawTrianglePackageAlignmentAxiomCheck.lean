@@ -1,0 +1,5 @@
+import MaleyLean.YangMillsTheoremAssemblyNativeCrossHeartFactorizationLawTrianglePackageAlignment
+
+open MaleyLean
+
+#print axioms YangMillsTheoremAssemblyNativeCrossHeartFactorizationLawTrianglePackageAlignmentExportStatementWrapper
