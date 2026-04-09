@@ -18,6 +18,7 @@ structure YMVacuumReconstructionPackage where
   reconstructed_sector : Type
   os_sector_ready : Prop
   minkowski_gap_ready : Prop
+  obtained_from_transport : Prop
 
 structure YMVacuumGapRoute where
   ultraviolet_scope_ready : Prop
@@ -41,14 +42,20 @@ structure YMVacuumGapRoute where
     vacuum_gap_part
   weak_window_yields_transport :
     weak_window_certificate_ready -> continuum_gap_transport_ready
+  transport_exhibits_os_transport :
+    continuum_gap_transport_ready -> transport_package.os_transport_ready
   transport_exhibits_positive_gap :
     continuum_gap_transport_ready -> transport_package.positive_gap_exhibited
   transport_comes_from_lattice_gap :
     continuum_gap_transport_ready -> transport_package.lattice_gap_input
+  transport_feeds_reconstruction :
+    continuum_gap_transport_ready -> reconstruction_ready
   reconstruction_exhibits_os_sector :
     reconstruction_ready -> reconstruction_package.os_sector_ready
   reconstruction_exhibits_minkowski_gap :
     reconstruction_ready -> reconstruction_package.minkowski_gap_ready
+  reconstruction_records_transport_origin :
+    reconstruction_ready -> reconstruction_package.obtained_from_transport
 
 /-- Abstract statement that QE3 transport really carries the lattice gap into the OS sector. -/
 def ym_qe3_transport_core (R : YMVacuumGapRoute) : Prop :=
@@ -118,20 +125,32 @@ theorem YangMillsWeakWindowYieldsTransportStatement
 theorem YangMillsTransportPackageStatement
   (R : YMVacuumGapRoute)
   (hgap : R.continuum_gap_transport_ready) :
+  R.transport_package.os_transport_ready /\
   R.transport_package.positive_gap_exhibited /\
   R.transport_package.lattice_gap_input := by
   exact And.intro
-    (R.transport_exhibits_positive_gap hgap)
-    (R.transport_comes_from_lattice_gap hgap)
+    (R.transport_exhibits_os_transport hgap)
+    (And.intro
+      (R.transport_exhibits_positive_gap hgap)
+      (R.transport_comes_from_lattice_gap hgap))
+
+theorem YangMillsTransportFeedsReconstructionStatement
+  (R : YMVacuumGapRoute)
+  (hgap : R.continuum_gap_transport_ready) :
+  R.reconstruction_ready := by
+  exact R.transport_feeds_reconstruction hgap
 
 theorem YangMillsVacuumReconstructionPackageStatement
   (R : YMVacuumGapRoute)
   (hrec : R.reconstruction_ready) :
   R.reconstruction_package.os_sector_ready /\
-  R.reconstruction_package.minkowski_gap_ready := by
+  R.reconstruction_package.minkowski_gap_ready /\
+  R.reconstruction_package.obtained_from_transport := by
   exact And.intro
     (R.reconstruction_exhibits_os_sector hrec)
-    (R.reconstruction_exhibits_minkowski_gap hrec)
+    (And.intro
+      (R.reconstruction_exhibits_minkowski_gap hrec)
+      (R.reconstruction_records_transport_origin hrec))
 
 theorem YangMillsLoadBearingSpineFeedsVacuumGapCoreStatement
   (S : YMLoadBearingSpine)
@@ -161,19 +180,25 @@ theorem YangMillsLoadBearingSpineFeedsVacuumGapCoreStatement
 
 theorem YangMillsVacuumGapCoreExhibitsNamedOutputsStatement
   (R : YMVacuumGapRoute)
-  (hww : R.weak_window_certificate_ready)
-  (hrec : R.reconstruction_ready) :
+  (hww : R.weak_window_certificate_ready) :
   R.continuum_gap_transport_ready /\
+  R.transport_package.os_transport_ready /\
   R.transport_package.positive_gap_exhibited /\
   R.transport_package.lattice_gap_input /\
+  R.reconstruction_ready /\
   R.reconstruction_package.os_sector_ready /\
-  R.reconstruction_package.minkowski_gap_ready := by
+  R.reconstruction_package.minkowski_gap_ready /\
+  R.reconstruction_package.obtained_from_transport := by
   have hgap := YangMillsWeakWindowYieldsTransportStatement R hww
+  have hrec := YangMillsTransportFeedsReconstructionStatement R hgap
   have htransport := YangMillsTransportPackageStatement R hgap
   have hrecon := YangMillsVacuumReconstructionPackageStatement R hrec
   exact And.intro hgap <|
     And.intro htransport.1 <|
-      And.intro htransport.2 <|
-        And.intro hrecon.1 hrecon.2
+      And.intro htransport.2.1 <|
+        And.intro htransport.2.2 <|
+          And.intro hrec <|
+            And.intro hrecon.1 <|
+              And.intro hrecon.2.1 hrecon.2.2
 
 end MaleyLean

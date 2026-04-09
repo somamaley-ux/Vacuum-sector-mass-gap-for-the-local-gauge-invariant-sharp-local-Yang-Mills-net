@@ -15,7 +15,6 @@ theorem YangMillsAllCoreNamedOutputsStatement
   (hcompat : RC.bounded_state_compatibility_ready)
   (hunion : RC.inductive_union_ready)
   (hww : RD.weak_window_certificate_ready)
-  (hrecD : RD.reconstruction_ready)
   (hEE : RE.euclidean_dossier_ready)
   (hEP : RE.endpoint_packet_ready) :
   RC.finite_cap_package.truncation_window_ready /\
@@ -25,10 +24,13 @@ theorem YangMillsAllCoreNamedOutputsStatement
   RC.sharp_local_package.inductive_union_ready /\
   RC.sharp_local_package.sharp_local_state.extends_bounded_base /\
   RD.continuum_gap_transport_ready /\
+  RD.transport_package.os_transport_ready /\
   RD.transport_package.positive_gap_exhibited /\
   RD.transport_package.lattice_gap_input /\
+  RD.reconstruction_ready /\
   RD.reconstruction_package.os_sector_ready /\
   RD.reconstruction_package.minkowski_gap_ready /\
+  RD.reconstruction_package.obtained_from_transport /\
   RE.reconstruction_ready /\
   RE.reconstruction_package.wightman_fields_present /\
   RE.reconstruction_package.vacuum_vector_present /\
@@ -38,7 +40,7 @@ theorem YangMillsAllCoreNamedOutputsStatement
       RC htrunc hext hcompat hunion
   have hD :=
     YangMillsVacuumGapCoreExhibitsNamedOutputsStatement
-      RD hww hrecD
+      RD hww
   have hE :=
     YangMillsEndpointCoreExhibitsNamedOutputsStatement
       RE hEE hEP
@@ -52,10 +54,13 @@ theorem YangMillsAllCoreNamedOutputsStatement
                 And.intro hD.2.1 <|
                   And.intro hD.2.2.1 <|
                     And.intro hD.2.2.2.1 <|
-                      And.intro hD.2.2.2.2 <|
-                        And.intro hE.1 <|
-                          And.intro hE.2.1 <|
-                            And.intro hE.2.2.1 hE.2.2.2
+                      And.intro hD.2.2.2.2.1 <|
+                        And.intro hD.2.2.2.2.2.1 <|
+                          And.intro hD.2.2.2.2.2.2.1 <|
+                            And.intro hD.2.2.2.2.2.2.2 <|
+                              And.intro hE.1 <|
+                                And.intro hE.2.1 <|
+                                  And.intro hE.2.2.1 hE.2.2.2
 
 theorem YangMillsSpineFeedsAllNamedOutputsStatement
   (S : YMLoadBearingSpine)
@@ -117,11 +122,19 @@ theorem YangMillsSpineFeedsAllNamedOutputsStatement
       S RE h9E h9W hend hEE hER hEP hbuildE
   have hwitnesses :=
     YangMillsAllCoreNamedOutputsStatement
-      RC RD RE htrunc hext hcompat hunion hwwR hrecR hEE hEP
-  rcases hwitnesses with
-    ⟨_hCwin, _hCext, hCbridge, _hCcompat, _hCunion, hCstate,
-      _hDgap, hDpos, _hDlattice, _hDos, hDmink,
-      _hErec, hEfields, _hEvacuum, hEexact⟩
+      RC RD RE htrunc hext hcompat hunion hwwR hEE hEP
+  have hCbridge : RC.finite_cap_package.positive_bridge_ready :=
+    hwitnesses.2.2.1
+  have hCstate : RC.sharp_local_package.sharp_local_state.extends_bounded_base :=
+    hwitnesses.2.2.2.2.2.1
+  have hDpos : RD.transport_package.positive_gap_exhibited :=
+    hwitnesses.2.2.2.2.2.2.2.2.1
+  have hDmink : RD.reconstruction_package.minkowski_gap_ready :=
+    hwitnesses.2.2.2.2.2.2.2.2.2.2.2.2.1
+  have hEfields : RE.reconstruction_package.wightman_fields_present :=
+    hwitnesses.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
+  have hEexact : RE.endpoint_object.exact_local_net_endpoint :=
+    hwitnesses.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2
   exact And.intro hboth.1 <|
     And.intro hboth.2 <|
       And.intro hendpoint.2.2.2 <|

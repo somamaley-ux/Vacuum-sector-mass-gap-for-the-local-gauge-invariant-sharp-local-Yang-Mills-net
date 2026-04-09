@@ -19,6 +19,7 @@ What is finished:
 - dedicated Part C, Part D, and endpoint cores are encoded
 - named abstract witness outputs are exposed across all three theorem hearts
 - those named witnesses are crosswalked back to packet ownership and source labels
+- the stronger Part D transport-side witnesses are crosswalked separately too
 - the top-level manuscript-facing summary is axiom-free
 
 What is not finished:
@@ -47,6 +48,7 @@ The current Yang--Mills surface is centered on:
 - `MaleyLean/Papers/YangMills/Kernel/SeamRegister.lean`
 - `MaleyLean/Papers/YangMills/SourceCrosswalk/Register.lean`
 - `MaleyLean/Papers/YangMills/SourceCrosswalk/WitnessRegister.lean`
+- `MaleyLean/Papers/YangMills/SourceCrosswalk/VacuumGapWitnessRegister.lean`
 - `MaleyLean/Papers/YangMills/Surface/Summary.lean`
 
 ## What the formalization says
@@ -68,6 +70,8 @@ The current Lean development supports the following reading.
   readiness, Wightman fields, and the exact endpoint object.
 - Those witnesses are now explicitly assigned to primary packets, companion
   owners, and canonical source labels.
+- The richer Part D package is now also tracked at the witness level via
+  explicit OS-transport and transport-origin crosswalk entries.
 
 ## Why this matters
 
@@ -99,6 +103,7 @@ The most relevant axiom checks are:
 - `YangMillsNamedOutputsAssemblyAxiomCheck.lean`
 - `YangMillsSourceCrosswalkAxiomCheck.lean`
 - `YangMillsWitnessCrosswalkAxiomCheck.lean`
+- `YangMillsVacuumGapWitnessCrosswalkAxiomCheck.lean`
 - `YangMillsPaperSurfaceSummaryAxiomCheck.lean`
 
 These checks report the current manuscript-facing Yang--Mills surface as

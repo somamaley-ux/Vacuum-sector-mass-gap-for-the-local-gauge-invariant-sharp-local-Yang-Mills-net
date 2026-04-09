@@ -61,6 +61,7 @@ import MaleyLean.Papers.YangMills.Kernel.VacuumGapCore
 import MaleyLean.Papers.YangMills.SourceCrosswalk.Register
 import MaleyLean.Papers.YangMills.SourceCrosswalk.CompanionTables
 import MaleyLean.Papers.YangMills.SourceCrosswalk.WitnessRegister
+import MaleyLean.Papers.YangMills.SourceCrosswalk.VacuumGapWitnessRegister
 import MaleyLean.Papers.YangMills.Verbatim.TheoremRegister
 import MaleyLean.Papers.YangMills.Verbatim.DependencySpineSimple
 import MaleyLean.Papers.YangMills.Surface.Summary

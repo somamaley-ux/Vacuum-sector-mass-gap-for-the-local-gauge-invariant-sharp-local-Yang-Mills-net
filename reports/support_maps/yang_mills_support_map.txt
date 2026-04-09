@@ -36,6 +36,7 @@ Primary Lean modules:
 - `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Kernel/ReadingOrder.lean`
 - `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/SourceCrosswalk/Register.lean`
 - `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/SourceCrosswalk/WitnessRegister.lean`
+- `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/SourceCrosswalk/VacuumGapWitnessRegister.lean`
 - `/d:/lean/MaleyLean/MaleyLean/Papers/YangMills/Surface/Summary.lean`
 
 Wrapper entry points:
@@ -52,6 +53,7 @@ Wrapper entry points:
 - `/d:/lean/MaleyLean/MaleyLean/YangMillsReadingOrder.lean`
 - `/d:/lean/MaleyLean/MaleyLean/YangMillsSourceCrosswalk.lean`
 - `/d:/lean/MaleyLean/MaleyLean/YangMillsWitnessCrosswalk.lean`
+- `/d:/lean/MaleyLean/MaleyLean/YangMillsVacuumGapWitnessCrosswalk.lean`
 - `/d:/lean/MaleyLean/MaleyLean/YangMillsPaperSurfaceSummary.lean`
 
 Audit artifacts:
@@ -68,6 +70,7 @@ Audit artifacts:
 - `/d:/lean/MaleyLean/Checks/Axiom/YangMillsReadingOrderAxiomCheck.lean`
 - `/d:/lean/MaleyLean/Checks/Axiom/YangMillsSourceCrosswalkAxiomCheck.lean`
 - `/d:/lean/MaleyLean/Checks/Axiom/YangMillsWitnessCrosswalkAxiomCheck.lean`
+- `/d:/lean/MaleyLean/Checks/Axiom/YangMillsVacuumGapWitnessCrosswalkAxiomCheck.lean`
 - `/d:/lean/MaleyLean/Checks/Axiom/YangMillsPaperSurfaceSummaryAxiomCheck.lean`
 - `/d:/lean/MaleyLean/reports/audits/yang_mills_axiom_audit.txt`
 
@@ -165,6 +168,17 @@ Stage VIII: witness ownership and source anchoring
   `MaleyLean.YangMillsWitnessOwnerStatement`
   `MaleyLean.YangMillsWitnessSourceLabelStatement`
   `MaleyLean.YangMillsWitnessCrosswalkExamplesStatement`
+
+Stage IX: enriched Part D witness anchoring
+
+- manuscript surface:
+  additive witness crosswalk for OS transport and transport-origin exports from
+  the richer vacuum-gap package
+- Lean witnesses:
+  `MaleyLean.YangMillsVacuumGapWitnessPacketStatement`
+  `MaleyLean.YangMillsVacuumGapWitnessOwnerStatement`
+  `MaleyLean.YangMillsVacuumGapWitnessSourceLabelStatement`
+  `MaleyLean.YangMillsVacuumGapWitnessCrosswalkExamplesStatement`
 
 Top-level summary
 -----------------
