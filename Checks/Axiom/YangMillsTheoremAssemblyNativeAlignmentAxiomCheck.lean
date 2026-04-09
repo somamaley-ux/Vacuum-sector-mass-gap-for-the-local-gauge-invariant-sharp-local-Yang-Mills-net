@@ -1,0 +1,7 @@
+import MaleyLean.YangMillsTheoremAssemblyNativeAlignment
+
+namespace MaleyLean
+
+#print axioms YangMillsTheoremAssemblyNativeAlignmentTopExportStatement
+
+end MaleyLean

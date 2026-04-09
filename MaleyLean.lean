@@ -81,6 +81,7 @@ import MaleyLean.Papers.YangMills.Kernel.TheoremPartAlignment
 import MaleyLean.Papers.YangMills.Kernel.TheoremBridgeInterface
 import MaleyLean.Papers.YangMills.Kernel.TheoremBridgeConsequences
 import MaleyLean.Papers.YangMills.Kernel.TheoremAssemblyWitness
+import MaleyLean.Papers.YangMills.Kernel.TheoremAssemblyNativeAlignment
 import MaleyLean.Papers.YangMills.Kernel.VacuumGapCore
 import MaleyLean.Papers.YangMills.Kernel.VacuumGapRelationalInterface
 import MaleyLean.Papers.YangMills.Kernel.VacuumGapSemanticBundle
@@ -96,6 +97,7 @@ import MaleyLean.Papers.YangMills.Verbatim.TheoremRegister
 import MaleyLean.Papers.YangMills.Verbatim.DependencySpineSimple
 import MaleyLean.Papers.YangMills.Surface.BoundedBaseTransportLawPackageSummary
 import MaleyLean.Papers.YangMills.Surface.AssemblyTopSummary
+import MaleyLean.Papers.YangMills.Surface.AssemblyTopNativeSummary
 import MaleyLean.Papers.YangMills.Surface.BridgeLawAssemblySummary
 import MaleyLean.Papers.YangMills.Surface.BridgeLawConsequencesSummary
 import MaleyLean.Papers.YangMills.Surface.ConstructiveExtendAssembleLawPackageSummary
@@ -119,6 +121,7 @@ import MaleyLean.Papers.YangMills.Surface.SummaryWitnessed
 import MaleyLean.Papers.YangMills.Surface.TheoremBridgeInterfaceSummary
 import MaleyLean.Papers.YangMills.Surface.TheoremBridgeConsequencesSummary
 import MaleyLean.Papers.YangMills.Surface.TheoremAssemblyWitnessSummary
+import MaleyLean.Papers.YangMills.Surface.TheoremAssemblyNativeAlignmentSummary
 import MaleyLean.Papers.YangMills.Surface.VacuumGapRelationalSummary
 import MaleyLean.Papers.YangMills.Surface.VacuumGapTransportRealizeLawPackageSummary
 import MaleyLean.Papers.YangMills.Surface.WitnessBundleSummary
