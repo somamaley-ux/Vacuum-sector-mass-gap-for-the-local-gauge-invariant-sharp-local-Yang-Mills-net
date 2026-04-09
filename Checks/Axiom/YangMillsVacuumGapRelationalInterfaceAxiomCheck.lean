@@ -1,0 +1,7 @@
+import MaleyLean.YangMillsVacuumGapRelationalInterface
+
+namespace MaleyLean
+
+#print axioms YangMillsVacuumGapRelationalInterfaceExportStatement
+
+end MaleyLean
