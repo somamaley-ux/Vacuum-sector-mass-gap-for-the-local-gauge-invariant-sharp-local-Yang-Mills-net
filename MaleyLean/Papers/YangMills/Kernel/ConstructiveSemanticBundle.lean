@@ -7,6 +7,8 @@ Structured constructive-side semantic bundle keeping finite-cap data,
 sharp-local data, and bounded-base extension together in one typed object.
 -/
 structure YMConstructiveSemanticBundle (R : YMConstructiveRoute) where
+  finite_cap_package_shape : YMFiniteCapPackage
+  sharp_local_package_shape : YMSharpLocalPackage
   truncation_window_ready : R.finite_cap_package.truncation_window_ready
   finite_cap_extension_ready : R.finite_cap_package.finite_cap_extension_ready
   positive_bridge_ready : R.finite_cap_package.positive_bridge_ready
@@ -14,7 +16,13 @@ structure YMConstructiveSemanticBundle (R : YMConstructiveRoute) where
   inductive_union_ready : R.sharp_local_package.inductive_union_ready
   bounded_base_extension : R.sharp_local_package.sharp_local_state.extends_bounded_base
 
-theorem YangMillsConstructiveSemanticBundleData
+theorem YangMillsConstructivePackageMetadataStatement
+  (R : YMConstructiveRoute) :
+  R.finite_cap_package = R.finite_cap_package /\
+  R.sharp_local_package = R.sharp_local_package := by
+  exact And.intro rfl rfl
+
+def YangMillsConstructiveSemanticBundleData
   (R : YMConstructiveRoute)
   (htrunc : R.finite_truncation_ready)
   (hext : R.finite_cap_extension_ready)
@@ -23,7 +31,9 @@ theorem YangMillsConstructiveSemanticBundleData
   YMConstructiveSemanticBundle R := by
   have h := YangMillsConstructiveCoreExhibitsNamedOutputsStatement R htrunc hext hcompat hunion
   refine
-    { truncation_window_ready := h.1
+    { finite_cap_package_shape := R.finite_cap_package
+      sharp_local_package_shape := R.sharp_local_package
+      truncation_window_ready := h.1
       finite_cap_extension_ready := h.2.1
       positive_bridge_ready := h.2.2.1
       bounded_state_compatibility_ready := h.2.2.2.1

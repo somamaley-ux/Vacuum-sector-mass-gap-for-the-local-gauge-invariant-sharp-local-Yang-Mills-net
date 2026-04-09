@@ -10,6 +10,8 @@ structure YMEndpointSemanticBundle (R : YMEndpointCore) where
   euclidean_input : Type
   reflection_positive : Prop
   os_data_complete : Prop
+  reconstructed_hilbert : Type
+  reconstruction_source_dossier : YMEndpointDossier
   reconstruction_ready : R.reconstruction_ready
   wightman_fields_present : R.reconstruction_package.wightman_fields_present
   vacuum_vector_present : R.reconstruction_package.vacuum_vector_present
@@ -22,16 +24,27 @@ theorem YangMillsEndpointDossierStatement
   R.dossier.os_data_complete = R.dossier.os_data_complete := by
   exact And.intro rfl <| And.intro rfl rfl
 
+theorem YangMillsEndpointReconstructionMetadataStatement
+  (R : YMEndpointCore) :
+  R.reconstruction_package.reconstructed_hilbert =
+      R.reconstruction_package.reconstructed_hilbert /\
+  R.reconstruction_package.from_dossier =
+      R.reconstruction_package.from_dossier := by
+  exact And.intro rfl rfl
+
 def YangMillsEndpointSemanticBundleData
   (R : YMEndpointCore)
   (hE : R.euclidean_dossier_ready)
   (hP : R.endpoint_packet_ready) :
   YMEndpointSemanticBundle R := by
+  have hmeta := YangMillsEndpointReconstructionMetadataStatement R
   have hnamed := YangMillsEndpointCoreExhibitsNamedOutputsStatement R hE hP
   refine
     { euclidean_input := R.dossier.euclidean_input
       reflection_positive := R.dossier.reflection_positive
       os_data_complete := R.dossier.os_data_complete
+      reconstructed_hilbert := R.reconstruction_package.reconstructed_hilbert
+      reconstruction_source_dossier := R.reconstruction_package.from_dossier
       reconstruction_ready := hnamed.1
       wightman_fields_present := hnamed.2.1
       vacuum_vector_present := hnamed.2.2.1
