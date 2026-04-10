@@ -1,7 +1,25 @@
 # Yang--Mills Native Boundary
 
-Standalone Lean snapshot for the deeper native Yang--Mills boundary aligned
-with the hardened source suite.
+Standalone Lean snapshot for the Yang--Mills slice of the wider `MaleyLean`
+project, aligned with the hardened source suite.
+
+## Start here
+
+If you are new to this repository, the naming split is:
+
+- `MaleyLean` is the Lean package name
+- `YangMills` is the paper/topic packaged in this standalone export
+
+The main entry points are:
+
+- `Main.lean`
+  the single canonical paper entry point; it loads
+  `MaleyLean.YangMillsCanonicalVerifiedPayload`
+- `BundleMain.lean`
+  optional broader bundle that loads the three exported top-level
+  Yang--Mills summary surfaces
+
+If you want one file to inspect first, start with `Main.lean`.
 
 ## Contents
 
@@ -27,6 +45,12 @@ Build the extracted project with:
 
 ```text
 lake build
+```
+
+Build the single canonical paper entry point with:
+
+```text
+lake env lean Main.lean
 ```
 
 Run the dedicated deep-native axiom check with:
