@@ -2,9 +2,41 @@ import MaleyLean.MathClosurePaperStatements
 
 namespace MaleyLean
 
+#print axioms oldTupleDomainPreserved
+#print axioms oldGraphRigidity
+#print axioms domainFixityOnOldCarrier
+#print axioms noCarrierPreservingInternalTotalization
+#print axioms PaperAuxiliaryDichotomyStatement
+#print axioms noInternalizationByRelabeling
+#print axioms supportGovernedFamilyClassified
+#print axioms supportGovernedFamilyNoInternalizationByRelabeling
+#print axioms mechanismWitnessExists
+#print axioms mechanismWitnessSound
+#print axioms equivalentInputsShareNormalForm
+#print axioms canonicalizationClassified
+#print axioms canonicalizationRepresentativeOfEquivalentInputsAgrees
+#print axioms canonicalizationNormalFormRespectsEquivalent
+#print axioms canonicalizationAsSupportGovernedFamily
+#print axioms completionBoundaryClassification
+#print axioms completionEmbeddedPointsAreConservative
+#print axioms completionReadbackPreservesEmbeddedPoint
+#print axioms completionAsSupportGovernedFamily
+#print axioms modelImportedWitnessIsExternal
+#print axioms modelWitnessClassification
+#print axioms modelWitnessAsSupportGovernedFamily
+#print axioms forcingClassification
+#print axioms forcingGenericWithoutReadbackStaysExternal
+#print axioms forcingAsSupportGovernedFamily
+#print axioms universalClassification
+#print axioms universalInternalComparisonDeterminesStatus
+#print axioms universalConstructionAsSupportGovernedFamily
+#print axioms interactionClosurePreservesStatus
+#print axioms interactionClosureSeedEmbedding
+#print axioms flagshipFamiliesUnifiedClassification
 #print axioms PaperNoInternalTotalizationStatement
 #print axioms PaperExhaustionTheoremStatement
 #print axioms PaperDispositionOfFiveMechanismsStatement
+#print axioms PaperMechanismWitnessDispositionStatement
 #print axioms PaperClosureOfInternalTotalizationStatement
 #print axioms PaperNoNewInternalOperatorPowerStatement
 #print axioms PaperNoInternalReentryPrincipleStatement
