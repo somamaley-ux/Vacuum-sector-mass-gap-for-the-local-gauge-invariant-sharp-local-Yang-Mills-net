@@ -1,0 +1,44 @@
+% PAGE-BUDGET TARGET: 6 pages
+% HARD MAX: 7 pages
+\section{Ultraviolet gate and one-shot entrance}\label{sec:uv}
+
+The first load-bearing module is the ultraviolet/public-scope gate. Its job is to place the compact-simple theorem on the stated class of groups, export the public group-scope input read later by Route~1, and close the one-shot entrance theorem at bounded physical scale. Once those three results are stated, every later quantitative use of the ultraviolet input can be treated as certified rather than re-derived.
+
+\subsection{Compact-simple A1 ultraviolet theorem}
+
+\begin{theorem}[Compact-simple A1 ultraviolet gate]\label{thm:uv-gate}
+Let $G$ be compact connected simple and let $\rho$ be the chosen faithful finite-dimensional unitary Wilson regularization. Then there exist constants $c_{\mathrm{A1}}(G,\rho)>0$ and $\beta_{\mathrm{A1}}(G,\rho)\geq 1$ such that for all $\beta\geq \beta_{\mathrm{A1}}(G,\rho)$, all $\alpha\in[1/2,1]$, and all nontrivial irreducible representations $\pi$ occurring in the character expansion of the Wilson plaquette weight,
+\[
+  |a_\pi(\beta,\alpha)|\leq \exp\!\left(-c_{\mathrm{A1}}(G,\rho)\frac{C_2(\pi)}{\beta+\sqrt{C_2(\pi)}}\right).
+\]
+Equivalently, after descent to $G_{\mathrm{eff}}=G/\ker(\rho)$ when necessary, the one-plaquette Fourier coefficients satisfy a crossover decay bound that is valid on the full stated class of compact connected simple groups.
+\end{theorem}
+\proofhome{Companion~I, Section~1}
+\proofsynopsis{The full proof is the compact-simple A1 packet: a faithful-reduction step, an internal low-Casimir shifted-torus Laplace theorem, and a high-Casimir real-analytic Peter--Weyl theorem. The classical-family worked audits become companion appendices only; they are not part of the core proof burden.}
+
+\subsection{Public group-scope export}
+
+\begin{corollary}[Public group-scope export]\label{cor:group-scope-export}
+For every compact connected simple group $G$ and every chosen faithful Wilson regularization $\rho$, the ultraviolet constants furnished by \cref{thm:uv-gate} are available on the public Route~1 spine. In particular, the one-shot entrance theorem and the faithful-Wilson endpoint packet may be read on the full stated class of compact connected simple groups without any separate exceptional-family proviso.
+\end{corollary}
+
+\begin{proof}
+This is the public export furnished by Packet~1. Once the compact-simple A1 theorem is proved on the stated class, the later Route~1 and endpoint packets consume only the resulting ultraviolet constants and the fact that the theorem holds on the full compact-simple scope.
+\end{proof}
+
+\subsection{One-shot entrance into the KP/Dobrushin basin}
+
+\begin{proposition}[One-shot entrance at bounded physical scale]\label{prop:one-shot-entrance}
+Let $B(\beta;G,\rho)$ denote the explicit one-shot entrance block size furnished by the Route~1 construction. Then there exist constants $\beta^*(G,\rho)>0$, $q^*(G,\rho)\in(0,1)$, $\mathrm{Cent}(G,\rho)<\infty$, and $N_{\mathrm{ent}}(G,\rho;u_{\mathrm{ren}})\in\mathbb N$ such that the following hold.
+\begin{enumerate}[label=\textup{(\alph*)}]
+    \item For every bare coupling $\beta\geq \beta^*(G,\rho)$, the exact one-shot blocked specification at scale $B(\beta;G,\rho)$ lies in the KP/Dobrushin basin with contraction bounded by $q^*(G,\rho)$, uniformly in finite volume and admissible boundary conditions.
+    \item Along the tuned dyadic trajectory $a_n=\ell_0 2^{-n}$, $\beta_n=\beta(a_n;u_{\mathrm{ren}},G,\rho)$, the physical entrance scale is bounded:
+    \[
+      a_n B(\beta_n;G,\rho)\leq \mathrm{Cent}(G,\rho)\,\ell_0\qquad (n\geq N_{\mathrm{ent}}(G,\rho;u_{\mathrm{ren}})).
+    \]
+\end{enumerate}
+\end{proposition}
+\proofhome{Companion~I, Section~2}
+\proofsynopsis{The full proof combines the Packet~1 ultraviolet input with the one-shot blocked transfer mechanism on the exact blocked law. The companion carries the KP majorant, the terminal-block transfer, and the tuned-sequence physical-scale corollary line-by-line; the core paper keeps only the theorem-facing entrance statement.}
+
+The output of this section is exactly what Route~1 consumes: a compact-simple A1 theorem, a public group-scope export, and a one-shot entrance theorem. The long harmonic-analysis and comparison proofs are moved to Companion~I; the core paper keeps only the theorem-facing front end needed to continue to the fixed-lattice gap.

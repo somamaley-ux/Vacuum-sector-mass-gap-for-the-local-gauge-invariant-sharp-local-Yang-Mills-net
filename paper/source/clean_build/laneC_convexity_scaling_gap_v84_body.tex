@@ -1,0 +1,317 @@
+This module provides the finite-dimensional analytic input used to verify:
+\begin{enumerate}[label=(G\arabic*)]
+\item the \emph{uniform convexity} hypothesis in the Wilson-class setting for the given compact gauge group $G$ (on a small-curvature chart domain), with explicit constants in principle; and
+\item a canonical extracted-irrelevant scaling gap $\Delta_{\min}=2$ once all operators of engineering dimension $\le 4$ are extracted.
+\end{enumerate}
+With these finite-dimensional checks in hand (uniform convexity and an extracted-irrelevant scaling gap), the remaining components are:
+(a) implement the good-chart event and (b) fix the extraction bookkeeping.
+
+\paragraph{Scope note.}
+The convexity statement proved here is a \emph{local chart-domain} theorem for one coarse block in the chart-truncated Lane~C map.
+It is logically separate from the repaired weak-window package in Appendix~\ref{app:route1}; Theorem~\ref{thm:weak_window_sufficiency}
+there certifies the downstream step-scaling / Route~1 intake branch without any additional convexity input beyond that appendix-level package.
+
+We fix one dyadic RG step $j\to j+1$ and work on a single unit coarse block $\mathcal Q$ (a $2\times 2\times 2\times 2$ hypercube in $j$-block units).
+Let $E(\mathcal Q)$ be its internal oriented edges and $P(\mathcal Q)$ its oriented plaquettes.
+Let $d_G:=\dim G$.
+
+For $A=(A_e)_{e\in E(\mathcal Q)}$ with $A_e\in\mathfrak g\cong\mathbb R^{d_G}$, define the \emph{abelianized plaquette flux} (discrete curl)
+\[
+(D A)_p\ :=\ \sum_{e\in\partial p} \sigma_{p,e}\,A_e,
+\qquad \sigma_{p,e}\in\{-1,0,1\}.
+\]
+After imposing tree gauge (fixing a maximal tree of edges to $A_e=0$), $D$ becomes a fixed linear map
+\[
+D_{\mathrm{red}}:\mathbb R^{n_{\mathrm{loc}}}\to \mathbb R^{n_{\mathrm{plaq}}},
+\]
+where $n_{\mathrm{loc}}$ and $n_{\mathrm{plaq}}$ are fixed integers \emph{per Lie component}.
+For the canonical $2^4$ block and canonical tree gauge, one has $n_{\mathrm{loc}}^{(1)}=17$ and $n_{\mathrm{plaq}}^{(1)}=24$ for a single Lie component,
+hence $n_{\mathrm{loc}}=d_G\,n_{\mathrm{loc}}^{(1)}$ and $n_{\mathrm{plaq}}=d_G\,n_{\mathrm{plaq}}^{(1)}$ in total.
+
+\begin{definition}[Curl coercivity constant]\label{def:lambda_star}
+Define
+\[
+\lambda_\ast\ :=\ \lambda_{\min}\big(D_{\mathrm{red}}^\ast D_{\mathrm{red}}\big)\ >\ 0.
+\]
+Then for all $v\in\mathbb R^{n_{\mathrm{loc}}}$,
+\begin{equation}\label{eq:curl_coercive}
+\|D_{\mathrm{red}}v\|^2\ \ge\ \lambda_\ast\,\|v\|^2.
+\end{equation}
+\end{definition}
+
+\begin{lemma}[Explicit lower bound $\lambda_\ast>1/4$ for the $2^4$ block]\label{lem:lambda_lower}
+For the $2\times2\times2\times2$ coarse block with the canonical tree gauge, the reduced integer matrix
+$Q:=D_{\mathrm{red}}^\ast D_{\mathrm{red}}$ (for \emph{one} Lie component) has smallest eigenvalue $\lambda_\ast$ satisfying
+\[
+\lambda_\ast\ >\ \frac14.
+\]
+Consequently the same lower bound holds for the full $G$ operator $D_{\mathrm{red}}^\ast D_{\mathrm{red}}$ since it is block-diagonal over Lie components.
+\end{lemma}
+
+\begin{proof}
+$Q$ is a fixed $17\times 17$ symmetric integer matrix (for one Lie component).
+Appendix~\ref{app:lambda_star_Q_to_P} records the explicit matrix $Q$ (in the canonical tree gauge) and provides an explicit algebraic verification of the exact factorization
+of its characteristic polynomial $\chi_Q(x)=\det(xI-Q)$:
+\[
+\chi_Q(x)=(x-6)(x-1)^3(x^3-8x^2+16x-6)\,P(x),
+\]
+where $P$ is the degree-$10$ polynomial displayed in \eqref{eq:P_lambda_star}.
+The remaining factor $(x-6)(x-1)^3(x^3-8x^2+16x-6)$ has no real roots in $[0,\tfrac14]$ (Appendix~\ref{app:lambda_star_Q_to_P}).
+Therefore $\lambda_\ast=\lambda_{\min}(Q)>\tfrac14$ follows once $P$ has no real roots in $[0,\tfrac14]$.
+A complete Sturm--Habicht (subresultant) root-isolation argument for this claim is included in Appendix~\ref{app:lambda_star_certificate}.
+\end{proof}
+
+\paragraph{Remark.}
+For the convexity argument, only $\lambda_\ast>0$ is needed. Lemma~\ref{lem:lambda_lower} gives a concrete quantitative margin and,
+crucially, $\lambda_\ast$ is \emph{independent of $G$} (and hence of the rank parameter $n$).
+
+\subsection{Chart coordinates and BCH control}
+
+Fix a chart radius $\delta\in(0,\pi/4]$. Parameterize each unfixed link by $U_e=\exp(A_e)$ with $\|A_e\|\le\delta$.
+For each plaquette $p$, define the plaquette holonomy
+\[
+U_p(A)\ :=\ \prod_{e\in\partial p} U_e^{\sigma_{p,e}}\ \in G,
+\qquad
+F_p(A)\ :=\ \log\big(U_p(A)\big)\in\mathfrak g,
+\]
+using the principal logarithm on the ball $\|F\|\le \pi$.
+
+\begin{lemma}[BCH decomposition and derivative bounds]\label{lem:BCH_bounds}
+There exist constants $C_2(\delta;G),C_1(\delta;G),C_0(\delta;G)$ such that for all $A$ with $\|A_e\|\le \delta$:
+\begin{enumerate}[label=(B\arabic*)]
+\item (\textbf{Quadratic nonlinearity}) $F(A)$ decomposes as
+\begin{equation}\label{eq:F_decomp}
+F(A)\ =\ D_{\mathrm{red}}A\ +\ N(A),
+\end{equation}
+where $N(A)$ satisfies $\|N(A)\|\le C_2(\delta;G)\,\|A\|^2$.
+\item (\textbf{Jacobian perturbation}) The Jacobian satisfies $\|\nabla N(A)\|\le C_1(\delta;G)\,\|A\|$.
+\item (\textbf{Second derivative}) The second derivative satisfies $\|\nabla^2 N(A)\|\le C_0(\delta;G)$.
+\end{enumerate}
+All norms are Euclidean/operator norms on the finite-dimensional local coordinate space.
+\end{lemma}
+
+\paragraph{Comment.}
+These are standard BCH remainder bounds on a compact Lie algebra.
+For fixed $G$ one may take $C_i(\delta;G)$ polynomial in $\delta$ for $\delta\le 1$.
+For the purposes of the multiscale construction, only finiteness and scale-independence (uniform in the dyadic scale $j$) are needed.
+
+\subsection{Wilson potential and Haar Jacobian}
+
+For the (possibly anisotropic) Wilson-class plaquette weight we use the local potential
+\[
+V_{\beta,\alpha}(X)\ :=\ \alpha\beta\Big(1-\frac{1}{\dim\rho}\mathrm{Re\,Tr}_{\rho}(\exp X)\Big),
+\qquad X\in\mathfrak g,\qquad \alpha\in[\alpha_{\min},1].
+\]
+It is analytic and Ad-invariant. Its Hessian at $X=0$ is positive definite.
+
+\begin{lemma}[Wilson potential Hessian lower bound]\label{lem:radial_hess}
+Fix $r_\ast\in(0,1]$. There exist constants $m(r_\ast;G)>0$ and $M(r_\ast;G)<\infty$ such that for all $X\in\mathfrak g$ with $\|X\|\le r_\ast$
+and all $\alpha\in[\alpha_{\min},1]$,
+\begin{equation}\label{eq:V_hess_lb}
+\nabla_X^2 V_{\beta,\alpha}(X)\ \succeq\ \alpha\beta\,m(r_\ast;G)\,I,
+\end{equation}
+and
+\begin{equation}\label{eq:V_grad_bd}
+\|\nabla_X V_{\beta,\alpha}(X)\|\ \le\ \alpha\beta\,M(r_\ast;G)\,\|X\|.
+\end{equation}
+\end{lemma}
+
+\begin{proof}[Proof (explicit constants in principle)]
+Let $\rho$ denote the fixed finite-dimensional unitary Wilson representation from \eqref{eq:families}.
+Set
+\[
+W(X):=1-\frac{1}{\dim\rho}\Re\Tr_{\rho}(e^{X}),\qquad V_{\beta,\alpha}(X)=\alpha\beta\,W(X).
+\]
+The map $W:\mathfrak g\to\mathbb R$ is real-analytic and Ad-invariant, with $W(0)=0$ and $\nabla W(0)=0$.
+Define the (positive) Dynkin index $I_{\rho}>0$ relative to the fixed inner product by
+\[
+-\Tr_{\rho}(\rho_{\ast}(X)\,\rho_{\ast}(Y))\ =\ I_{\rho}\,\langle X,Y\rangle\qquad (X,Y\in\mathfrak g),
+\]
+where $\rho_{\ast}$ is the differential of $\rho$.
+A Taylor expansion gives
+$\Re\Tr_{\rho}(e^{X})=\dim\rho+\tfrac12\Re\Tr_{\rho}(X^{2})+O(\|X\|^{3})$ and $\Re\Tr_{\rho}(X)=0$ since $X$ is skew-adjoint.
+Thus
+\[
+W(X)=\frac{1}{2\dim\rho}\bigl(-\Re\Tr_{\rho}(X^{2})\bigr)+O(\|X\|^{3})
+=\frac{I_{\rho}}{2\dim\rho}\,\|X\|^{2}+O(\|X\|^{3}),
+\]
+so $\nabla^{2}W(0)=\frac{I_{\rho}}{\dim\rho}\,I$.
+By compactness of $\{\|X\|\le r_\ast\}$ and continuity of $\nabla^{2}W$, the quantity
+\[ m(r_{\ast};G):=\inf_{\|X\|\le r_\ast}\lambda_{\min}(\nabla^{2}W(X)) \]
+exists and is strictly positive.
+Multiplying by $\alpha\beta$ yields \eqref{eq:V_hess_lb}.
+Similarly, since $\nabla W(0)=0$ and $\nabla W$ is Lipschitz on $\{\|X\|\le r_\ast\}$, there exists finite $M(r_\ast;G)$ such that
+$\|\nabla W(X)\|\le M(r_\ast;G)\,\|X\|$, and multiplying by $\alpha\beta$ yields \eqref{eq:V_grad_bd}.
+\end{proof}
+
+On a unit coarse block $\mathcal Q$, define the local negative log-density
+\begin{equation}\label{eq:H_def}
+H_{j+1}(A)\ :=\ \sum_{p\in P(\mathcal Q)} V_{\beta,\alpha_p}\big(F_p(A)\big)\ -\ \sum_{e\in E_{\mathrm{red}}(\mathcal Q)}\log J_{\mathrm{Haar}}(A_e),
+\end{equation}
+where $\alpha_p\in[\alpha_{\min},1]$ are the local exponents (anisotropy/thickening parameters),
+and $J_{\mathrm{Haar}}(A)$ is the Haar Jacobian of $G$ in exponential coordinates.
+A convenient closed form is
+\[
+J_{\mathrm{Haar}}(A)\ =\ \det\!\Big(\frac{1-e^{-\mathrm{ad}_A}}{\mathrm{ad}_A}\Big),
+\]
+and for $A$ conjugate into a Cartan subalgebra this equals the familiar Weyl product
+$J_{\mathrm{Haar}}(A)=\prod_{\alpha>0}\big(\frac{\sin(\alpha(A)/2)}{\alpha(A)/2}\big)^2$.
+
+\begin{lemma}[Haar Jacobian convexity]\label{lem:haar_convex}
+Let $\mathfrak t\subset\mathfrak g$ be a fixed Cartan subalgebra and $\Phi\subset\mathfrak t^{\ast}$ the corresponding root system.
+Set
+\[
+L_G:=\max_{\alpha\in\Phi}\|\alpha\|,
+\qquad
+\delta_{\mathrm{Haar}}(G):=\frac{\pi}{L_G},
+\]
+where $\|\alpha\|$ is the operator norm of the real linear functional $\alpha:\mathfrak t\to\mathbb R$ induced by the fixed inner product on $\mathfrak g$.
+Then for all $A\in\mathfrak g$ with $\|A\|\le \delta_{\mathrm{Haar}}(G)$ one has $J_{\mathrm{Haar}}(A)>0$ and the function $-\log J_{\mathrm{Haar}}(A)$ is convex:
+\[
+\nabla^2\big(-\log J_{\mathrm{Haar}}(A)\big)\ \succeq\ 0.
+\]
+\end{lemma}
+
+\begin{proof}
+We first work on $\mathfrak t$. For $H\in\mathfrak t$ with $\|H\|\le \delta_{\mathrm{Haar}}(G)$ we have $|\alpha(H)|\le \|\alpha\|\,\|H\|\le \pi$ for all $\alpha\in\Phi$.
+Using the Weyl product formula for the Jacobian of the exponential map,
+\[
+J_{\mathrm{Haar}}(H)=\prod_{\alpha>0}\Big(\frac{\sin(\alpha(H)/2)}{\alpha(H)/2}\Big)^2,
+\]
+and since $t/\sin t>0$ for $t\in(-\pi/2,\pi/2)$ (hence for $t=\alpha(H)/2$ here), we may write
+\[
+-\log J_{\mathrm{Haar}}(H)=\sum_{\alpha>0}\phi\!\Big(\frac{\alpha(H)}{2}\Big),
+\qquad
+\phi(t):=2\log\Big(\frac{t}{\sin t}\Big).
+\]
+A direct computation gives, for $t\neq 0$,
+\[
+\phi''(t)=2\Big(\csc^2 t-\frac{1}{t^2}\Big)=2\Big(\frac{1}{\sin^2 t}-\frac{1}{t^2}\Big)\ \ge\ 0,
+\]
+because $|\sin t|\le |t|$ for all real $t$.
+Defining $\phi''(0):=\lim_{t\to 0}\phi''(t)=\tfrac{2}{3}$, we have $\phi''(t)\ge 0$ on $(-\pi/2,\pi/2)$, hence $\phi$ is convex there.
+Since each map $H\mapsto \alpha(H)/2$ is linear on $\mathfrak t$, each summand $H\mapsto \phi(\alpha(H)/2)$ is convex, and so is their finite sum.
+Thus $-\log J_{\mathrm{Haar}}$ is convex on $\{H\in\mathfrak t:\|H\|\le \delta_{\mathrm{Haar}}(G)\}$.
+
+To extend to $\mathfrak g$, note that $J_{\mathrm{Haar}}$ is $\Ad$-invariant and real-analytic, hence so is $f(A):=-\log J_{\mathrm{Haar}}(A)$.
+For any $g\in G$, the map $A\mapsto \Ad_g A$ is an isometry for the fixed bi-invariant inner product, and by $\Ad$-invariance of $f$,
+$f(\Ad_g A)=f(A)$.
+Differentiating twice yields
+\[
+\nabla^2 f(\Ad_g A)=\Ad_g\circ (\nabla^2 f(A))\circ \Ad_{g^{-1}},
+\]
+so positive semidefiniteness of the Hessian is preserved along $\Ad$-orbits.
+Every $A\in\mathfrak g$ is conjugate to some $H\in\mathfrak t$ with $\|H\|=\|A\|$.
+Hence if $\|A\|\le \delta_{\mathrm{Haar}}(G)$ we may choose such an $H$ in the above Cartan neighborhood and conclude $\nabla^2 f(A)\succeq 0$.
+\end{proof}
+
+
+\subsection{Uniform convexity on the chart domain}
+
+\begin{theorem}[Uniform convexity on the chart domain]\label{thm:uniform_convexity}
+Fix $\delta\le \min\{\pi/4,\delta_{\mathrm{Haar}}(G)\}$ and define
+\[
+r_\ast:=\sup_{\|A\|_{\infty}\le \delta}\ \max_{p\in P(\mathcal Q)} \|F_p(A)\|.
+\]
+Assume the BCH derivative bounds of Lemma~\ref{lem:BCH_bounds} and define
+\[
+\varepsilon_1(\delta):=\sup_{\|A\|_\infty\le \delta}\|\nabla N(A)\|,
+\qquad
+\varepsilon_2(\delta):=\sup_{\|A\|_\infty\le \delta}\|\nabla^2 N(A)\|.
+\]
+Assume the smallness conditions
+\begin{align}
+\varepsilon_1(\delta)&\le \tfrac12\sqrt{\lambda_\ast},\label{eq:small1}\\
+M(r_\ast;G)\,\varepsilon_2(\delta)\,r_\ast&\le \tfrac{\alpha_{\min}}{8}\,m(r_\ast;G)\,\lambda_\ast.\label{eq:small2}
+\end{align}
+Then for all $A$ with $\|A_e\|\le \delta$,
+\begin{equation}\label{eq:Hess_lb_final}
+\nabla^2 H_{j+1}(A)\ \succeq\ \varrho\,I,
+\qquad
+\varrho\ :=\ \alpha_{\min}\beta\cdot \frac{m(r_\ast;G)\,\lambda_\ast}{8}.
+\end{equation}
+In particular $\varrho>0$ is uniform in scale $j$ provided $\beta\ge \beta_{\min}>0$ and $\delta$ is fixed.
+\end{theorem}
+
+\begin{proof}[Structured proof with explicit constants]
+Differentiate \eqref{eq:H_def}. By Lemma~\ref{lem:haar_convex}, the Haar Jacobian term is convex and can be discarded in a lower bound.
+For each plaquette term $V_{\beta,\alpha_p}\circ F_p$, apply the chain rule:
+\[
+\nabla^2(V\circ F)=J^\ast (\nabla^2 V)J + \sum_{a} (\partial_a V)\,\nabla^2 F_a,
+\]
+where $J=\nabla F$ and $F_a$ are coordinates of $F$.
+Using Lemma~\ref{lem:radial_hess} with $r_\ast$ and $\alpha_p\ge \alpha_{\min}$ gives
+\[
+J^\ast(\nabla^2 V)J\ \succeq\ \alpha_{\min}\beta\,m(r_\ast;G)\,J^\ast J.
+\]
+Summing over plaquettes yields the same bound with the block Jacobian $J(A)$ mapping $A$ to the vector $(F_p(A))_{p\in P(\mathcal Q)}$.
+
+By Lemma~\ref{lem:BCH_bounds}, $J(A)=D_{\mathrm{red}}+\nabla N(A)$.
+Hence, for any $v$,
+\[
+\|J(A)v\|\ \ge\ \|D_{\mathrm{red}}v\|-\|\nabla N(A)\|\|v\|
+\ \ge\ (\sqrt{\lambda_\ast}-\varepsilon_1(\delta))\,\|v\|
+\ \ge\ \tfrac12\sqrt{\lambda_\ast}\,\|v\|,
+\]
+using \eqref{eq:small1}. Therefore $J^\ast J\succeq (\lambda_\ast/4)I$.
+
+For the second (nonlinear) term, use the gradient bound \eqref{eq:V_grad_bd}:
+on $\|X\|\le r_\ast$,
+\[
+\big\|\sum_a (\partial_a V)\,\nabla^2 F_a\big\|_{\mathrm{op}}
+\ \le\ \alpha_{\max}\beta\,M(r_\ast;G)\,r_\ast\,\varepsilon_2(\delta)
+\ \le\ \beta\,M(r_\ast;G)\,r_\ast\,\varepsilon_2(\delta).
+\]
+With \eqref{eq:small2} this error is bounded by $(\alpha_{\min}\beta\,m(r_\ast;G)\lambda_\ast)/8$.
+Combining this with the good term's lower bound $(\alpha_{\min}\beta\,m(r_\ast;G)\lambda_\ast)/4$ yields \eqref{eq:Hess_lb_final} with the stated factor $1/8$.
+\end{proof}
+
+\paragraph{Corollary ( convexity hypothesis).}
+Theorem~\ref{thm:uniform_convexity} verifies Proposition~\ref{ass:uniform_convexity} with $\varrho$ given by \eqref{eq:Hess_lb_final}.
+
+\subsection{Extracted-irrelevant scaling gap}
+
+We now turn to the remaining finite-dimensional input needed for the irrelevant-sector contraction mechanism:
+an explicit extracted-irrelevant scaling gap for the linearized RG map.
+
+\begin{definition}[Engineering dimension and extraction level]\label{def:dim_extract}
+Assign engineering dimensions in $d=4$:
+\[
+[A]=1,\qquad [F]=2,\qquad [D]=1.
+\]
+The relevant/marginal gauge-invariant local monomials have engineering dimension $\le 4$ and are spanned (in the gauge-invariant sector) by:
+\[
+\mathbf 1,\qquad \mathrm{tr}(F_{\mu\nu}F_{\mu\nu}),\qquad \mathrm{tr}(F_{\mu\nu}\widetilde F_{\mu\nu}).
+\]
+(Any scheme-specific additional marginal coordinates can be included here if needed.)
+Define the extraction operator $\mathsf{Ext}$ to remove all local components of dimension $\le 4$ from polymer activities.
+\end{definition}
+
+\begin{lemma}[Scaling gap after extraction]\label{lem:Delta_min}
+Assume extraction removes all components of engineering dimension $\le 4$ as in Definition~\ref{def:dim_extract}.
+Then every remaining local monomial has dimension $\ge 6$.
+Consequently the minimal dyadic scaling gap is
+\[
+\Delta_{\min}\ =\ 6-4\ =\ 2,
+\]
+and under deterministic dyadic rescaling (block size $L\mapsto 2L$),
+\[
+\|\mathrm{Rescale}(K)\|_{j+1}\ \le\ 2^{-\Delta_{\min}}\,\|K\|_j\ =\ \frac14\,\|K\|_j
+\]
+for extracted irrelevants, provided the seminorm $\|\cdot\|_j$ is defined with canonical scaling weights.
+\end{lemma}
+
+\begin{proof}
+In $d=4$ pure gauge theory, there are no gauge-invariant monomials of odd dimension.
+After removing dimension $\le 4$ components, the next possible gauge-invariant local operators are dimension $6$ (e.g.\ $\mathrm{tr}(F^3)$ and $\mathrm{tr}((D_\mu F_{\mu\nu})^2)$).
+Dyadic rescaling reduces a dimension-$4+\Delta$ term by a factor $2^{-\Delta}$.
+\end{proof}
+
+\paragraph{Corollary ( scaling-gap hypothesis).}
+Lemma~\ref{lem:Delta_min} verifies Proposition~\ref{ass:scaling_gap} with $\Delta_{\min}=2$.
+Combined with the integration boundedness constant $C_E$ from the one-step integration estimate (Lemma~\ref{lem:E_bounded}),
+the linear contraction constant is
+\[
+\kappa \ =\ C_E\,2^{-\Delta_{\min}}\ =\ \frac{C_E}{4},
+\]
+and the Lane~C stability mechanism requires $\kappa<1$.

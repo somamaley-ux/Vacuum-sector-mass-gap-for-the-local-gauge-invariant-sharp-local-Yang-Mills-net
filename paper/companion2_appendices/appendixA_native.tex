@@ -1,0 +1,296 @@
+\section{Native REV\TeX{} transcription of current Section~4 source block (pp.~27--67)}
+This appendix begins the native rewrite of the March~16,~2026 source manuscript by replacing the Section~4 archival facsimile pages with a native theorem-facing transcription. The focus of this phase is the flowed continuum state and the dyadic-RG / no-subsequence convergence infrastructure culminating in source Theorem~4.92 and Corollaries~4.93--4.95.
+
+\subsection{Group-uniform A1 input and the dyadic GF step-scaling lane}
+The source Section~4 begins by isolating the one-plaquette coefficient input and the dyadic gradient-flow step-scaling structure used throughout Lane~C.
+
+\begin{theorem}[Source Theorem~4.2: group-uniform A1 input used on the primary spine]
+For every compact connected simple gauge group $G$ and every fixed finite-dimensional unitary Wilson representation $\rho$, the one-plaquette coefficients satisfy the crossover bound of the compact-simple A1 theorem. Equivalently, on the primary Route~1 spine every use of the A1 gate is available with group-dependent constants $(c_{A1}(G,\rho),\beta_{A1}(G,\rho))$ and no remaining Lie-type restriction.
+\end{theorem}
+
+\begin{proposition}[Source Proposition~4.6: one-loop coefficient is scheme invariant]
+Let $u$ and $u'$ be two renormalized couplings related near $0$ by an analytic reparametrization
+\[
+u' = u + a_1 u^2 + a_2 u^3 + O(u^4).
+\]
+If
+\[
+\beta(u) = -2b_0u^2 + O(u^3),
+\]
+then
+\[
+\beta'(u') = -2b_0 (u')^2 + O((u')^3).
+\]
+In particular, the coefficient $b_0$ is invariant under the reparametrization.
+\end{proposition}
+
+\begin{lemma}[Source Lemma~4.7: beta-remainder implies step-scaling remainder]
+Assume there exist constants $u_0>0$ and $B\ge 0$ such that
+\[
+|\beta_{\mathrm{GF}}(u)+2b_0u^2| \le B u^3
+\qquad (0\le u\le u_0),
+\]
+and assume $u_0$ is small enough that $D:=1-2b_0u_0\log 2>0$. Then for every $u\in[0,u_0]$, the factor-$2$ step-scaling map satisfies
+\[
+\Sigma(u)=u+2b_0u^2\log 2 + R_\Sigma(u),
+\qquad
+|R_\Sigma(u)|\le C_\Sigma u^3
+\]
+with explicit constant
+\[
+C_\Sigma:= \frac{(2b_0\log 2)^2}{D} + \frac{B\log 2}{D^3}.
+\]
+\end{lemma}
+
+\subsection{One-step analytic RG map and dyadic beta remainder}
+The middle of the source Section~4 turns the Lane~C dyadic RG into a scale-uniform analytic map with explicit Taylor remainder bounds.
+
+\begin{proposition}[Source Proposition~4.9: analytic RG map with explicit Taylor remainder bounds]
+There exist constants
+\[
+r_0>0,\qquad \kappa\in(0,1),\qquad A_2\in\mathbb R,\qquad C_u>0,\qquad C_K>0,
+\]
+and linear operators $L_j:\mathcal K_j\to \mathcal K_{j+1}$ with $\|L_j\|_{\mathrm{op}}\le \kappa$, such that for all $j$ and all $(u,K)\in B_j(r_0)$ the RG step satisfies
+\begin{align}
+u' &= u + A_2 u^2 + \delta_u(u,K),\\
+K' &= L_j K + \delta_K(u,K),
+\end{align}
+with bounds
+\begin{align}
+|\delta_u(u,K)| &\le C_u \bigl(|u|^3 + |u|\,\|K\|_j\bigr),\\
+\|\delta_K(u,K)\|_{j+1} &\le C_K \bigl(|u|^2 + \|K\|_j^2\bigr).
+\end{align}
+All constants are uniform in the dyadic scale.
+\end{proposition}
+
+\begin{proposition}[Source Proposition~4.10: entrance estimate]
+There exists an entrance scale $j_\ast$ and a constant $D>0$ such that
+\[
+\|K_{j_\ast}\|_{j_\ast}\le D u_{j_\ast}^2,
+\qquad
+|u_{j_\ast}|\le r_0/2.
+\]
+\end{proposition}
+
+\begin{proposition}[Source Proposition~4.11: quadratic coefficient identification]
+The RG marginal coefficient satisfies
+\[
+A_2 = 2b_0 \log 2,
+\qquad b_0>0
+\]
+for pure Yang--Mills. In the load-bearing chain only the positivity $b_0>0$ is used downstream.
+\end{proposition}
+
+\begin{lemma}[Source Lemma~4.13: irrelevant sector stays $O(u^2)$]
+Assume the analytic RG map above. Define the cone region
+\[
+\mathcal C_j(M):=\{(u,K)\in B_j(r_0): \|K\|_j\le M u^2\}.
+\]
+If
+\[
+M\ge \frac{2C_K}{1-\kappa}
+\]
+and $r_0$ is sufficiently small, then
+\[
+(u,K)\in \mathcal C_j(M)\implies (u',K')\in \mathcal C_{j+1}(M).
+\]
+\end{lemma}
+
+\begin{corollary}[Source Corollary~4.14: uniform irrelevant bound along the dyadic trajectory]
+With
+\[
+M:=\max\!\left\{D,\frac{2C_K}{1-\kappa}\right\},
+\]
+one has for all $j\ge j_\ast$,
+\[
+\|K_j\|_j \le M u_j^2
+\]
+provided the RG stays in the small-coupling ball.
+\end{corollary}
+
+\begin{theorem}[Source Theorem~4.15: dyadic step remainder bound in RG seminorm topology]
+Assume the preceding RG hypotheses. Then for all $j\ge j_\ast$ and all sufficiently small $u_j$,
+\[
+|u_{j+1}-u_j-A_2u_j^2|\le C_\Sigma u_j^3,
+\qquad
+C_\Sigma:=C_u(1+M).
+\]
+The constant $C_\Sigma$ is uniform in $j$ and hence uniform in $a/L_j$.
+\end{theorem}
+
+\begin{corollary}[Source Corollary~4.16: uniform dyadic beta-remainder bound]
+Define the dyadic beta function by
+\[
+\beta^{(2)}(u_j):=-\frac{u_{j+1}-u_j}{\log 2}.
+\]
+Then for all $j\ge j_\ast$ and all sufficiently small $u_j$,
+\[
+|\beta^{(2)}(u_j)+2b_0u_j^2| \le Bu_j^3,
+\qquad
+B:=\frac{C_\Sigma}{\log 2}
+= \frac{C_u(1+M)}{\log 2},
+\]
+uniformly in the dyadic scale.
+\end{corollary}
+
+\subsection{Uniform convexity and the extracted-irrelevant scaling gap}
+The source Section~4 next reduces the one-step fluctuation estimates to finite-dimensional uniform convexity on the good-chart domain together with the canonical extracted-irrelevant scaling gap.
+
+\begin{lemma}[Source Lemma~4.40: explicit lower bound for the tree-gauge curl coercivity]
+For the $2\times 2\times 2\times 2$ coarse block with the canonical tree gauge, the reduced integer matrix
+\[
+Q:=D_{\mathrm{red}}^\ast D_{\mathrm{red}}
+\]
+has smallest eigenvalue $\lambda_\ast$ satisfying
+\[
+\lambda_\ast > \frac14.
+\]
+Consequently the same lower bound holds for the full $G$ operator $D_{\mathrm{red}}^\ast D_{\mathrm{red}}$, since it is block-diagonal over Lie components.
+\end{lemma}
+
+\begin{theorem}[Source Theorem~4.44: uniform convexity on the chart domain]
+Fix $\delta\le \min\{\pi/4,\delta_{\mathrm{Haar}}(G)\}$ and define
+\[
+r_\ast := \sup_{\|A\|_\infty\le \delta}\max_{p\in P(Q)} \|F_p(A)\|.
+\]
+Assume the BCH derivative bounds and the smallness conditions
+\[
+\varepsilon_1(\delta)\le \frac12\sqrt{\lambda_\ast},
+\qquad
+M(r_\ast;G)\varepsilon_2(\delta)r_\ast \le \frac{\alpha_{\min}}{8}m(r_\ast;G)\lambda_\ast.
+\]
+Then for all $A$ with $\|A_e\|\le \delta$,
+\[
+\nabla^2 H_{j+1}(A)\succeq \varrho I,
+\qquad
+\varrho := \alpha_{\min}\beta\,\frac{m(r_\ast;G)\lambda_\ast}{8}.
+\]
+In particular, $\varrho>0$ is uniform in scale $j$ provided $\beta\ge \beta_{\min}>0$ and $\delta$ is fixed.
+\end{theorem}
+
+\begin{lemma}[Source Lemma~4.46: scaling gap after extraction]
+Assume the extraction removes all gauge-invariant local components of engineering dimension $\le 4$. Then every remaining local monomial has dimension at least $6$, so the minimal dyadic scaling gap is
+\[
+\Delta_{\min}=6-4=2.
+\]
+Under deterministic dyadic rescaling one therefore has
+\[
+\|\mathrm{Rescale}(K)\|_{j+1}\le 2^{-\Delta_{\min}}\|K\|_j = \frac14\|K\|_j
+\]
+for extracted irrelevants, provided the seminorm is defined with canonical scaling weights.
+\end{lemma}
+
+\begin{theorem}[Source Theorem~4.66: uniform dyadic beta-remainder bound for the patched RG]
+Assume:
+\begin{enumerate}
+\item the dyadic RG step is the chart-truncated map $R_j^{\mathrm{good}}$,
+\item extraction removes all relevant/marginal components up to the chosen depth,
+\item the identification $A_2=2b_0\log 2$ holds with $b_0>0$,
+\item the project seminorm axioms hold with scale-independent constants.
+\end{enumerate}
+Then there exist $u_0,B>0$, independent of the dyadic scale $j$, such that for all scales in the asymptotically free window and all $u\in[0,u_0]$,
+\[
+|\beta^{(2)}(u)+2b_0u^2| \le Bu^3,
+\]
+with explicit choice
+\[
+B = \frac{C_u(1+M)}{\log 2},
+\qquad
+M:=\max\!\left\{D,\frac{2C_K}{1-\kappa}\right\}.
+\]
+\end{theorem}
+
+\subsection{Stable manifold, injective tuning, and observable Lipschitz control}
+The last large block of the source Section~4 constructs the UV-stable irrelevant trajectory, proves injective tuning of the renormalization map at fixed physical scale, and establishes the observation-scale Lipschitz dependence needed for uniqueness of the continuum state.
+
+\begin{theorem}[Source Theorem~4.72: stable manifold for the patched RG]
+Let $(u_j)_{j\le 0}$ be an admissible asymptotically free trajectory. Then:
+\begin{enumerate}
+\item for each fixed $j\le 0$, the limit
+\[
+K_j^{(\infty)} := \lim_{N\to \infty,\,N\ge |j|} K_j^{(N)}
+\]
+exists in $\mathcal K_j$ and satisfies the RG recursion
+\[
+K_{j+1}^{(\infty)} = \mathcal K_j(u_j,K_j^{(\infty)});
+\]
+\item one has $K_j^{(\infty)}\to 0$ in norm as $j\to -\infty$;
+\item the UV-stable irrelevant trajectory is unique;
+\item the limit is universal with respect to bounded UV initialization in the irrelevant sector.
+\end{enumerate}
+Moreover,
+\[
+\|K_j^{(\infty)}\|_j \le C_F \sum_{m=-\infty}^{j-1}\kappa^{j-1-m}u_m^2.
+\]
+\end{theorem}
+
+\begin{theorem}[Source Theorem~4.78: injectivity/monotonicity of the renormalization map]
+Assume the one-step analytic remainder bounds for the step-scaling maps. Then there exists a uniform asymptotically free interval $[0,u^\circ]$ such that for every cutoff depth $N$ the renormalization map
+\[
+\rho_N(u_{-N}) := u_0
+\]
+is $C^1$ and strictly increasing on $[0,u^\circ]$. In particular, for every target $u_\mu$ in the image of $\rho_N$ there exists a unique tuned UV coordinate $u_{-N}$ with $\rho_N(u_{-N})=u_\mu$.
+\end{theorem}
+
+\begin{theorem}[Source Theorem~4.86: bulk observable Lipschitz in the RG data]
+Fix a finite observable set $\mathcal F\subset A_{\mathrm{flow}}$ and choose the observation scale $j_{\mathrm{obs}}$ attached to $\mathcal F$. Then for any two datasets $(u,K),(\tilde u,\tilde K)$ in the observation-scale RG ball,
+\[
+\max_{F\in \mathcal F}|G_F(u,K)-G_F(\tilde u,\tilde K)|
+\le L_{\mathcal F}\bigl(|u-\tilde u|+\|K-\tilde K\|_{j_{\mathrm{obs}}}\bigr),
+\]
+with explicit constant $L_{\mathcal F}$ independent of the lattice spacing in the patched construction.
+\end{theorem}
+
+\subsection{No-subsequence convergence and the flowed-state packet}
+The source Section~4 ends by assembling the no-subsequence convergence theorem for the patched outputs and its identification with the physical Wilson continuum state.
+
+\begin{theorem}[Source Theorem~4.92: no-subsequence convergence for the flowed continuum state]
+Assume the uniform boundedness/precompactness package, injective tuning, stable-manifold uniqueness, and observation-scale Lipschitz control. Fix a target renormalized coupling value in the asymptotically free interval, and for each lattice spacing tune the UV coupling so that the renormalization condition holds. Then:
+\begin{enumerate}
+\item for every finite set $\mathcal F\subset A_{\mathrm{flow}}$, the joint values $\{\omega_a^{\mathrm{RG}}(F)\}_{F\in\mathcal F}$ converge as $a\to 0$ without subsequence extraction;
+\item there exists a unique state $\omega$ on $A_{\mathrm{flow}}$ such that
+\[
+\omega(F)=\lim_{a\to 0}\omega_a(F)=\lim_{a\to 0}\omega_a^{\mathrm{RG}}(F)
+\qquad (F\in A_{\mathrm{flow}});
+\]
+\item the limit state is Euclidean invariant and reflection invariant, and inherits the algebraic identities preserved under pointwise limits.
+\end{enumerate}
+\end{theorem}
+
+\begin{corollary}[Source Corollary~4.93: unique continuum Euclidean state on $\mathcal A_{\mathrm{flow}}$]
+Under the hypotheses of Theorem~\ref{thm:C3U}, the tuned unpatched Wilson expectations $\omega_a$ converge (without subsequences) to a unique Euclidean-invariant state $\omega$ on $\mathcal A_{\mathrm{flow}}$ for all flow times $t\in(0,t_\ast]$.
+\end{corollary}
+
+\begin{proof}
+This is immediate from Theorem~\ref{thm:C3U}(b)--(c).
+\end{proof}
+
+\begin{corollary}[Source Corollary~4.94: tuned dyadic Wilson limit on the bounded positive-time algebra]
+Fix a target value $u_{\mathrm{ren}}\in (0,u_\ast]$ and the associated tuned dyadic trajectory
+\[
+a_n=\ell_0 2^{-n},
+\qquad
+\beta_n = \beta(a_n;u_{\mathrm{ren}}).
+\]
+Then for every finite family $\mathcal F\subset A_+$ of bounded cylinder observables supported in $\{x_0>0\}$, the Wilson expectations
+\[
+\{\omega_{a_n}(F)\}_{F\in\mathcal F}
+\]
+converge jointly as $n\to\infty$. In particular, for every $F\in A_+$ the limit $\lim_{n\to\infty}\omega_{a_n}(F)$ exists and defines a state on $A_+$.
+\end{corollary}
+
+\begin{corollary}[Source Corollary~4.95: tuned dyadic convergence of reflected matrix elements]
+Fix the same tuned dyadic trajectory and define the dense dyadic translation set
+\[
+D_{\mathrm{dyad}}:=\{m\ell_0 2^{-k}: m,k\in\mathbb N_0\}.
+\]
+Then for every finite family built from finitely many elements of $A_+$ by applying finitely many reflections and finitely many translations $\tau_s$ with $s\in D_{\mathrm{dyad}}$, the Wilson expectations converge jointly along the tuned dyadic sequence. In particular, for every bounded $F,G\in A_+$ and every $s\in D_{\mathrm{dyad}}$, the limit
+\[
+\lim_{n\to\infty}\omega_{a_n}(\Theta F\,\tau_s G)
+\]
+exists.
+\end{corollary}
+
+\begin{remark}
+For the purposes of the core paper, the theorem-facing outputs of the present appendix are source Theorem~4.92 and Corollaries~4.93--4.95. Corollary~4.93 records the executive flowed-state formulation on $\mathcal A_{\mathrm{flow}}$, Corollary~4.94 gives the tuned bounded positive-time base state, and Corollary~4.95 gives the dyadic reflected matrix-element limits later consumed at the QE3 seam. The Wilson/RG identification on $\mathcal A_{\mathrm{flow}}$ is paired in the live suite with the flowed de-patching seam proved in Companion~I, Section~III. The larger dyadic-RG and injective-tuning machinery is retained here because it is part of the same native source block and because later Lane~A closure theorems continue to consume its outputs.
+\end{remark}

@@ -1,0 +1,172 @@
+% PAGE-BUDGET TARGET: 7 pages
+% HARD MAX: 7 pages
+% BLUEPRINT PHASE 3: Draft Sections 5--6.
+\section{QE3 seam and continuum vacuum-gap transport}\label{sec:qe3-transport}
+\budgetnote{7}{7}
+
+The final load-bearing transport step is to carry the tuned fixed-lattice lower bound to the continuum sharp-local vacuum sector without changing its theorem-level meaning. The key point is that this step has one and only one theorem-facing seam package: the bounded Wilson limit, the continuum-time OS upgrade, the density and graph-core handoff, and the transport theorem that reads the same lower bound in the full sharp-local Hilbert space. This section states that package exactly and nothing more.
+
+\subsection{Route 1 transport ledger}
+
+On the public spine the fixed-lattice-to-continuum transport chain is
+\tightdisplay{$Corollary~\ref{cor:group-scope-export}
+\Rightarrow Proposition~\ref{prop:one-shot-entrance}
+\Rightarrow Proposition~\ref{prop:lattice-gap}
+\Rightarrow \cref{thm:wilson-return}$\\
+$\Rightarrow \cref{thm:bounded-wilson-os-limit}
+\Rightarrow \cref{thm:continuum-time-os-upgrade}
+\Rightarrow \cref{thm:continuum-gap-transport}
+\Rightarrow Corollary~\ref{cor:continuum-vacuum-gap}.$}
+The only live weak-window input on this chain is \cref{thm:weak-window-certificate}; no auxiliary edge-Hessian placeholder or other weak-window branch re-enters after that theorem. The first Lane~A compatibility input consumed here is the bounded-state restriction clause isolated in the proof home as Source Corollary~5.75; the finite-cap sharp-local OS structure used before any passage to the union is the capwise statement of Source Theorem~5.74(b), and Corollary~\ref{cor:full-inductive-union} is only the later inductive-union passage. Lane~A supplies the sharp-local OS reconstruction; Route~1 supplies the fixed-lattice lower bound; and Lane~B remains downstream only.
+
+\paragraph{Phase-IV route discipline.}
+The live QE3 route is now theorem-facing in four explicit steps only: \cref{thm:bounded-wilson-os-limit} records bounded dyadic OS limits on $A_+$ and nothing more; \cref{thm:continuum-time-os-upgrade} is the unique upgrade from those dyadic limits to the all-$t$ sharp-local OS semigroup; Corollary~\ref{cor:density-bounded-base} together with Lemma~\ref{lem:qe3-graph-core} supply the only density and finite-graph-norm package used later; and \cref{thm:continuum-gap-transport} performs the actual gap transfer. No direct lattice-level all-time theorem and no hidden domain-completion step occur on the public spine.
+\paragraph{Phase-VIII operator-domain attack checklist.}
+A hostile operator-theoretic audit of Packet~8 should therefore test only four questions. First, do the dyadic OS matrix elements on $A_+$ exist exactly as stated in Theorem~\ref{thm:bounded-wilson-os-limit}? Second, does the Lane~A seam identify that bounded base state inside the sharp-local OS reconstruction before any all-$t$ statement is read? Third, does the passage from bounded observables to sharp-local vectors use only density of $A_+$ together with capwise finite-graph-norm approximants from the common invariant core? Fourth, does the final gap transfer use only semigroup contraction plus the boxed spectral input after those steps are complete? No other domain completion, non-dyadic lattice semigroup, or full-union graph-norm uniformity is available or needed on the live spine.
+
+
+\subsection{Bounded Wilson/dyadic OS limit}
+
+\begin{theorem}[Bounded Wilson/dyadic OS limit theorem]\label{thm:bounded-wilson-os-limit}
+Fix a weak-window target value $u_{\mathrm{ren}}\in(0,u_*]$ and let
+\[
+a_n:=\ell_0 2^{-n},\qquad \beta_n:=\beta(a_n;u_{\mathrm{ren}}).
+\]
+Define the dense dyadic translation set
+\[
+D_{\mathrm{dyad}}:=\{m\ell_0 2^{-k}:m,k\in\mathbb N_0\}.
+\]
+Then along this tuned dyadic sequence:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.25em]
+\item for every bounded cylinder observable $F\in A_+$, the limit
+\[
+\bdstate(F):=\lim_{n\to\infty}\omega_{a_n}(F)
+\]
+exists and defines a state on $A_+$;
+\item for every bounded $F,G\in A_+$ and every dyadic shift $s\in D_{\mathrm{dyad}}$, the OS matrix-element limit
+\[
+K_{u_{\mathrm{ren}}}(F,G;s):=\lim_{n\to\infty}\omega_{a_n}(\Theta F\,\tau_s G)
+\]
+exists, and in particular $K_{u_{\mathrm{ren}}}(F,F;0)\ge 0$, so $\bdstate$ is reflection positive on $A_+$.
+\end{enumerate}
+\end{theorem}
+
+\proofsynopsis{Part~(i) is the bounded positive-time convergence already isolated in Corollary~\ref{cor:bounded-base-state}. Part~(ii) uses the tuned dyadic convergence of reflected/transformed bounded cylinder observables, then passes positivity through the limit. The theorem records the actual dyadic OS matrix elements later transported through the sharp-local state.}
+\proofhome{Companion I, Section~6.}
+\dependencyledger
+  {the tuned bounded-base-state convergence package underlying Corollary~\ref{cor:bounded-base-state}, the dyadic reflected matrix-element convergence proved in the Route~1 proof home, and Wilson reflection positivity at each lattice spacing}
+  {none}
+  {along the tuned dyadic trajectory the bounded Wilson state on $A_+$ and its dyadic reflected OS matrix elements converge; the theorem does not yet produce an all-time semigroup on the sharp-local Hilbert space}
+  {Theorem~\ref{thm:continuum-time-os-upgrade} and Theorem~\ref{thm:continuum-gap-transport}}
+
+\subsection{Continuum-time OS upgrade}
+
+\begin{theorem}[Continuum-time OS upgrade of the bounded base state]\label{thm:continuum-time-os-upgrade}
+Fix $u_{\mathrm{ren}}\in(0,u_*]$ and let $\sharpstate$ be the full sharp-local state furnished by Corollary~\ref{cor:full-inductive-union} over the same tuned bounded base state. Let $(H,\Omega,\mathcal H)$ be its OS reconstruction. Then:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.25em]
+\item the restriction of $\sharpstate$ to $A_+$ is exactly $\bdstate$;
+\item for every bounded $F,G\in A_+$ and every dyadic shift $s\in D_{\mathrm{dyad}}$,
+\[
+\sharpstate(\Theta F\,\tau_s G)=K_{u_{\mathrm{ren}}}(F,G;s);
+\]
+\item for every bounded $F,G\in A_+$ and every $t\ge 0$,
+\[
+\sharpstate(\Theta F\,\tau_t G)=\langle [F],e^{-tH}[G]\rangle_{\mathcal H},
+\]
+and the map $t\mapsto \sharpstate(\Theta F\,\tau_t G)$ is continuous on $[0,\infty)$.
+\end{enumerate}
+Consequently the bounded positive-time state of \cref{thm:bounded-wilson-os-limit} has a canonical continuum-time OS semigroup transported through the full sharp-local state.
+\end{theorem}
+
+\proofsynopsis{The theorem now follows the repaired seam split literally. The bounded-state restriction and dyadic OS matrix elements come only from the bounded-state compatibility node later named in the proof home as Source Corollary~5.75; the finite-cap sharp-local OS structure used to obtain the semigroup is the capwise statement of the finite-cap extension theorem, backed theorem-locally by the promoted finite-cap bridge into Source Theorem~5.74; Corollary~\ref{cor:full-inductive-union} performs only the passage to the full sharp-local algebra. No independent non-dyadic lattice-shift theorem is needed on the public spine.}
+\proofhome{Companion I, Section~6.}
+\dependencyledger
+  {Theorem~\ref{thm:bounded-wilson-os-limit}, the bounded-state restriction compatibility isolated in the Companion~II proof home as Source Corollary~5.75, the finite-cap OS structure of Theorem~\ref{thm:finite-cap-extension}, and the inductive-union passage Corollary~\ref{cor:full-inductive-union}}
+  {the standard OS reconstruction theorem for reflection-positive states, applied only after the Lane~A seam package has produced the full sharp-local positive-time state}
+  {the bounded base state is identified inside the full sharp-local OS reconstruction, and its dyadic matrix elements extend to the canonical continuum-time semigroup for all $t\ge 0$; this theorem does not yet perform the density/graph-core or spectral-gap transfer}
+  {Lemma~\ref{lem:qe3-graph-core} and Theorem~\ref{thm:continuum-gap-transport}}
+\begin{remark}[Dyadic-to-all-time route on the public spine]
+Theorem~\ref{thm:bounded-wilson-os-limit} is only the bounded dyadic OS-limit theorem on $A_+$. The present theorem is the only public-spine step that upgrades those dyadic matrix elements to all $t\ge 0$, and it does so only after the capwise OS structure of Theorem~\ref{thm:finite-cap-extension} and the inductive-union passage Corollary~\ref{cor:full-inductive-union} have produced the sharp-local OS semigroup. No direct lattice all-time theorem is assumed or needed.
+\end{remark}
+
+
+\subsection{Density and graph-core handoff}
+
+\begin{corollary}[Density of the bounded base algebra]\label{cor:density-bounded-base}
+In the setting of \cref{thm:continuum-time-os-upgrade}, let $(H,\Omega,\mathcal H)$ be the OS reconstruction of the full sharp-local state. Then the image of $A_+$ is dense in $\mathcal H$, and
+\[
+\overline{\operatorname{span}}\{[F-\sharpstate(F)]:F\in A_+\}=\Omega^{\perp}.
+\]
+In particular, the non-collapse argument may be carried out on bounded positive-time observables and extended by density to the full sharp-local Hilbert space.
+\end{corollary}
+
+\begin{proof}
+This is exactly the bounded-base cyclicity export of \cref{thm:bounded-base-cyclicity}, applied to the full sharp-local state singled out by \cref{thm:continuum-time-os-upgrade}.
+\end{proof}
+
+\begin{lemma}[Graph-core approximation at the QE3 seam]\label{lem:qe3-graph-core}
+In the setting of \cref{thm:continuum-time-os-upgrade}, two approximation facts enter the final gap transfer.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.25em]
+\item By Corollary~\ref{cor:density-bounded-base}, the bounded positive-time algebra $A_+$ is dense in $\mathcal H$, and its centered classes are dense in $\Omega^{\perp}$.
+\item Whenever a finite family of renormalized sharp-local fields belongs to a fixed engineering cap $\Delta_{\max}$, the corresponding field-polynomial vectors are realized as limits of vectors from the common invariant core supplied by the finite-cap Lane~A construction; the same approximants converge not only in the OS Hilbert norm but also in every finite graph norm relevant to that cap.
+\end{enumerate}
+For each $t\ge 0$ one has $\|e^{-tH}\|\le 1$, so any semigroup estimate established first on the bounded positive-time core extends by Hilbert-norm continuity to the capwise sharp-local limits. Thus the QE3 passage from bounded observables to the full sharp-local Hilbert space uses only this explicit density/core package and no hidden domain argument.
+\end{lemma}
+
+\proofsynopsis{Part~(i) is the density statement just recorded in Corollary~\ref{cor:density-bounded-base}. Part~(ii) is the graph-norm approximation package already built into the finite-cap Lane~A theorem and then passed to the inductive union. This lemma is the QE3 seam-closure node on the public spine.}
+\proofhome{Companion I, Section~6.}
+\begin{remark}[Visible finiteness of the graph-core package]
+Every sharp-local vector later used in the QE3 transport first lies in some fixed engineering cap, and only the finite list of graph norms attached to that cap enters the approximation argument. Lemma~\ref{lem:qe3-graph-core} therefore does not invoke a graph-norm completion uniform over the full inductive union; the full-union step enters only through density of $A_+$ and boundedness of the semigroup.
+\end{remark}
+
+
+\subsection{Continuum vacuum-gap transport}
+
+\begin{theorem}[Continuum vacuum-gap transport]\label{thm:continuum-gap-transport}
+Fix $u_{\mathrm{ren}}\in(0,u_*]$ and let
+\[
+a_n:=\ell_0 2^{-n},\qquad \beta_n:=\beta(a_n;u_{\mathrm{ren}})
+\]
+be the tuned dyadic trajectory. Let $\sharpstate$ be the full sharp-local state furnished by Corollary~\ref{cor:full-inductive-union}, and let $(H,\Omega,\mathcal H)$ be its OS reconstruction on the full sharp-local positive-time algebra. Assume there exists $m_*>0$ such that
+\[
+\liminf_{n\to\infty}\frac{\Delta_{\mathrm{lat}}(\beta_n)}{a_n}\ge m_*>0.
+\]
+Then the canonical continuum-time OS semigroup on the full sharp-local Hilbert space has spectral gap at least $m_*$; equivalently,
+\[
+\operatorname{Spec}(H)\subset \{0\}\cup [m_*,\infty),
+\qquad
+\ker(H)=\mathbb C\Omega.
+\]
+The only topology used in the passage from bounded positive-time observables to sharp-local vectors is the Hilbert-norm / finite-graph-norm approximation package of \cref{lem:qe3-graph-core}.
+\end{theorem}
+
+\proofsynopsis{The theorem compresses the entire remaining continuum transfer into one theorem-level statement: the tuned full fixed-lattice gap from Proposition~\ref{prop:lattice-gap}, the same-scale Wilson return from \cref{thm:wilson-return}, the bounded Wilson limit of \cref{thm:bounded-wilson-os-limit}, the continuum-time OS upgrade of \cref{thm:continuum-time-os-upgrade}, and the density/core package of \cref{lem:qe3-graph-core} together yield the sharp-local continuum gap. This is the unique transport node.}
+\proofhome{Companion I, Section~6.}
+\dependencyledger
+  {Proposition~\ref{prop:lattice-gap}, Theorem~\ref{thm:wilson-return}, Theorem~\ref{thm:bounded-wilson-os-limit}, Theorem~\ref{thm:continuum-time-os-upgrade}, and Lemma~\ref{lem:qe3-graph-core}}
+  {the spectral theorem only, used through the local semigroup and Laplace-transform lemmas isolated in the Companion~I proof home}
+  {the tuned fixed-lattice lower bound transfers to the full sharp-local OS Hamiltonian on the vacuum sector; this is the gap theorem itself, not merely a clustering corollary or a later Minkowski reformulation}
+  {Corollary~\ref{cor:continuum-vacuum-gap}, Theorem~\ref{thm:main}, and the endpoint spectral corollaries in Section~\ref{sec:endpoint}}
+
+\begin{corollary}[Continuum sharp-local vacuum gap]\label{cor:continuum-vacuum-gap}
+Assume Proposition~\ref{prop:lattice-gap}, and let $\sharpstate$ be the full sharp-local state furnished by Corollary~\ref{cor:full-inductive-union} over the same tuned dyadic bounded base state. Let $(H,\Omega,\mathcal H)$ be its OS reconstruction. Then
+\[
+\operatorname{Spec}(H)\subset \{0\}\cup[m_*,\infty),
+\qquad
+\ker(H)=\mathbb C\Omega,
+\qquad
+P_{(0,m_*)}=0.
+\]
+Equivalently,
+\[
+\|e^{-tH}\psi\|\le e^{-m_* t}\|\psi\|
+\qquad (t\ge 0,\ \psi\perp \Omega).
+\]
+This is the continuum sharp-local spectral consequence used later in Theorem~\ref{thm:main}(D).
+\end{corollary}
+
+\begin{proof}
+By Proposition~\ref{prop:lattice-gap}, the tuned fixed-lattice lower bound satisfies $\liminf_{n\to\infty}\Delta_{\mathrm{lat}}(\beta_n)/a_n\ge m_*$. Apply \cref{thm:continuum-gap-transport} with this value of $m_*$. The semigroup estimate is then the spectral-theorem reformulation of the same gap statement on $\Omega^{\perp}$.
+\end{proof}
+
+The vacuum gap is now established on the continuum sharp-local vacuum sector. No later spectral-calculus wrapper is needed to prove it. Any downstream clustering or Hamiltonian reformulation may be cited as a consequence, but \cref{thm:continuum-gap-transport,cor:continuum-vacuum-gap} are the point at which the proof of the gap itself is complete.

@@ -1,0 +1,505 @@
+\section{Normalization cross-check: metric, Casimir, Laplacian, and \texorpdfstring{$b_0$}{b0}}
+\label{app:normalization_crosscheck}
+
+This appendix collects, in one place, the conventions linking:
+(i) the fixed bi-invariant Riemannian metric on $G$ (equivalently an Ad-invariant inner product on $\mathfrak g$),
+(ii) the Laplace--Beltrami operator $\Delta$ and quadratic Casimir eigenvalues $C_2(\pi)$,
+and (iii) the quadratic coefficient $b_0$ in the small-coupling beta expansion used in the dyadic gradient-flow step scaling module.
+
+\subsection{From the inner product to the Laplacian and the Casimir}
+
+Fix the inner product $\langle\cdot,\cdot\rangle$ on $\mathfrak g$ from Definition~\ref{def:metric_casimir}.
+Let $(X_a)_{a=1}^{d_G}$ be any $\langle\cdot,\cdot\rangle$-orthonormal basis of $\mathfrak g$, and let $\widetilde X_a$ denote
+its corresponding left-invariant vector field on $G$.
+
+\begin{lemma}[Laplacian/Casimir consistency]
+\label{lem:laplacian_casimir_consistency}
+The Laplace--Beltrami operator associated to the fixed bi-invariant metric is
+\begin{equation}
+\label{eq:laplacian_as_sum_squares}
+\Delta\;=\;\sum_{a=1}^{d_G} \widetilde X_a^{\,2}.
+\end{equation}
+For every irreducible unitary representation $\pi$ of $G$, the Casimir element
+$\Omega:=\sum_{a=1}^{d_G} X_a^2$ acts as a scalar on $\pi$:
+$\,d\pi(\Omega)=-C_2(\pi)\,I$.
+Equivalently, for the character $\chi_\pi$,
+\begin{equation}
+\label{eq:laplacian_character_eigen}
+\Delta\chi_\pi\ =\ -C_2(\pi)\,\chi_\pi,
+\end{equation}
+which is the convention used throughout this manuscript.
+\end{lemma}
+
+\begin{proof}
+Let $(X_a)_{a=1}^{d_G}$ be an orthonormal basis of $\mathfrak g$ for the fixed Ad-invariant inner product and let $\widetilde X_a$
+be the corresponding left-invariant vector fields.
+For a bi-invariant metric, the Levi--Civita connection satisfies
+\[
+\nabla_{\widetilde X}\widetilde Y=\tfrac12[\widetilde X,\widetilde Y]
+\qquad\text{for all left-invariant vector fields }\widetilde X,\widetilde Y,
+\]
+so in particular $\nabla_{\widetilde X_a}\widetilde X_a=\tfrac12[\widetilde X_a,\widetilde X_a]=0$ for each $a$.
+The Laplace--Beltrami operator on functions may be written in an orthonormal frame as
+\[
+\Delta f=\sum_{a=1}^{d_G}\big(\widetilde X_a(\widetilde X_a f)-(\nabla_{\widetilde X_a}\widetilde X_a)f\big),
+\]
+hence \eqref{eq:laplacian_as_sum_squares} follows.
+
+Next let $\pi$ be an irreducible unitary representation and let $f_{v,w}(g):=\langle v,\pi(g)w\rangle$ be a matrix coefficient.
+For $X\in\mathfrak g$,
+\[
+(\widetilde X f_{v,w})(g)
+=\left.\frac{d}{dt}\right|_{t=0}\langle v,\pi(e^{tX}g)w\rangle
+=\langle v,d\pi(X)\pi(g)w\rangle.
+\]
+Therefore
+\[
+\begin{aligned}
+(\widetilde X_a^{\,2} f_{v,w})(g)
+&=\langle v,d\pi(X_a)^2\,\pi(g)w\rangle,\\
+(\Delta f_{v,w})(g)
+&=\left\langle v,\Big(\sum_{a=1}^{d_G}d\pi(X_a)^2\Big)\pi(g)w\right\rangle\\
+&=\langle v,d\pi(\Omega)\pi(g)w\rangle.
+\end{aligned}
+\]
+By Schur's lemma the Casimir element $\Omega=\sum_a X_a^2$ acts on the irreducible $\pi$ by a scalar, and with the sign convention
+of Definition~\ref{def:metric_casimir} this scalar is $-C_2(\pi)$, i.e.\ $d\pi(\Omega)=-C_2(\pi)I$.
+Hence $\Delta f_{v,w}=-C_2(\pi)f_{v,w}$ for all matrix coefficients.
+Summing over an orthonormal basis $v=w$ gives \eqref{eq:laplacian_character_eigen} for $\chi_\pi$.
+\end{proof}
+
+\subsection{Trace conventions and quadratic expansion of the Wilson plaquette weight}
+
+The Wilson plaquette weight is built from the fixed Wilson representation $\rho$ from \eqref{eq:families}.
+To avoid trace-normalization ambiguities, it is useful to isolate the unique constant relating the representation trace to
+$\langle\cdot,\cdot\rangle$.
+
+\begin{definition}[Dynkin index relative to the fixed metric]
+\label{def:dynkin_index}
+Let $\sigma$ be a finite-dimensional unitary representation of $G$ with differential $\sigma_\ast$.
+The (positive) Dynkin index $I_\sigma$ relative to $\langle\cdot,\cdot\rangle$ is the unique scalar such that
+\begin{equation}
+\label{eq:dynkin_index_def}
+-\Tr_{\sigma}(\sigma_\ast(X)\,\sigma_\ast(Y))\ =\ I_\sigma\,\langle X,Y\rangle\qquad (X,Y\in\mathfrak g).
+\end{equation}
+\end{definition}
+
+\begin{lemma}[Quadratic coefficient at the identity]
+\label{lem:wilson_quadratic_coefficient}
+Let $\rho$ be the fixed Wilson representation used in the action.
+As $X\to 0$ in $\mathfrak g$,
+\begin{equation}
+\label{eq:wilson_quad_expansion}
+1-\frac{1}{\dim\rho}\Re\Tr_{\rho}(e^X)
+\;=\;\frac{I_\rho}{2\,\dim\rho}\,\|X\|^2\ +\ O(\|X\|^3).
+\end{equation}
+Consequently, the Wilson potential
+$V_{\beta,\alpha}(X)=\alpha\beta\bigl(1-\frac{1}{\dim\rho}\Re\Tr_{\rho}(e^X)\bigr)$ has Hessian
+$\nabla^2 V_{\beta,\alpha}(0)=\alpha\beta\,(I_\rho/\dim\rho)\,I$.
+\end{lemma}
+
+\begin{proof}
+Expand $e^X=I+X+\tfrac12X^2+O(\|X\|^3)$.
+Since $X$ is skew-adjoint in a unitary representation, $\Re\Tr_\rho(X)=0$.
+Moreover $\Re\Tr_\rho(X^2)=\Tr_\rho(X^2)$ and
+$-\Tr_\rho(X^2)=I_\rho\,\|X\|^2$ by \eqref{eq:dynkin_index_def}.
+Insert these into the expansion to obtain \eqref{eq:wilson_quad_expansion} and differentiate twice.
+\end{proof}
+
+\subsection{Relation between \texorpdfstring{$b_0$}{b0} and the conventional one-loop coefficient (optional)}
+
+In the Lane~C step-scaling module, $b_0$ denotes the (scheme-invariant) quadratic coefficient in the small-$u$ expansion
+\begin{equation}
+\beta_{\mathrm{GF}}(u)\ =\ -2b_0\,u^2\ +\ O(u^3),
+\qquad u=g^2_{\mathrm{GF}}.
+\end{equation}
+The load-bearing use in this submission is only the strict positivity $b_0>0$, proved internally in Appendix~F.
+For orientation, we record the conventional perturbative identification.
+
+\begin{lemma}[Matching to the conventional one-loop coefficient]
+\label{lem:b0_one_loop_match}
+Assume that the gradient-flow coupling satisfies
+$u=g^2+O(g^4)$ as $g\to 0$ for some reference coupling $g$.
+If the beta function of $g$ has the conventional one-loop form
+\begin{equation}
+\label{eq:beta_g_conventional}
+\mu\frac{dg}{d\mu}= -\frac{b_0^{\mathrm{conv}}}{16\pi^2}\,g^3\ +\ O(g^5),
+\end{equation}
+then
+\begin{equation}
+\label{eq:b0_relation}
+\beta_{\mathrm{GF}}(u)=\mu\frac{du}{d\mu}= -2\,\frac{b_0^{\mathrm{conv}}}{16\pi^2}\,u^2\ +\ O(u^3),
+\end{equation}
+so that $b_0=b_0^{\mathrm{conv}}/(16\pi^2)$ under the tree-level matching normalization.
+In pure Yang--Mills one has $b_0^{\mathrm{conv}}=\frac{11}{3}C_2(\mathrm{ad})$ in the standard convention.
+\end{lemma}
+
+\begin{proof}
+Differentiate $u=g^2+O(g^4)$ with respect to $\ln\mu$ and use \eqref{eq:beta_g_conventional}:
+$\mu\,d(g^2)/d\mu = 2g\,\mu\,dg/d\mu = -2(b_0^{\mathrm{conv}}/(16\pi^2))\,g^4+O(g^6)$.
+Replace $g^4$ by $u^2+O(u^3)$ to obtain \eqref{eq:b0_relation}.
+\end{proof}
+
+\begin{remark}[Scaling of numerical values]
+If one rescales the inner product $\langle\cdot,\cdot\rangle\mapsto s\langle\cdot,\cdot\rangle$ with $s>0$, then the Laplacian
+and all Casimir eigenvalues scale by $\Delta\mapsto s^{-1}\Delta$ and $C_2(\pi)\mapsto s^{-1}C_2(\pi)$.
+A corresponding rescaling of the coupling variable restores the tree-level matching condition $u=g_0^2+O(g_0^4)$, so the sign $b_0>0$ is invariant.
+The present manuscript treats $b_0$ and the $C_2$ normalization as named primitives (Appendix~\ref{app:parameter_schedule}) and uses only the resulting inequalities.
+\end{remark}
+
+
+\subsection{Explicit dim-$6$ plaquette / rectangle / chair coefficient cross-check}
+
+For the audited dim-$6$ loop block in Section~\ref{sec:sharp_local}, we use the standard tree-level Symanzik / L\"uscher--Weisz matching coefficients for the normalized four-link / six-link gauge-loop basis \cite{LuscherWeisz1985,Husung2023}.
+Write $(e_0,e_1,e_2,e_3)$ for the coefficients of the plaquette, rectangle, chair, and twisted-chair loops, normalized by
+\begin{equation}\label{eq:appendixL_loop_norm}
+e_0+8e_1+8e_2+16e_3=1.
+\end{equation}
+In the on-shell CP-even dim-$6$ gauge basis
+\[
+\mathcal G_{6}^{(1)}\sim \sum_{\mu,\nu,\rho}\Tr\big([D_\mu,F_{\nu\rho}]\,[D_\mu,F_{\nu\rho}]\big),
+\qquad
+\mathcal G_{6}^{(2)}\sim \sum_{\mu,\nu}\Tr\big([D_\mu,F_{\mu\nu}]\,[D_\mu,F_{\mu\nu}]\big),
+\]
+the tree-level coefficients are
+\begin{equation}\label{eq:appendixL_loop_dim6_coeffs}
+\bar c_1=\frac{e_2}{3},
+\qquad
+\bar c_2=e_1-e_3+\frac1{12}.
+\end{equation}
+For the normalized local loop densities used in the Lane~A sample sector one has
+\[
+P:(e_0,e_1,e_2,e_3)=(1,0,0,0),
+\qquad
+R:(0,\tfrac18,0,0),
+\qquad
+C:(0,0,\tfrac18,0),
+\]
+so
+\begin{equation}\label{eq:appendixL_PRC_coeff_table}
+P:(\bar c_1,\bar c_2)=\Bigl(0,\frac1{12}\Bigr),
+\qquad
+R:(\bar c_1,\bar c_2)=\Bigl(0,\frac5{24}\Bigr),
+\qquad
+C:(\bar c_1,\bar c_2)=\Bigl(\frac1{24},\frac1{12}\Bigr).
+\end{equation}
+Subtracting the plaquette contribution therefore gives the explicit improved dim-$6$ probe coefficients
+\begin{equation}\label{eq:appendixL_PRC_improved_matrix}
+R-P:\ (0,\tfrac18),
+\qquad
+C-P:\ (\tfrac1{24},0),
+\end{equation}
+which is the source of the concrete Lane~A sample matrix
+\[
+D_{6,\mathrm{tree}}^{PRC}=\begin{pmatrix}0&\tfrac18\\[0.35em]\tfrac1{24}&0\end{pmatrix},
+\qquad
+\det D_{6,\mathrm{tree}}^{PRC}=-\frac1{192}.
+\]
+This is exactly the determinant certificate used in Proposition~\ref{prop:D6_tree_certificate}.
+
+
+\subsection{Packet 5--7 certification note and Lane~A interface map}
+\label{subsec:LaneA_packet_interface_map}
+
+For a first-pass audit of Packets~5--7, the only theorem-facing chain to keep in view is
+\[
+\begin{aligned}
+\text{graded identity / block coefficients}
+&\Longrightarrow \text{one-shell transport + finite-truncation inverse control}\\
+&\Longrightarrow \text{finite-cap flowed-sector bridge}
+\Longrightarrow \text{Lane~A closure}\\
+&\Longrightarrow \text{bounded-base cyclicity}.
+\end{aligned}
+\]
+Table~\ref{tab:LaneA_packet_interface_map} freezes that packet interface in one place: it records what each node consumes from the previous stage, what it exports to the next stage, and what it does \emph{not} yet prove. In particular, Theorem~\ref{thm:finite_cap_flowed_sector_bridge} is the first mixed-correlator closure node on the frozen spine; the promoted finite-cap bridge into Theorem~\ref{thm:LaneA_closure} is the theorem-facing state/positivity package; Theorem~\ref{thm:LaneA_closure}(b) is only the finite-cap OS-structure theorem; Corollary~\ref{cor:LaneA_bounded_state_restriction} is only the bounded-state compatibility node; the inductive-union extension does not occur until Corollary~\ref{cor:LaneA_full_scope}; and bounded-base cyclicity is added only by Theorem~\ref{thm:LaneA_bounded_base_cyclic}.
+
+\begingroup
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.18\textwidth}>{\RaggedRight\arraybackslash}p{0.22\textwidth}>{\RaggedRight\arraybackslash}p{0.27\textwidth}>{\RaggedRight\arraybackslash}p{0.23\textwidth}@{}}
+\caption{Packet~5--7 Lane~A interface map on the frozen spine.}\label{tab:LaneA_packet_interface_map}\\
+\toprule
+\textbf{Node} & \textbf{Consumes} & \textbf{Exports to the next node} & \textbf{Does not yet prove}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Node} & \textbf{Consumes} & \textbf{Exports to the next node} & \textbf{Does not yet prove}\\
+\midrule
+\endhead
+Packet~5a: exact-dimension breadth\\
+Theorem~\ref{thm:LaneA_associated_graded_identity}, Theorem~\ref{thm:LaneA_block_coefficient_theorem}
+& Canonical exact-dimension quotient blocks, coherent local/flowed contraction formulas, and the renormalized field family of Theorem~\ref{thm:field_algebra_truncation}.
+& Basis-free diagonal symbol control and coefficient extraction for every exact-dimension symmetry block; this is the blockwise UV datum used by the inverse-control step.
+& No mixed-correlator closure, no finite-cap state, and no inductive-union sharp-local extension.\\[0.45em]
+
+Packet~5b: one-shell / finite-truncation package\\
+Theorem~\ref{thm:canonical_block_one_shell_increment}, Theorem~\ref{thm:finite_truncation_inverse_control}, Corollary~\ref{cor:finite_truncation_SFTE}
+& Packet~5a block coefficients together with the insertion RG / OS bounds controlling the off-diagonal blocks.
+& Canonical one-shell transport, polylogarithmic inverse control, and SFTE/remainder compatibility on every finite engineering cap; Corollary~\ref{cor:LaneA_all_finite_truncations} packages this as the unconditional finite-truncation input.
+& Still no packaged mixed-cap state and no extension from $\mathcal A_{\mathrm{flow}}$ to the full sharp-local algebra.\\[0.45em]
+
+Packet~6a: finite-cap bridge\\
+Corollary~\ref{cor:finite_cap_mixed_family_packaging}, Theorem~\ref{thm:finite_cap_flowed_sector_bridge}
+& Packet~5b finite-truncation inverse/remainder data together with the Lane~C flowed state and bounded positive-time base state.
+& First mixed-correlator closure node: capwise packaged bounded states, inverse-flow identification, and mixed-channel Cauchy control at fixed engineering cap.
+& No inductive-union passage and no bounded-base cyclicity.\\[0.45em]
+
+Packet~6b: Lane~A closure\\
+Theorem~\ref{thm:LaneA_closure}, Corollary~\ref{cor:LaneA_bounded_state_restriction}, Corollary~\ref{cor:LaneA_full_scope}
+& Packet~6a finite-cap bridge together with cap-compatibility of the canonical normalization scheme.
+& Sharp-local continuum state on each finite cap, then the bounded-state restriction compatibility clause, and only afterward the full inductive-union algebra.
+& Does not itself prove bounded-base cyclicity.\\[0.45em]
+
+Packet~7: bounded-base cyclicity\\
+Theorem~\ref{thm:LaneA_bounded_base_cyclic}
+& The full sharp-local state from Corollary~\ref{cor:LaneA_full_scope} and the common-core / graph-topology package used in the final Lane~A block.
+& The original bounded positive-time base algebra remains cyclic in the reconstructed sharp-local Hilbert space.
+& Adds no new inverse-flow identification and no new mixed-correlator closure statement.\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+
+\subsection{Lane A canonical block basis and UV normalization cross-check}
+
+The full-scope Lane~A theorem in Section~\ref{sec:sharp_local} uses a canonical blockwise normalization scheme rather than an ever-growing list of unrelated sector-specific choices.
+This subsection records that protocol in one place so a referee can read the later coefficient theorem with a fixed dictionary.
+
+\paragraph{Block labels.}
+For each engineering dimension $\Delta$, CP parity $\epsilon$, and Euclidean tensor type $\lambda$,
+write
+\[
+\mathscr V_{\Delta,\epsilon,\lambda}\subset \mathscr V_\Delta
+\]
+for the corresponding finite symmetry block from Definition~\ref{def:local_operator_spaces}.
+The direct sum over all such blocks is $\mathscr V_\Delta$ itself.
+
+\paragraph{Canonical local basis.}
+Inside each block choose a basis by complete contractions of $F_{\mu\nu}$ and covariant derivatives,
+modulo the quotient relations already built into Definition~\ref{def:local_operator_spaces}
+(lattice symmetries, total derivatives, and Bianchi identities).
+This choice is made once and for all for each exact-dimension symmetry block and is then not altered when larger engineering caps are introduced.
+
+\begin{definition}[Canonical block norm]\label{def:LaneA_canonical_block_norm}
+Fix an exact-dimension symmetry block $\mathscr V_{\Delta,\epsilon,\lambda}$ with canonical basis
+$\{e_1,\dots,e_m\}$ chosen above.
+For $v=\sum_{i=1}^m c_i e_i$ define
+\[
+\|v\|_{\mathrm{can}}:=\max_{1\le i\le m}|c_i|.
+\]
+If $T:\mathscr V_{\Delta,\epsilon,\lambda}\to\mathscr V_{\Delta',\epsilon',\lambda'}$ is linear, write
+$\|T\|_{\mathrm{op,can}}$ for the corresponding operator norm.
+Because each block is finite dimensional and its basis is fixed once and for all,
+this norm is intrinsic to the chosen canonical block and does not depend on how that block is embedded into a larger truncation.
+\end{definition}
+
+\paragraph{Canonical flowed basis.}
+Given that local basis, define the flowed probe basis by applying the \emph{same} contraction formulas to the flowed curvature
+$G_{\mu\nu}(t,\cdot)$ and flowed covariant derivatives.
+
+\paragraph{Filtered quotient model behind the canonical blocks.}
+To make the later coefficient theorem basis-free, it is convenient to describe each exact-dimension block intrinsically rather than by coordinates.
+Let $\mathscr J_{\le \Delta}$ denote the finite-dimensional real vector space of local gauge-invariant jet polynomials of engineering dimension $\le \Delta$
+built from $F_{\mu\nu}$ and covariant derivatives, and let $\mathscr R_{\le \Delta}\subset \mathscr J_{\le \Delta}$ be the homogeneous subspace generated by
+lattice symmetry relations, total derivatives, and Bianchi relations.
+Define the exact-dimension quotient
+\begin{equation}\label{eq:LaneA_exact_dim_quotient}
+\mathscr Q_{\Delta}
+:=
+\mathscr J_{\le \Delta}/(\mathscr J_{\le \Delta-1}+\mathscr R_{\le \Delta}).
+\end{equation}
+Its $(\epsilon,\lambda)$-isotypic component is exactly the symmetry block $\mathscr V_{\Delta,\epsilon,\lambda}$ from Definition~\ref{def:local_operator_spaces}.
+Likewise, define the flowed quotient $\mathscr Q^{\mathrm{flow}}_{\Delta}(t)$ by replacing the unflowed jets with the flowed jets $\nabla_t^{\alpha}G_{\mu\nu}(t)$ but imposing the same homogeneous quotient relations.
+
+\begin{lemma}[Small-flow substitution respects the exact-dimension quotient]\label{lem:LaneA_flow_substitution_filtered}
+Let $\Gamma_t$ be the algebra map sending each unflowed jet $\nabla^{\alpha}F_{\mu\nu}$ to the corresponding flowed jet
+$\nabla_t^{\alpha}G_{\mu\nu}(t)$.
+Then for every homogeneous representative $P\in \mathscr J_{\le \Delta}$ of exact engineering dimension $\Delta$ one has
+\begin{equation}\label{eq:LaneA_filtered_substitution_expansion}
+\Gamma_t P
+=
+P+\sum_{m\ge 1} t^m P_{\Delta+2m}+R_{<\Delta},
+\end{equation}
+where each $P_{\Delta+2m}$ is a local gauge-invariant jet polynomial of exact engineering dimension $\Delta+2m$ and
+$R_{<\Delta}\in \mathscr J_{\le \Delta-1}+\mathscr R^{\mathrm{flow}}_{\le \Delta}$.
+Consequently $\Gamma_t$ descends to a well-defined linear map on the exact-dimension quotient,
+\[
+\mathrm{gr}_{\Delta}(\Gamma_t):\mathscr Q_{\Delta}\longrightarrow \mathscr Q^{\mathrm{flow}}_{\Delta}(t).
+\]
+\end{lemma}
+
+\begin{proof}
+For every jet generator, the gradient-flow equation and its covariant derivative consequences give the standard small-flow expansion
+\[
+\nabla_t^{\alpha}G_{\mu\nu}(t)
+=
+\nabla^{\alpha}F_{\mu\nu}+\sum_{m\ge 1} t^m K^{(m)}_{\alpha,\mu\nu},
+\]
+where $K^{(m)}_{\alpha,\mu\nu}$ is a local gauge-covariant polynomial whose engineering dimension is larger by $2m$.
+This is the jet-level form of the heat-kernel / Duhamel expansion already used throughout Lane~A.
+Applying the same complete-contraction formula to a homogeneous monomial of dimension $\Delta$ therefore reproduces that monomial itself,
+plus terms with explicit powers $t^m$ multiplying local expressions of exact dimension $\Delta+2m$.
+The quotient relations are homogeneous and are respected by the substitution $F\mapsto G(t)$,
+so any symmetry relation, total derivative, or Bianchi relation is sent into the corresponding flowed relation.
+Thus the only surviving class in the quotient $\mathscr Q_{\Delta}$ is the original exact-dimension class of $P$,
+which yields the descended map $\mathrm{gr}_{\Delta}(\Gamma_t)$.
+\end{proof}
+
+\begin{theorem}[Associated-graded identity on exact-dimension symmetry blocks]\label{thm:LaneA_associated_graded_identity}
+For every exact-dimension symmetry block $\mathscr V_{\Delta,\epsilon,\lambda}\subset \mathscr Q_{\Delta}$,
+the descended small-flow map of Lemma~\ref{lem:LaneA_flow_substitution_filtered} is the identity after the canonical identification of
+$\mathscr Q_{\Delta}$ with $\mathscr Q^{\mathrm{flow}}_{\Delta}(t)$ by the common complete-contraction formulas:
+\[
+\mathrm{gr}_{\Delta}(\Gamma_t)\!\restriction_{\mathscr V_{\Delta,\epsilon,\lambda}}
+=
+I_{\mathscr V_{\Delta,\epsilon,\lambda}}.
+\]
+Equivalently, the tree-level small-flow matching on the exact-dimension quotient block is basis-free and exactly the identity.
+\end{theorem}
+
+\begin{proof}
+Lemma~\ref{lem:LaneA_flow_substitution_filtered} shows that every homogeneous representative of an exact-dimension class is sent to itself,
+modulo the sum of higher-dimension terms with explicit positive powers of $t$ and the homogeneous quotient relations.
+Passing to the exact-dimension associated-graded projection therefore discards the higher-dimension corrections,
+and the quotient \eqref{eq:LaneA_exact_dim_quotient} kills all lower-order ambiguities,
+leaving precisely the original class.
+Because the $(\epsilon,\lambda)$ symmetry decomposition is itself homogeneous, the same conclusion holds after restricting to the symmetry block
+$\mathscr V_{\Delta,\epsilon,\lambda}$.
+No basis choice is used at this stage.
+\end{proof}
+
+\begin{lemma}[Coefficient extraction is well defined on arbitrary exact-dimension quotient blocks]\label{lem:LaneA_block_coeff_extract}
+Fix an exact-dimension symmetry block $\mathscr V_{\Delta,\epsilon,\lambda}\subset \mathscr Q_{\Delta}$ with canonical basis
+$\{e_1,\dots,e_m\}$, and let
+\[
+\operatorname{Coeff}_{\Delta,\epsilon,\lambda}:\mathscr V_{\Delta,\epsilon,\lambda}\longrightarrow \mathbb R^m
+\]
+be the corresponding coordinate map.
+Let
+\[
+\operatorname{Coeff}^{\mathrm{flow}}_{\Delta,\epsilon,\lambda,t}:\mathscr V^{\mathrm{flow}}_{\Delta,\epsilon,\lambda}(t)\longrightarrow \mathbb R^m
+\]
+denote the analogous coordinate map on the flowed block defined by the same complete-contraction formulas.
+For any homogeneous representative $P\in \mathscr J_{\le \Delta}$ of exact engineering dimension $\Delta$, write
+$[P]_{\Delta,\epsilon,\lambda}$ for the projection of its quotient class to $\mathscr V_{\Delta,\epsilon,\lambda}$.
+Then:
+\begin{enumerate}[label=(\roman*),leftmargin=2.3em]
+\item $\operatorname{Coeff}_{\Delta,\epsilon,\lambda}([P]_{\Delta,\epsilon,\lambda})$ depends only on the quotient class of $P$ modulo
+$\mathscr J_{\le \Delta-1}+\mathscr R_{\le \Delta}$;
+\item if $P'\equiv P\pmod{\mathscr J_{\le \Delta-1}+\mathscr R_{\le \Delta}}$, then
+\[
+\mathrm{gr}_{\Delta}(\Gamma_t)[P']
+=
+\mathrm{gr}_{\Delta}(\Gamma_t)[P]
+\qquad\text{in }\mathscr Q^{\mathrm{flow}}_{\Delta}(t),
+\]
+so coefficient extraction after small-flow substitution is likewise representative-independent;
+\item under the canonical identification of unflowed and flowed exact-dimension blocks by the common complete-contraction formulas,
+\begin{equation}\label{eq:LaneA_coeff_extract_identity}
+\operatorname{Coeff}^{\mathrm{flow}}_{\Delta,\epsilon,\lambda,t}\Big(\big(\mathrm{gr}_{\Delta}(\Gamma_t)[P]\big)_{\Delta,\epsilon,\lambda}\Big)
+=
+\operatorname{Coeff}_{\Delta,\epsilon,\lambda}\big([P]_{\Delta,\epsilon,\lambda}\big).
+\end{equation}
+\end{enumerate}
+Equivalently, lower-dimension terms and homogeneous quotient relations contribute zero to the exact-dimension coefficient vector,
+both before and after the small-flow substitution.
+\end{lemma}
+
+\begin{proof}
+Part~(i) is exactly the definition of the quotient \eqref{eq:LaneA_exact_dim_quotient}.
+For part~(ii), write
+\[
+P'-P=Q+R,
+\qquad
+Q\in \mathscr J_{\le \Delta-1},\quad R\in \mathscr R_{\le \Delta}.
+\]
+Because the quotient relations are homogeneous and respected by the substitution $F\mapsto G(t)$,
+Lemma~\ref{lem:LaneA_flow_substitution_filtered} shows that $\Gamma_tQ$ contributes only to lower engineering degree and that
+$\Gamma_tR$ lands in the flowed relation space.
+Hence $\Gamma_tP'$ and $\Gamma_tP$ define the same class in the flowed exact-dimension quotient.
+
+For part~(iii), apply Lemma~\ref{lem:LaneA_flow_substitution_filtered} to $P$:
+\[
+\Gamma_tP=P+\sum_{m\ge 1} t^m P_{\Delta+2m}+R_{<\Delta}.
+\]
+When one passes to the exact-dimension associated-graded piece, the higher-dimension terms
+$t^mP_{\Delta+2m}$ are discarded by the projection to degree $\Delta$, while $R_{<\Delta}$ vanishes in the quotient.
+Thus the class of $\Gamma_tP$ in the flowed block is exactly the class determined by $P$ itself.
+Applying the canonical coordinate maps gives \eqref{eq:LaneA_coeff_extract_identity}.
+\end{proof}
+
+\paragraph{Coherent renormalized basis.}
+The coherent graded renormalization scheme of Theorem~\ref{thm:field_algebra_truncation} and Lemma~\ref{lem:coherent_Z}
+chooses renormalized fields so that when a larger engineering cap is introduced, the fields already normalized in smaller caps are unchanged.
+Equivalently, the exact-dimension quotient map of Theorem~\ref{thm:LaneA_associated_graded_identity} is fixed once and for all and survives cap enlargement.
+
+\begin{lemma}[Canonical block data are cap-compatible]\label{lem:LaneA_block_cap_compat}
+Fix an exact-dimension symmetry block $\mathscr V_{\Delta,\epsilon,\lambda}$.
+Then the canonical local basis, canonical flowed basis, and canonical block norm from Definition~\ref{def:LaneA_canonical_block_norm}
+are literally the same whether the block is viewed inside the truncation $\Delta\le \Delta_{\max}$ or inside any larger truncation $\Delta\le \Delta'_{\max}$.
+In particular, operator bounds recorded in the canonical block norm are statements about the block itself and not about the ambient engineering cap.
+\end{lemma}
+
+\begin{proof}
+The canonical local basis is fixed block-by-block before any truncation is chosen.
+The canonical flowed basis is obtained from that same list of contraction formulas by replacing each curvature/derivative jet with its flowed counterpart, so it is equally independent of the ambient cap.
+Finally, Lemma~\ref{lem:coherent_Z} says that the coherent renormalization scheme preserves already normalized blocks when the cap is enlarged.
+Hence all blockwise coefficient and operator-norm statements are compatible under cap enlargement.
+\end{proof}
+
+\begin{theorem}[Coefficient extraction theorem for arbitrary exact-dimension symmetry blocks]\label{thm:LaneA_block_coefficient_theorem}
+Fix an exact-dimension symmetry block $\mathscr V_{\Delta,\epsilon,\lambda}$ and choose the canonical local and flowed bases as above.
+Let
+\[
+C^{\mathrm{UV,tree}}_{\Delta,\epsilon,\lambda}
+\]
+be the tree-level exact-dimension diagonal block of the UV matching matrix obtained by applying the coefficient-extraction map of
+Lemma~\ref{lem:LaneA_block_coeff_extract} to the small-flow images of the canonical basis classes.
+Then
+\[
+C^{\mathrm{UV,tree}}_{\Delta,\epsilon,\lambda}=I.
+\]
+In particular, the exact-dimension diagonal UV matching problem on this arbitrary block is an intrinsic finite-dimensional linear-algebra problem attached to the quotient block itself,
+and the same matrix is seen in every engineering cap containing that block.
+\end{theorem}
+
+\begin{proof}
+Apply Lemma~\ref{lem:LaneA_block_coeff_extract} to each canonical basis vector $e_q$.
+Its small-flow image has the same exact-dimension coefficient vector as $e_q$ itself, namely the $q$th standard basis vector of $\mathbb R^m$.
+Hence the extracted tree-level matching matrix has columns $e_1^{\mathrm{std}},\dots,e_m^{\mathrm{std}}$ and is therefore the identity.
+Lemma~\ref{lem:LaneA_block_cap_compat} shows that the canonical bases and norms are unchanged under cap enlargement,
+so the same matrix is obtained in every engineering cap containing the block.
+\end{proof}
+
+
+\begin{lemma}[Reference scalar normalization for the non-triviality witness]\label{lem:LaneA_scalar_reference_norm}
+Fix the canonical CP-even scalar exact-dimension block and choose a nonzero positive-time test function
+\[
+\phi_{\ast,S}\in C_c^{\infty}(\{x_0>0\})
+\]
+from the reference family used to normalize that block.
+The coherent Lane~A normalization may be fixed so that for every dyadic scale $t_j$ and every engineering cap containing the scalar block,
+if $X^{S}_j(\phi_{\ast,S})$ denotes the corresponding centered renormalized scalar approximant, then
+\begin{equation}\label{eq:LaneA_scalar_ref_norm}
+\omega\big(\Theta X^{S}_j(\phi_{\ast,S})\,X^{S}_j(\phi_{\ast,S})\big)=1.
+\end{equation}
+This normalization is compatible under cap enlargement.
+\end{lemma}
+
+\begin{proof}
+For the CP-even scalar block the reference Gram matrix from the normalization scheme of
+Proposition~\ref{prop:flow_operator_multiplet_cauchy} and Theorem~\ref{thm:field_algebra_truncation}
+is $1\times 1$.
+Nondegeneracy of that Gram matrix therefore says that for some nonzero positive-time test function its single entry is a strictly positive scalar.
+Because the block is one dimensional, the remaining freedom is multiplication by a nonzero scalar.
+Rescale the canonical scalar basis once and for all so that the chosen reference value equals $1$.
+The resulting condition is exactly \eqref{eq:LaneA_scalar_ref_norm}.
+Compatibility under cap enlargement is then immediate from Lemma~\ref{lem:LaneA_block_cap_compat} together with the coherent renormalization statement of Lemma~\ref{lem:coherent_Z},
+which says that already normalized blocks are unchanged when a larger engineering cap is introduced.
+\end{proof}
+
+\begin{remark}[Why the sample scalar/tensor/loop sectors remain in the paper]
+The audited CP-even scalar, CP-odd scalar, small-loop scalar, traceless-tensor, and concrete dim-$6$ loop sectors now have a narrower role.
+They are explicit sample calculations and normalization checks against the canonical block protocol above.
+The load-bearing widening step for Lane~A is the finite-truncation theorem in Section~\ref{sec:sharp_local}, not the existence of a long ad hoc list of individually certified sectors.
+\end{remark}

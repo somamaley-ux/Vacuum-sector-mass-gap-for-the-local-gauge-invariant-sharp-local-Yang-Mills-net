@@ -1,0 +1,73 @@
+
+\section{Frozen live packet docket and dependency DAG}\label{app:packet-docket}
+
+This appendix is the frozen Phase-I packet docket for the live proof surface. It is purely navigational and adds no analytic input. Only theorem-level load-bearing edges are displayed. Commentary branches, historical alternatives, and downstream reformulations are deliberately omitted.
+
+\subsection*{Frozen packet docket}
+\begin{description}[leftmargin=2.2em,style=nextline]
+\item[Packet 1.] Theorem N.20; Corollary N.21. Compact-simple A1 ultraviolet gate and public group-scope export. Primary proof home: Core Section~3 / Companion~I.
+\item[Packet 2.] Proposition F.3, with proof-local hardening by Theorem F.317 and Corollary F.318. One-shot entrance into the KP/Dobrushin basin at bounded physical scale. Primary proof home: Core Section~3 / Companion~I.
+\item[Packet 3.] Proposition F.4, with proof-local culmination at Theorem F.308. Tuned full fixed-lattice OS gap. Primary proof home: Core Section~4 / Companion~I.
+\item[Packet 4.] Theorem 4.92; Corollaries 4.93--4.95. Unique flowed continuum state, Wilson/RG identification on $\mathcal A_{\mathrm{flow}}$, tuned bounded positive-time base state, and dyadic reflected OS limits. Primary proof home: Core Sections~5--6 / Companion~II, Appendix~A, with the flowed de-patching seam in Companion~I, Section~III.
+\item[Packet 5.] Theorem L.8; Theorem L.11; Theorem 5.39; Theorem 5.69; Corollary F.245. Exact-dimension breadth plus finite-truncation inverse/remainder control. Primary proof home: Core Section~5 / Companion~II.
+\item[Packet 6.] Corollary F.330A; Theorem F.331; promoted bridge 5.74A; Theorem 5.74; Corollary 5.75; Corollary 5.76. First mixed-correlator bridge at finite cap, theorem-facing positive/unital bridge into 5.74, finite-cap sharp-local extension, bounded-state compatibility, then extension to the full sharp-local inductive union. Primary proof home: Core Sections~5--6 / Companion~II.
+\item[Packet 7.] Theorem 5.77. Bounded-base cyclicity. Primary proof home: Core Section~5 / Companion~II.
+\item[Packet 8.] Core Theorem~\ref{thm:wilson-return} (proof home: Companion~I, Theorem~III.18); Theorem F.211; Theorem F.212; Corollary F.213; Lemma F.214; Theorem F.216; Corollary F.5. Wilson-to-continuum transport and continuum vacuum gap. Packet~8 explicitly consumes Packet~4 through the tuned bounded base state, then the Lane~A seam nodes Theorem~5.74(b), Corollary~5.75, Corollary~5.76, Theorem~5.77, Corollary~F.213, and Lemma~F.214. Primary proof home: Core Sections~4 and~6 / Companion~I.
+\item[Packet 9.] Theorem M.1; Corollary M.2; Theorem M.3; Corollaries M.4--M.5; Theorem M.6. Downstream Euclidean clustering reformulation, OS/Wightman existence, field correspondence, Minkowski-gap transfer, and non-triviality. Primary proof home: Core Section~7 / Companion~III.
+\item[Packet 10.] Theorem O.2; Theorem O.3; Corollary O.4; Theorem O.5; Corollary O.7. Qualitative faithful-Wilson universality, the $\rho$-indexed quantitative-status note, and the exact theorem-level local-net endpoint. Primary proof home: Core Section~7 / Companion~III.
+\item[Auxiliary certification node.] Theorem F.298. Sole live weak-window sufficiency certificate on the public Route~1 spine.
+\end{description}
+
+\subsection*{Live theorem-level dependency DAG}
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw,rounded corners,align=center,inner sep=4pt,minimum width=27mm,minimum height=10mm},
+  smallbox/.style={draw,rounded corners,align=center,inner sep=3pt,minimum width=24mm,minimum height=8mm},
+  arrow/.style={-{Latex[length=2.2mm]}, semithick}
+]
+\node[box] (p1) at (0,0) {Packet 1\\UV gate};
+\node[box] (p2) at (0,-1.6) {Packet 2\\Entrance};
+\node[box] (p3) at (0,-3.2) {Packet 3\\Fixed-lattice gap};
+\node[box] (p8) at (0,-6.4) {Packet 8\\QE3 transport};
+\node[box] (p9) at (0,-8.0) {Packet 9\\Reconstruction};
+\node[box] (p10) at (0,-9.6) {Packet 10\\Endpoint};
+
+\node[box] (p4) at (6.2,-1.6) {Packet 4\\Flowed state};
+\node[box] (p5) at (6.2,-3.2) {Packet 5\\Finite-truncation};
+\node[box] (p6) at (6.2,-4.8) {Packet 6\\Finite-cap closure};
+\node[box] (p7) at (6.2,-6.4) {Packet 7\\Cyclicity};
+
+\node[smallbox] (ww) at (-4.9,-6.4) {F.298\\sole live weak-window\\certificate};
+
+\draw[arrow] (p1) -- (p2);
+\draw[arrow] (p2) -- (p3);
+\draw[arrow] (p3) -- (p8);
+\draw[arrow] (p8) -- (p9);
+\draw[arrow] (p9) -- (p10);
+
+\draw[arrow] (p4) -- (p5);
+\draw[arrow] (p5) -- (p6);
+\draw[arrow] (p6) -- (p7);
+\draw[arrow] (p4) -- (p8);
+\draw[arrow] (p6) -- (p8);
+\draw[arrow] (p7) -- (p8);
+\draw[arrow] (p5) -- (p9);
+\draw[arrow] (p6) -- (p9);
+\draw[arrow] (p7) -- (p9);
+
+\draw[arrow] (ww) -- (p8);
+\end{tikzpicture}
+\caption{Frozen live dependency DAG. Packet~8 is not Route~1-internal: it reuses Packet~4 through the bounded positive-time base state and consumes the repaired Lane~A seam outputs Theorem~5.74(b), Corollary~5.75, Corollary~5.76, Theorem~5.77, Corollary~F.213, and Lemma~F.214. Theorem~F.298 is the sole live weak-window certificate on the public spine. Lane~B is omitted because it is downstream only.}
+\label{fig:live-dag}
+\end{figure}
+
+\subsection*{Live-edge ledger}
+\begin{description}[leftmargin=2.2em,style=nextline]
+\item[Route~1 chain.] Packet~1 $\to$ Packet~2 $\to$ Packet~3 $\to$ Packet~8 $\to$ Packet~9 $\to$ Packet~10.
+\item[Lane~A chain.] Packet~4 $\to$ Packet~5 $\to$ Packet~6 $\to$ Packet~7, with Packet~4 feeding Packet~8 through the bounded base state, Packet~6 and Packet~7 feeding Packet~8 through the repaired QE3 seam, and Packets~5, 6, 7, and 8 feeding Packet~9 through field correspondence, inductive-union / cyclicity, and the downstream clustering-gap reformulations.
+\item[Sole auxiliary certification edge.] Theorem~F.298 feeds Packet~8 only.
+\item[Explicit exclusions.] Lane~B, archival Route~1 branches, classical-family audits, long constant ledgers, and support dossiers carry no live theorem-level edge.
+\end{description}
+
+Together with the master index and numbering crosswalk in Appendix~\ref{app:phase1-freeze}, this appendix fixes the live dependency surface for the hardened suite.

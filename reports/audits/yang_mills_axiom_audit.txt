@@ -1,0 +1,49 @@
+Axiom audit for the manuscript-facing Yang--Mills scaffold.
+
+Date: 2026-04-09
+
+Scope
+-----
+
+This audit covers the current Yang--Mills public surface:
+
+- theorem register
+- claim ledger
+- kernel register
+- packet register
+- seam register
+- reading-order register
+- source crosswalk
+- top-level paper surface summary
+
+Check results
+-------------
+
+`MaleyLean.YangMillsVerbatimTheoremOwnerMatchesSectionStatement` does not depend on any axioms
+`MaleyLean.YangMillsVerbatimRegisterAgreesWithClaimLedgerStatement` does not depend on any axioms
+`MaleyLean.YangMillsKernelLiveEntriesStayOnLiveClaimSideStatement` does not depend on any axioms
+`MaleyLean.YangMillsPacket8ContainsQE3SeamStatement` does not depend on any axioms
+`MaleyLean.YangMillsSeamLiveNodeExamplesStatement` does not depend on any axioms
+`MaleyLean.YangMillsKernelReadingOrderStatement` does not depend on any axioms
+`MaleyLean.YangMillsCrosswalkExamplesStatement` does not depend on any axioms
+`MaleyLean.YangMillsPaperSurfaceSummaryStatement` does not depend on any axioms
+
+Interpretation
+--------------
+
+The current Yang--Mills Lean surface is axiom-free at the manuscript-facing
+structural level.
+
+This means the repository now certifies, without extra axioms:
+
+- the live proof-surface decomposition,
+- the theorem-routing structure,
+- the claim/obligation architecture,
+- the proof-kernel extraction,
+- the ten-packet reduction,
+- the decisive seam nodes,
+- the source-number crosswalk,
+- and the kernel reading-order guidance.
+
+This audit does not claim native Lean discharge of the underlying analytic
+Yang--Mills mathematics cited by the manuscript proof homes.

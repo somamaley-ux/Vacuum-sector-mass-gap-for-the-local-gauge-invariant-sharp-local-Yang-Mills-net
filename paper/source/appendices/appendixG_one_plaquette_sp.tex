@@ -1,0 +1,316 @@
+\section{A1 for \texorpdfstring{$\Sp(2n)$}{Sp(2n)}: explicit one-plaquette coefficient bounds}
+\label{app:A1_Sp}
+
+This appendix proves \Cref{prop:A1_Sp}.
+The argument follows a fixed three-step pattern (determinantal reduction $\to$ TN one-box control $\to$ Bessel-ratio telescope):
+
+\begin{enumerate}[label=(\arabic*)]
+\item reduce the one-plaquette coefficient to an explicit determinant ratio via Weyl integration, Weyl's character formula,
+      and Andr\'eief's identity;
+\item use total nonnegativity (TN) and a one-row shift inequality for Vandermonde-normalized minors (Appendix~\ref{app:TP_tools})
+      to obtain a one-box multiplicative bound;
+\item telescope over boxes and bound the resulting product using Amos-type bounds for $I_{k+1}/I_k$.
+\end{enumerate}
+
+\subsection{Maximal-torus parametrization and Wilson weight}
+\label{subsec:A1_Sp_setup}
+
+Fix $n\ge 3$ and set $G=\Sp(2n)$.
+Every conjugacy class meets the maximal torus
+\begin{equation}
+\label{eq:Sp_torus}
+T\cong\{\mathrm{diag}(e^{i\theta_1},\dots,e^{i\theta_n},e^{-i\theta_1},\dots,e^{-i\theta_n})\},\qquad \theta_j\in[0,\pi].
+\end{equation}
+For the defining (complex) representation $\rho$ of dimension $2n$ one has
+\begin{equation}
+\label{eq:Sp_trace}
+\Re\Tr_{\rho}(U)=2\sum_{j=1}^n \cos\theta_j.
+\end{equation}
+Thus, up to an irrelevant constant factor $e^{-\alpha\beta}$,
+\Cref{eq:one_plaq_measure_general} is the $T$--class function with symbol
+\begin{equation}
+\label{eq:Sp_symbol}
+W_t(\theta):=\exp\Big(t\sum_{j=1}^n \cos\theta_j\Big),\qquad t:=\frac{\alpha\beta}{n}.
+\end{equation}
+
+\subsection{Weyl character formula and determinantal reduction}
+\label{subsec:A1_Sp_determinant}
+
+Irreducible representations of $\Sp(2n)$ are indexed by partitions
+$\lambda=(\lambda_1\ge\cdots\ge\lambda_n\ge 0)$.
+Define the standard shift sequence
+\begin{equation}
+\label{eq:Sp_bi_def}
+ b_i:=n-i+1\qquad(1\le i\le n),
+\end{equation}
+and the shifted row indices
+\begin{equation}
+\label{eq:Sp_Ai_def}
+A_i(\lambda):=\lambda_i+b_i=\lambda_i+n-i+1\in\N.
+\end{equation}
+
+\begin{lemma}[Weyl character formula for $\Sp(2n)$ in sine-determinant form]
+\label{lem:Sp_weyl_character}
+Let $U\in T$ have eigenangles $\theta=(\theta_1,\dots,\theta_n)$.
+Then
+\begin{equation}
+\label{eq:Sp_character_sine_det}
+\chi_{\lambda}(\theta)
+=\frac{\det\big(\sin(A_i(\lambda)\,\theta_j)\big)_{1\le i,j\le n}}{\det\big(\sin(b_i\,\theta_j)\big)_{1\le i,j\le n}}.
+\end{equation}
+\end{lemma}
+
+\begin{remark}
+Formula \eqref{eq:Sp_character_sine_det} is a standard trigonometric form of Weyl's character formula for type $C_n$.
+\end{remark}
+
+\begin{lemma}[Weyl integration formula in determinant form]
+\label{lem:Sp_weyl_integration}
+There exists a constant $c_{\Sp}(n)>0$ such that for every continuous class function $F$ on $\Sp(2n)$,
+\begin{equation}
+\label{eq:Sp_weyl_integration}
+\int_{\Sp(2n)}F(U)\,d\mu_{\mathrm{Haar}}(U)
+= c_{\Sp}(n)\int_{[0,\pi]^n}F(\theta)\,\det\big(\sin(b_i\,\theta_j)\big)^2\,d\theta_1\cdots d\theta_n.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+This is the Weyl integration formula specialized to type $C_n$ written in the determinant presentation of the Weyl denominator.
+\end{proof}
+
+\begin{proposition}[Determinantal formula for one-plaquette coefficients on $\Sp(2n)$]
+\label{prop:Sp_det_formula}
+Let $\lambda$ be a partition of length at most $n$.
+Define the moment kernel
+\begin{equation}
+\label{eq:Sp_moment_kernel_def}
+M_t^{\Sp}(p,q)
+:=\frac{2}{\pi}\int_0^{\pi} e^{t\cos\theta}\,\sin(p\theta)\,\sin(q\theta)\,d\theta,
+\qquad p,q\in\N.
+\end{equation}
+Let
+\begin{equation}
+\label{eq:Sp_Dlambda_def}
+D_{\lambda}^{\Sp}(t)
+:=\det\Big(M_t^{\Sp}\big(A_i(\lambda),\,b_j\big)\Big)_{1\le i,j\le n}.
+\end{equation}
+Then for $t=\alpha\beta/n$ one has
+\begin{equation}
+\label{eq:Sp_coeff_det_ratio}
+ a_{\lambda}(\beta,\alpha)
+=\E_{\nu_{\beta,\alpha}}\Big[\frac{\chi_{\lambda}(U)}{\dim\lambda}\Big]
+=\frac{1}{\dim\lambda}\,\frac{D_{\lambda}^{\Sp}(t)}{D_{\varnothing}^{\Sp}(t)}.
+\end{equation}
+Moreover, for every $p,q\in\N$,
+\begin{equation}
+\label{eq:Sp_kernel_bessel}
+M_t^{\Sp}(p,q)=I_{|p-q|}(t)-I_{p+q}(t).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Insert \Cref{eq:Sp_character_sine_det} and \Cref{eq:Sp_symbol} into \Cref{eq:one_plaq_coeff_general} and use
+\Cref{eq:Sp_weyl_integration}.
+The denominator determinant in \Cref{eq:Sp_character_sine_det} cancels one factor of the squared Weyl denominator,
+leaving the torus integral
+\begin{equation}
+\label{eq:Sp_andreief_integral}
+\int_{[0,\pi]^n} W_t(\theta)\,\det\big(\sin(A_i(\lambda)\theta_j)\big)\,\det\big(\sin(b_i\theta_j)\big)\,d\theta.
+\end{equation}
+Apply Andr\'eief's identity to \Cref{eq:Sp_andreief_integral} (with the common product measure $d\theta_1\cdots d\theta_n$)
+ to obtain the determinant \Cref{eq:Sp_Dlambda_def}.
+The same reduction with $\lambda=\varnothing$ gives the normalizing factor, yielding \Cref{eq:Sp_coeff_det_ratio}.
+
+Finally, for \Cref{eq:Sp_kernel_bessel} use
+$\sin(p\theta)\sin(q\theta)=\tfrac12(\cos((p-q)\theta)-\cos((p+q)\theta))$ and the standard identity
+$\int_0^{\pi} e^{t\cos\theta}\cos(m\theta)\,d\theta=\pi I_m(t)$.
+\end{proof}
+
+\subsection{One-box inequality and telescoping product over boxes}
+\label{subsec:A1_Sp_one_box}
+
+We now exploit TN and the one-row shift inequality from Appendix~\ref{app:TP_tools}.
+
+\begin{lemma}[One-box multiplicative bound for $\Sp(2n)$]
+\label{lem:Sp_one_box}
+Fix $t>0$.
+Let $\mu$ be a partition of length at most $n$ and let $i$ be an index such that $\mu+e_i$ is still a partition.
+Write $A_i:=A_i(\mu)=\mu_i+b_i$.
+Then
+\begin{equation}
+\label{eq:Sp_one_box_bound}
+\frac{a_{\mu+e_i}}{a_{\mu}}\ \le\ \frac{I_{A_i+1}(t)}{I_{A_i}(t)}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\textbf{Step 1: TN row-shift bound for the determinantal numerator.}
+By Lemma~\ref{lem:moment_matrix_TN}(i) (Appendix~\ref{app:TP_tools}), the matrix $(M_t^{\Sp}(p,q))_{p,q\ge 1}$ is TN.
+Apply Lemma~\ref{lem:TN_row_shift} (Appendix~\ref{app:TP_tools})
+with the fixed increasing column tuple $C=(1,2,\dots,n)$ (i.e. $b_n<b_{n-1}<\cdots<b_1$)
+and the increasing row tuple obtained by sorting $(A_1(\mu),\dots,A_n(\mu))$.
+Shifting $\mu\mapsto\mu+e_i$ increases $A_i$ by $1$ and leaves the remaining row indices unchanged.
+Lemma~\ref{lem:TN_row_shift} gives
+\begin{equation}
+\label{eq:Sp_det_shift_bound}
+\frac{D^{\Sp}_{\mu+e_i}(t)}{D^{\Sp}_{\mu}(t)}
+\ \le\ \frac{\Delta(A(\mu+e_i))}{\Delta(A(\mu))}\,\frac{M_t^{\Sp}(A_i+1,1)}{M_t^{\Sp}(A_i,1)},
+\end{equation}
+where $\Delta$ is the Vandermonde factor in the (sorted) row indices.
+
+\paragraph{Denominator-minor convention (TN ratios).}
+At several points below we form Vandermonde-normalized minor ratios (or equivalent determinant ratios) and invoke the TN one-row shift tool from Appendix~\ref{app:TP_tools}.
+Whenever a would-be denominator minor can vanish, we apply the zero-case clause from Lemma~J.5:
+if the pivot entry (hence the denominator minor) vanishes, then the corresponding numerator determinant also vanishes and the desired inequality is trivial; otherwise we work in the strictly-positive regime and proceed with the ratio bound.
+
+
+
+
+\textbf{Step 2: cancel the Vandermonde factor using the Weyl dimension ratio.}
+For type $C_n$ one may write the Weyl dimension formula in the form
+\begin{equation}
+\label{eq:Sp_dim_formula}
+\dim\lambda
+=\Bigg(\prod_{i=1}^n \frac{A_i(\lambda)}{b_i}\Bigg)
+\Bigg(\prod_{1\le i<j\le n}\frac{A_i(\lambda)^2-A_j(\lambda)^2}{b_i^2-b_j^2}\Bigg).
+\end{equation}
+Consequently, for a one-box growth $\mu\mapsto\mu+e_i$ (so only $A_i$ increases by $1$),
+\begin{equation}
+\label{eq:Sp_dim_ratio}
+\frac{\dim(\mu+e_i)}{\dim(\mu)}
+=\frac{A_i+1}{A_i}\prod_{j\ne i}\frac{(A_i+1)^2-A_j^2}{A_i^2-A_j^2}
+=\frac{A_i+1}{A_i}\prod_{j\ne i}\frac{A_i+1-A_j}{A_i-A_j}\cdot\frac{A_i+1+A_j}{A_i+A_j}.
+\end{equation}
+Rearranging gives
+\begin{equation}
+\label{eq:Sp_dim_cancel_vandermonde}
+\frac{\dim(\mu)}{\dim(\mu+e_i)}\,\frac{\Delta(A(\mu+e_i))}{\Delta(A(\mu))}
+=\frac{A_i}{A_i+1}\prod_{j\ne i}\frac{A_i+A_j}{A_i+1+A_j}\ \le\ \frac{A_i}{A_i+1}.
+\end{equation}
+
+\textbf{Step 3: use the explicit kernel entry ratio at column $1$.}
+From \Cref{eq:Sp_kernel_bessel} and the Bessel recurrence
+$I_{\nu-1}-I_{\nu+1}=\tfrac{2\nu}{t}I_{\nu}$ (valid for integer $\nu\ge 1$), we obtain
+\begin{equation}
+\label{eq:Sp_kernel_col1_recurrence}
+M_t^{\Sp}(p,1)=I_{p-1}(t)-I_{p+1}(t)=\frac{2p}{t}\,I_p(t)\qquad(p\ge 1).
+\end{equation}
+Therefore
+\begin{equation}
+\label{eq:Sp_M_ratio}
+\frac{M_t^{\Sp}(A_i+1,1)}{M_t^{\Sp}(A_i,1)}
+=\frac{A_i+1}{A_i}\,\frac{I_{A_i+1}(t)}{I_{A_i}(t)}.
+\end{equation}
+
+\textbf{Step 4: combine.}
+By \Cref{eq:Sp_coeff_det_ratio},
+\(
+\frac{a_{\mu+e_i}}{a_{\mu}}
+=\frac{\dim(\mu)}{\dim(\mu+e_i)}\cdot\frac{D^{\Sp}_{\mu+e_i}(t)}{D^{\Sp}_{\mu}(t)}.
+\)
+Combine this with \Cref{eq:Sp_det_shift_bound}, \Cref{eq:Sp_dim_cancel_vandermonde}, and \Cref{eq:Sp_M_ratio}:
+\begin{align*}
+\frac{a_{\mu+e_i}}{a_{\mu}}
+&\le \Big(\frac{\dim\mu}{\dim(\mu+e_i)}\,\frac{\Delta(A(\mu+e_i))}{\Delta(A(\mu))}\Big)
+\Big(\frac{M_t^{\Sp}(A_i+1,1)}{M_t^{\Sp}(A_i,1)}\Big)
+\\
+&\le \Big(\frac{A_i}{A_i+1}\Big)\Big(\frac{A_i+1}{A_i}\,\frac{I_{A_i+1}(t)}{I_{A_i}(t)}\Big)
+=\frac{I_{A_i+1}(t)}{I_{A_i}(t)}.
+\end{align*}
+This is \Cref{eq:Sp_one_box_bound}.
+\end{proof}
+
+\begin{corollary}[Telescoping product bound over boxes]
+\label{cor:Sp_telescoping}
+Let $\lambda$ be a nonempty partition of length at most $n$.
+Then
+\begin{equation}
+\label{eq:Sp_product_over_boxes}
+0\le a_{\lambda}(\beta,\alpha)
+\ \le\ \prod_{(i,j)\in\lambda}\frac{I_{b_i+j}(t)}{I_{b_i+j-1}(t)},
+\qquad t=\frac{\alpha\beta}{n}.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Start from the empty partition and build $\lambda$ by adding boxes one at a time.
+At the step when the $j$th box in row $i$ is added, the current value of $A_i$ equals $b_i+(j-1)$.
+Apply \Cref{eq:Sp_one_box_bound} at each step and telescope.
+\end{proof}
+
+\subsection{From the product bound to the A1 crossover form}
+\label{subsec:A1_Sp_crossover}
+
+We now convert \Cref{eq:Sp_product_over_boxes} into the canonical A1 form \Cref{eq:A1_canonical}.
+
+\begin{lemma}[Casimir in partition coordinates for $\Sp(2n)$]
+\label{lem:Sp_casimir_partition}
+Let $\lambda$ be a partition of length at most $n$.
+With the root-length convention of \Cref{def:metric_casimir} (short roots of length $\sqrt2$),
+\begin{equation}
+\label{eq:Sp_casimir_formula}
+C_2(\lambda)=\sum_{i=1}^n \lambda_i\big(\lambda_i+2b_i\big),\qquad b_i=n-i+1.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For type $C_n$ with short roots of length squared $2$, one has $C_2(\lambda)=\langle\lambda,\lambda+2\rho\rangle$,
+with $\rho=(b_1,\dots,b_n)$ in the standard orthonormal basis.
+Expanding gives \Cref{eq:Sp_casimir_formula}.
+\end{proof}
+
+\begin{proposition}[Crossover bound from the product estimate]
+\label{prop:Sp_crossover_bound}
+There exists an explicit constant $c_{\Sp}(n)>0$ such that for every nontrivial $\lambda$ and every $\alpha\in[1/2,1]$, $\beta\ge 1$,
+\begin{equation}
+\label{eq:Sp_A1_final}
+ a_{\lambda}(\beta,\alpha)
+\ \le\
+\exp\Big(-c_{\Sp}(n)\,\frac{C_2(\lambda)}{\beta+\sqrt{C_2(\lambda)}}\Big).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Fix $t=\alpha\beta/n$.
+Take logarithms of \Cref{eq:Sp_product_over_boxes} and apply the Amos bound \Cref{eq:q_as_exp_asinh} from Lemma~\ref{lem:amos_upper_bound}:
+\begin{equation}
+\label{eq:Sp_log_bound_asinh}
+\log a_{\lambda}\ \le\ -\sum_{(i,j)\in\lambda}\operatorname{arsinh}\Big(\frac{b_i+j-\tfrac12}{t}\Big).
+\end{equation}
+Use the elementary inequality $\operatorname{arsinh}(x)\ge x/(1+x)$ for $x\ge 0$ to obtain
+\begin{align}
+\sum_{(i,j)\in\lambda}\operatorname{arsinh}\Big(\frac{b_i+j-\tfrac12}{t}\Big)
+&\ge \sum_{(i,j)\in\lambda}\frac{b_i+j-\tfrac12}{t+b_i+j-\tfrac12}
+\ge \frac{\sum_{(i,j)\in\lambda}(b_i+j-\tfrac12)}{t+K_{\max}},
+\label{eq:Sp_asinh_lower_sum}
+\end{align}
+where
+$K_{\max}:=\max_{(i,j)\in\lambda}(b_i+j-\tfrac12)=b_1+\lambda_1-\tfrac12\le n+\lambda_1$.
+
+Next,
+\begin{align*}
+\sum_{(i,j)\in\lambda}(b_i+j-\tfrac12)
+&=\sum_{i=1}^n\sum_{j=1}^{\lambda_i}\Big(b_i+j-\tfrac12\Big)
+=\sum_{i=1}^n\Big(\lambda_i\,(b_i+\tfrac12)+\frac{\lambda_i(\lambda_i-1)}{2}\Big)
+\\
+&=\frac12\sum_{i=1}^n\big(\lambda_i^2+2b_i\lambda_i\big)+\frac12\sum_{i=1}^n\lambda_i
+\ge \frac12\,C_2(\lambda),
+\end{align*}
+using \Cref{eq:Sp_casimir_formula}.
+Moreover, $\lambda_1\le \sqrt{C_2(\lambda)}$ for nontrivial $\lambda$, hence
+$K_{\max}\le n+\sqrt{C_2(\lambda)}$.
+Substitute these two bounds into \Cref{eq:Sp_asinh_lower_sum} and then into \Cref{eq:Sp_log_bound_asinh}:
+\begin{equation}
+\label{eq:Sp_log_bound_final}
+\log a_{\lambda}\ \le\ -\frac12\,\frac{C_2(\lambda)}{t+n+\sqrt{C_2(\lambda)}}.
+\end{equation}
+Finally, since $t\le \beta/n$ and $\beta\ge 1$, we have
+$t+n+\sqrt{C_2}\le \beta+n+\sqrt{C_2}\le (n+1)(\beta+\sqrt{C_2})$.
+Thus \Cref{eq:Sp_log_bound_final} implies \Cref{eq:Sp_A1_final} with
+$c_{\Sp}(n)=\frac{1}{2(n+1)}$.
+\end{proof}
+
+\begin{remark}[Conclusion]
+\Cref{prop:Sp_crossover_bound} is exactly \Cref{prop:A1_Sp} (with an explicit choice of constants).
+\end{remark}
+

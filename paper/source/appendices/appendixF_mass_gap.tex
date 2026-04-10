@@ -1,0 +1,40 @@
+\section{Mass gap along the \texorpdfstring{$t_0$}{t0}-defined scaling trajectory}
+\label{app:route1}
+
+This appendix contains the primary Route~1 mass-gap module along the tuned dyadic scaling trajectory.
+All constant-tracking and smallness requirements are stated as explicit inequalities between named constants.
+The load-bearing Route~1 package proved here is
+\[
+\mathrm{QE1},\ \mathrm{QE2}_{\mathrm{lat}},\ \mathrm{QE3},
+\]
+namely one-shot entrance, the tuned-sequence full fixed-lattice OS gap lower bound, and the continuum sharp-local vacuum-gap transfer theorem.
+A dense-core Euclidean-clustering theorem is recorded later only as a downstream bridge feeding Lane~B.
+For a reader who wants the shortest Route~1 audit path before reading the rest of the manuscript, see Appendix~\ref{app:referee_audit}, Extract~A in \S\ref{subsec:hard_module_extracts}, and Stages~1, 2, and~5 of Appendix~\ref{app:executive_proof_sketch}.
+
+\subsection*{Route~1 reading guide (where the closure is organized)}
+This appendix is written so that the \emph{single load-bearing Route~1 entrance mechanism} can be audited without hunting across lanes.
+A concentrated first reading typically focuses on five points: (i) the Plan-A $\chi^2$ gate and its explicit feasibility budget,
+(ii) the same-scale Wilson-to-patched transport theorem (Theorem~\ref{thm:Wilson_patch_transport}) used to return the chart-truncated Lane~C estimates to the physical Wilson theory before the one-shot blocked transfer,
+(iii) the gluing theorem that transfers reference KP-smallness to the \emph{exact} blocked measure at a prescribed block size,
+(iv) the hardening from entrance-scale blocked decay to a full fixed-lattice OS gap theorem, and
+(v) the conversion of that lower bound into a continuum spectral gap.
+For quick navigation:\begin{itemize}
+\item Primary Route~1 proof spine: see Subsection~\ref{sec:main_theorem_package}.
+\item Plan-A $\chi^2$ gate reduction and explicit transfer-feasibility closure: see \S F.17--F.19.8.
+\item Same-scale Wilson-to-patched transport on the fixed-scale Route~1 test class: Theorem~\ref{thm:Wilson_patch_transport}.
+\item Exact conditional-expectation / factorization / averaged-transport ledger underlying that same-scale return: \Cref{rem:route1_measure_pipeline}.
+\item Weak-window repair certificate and the only live downstream branch from the curvature-sector package: Theorem~\ref{thm:weak_window_sufficiency}.
+\item Local Packet~3/8 transport ledger for the fixed-lattice-to-continuum gap route: \Cref{rem:route1_packet38_transport_certification}.
+\item One-shot entrance theorem and bounded physical entrance scale (QE1): Theorem~\ref{thm:h60_one_shot_entrance} and Corollary~\ref{cor:route1_bounded_physical_entrance}.
+\item QE2$_{\mathrm{lat}}$ closure by exact terminal-block covariance transfer with a common rate for all fixed-lattice local observables, followed by the fixed-lattice spectral-gap theorem: Lemma~\ref{lem:block_decay_to_micro}, Corollary~\ref{cor:fixed_n_decay_criterion}, Proposition~\ref{prop:lattice_OS_cyclicity_local_algebra}, Corollary~\ref{cor:uniform_phys_gap_from_bounded_entrance}, and Theorem~\ref{thm:physical_gap_from_gluing}.
+\item QE3 closure by dyadic-to-continuum OS transport plus non-collapse on the full sharp-local Hilbert space: Theorem~\ref{thm:continuum_time_OS_upgrade}, Corollary~\ref{cor:sharp_base_dense_in_full_H}, Lemma~\ref{lem:QE3_core_topology}, Theorem~\ref{thm:phys_gap_noncollapse}, and Corollary~\ref{cor:route1_QE3_gap}.
+\item The explicit bounded-factor insertion upgrade used in the mixed-channel finite-cap clause: Corollary~\ref{cor:ins_to_OS_bounded_word} together with Proposition~\ref{prop:finite_cap_bounded_factor_insertion}.
+\item Appendix~\ref{app:axioms_package} then packages the corresponding OS/Wightman-strength existence statements (Euclidean axioms, reconstruction, locality, positive energy, and field correspondence) in one claim-facing appendix.
+\item Secondary dense-core Euclidean-clustering / Lane~B route: Theorem~\ref{thm:route1_E2_internal} and Theorem~\ref{thm:R1_HS}.
+\end{itemize}
+
+\noindent\emph{Audit note.} The main Appendix~F keeps the theorem-level one-shot entrance chain, the full fixed-lattice gap step, the continuum vacuum-gap transport step, and the blocked covariance / representative package used by the downstream dense-core route.
+The supplementary Route~1 archive contains the moved historical material, including the invariant-graph matching / bi-Lipschitz coupling-coordinate package, the forward UV$\to$entrance notes, the discarded periodic-volume edge-Hessian discussion, and the legacy comparison-scale material.
+For a first audit pass, start with \Cref{rem:route1_packet38_transport_certification}, then read QE1, QE2$_{\mathrm{lat}}$, and QE3 in that order; the dense-core Euclidean-clustering route can be audited afterward as a downstream reformulation.
+
+\input{clean_build/appendix_mass_gap_module_body.tex}

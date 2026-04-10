@@ -1,0 +1,450 @@
+\documentclass[preprint,aip,jmp,amsmath,amssymb,nofootinbib]{revtex4-2}
+
+\input{shared/packages}
+\input{shared/theorems}
+\input{shared/macros}
+
+\SuiteSetupMetadata{Companion II: Lane~A Sharp-Local Construction}
+
+\begin{document}
+
+\SuiteMakeFrontMatter{Companion II: Lane~A Sharp-Local Construction}
+
+\begin{abstract}
+This companion is the source-backed proof home for the Lane~A sharp-local construction cited by the core paper. It is assembled directly from the canonical March~16,~2026 LaTeX source tree and houses the flowed continuum state, the exact-dimension quotient machinery, the one-shell transport and finite-truncation inverse package, the finite-cap mixed-correlator bridge, the finite-cap sharp-local extension, the inductive-union passage, bounded-base cyclicity in the reconstructed sharp-local Hilbert space, and a theorem-level state-construction ledger for the functional backbone. Appendices~A--E carry native REV\TeX{} transcriptions of the source-manuscript Section~4 file, the principal Lane~A construction file, the support analytic files, the finite-truncation interface / mixed-channel closure file, and the normalization / packet-interface file. The companion is uniform throughout in native REV\TeX{} form.
+\end{abstract}
+
+\maketitle
+
+\section*{Guide to proof homes}
+This source-backed companion is organized to support theorem-level verification while preserving direct access to the March~16,~2026 canonical source tree. The body names the exact core-paper theorems housed here and fixes their proof homes. Appendices~A--E provide native REV\TeX{} transcriptions of the source-manuscript blocks used for the flowed-state opening, the main Lane~A construction file, the support analytic files, the finite-truncation / mixed-channel closure file, and the normalization / packet-interface file.
+
+\paragraph{Phase-I proof-surface freeze.}
+The live proof burden of the hardened suite is carried only by the four compiled roots and the theorem-facing appendices compiled inside them. Support PDFs, archival source facsimiles not compiled in those roots, source-only routing appendices, build notes, and editorial memoranda are reserve materials only: they add no mathematics, carry no unique proof step, and are not part of the proof burden. The authoritative live routing references are the core-paper packet-docket appendix and Phase-I freeze appendix.
+
+\paragraph{Phase-II seam repair.}
+The finite-cap Lane~A seam is now stated theorem-locally. Appendix~B promotes an explicit theorem-facing bridge into Source Theorem~5.74 packaging the positive/unital finite-cap state input from Source Corollary~F.330A, Source Theorem~F.331, and Source Corollary~5.70. The role split is frozen literally: Source Theorem~5.74(b) is the finite-cap sharp-local OS-structure theorem, Source Corollary~5.75 is only the bounded-state restriction compatibility node, Source Corollary~5.76 is only the inductive-union passage, and Source Theorem~5.77 adds bounded-base cyclicity only afterward.
+
+\paragraph{Phase-IV quantifier hardening.}
+Lane~A statements are now frozen by scope. Source Theorem~5.74A and Source Theorem~5.74 are finite-cap theorems only, with any constants and graph norms allowed to depend on the chosen engineering cap. Source Corollary~5.76 is a qualitative inductive-union passage only; it does not promote capwise inverse-control, remainder, or graph-norm estimates to a full-union uniform statement. Source Theorem~5.77 is the first full sharp-local density/cyclicity export, and later QE3 uses still enter through one fixed engineering cap at a time before the explicit density/graph-core handoff.
+
+
+\paragraph{Phase-V functional backbone consolidation.}
+Section~7 below packages the live Lane~A functional backbone into one theorem-level state-construction ledger. Appendix~B now also isolates the finite-cap positivity mechanism theorem-locally.
+
+\paragraph{Phase-III proof-home crosschecks.}
+\begin{center}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}p{0.9cm}p{1.1cm}p{1.35cm}p{3.75cm}p{3.1cm}@{}}
+\toprule
+\textbf{Core label} & \textbf{Source label} & \textbf{Source pages} & \textbf{Proof home} & \textbf{First downstream use in the core}\\
+\midrule
+5.1 & 4.92; 4.93 & 54--67 & Appendix~A (+ Companion~I, Sec.~III for flowed de-patching) & Core Theorem~5.8 and then Core Theorem~5.10\\
+5.2 & 4.94 & 67 & Appendix~A & Core Theorem~5.8 and then Core Theorem~VI.1\\
+VI seam & 4.95 & 67 & Appendix~A & Core Theorem~VI.1\\
+5.3 & L.8 & 305 & Appendix~E & Core Theorem~5.4 and then Core Theorem~5.5\\
+5.4 & L.11 & 307 & Appendix~E & Core Theorem~5.5 and then Core Theorem~5.6\\
+5.5 & 5.39 & 81 & Appendix~B & Core Theorem~5.6\\
+5.6 & 5.69 & 98 & Appendix~B & Core Corollary~5.7 and then Core Theorem~5.9\\
+5.7 & F.245 & 234 & Appendix~D & Core Theorem~5.9\\
+5.8 & F.330A & 278 & Appendix~D & Core Theorem~5.9\\
+5.9 & F.331 & 280 & Appendix~D & Core Theorem~5.10\\
+VI seam bridge & 5.74A & 103 (Phase-II insertion) & Appendix~B & Core Theorem~5.10\\
+5.10 & 5.74 & 103 & Appendix~B & Core Theorem~VI.2\\
+VI seam compatibility & 5.75 & 106 & Appendix~B & Core Theorem~VI.2\\
+5.11 & 5.76 & 106 & Appendix~B & Core Theorem~VI.2 and then Core Theorem~VII.1\\
+5.13 & 5.77 & 107 & Appendix~B & Core Corollary~VI.4 and then Core Theorem~VII.1\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The body sections below are intentionally short. Their role is to identify what each theorem packet certifies, state where the proof lives, and keep the seam language used by the core paper stable. In particular, core Theorem~5.9 is the sole mixed-correlator closure node at finite cap; the promoted finite-cap bridge into Source Theorem~5.74 is the only theorem-facing positivity/unitality package used there; core Corollary~5.11 is the inductive-union passage; and core Theorem~5.13 is the first bounded-base cyclicity export. Section~7 later assembles the same functional backbone into one local theorem-facing route. This companion preserves that routing literally.
+
+\section{Flowed continuum state and bounded positive-time base}
+This section houses the entry point of Lane~A used by core Section~V. In the March~16,~2026 source manuscript the corresponding theorem-facing results are Theorem~4.92 and Corollaries~4.93--4.95. Together they certify the unique flowed continuum state, the executive Wilson/RG identification on $A_{\mathrm{flow}}$, the tuned bounded positive-time base state, and the dyadic reflected matrix-element limits later consumed on the QE3 seam.
+
+\proofhome{The full source file is transcribed natively in Appendix~A; the flowed de-patching seam used for the Wilson/RG identification on $A_{\mathrm{flow}}$ is proved in Companion~I, Section~III.}
+
+The role of the present section is front-end only. It certifies the starting state for Lane~A and surfaces the packet-4 dyadic OS-limit seam, but it does not yet provide exact-dimension quotient control, finite-cap closure, or any continuum transport theorem.
+
+\section{Exact-dimension quotient blocks and coefficient extraction}
+This section houses the quotient-block theorems that underwrite the canonical exact-dimension formalism. In the March~16,~2026 source manuscript the corresponding results are Theorem~L.8 and Theorem~L.11 in Appendix~L. Their theorem-level role is to identify the exact-dimension quotient action of the small-flow substitution and to extract the canonical coefficient data on arbitrary quotient blocks before any finite-cap closure theorem is invoked.
+
+\proofhome{The load-bearing exact-dimension proof transcriptions are given natively in Appendix~E.}
+
+The body of the core paper uses these results only through their theorem-facing content: the exact-dimension quotient package is the canonical input later consumed by the one-shell transport and finite-truncation inverse file.
+
+\section{One-shell transport and finite-truncation inverse control}
+This section houses the finite-truncation package used throughout core Section~V. In the March~16,~2026 source manuscript the corresponding results are Theorem~5.39, Theorem~5.69, and Corollary~F.245. Together they provide the one-shell transport on finite truncations, the unconditional finite-truncation inverse control, and the accompanying SFTE/remainder package.
+
+\proofhome{The load-bearing proof transcriptions for Theorems~5.39, 5.69, 5.74A, 5.74, 5.75, 5.76, and 5.77 are given natively in Appendix~B. The proof of Corollary~F.245 is transcribed natively in Appendix~D. Supporting flow-localization, kernel, and insertion-support material is recorded in Appendix~C.}
+
+This section should be read as the point where the old sample-sector dependence is discharged at theorem level. The finite-truncation inverse package is unconditional in the proof architecture carried by the core paper; the detailed coefficient and insertion-RG file is carried in the supporting appendices of this companion.
+
+\section{Finite-cap mixed-correlator bridge}
+This section houses the mixed-channel finite-cap seam used by the core paper. In the March~16,~2026 source manuscript the corresponding results are Corollary~F.330A and Theorem~F.331. Their theorem-level role is sharply separated: Corollary~F.330A packages the finite mixed bounded-family input, Theorem~F.331 is the sole mixed-correlator closure node at finite cap, and the promoted Source Theorem~5.74A in Appendix~B packages the theorem-facing positive/unital finite-cap state input consumed next by Source Theorem~5.74.
+
+\proofhome{The theorem-facing proof transcription is given in Appendix~D.}
+
+This role split should be kept literal. The finite mixed-family packaging is not yet the closure theorem, and no inductive-union or cyclicity statement should be read into this section. Section~7 records the resulting state-construction chain in one theorem-level ledger.
+
+\section{Finite-cap sharp-local extension}
+This section houses the capwise extension theorem cited by core Section~V. In the March~16,~2026 source manuscript the corresponding theorem-facing results are the promoted bridge Source Theorem~5.74A, Source Theorem~5.74, and the immediate bounded-state restriction corollary~5.75. The theorem-level function of Source Theorem~5.74A is to expose the positive/unital finite-cap bridge from the bounded-family and mixed-channel closure package; Source Theorem~5.74 then extends the flowed Lane~C state to the finite-cap sharp-local setting and records the capwise OS structure; Corollary~5.75 records only the bounded-base restriction compatibility later consumed on the QE3 seam.
+
+\proofhome{The load-bearing proof transcription is given in Appendix~B. Supporting flow-localization, kernel, and insertion estimates are recorded in Appendix~C.}
+
+The finite-cap extension is the first theorem on the Lane~A line that actually reaches the sharp-local capwise algebra. Its bounded-state restriction corollary is a separate compatibility node and remains distinct from the later inductive-union and cyclicity exports. Appendix~B now also isolates the finite-cap positivity mechanism in a dedicated theorem-facing lemma cited directly by Source Theorem~5.74, and it writes the overlap comparison used later by Source Corollary~5.76 directly on shared generators and inverse-flow representatives.
+
+\section{Inductive-union passage and bounded-base cyclicity}
+This section houses the final two Lane~A exports used by the core paper. In the March~16,~2026 source manuscript the corresponding results are Corollary~5.76 and Theorem~5.77, following the earlier bounded-state restriction compatibility corollary~5.75. Their theorem-level roles are again distinct: Corollary~5.76 passes from finite caps to the full sharp-local inductive union, while Theorem~5.77 is the first bounded-base cyclicity statement on the reconstructed sharp-local Hilbert space. The seam language is now frozen so that no reader can mistake Corollary~5.75 for the inductive-union theorem or mistake Source Theorem~5.74(b) for a full-scope statement.
+
+\proofhome{The load-bearing proof transcriptions are given in Appendix~B.}
+
+Within the architecture of the core paper, these two results must remain separate. Core Corollary~5.11 is the inductive-union passage; core Theorem~5.13 is the bounded-base cyclicity export. Appendix~B now makes both seam steps theorem-local: the inductive-union proof includes the explicit overlap comparison, and the cyclicity proof includes the explicit bounded approximating sequence and telescoping estimate. Neither should be blurred into the earlier mixed-channel seam.
+
+\section{State-construction ledger}
+This section packages the functional and measure backbone of Lane~A in one place. Its role is theorem-facing rather than historical: it records exactly where the live state comes from, exactly where finite-cap positivity is proved, and exactly where the passage to the full sharp-local Hilbert space occurs.
+
+\begin{proposition}[Phase-V state-construction ledger for the Lane~A functional backbone]\label{prop:LaneA_state_construction_ledger}
+Fix a weak-window target value $u_{\mathrm{ren}}\in(0,u_*]$. The state-construction route used later by the QE3 seam and the endpoint packet is exactly the following.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.25em]
+\item Source Corollary~4.94 supplies the bounded Wilson reflection-positive base state $\omega_{\mathrm{bd}}^{(u_{\mathrm{ren}})}$ on $A_+$, together with the dyadic positive-time matrix elements later used on the QE3 seam.
+\item For every fixed engineering cap and every finite bounded family $W\subset \ast(A_{\mathrm{flow}}^{(\le \Delta_{\max})},A_+)$, Source Corollary~F.330A packages the joint Wilson limits into compatible positive unital capwise states on $\operatorname{Alg}(W)$.
+\item For every fixed engineering cap and fixed mixed channel, Source Theorem~F.331 closes mixed correlators against fixed capwise words, while Source Corollary~5.70 supplies the finite-truncation inverse/remainder package used to identify the formal centered local symbols with the corresponding renormalized local insertions.
+\item Source Theorem~5.74A upgrades those mixed-channel limits to a unique positive unital capwise functional on the abstract finite-cap sharp-local algebra, and it isolates the positivity mechanism theorem-locally: reflection positivity is read only through bounded positive-time representatives, and the inverse-flow replacement error tends to zero.
+\item Source Theorem~5.74 turns that capwise functional into the finite-cap sharp-local state with capwise OS structure and finite-cap field realization on the common invariant core.
+\item Source Corollary~5.76 glues the compatible finite-cap states to the unique inductive-union sharp-local state
+\[
+A_{\mathrm{loc}}=\varinjlim_{\Delta_{\max}\to\infty}A_{\mathrm{loc}}^{(\le \Delta_{\max})},
+\]
+which extends the bounded base state on $A_+$ by an explicit overlap comparison on shared generators and inverse-flow representatives.
+\item Source Theorem~5.77 is the first full-sharp-local density export: the image of $A_+$ is dense in the reconstructed Hilbert space and the closed linear span of the centered bounded classes is the vacuum-orthogonal sector; the proof now gives the explicit bounded approximating sequence used later at QE3.
+\end{enumerate}
+No later QE3 or endpoint theorem uses any additional state-construction or positivity step beyond this seven-node packet.
+\end{proposition}
+
+\proofhome{Items~\textup{(i)}--\textup{(vii)} are proved respectively in Appendix~A (Source Corollary~4.94), Appendix~D (Source Corollary~F.330A and Source Theorem~F.331), and Appendix~B (Source Theorem~5.74A, Source Theorem~5.74, Source Corollary~5.76, and Source Theorem~5.77).}
+\dependencyledger
+  {Source Corollary~4.94, Source Corollary~F.330A, Source Theorem~F.331, Source Corollary~5.70, Source Theorem~5.74A, Source Theorem~5.74, Source Corollary~5.76, and Source Theorem~5.77}
+  {none beyond the standard OS reconstruction step already isolated where the finite-cap and full sharp-local states are constructed}
+  {the live Lane~A functional backbone is exactly a seven-step route from the bounded Wilson base state to the full sharp-local state and its bounded-base density export; no hidden positivity or measure-transport step remains outside this ledger}
+  {the QE3 seam in Companion~I / core Section~VI and the endpoint packet in Companion~III / core Section~VII}
+
+\begin{remark}[What the ledger answers immediately]
+A referee asking ``Where does the state come from?'' now reads items~\textup{(i)}--\textup{(vi)}. A referee asking ``Where is positivity proved?'' reads item~\textup{(iv)} together with the dedicated finite-cap positivity lemma cited there and in Source Theorem~5.74. Nothing later in the live suite requires a different functional backbone.
+\end{remark}
+
+\SuiteDataAvailabilitySection
+
+\appendix
+
+\section{Native REV\TeX{} transcription of current Section~4 source block (pp.~27--67)}
+This appendix gives a native theorem-facing transcription of the Section~4 source block from the March~16,~2026 manuscript. Its focus is the flowed continuum state and the dyadic-RG / no-subsequence convergence infrastructure culminating in source Theorem~4.92 and Corollaries~4.93--4.95.
+
+\subsection{Group-uniform A1 input and the dyadic GF step-scaling lane}
+The source Section~4 begins by isolating the one-plaquette coefficient input and the dyadic gradient-flow step-scaling structure used throughout Lane~C.
+
+\begin{theorem}[Source Theorem~4.2: group-uniform A1 input used on the primary spine]
+For every compact connected simple gauge group $G$ and every fixed finite-dimensional unitary Wilson representation $\rho$, the one-plaquette coefficients satisfy the crossover bound of the compact-simple A1 theorem. Equivalently, on the primary Route~1 spine every use of the A1 gate is available with group-dependent constants $(c_{A1}(G,\rho),\beta_{A1}(G,\rho))$ and no remaining Lie-type restriction.
+\end{theorem}
+
+\begin{proposition}[Source Proposition~4.6: one-loop coefficient is scheme invariant]
+Let $u$ and $u'$ be two renormalized couplings related near $0$ by an analytic reparametrization
+\[
+u' = u + a_1 u^2 + a_2 u^3 + O(u^4).
+\]
+If
+\[
+\beta(u) = -2b_0u^2 + O(u^3),
+\]
+then
+\[
+\beta'(u') = -2b_0 (u')^2 + O((u')^3).
+\]
+In particular, the coefficient $b_0$ is invariant under the reparametrization.
+\end{proposition}
+
+\begin{lemma}[Source Lemma~4.7: beta-remainder implies step-scaling remainder]
+Assume there exist constants $u_0>0$ and $B\ge 0$ such that
+\[
+|\beta_{\mathrm{GF}}(u)+2b_0u^2| \le B u^3
+\qquad (0\le u\le u_0),
+\]
+and assume $u_0$ is small enough that $D:=1-2b_0u_0\log 2>0$. Then for every $u\in[0,u_0]$, the factor-$2$ step-scaling map satisfies
+\[
+\Sigma(u)=u+2b_0u^2\log 2 + R_\Sigma(u),
+\qquad
+|R_\Sigma(u)|\le C_\Sigma u^3
+\]
+with explicit constant
+\[
+C_\Sigma:= \frac{(2b_0\log 2)^2}{D} + \frac{B\log 2}{D^3}.
+\]
+\end{lemma}
+
+\subsection{One-step analytic RG map and dyadic beta remainder}
+The middle of the source Section~4 turns the Lane~C dyadic RG into a scale-uniform analytic map with explicit Taylor remainder bounds.
+
+\begin{proposition}[Source Proposition~4.9: analytic RG map with explicit Taylor remainder bounds]
+There exist constants
+\[
+r_0>0,\qquad \kappa\in(0,1),\qquad A_2\in\mathbb R,\qquad C_u>0,\qquad C_K>0,
+\]
+and linear operators $L_j:\mathcal K_j\to \mathcal K_{j+1}$ with $\|L_j\|_{\mathrm{op}}\le \kappa$, such that for all $j$ and all $(u,K)\in B_j(r_0)$ the RG step satisfies
+\begin{align}
+u' &= u + A_2 u^2 + \delta_u(u,K),\\
+K' &= L_j K + \delta_K(u,K),
+\end{align}
+with bounds
+\begin{align}
+|\delta_u(u,K)| &\le C_u \bigl(|u|^3 + |u|\,\|K\|_j\bigr),\\
+\|\delta_K(u,K)\|_{j+1} &\le C_K \bigl(|u|^2 + \|K\|_j^2\bigr).
+\end{align}
+All constants are uniform in the dyadic scale.
+\end{proposition}
+
+\begin{proposition}[Source Proposition~4.10: entrance estimate]
+There exists an entrance scale $j_\ast$ and a constant $D>0$ such that
+\[
+\|K_{j_\ast}\|_{j_\ast}\le D u_{j_\ast}^2,
+\qquad
+|u_{j_\ast}|\le r_0/2.
+\]
+\end{proposition}
+
+\begin{proposition}[Source Proposition~4.11: quadratic coefficient identification]
+The RG marginal coefficient satisfies
+\[
+A_2 = 2b_0 \log 2,
+\qquad b_0>0
+\]
+for pure Yang--Mills. In the load-bearing chain only the positivity $b_0>0$ is used downstream.
+\end{proposition}
+
+\begin{lemma}[Source Lemma~4.13: irrelevant sector stays $O(u^2)$]
+Assume the analytic RG map above. Define the cone region
+\[
+\mathcal C_j(M):=\{(u,K)\in B_j(r_0): \|K\|_j\le M u^2\}.
+\]
+If
+\[
+M\ge \frac{2C_K}{1-\kappa}
+\]
+and $r_0$ is sufficiently small, then
+\[
+(u,K)\in \mathcal C_j(M)\implies (u',K')\in \mathcal C_{j+1}(M).
+\]
+\end{lemma}
+
+\begin{corollary}[Source Corollary~4.14: uniform irrelevant bound along the dyadic trajectory]
+With
+\[
+M:=\max\!\left\{D,\frac{2C_K}{1-\kappa}\right\},
+\]
+one has for all $j\ge j_\ast$,
+\[
+\|K_j\|_j \le M u_j^2
+\]
+provided the RG stays in the small-coupling ball.
+\end{corollary}
+
+\begin{theorem}[Source Theorem~4.15: dyadic step remainder bound in RG seminorm topology]
+Assume the preceding RG hypotheses. Then for all $j\ge j_\ast$ and all sufficiently small $u_j$,
+\[
+|u_{j+1}-u_j-A_2u_j^2|\le C_\Sigma u_j^3,
+\qquad
+C_\Sigma:=C_u(1+M).
+\]
+The constant $C_\Sigma$ is uniform in $j$ and hence uniform in $a/L_j$.
+\end{theorem}
+
+\begin{corollary}[Source Corollary~4.16: uniform dyadic beta-remainder bound]
+Define the dyadic beta function by
+\[
+\beta^{(2)}(u_j):=-\frac{u_{j+1}-u_j}{\log 2}.
+\]
+Then for all $j\ge j_\ast$ and all sufficiently small $u_j$,
+\[
+|\beta^{(2)}(u_j)+2b_0u_j^2| \le Bu_j^3,
+\qquad
+B:=\frac{C_\Sigma}{\log 2}
+= \frac{C_u(1+M)}{\log 2},
+\]
+uniformly in the dyadic scale.
+\end{corollary}
+
+\subsection{Uniform convexity and the extracted-irrelevant scaling gap}
+The source Section~4 next reduces the one-step fluctuation estimates to finite-dimensional uniform convexity on the good-chart domain together with the canonical extracted-irrelevant scaling gap.
+
+\begin{lemma}[Source Lemma~4.40: explicit lower bound for the tree-gauge curl coercivity]
+For the $2\times 2\times 2\times 2$ coarse block with the canonical tree gauge, the reduced integer matrix
+\[
+Q:=D_{\mathrm{red}}^\ast D_{\mathrm{red}}
+\]
+has smallest eigenvalue $\lambda_\ast$ satisfying
+\[
+\lambda_\ast > \frac14.
+\]
+Consequently the same lower bound holds for the full $G$ operator $D_{\mathrm{red}}^\ast D_{\mathrm{red}}$, since it is block-diagonal over Lie components.
+\end{lemma}
+
+\begin{theorem}[Source Theorem~4.44: uniform convexity on the chart domain]
+Fix $\delta\le \min\{\pi/4,\delta_{\mathrm{Haar}}(G)\}$ and define
+\[
+r_\ast := \sup_{\|A\|_\infty\le \delta}\max_{p\in P(Q)} \|F_p(A)\|.
+\]
+Assume the BCH derivative bounds and the smallness conditions
+\[
+\varepsilon_1(\delta)\le \frac12\sqrt{\lambda_\ast},
+\qquad
+M(r_\ast;G)\varepsilon_2(\delta)r_\ast \le \frac{\alpha_{\min}}{8}m(r_\ast;G)\lambda_\ast.
+\]
+Then for all $A$ with $\|A_e\|\le \delta$,
+\[
+\nabla^2 H_{j+1}(A)\succeq \varrho I,
+\qquad
+\varrho := \alpha_{\min}\beta\,\frac{m(r_\ast;G)\lambda_\ast}{8}.
+\]
+In particular, $\varrho>0$ is uniform in scale $j$ provided $\beta\ge \beta_{\min}>0$ and $\delta$ is fixed.
+\end{theorem}
+
+\begin{lemma}[Source Lemma~4.46: scaling gap after extraction]
+Assume the extraction removes all gauge-invariant local components of engineering dimension $\le 4$. Then every remaining local monomial has dimension at least $6$, so the minimal dyadic scaling gap is
+\[
+\Delta_{\min}=6-4=2.
+\]
+Under deterministic dyadic rescaling one therefore has
+\[
+\|\mathrm{Rescale}(K)\|_{j+1}\le 2^{-\Delta_{\min}}\|K\|_j = \frac14\|K\|_j
+\]
+for extracted irrelevants, provided the seminorm is defined with canonical scaling weights.
+\end{lemma}
+
+\begin{theorem}[Source Theorem~4.66: uniform dyadic beta-remainder bound for the patched RG]
+Assume:
+\begin{enumerate}
+\item the dyadic RG step is the chart-truncated map $R_j^{\mathrm{good}}$,
+\item extraction removes all relevant/marginal components up to the chosen depth,
+\item the identification $A_2=2b_0\log 2$ holds with $b_0>0$,
+\item the project seminorm axioms hold with scale-independent constants.
+\end{enumerate}
+Then there exist $u_0,B>0$, independent of the dyadic scale $j$, such that for all scales in the asymptotically free window and all $u\in[0,u_0]$,
+\[
+|\beta^{(2)}(u)+2b_0u^2| \le Bu^3,
+\]
+with explicit choice
+\[
+B = \frac{C_u(1+M)}{\log 2},
+\qquad
+M:=\max\!\left\{D,\frac{2C_K}{1-\kappa}\right\}.
+\]
+\end{theorem}
+
+\subsection{Stable manifold, injective tuning, and observable Lipschitz control}
+The last large block of the source Section~4 constructs the UV-stable irrelevant trajectory, proves injective tuning of the renormalization map at fixed physical scale, and establishes the observation-scale Lipschitz dependence needed for uniqueness of the continuum state.
+
+\begin{theorem}[Source Theorem~4.72: stable manifold for the patched RG]
+Let $(u_j)_{j\le 0}$ be an admissible asymptotically free trajectory. Then:
+\begin{enumerate}
+\item for each fixed $j\le 0$, the limit
+\[
+K_j^{(\infty)} := \lim_{N\to \infty,\,N\ge |j|} K_j^{(N)}
+\]
+exists in $\mathcal K_j$ and satisfies the RG recursion
+\[
+K_{j+1}^{(\infty)} = \mathcal K_j(u_j,K_j^{(\infty)});
+\]
+\item one has $K_j^{(\infty)}\to 0$ in norm as $j\to -\infty$;
+\item the UV-stable irrelevant trajectory is unique;
+\item the limit is universal with respect to bounded UV initialization in the irrelevant sector.
+\end{enumerate}
+Moreover,
+\[
+\|K_j^{(\infty)}\|_j \le C_F \sum_{m=-\infty}^{j-1}\kappa^{j-1-m}u_m^2.
+\]
+\end{theorem}
+
+\begin{theorem}[Source Theorem~4.78: injectivity/monotonicity of the renormalization map]
+Assume the one-step analytic remainder bounds for the step-scaling maps. Then there exists a uniform asymptotically free interval $[0,u^\circ]$ such that for every cutoff depth $N$ the renormalization map
+\[
+\rho_N(u_{-N}) := u_0
+\]
+is $C^1$ and strictly increasing on $[0,u^\circ]$. In particular, for every target $u_\mu$ in the image of $\rho_N$ there exists a unique tuned UV coordinate $u_{-N}$ with $\rho_N(u_{-N})=u_\mu$.
+\end{theorem}
+
+\begin{theorem}[Source Theorem~4.86: bulk observable Lipschitz in the RG data]
+Fix a finite observable set $\mathcal F\subset A_{\mathrm{flow}}$ and choose the observation scale $j_{\mathrm{obs}}$ attached to $\mathcal F$. Then for any two datasets $(u,K),(\tilde u,\tilde K)$ in the observation-scale RG ball,
+\[
+\max_{F\in \mathcal F}|G_F(u,K)-G_F(\tilde u,\tilde K)|
+\le L_{\mathcal F}\bigl(|u-\tilde u|+\|K-\tilde K\|_{j_{\mathrm{obs}}}\bigr),
+\]
+with explicit constant $L_{\mathcal F}$ independent of the lattice spacing in the patched construction.
+\end{theorem}
+
+\subsection{No-subsequence convergence and the flowed-state packet}
+The source Section~4 ends by assembling the no-subsequence convergence theorem for the patched outputs and its identification with the physical Wilson continuum state.
+
+\begin{theorem}[Source Theorem~4.92: no-subsequence convergence for the flowed continuum state]
+Assume the uniform boundedness/precompactness package, injective tuning, stable-manifold uniqueness, and observation-scale Lipschitz control. Fix a target renormalized coupling value in the asymptotically free interval, and for each lattice spacing tune the UV coupling so that the renormalization condition holds. Then:
+\begin{enumerate}
+\item for every finite set $\mathcal F\subset A_{\mathrm{flow}}$, the joint values $\{\omega_a^{\mathrm{RG}}(F)\}_{F\in\mathcal F}$ converge as $a\to 0$ without subsequence extraction;
+\item there exists a unique state $\omega$ on $A_{\mathrm{flow}}$ such that
+\[
+\omega(F)=\lim_{a\to 0}\omega_a(F)=\lim_{a\to 0}\omega_a^{\mathrm{RG}}(F)
+\qquad (F\in A_{\mathrm{flow}});
+\]
+\item the limit state is Euclidean invariant and reflection invariant, and inherits the algebraic identities preserved under pointwise limits.
+\end{enumerate}
+\end{theorem}
+
+\begin{corollary}[Source Corollary~4.93: unique continuum Euclidean state on $A_{\mathrm{flow}}$]
+Under the hypotheses of Theorem~4.92, the tuned unpatched Wilson expectations $\omega_a$ converge (without subsequences) to a unique Euclidean-invariant state $\omega$ on $A_{\mathrm{flow}}$ for all flow times $t\in(0,t_\ast]$.
+\end{corollary}
+
+\begin{proof}
+This is immediate from Theorem~4.92, parts~(ii)--(iii).
+\end{proof}
+
+\begin{corollary}[Source Corollary~4.94: tuned dyadic Wilson limit on the bounded positive-time algebra]
+Fix a target value $u_{\mathrm{ren}}\in (0,u_\ast]$ and the associated tuned dyadic trajectory
+\[
+a_n=\ell_0 2^{-n},
+\qquad
+\beta_n = \beta(a_n;u_{\mathrm{ren}}).
+\]
+Then for every finite family $\mathcal F\subset A_+$ of bounded cylinder observables supported in $\{x_0>0\}$, the Wilson expectations
+\[
+\{\omega_{a_n}(F)\}_{F\in\mathcal F}
+\]
+converge jointly as $n\to\infty$. In particular, for every $F\in A_+$ the limit $\lim_{n\to\infty}\omega_{a_n}(F)$ exists and defines a state on $A_+$.
+\end{corollary}
+
+\begin{corollary}[Source Corollary~4.95: tuned dyadic convergence of reflected matrix elements]
+Fix the same tuned dyadic trajectory and define the dense dyadic translation set
+\[
+D_{\mathrm{dyad}}:=\{m\ell_0 2^{-k}: m,k\in\mathbb N_0\}.
+\]
+Then for every finite family built from finitely many elements of $A_+$ by applying finitely many reflections and finitely many translations $\tau_s$ with $s\in D_{\mathrm{dyad}}$, the Wilson expectations converge jointly along the tuned dyadic sequence. In particular, for every bounded $F,G\in A_+$ and every $s\in D_{\mathrm{dyad}}$, the limit
+\[
+\lim_{n\to\infty}\omega_{a_n}(\Theta F\,\tau_s G)
+\]
+exists.
+\end{corollary}
+
+\begin{remark}
+For the purposes of the core paper, the theorem-facing outputs of the present appendix are source Theorem~4.92 and Corollaries~4.93--4.95. Corollary~4.93 records the executive flowed-state formulation on $A_{\mathrm{flow}}$, Corollary~4.94 gives the tuned bounded positive-time base state, and Corollary~4.95 gives the dyadic reflected matrix-element limits later consumed at the QE3 seam. The Wilson/RG identification on $A_{\mathrm{flow}}$ is paired in the live suite with the flowed de-patching seam proved in Companion~I, Section~III. The larger dyadic-RG and injective-tuning machinery is retained here because it is part of the same native source block and because later Lane~A closure theorems continue to consume its outputs.
+\end{remark}
+
+\input{appendices/appendixB_native}
+
+\input{appendices/appendixC_native}
+
+\input{appendices/appendixD_native}
+
+\input{appendices/appendixE_native}
+
+\input{shared/bibliography}
+
+\end{document}

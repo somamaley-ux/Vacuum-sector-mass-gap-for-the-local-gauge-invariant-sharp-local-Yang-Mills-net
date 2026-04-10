@@ -1,0 +1,230 @@
+This lane reduces the uniform dyadic $\beta$-remainder bound to Theorem~\ref{thm:RG_analytic_bounds}.
+It further reduces Theorem~\ref{thm:RG_analytic_bounds} to:
+\begin{itemize}
+\item seminorm algebra/combinatorics (SN-block; essentially definitional),
+\item \textbf{fluctuation measure bounds} (finite range + uniform moment/cumulant bounds),
+\item \textbf{linear contraction} $\kappa<1$ on irrelevants.
+\end{itemize}
+
+In one dyadic step $j\to j+1$ the RG integrates a \emph{finite} collection of microscopic variables inside each $(j+1)$-block.
+After rescaling to unit blocks, this is a fixed finite-dimensional problem (with dimension determined by $d$ and $G$; see Definition~\ref{def:local_vars}), hence uniformity in $j$
+is feasible \emph{provided} the local density enjoys uniform convexity on the chart domain.
+
+\begin{definition}[Local fluctuation variables (tree-gauge chart)]\label{def:local_vars}
+Fix $d=4$ and a compact gauge group $G$. Let $\mathcal Q$ denote one \emph{unit} coarse block (side length $2$ in $j$-block units).
+Let $E(\mathcal Q)$ be its internal oriented edges and $V(\mathcal Q)$ its vertices.
+
+Choose a maximal tree $T\subset E(\mathcal Q)$ and impose the \emph{tree gauge} $U_e=\mathbf 1$ for $e\in T$.
+Every remaining edge variable is parameterized by Lie algebra coordinates
+\[
+U_e=\exp(A_e),\qquad A_e\in\mathfrak g\cong \mathbb R^{d_G},\qquad d_G:=\dim(\mathfrak g)=\dim(G),
+\]
+restricted to the ball $\|A_e\|\le \delta$ (small-curvature chart radius).
+Let $A$ denote the vector of all unfixed $A_e$ in $\mathbb R^{n_{\mathrm{loc}}}$, where
+$n_{\mathrm{loc}}=d_G\cdot (|E(\mathcal Q)|-|V(\mathcal Q)|+1)$ is a fixed constant (dimension per Lie component times the number of unfixed edges).
+\end{definition}
+
+\begin{definition}[Fluctuation density in coordinates]\label{def:fluc_density}
+Let $H_{j+1}(A;U_{\partial\mathcal Q})$ be the negative log-density for the fluctuation field at scale $j+1$ in the local coordinates $A$,
+with the adjacent block-skeleton / boundary data $U_{\partial\mathcal Q}$ frozen, including (i) the Wilson-class plaquette energy restricted to $\mathcal Q$ and (ii) the Haar Jacobian factors from the exponential chart.
+Define the (normalized) fluctuation measure
+\[
+\mu_{j+1}(dA\mid U_{\partial\mathcal Q})
+:=\frac{1}{Z_{j+1}(U_{\partial\mathcal Q})}\,\mathbf 1_{\{|A|\le \delta\}}\,e^{-H_{j+1}(A;U_{\partial\mathcal Q})}\,dA.
+\]
+Whenever the boundary / skeleton data are fixed we suppress the argument $U_{\partial\mathcal Q}$ from the notation.
+\end{definition}
+
+The hypothesis Proposition~\ref{ass:fluctuation_bounds} can now be stated as:
+
+\begin{proposition}[Exact one-step finite range and cumulant control (finite range: Theorem~\ref{thm:wilson_one_step_factorization}; cumulants: Theorem~\ref{thm:poly_cumulant})]\label{ass:FR_Cum}
+There exist scale-independent constants $R_{\mathrm{fr}}=0$, $p_{\max}\in\mathbb N$, $n_{\max}\in\mathbb N$, and $C_{\mathrm{cum}}\ge 1$ such that:
+\begin{enumerate}[label=(FC\arabic*)]
+\item (\textbf{Finite range}) Conditional on the block-skeleton / coarse field fixed at the one-step RG stage, local observables supported in disjoint coarse blocks are independent under the exact Wilson one-step fluctuation law. By Theorem~\ref{thm:wilson_one_step_factorization} one may take $R_{\mathrm{fr}}=0$. The same statement holds for the chart-truncated law because the good-block event factorizes blockwise.
+\item (\textbf{Uniform cumulants}) For every local polynomial functional $P(A)$ of total degree $\le p_{\max}$ supported in one coarse block neighborhood,
+\[
+\big|\mathrm{Cum}_n(P,\dots,P)\big|\ \le\ C_{\mathrm{cum}}^{\,n}\,\|P\|_{\mathrm{loc}}^{\,n}
+\qquad\text{for all } 1\le n\le n_{\max},
+\]
+where $\|\cdot\|_{\mathrm{loc}}$ is a fixed coefficient norm (defined below) and $\mathrm{Cum}_n$ is the $n$-th joint cumulant under $\mu_{j+1}$.
+\end{enumerate}
+\end{proposition}
+
+\paragraph{Implementation choice.}
+The finite-range input is supplied by the exact Wilson one-step conditional law from Theorem~\ref{thm:wilson_one_step_factorization}. The analytic RG then uses the chart-truncated version of that exact block-product law; no separate Gaussian or product surrogate is needed. The only subsequent comparison is the local good-block truncation error quantified in Section~\ref{sec:patching}.
+
+\begin{proposition}[Uniform convexity of the local fluctuation potential (proved in Theorem~\ref{thm:uniform_convexity})]\label{ass:uniform_convexity}
+There exists $\varrho>0$ (scale-independent) such that for all $j$ and all $A$ in the chart domain $|A|\le \delta$,
+\begin{equation}\label{eq:hess_lb}
+\nabla^2 H_{j+1}(A)\ \succeq\ \varrho\,I_{n_{\mathrm{loc}}\times n_{\mathrm{loc}}}.
+\end{equation}
+\end{proposition}
+
+\paragraph{Where $\varrho$ comes from (Wilson action).}
+On the chart domain, each plaquette term in the local fluctuation density is of Wilson class associated to the fixed Wilson representation $\rho$ from \S\ref{subsubsec:one_plaq_common_defs}:
+\[
+W_{\beta,\alpha}(U)\ \propto\ \exp\!\Big(-\alpha\beta\,A_{\rho}(U)\Big),
+\qquad
+A_{\rho}(U):=1-\frac{1}{\dim(\rho)}\,\Re\Tr_{\rho}(U),
+\qquad \alpha\in[\alpha_{\min},1].
+\]
+In exponential coordinates $U=\exp(X)$ with $\|X\|\le \delta$ (small fixed chart radius),
+$A_{\rho}$ has a nondegenerate quadratic minimum at the identity. In particular, there exist constants
+$c_{\rho,-}(G,\delta),c_{\rho,+}(G,\delta)>0$ such that
+\begin{equation}\label{eq:local_quad_A_rho}
+c_{\rho,-}(G,\delta)\,\|X\|^2\ \le\ A_{\rho}(\exp X)\ \le\ c_{\rho,+}(G,\delta)\,\|X\|^2,
+\qquad \|X\|\le \delta,
+\end{equation}
+and $c_{\rho,\pm}(G,\delta)\to c_{\rho}(G)$ as $\delta\downarrow 0$, where $c_{\rho}(G)>0$ is determined by the metric/representation normalization
+(see Appendix~\ref{app:normalization_crosscheck}).
+
+After tree gauge, the quadratic form in the link coordinates contains the fixed combinatorial curl matrix $D_{\mathrm{red}}^\ast D_{\mathrm{red}}$,
+whose smallest eigenvalue $\lambda_\ast>0$ is a finite-dimensional constant independent of $G$ (Appendix~\ref{app:lambda_star_Q_to_P}).
+The Haar Jacobian in exponential coordinates contributes an additional uniformly bounded correction on the same chart domain.
+
+The resulting uniform convexity estimate \eqref{eq:Hess_lb_final} is quantified in Theorem~\ref{thm:uniform_convexity}:
+one may take
+\[
+\varrho\ \ge\ \alpha_{\min}\beta\;\lambda_\ast\;c_V(G,\delta)\ -\ C_J(G,\delta),
+\]
+for explicit functions $c_V,C_J$ depending only on $(G,\rho,\delta)$ through the local quadratic constants in \eqref{eq:local_quad_A_rho}
+and the exponential-chart Jacobian bounds.
+In the AF window (large $\beta$) one fixes $\delta$ and $\alpha_{\min}$ so that $\varrho>0$ uniformly in scale.
+We keep Proposition~\ref{ass:uniform_convexity} as the checkable hypothesis that isolates this finite-dimensional input.
+
+\begin{lemma}[Brascamp--Lieb variance inequality]\label{lem:BL}
+Assume \ref{ass:uniform_convexity}. Then for every $C^1$ function $f:\mathbb R^{n_{\mathrm{loc}}}\to\mathbb R$,
+\[
+\mathrm{Var}_{\mu_{j+1}}(f)\ \le\ \frac{1}{\varrho}\,\mathbb E_{\mu_{j+1}}\big[|\nabla f|^2\big].
+\]
+\end{lemma}
+
+\begin{lemma}[Bakry--\'Emery log-Sobolev inequality]\label{lem:LSI}
+Assume \ref{ass:uniform_convexity}. Then $\mu_{j+1}$ satisfies a log-Sobolev inequality with constant $\varrho$:
+for every smooth $f\ge 0$,
+\[
+\mathrm{Ent}_{\mu_{j+1}}(f)\ :=\ \mathbb E[f\log f]-\mathbb E[f]\log\mathbb E[f]
+\ \le\ \frac{1}{2\varrho}\,\mathbb E\!\left[\frac{|\nabla f|^2}{f}\right].
+\]
+\end{lemma}
+
+The only project-specific content is verifying the convexity hypothesis \ref{ass:uniform_convexity}.
+
+\begin{lemma}[Subgaussian bound for linear functionals]\label{lem:subgauss}
+Assume \ref{ass:uniform_convexity}. Then for every $\ell\in\mathbb R^{n_{\mathrm{loc}}}$ and every $t\in\mathbb R$,
+\[
+\mathbb E_{\mu_{j+1}}\big[e^{t\langle \ell, A-\mathbb E A\rangle}\big]\ \le\ \exp\!\Big(\frac{t^2\|\ell\|^2}{2\varrho}\Big).
+\]
+Consequently, for all $q\ge 1$,
+\[
+\| \langle \ell, A-\mathbb E A\rangle\|_{L^q(\mu_{j+1})}\ \le\ \sqrt{\frac{q}{\varrho}}\,\|\ell\|.
+\]
+\end{lemma}
+
+\begin{proof}
+From the LSI (Lemma \ref{lem:LSI}), one obtains Herbst's argument yielding subgaussian concentration for 1-Lipschitz functions.
+Apply to $A\mapsto \langle \ell,A\rangle/\|\ell\|$.
+The $L^q$ bound follows by integrating the tail (or using standard subgaussian moment bounds).
+\end{proof}
+
+\begin{definition}[Local polynomial coefficient norm]\label{def:loc_norm}
+For a polynomial $P(A)=\sum_{|\alpha|\le p} c_\alpha A^\alpha$ (multi-index notation), define
+\[
+\|P\|_{\mathrm{loc}}:=\sum_{|\alpha|\le p} |c_\alpha|.
+\]
+This is a fixed norm on the finite-dimensional polynomial space (degree $\le p_{\max}$), hence equivalent to any other reasonable coefficient norm.
+\end{definition}
+
+\begin{lemma}[Uniform $L^q$ bounds for local polynomials]\label{lem:poly_mom}
+Assume \ref{ass:uniform_convexity}. Fix $p_{\max}\in\mathbb N$ and let $P$ be a polynomial of degree $\le p_{\max}$.
+Then for every $1\le q\le n_{\max}$,
+\begin{equation}\label{eq:poly_Lq}
+\|P(A)-\mathbb E P(A)\|_{L^q(\mu_{j+1})}\ \le\ C_{\mathrm{mom}}\,\varrho^{-p_{\max}/2}\,q^{p_{\max}/2}\,\|P\|_{\mathrm{loc}},
+\end{equation}
+where $C_{\mathrm{mom}}$ depends only on $(p_{\max},n_{\max},n_{\mathrm{loc}})$ and the chart radius $\delta$ (via norm equivalences), but not on $j$.
+\end{lemma}
+
+\begin{proof}
+Since the local dimension $n_{\mathrm{loc}}$ is fixed and $q\le n_{\max}$ is bounded, it suffices to bound moments of monomials.
+By Lemma \ref{lem:subgauss} each linear coordinate functional is subgaussian with variance proxy $\varrho^{-1}$.
+A degree-$p$ monomial is a product of $p$ linear functionals; apply H\"older with exponent $q$ and the subgaussian moment bound
+to obtain $q^{p/2}\varrho^{-p/2}$ scaling. Summing coefficients yields \eqref{eq:poly_Lq}.
+All constants can be collected into $C_{\mathrm{mom}}(p_{\max},n_{\max},n_{\mathrm{loc}},\delta)$ independent of $j$.
+\end{proof}
+
+\begin{lemma}[General cumulant bound by $L^n$ norms]\label{lem:cumulant_general}
+Let $X_1,\dots,X_n$ be random variables with finite $L^n$ norms. Then
+\[
+|\mathrm{Cum}_n(X_1,\dots,X_n)|\ \le\ (n-1)!\,\prod_{i=1}^n \|X_i\|_{L^n}.
+\]
+\end{lemma}
+
+\begin{proof}
+Use the moment--cumulant formula
+\[
+\mathrm{Cum}_n(X_1,\dots,X_n)=\sum_{\pi\in\mathcal P([n])} (|\pi|-1)!\,(-1)^{|\pi|-1}\prod_{B\in\pi}\mathbb E\Big[\prod_{i\in B}X_i\Big],
+\]
+where $\mathcal P([n])$ is the set of set partitions.
+Bound each $\mathbb E[\prod_{i\in B}X_i]$ by H\"older using $L^n$ norms.
+Sum the absolute values using $\sum_{\pi} (|\pi|-1)!\le (n-1)!\,B_n$ and absorb $B_n$ into $(n-1)!$ for fixed $n\le n_{\max}$.
+\end{proof}
+
+\begin{theorem}[Uniform cumulant bound for local polynomials]\label{thm:poly_cumulant}
+Assume \ref{ass:uniform_convexity}. Fix $p_{\max},n_{\max}$.
+Then there exists a constant $C_{\mathrm{cum}}$ depending only on $(p_{\max},n_{\max},n_{\mathrm{loc}},\delta)$ such that for every polynomial $P$ of degree $\le p_{\max}$,
+\[
+|\mathrm{Cum}_n(P,\dots,P)|\ \le\ C_{\mathrm{cum}}^{\,n}\,\varrho^{-n p_{\max}/2}\,\|P\|_{\mathrm{loc}}^{\,n}
+\qquad\text{for all }1\le n\le n_{\max}.
+\]
+In particular, Proposition~\ref{ass:FR_Cum}(FC2) holds with $C_{\mathrm{cum}}$ replaced by $C_{\mathrm{cum}}\varrho^{-p_{\max}/2}$.
+\end{theorem}
+
+\begin{proof}
+Apply Lemma \ref{lem:cumulant_general} with $X_i=P-\mathbb EP$.
+Use Lemma \ref{lem:poly_mom} with $q=n$ and $n\le n_{\max}$:
+\[
+\|P-\mathbb EP\|_{L^n}\le C_{\mathrm{mom}}\,\varrho^{-p_{\max}/2}\,n^{p_{\max}/2}\,\|P\|_{\mathrm{loc}}.
+\]
+Since $n\le n_{\max}$, absorb $n^{p_{\max}/2}$ into the constant.
+\end{proof}
+
+\paragraph{Observation.}
+Theorem~\ref{thm:wilson_one_step_factorization} identifies the exact Wilson one-step fluctuation law, conditional on the block-skeleton field, as a block-product law. Therefore the sigma-algebras of disjoint coarse blocks are independent already for the physical one-step integration architecture, and FC1 holds with the scale-independent range $R_{\mathrm{fr}}=0$. Because the good-block truncation is imposed blockwise, the same independence statement continues to hold for the chart-truncated law used in the analytic RG estimates.
+
+We now isolate the contraction mechanism needed for Lemma~\ref{lem:L_contraction}.
+
+\begin{proposition}[Irrelevant scaling gap in the seminorm (proved in Lemma~\ref{lem:Delta_min})]\label{ass:scaling_gap}
+The extraction map removes all relevant/marginal components (scaling dimension $\Delta\le 0$ in the dyadic sense),
+so that the linearized irrelevant sector has scaling exponent at least $\Delta_{\min}>0$.
+The seminorms are chosen so that under deterministic reblocking/rescaling,
+\[
+\|\mathrm{Rescale}(K)\|_{j+1}\ \le\ 2^{-\Delta_{\min}}\,\|K\|_j.
+\]
+\end{proposition}
+
+\begin{lemma}[Uniform contraction constant]\label{lem:kappa}
+Assume \ref{ass:scaling_gap} and Lemma~\ref{lem:E_bounded} from (integration boundedness) with constant $C_E$.
+Then the linearized RG map satisfies
+\[
+\|\mathcal L_j\|_{\mathrm{op}}\ \le\ \kappa:=C_E\,2^{-\Delta_{\min}}.
+\]
+In particular, if $\Delta_{\min}>\log_2 C_E$, then $\kappa<1$ uniformly in $j$.
+\end{lemma}
+
+\paragraph{Comment.}
+This makes the contraction requirement completely explicit:
+either choose seminorm weights so that $\Delta_{\min}$ is large enough,
+or refine the integration bound so $C_E$ is close to $1$.
+
+\begin{itemize}
+\item \textbf{FC2 (cumulant control) is proved:}
+uniform convexity (Theorem~\ref{thm:uniform_convexity}) implies BL/LSI (Lemmas~\ref{lem:BL},~\ref{lem:LSI}),
+hence subgaussian moments (Lemma~\ref{lem:subgauss}), and therefore uniform polynomial cumulant bounds (Theorem~\ref{thm:poly_cumulant}).
+
+\item \textbf{FC1 (finite range) is proved:}
+The exact Wilson one-step conditional law factorizes over coarse blocks by Theorem~\ref{thm:wilson_one_step_factorization}, so observables beyond the range $R_{\mathrm{fr}}=0$ are independent under $\mu_{j+1}$ (and likewise under its chart-truncated version).
+
+\item \textbf{Linear contraction is proved:}
+the extraction scaling gap (Lemma~\ref{lem:Delta_min}) yields a contraction factor $\kappa<1$ for the irrelevant linear map (Lemma~\ref{lem:kappa}).
+\end{itemize}
+

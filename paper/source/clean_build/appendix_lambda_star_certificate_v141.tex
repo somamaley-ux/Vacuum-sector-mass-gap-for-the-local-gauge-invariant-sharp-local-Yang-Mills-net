@@ -1,0 +1,238 @@
+\subsection{Universality of tree-gauge curl coercivity}
+\label{app:lambda_star_universal}
+
+The constant $\lambda_\ast$ used in the Lane~C convexity/scaling-gap module is a \emph{purely combinatorial} constant.
+It is determined by the discrete curl operator on a single $2\times2\times2\times2$ block with a fixed spanning-tree gauge choice.
+The gauge group enters only through a trivial factorization over Lie-algebra components.
+
+\begin{lemma}[Lie-component factorization and rank-independence]
+\label{lem:lambda_star_factorization}
+Let $\mathcal Q$ be the canonical $2^4$ coarse block.
+Let $D_{\mathrm{red}}^{(1)}\in\mathbb Z^{24\times 17}$ denote the reduced scalar curl matrix on $\mathcal Q$ in the canonical tree gauge
+(i.e. acting on real-valued $1$-cochains on edges).
+Let $G$ be any compact Lie group with Lie algebra $\mathfrak g$ and $d_G:=\dim\mathfrak g$.
+Identify $\mathfrak g\cong\mathbb R^{d_G}$ by choosing an orthonormal basis for the fixed bi-invariant inner product.
+Then the reduced curl map on $\mathfrak g$-valued $1$-cochains factorizes as
+\begin{equation}
+\label{eq:Dred_factorization}
+D_{\mathrm{red}}\ =\ D_{\mathrm{red}}^{(1)}\otimes I_{d_G},
+\qquad
+D_{\mathrm{red}}^{\ast}D_{\mathrm{red}}\ =\ Q\otimes I_{d_G},
+\qquad
+Q:=(D_{\mathrm{red}}^{(1)})^{\ast}D_{\mathrm{red}}^{(1)}\in\mathbb Z^{17\times 17}.
+\end{equation}
+In particular,
+\begin{equation}
+\label{eq:lambda_star_universal_identity}
+\lambda_{\min}(D_{\mathrm{red}}^{\ast}D_{\mathrm{red}})\ =\ \lambda_{\min}(Q),
+\end{equation}
+and the quantity on the right-hand side is independent of the family parameter $n$ for $\Spin(2n{+}1)$, $\Sp(2n)$, and $\Spin(2n)$.
+\end{lemma}
+
+\begin{proof}
+Fix an orthonormal basis $(e_a)_{a=1}^{d_G}$ of $\mathfrak g$.
+A $\mathfrak g$-valued edge field $A=(A_{\mathrm{edge}})$ decomposes uniquely as
+$A_{\mathrm{edge}}=\sum_{a=1}^{d_G} A^{(a)}_{\mathrm{edge}}\,e_a$ with scalar components $A^{(a)}$.
+The discrete curl on a plaquette is defined by an oriented signed sum of edge variables,
+\[ (DA)_{p}:=\sum_{\mathrm{edge}\in\partial p}\sigma_{p,\mathrm{edge}}\,A_{\mathrm{edge}},\qquad \sigma_{p,\mathrm{edge}}\in\{-1,0,1\}. \]
+Thus $D$ acts componentwise:
+$(DA)^{(a)}=D(A^{(a)})$ for each $a$.
+Tree gauge removes a fixed set of edge variables by setting them to zero, which again acts componentwise on the decomposition.
+Therefore, in the above basis, the matrix of $D_{\mathrm{red}}$ is the Kronecker product $D_{\mathrm{red}}^{(1)}\otimes I_{d_G}$.
+Taking adjoints with respect to the product Euclidean inner product on components yields \eqref{eq:Dred_factorization}.
+The identity \eqref{eq:lambda_star_universal_identity} follows from the spectrum of a Kronecker product.
+\end{proof}
+
+
+\subsection{Explicit \texorpdfstring{$Q\to P$}{Q->P} link for the \texorpdfstring{$2^4$}{16} block}
+\label{app:lambda_star_Q_to_P}
+
+We now record the explicit reduced curl matrix $Q=(D_{\mathrm{red}}^{(1)})^{\ast}D_{\mathrm{red}}^{(1)}$ for the canonical tree gauge on the $2^4$ block,
+compute its characteristic polynomial, and isolate the factor $P$ whose smallest real root equals $\lambda_{\min}(Q)$.
+
+\paragraph{Canonical tree gauge on the $2^4$ block.}
+Let the vertex set be $V=\{0,1\}^4$ with the root $0=(0,0,0,0)$.
+For each direction $\mu\in\{1,2,3,4\}$ and each vertex $v\in V$ with $v_\mu=0$, let $e=(v,\mu)$ denote the oriented edge from $v$ to $v+e_\mu$.
+This gives $|E|=32$ edges.
+For each plaquette $(v;\mu,\nu)$ with $1\le\mu<\nu\le4$ and $v_\mu=v_\nu=0$, define the scalar abelianized curl
+\[
+(DA)_{(v;\mu,\nu)} \,=\, A_{(v,\mu)} + A_{(v+e_\mu,\nu)} - A_{(v+e_\nu,\mu)} - A_{(v,\nu)}.
+\]
+Tree gauge fixes the $15$ edges of the spanning tree obtained by assigning to each non-root vertex $v\neq 0$ the parent edge
+$(v-e_{\mu(v)},\mu(v))$, where $\mu(v):=\max\{\mu: v_\mu=1\}$.
+Removing these columns yields $D_{\mathrm{red}}^{(1)}\in\mathbb Z^{24\times 17}$ and
+\begin{equation}
+\label{eq:Q_def}
+Q:=(D_{\mathrm{red}}^{(1)})^{\ast}D_{\mathrm{red}}^{(1)}\in\mathbb Z^{17\times17}.
+\end{equation}
+
+\paragraph{Explicit matrix $Q$.}
+In the ordered basis of the $17$ unfixed edges induced by the above convention, $Q$ is the following symmetric integer matrix:
+{\tiny
+\setcounter{MaxMatrixCols}{20}
+\[
+Q=\begin{pmatrix}
+3 & -1 & -1 & 0 & 0 & -1 & 0 & 0 & -1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 \\
+-1 & 3 & -1 & 0 & 0 & 0 & -1 & 0 & 1 & 1 & 0 & 0 & -1 & 0 & 0 & 0 & 0 \\
+-1 & -1 & 3 & 0 & 0 & 1 & 1 & 0 & 0 & -1 & 0 & 0 & 0 & -1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 3 & -1 & -1 & 0 & 0 & 0 & 0 & -1 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & -1 & 3 & 0 & -1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & -1 & 0 & 0 \\
+-1 & 0 & 1 & -1 & 0 & 3 & -1 & 0 & 0 & 0 & 0 & -1 & 0 & -1 & 0 & 1 & 0 \\
+0 & -1 & 1 & 0 & -1 & -1 & 3 & 0 & 0 & -1 & 0 & 1 & 0 & 0 & 0 & -1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 3 & -1 & 0 & -1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+-1 & 1 & 0 & 0 & 0 & 0 & 0 & -1 & 3 & -1 & 0 & -1 & -1 & 0 & 0 & 0 & 1 \\
+0 & 1 & -1 & 0 & 0 & 0 & -1 & 0 & -1 & 3 & 0 & 1 & 0 & 0 & 0 & 0 & -1 \\
+0 & 0 & 0 & -1 & 1 & 0 & 0 & -1 & 0 & 0 & 3 & -1 & 0 & 0 & -1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & -1 & 1 & 0 & -1 & 1 & -1 & 3 & 0 & 0 & 0 & -1 & -1 \\
+1 & -1 & 0 & 0 & 0 & 0 & 0 & 0 & -1 & 0 & 0 & 0 & 3 & -1 & 0 & -1 & 1 \\
+1 & 0 & -1 & 0 & 0 & -1 & 0 & 0 & 0 & 0 & 0 & 0 & -1 & 3 & 0 & 1 & -1 \\
+0 & 0 & 0 & 1 & -1 & 0 & 0 & 0 & 0 & 0 & -1 & 0 & 0 & 0 & 3 & -1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & -1 & 0 & 0 & 0 & 0 & -1 & -1 & 1 & -1 & 3 & -1 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & -1 & 0 & -1 & 1 & -1 & 0 & -1 & 3 \\
+\end{pmatrix}.
+\]
+}
+
+\paragraph{Exact characteristic polynomial factorization.}
+A direct determinant expansion yields
+\begin{align}
+\chi_Q(x):=\det(xI-Q)
+&=x^{17}-51x^{16}+1176x^{15}-16240x^{14}+149999x^{13}-980451x^{12} \notag\\
+&\quad +4681808x^{11}-16630642x^{10}+44353922x^{9}-89060796x^{8} \notag\\
+&\quad +134278630x^{7}-150798152x^{6}+124346128x^{5}-73576724x^{4} \notag\\
+&\quad +30116880x^{3}-8019792x^{2}+1237248x-82944.\label{eq:chiQ_expanded}
+\end{align}
+Moreover, $\chi_Q$ admits the exact factorization
+\begin{equation}
+\label{eq:chiQ_factor}
+\chi_Q(x)
+=(x-6)(x-1)^3(x^3-8x^2+16x-6)\,P(x),
+\end{equation}
+where
+\begin{align}
+P(x)
+&=x^{10}-34x^9+489x^8-3884x^7+18664x^6-55904x^5 \notag\\
+&\quad +103722x^4-114714x^3+70100x^2-20928x+2304.\label{eq:P_lambda_star}
+\end{align}
+The identity \eqref{eq:chiQ_factor} follows by polynomial division of \eqref{eq:chiQ_expanded} by $(x-6)(x-1)^3(x^3-8x^2+16x-6)$,
+which yields quotient $P$ and zero remainder.
+
+\paragraph{No competing eigenvalue below $1/4$.}
+The roots of $(x-6)(x-1)^3$ are $6$ and $1$, hence $>1/4$.
+For the cubic factor $f(x)=x^3-8x^2+16x-6$, note that for $x\in[0,\tfrac14]$,
+\[
+ f'(x)=3x^2-16x+16 \;\ge\; 16-16\cdot\tfrac14 \;=\;12 \;>\;0,
+\]
+so $f$ is strictly increasing on $[0,\tfrac14]$.
+Since $f(\tfrac14)=\tfrac1{64}-\tfrac12+4-6=-\tfrac{159}{64}<0$, it follows that $f(x)<0$ on $[0,\tfrac14]$ and thus $f$ has no real roots there.
+Therefore every eigenvalue of $Q$ in $[0,\tfrac14]$ would have to be a root of $P$.
+
+
+\subsection{Sturm--Habicht root isolation for \texorpdfstring{$P$}{P}}
+\label{app:lambda_star_certificate}
+
+We now show that $P$ has no real roots in $[0,\tfrac14]$.
+Combined with the previous subsection, this implies $\lambda_{\min}(Q)>\tfrac14$.
+
+\paragraph{Sturm--Habicht (subresultant) sequence.}
+Let $P'(x)$ denote the derivative of $P(x)$.
+We use the integer Sturm--Habicht sequence (equivalently: the signed subresultant polynomial remainder sequence)
+$(S_0,S_1,\dots,S_{10})$ associated to the pair $(P,P')$.
+This sequence has the \emph{Sturm property}: for any $a<b$ such that $P(a)P(b)\neq 0$, the number of \emph{distinct} real roots of $P$
+in $(a,b]$ equals
+\begin{equation}
+\label{eq:sturm_variations}
+N_{(a,b]}\;=\;V(a)-V(b),
+\end{equation}
+where $V(t)$ is the number of sign variations in the list $(S_0(t),S_1(t),\dots,S_{10}(t))$ after deleting any zero entries.
+See, e.g., \cite[Chapter~2]{BasuPollackRoy2006}.
+
+For completeness, the explicit sequence is:
+{\tiny
+\begin{align*}
+S_{0}(x) &= x^{10} - 34 x^{9} + 489 x^{8} - 3884 x^{7} + 18664 x^{6} - 55904 x^{5} + 103722 x^{4} - 114714 x^{3} + 70100 x^{2} - 20928 x + 2304,\\
+S_{1}(x) &= 10 x^{9} - 306 x^{8} + 3912 x^{7} - 27188 x^{6} + 111984 x^{5} - 279520 x^{4} + 414888 x^{3} - 344142 x^{2} + 140200 x - 20928,\\
+S_{2}(x) &= - 624 x^{8} + 16488 x^{7} - 177832 x^{6} + 1012256 x^{5} - 3280360 x^{4} + 6076212 x^{3} - 6092828 x^{2} + 2883280 x - 481152,\\
+S_{3}(x) &= - 161760 x^{7} + 3651360 x^{6} - 32490048 x^{5} + 145764864 x^{4} - 348422064 x^{3} + 427945008 x^{2} - 235616832 x + 43918848,\\
+S_{4}(x) &= 116558720 x^{6} - 2192025280 x^{5} + 15372758720 x^{4} - 50384110080 x^{3} + 78784844800 x^{2} - 52804659200 x + 11503288320,\\
+S_{5}(x) &= 156961382528 x^{5} - 2343720929664 x^{4} + 12607138367744 x^{3} - 29677341545728 x^{2} + 29265941425152 x - 8416820994048,\\
+S_{6}(x) &= - 1327969697319168 x^{4} + 14372817396860288 x^{3} - 51377384424462976 x^{2} + 68267679340228096 x - 23053088273977344,\\
+S_{7}(x) &= - 31880501914859337088 x^{3} + 239230025750838627200 x^{2} - 473271373988031179264 x + 198883701046191943680,\\
+S_{8}(x) &= 814010205748396620519168 x^{2} - 3141624232683282745586688 x + 2561510129798987060207616,\\
+S_{9}(x) &= 49205066212446239571161554944 x - 108703453356939315792064610304,\\
+S_{10}(x) &= -1484006905322599188659461240651776.
+\end{align*}
+}
+
+\paragraph{Sign table and variation counts.}
+For each $k$ set $d_k:=\deg S_k$ and define the integers
+\begin{equation}
+\label{eq:sturm_integer_defs}
+A_{k,0}:=S_k(0),\qquad 
+A_{k,1}:=4^{d_k}S_k\!\bigl(\tfrac14\bigr),\qquad 
+A_{k,2}:=50^{d_k}S_k\!\bigl(\tfrac{13}{50}\bigr).
+\end{equation}
+Since each $S_k\in\mathbb Z[x]$, the values $A_{k,0},A_{k,1},A_{k,2}$ are integers; the powers of $4$ and $50$ clear denominators. Each $A_{k,j}$ is obtained by substituting $x=0,\,\tfrac14,\,\tfrac{13}{50}$ into the explicitly displayed polynomial $S_k(x)$ above and multiplying by $4^{d_k}$ or $50^{d_k}$ to clear denominators.
+Moreover $4^{d_k},50^{d_k}>0$, hence $\mathrm{sign}\,S_k(\tfrac14)=\mathrm{sign}\,A_{k,1}$ and
+$\mathrm{sign}\,S_k(\tfrac{13}{50})=\mathrm{sign}\,A_{k,2}$.
+Table~\ref{tab:sturm_habicht_integer_evals} records these integers (with spaces inserted every three digits for readability).
+In particular, none of the listed values is zero, so no deletion of zero entries is needed in the variation count.
+
+\begin{table}[t]
+\centering
+\renewcommand{\arraystretch}{1.05}
+\setlength{\tabcolsep}{3pt}
+\scriptsize
+\begin{tabular}{r r >{\raggedright\ttfamily}p{0.12\linewidth} >{\raggedright\ttfamily}p{0.27\linewidth} >{\raggedright\ttfamily\arraybackslash}p{0.36\linewidth}}
+\toprule
+$k$ & $d_k$ & $A_{k,0}$ & $A_{k,1}=4^{d_k}S_k(\tfrac14)$ & $A_{k,2}=50^{d_k}S_k(\tfrac{13}{50})$ \\
+\midrule
+0 & 10 & 2 304 & 16 505 609 & -166 658 660 387 519 751 \\
+1 & 9 & -20 928 & -496 282 942 & -3 125 596 796 325 277 570 \\
+2 & 8 & -481 152 & -3 805 068 112 & -1 969 541 134 507 775 104 \\
+3 & 7 & 43 918 848 & 112 323 055 776 & 4 759 617 805 973 242 080 \\
+4 & 6 & 11 503 288 320 & 10 227 147 758 720 & 35 657 229 918 349 172 480 \\
+5 & 5 & -8 416 820 994 048 & -2 833 597 260 445 056 & -813 376 624 526 073 786 496 \\
+6 & 4 & -23 053 088 273 977 344 & -2 298 333 971 264 887 552 & -53 312 841 855 303 381 480 448 \\
+7 & 3 & 198 883 701 046 191 943 680 & 6 081 254 484 236 280 699 008 & 11 430 595 231 050 620 070 177 664 \\
+8 & 2 & 2 561 510 129 798 987 060 207 616 & 29 231 675 351 799 058 601 494 272 & 4 499 287 298 024 812 894 755 432 192 \\
+9 & 1 & -108 703 453 356 939 315 792 064 610 304 & -385 608 747 215 311 023 597 096 886 272 & -4 795 506 807 085 164 675 178 130 300 928 \\
+10 & 0 & -1 484 006 905 322 599 188 659 461 240 651 776 & -1 484 006 905 322 599 188 659 461 240 651 776 & -1 484 006 905 322 599 188 659 461 240 651 776 \\
+\bottomrule
+\end{tabular}
+\caption{Exact integer evaluations used for the Sturm--Habicht variation count. Spaces in the displayed integers are for readability.}
+\label{tab:sturm_habicht_integer_evals}
+\end{table}
+
+The resulting sign pattern at the three test points is:
+
+\begin{center}
+\begin{tabular}{rcccc}
+\toprule
+$k$ & $\deg S_k$ & $\mathrm{sign}\,S_k(0)$ & $\mathrm{sign}\,S_k(\tfrac14)$ & $\mathrm{sign}\,S_k(\tfrac{13}{50})$ \\
+\midrule
+0  & 10 & $+$ & $+$ & $-$ \\
+1  & 9  & $-$ & $-$ & $-$ \\
+2  & 8  & $-$ & $-$ & $-$ \\
+3  & 7  & $+$ & $+$ & $+$ \\
+4  & 6  & $+$ & $+$ & $+$ \\
+5  & 5  & $-$ & $-$ & $-$ \\
+6  & 4  & $-$ & $-$ & $-$ \\
+7  & 3  & $+$ & $+$ & $+$ \\
+8  & 2  & $+$ & $+$ & $+$ \\
+9  & 1  & $-$ & $-$ & $-$ \\
+10 & 0  & $-$ & $-$ & $-$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Thus
+\[
+V(0)=5,\qquad V\bigl(\tfrac14\bigr)=5,\qquad V\bigl(\tfrac{13}{50}\bigr)=4.
+\]
+By \eqref{eq:sturm_variations}, $P$ has no real roots in $(0,\tfrac14]$ and exactly one real root in $(\tfrac14,\tfrac{13}{50}]$.
+Since $P(0)>0$, this implies $P$ has no real roots in $[0,\tfrac14]$.
+
+\paragraph{Conclusion.}\label{concl:lambda_star_gt_quarter}
+The smallest real root of $P$ satisfies $\lambda_\ast>\tfrac14$.
+Consequently, by \eqref{eq:lambda_star_universal_identity}, the same bound holds for the full operator $D_{\mathrm{red}}^{\ast}D_{\mathrm{red}}$
+for every compact gauge group $G$ and in particular for $\Spin(2n{+}1)$ ($n\ge2$), $\Sp(2n)$ ($n\ge3$), and $\Spin(2n)$ ($n\ge4$).

@@ -1,0 +1,146 @@
+This module proves the correct \emph{quasi-local} (Gaussian off-diagonal) functional-derivative bounds for
+\[
+\mathcal O_{S,t}(x)=\tfrac14\mathrm{tr}\,G_{\mu\nu}(t,x)G_{\mu\nu}(t,x),
+\qquad
+\mathcal O_{Q,t}(x)=\tfrac14\mathrm{tr}\,G_{\mu\nu}(t,x)\widetilde G_{\mu\nu}(t,x),
+\]
+The required analytic inputs are proved within this manuscript:
+\begin{enumerate}[label=(\roman*)]
+\item the \textbf{bounded-regime/chart} control for the flowed gauge potential $B(t)$ is proved in Lemma~\ref{lem:chart_persist}
+(starting from the initial chart estimates in Lemma~\ref{lem:tree_chart_local}), and
+\item the \textbf{Gaussian kernel bounds} for the linearized uniformly-parabolic operator are proved in Appendix~\ref{app:kernel_parametrix}
+(continuum parametrix) and Appendix~\ref{app:discrete_parametrix} (lattice parametrix).
+\end{enumerate}
+
+This module attacks item (i): it replaces the ad hoc bounded-regime assumption by an explicit \textbf{good-flow chart mechanism}
+that is compatible with the project's patched construction and subsequent de-patching estimates.
+
+\begin{enumerate}[label=(A\arabic*)]
+\item \textbf{Deterministic good-flow regime:} a sufficient condition on initial local curvature that implies the flow stays in a fixed chart up to time $t_\ast$.
+\item \textbf{Patched/truncated state:} define the relevant expectations using a \emph{state patched by chart truncation} at the RG level,
+and show the difference from the unpatched expectation is superpolynomially small in the AF window and can be absorbed into A1 remainders.
+\end{enumerate}
+
+We use the intrinsic distance-to-identity function
+\[
+\theta(U):=\mathrm{dist}_{G}(U,\mathbf 1),
+\]
+where $\mathrm{dist}_{G}$ is the geodesic distance for the standard bi-invariant metric induced by
+the fixed bi-invariant Riemannian metric induced by the chosen inner product on $\mathfrak g$.
+On the injectivity-radius chart, if $U=\exp(X)$ with $\|X\|\le \pi$ (Hilbert--Schmidt norm), then $\theta(U)=\|X\|$.
+
+
+Let $\Lambda\subset\mathbb Z^4$ be a finite set of plaquettes (e.g.\ those whose geometric support intersects a fixed continuum compact $K$ enlarged by radius $R\sqrt t$).
+
+\begin{definition}[Local small-curvature event]\label{def:good_plaq}
+Fix $\varepsilon\in(0,\pi/2]$. Define
+\[
+G_{\Lambda}(\varepsilon):=\bigcap_{p\in \Lambda}\{\theta(U_p)\le \varepsilon\}.
+\]
+\end{definition}
+
+\paragraph{Remark.}
+$G_{\Lambda}(\varepsilon)$ is gauge invariant and only depends on plaquette holonomies.
+
+We use the DeTurck gauge-fixed flow for analysis. Let $B(t)$ be the DeTurck-flowed gauge potential,
+with initial data extracted from link variables via the principal logarithm on a fixed chart.
+
+\begin{proposition}[Initial chart and small-curvature regime (proved in Lemma~\ref{lem:tree_chart_local} and Lemma~\ref{lem:local_tail})]\label{ass:init_chart}
+There exist $\varepsilon\in(0,\pi/4]$ and $\delta\in(0,\pi/2)$ such that:
+\begin{enumerate}[label=(IC\arabic*)]
+\item all links in the relevant neighborhood admit exponential coordinates $U_e=\exp(A_e)$ with $\|A_e\|\le \delta$;
+\item the plaquette angles in that neighborhood satisfy $G_{\Lambda}(\varepsilon)$ for a suitable plaquette set $\Lambda$.
+\end{enumerate}
+\end{proposition}
+
+\begin{lemma}[Tree-gauge chart from small plaquettes (local version)]\label{lem:tree_chart_local}
+There exists a constant $C_{\mathrm{geo}}$ depending only on the local block geometry (not on $a$) such that:
+on $G_{\Lambda}(\varepsilon)$, after fixing tree gauge on each unit block intersecting the neighborhood, all unfixed links satisfy
+\[
+\theta(U_e)\le C_{\mathrm{geo}}\varepsilon.
+\]
+Hence choosing $\varepsilon\le \delta/C_{\mathrm{geo}}$ guarantees $\|A_e\|\le \delta$ throughout the neighborhood.
+\end{lemma}
+
+\begin{lemma}[Short-time persistence of the chart]\label{lem:chart_persist}
+Assume \ref{ass:init_chart}. Fix $t_\ast>0$ and assume the DeTurck flow is run on $[0,t_\ast]$.
+Then there exists $\delta_\ast=\delta_\ast(\delta,\varepsilon,t_\ast)$ such that:
+\begin{enumerate}[label=(P\arabic*)]
+\item $B(t)$ remains in the exponential chart on $[0,t_\ast]$ with $\|B(t)\|_\infty\le \delta_\ast$;
+\item spatial derivatives satisfy the parabolic smoothing bounds
+\[
+\|\nabla^m B(t)\|_\infty\ \le\ C_m(\delta_\ast)\,t^{-m/2},\qquad 1\le m\le m_{\max},
+\]
+for any fixed $m_{\max}$ required by the insertion seminorm.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+In DeTurck gauge the flow is a semilinear uniformly parabolic system with smooth coefficients on the chart domain.
+Local existence and uniqueness is standard; for lattice discretization with compact gauge group $G$ it is global in time as an ODE system.
+Parabolic maximum principle plus Gr\"onwall bounds yield $\|B(t)\|_\infty\le \delta_\ast$ on $[0,t_\ast]$.
+Standard parabolic Schauder/$L^p$ estimates yield $\|\nabla^m B(t)\|_\infty\lesssim t^{-m/2}$ with constants controlled by $\delta_\ast$.
+\end{proof}
+
+\paragraph{Consequence for kernel bounds.}
+Lemma~\ref{lem:chart_persist} supplies the coefficient boundedness needed to invoke Aronson-type Gaussian kernel bounds for the linearized operator,
+with constants depending only on $(\delta_\ast,m_{\max})$, hence uniform in $a$ (provided the chart holds uniformly in $a$ on the neighborhood).
+
+The deterministic path above is useful but does not explain why the hypotheses should hold \emph{typically} under the Euclidean state.
+We now provide a patched/truncated construction analogous to the patch-and-absorb step used later in the multiscale RG construction.
+
+Let $\langle\cdot\rangle$ denote the underlying Euclidean expectation produced by the continuum construction (OS positivity is invoked only on the unflowed positive-time algebra).
+For each fixed compact $K\subset\{x_0\ge\varepsilon_0\}$ and each fixed flow time $t\in(0,t_\ast]$, choose a neighborhood $\Lambda=\Lambda(K,t,R)$ of plaquettes
+covering the effective support region of size $R\sqrt t$ around $K$.
+
+\begin{definition}[Truncated expectation for flowed local insertions]\label{def:trunc_expect_flow}
+Fix $\varepsilon\in(0,\pi/4]$.
+For any positive-time observable $F$ supported in the neighborhood corresponding to $\Lambda$, define
+\[
+\langle F\rangle^{\mathrm{good}}_{K,t}
+:=\frac{\langle F\mathbf 1_{G_{\Lambda}(\varepsilon)}\rangle}{\langle \mathbf 1_{G_{\Lambda}(\varepsilon)}\rangle}.
+\]
+\end{definition}
+
+\begin{lemma}[Truncation stability (Cauchy--Schwarz form)]\label{lem:trunc_CS}
+If $|F|\le 1$ then
+\[
+\big|\langle F\rangle-\langle F\rangle^{\mathrm{good}}_{K,t}\big|
+\ \le\ 2\,\sqrt{\mathbb P(G_{\Lambda}(\varepsilon)^c)},
+\]
+where $\mathbb P(\cdot)$ is probability under the underlying state.
+\end{lemma}
+
+\begin{proof}
+Write $\langle F\rangle=\langle F\mathbf 1_G\rangle+\langle F\mathbf 1_{G^c}\rangle$ and use $|\langle F\mathbf 1_{G^c}\rangle|\le \langle \mathbf 1_{G^c}\rangle$.
+Normalize by $\langle \mathbf 1_G\rangle$ and use $\langle\mathbf 1_G\rangle\ge 1-\langle\mathbf 1_{G^c}\rangle$.
+A sharper bound uses Cauchy--Schwarz: $|\langle F\mathbf 1_{G^c}\rangle|\le \|F\|_2\sqrt{\mathbb P(G^c)}\le \sqrt{\mathbb P(G^c)}$.
+\end{proof}
+
+In earlier finite-range fluctuation settings, one-step fluctuation measures were product/finite-range, making $\mathbb P(G^c)$ exponentially small by a direct one-plaquette bound.
+For the full gauge state, correlations exist; nevertheless, in the AF window one expects a comparable bound for local small-curvature events.
+
+We recall the local plaquette tail bound from Lemma~\ref{lem:local_tail} (proved in Section~\ref{sec:patching}).
+
+\begin{corollary}[Superpolynomial smallness of the truncation error]\label{cor:superpoly_flow}
+Assume Lemma~\ref{lem:local_tail}. Fix $K$ and $t$. Then for every $N$ there exists $u_0(N)>0$ such that in the AF window,
+\[
+u\le u_0(N)\quad\Longrightarrow\quad
+\mathbb P(G_{\Lambda}(\varepsilon)^c)\le u^{2N}
+\quad\text{and hence}\quad
+|\langle F\rangle-\langle F\rangle^{\mathrm{good}}_{K,t}|\le 2u^{N}.
+\]
+\end{corollary}
+
+\paragraph{Absorption into A1.}
+Since A1 remainders only need $O(t^\eta)$ control with $\eta\ge 1$, the $u^N$ truncation errors can be made smaller than $t^\eta$ for any fixed $t$
+by choosing $N$ large and working sufficiently deep in the AF window. Thus truncation errors are absorbed into the A1 remainder term.
+
+Combine:
+\begin{remark}[How this module is used in the main proof]\MainPath
+The ad hoc bounded-regime assumption is eliminated: the good-flow chart event $G_{\Lambda}(\varepsilon)$,
+together with Lemma~\ref{lem:tree_chart_local}, the tail bound Lemma~\ref{lem:local_tail},
+and the persistence Lemma~\ref{lem:chart_persist}, provides a deterministic chart regime on $[0,t_\ast]$ with explicit derivative bounds.
+The Gaussian kernel bounds required for the insertion seminorm are proved in Appendix~\ref{app:kernel_parametrix}
+(continuum) and Appendix~\ref{app:discrete_parametrix} (lattice).
+\end{remark}

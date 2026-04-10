@@ -1,0 +1,94 @@
+\section{Parameter schedule and explicit threshold bookkeeping}
+\label{app:parameter_schedule}
+
+This appendix records a single explicit schedule of thresholds which subsumes every
+``take $\beta$ large'' / ``take $\varepsilon$ small'' clause used in the Lane~C (RG closure),
+Lane~A (sharp-local reconstruction), and primary Route~1 mass-gap chains.
+The intent is auditability: once the group-dependent inputs are instantiated, all subsequent choices are forced. Lane~B introduces no additional threshold beyond the downstream dense-core input already derived in Appendix~F.
+
+\subsection{Named group-dependent inputs}
+
+Fix a compact connected simple Lie group $G$ together with the auxiliary faithful Wilson representation $\rho$ from Theorem~\ref{thm:main}. The canonical continuum local theory is faithful-$\rho$ independent by Appendix~\ref{app:global_form_resolution}, but the explicit ultraviolet and Route~1 ledgers recorded here are attached to this chosen faithful regularization.
+The following quantities are treated as the \emph{base input constants} in this manuscript (some group-only, some $(G,\rho)$-indexed through the chosen auxiliary faithful regularization):
+
+\begin{enumerate}[label=(P\arabic*),leftmargin=*]
+\item $b_0(G)>0$: dyadic-gradient-flow one-loop coefficient (Section~\ref{subsec:step_scaling}).
+\item $K_{0,G}\ge 1$: the heat-kernel/parametrix constant used in Appendices~\ref{app:cont_parametrix}--\ref{app:lattice_parametrix}.
+\item $\lambda_\ast>0$: the universal tree-gauge coercivity constant of Appendix~\ref{app:multiplier_and_lambda}.
+\item The audited compact-simple A1 constant chain from Appendix~\ref{app:A1_compact_simple}:
+\[
+\kappa_-(G),\ \kappa_+(G),\ c_{\mathrm{hyp}}(G,\rho),\ r_{\mathrm{hyp}}(G,\rho),\ \beta_{\mathrm{hyp}}(G,\rho),
+\]
+\[
+r_{\mathrm{strip}}(G,\rho),\ c_{\mathrm{strip}}(G,\rho),\ C_{\mathrm{shift}}(G,\rho),\ c_{\mathrm{shift}}(G,\rho),\ \beta_{\mathrm{shift}}(G,\rho),
+\]
+\[
+\sigma_{\mathrm{sc}}(G,\rho),\ \beta_{\mathrm{sc}}(G,\rho),\ c_{\mathrm{lo}}(G,\rho),\ \beta_{\mathrm{lo}}(G,\rho),\ c_{\mathrm{hi}}(G,\rho),\ \beta_{\mathrm{hi}}(G,\rho).
+\]
+Here $C_{\mathrm{shift}}(G,\rho)$, $c_{\mathrm{shift}}(G,\rho)$, and $\beta_{\mathrm{shift}}(G,\rho)$ are the explicit constants returned by the shifted-torus Laplace estimate
+(\Cref{lem:A1_shifted_torus_integral}); the internal low-Casimir semiclassical theorem \Cref{thm:A1_compact_group_semiclassical_multiplier_exact}
+then returns $\sigma_{\mathrm{sc}}(G,\rho)$ and $\beta_{\mathrm{sc}}(G,\rho)$, with the low-Casimir ledger formulas recorded explicitly in \Cref{cor:A1_low_regime_ledger_constants}:
+\[
+c_{\mathrm{lo}}(G,\rho)=\frac{\sigma_{\mathrm{sc}}(G,\rho)}{\kappa_+(G)},
+\qquad
+\beta_{\mathrm{lo}}(G,\rho)=\max\{\beta_{\mathrm{hyp}}(G,\rho),\beta_{\mathrm{sc}}(G,\rho)\}.
+\]
+The crossover constants $c_{\mathrm{A1}}(G,\rho)$ and $\beta_{\mathrm{A1}}(G,\rho)$ are then defined explicitly in Theorem~\ref{thm:A1_compact_simple_internal}; the classical Appendices~\ref{app:A1_Sp}--\ref{app:A1_Spin_even} remain audited examples rather than load-bearing inputs.
+\item $\rho_G\in(0,1)$: the linear contraction factor in the dyadic seminorm topology (Section~\ref{sec:one_step_contraction}).
+\end{enumerate}
+
+All other constants appearing in the body are defined deterministically from these inputs and from universal
+inequalities already stated in the cited lemmas/propositions.
+
+\subsection{Master thresholds}
+
+Define the master inverse-coupling threshold
+\begin{equation}
+\label{eq:beta_master_threshold}
+\beta_{\mathrm{master}}(G,\rho)
+\;:=\;
+\max\Big\{
+\beta_{\mathrm{A1}}(G,\rho),
+\beta_{\mathrm{HK}}(G),
+\beta_{\mathrm{RG}}(G),
+\beta_{\mathrm{KP}}(G,\rho),
+\beta_{\mathrm{OS}}(G)
+\Big\}.
+\end{equation}
+Here the A1 and KP thresholds remain indexed by the chosen faithful ultraviolet regularization $\rho$, while the pure kernel/RG/OS bookkeeping thresholds are recorded in the present submission only as group-dependent analytic constants.
+Each term is defined as follows.
+
+\paragraph{(i) Kernel threshold $\beta_{\mathrm{HK}}(G)$.}
+Let $\beta_{\mathrm{HK}}(G)$ be the maximum of the (finite) thresholds introduced in the kernel stack
+(Appendices~\ref{app:cont_parametrix}--\ref{app:lattice_parametrix}) ensuring all stated bounds hold with constant $K_{0,G}$.
+Concretely, it is the maximum of the thresholds in Lemmas~\ref{lem:heat_deriv_dom}, \ref{lem:on_diag}, and \ref{lem:duhamel_existence}.
+
+\paragraph{(ii) RG contraction threshold $\beta_{\mathrm{RG}}(G)$.}
+Let $\beta_{\mathrm{RG}}(G)$ be the smallest $\beta$ for which the one-step RG map is a strict contraction on the Lane~C ball,
+i.e. for which the quantitative hypothesis of Proposition~\ref{prop:irrelevant_linear_contraction} is satisfied with the
+constants produced by $\lambda_\ast$ and $K_{0,G}$.
+
+\paragraph{(iii) KP entrance threshold $\beta_{\mathrm{KP}}(G,\rho)$.}
+Let $\beta_{\mathrm{KP}}(G,\rho)$ be the smallest $\beta$ for which the one-shot entrance theorem of Appendix~F applies at the prescribed block size $B(\beta;G,\rho)$.
+Concretely, this threshold is determined by the compact-simple A1 input
+(Theorem~\ref{thm:A1_one_plaq_compact_simple} and its explicit classical audits in Appendices~G--I),
+the transfer-feasibility threshold of Proposition~\ref{prop:h54_transfer_feasible},
+and the theorem-level reference-budget closure summarized in Corollary~\ref{cor:TBmix_reference_budget_closed}.
+
+\paragraph{(iv) OS regularity threshold $\beta_{\mathrm{OS}}(G)$.}
+Let $\beta_{\mathrm{OS}}(G)$ be the maximum of the (finite) thresholds introduced in the Lane~A sharp-local/OS closure
+(Section~\ref{sec:sharp_local}, Appendix~\ref{app:RP_Wilson}, and the packaged axioms dossier of Appendix~\ref{app:axioms_package}), guaranteeing that all OS axioms and the quoted reconstruction inputs are verified with the
+stated constants.
+
+\subsection{Closure statement in threshold form}
+
+Assume $\beta\ge \beta_{\mathrm{master}}(G,\rho)$.
+Then Lane~C yields a unique continuum flow-bundle state (no subsequence extraction), Lane~A yields the local gauge-invariant sharp-local OS theory, and Appendix~F yields the primary Route~1 mass-gap chain: one-shot entrance, a common-rate fixed-lattice local decay theorem at each tuned lattice, the tuned-sequence full fixed-lattice OS gap, and the resulting continuum vacuum spectral gap.
+Section~\ref{sec:mass_gap_intake} then rederives that same vacuum-gap statement from the downstream dense-core Euclidean estimate without introducing any additional thresholds.
+
+\begin{remark}[Fail-closed discipline]
+\label{rem:fail_closed_parameter_schedule}
+No additional tuning parameters occur beyond those explicitly named above.
+Any attempted introduction of an extra degree of freedom (e.g. by altering the seminorm topology, truncation chart,
+or entrance depth) constitutes a scope change and must be stated as a separate theorem statement.
+\end{remark}

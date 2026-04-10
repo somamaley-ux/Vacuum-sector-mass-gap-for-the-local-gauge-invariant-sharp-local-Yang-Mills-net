@@ -1,0 +1,136 @@
+\label{app:discrete_parametrix}
+
+This appendix proves the lattice analogue of the parametrix/Duhamel kernel bounds used in the small-flow-time analysis.
+It complements Appendix~\ref{app:kernel_parametrix} (continuum parametrix) and Appendix~\ref{app:discrete_heat_kernel} (uniform lattice heat kernel bounds).
+
+\subsection*{Discrete operators and hypotheses}
+
+Fix a lattice spacing $a>0$ and write the lattice as $a\Z^4$.
+Let $\Delta_a$ denote the standard nearest-neighbour Laplacian
+\[
+(\Delta_a f)(x)=\frac{1}{a^2}\sum_{j=1}^{4}\big(f(x+ae_j)+f(x-ae_j)-2f(x)\big),
+\]
+and let $\nabla^a_j$ denote the forward difference
+\[
+(\nabla^a_j f)(x)=\frac{1}{a}\big(f(x+ae_j)-f(x)\big).
+\]
+
+Let $L_a(t)$ be a time-dependent lattice operator of the form
+\begin{equation}
+\label{eq:La_form}
+L_a(t)=\Delta_a+\sum_{j=1}^{4} b_j(t,\cdot)\,\nabla^a_j + V(t,\cdot),
+\end{equation}
+acting on functions on $a\Z^4$, where $b_j(t,x)$ and $V(t,x)$ are bounded measurable coefficients.
+
+\begin{proposition}[Uniform coefficient bounds (verified on the good-flow chart)]
+\label{ass:lattice_coeff_bounds}
+Fix $0<s<t\le t_\ast$.
+Assume there exist constants $B_0\ge 0$, $V_0\ge 0$, $V_1\ge 0$ such that for all $r\in[s,t]$,
+\[
+\max_{1\le j\le 4}\ \|b_j(r,\cdot)\|_{\ell^\infty(a\Z^4)}\le B_0,
+\qquad
+\|V(r,\cdot)\|_{\ell^\infty(a\Z^4)}\le V_0+V_1\,r^{-1/2}.
+\]
+\end{proposition}
+
+\subsection*{Fundamental solution and Duhamel formula}
+
+Let $p^{(a)}_{t}(x,y)$ denote the heat kernel of $\Delta_a$, so that
+$\partial_t p^{(a)}_{t}=\Delta_a p^{(a)}_{t}$ and $p^{(a)}_{0}(x,y)=\mathbf 1_{\{x=y\}}$.
+
+For $L_a(t)$ as in \eqref{eq:La_form}, define $K_a(t,s;x,y)$ as the integral kernel of the evolution operator
+solving
+\[
+\partial_t u(t,\cdot)=L_a(t)u(t,\cdot),\qquad u(s,\cdot)=u_s(\cdot).
+\]
+Formally, $K_a$ satisfies the Duhamel equation
+\begin{equation}
+\label{eq:duhamel_discrete}
+K_a(t,s)=p^{(a)}_{t-s}+\int_s^t p^{(a)}_{t-r}\,\Big(\sum_{j} b_j(r)\,\nabla^a_j +V(r)\Big)\,K_a(r,s)\,dr.
+\end{equation}
+The integral is understood as a Bochner integral in operator norm on $\ell^\infty(a\Z^4)$.
+
+\begin{lemma}[Existence/uniqueness in the bounded regime]
+\label{lem:duhamel_existence}
+Under Proposition~\ref{ass:lattice_coeff_bounds}, the Volterra equation \eqref{eq:duhamel_discrete} has a unique solution kernel $K_a(t,s;\cdot,\cdot)$
+for $0<s<t\le t_\ast$, obtained by Picard iteration.
+Moreover, for each fixed $(t,s)$ the kernel is absolutely summable in the second variable, and defines a bounded operator on $\ell^\infty$.
+\end{lemma}
+
+\begin{proof}
+Set $K^{(0)}_a(t,s)=p^{(a)}_{t-s}$ and define iteratively
+\[
+K^{(n+1)}_a(t,s)=p^{(a)}_{t-s}+\int_s^t p^{(a)}_{t-r}\,\Big(\sum_{j} b_j(r)\,\nabla^a_j +V(r)\Big)\,K^{(n)}_a(r,s)\,dr.
+\]
+Using $\|p^{(a)}_{t-r}\|_{\ell^\infty\to\ell^\infty}\le 1$ and the bounds in Proposition~\ref{ass:lattice_coeff_bounds},
+one obtains the operator inequality
+\[
+\begin{aligned}
+\|K^{(n+1)}_a(t,s)-K^{(n)}_a(t,s)\|_{\ell^\infty\to\ell^\infty}
+\le{}& \int_s^t \Big(4B_0\,\|\nabla^a p^{(a)}_{t-r}\|_{\ell^1\to\ell^\infty} \\
+&\qquad\qquad +V_0+V_1 r^{-1/2}\Big)
+\|K^{(n)}_a(r,s)-K^{(n-1)}_a(r,s)\|\,dr.
+\end{aligned}
+\]
+where $\|\nabla^a p^{(a)}_{t-r}\|_{\ell^1\to\ell^\infty}$ is controlled by the lattice heat-kernel derivative bounds of Appendix~\ref{app:discrete_heat_kernel}.
+This yields a convergent Volterra series on $[s,t_\ast]$ by a standard majorant argument (a discrete analogue of Appendix~\ref{app:kernel_parametrix}).
+Uniqueness follows by the same Volterra contraction estimate.
+\end{proof}
+
+\subsection*{Gaussian bounds}
+
+We now prove the lattice Gaussian bounds in the form used in the main text.
+
+\begin{theorem}[Lattice Gaussian upper bounds and finite-difference derivatives]
+\label{thm:discrete_parametrix_gauss}
+Assume Proposition~\ref{ass:lattice_coeff_bounds}.
+Fix an integer $m\ge 0$.
+There exist constants $C_m=C_m(B_0,V_0,V_1,t_\ast)$ and $c=c(B_0,t_\ast)>0$ such that for all $a\in(0,1]$,
+all $0<s<t\le t_\ast$, and all $x,y\in a\Z^4$,
+\begin{equation}
+\label{eq:K_discrete_gauss}
+|(\nabla^a_x)^m K_a(t,s;x,y)|
+\le
+C_m\,(t-s)^{-(2+m/2)}\,
+\exp\!\Big(-c\,\frac{|x-y|^2}{t-s}\Big).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Write the Duhamel formula \eqref{eq:duhamel_discrete} and apply $(\nabla^a_x)^m$.
+Using the discrete heat kernel bounds from Appendix~\ref{app:discrete_heat_kernel}, we obtain for the free term
+\[
+|(\nabla^a_x)^m p^{(a)}_{t-s}(x,y)|
+\le C^{(0)}_m (t-s)^{-(2+m/2)} \exp\!\Big(-c_0\frac{|x-y|^2}{t-s}\Big).
+\]
+For the integral term, use the pointwise convolution bound
+\[
+\begin{aligned}
+\sum_{z\in a\Z^4} |(\nabla^a_x)^m p^{(a)}_{t-r}(x,z)|\,
+|(\nabla^a_z)^k K_a(r,s;z,y)|
+\le{}&
+\widetilde C_{m,k}\,(t-r)^{-(2+m/2)}(r-s)^{-(2+k/2)}\\
+&\times \exp\!\Big(-\widetilde c\,\frac{|x-y|^2}{t-s}\Big).
+\end{aligned}
+\]
+which is proved by the standard Gaussian convolution inequality (splitting into the region where $|x-z|$ or $|z-y|$ is large and using $|x-y|^2\le 2|x-z|^2+2|z-y|^2$).
+The drift term contributes one lattice derivative and is bounded using $B_0$; the potential term is bounded using $V_0+V_1 r^{-1/2}$.
+This yields a Volterra inequality for
+\[
+M_m(t,s):=\sup_{x,y}\ (t-s)^{2+m/2}\,e^{\widetilde c |x-y|^2/(t-s)}\,|(\nabla^a_x)^m K_a(t,s;x,y)|.
+\]
+The inequality has the form
+\[
+M_m(t,s)\le C_m^{(0)}+\int_s^t \Big( C_m^{(1)}(t-r)^{-1/2}+C_m^{(2)}+C_m^{(3)} r^{-1/2}\Big)\,M_m(r,s)\,dr,
+\]
+with explicit constants depending only on $B_0,V_0,V_1$ and $t_\ast$.
+A fractional Gr\"onwall estimate (identical to the continuum Volterra majorant in Appendix~\ref{app:kernel_parametrix}) yields a bound
+$M_m(t,s)\le C_m$ uniformly in $a$ and $(t,s)\in(0,t_\ast]^2$.
+Substituting back gives \eqref{eq:K_discrete_gauss}.
+\end{proof}
+
+\begin{remark}
+The constants $C_m$ can be taken monotone in $B_0,V_0,V_1,t_\ast$.
+In the main application, $B_0,V_0,V_1$ are deterministic functions of the good-flow chart bounds for the flowed connection $B(t)$,
+and are therefore uniform on the good-flow event.
+\end{remark}

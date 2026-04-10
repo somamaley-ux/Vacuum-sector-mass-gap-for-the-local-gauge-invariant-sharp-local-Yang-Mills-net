@@ -1,0 +1,184 @@
+\relax
+\newlabel{rem:effective_group_convention}{{1.1}{7}{Effective global form determined by the Wilson action}{theorem.1.1}{}}
+\newlabel{rem:effective_group_convention@cref}{{[theorem][1][1]1.1}{[1][7][]7}{}{}{}}
+\newlabel{def:metric_casimir}{{1.2}{8}{Metric and Casimir normalization}{theorem.1.2}{}}
+\newlabel{def:metric_casimir@cref}{{[theorem][2][1]1.2}{[1][7][]8}{}{}{}}
+\newlabel{eq:A1_canonical}{{4}{8}{A1: canonical one-plaquette coefficient crossover bound}{equation.4}{}}
+\newlabel{eq:A1_canonical@cref}{{[equation][4][]4}{[1][8][]8}{}{}{}}
+\newlabel{thm:A1_one_plaq_compact_simple}{{1.4}{8}{A1: one-plaquette coefficient crossover bound for compact connected simple groups}{theorem.1.4}{}}
+\newlabel{thm:A1_one_plaq_compact_simple@cref}{{[theorem][4][1]1.4}{[1][8][]8}{}{}{}}
+\newlabel{thm:A1_one_plaq_classical}{{1.4}{8}{A1: one-plaquette coefficient crossover bound for compact connected simple groups}{theorem.1.4}{}}
+\newlabel{thm:A1_one_plaq_classical@cref}{{[theorem][4][1]1.4}{[1][8][]8}{}{}{}}
+\newlabel{sec:roadmap}{{2}{9}{Main results and proof roadmap}{section.2}{}}
+\newlabel{sec:roadmap@cref}{{[section][2][]2}{[1][8][]9}{}{}{}}
+\newlabel{thm:main}{{2.1}{10}{Local gauge-invariant Yang--Mills QFT and vacuum mass gap for compact connected simple groups}{theorem.2.1}{}}
+\newlabel{thm:main@cref}{{[theorem][1][2]2.1}{[1][10][]10}{}{}{}}
+\newlabel{subsec:spin_vs_so}{{2.2}{13}{Global form: \texorpdfstring {$\Spin $}{Spin} versus \texorpdfstring {$\SO $}{SO} and the meaning of the gap}{subsection.2.2}{}}
+\newlabel{subsec:spin_vs_so@cref}{{[subsection][2][2]2.2}{[1][13][]13}{}{}{}}
+\newlabel{def:effective_group}{{2.4}{14}{Effective gauge group determined by the plaquette action}{theorem.2.4}{}}
+\newlabel{def:effective_group@cref}{{[theorem][4][2]2.4}{[1][14][]14}{}{}{}}
+\newlabel{lem:center_blindness_descent}{{2.5}{14}{Center-blindness and descent to the quotient}{theorem.2.5}{}}
+\newlabel{lem:center_blindness_descent@cref}{{[theorem][5][2]2.5}{[1][14][]14}{}{}{}}
+\newlabel{lem:adjoint_local_generators}{{2.6}{14}{Adjoint-local generators of the sharp local algebra and insensitivity to global form}{theorem.2.6}{}}
+\newlabel{lem:adjoint_local_generators@cref}{{[theorem][6][2]2.6}{[1][14][]14}{}{}{}}
+\newlabel{sec:rg}{{4}{27}{Continuum flow-bundle state via dyadic renormalization group}{section.4}{}}
+\newlabel{sec:rg@cref}{{[section][4][]4}{[1][27][]27}{}{}{}}
+\newlabel{eq:one_plaq_measure_general}{{22}{27}{Common definitions}{equation.22}{}}
+\newlabel{eq:one_plaq_measure_general@cref}{{[equation][22][]22}{[1][27][]27}{}{}{}}
+\newlabel{eq:one_plaq_coeff_general}{{23}{27}{Common definitions}{equation.23}{}}
+\newlabel{eq:one_plaq_coeff_general@cref}{{[equation][23][]23}{[1][27][]27}{}{}{}}
+\newlabel{rem:center_vanish}{{4.1}{27}{Central quotients and vanishing coefficients}{theorem.4.1}{}}
+\newlabel{rem:center_vanish@cref}{{[theorem][1][4]4.1}{[1][27][]27}{}{}{}}
+\newlabel{prop:A1_Sp}{{4.3}{28}{A1 for $\Sp (2n)$}{theorem.4.3}{}}
+\newlabel{prop:A1_Sp@cref}{{[theorem][3][4]4.3}{[1][28][]28}{}{}{}}
+\newlabel{prop:A1_Spin_odd}{{4.4}{28}{A1 for $\Spin (2n{+}1)$}{theorem.4.4}{}}
+\newlabel{prop:A1_Spin_odd@cref}{{[theorem][4][4]4.4}{[1][28][]28}{}{}{}}
+\newlabel{prop:A1_Spin_even}{{4.5}{28}{A1 for $\Spin (2n)$}{theorem.4.5}{}}
+\newlabel{prop:A1_Spin_even@cref}{{[theorem][5][4]4.5}{[1][28][]28}{}{}{}}
+\newlabel{subsec:step_scaling}{{4.2}{28}{Step scaling and the \texorpdfstring {$b_0$}{b0} coefficient in the dyadic GF scheme}{subsection.4.2}{}}
+\newlabel{subsec:step_scaling@cref}{{[subsection][2][4]4.2}{[1][28][]28}{}{}{}}
+\newlabel{eq:gf_coupling_def}{{31}{29}{Step scaling and the \texorpdfstring {$b_0$}{b0} coefficient in the dyadic GF scheme}{equation.31}{}}
+\newlabel{eq:gf_coupling_def@cref}{{[equation][31][]31}{[1][29][]29}{}{}{}}
+\newlabel{ass:coord_match}{{4.12}{33}{Choice of marginal coordinate: identification with the gradient-flow coupling}{theorem.4.12}{}}
+\newlabel{ass:coord_match@cref}{{[theorem][12][4]4.12}{[1][33][]33}{}{}{}}
+\newlabel{eq:RG_density_form}{{62}{36}{Comment}{equation.62}{}}
+\newlabel{eq:RG_density_form@cref}{{[equation][62][]62}{[1][36][]36}{}{}{}}
+\newlabel{thm:RG_analytic_bounds}{{4.25}{38}{One-step analytic RG bounds with tracked constants}{theorem.4.25}{}}
+\newlabel{thm:RG_analytic_bounds@cref}{{[theorem][25][4]4.25}{[1][38][]38}{}{}{}}
+\newlabel{def:local_vars}{{4.26}{38}{Local fluctuation variables (tree-gauge chart)}{theorem.4.26}{}}
+\newlabel{def:local_vars@cref}{{[theorem][26][4]4.26}{[1][38][]38}{}{}{}}
+\newlabel{def:fluc_density}{{4.27}{39}{Fluctuation density in coordinates}{theorem.4.27}{}}
+\newlabel{def:fluc_density@cref}{{[theorem][27][4]4.27}{[1][39][]39}{}{}{}}
+\newlabel{thm:poly_cumulant}{{4.36}{41}{Uniform cumulant bound for local polynomials}{theorem.4.36}{}}
+\newlabel{thm:poly_cumulant@cref}{{[theorem][36][4]4.36}{[1][41][]41}{}{}{}}
+\newlabel{def:good_block}{{4.47}{47}{Good-block event}{theorem.4.47}{}}
+\newlabel{def:good_block@cref}{{[theorem][47][4]4.47}{[1][47][]47}{}{}{}}
+\newlabel{def:trunc_measure}{{4.55}{51}{Truncated one-step fluctuation measure}{theorem.4.55}{}}
+\newlabel{def:trunc_measure@cref}{{[theorem][55][4]4.55}{[1][51][]51}{}{}{}}
+\newlabel{def:RG_good}{{4.59}{51}{Chart-truncated RG step}{theorem.4.59}{}}
+\newlabel{def:RG_good@cref}{{[theorem][59][4]4.59}{[1][51][]51}{}{}{}}
+\newlabel{prop:RGgood_support_one_step}{{4.63}{53}{One-step support map for the actual chart-truncated RG operator}{theorem.4.63}{}}
+\newlabel{prop:RGgood_support_one_step@cref}{{[theorem][63][4]4.63}{[1][53][]53}{}{}{}}
+\newlabel{thm:C3_4}{{4.86}{64}{C3.4: bulk observable Lipschitz in RG data}{theorem.4.86}{}}
+\newlabel{thm:C3_4@cref}{{[theorem][86][4]4.86}{[1][64][]64}{}{}{}}
+\newlabel{ass:precompact}{{4.88}{66}{C3.1 uniform bounds / precompactness (proved using Theorem~\ref {thm:poly_cumulant})}{theorem.4.88}{}}
+\newlabel{ass:precompact@cref}{{[theorem][88][4]4.88}{[1][66][]66}{}{}{}}
+\newlabel{thm:C3U}{{4.92}{66}{C3-U closure}{theorem.4.92}{}}
+\newlabel{thm:C3U@cref}{{[theorem][92][4]4.92}{[1][66][]66}{}{}{}}
+\newlabel{cor:flow_state}{{4.93}{67}{Unique continuum Euclidean state on $\mathcal A_{\mathrm {flow}}$}{theorem.4.93}{}}
+\newlabel{cor:flow_state@cref}{{[theorem][93][4]4.93}{[1][67][]67}{}{}{}}
+\newlabel{cor:C3U_Aplus_tuned}{{4.94}{67}{Tuned dyadic Wilson limit on the bounded positive-time algebra}{theorem.4.94}{}}
+\newlabel{cor:C3U_Aplus_tuned@cref}{{[theorem][94][4]4.94}{[1][67][]67}{}{}{}}
+\newlabel{cor:C3U_reflected_tuned}{{4.95}{67}{Tuned dyadic convergence of reflected matrix elements}{theorem.4.95}{}}
+\newlabel{cor:C3U_reflected_tuned@cref}{{[theorem][95][4]4.95}{[1][67][]67}{}{}{}}
+\newlabel{sec:sharp_local}{{5}{68}{Sharp local operator algebra and Lane~A reconstruction}{section.5}{}}
+\newlabel{sec:sharp_local@cref}{{[section][5][]5}{[1][68][]68}{}{}{}}
+\newlabel{thm:tail_R}{{5.10}{71}{Exponential tail outside $B_R(x,t)$}{theorem.5.10}{}}
+\newlabel{thm:tail_R@cref}{{[theorem][10][5]5.10}{[1][71][]71}{}{}{}}
+\newlabel{thm:ins_decomp}{{5.31}{78}{Insertion RG decomposition at scale $\mu $}{theorem.5.31}{}}
+\newlabel{thm:ins_decomp@cref}{{[theorem][31][5]5.31}{[1][78][]78}{}{}{}}
+\newlabel{eq:rem_tpower}{{115}{78}{Insertion RG decomposition at scale $\mu $}{equation.115}{}}
+\newlabel{eq:rem_tpower@cref}{{[equation][115][]115}{[1][78][]78}{}{}{}}
+\newlabel{cor:graded_triangular_transport_all_blocks}{{5.40}{82}{Graded triangular transport on every finite engineering cap}{theorem.5.40}{}}
+\newlabel{cor:graded_triangular_transport_all_blocks@cref}{{[theorem][40][5]5.40}{[1][82][]82}{}{}{}}
+\newlabel{thm:ins_to_OS}{{5.45}{84}{Insertion seminorm $\Rightarrow $ OS seminorm}{theorem.5.45}{}}
+\newlabel{thm:ins_to_OS@cref}{{[theorem][45][5]5.45}{[1][84][]84}{}{}{}}
+\newlabel{cor:ins_to_OS_bounded_word}{{5.45A}{85}{Fixed bounded-word variant of Theorem~\ref {thm:ins_to_OS}}{corinsword.1}{}}
+\newlabel{cor:ins_to_OS_bounded_word@cref}{{[corinsword][1][]5.45A}{[1][84][]85}{}{}{}}
+\newlabel{thm:finite_truncation_inverse_control}{{5.69}{98}{Basis-independent finite-truncation inverse control for the full sharp-local basis}{theorem.5.69}{}}
+\newlabel{thm:finite_truncation_inverse_control@cref}{{[theorem][69][5]5.69}{[1][98][]98}{}{}{}}
+\newlabel{eq:LaneA_inverse_remainder_compat}{{157}{102}{Small-flow-time expansion and inverse mixing}{equation.157}{}}
+\newlabel{eq:LaneA_inverse_remainder_compat@cref}{{[equation][157][]157}{[1][102][]102}{}{}{}}
+\newlabel{eq:inverse_flow_approx}{{158}{102}{Small-flow-time expansion and inverse mixing}{equation.158}{}}
+\newlabel{eq:inverse_flow_approx@cref}{{[equation][158][]158}{[1][102][]102}{}{}{}}
+\newlabel{thm:LaneA_closure}{{5.74}{103}{Lane~A finite-cap extension of the Lane~C flowed state}{theorem.5.74}{}}
+\newlabel{thm:LaneA_closure@cref}{{[theorem][74][5]5.74}{[1][103][]103}{}{}{}}
+\newlabel{cor:LaneA_bounded_state_restriction}{{5.75}{106}{Lane~A preserves the tuned-dyadic bounded base state}{theorem.5.75}{}}
+\newlabel{cor:LaneA_bounded_state_restriction@cref}{{[theorem][75][5]5.75}{[1][106][]106}{}{}{}}
+\newlabel{cor:LaneA_full_scope}{{5.76}{106}{Full sharp-local scope by finite truncations and inductive union}{theorem.5.76}{}}
+\newlabel{cor:LaneA_full_scope@cref}{{[theorem][76][5]5.76}{[1][106][]106}{}{}{}}
+\newlabel{thm:LaneA_bounded_base_cyclic}{{5.77}{107}{Bounded positive-time base algebra is cyclic in the full sharp-local reconstruction}{theorem.5.77}{}}
+\newlabel{thm:LaneA_bounded_base_cyclic@cref}{{[theorem][77][5]5.77}{[1][106][]107}{}{}{}}
+\newlabel{sec:mass_gap_intake}{{6}{109}{Lane B: downstream OS intake and spectral-gap reformulation}{section.6}{}}
+\newlabel{sec:mass_gap_intake@cref}{{[section][6][]6}{[1][108][]109}{}{}{}}
+\newlabel{thm:R1_HS}{{6.2}{111}{Euclidean exponential clustering $\Rightarrow $ spectral gap (Hilbert-space form)}{theorem.6.2}{}}
+\newlabel{thm:R1_HS@cref}{{[theorem][2][6]6.2}{[1][111][]111}{}{}{}}
+\newlabel{thm:gap_transfer}{{6.3}{112}{Lane~B restatement of the Route~1 sharp-local gap}{theorem.6.3}{}}
+\newlabel{thm:gap_transfer@cref}{{[theorem][3][6]6.3}{[1][112][]112}{}{}{}}
+\newlabel{lem:density_poly}{{6.4}{112}{Polynomial density and capwise graph-core approximation}{theorem.6.4}{}}
+\newlabel{lem:density_poly@cref}{{[theorem][4][6]6.4}{[1][112][]112}{}{}{}}
+\newlabel{app:RP_Wilson}{{A}{113}{Reflection positivity and chessboard inequalities for Wilson compact gauge groups}{appendix.A}{}}
+\newlabel{app:RP_Wilson@cref}{{[section][1][]A}{[1][113][]113}{}{}{}}
+\newlabel{thm:RP_Wilson_full}{{A.3}{115}{Reflection positivity for the Wilson $G$ action}{theorem.A.3}{}}
+\newlabel{thm:RP_Wilson_full@cref}{{[theorem][3][1]A.3}{[1][115][]115}{}{}{}}
+\newlabel{app:cont_parametrix}{{B}{116}{Parametrix construction for continuum kernel bounds}{appendix.B}{}}
+\newlabel{app:cont_parametrix@cref}{{[section][2][]B}{[1][115][]116}{}{}{}}
+\newlabel{lem:heat_deriv_dom}{{B.3}{116}{Derivative domination by a fatter Gaussian}{theorem.B.3}{}}
+\newlabel{lem:heat_deriv_dom@cref}{{[theorem][3][2]B.3}{[1][116][]116}{}{}{}}
+\newlabel{app:lattice_heat_kernel}{{C}{118}{Uniform lattice heat-kernel bounds (including finite differences)}{appendix.C}{}}
+\newlabel{app:lattice_heat_kernel@cref}{{[section][3][]C}{[1][118][]118}{}{}{}}
+\newlabel{lem:on_diag}{{C.2}{119}{On-diagonal bound}{theorem.C.2}{}}
+\newlabel{lem:on_diag@cref}{{[theorem][2][3]C.2}{[1][119][]119}{}{}{}}
+\newlabel{app:lattice_parametrix}{{D}{122}{Parametrix construction for lattice kernel bounds}{appendix.D}{}}
+\newlabel{app:lattice_parametrix@cref}{{[section][4][]D}{[1][122][]122}{}{}{}}
+\newlabel{lem:duhamel_existence}{{D.2}{123}{Existence/uniqueness in the bounded regime}{theorem.D.2}{}}
+\newlabel{lem:duhamel_existence@cref}{{[theorem][2][4]D.2}{[1][123][]123}{}{}{}}
+\newlabel{app:multiplier_and_lambda}{{E}{124}{One-step multiplier bounds for insertion coefficients and tree-gauge coercivity}{appendix.E}{}}
+\newlabel{app:multiplier_and_lambda@cref}{{[section][5][]E}{[1][124][]124}{}{}{}}
+\newlabel{app:normalization_crosscheck}{{L}{300}{Normalization cross-check: metric, Casimir, Laplacian, and \texorpdfstring {$b_0$}{b0}}{appendix.L}{}}
+\newlabel{app:normalization_crosscheck@cref}{{[section][12][]L}{[1][300][]300}{}{}{}}
+\newlabel{lem:wilson_quadratic_coefficient}{{L.3}{301}{Quadratic coefficient at the identity}{theorem.L.3}{}}
+\newlabel{lem:wilson_quadratic_coefficient@cref}{{[theorem][3][12]L.3}{[1][301][]301}{}{}{}}
+\newlabel{thm:LaneA_associated_graded_identity}{{L.8}{305}{Associated-graded identity on exact-dimension symmetry blocks}{theorem.L.8}{}}
+\newlabel{thm:LaneA_associated_graded_identity@cref}{{[theorem][8][12]L.8}{[1][305][]305}{}{}{}}
+\newlabel{lem:LaneA_block_cap_compat}{{L.10}{306}{Canonical block data are cap-compatible}{theorem.L.10}{}}
+\newlabel{lem:LaneA_block_cap_compat@cref}{{[theorem][10][12]L.10}{[1][306][]306}{}{}{}}
+\newlabel{app:axioms_package}{{M}{307}{OS/Wightman theorem packet and non-triviality}{appendix.M}{}}
+\newlabel{app:axioms_package@cref}{{[section][13][]M}{[1][307][]307}{}{}{}}
+\newlabel{app:global_form_resolution}{{O}{324}{Faithful Wilson representation universality and the exact local-net endpoint}{appendix.O}{}}
+\newlabel{app:global_form_resolution@cref}{{[section][15][]O}{[1][324][]324}{}{}{}}
+\newlabel{app:referee_audit}{{P}{329}{Proof certification note, dependency guide, and theorem map}{appendix.P}{}}
+\newlabel{app:referee_audit@cref}{{[section][16][]P}{[1][329][]329}{}{}{}}
+\newlabel{subsec:packet6_mixed_channel_note}{{P.2}{332}{Packet~6 note on the mixed-channel seam}{subsection.P.2}{}}
+\newlabel{subsec:packet6_mixed_channel_note@cref}{{[subsection][2][16]P.2}{[1][332][]332}{}{}{}}
+\newlabel{subsec:hard_module_extracts}{{P.7}{341}{Satellite extracts for the three hard modules}{subsection.P.7}{}}
+\newlabel{subsec:hard_module_extracts@cref}{{[subsection][7][16]P.7}{[1][341][]341}{}{}{}}
+\newlabel{app:executive_proof_sketch}{{Q}{342}{Executive proof sketch on the public theorem spine}{appendix.Q}{}}
+\newlabel{app:executive_proof_sketch@cref}{{[section][17][]Q}{[1][342][]342}{}{}{}}
+
+
+\newlabel{thm:OS_axioms_package}{{M.1}{5}{Euclidean OS axioms for the full sharp-local theory}{theorem.M.1}{}}
+
+\newlabel{thm:OS_axioms_package@cref}{{[theorem][1][13]M.1}{[1][5][]5}{}{}{}}
+
+\newlabel{cor:OS_cluster_vacuum}{{M.2}{6}{Positive-time Euclidean clustering and vacuum uniqueness}{theorem.M.2}{}}
+
+\newlabel{cor:OS_cluster_vacuum@cref}{{[theorem][2][13]M.2}{[1][6][]6}{}{}{}}
+
+\newlabel{thm:OS_to_Wightman}{{M.3}{7}{OS/Wightman theorem package for the local gauge-invariant sharp-local theory}{theorem.M.3}{}}
+
+\newlabel{thm:OS_to_Wightman@cref}{{[theorem][3][13]M.3}{[1][7][]7}{}{}{}}
+
+\newlabel{cor:field_correspondence}{{M.4}{8}{Field correspondence for gauge-invariant local differential polynomials}{theorem.M.4}{}}
+
+\newlabel{cor:field_correspondence@cref}{{[theorem][4][13]M.4}{[1][8][]8}{}{}{}}
+
+\newlabel{cor:Minkowski_gap_from_OS}{{M.5}{9}{Minkowski energy gap from the OS spectral gap}{theorem.M.5}{}}
+
+\newlabel{cor:Minkowski_gap_from_OS@cref}{{[theorem][5][13]M.5}{[1][9][]9}{}{}{}}
+
+\newlabel{thm:faithful_Wilson_rep_universality}{{O.3}{14}{Faithful Wilson representation universality}{theorem.O.3}{}}
+
+\newlabel{thm:faithful_Wilson_rep_universality@cref}{{[theorem][3][15]O.3}{[1][14][]14}{}{}{}}
+
+\newlabel{cor:faithful_rho_gap_ledger}{{O.4}{16}{The explicit Route~1 ledger remains indexed by the auxiliary faithful regularization}{theorem.O.4}{}}
+
+\newlabel{cor:faithful_rho_gap_ledger@cref}{{[theorem][4][15]O.4}{[1][16][]16}{}{}{}}
+
+\newlabel{thm:global_form_local_endpoint}{{O.5}{17}{Exact local-net endpoint and separation from extended-support sector data}{theorem.O.5}{}}
+
+\newlabel{thm:global_form_local_endpoint@cref}{{[theorem][5][15]O.5}{[1][17][]17}{}{}{}}
+
+\newlabel{cor:global_form_main_scope}{{O.7}{18}{Main-theorem group-only local-net endpoint}{theorem.O.7}{}}
+
+\newlabel{cor:global_form_main_scope@cref}{{[theorem][7][15]O.7}{[1][18][]18}{}{}{}}

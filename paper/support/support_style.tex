@@ -1,0 +1,57 @@
+
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,tabularx,array,longtable}
+\usepackage{enumitem}
+\usepackage[table]{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{needspace}
+\usepackage{ragged2e}
+\usepackage{calc}
+
+\definecolor{Accent}{HTML}{1F4E79}
+\definecolor{AccentLight}{HTML}{EAF2F8}
+\definecolor{LineGray}{HTML}{D8E1E8}
+\definecolor{TextGray}{HTML}{48606F}
+
+\hypersetup{pdfauthor={OpenAI},pdfcreator={OpenAI}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.18}
+\setlist[itemize]{leftmargin=1.4em,itemsep=0.25em,topsep=0.35em}
+\setlist[enumerate]{leftmargin=1.6em,itemsep=0.25em,topsep=0.35em}
+
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\Centering\arraybackslash}p{#1}}
+
+\titleformat{\section}{\large\bfseries\color{Accent}}{}{0em}{}
+\titleformat{\subsection}{\normalsize\bfseries\color{Accent}}{}{0em}{}
+\titlespacing*{\section}{0pt}{1.0em}{0.45em}
+\titlespacing*{\subsection}{0pt}{0.8em}{0.3em}
+
+\newcommand{\SupportMetaBox}[1]{%
+  \begingroup
+  \setlength{\fboxsep}{8pt}%
+  \noindent\colorbox{AccentLight}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{#1}}%
+  \endgroup
+}
+
+\newcommand{\SupportTitleBlock}[3]{%
+  {\LARGE\bfseries #1\par}%
+  \vspace{0.35em}%
+  {\small\color{TextGray}#2\par}%
+  \vspace{0.8em}%
+  \SupportMetaBox{#3}%
+  \vspace{1.0em}%
+}
+
+\newcommand{\SupportLead}[1]{\textcolor{TextGray}{#1}}
+\newcommand{\ReserveOnlyNote}{\textbf{Reserve / organizational only.}}

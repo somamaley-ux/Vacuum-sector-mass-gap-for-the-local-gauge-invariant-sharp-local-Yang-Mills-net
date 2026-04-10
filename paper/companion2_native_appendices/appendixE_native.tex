@@ -1,0 +1,145 @@
+\section{Native transcription of the normalization cross-check and packet-interface file (source pp.~300--307)}
+This appendix replaces the former archival normalization / packet-interface block with a native REV\TeX{} presentation of the source conventions linking the bi-invariant metric, the Casimir and Laplace normalization, the one-loop coefficient bookkeeping, and the canonical exact-dimension quotient machinery. Its theorem-facing role in the present companion is to house the exact-dimension quotient identity and coefficient-extraction theorems (source Theorems~L.8 and~L.11) together with the Lane~A packet-interface note that freezes the distinction between the finite-truncation file, the mixed-correlator closure node, the inductive-union passage, and bounded-base cyclicity.
+
+\subsection{Threshold closure note and metric/Casimir normalization}
+The source-page range opens with the threshold closure summary and then records the normalization dictionary used throughout the Lane~A coefficient file.
+
+\begin{remark}[Source K.3 / Remark~K.1: closure statement in threshold form]
+Assume the master threshold $\beta\ge \beta_{\mathrm{master}}(G,\rho)$. Then the source architecture closes simultaneously the Lane~C unique continuum flow-bundle state, the Lane~A local gauge-invariant sharp-local OS theory, and the primary Route~1 mass-gap chain. No additional tuning parameters occur beyond the named threshold constants; any attempted enlargement of the parameter list constitutes a scope change and must be stated as a separate theorem.
+\end{remark}
+
+\begin{lemma}[Source Lemma~L.1: Laplacian/Casimir consistency]
+For the fixed bi-invariant metric, the Laplace--Beltrami operator is
+\[
+\Delta = \sum_{a=1}^{d_G}\widetilde X_a^{\,2},
+\]
+and for every irreducible unitary representation $\pi$ one has
+\[
+\Delta\chi_\pi = -C_2(\pi)\chi_\pi.
+\]
+This is the Casimir sign convention used throughout the manuscript.
+\end{lemma}
+
+\begin{definition}[Source Definition~L.2: Dynkin index relative to the fixed metric]
+Let $\sigma$ be a finite-dimensional unitary representation of $G$ with differential $\sigma_\ast$. The Dynkin index $I_\sigma$ relative to the fixed inner product is defined by
+\[
+-\operatorname{Tr}_\sigma(\sigma_\ast(X)\sigma_\ast(Y)) = I_\sigma\langle X,Y\rangle.
+\]
+\end{definition}
+
+\begin{lemma}[Source Lemma~L.3: quadratic coefficient at the identity]
+Let $\rho$ be the fixed Wilson representation. As $X\to 0$ in the Lie algebra,
+\[
+1-\frac{1}{\dim\rho}\Re\operatorname{Tr}_\rho(e^X)
+=
+\frac{I_\rho}{2\dim\rho}\|X\|^2 + O(\|X\|^3).
+\]
+Consequently the Wilson potential has Hessian
+\[
+\nabla^2 V_{\beta,\alpha}(0)=\alpha\beta\,\frac{I_\rho}{\dim\rho}I.
+\]
+\end{lemma}
+
+\begin{lemma}[Source Lemma~L.4: matching to the conventional one-loop coefficient]
+If the gradient-flow coupling satisfies $u=g^2+O(g^4)$ as $g\to 0$ and the reference coupling has beta function
+\[
+\mu\frac{dg}{d\mu} = -\frac{b_0^{\mathrm{conv}}}{16\pi^2}g^3 + O(g^5),
+\]
+then
+\[
+\beta_{\mathrm{GF}}(u)=\mu\frac{du}{d\mu} = -2\frac{b_0^{\mathrm{conv}}}{16\pi^2}u^2 + O(u^3).
+\]
+Thus the coefficient $b_0$ used in the Lane~C step-scaling lane matches the conventional one-loop coefficient after tree-level normalization; the load-bearing use remains only the strict positivity $b_0>0$ proved elsewhere.
+\end{lemma}
+
+\subsection{Packet 5--7 interface map and canonical exact-dimension quotient blocks}
+The source then freezes the Lane~A packet interface and records the canonical exact-dimension block protocol used later in the finite-truncation inverse theorem. Because these two theorems are load-bearing for the finite-cap closure route, we record the proof steps explicitly rather than only by synopsis.
+
+\begin{remark}[Source Appendix~L.5: Packet 5--7 certification note and interface map]
+For first-pass audit of Packets~5--7, the theorem-facing chain is:
+\begin{center}
+\emph{graded identity / block coefficients}
+$\Longrightarrow$
+\emph{one-shell transport + finite-truncation inverse control}
+$\Longrightarrow$
+\emph{finite-cap flowed-sector bridge}
+$\Longrightarrow$
+\emph{Lane~A closure}
+$\Longrightarrow$
+\emph{bounded-base cyclicity}.
+\end{center}
+The interface map records explicitly that Theorem~F.331 is the first mixed-correlator closure node, that the promoted theorem-facing bridge into Source Theorem~5.74 packages the positive/unital finite-cap state input, that Source Theorem~5.74(b) is only the finite-cap sharp-local OS-structure theorem, that Source Corollary~5.75 is only the bounded-state restriction compatibility node, that the inductive-union extension occurs only at Source Corollary~5.76, and that bounded-base cyclicity appears only at Source Theorem~5.77.
+\end{remark}
+
+\begin{definition}[Source Definition~L.6: canonical block norm]
+Fix an exact-dimension symmetry block with canonical basis $\{e_1,\dots,e_m\}$. For $v=\sum_{i=1}^m c_i e_i$ define
+\[
+\|v\|_{\mathrm{can}}:=\max_{1\le i\le m}|c_i|.
+\]
+The corresponding operator norm on linear maps between canonical blocks is denoted $\|\cdot\|_{\mathrm{op,can}}$.
+\end{definition}
+
+\begin{lemma}[Source Lemma~L.7: small-flow substitution respects the exact-dimension quotient]
+Let $\Gamma_t$ denote the algebra map sending each unflowed jet to its flowed counterpart. Then for every homogeneous representative $P$ of exact engineering dimension $\Delta$,
+\[
+\Gamma_t P = P + \sum_{m\ge 1} t^m P_{\Delta+2m} + R_{<\Delta},
+\]
+where each $P_{\Delta+2m}$ has exact engineering dimension $\Delta+2m$ and $R_{<\Delta}$ is lower-dimensional modulo the homogeneous quotient relations. Consequently $\Gamma_t$ descends to a well-defined map on the exact-dimension associated-graded quotient.
+\end{lemma}
+
+\begin{theorem}[Source Theorem~L.8: associated-graded identity on exact-dimension symmetry blocks]
+For every exact-dimension symmetry block $V_{\Delta,\epsilon,\lambda}$, the descended small-flow map is the identity after the canonical identification of the unflowed and flowed exact-dimension quotient blocks:
+\[
+\operatorname{gr}_\Delta(\Gamma_t)\big|_{V_{\Delta,\epsilon,\lambda}} = I_{V_{\Delta,\epsilon,\lambda}}.
+\]
+Equivalently, the tree-level small-flow matching on the exact-dimension quotient block is basis-free and exactly the identity.
+\end{theorem}
+
+\begin{lemma}[Source Lemma~L.9: coefficient extraction is well defined on arbitrary exact-dimension quotient blocks]
+Coefficient extraction on a canonical exact-dimension symmetry block depends only on the quotient class, both before and after the small-flow substitution. Under the canonical identification of the unflowed and flowed exact-dimension blocks, the extracted coefficient vector is unchanged by passing to the exact-dimension associated-graded projection.
+\end{lemma}
+
+\begin{lemma}[Source Lemma~L.10: canonical block data are cap-compatible]
+The canonical local basis, canonical flowed basis, and canonical block norm are literally the same whether a fixed exact-dimension symmetry block is viewed inside one engineering cap or any larger one. In particular, operator bounds recorded in the canonical block norm are statements about the block itself and not about the ambient truncation.
+\end{lemma}
+
+\begin{theorem}[Source Theorem~L.11: coefficient extraction theorem for arbitrary exact-dimension symmetry blocks]
+Fix an exact-dimension symmetry block and its canonical local and flowed bases. Let
+\[
+C^{\mathrm{UV,tree}}_{\Delta,\epsilon,\lambda}
+\]
+be the tree-level exact-dimension diagonal block of the UV matching matrix obtained by coefficient extraction on the canonical basis classes. Then
+\[
+C^{\mathrm{UV,tree}}_{\Delta,\epsilon,\lambda}=I.
+\]
+In particular, the exact-dimension diagonal UV matching problem on an arbitrary block is an intrinsic finite-dimensional linear-algebra problem attached to the quotient block itself, and the same matrix is seen in every engineering cap containing that block.
+\end{theorem}
+
+\begin{lemma}[Source Lemma~L.12: reference scalar normalization for the nontriviality witness]
+For the canonical CP-even scalar block, the coherent Lane~A normalization may be fixed so that the chosen positive-time reference test function satisfies unit OS norm at every dyadic scale and in every engineering cap containing the scalar block. This is the normalization later used in the canonical scalar nontriviality witness.
+\end{lemma}
+
+\begin{proof}[Proof of Source Theorem~L.8, Lemma~L.9, Lemma~L.10, and Source Theorem~L.11]
+For Theorem~L.8, start from Lemma~L.7: for any homogeneous representative $P$ of exact engineering dimension $\Delta$,
+\[
+\Gamma_t P = P + \sum_{m\ge 1} t^m P_{\Delta+2m} + R_{<\Delta},
+\]
+with each $P_{\Delta+2m}$ of exact dimension $\Delta+2m$ and $R_{<\Delta}$ lower-dimensional modulo the homogeneous quotient relations. Passing to the exact-dimension associated-graded quotient discards the higher-dimension terms and kills $R_{<\Delta}$, so the descended map on the exact-dimension quotient sends the class of $P$ to itself. Because the $(\epsilon,\lambda)$-symmetry decomposition is homogeneous, the same conclusion holds after restriction to any fixed symmetry block $V_{\Delta,\epsilon,\lambda}$, which proves
+\[
+\operatorname{gr}_{\Delta}(\Gamma_t)\big|_{V_{\Delta,\epsilon,\lambda}} = I_{V_{\Delta,\epsilon,\lambda}}.
+\]
+
+Lemma~L.9 is then immediate from the definition of the exact-dimension quotient. If $P'\equiv P$ modulo lower-dimensional terms and homogeneous quotient relations, then coefficient extraction on the canonical block depends only on the quotient class before the flow substitution. After the substitution, Lemma~L.7 shows that lower-dimensional pieces remain lower-dimensional and the relation space is preserved, so coefficient extraction on the flowed exact-dimension block is likewise representative-independent. Under the canonical identification of the unflowed and flowed exact-dimension blocks by the same complete-contraction formulas, the extracted coefficient vector is unchanged.
+
+Lemma~L.10 is a compatibility statement. The canonical local basis is fixed block-by-block before any truncation is chosen; the canonical flowed basis is obtained from the same complete-contraction formulas by replacing each curvature or derivative jet by its flowed counterpart; and the coherent renormalization scheme preserves already normalized blocks under cap enlargement. Hence the canonical bases and the canonical block norm are literally the same in every larger engineering cap.
+
+For Theorem~L.11, apply coefficient extraction to each canonical basis vector of the exact-dimension symmetry block. By Theorem~L.8 and Lemma~L.9, the small-flow image of the $q$th basis vector has exactly the same exact-dimension coefficient vector as the basis vector itself, namely the $q$th standard basis vector. Therefore the tree-level exact-dimension diagonal UV matching matrix has columns equal to the standard basis vectors and is therefore the identity:
+\[
+C^{\mathrm{UV,tree}}_{\Delta,\epsilon,\lambda}=I.
+\]
+By Lemma~L.10, the same canonical local basis, canonical flowed basis, and canonical norm are seen in every larger engineering cap, so the same matrix is obtained whenever the block is embedded in a larger truncation.
+\end{proof}
+
+\begin{remark}
+Within the architecture of the companion, this appendix is the proof home for the exact-dimension quotient package cited by the body and by the core paper. It is not itself the finite-cap closure theorem; rather, it supplies the canonical block data consumed later by the one-shell transport, finite-truncation inverse, and mixed-correlator closure files.
+\end{remark}

@@ -1,0 +1,263 @@
+In the previous subsection we defined the good-event (chart-truncated) insertion RG map $\mathcal R^{\mathrm{ins,good}}$ and reduced the A1 ``insertion RG'' burden to two explicit constants:
+the scaling gap $\Delta_{\min}$ (already fixed by extraction depth) and the one-step insertion integration constant $C_{E,\mathrm{ins}}$.
+
+We \textbf{prove} the one-step boundedness lemma stated below.
+
+\medskip
+\noindent\textbf{Lemma~\ref{lem:Eins_bound} (proved here).}
+There exists a scale-independent constant $C_{E,\mathrm{ins}}$ such that on the RG ball,
+\[
+\|\mathcal E^{\mathrm{good}}_{j+1}(u_j,K_j)J_j\|_{\mathrm{ins};j+1}\le C_{E,\mathrm{ins}}\|J_j\|_{\mathrm{ins};j},
+\]
+uniformly in dyadic scale $j$ and uniformly in $a\to0$.
+
+\medskip
+We give an explicit formula for $C_{E,\mathrm{ins}}$ in terms of the \emph{already-defined} constants and the RG ball radius of $K$.
+
+At scale $j$ the bulk effective density is
+\[
+Z_j(\varphi)=e^{-V_j(\varphi)}\big(1+K_j(\varphi)\big),
+\]
+and the good-event fluctuation expectation at step $j\to j+1$ is $\mathbb E^{\mathrm{good}}_{j+1}$ (Definition~\ref{def:E_good_ins}).
+
+Given an insertion activity $J_j$, define the pre-rescaled integrated insertion by the ratio
+\begin{equation}\label{eq:ratio}
+\widetilde J_{j+1}(\varphi)
+:=
+\frac{\mathbb E^{\mathrm{good}}_{j+1}\!\big[J_j(\varphi+\zeta)\,Z_j(\varphi+\zeta)\big]}
+{\mathbb E^{\mathrm{good}}_{j+1}\!\big[Z_j(\varphi+\zeta)\big]}.
+\end{equation}
+The one-step insertion integration operator is $\mathcal E^{\mathrm{good}}_{j+1}(u_j,K_j):J_j\mapsto \widetilde J_{j+1}$ followed by the standard polymer re-expansion.
+
+We adopt the same local functional seminorm $\|\cdot\|_j$ and polymer weights $\Gamma_j(X)$ used in Proposition~\ref{ass:seminorm_axioms}.
+The insertion norm is ( \eqref{eq:ins_norm}):
+\[
+\|J_j\|_{\mathrm{ins};j;k,K,\varepsilon}
+=\sup_{f}\sup_{X}\Gamma_j(X)^{-1}\|J_j(X;f)\|_j,
+\]
+where $f$ ranges over $\mathrm{supp}(f)\subset K$, $|f|_{C^k}\le 1$.
+
+\begin{proposition}[Integration and counting constants (proved in Proposition~\ref{ass:seminorm_axioms} and Section~\ref{sec:patching})]\label{ass:C_constants}
+There exist scale-independent constants:
+\begin{itemize}
+\item $C_E$ such that the \emph{bulk} one-step integration operator under the patched expectation is bounded on polymer activities:
+\[
+\|\mathcal E^{\mathrm{good}}_{j+1}(u_j,K_j)F_j\|_{j+1}\le C_E\|F_j\|_j,
+\]
+for all local functionals/polymers $F_j$ in the RG ball.
+\item $C_{\mathrm{prod}}$ such that $\|FG\|_j\le C_{\mathrm{prod}}\|F\|_j\|G\|_j$ (product bound).
+\item $C_{\mathrm{mark}}$ controlling the polymer re-expansion with \emph{one marked polymer} (insertion):
+the number of ways to re-expand a marked polymer configuration into a $(j+1)$-polymer is bounded by $C_{\mathrm{mark}}$
+relative to the unmarked case. One may take $C_{\mathrm{mark}}\le C_{\mathrm{count}}$ where $C_{\mathrm{count}}$ is the bulk counting constant.
+\end{itemize}
+All constants are uniform in $a\to0$ because they are established under the good-chart (chart-truncated) regime.
+\end{proposition}
+
+\paragraph{RG ball radius.}
+Let $r_K$ be the uniform bound on the bulk irrelevant activity:
+\[
+\|K_j\|_j\le r_K\qquad\text{for all }j \text{ in the AF window}.
+\]
+
+The ratio \eqref{eq:ratio} can be reduced to expectations under the \emph{convex} reference weight $e^{-V_j}$, treating $K_j$ as a perturbation.
+Define the normalized patched expectation with respect to $e^{-V_j}$:
+\begin{equation}\label{eq:EVdef}
+\mathbb E^{V,\mathrm{good}}_{j+1}[F]
+:=
+\frac{\mathbb E^{\mathrm{good}}_{j+1}\!\big[F(\varphi+\zeta)\,e^{-V_j(\varphi+\zeta)}\big]}
+{\mathbb E^{\mathrm{good}}_{j+1}\!\big[e^{-V_j(\varphi+\zeta)}\big]}.
+\end{equation}
+(This is expectation under the patched fluctuation measure reweighted by $e^{-V_j}$; on the chart regime $V_j$ is uniformly convex by Theorem~\ref{thm:uniform_convexity}.)
+
+\begin{lemma}[Ratio decomposition]\label{lem:ratio_decomp}
+For each fixed coarse field $\varphi$,
+\begin{equation}\label{eq:ratio_decomp}
+\widetilde J_{j+1}(\varphi)
+=
+\frac{\mathbb E^{V,\mathrm{good}}_{j+1}[J_j]+\mathbb E^{V,\mathrm{good}}_{j+1}[J_j K_j]}
+{1+\mathbb E^{V,\mathrm{good}}_{j+1}[K_j]}.
+\end{equation}
+Equivalently,
+\[
+\widetilde J_{j+1}=\mathbb E^{V,\mathrm{good}}_{j+1}[J_j]
++
+\frac{\mathrm{Cov}^{V,\mathrm{good}}_{j+1}(J_j,K_j)}{1+\mathbb E^{V,\mathrm{good}}_{j+1}[K_j]},
+\]
+where $\mathrm{Cov}(J,K)=\mathbb E[JK]-\mathbb E[J]\mathbb E[K]$.
+\end{lemma}
+
+\begin{proof}
+Factor $\mathbb E^{\mathrm{good}}_{j+1}[e^{-V_j}]$ out of numerator and denominator of \eqref{eq:ratio} and divide by it, yielding \eqref{eq:ratio_decomp}.
+The covariance form is obtained by adding and subtracting $\mathbb E[J]\mathbb E[K]$.
+\end{proof}
+
+\begin{lemma}[Bound on $\mathbb E^{V,\mathrm{good}}_{j+1}[K_j$] and denominator lower bound]\label{lem:denom}
+Under Proposition~\ref{ass:C_constants}, for all $j$ in the RG ball,
+\[
+\big\|\mathbb E^{V,\mathrm{good}}_{j+1}[K_j]\big\|_{j+1}\le C_E\,\|K_j\|_j\le C_E r_K.
+\]
+In particular, if $C_E r_K\le \tfrac12$, then
+\begin{equation}\label{eq:denom_lower}
+\Big\|\big(1+\mathbb E^{V,\mathrm{good}}_{j+1}[K_j]\big)^{-1}\Big\|_{j+1}\le \frac{1}{1-C_E r_K}\ \le\ 2.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+$\mathbb E^{V,\mathrm{good}}_{j+1}$ is a normalized version of the patched expectation; boundedness in the local seminorm is inherited from the bulk integration bound $C_E$.
+The inverse bound follows from the Neumann series for $(1+X)^{-1}$ when $\|X\|<1$.
+\end{proof}
+
+\begin{lemma}[Local bound for the integrated insertion]\label{lem:local_bound}
+Assume \ref{ass:C_constants} and $C_E r_K\le \tfrac12$. Then for any local insertion functional $J$ supported in a $j$-polymer $X$,
+\[
+\|\widetilde J_{j+1}\|_{j+1}
+\le
+\frac{C_E}{1-C_E r_K}\Big(\|J\|_j + C_{\mathrm{prod}}\|J\|_j\|K_j\|_j\Big)
+\ \le\ 2C_E(1+C_{\mathrm{prod}}r_K)\|J\|_j.
+\]
+\end{lemma}
+
+\begin{proof}
+From \eqref{eq:ratio_decomp} and the product bound,
+\[
+\|\mathbb E^{V,\mathrm{good}}_{j+1}[J]\|_{j+1}\le C_E\|J\|_j,\qquad
+\|\mathbb E^{V,\mathrm{good}}_{j+1}[J K_j]\|_{j+1}\le C_E\|J K_j\|_j\le C_E C_{\mathrm{prod}}\|J\|_j\|K_j\|_j.
+\]
+Multiply by the denominator inverse bound \eqref{eq:denom_lower}.
+\end{proof}
+
+We now lift the single-polymer bound to the insertion norm \eqref{eq:ins_norm}.
+
+\begin{proposition}[Insertion integration bound (one-step)]\label{prop:Eins_bound}
+Assume \ref{ass:C_constants} and $C_E r_K\le \tfrac12$.
+Then the one-step insertion integration operator satisfies
+\[
+\|\mathcal E^{\mathrm{good}}_{j+1}(u_j,K_j)J_j\|_{\mathrm{ins};j+1;k,K,\varepsilon}
+\le C_{E,\mathrm{ins}}\ \|J_j\|_{\mathrm{ins};j;k,K,\varepsilon},
+\]
+with an explicit scale-independent constant
+\begin{equation}\label{eq:CEins}
+C_{E,\mathrm{ins}}
+:= C_{\mathrm{mark}}\ \frac{C_E\,(1+C_{\mathrm{prod}}r_K)}{1-C_E r_K}
+\ \le\ 2C_{\mathrm{mark}}\,C_E\,(1+C_{\mathrm{prod}}r_K).
+\end{equation}
+All constants are uniform in $a\to0$ under the patched chart regime.
+\end{proposition}
+
+\begin{proof}
+Expand $\widetilde J_{j+1}$ as a $(j+1)$-scale insertion activity by reblocking the marked polymer $X$ into the unique $(j+1)$-polymer $Y$ that contains it,
+and summing over the finite-range neighborhoods required by the fluctuation integration. The number of such re-expansions is bounded by $C_{\mathrm{mark}}$.
+Apply Lemma~\ref{lem:local_bound} on each marked configuration and absorb the combinatorial factor into $C_{\mathrm{mark}}$.
+Finally take the supremum over $f$ in the $C^k$ unit ball; the constants do not depend on $f$.
+\end{proof}
+
+\begin{corollary}[Lemma~\ref{lem:Eins_bound} proved]\label{cor:lemEins}
+Lemma~\ref{lem:Eins_bound} holds with $C_{E,\mathrm{ins}}$ given by \eqref{eq:CEins}.
+\end{corollary}
+
+With extraction depth $d_\ast=6$, pure-gauge sectors have $\Delta_{\min}=4$, hence the one-step irrelevant contraction constant is
+\[
+\kappa_{\mathrm{ins}}=C_{E,\mathrm{ins}}\,2^{-\Delta_{\min}}=\frac{C_{E,\mathrm{ins}}}{16}.
+\]
+Thus contraction holds if $C_{E,\mathrm{ins}}<16$.
+Using \eqref{eq:CEins}, a sufficient condition is
+\[
+2C_{\mathrm{mark}}\,C_E\,(1+C_{\mathrm{prod}}r_K)\ <\ 16.
+\]
+This is an explicit finite-dimensional inequality once $(C_{\mathrm{mark}},C_E,C_{\mathrm{prod}},r_K)$ are instantiated from the bulk RG ball.
+(No numerical experimentation is required: after the constants are fixed, the condition is a deterministic verification.)
+
+\begin{theorem}[Canonical block one-shell increment]\label{thm:canonical_block_one_shell_increment}
+Fix an exact-dimension symmetry block
+\[
+\mathfrak s=(\Delta,\epsilon,\lambda)
+\]
+of Definition~\ref{def:local_operator_spaces}, together with the canonical local basis, canonical flowed basis, and canonical block norm of
+Appendix~\ref{app:normalization_crosscheck}.
+Let
+\[
+\mathbf Y_{\mathfrak s,j}(f):=\mathbf Y_{\mathfrak s,t_j}(f)
+\]
+denote the vector of canonical flowed lifts at dyadic times $t_j=2^{-2j}t_0$, ordered in the fixed canonical basis.
+Then there exist scale-independent constants $C_{\mathfrak s},C_{\mathfrak s,f}<\infty$ and, for each $j$, canonically defined linear maps
+\[
+A_{\mathfrak s,j}:\mathscr V_{\mathfrak s}\to \mathscr V_{\mathfrak s},
+\qquad
+B_{\mathfrak s\mathfrak s',j}:\mathscr V_{\mathfrak s'}\to \mathscr V_{\mathfrak s}
+\quad (\mathfrak s'\prec \mathfrak s),
+\]
+such that
+\begin{equation}\label{eq:canonical_block_one_shell}
+\mathbf Y_{\mathfrak s,j+1}(f)
+=
+\bigl(I_{\mathfrak s}+u_jA_{\mathfrak s,j}\bigr)\mathbf Y_{\mathfrak s,j}(f)
++\sum_{\mathfrak s'\prec \mathfrak s}u_j B_{\mathfrak s\mathfrak s',j}\,\mathbf Y_{\mathfrak s',j}(f)
++\mathbf Q_{\mathfrak s,j}(f),
+\end{equation}
+with
+\begin{equation}\label{eq:canonical_block_one_shell_bounds}
+\|A_{\mathfrak s,j}\|_{\mathrm{op,can}}+\sum_{\mathfrak s'\prec \mathfrak s}\|B_{\mathfrak s\mathfrak s',j}\|_{\mathrm{op,can}}
+\le C_{\mathfrak s},
+\qquad
+\|\mathbf Q_{\mathfrak s,j}(f)\|_{L^2(\|\cdot\|_{\mathrm{can}})}\le C_{\mathfrak s,f}\,u_j^2.
+\end{equation}
+Equivalently, after quotienting by the lower blocks of the grading order, the exact-dimension one-shell transport on $\mathscr V_{\mathfrak s}$ has the basis-free form
+\[
+S_j^{\mathfrak s}=I_{\mathfrak s}+u_jA_{\mathfrak s,j}+R_{\mathfrak s,j},
+\qquad
+\|R_{\mathfrak s,j}\|_{\mathrm{op,can}}\le C_{\mathfrak s}\,u_j^2.
+\]
+\end{theorem}
+
+\begin{proof}
+Fix one canonical generator in the block $\mathfrak s$.
+The flow quasi-locality theorem (Theorem~\ref{thm:flow_local_v91}) and the patched insertion decomposition at matching scale (Theorem~\ref{thm:ins_decomp}) write the shell difference between $t_j$ and $t_{j+1}$ as a finite sum of local terms supported in an $O(\sqrt{t_j})$ neighborhood of the test-function support.
+Because the local and flowed bases are written using the same complete-contraction formulas, every leading exact-dimension contribution lands back in the same block $\mathscr V_{\mathfrak s}$,
+while terms carrying extra derivatives or explicit powers of $t_j$ land only in strictly lower blocks of the grading order.
+This produces the linear maps $A_{\mathfrak s,j}$ and $B_{\mathfrak s\mathfrak s',j}$ in \eqref{eq:canonical_block_one_shell}.
+
+The coefficient size is controlled uniformly on the AF ball by Proposition~\ref{prop:Eins_bound};
+Theorem~\ref{thm:ins_to_OS} upgrades the insertion seminorm control to the OS/$L^2$ seminorm used later in Lane~A.
+The remaining terms either contain at least two shell factors or one extracted-irrelevant insertion remainder,
+and are therefore $O(u_j^2)$ in $L^2$ by Theorem~\ref{thm:ins_decomp} together with Proposition~\ref{prop:Eins_bound}.
+Since the block basis and the canonical norm are fixed once and for all (Definition~\ref{def:LaneA_canonical_block_norm}), these bounds are operator bounds on the whole block rather than coordinatewise statements.
+This yields \eqref{eq:canonical_block_one_shell_bounds}.
+The quotient formulation is simply the projection of \eqref{eq:canonical_block_one_shell} to the exact-dimension block.
+\end{proof}
+
+\begin{corollary}[Graded triangular transport on every finite engineering cap]\label{cor:graded_triangular_transport_all_blocks}
+Fix $\Delta_{\max}\ge 0$ and order all exact-dimension symmetry blocks with engineering dimension $\le \Delta_{\max}$ by the grading order used in Section~\ref{sec:sharp_local}.
+Let
+\[
+\mathbf Y^{(\le \Delta_{\max})}_j(f)
+\]
+be the direct sum of their canonical flowed lifts.
+Then there exist block-lower-triangular operators $A^{(\le \Delta_{\max})}_j$ and remainders $\mathbf Q^{(\le \Delta_{\max})}_j(f)$ such that
+\begin{equation}\label{eq:finite_cap_one_shell}
+\mathbf Y^{(\le \Delta_{\max})}_{j+1}(f)
+=
+\bigl(I+u_jA^{(\le \Delta_{\max})}_j\bigr)\mathbf Y^{(\le \Delta_{\max})}_j(f)
++\mathbf Q^{(\le \Delta_{\max})}_j(f),
+\end{equation}
+with
+\[
+\|A^{(\le \Delta_{\max})}_j\|_{\mathrm{op}}\le C_{\Delta_{\max}},
+\qquad
+\|\mathbf Q^{(\le \Delta_{\max})}_j(f)\|_{L^2}\le C_{\Delta_{\max},f}\,u_j^2.
+\]
+Moreover this block-lower-triangular transport is compatible under cap enlargement: if $\Delta'_{\max}\ge \Delta_{\max}$, the transport on the smaller cap is the restriction of that on the larger cap.
+\end{corollary}
+
+\begin{proof}
+Apply Theorem~\ref{thm:canonical_block_one_shell_increment} block-by-block and assemble the finitely many blocks into a direct sum.
+Lower-block mixing remains lower triangular after assembly, and the finite direct sum preserves the $O(u_j^2)$ remainder bound.
+Compatibility under cap enlargement is exactly Lemma~\ref{lem:LaneA_block_cap_compat}.
+\end{proof}
+
+\begin{remark}[How the insertion bound is used after the basis-free hardening]
+Proposition~\ref{prop:Eins_bound} now feeds two load-bearing steps.
+First, together with Theorem~\ref{thm:ins_decomp} and Theorem~\ref{thm:ins_to_OS}, it proves the canonical block one-shell increment theorem above,
+which is the unconditional input replacing the earlier phrase ``one-shell increment mechanism in each fixed finite operator basis'' in Theorem~\ref{thm:field_algebra_truncation}.
+Second, it continues to control the off-diagonal blocks and remainders in the Lane~A inverse/closure theorems.
+De-patching to the physical Wilson state is handled separately in Section~\ref{sec:patching} and does not alter $C_{E,\mathrm{ins}}$.
+\end{remark}

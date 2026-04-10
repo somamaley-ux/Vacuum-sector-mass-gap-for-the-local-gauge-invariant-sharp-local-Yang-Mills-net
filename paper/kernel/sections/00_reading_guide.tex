@@ -1,0 +1,21 @@
+\section*{Expert reading guide and Phase-VIII attack-line map}
+
+This kernel is meant to be attacked in the order that the proof actually carries load. The table below rewrites the earlier reading guide into the four specialist tracks used by the Phase-VIII adversarial-verification program. The frozen prompts, issue protocol, kill criteria, and final disposition log appear in Appendices~\ref{app:kernel-redteam} and~\ref{app:kernel-issue-log}.
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}p{2.65cm}p{5.35cm}p{3.9cm}@{}}
+\toprule
+\textbf{Specialist track} & \textbf{Attack prompt / read first in the kernel} & \textbf{Proof homes if more detail is needed}\\
+\midrule
+RG / lattice / cluster expansion & Read Sections~\ref{sec:uv} and \ref{sec:route1} first. Attack only Packets~1--3 plus the sole live weak-window certificate, and verify that the same-scale Wilson return is read with logarithmic-depth uniformity only. & Companion~I, Sections~1--5\\
+OS / reflection positivity / measure & Read Section~\ref{sec:laneA}, especially the finite-truncation, mixed-correlator, finite-cap bridge, and capwise OS nodes. Attack the state-construction chain and test whether positivity is ever read through anything other than bounded positive-time representatives. & Companion~II, Sections~3--7\\
+Operator / domain / reconstruction & Read Section~\ref{sec:qe3-transport} and then the reconstruction theorems in Section~\ref{sec:endpoint}. Attack the dyadic-to-all-$t$ upgrade, the density / graph-core handoff, the Hamiltonian gap transfer, and the later OS/Wightman reconstruction in that order. & Companion~I, Section~6; Companion~III, Sections~1--2\\
+Endpoint / universality / local net & Read Section~\ref{sec:endpoint} and then Section~\ref{sec:assembly}. Attack only the theorem-level endpoint: qualitative faithful-Wilson universality, the $\rho$-indexed quantitative non-claim, the effective-group descent clause, and the exclusion of extended-support sector data. & Companion~III, Sections~3--4\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For a first-pass audit, ignore everything that Appendix~\ref{app:kernel-exclusions} lists as intentionally excluded. The live proof burden is the packet route in Section~\ref{sec:kernel-spine}; the companions are proof homes, not alternate theorem routes. The Phase-VIII appendices add no mathematics. They only freeze how objections are to be stated, classified, and closed against that live theorem surface.

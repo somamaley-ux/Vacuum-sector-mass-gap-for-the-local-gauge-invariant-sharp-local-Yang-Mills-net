@@ -1,0 +1,106 @@
+
+\label{app:multiplier_bounds}
+
+This appendix supplies the proof of Proposition~\ref{prop:mult_bound} (one-step multiplier bounds).
+The argument is a finite-dimensional Lipschitz estimate for the coefficient extraction functional applied to one patched insertion RG step.
+
+\subsection*{Setup and notation}
+
+Fix a dyadic scale $j$ and consider the patched one-step insertion RG map
+\[
+\mathcal R^{\mathrm{ins,good}}_j:\ (u_j,K_j,J_j)\ \longmapsto\ J_{j+1},
+\]
+defined in Definition~\ref{def:RG_ins}.
+For each sector $*\in\{S,Q,W\}$, let $\Phi_{*,j}$ denote the normalized basis insertion at scale $j$ representing the corresponding renormalized operator $\mathcal O_*^{\mathrm{ren}}$.
+By construction of the normalization at the Gaussian fixed point, the free ($u=0,K=0$) step maps $\Phi_{*,j}$ to $\Phi_{*,j+1}$:
+\begin{equation}\label{eq:free_normalization}
+\mathcal R^{\mathrm{ins,good}}_j(0,0,\Phi_{*,j})=\Phi_{*,j+1}.
+\end{equation}
+
+Let $\mathsf{P}_{*,j+1}$ denote the bounded linear projection functional that extracts the coefficient of $\Phi_{*,j+1}$ from an insertion activity at scale $j+1$
+(i.e.\ the sectorwise component of the extraction map from Definition~\ref{def:Ext_ins}).
+Define the multiplier
+\begin{equation}\label{eq:def_M}
+M_{*,j}(u_j,K_j)\ :=\ \mathsf{P}_{*,j+1}\Big(\mathcal R^{\mathrm{ins,good}}_j(u_j,K_j,\Phi_{*,j})\Big).
+\end{equation}
+Then \eqref{eq:free_normalization} implies $M_{*,j}(0,0)=1$.
+
+\subsection*{A uniform Lipschitz bound for one insertion step}
+
+The next lemma is the only analytic input needed.
+It is a standard consequence of the product bound in the polymer seminorm, the integration bound for the one-step insertion integration operator,
+and the fact that the dependence on $(u,K)$ enters only through local factors in a bounded neighbourhood of the insertion support.
+
+\begin{lemma}[One-step Lipschitz bound in $(u,K)$]\label{lem:ins_step_Lip}
+Assume the bulk/insertion seminorm axioms from Proposition~\ref{ass:bulk_axioms} and the insertion integration bound from Lemma~\ref{lem:Eins_bound}.
+Fix radii $u_\ast>0$ and $r_K>0$ such that the one-step maps are defined on the AF polydisc
+\[
+\mathbb D_{\mathrm{AF}}:=\{(u,K):\ 0\le u\le u_\ast,\ \|K\|_j\le r_K\}.
+\]
+Then there exist constants $C_{\mathrm{Lip},u}$ and $C_{\mathrm{Lip},K}$, independent of $j$, such that for any normalized insertion basis element $\Phi_{*,j}$,
+\begin{equation}\label{eq:ins_Lip}
+\big\|\mathcal R^{\mathrm{ins,good}}_j(u,K,\Phi_{*,j})-\mathcal R^{\mathrm{ins,good}}_j(0,0,\Phi_{*,j})\big\|_{j+1}
+\ \le\ C_{\mathrm{Lip},u}\,u\ +\ C_{\mathrm{Lip},K}\,\|K\|_j,
+\qquad (u,K)\in\mathbb D_{\mathrm{AF}}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Write the one-step map as the composition (Definition~\ref{def:RG_ins})
+\[
+\mathcal R^{\mathrm{ins,good}}_j(u,K,\cdot)=\mathrm{Ext}^{\mathrm{ins}}_{j+1}\circ \mathrm{Sc}_{j+1}\circ \mathcal E^{\mathrm{good}}_{j+1}(u,K)(\cdot),
+\]
+where $\mathcal E^{\mathrm{good}}_{j+1}(u,K)$ is the patched insertion integration operator from Definition~\ref{def:E_good_ins},
+$\mathrm{Sc}_{j+1}$ is the (bounded) reblocking/rescaling operator, and $\mathrm{Ext}^{\mathrm{ins}}_{j+1}$ is the bounded extraction map.
+
+By boundedness of $\mathrm{Sc}_{j+1}$ and $\mathrm{Ext}^{\mathrm{ins}}_{j+1}$ in the insertion seminorm (constants absorbed into $C_{\mathrm{Lip},u},C_{\mathrm{Lip},K}$),
+it suffices to bound the difference at the level of $\mathcal E^{\mathrm{good}}_{j+1}$.
+The dependence of $\mathcal E^{\mathrm{good}}_{j+1}(u,K)$ on $(u,K)$ enters through local factors multiplying the integrand in the fluctuation expectation;
+hence, for any local insertion functional $F$ supported in the insertion neighbourhood, the fundamental theorem of calculus gives
+\[
+\mathcal E^{\mathrm{good}}_{j+1}(u,K)F-\mathcal E^{\mathrm{good}}_{j+1}(0,0)F
+=\int_0^1 \frac{d}{d\theta}\,\mathcal E^{\mathrm{good}}_{j+1}(\theta u,\theta K)F\ d\theta.
+\]
+Differentiating produces one insertion of the bulk marginal interaction (weighted by $u$) and one insertion of $K$.
+Using the product bound in Proposition~\ref{ass:bulk_axioms} and the insertion integration bound in Lemma~\ref{lem:Eins_bound},
+these insertions cost at most a factor $C_{\mathrm{Lip},u}\,u$ and $C_{\mathrm{Lip},K}\,\|K\|_j$, uniformly in $j$.
+Since the basis insertions $\Phi_{*,j}$ are normalized, this yields \eqref{eq:ins_Lip}.
+\end{proof}
+
+\subsection*{Proof of the multiplier bounds}
+
+\begin{proof}[Proof of Proposition~\ref{prop:mult_bound}]
+Fix a sector $*\in\{S,Q,W\}$ and write $M_{*,j}(u,K)$ as in \eqref{eq:def_M}.
+By boundedness of the coefficient projection functional $\mathsf P_{*,j+1}$ (a finite-dimensional component of the extraction map),
+there exists a constant $C_{\mathrm{proj},*}$ independent of $j$ such that
+\begin{align*}
+|M_{*,j}(u,K)-1|
+&=\Big|\mathsf P_{*,j+1}\big(\mathcal R^{\mathrm{ins,good}}_j(u,K,\Phi_{*,j})-\mathcal R^{\mathrm{ins,good}}_j(0,0,\Phi_{*,j})\big)\Big|\\
+&\le C_{\mathrm{proj},*}\,\big\|\mathcal R^{\mathrm{ins,good}}_j(u,K,\Phi_{*,j})-\mathcal R^{\mathrm{ins,good}}_j(0,0,\Phi_{*,j})\big\|_{j+1}.
+\end{align*}
+Apply Lemma~\ref{lem:ins_step_Lip} to bound the RHS by
+\[
+C_{\mathrm{proj},*}\,(C_{\mathrm{Lip},u}\,u + C_{\mathrm{Lip},K}\,\|K\|_j).
+\]
+On the AF ball we also have the stable-manifold forcing bound for the bulk activity
+(see Lemma~\ref{lem:K_bound} and \eqref{eq:K_forcing_bound}):
+\[
+\|K_j\|_j\le \frac{C_F}{1-\kappa}\,u_\ast^2 \le \frac{C_F}{1-\kappa}\,u_\ast\,u_j,
+\qquad (u_j\le u_\ast).
+\]
+Therefore
+\[
+|M_{*,j}(u_j,K_j)-1|
+\le C_{\mathrm{proj},*}\Big(C_{\mathrm{Lip},u}+\frac{C_{\mathrm{Lip},K}C_F}{1-\kappa}\,u_\ast\Big)\,u_j.
+\]
+Define
+\[
+C_{M,*}:=C_{\mathrm{proj},*}\Big(C_{\mathrm{Lip},u}+\frac{C_{\mathrm{Lip},K}C_F}{1-\kappa}\,u_\ast\Big),
+\]
+and the first and third bounds in \eqref{eq:M_bounds} follow.
+The CP-odd bound is obtained in the same way (with the corresponding projection constant $C_{\mathrm{proj},Q}$),
+yielding $|M_{Q,j}-1|\le C_{M,Q}u_j$.
+
+Finally, choose $u_\ast\le\min\{(2C_{M,S})^{-1},(2C_{M,W})^{-1}\}$.
+Then for $u_j\le u_\ast$ we have $|M_{S,j}|\ge 1-|M_{S,j}-1|\ge 1/2$, and similarly for $M_{W,j}$.
+\end{proof}

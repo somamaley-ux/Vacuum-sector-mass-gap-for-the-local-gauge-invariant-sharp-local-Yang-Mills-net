@@ -1,0 +1,264 @@
+\label{app:discrete_heat_kernel}
+
+This appendix provides uniform (in the lattice spacing $a$) Gaussian off-diagonal bounds for the lattice heat kernel of the discrete Laplacian $\Delta_a$ and for its finite-difference derivatives, in the diffusive scaling regime relevant to the present construction (compactly supported observables at fixed positive Euclidean times). These are discrete analogues of Aronson-type Gaussian bounds; see e.g.\ \cite{Aronson1967,Davies1989} for the continuum theory.
+Fix $d\ge 1$. For lattice spacing $a>0$, define the (nearest-neighbour) discrete Laplacian on $a\mathbb Z^d$ by
+\begin{equation}\label{eq:disc_lap}
+(\Delta_a f)(x):=a^{-2}\sum_{j=1}^d\Big(f(x+a e_j)+f(x-a e_j)-2f(x)\Big).
+\end{equation}
+Let $T_a(t):=e^{t\Delta_a}$ be the associated strongly continuous contraction semigroup on $\ell^2(a\mathbb Z^d,a^d\sum)$.
+Its integral kernel $p_t^{(a)}(x,y)$ is defined by
+\[
+(T_a(t)f)(x)=a^d\sum_{y\in a\mathbb Z^d} p_t^{(a)}(x,y)f(y).
+\]
+Translation invariance gives $p_t^{(a)}(x,y)=p_t^{(a)}(0,y-x)$.
+
+\begin{lemma}[Scaling reduction to $a=1$]\label{lem:scaling_a1}
+Let $x=a x'$, $y=a y'$ with $x',y'\in\mathbb Z^d$ and set $\tau:=t/a^2$.
+Then
+\begin{equation}\label{eq:scaling_kernel}
+p_t^{(a)}(x,y)=a^{-d}\,p_{\tau}^{(1)}(x',y'),
+\qquad
+p_{\tau}^{(1)}(x',y'):=p_{\tau}^{(1)}(0,y'-x').
+\end{equation}
+Moreover, for any finite-difference operator of order $m$ in the $x$-variable,
+\begin{equation}\label{eq:scaling_der}
+(\nabla_{a,x})^m p_t^{(a)}(x,y)=a^{-d-m}\,(\nabla_x)^m p_{\tau}^{(1)}(x',y').
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Under the change of variables $x=a x'$, $t=a^2\tau$, one checks directly from \eqref{eq:disc_lap} that
+$\Delta_a(f\circ a)(x')=(\Delta_1 f)(x')/a^2$.
+Therefore $e^{t\Delta_a}=e^{\tau\Delta_1}$ under the pullback.
+The kernel identity \eqref{eq:scaling_kernel} follows by comparing the integral-kernel representations with respect to the measures
+$a^d\sum_{x\in a\mathbb Z^d}$ and $\sum_{x'\in\mathbb Z^d}$.
+Finite-difference scaling \eqref{eq:scaling_der} is immediate because each discrete derivative contributes a factor $a^{-1}$.
+\end{proof}
+
+Hence it suffices to prove bounds for the $a=1$ kernel on $\mathbb Z^d$ and then rescale.
+
+For $a=1$ the discrete Laplacian is
+\[
+(\Delta f)(x)=\sum_{j=1}^d(f(x+e_j)+f(x-e_j)-2f(x)).
+\]
+Its Fourier symbol on the torus $[-\pi,\pi]^d$ is
+\[
+\lambda(k):=2\sum_{j=1}^d(1-\cos k_j)\in[0,4d].
+\]
+The heat kernel admits the standard Fourier representation:
+\begin{equation}\label{eq:fourier_kernel}
+p_t(z)=(2\pi)^{-d}\int_{[-\pi,\pi]^d} e^{-t\lambda(k)}e^{i k\cdot z}\,dk,
+\qquad z\in\mathbb Z^d,\ t>0,
+\end{equation}
+where we abbreviate $p_t(z):=p_t^{(1)}(0,z)$.
+
+\begin{lemma}[On-diagonal bound]\label{lem:on_diag}
+There exists $C_d<\infty$ such that for all $t>0$,
+\[
+p_t(0)\le C_d\,(1+t)^{-d/2}.
+\]
+\end{lemma}
+
+\begin{proof}
+By \eqref{eq:fourier_kernel},
+\[
+p_t(0)=(2\pi)^{-d}\int_{[-\pi,\pi]^d} e^{-t\lambda(k)}\,dk.
+\]
+There exist constants $c_1,c_2>0$ (depending only on $d$) such that
+\begin{equation}\label{eq:lambda_quad}
+c_1|k|^2\le \lambda(k)\le c_2|k|^2\qquad\text{for }|k|\le 1,
+\end{equation}
+because $1-\cos u\sim u^2/2$ as $u\to0$.
+Also $\lambda(k)\ge c_0>0$ for $|k|\ge 1$ (compactness).
+Split the integral into $\{|k|\le 1\}$ and $\{|k|>1\}$:
+\[
+\int_{|k|\le 1} e^{-t\lambda(k)}dk\le \int_{|k|\le 1} e^{-c_1 t|k|^2}dk \le C t^{-d/2},
+\]
+and
+\[
+\int_{|k|>1} e^{-t\lambda(k)}dk \le (2\pi)^d e^{-c_0 t}.
+\]
+For $t\ge 1$ this yields $p_t(0)\le C_d t^{-d/2}$; for $t\in(0,1)$ we have $p_t(0)\le 1\le C_d(1+t)^{-d/2}$ after enlarging $C_d$.
+\end{proof}
+
+The next bound is the discrete analogue of the Davies ``exponential tilting'' estimate and is proved by a contour-shift on the torus.
+
+\begin{lemma}[Tilt bound]\label{lem:tilt}
+For any $t>0$, $z\in\mathbb Z^d$, and any $\theta\in\mathbb R^d$,
+\begin{equation}\label{eq:tilt_bound}
+|p_t(z)|
+\le
+p_t(0)\,
+\exp\!\Big(-\theta\cdot z + 2t\sum_{j=1}^d(\cosh \theta_j-1)\Big).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Consider the integrand in \eqref{eq:fourier_kernel} as a function of the complex variable $k\in\mathbb C^d$.
+It is entire and $2\pi$-periodic in each real component.
+Fix $\theta\in\mathbb R^d$ and shift the contour $k\mapsto k+i\theta$ (componentwise).
+Periodic cancellation of boundary contributions yields
+\[
+p_t(z)
+=
+(2\pi)^{-d}\int_{[-\pi,\pi]^d} e^{-t\lambda(k+i\theta)}e^{i(k+i\theta)\cdot z}\,dk
+=
+e^{-\theta\cdot z}(2\pi)^{-d}\int_{[-\pi,\pi]^d} e^{-t\lambda(k+i\theta)}e^{ik\cdot z}\,dk.
+\]
+Taking absolute values and using $|e^{ik\cdot z}|=1$ gives
+\[
+|p_t(z)|
+\le
+e^{-\theta\cdot z}(2\pi)^{-d}\int_{[-\pi,\pi]^d} e^{-t\,\mathrm{Re}\,\lambda(k+i\theta)}\,dk.
+\]
+For each component,
+\[
+\begin{aligned}
+\mathrm{Re}\,(1-\cos(k_j+i\theta_j))
+&=1-\cos k_j\cosh\theta_j\\
+&=(1-\cos k_j)\cosh\theta_j-(\cosh\theta_j-1)\\
+&\ge (1-\cos k_j)-(\cosh\theta_j-1).
+\end{aligned}
+\]
+since $\cosh\theta_j\ge 1$.
+Summing over $j$ yields
+\[
+\mathrm{Re}\,\lambda(k+i\theta)\ge \lambda(k)-2\sum_{j=1}^d(\cosh\theta_j-1).
+\]
+Therefore
+\[
+e^{-t\,\mathrm{Re}\,\lambda(k+i\theta)}
+\le
+\exp\!\Big(2t\sum_{j=1}^d(\cosh\theta_j-1)\Big)\,e^{-t\lambda(k)}.
+\]
+Insert into the integral and recognize $p_t(0)$:
+\[
+\begin{aligned}
+|p_t(z)|
+&\le e^{-\theta\cdot z}\exp\!\Big(2t\sum_{j=1}^d(\cosh\theta_j-1)\Big)
+(2\pi)^{-d}\int_{[-\pi,\pi]^d}e^{-t\lambda(k)}\,dk\\
+&=p_t(0)\exp\!\Big(-\theta\cdot z + 2t\sum_{j=1}^d(\cosh\theta_j-1)\Big).
+\end{aligned}
+\]
+\end{proof}
+
+\begin{proposition}[Gaussian regime for $|z|\le t$]\label{prop:gauss_regime}
+There exist constants $c_d,C_d<\infty$ such that for all $t>0$ and all $z\in\mathbb Z^d$ with $|z|\le t$,
+\begin{equation}\label{eq:gauss_regime}
+|p_t(z)|\le C_d\,t^{-d/2}\exp\!\Big(-c_d\,\frac{|z|^2}{t}\Big).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Assume $|z|\le t$.
+Choose $\theta_j:=z_j/(4t)$.
+Then $|\theta_j|\le 1/4$, and for $|u|\le 1/4$ we have $\cosh u-1\le u^2$.
+Apply Lemma~\ref{lem:tilt}:
+\[
+|p_t(z)|\le p_t(0)\exp\!\Big(-\sum_{j=1}^d\frac{z_j^2}{4t}+2t\sum_{j=1}^d\frac{z_j^2}{16t^2}\Big)
+=
+p_t(0)\exp\!\Big(-\frac{|z|^2}{8t}\Big).
+\]
+Use Lemma~\ref{lem:on_diag} to bound $p_t(0)\le C_d t^{-d/2}$ for $t\ge 1$.
+For $t\in(0,1)$, the condition $|z|\le t$ forces $z=0$, and \eqref{eq:gauss_regime} reduces to the on-diagonal bound.
+Thus \eqref{eq:gauss_regime} holds for all $t>0$ (after adjusting $C_d$), with $c_d=1/8$.
+\end{proof}
+
+Let $\nabla_j$ denote the unit-lattice forward difference in the $j$-th coordinate: $(\nabla_j f)(x)=f(x+e_j)-f(x)$.
+For a multi-index $\alpha$ of length $m$, write $\nabla^\alpha=\nabla_{\alpha_1}\cdots \nabla_{\alpha_m}$.
+
+\begin{lemma}[Fourier multipliers for differences]\label{lem:diff_multiplier}
+For any $m\ge 0$ and any multi-index $\alpha$ of length $m$,
+\[
+(\nabla^\alpha p_t)(z)=(2\pi)^{-d}\int_{[-\pi,\pi]^d} e^{-t\lambda(k)}\,M_\alpha(k)\,e^{ik\cdot z}\,dk,
+\qquad
+M_\alpha(k):=\prod_{\ell=1}^m\big(e^{ik_{\alpha_\ell}}-1\big).
+\]
+Moreover, $|M_\alpha(k)|\le |k|^m e^{m\pi}$ on $[-\pi,\pi]^d$.
+\end{lemma}
+
+\begin{proof}
+Each forward difference contributes a factor $(e^{ik_j}-1)$ in Fourier space.
+The bound follows from $|e^{iu}-1|\le e^{|u|}|u|$ and $|u|\le \pi$.
+\end{proof}
+
+\begin{proposition}[Difference-derivative Gaussian regime]\label{prop:diff_gauss}
+Fix an integer $m_{\max}\ge 0$.
+There exist constants $c_d\in(0,1)$ and, for each $m\in\{0,1,\dots,m_{\max}\}$, constants $C_{d,m}<\infty$
+such that for all $t>0$, all $z\in\mathbb Z^d$ with $|z|\le t$, and all $|\alpha|=m\le m_{\max}$,
+\begin{equation}\label{eq:diff_gauss}
+|\nabla^\alpha p_t(z)|
+\le
+C_{d,m}\,t^{-(d+m)/2}\exp\!\Big(-c_d\,\frac{|z|^2}{t}\Big).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Fix $|\alpha|=m$. Use Lemma~\ref{lem:diff_multiplier} and repeat the contour-shift argument of Lemma~\ref{lem:tilt}:
+for $\theta\in\mathbb R^d$,
+\[
+|\nabla^\alpha p_t(z)|
+\le
+e^{-\theta\cdot z}(2\pi)^{-d}\int_{[-\pi,\pi]^d} e^{-t\,\mathrm{Re}\,\lambda(k+i\theta)}\,|M_\alpha(k+i\theta)|\,dk.
+\]
+As in Lemma~\ref{lem:tilt},
+$e^{-t\,\mathrm{Re}\,\lambda(k+i\theta)}\le e^{2t\sum(\cosh\theta_j-1)}e^{-t\lambda(k)}$.
+Also $|M_\alpha(k+i\theta)|\le C_m(|k|+|\theta|)^m$ for $|\theta|\le 1/4$,
+with $C_m$ depending only on $m$.
+Choose $\theta_j=z_j/(4t)$ (so $|\theta|\le 1/4$ when $|z|\le t$) and proceed as in Proposition~\ref{prop:gauss_regime} to obtain the exponential factor
+$\exp(-|z|^2/(8t))$.
+
+It remains to bound the integral
+\[
+\int_{[-\pi,\pi]^d} (|k|+|\theta|)^m e^{-t\lambda(k)}\,dk.
+\]
+Split into $|k|\le 1$ and $|k|>1$ and use \eqref{eq:lambda_quad} to compare $\lambda(k)\gtrsim |k|^2$ on $|k|\le 1$.
+A standard Gaussian-moment bound gives
+$\int_{|k|\le 1} |k|^m e^{-c t|k|^2}dk \le C_{d,m} t^{-(d+m)/2}$,
+while the $|k|>1$ region is exponentially small in $t$.
+Since $|\theta|\lesssim |z|/t\le 1$ in the regime $|z|\le t$, the contribution of $|\theta|^m$ is absorbed into the constant.
+Thus \eqref{eq:diff_gauss} follows.
+\end{proof}
+
+We now translate the $a=1$ bounds into a uniform-in-$a$ statement in continuum variables.
+
+\begin{theorem}[Uniform lattice heat-kernel bounds in continuum variables]\label{thm:lattice_gauss_uniform}
+Fix $d=4$, a time horizon $t_\ast>0$, a radius $R>0$, and an integer $m_{\max}\ge 0$.
+Then there exist constants $a_0\in(0,1)$, $c\in(0,1)$, and constants $C_m<\infty$ for $m=0,1,\dots,m_{\max}$
+(depending only on $(d,t_\ast,R,m_{\max})$) such that the following holds.
+
+For all lattice spacings $a\in(0,a_0]$, all $0<s<t\le t_\ast$ with $t-s\ge a^2$, and all $x,y\in a\mathbb Z^4$ with $|x-y|\le R$,
+the lattice heat kernel of $\Delta_a$ satisfies
+\begin{align}
+|p_{t-s}^{(a)}(x,y)|
+&\le
+C_0\,(t-s)^{-2}\exp\!\Big(-c\,\frac{|x-y|^2}{t-s}\Big),\\
+|(\nabla_{a,x})^m p_{t-s}^{(a)}(x,y)|
+&\le
+C_m\,(t-s)^{-(2+m/2)}\exp\!\Big(-c\,\frac{|x-y|^2}{t-s}\Big),
+\qquad m\le m_{\max}.
+\end{align}
+\end{theorem}
+
+\begin{proof}
+Set $\tau:=(t-s)/a^2$ and $z:=(x-y)/a\in\mathbb Z^4$.
+Then $|z|=|x-y|/a$ and $\tau\ge 1$.
+Choose $a_0:=t_\ast/R$ (or any smaller value) so that for all $a\le a_0$ and $t-s\le t_\ast$ we have
+\[
+|z|=\frac{|x-y|}{a}\le \frac{R}{a}\le \frac{t_\ast}{a^2}\le \tau,
+\]
+i.e.\ $|z|\le \tau$.
+Apply Proposition~\ref{prop:gauss_regime} (with $d=4$) and Proposition~\ref{prop:diff_gauss} to the unit-lattice kernel at time $\tau$ and displacement $z$,
+and rescale via Lemma~\ref{lem:scaling_a1}:
+\[
+p_{t-s}^{(a)}(x,y)=a^{-4}p_{\tau}(z),
+\qquad
+(\nabla_{a,x})^m p_{t-s}^{(a)}(x,y)=a^{-4-m}\,(\nabla^m p_{\tau})(z).
+\]
+Since $\tau=(t-s)/a^2$ and $|z|^2/\tau=|x-y|^2/(t-s)$, the factors combine to give the displayed bounds with constants independent of $a$.
+\end{proof}
+
+\paragraph{Use in Lane~A flow localization.}
+In the present project, all flowed observables are supported in a fixed compact region and all times satisfy $0<t\le t_\ast$.
+Therefore Theorem~\ref{thm:lattice_gauss_uniform} supplies exactly the uniform-in-$a$ lattice heat-kernel input needed in to extend the parametrix method
+to the discrete DeTurck linearization.

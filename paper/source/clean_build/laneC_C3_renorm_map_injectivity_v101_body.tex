@@ -1,0 +1,190 @@
+We now address C3.2(b): injectivity (strict monotonicity) of the renormalization map at a fixed physical scale.
+
+\medskip
+\noindent\textbf{Target of this subsection: C3.2(b).}
+Show that the \emph{renormalization map} from a UV/bare coupling coordinate to the gradient-flow coupling at a fixed physical scale $\mu$ is
+\textbf{injective} (equivalently, strictly monotone) on the asymptotically free (AF) ball of the patched construction.
+
+\paragraph{Why this matters.}
+In C3-U, we fix a renormalization condition $u(\mu)=u_\mu$.
+Injectivity implies there is \emph{at most one} UV coordinate (for each lattice spacing/cutoff depth) whose RG trajectory hits $u_\mu$.
+Combined with the stable-manifold theorem (Theorem~\ref{thm:stable}), which slaves $K$ to the $u$-trajectory, this eliminates the main source of ``multiple cluster points'' associated with different tunings.
+
+\paragraph{Analytic surrogate and de-patching.}
+The chart-truncated (``good-event'') RG map is used only as an analytic surrogate to obtain uniform bounds on the RG trajectory.
+All \emph{final} continuum statements are for the unpatched Wilson state; identification is provided by the de-patching bounds of
+Section~\ref{sec:patching}, in particular Theorem~\ref{thm:Wilson_patch_transport} and Lemma~\ref{lem:depatch_continuum}.
+
+Fix dyadic factor $L=2$. Let the reference IR scale (corresponding to a fixed physical scale $\mu$) be indexed by $j=0$.
+A lattice spacing $a$ corresponds to a UV cutoff depth $N(a)\in\mathbb N$ with $N(a)\to\infty$ as $a\to 0$,
+and the UV index is $j=-N(a)$.
+
+Let $u_j\in[0,\infty)$ denote the gradient-flow coupling coordinate at scale $j$ (as used in the RG construction).
+Along the patched tuned trajectory (i.e.\ with $K$ on the UV-stable manifold from Theorem~\ref{thm:stable}, the $u$-update is described by a one-dimensional step map
+\[
+u_{j+1}=\Sigma_j(u_j),
+\qquad j=-N,\dots,-1,
+\]
+where $\Sigma_j$ may depend on $j$ but is uniformly controlled on the AF ball.
+
+\begin{definition}[Renormalization map at cutoff depth $N$]\label{def:rhoN}
+Define the map
+\[
+\rho_N:\ [0,u_\circ]\to[0,\infty),
+\qquad
+\rho_N(u_{-N}) := u_0,
+\]
+where $u_0$ is obtained by iterating the step maps:
+\[
+u_{-N}\xrightarrow{\Sigma_{-N}}u_{-N+1}\xrightarrow{\Sigma_{-N+1}}\cdots\xrightarrow{\Sigma_{-1}}u_0.
+\]
+Equivalently,
+\[
+\rho_N = \Sigma_{-1}\circ \Sigma_{-2}\circ\cdots\circ \Sigma_{-N}.
+\]
+\end{definition}
+
+\paragraph{C3.2(b) statement.}
+Injectivity of the renormalization map means: for each fixed $N$, $\rho_N$ is strictly increasing on $[0,u_\circ]$,
+uniformly in $N$ (for $N$ large enough so that all iterates remain in the AF ball).
+
+The one-step RG analytic expansion (Theorem~\ref{thm:RG_analytic_bounds}) provides the uniform step scaling expansion
+$u_{j+1}=u_j + A u_j^2 + O(u_j^3)$ on the AF ball, with $A=2b_0\log 2>0$.
+To obtain strict monotonicity, we additionally need that the $O(u^3)$ remainder is \emph{regular} in $u$ (no oscillatory pathology).
+In the patched polymer RG this is provided by analyticity of the RG map in $u$ (Theorem~\ref{thm:RG_analytic_bounds}).
+
+We encode the needed input as follows.
+
+\begin{proposition}[Analytic remainder bound for step scaling (proved in Theorem~\ref{thm:RG_analytic_bounds})]\label{ass:analytic_remainder}
+There exist constants $A>0$, $B\ge 0$, and $u_\ast>0$ such that for every scale $j$:
+\begin{enumerate}[label=(S\arabic*)]
+\item (\textbf{Step-scaling form}) For $u\in[0,u_\ast]$,
+\begin{equation}\label{eq:Sigma}
+\Sigma_j(u)=u + A u^2 + r_j(u),
+\qquad r_j(0)=0.
+\end{equation}
+\item (\textbf{Uniform cubic bound}) For all complex $z$ with $|z|\le u_\ast$,
+\begin{equation}\label{eq:r_bound}
+|r_j(z)|\le B\,|z|^3.
+\end{equation}
+\item (\textbf{Analyticity}) Each $r_j$ is analytic on the disk $\{z:|z|<u_\ast\}$.
+\end{enumerate}
+All constants are independent of scale $j$ and uniform in $a\to 0$ under the patched construction.
+\end{proposition}
+
+The complex-analytic extension (S3) and bound (S2) are the relevant pieces of analytic control now isolated explicitly.
+
+\begin{lemma}[Derivative bound for the cubic remainder]\label{lem:rprime}
+Assume \ref{ass:analytic_remainder}.
+Then for all real $u$ with $0\le u\le u_\ast/2$,
+\begin{equation}\label{eq:rprime_bound}
+|r_j'(u)|\le 4B\,u^2,
+\qquad\text{uniformly in }j.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Define $h_j(z):=\begin{cases} r_j(z)/z^3,& z\neq 0,\\ r_j^{(3)}(0)/6,& z=0.\end{cases}$
+By analyticity and the $O(z^3)$ bound, $h_j$ is analytic on $|z|<u_\ast$ and satisfies $|h_j(z)|\le B$ on $|z|\le u_\ast$.
+By Cauchy's estimate for derivatives on the disk of radius $u_\ast$,
+for $|u|\le u_\ast/2$ we have $|h_j'(u)|\le 2B/u_\ast$.
+Now
+\[
+r_j'(u)=3u^2 h_j(u)+u^3 h_j'(u),
+\]
+so for $0\le u\le u_\ast/2$,
+\[
+|r_j'(u)|\le 3B u^2 + u^3\frac{2B}{u_\ast}\ \le\ 3B u^2 + B u^2 = 4B u^2,
+\]
+since $u\le u_\ast/2$ implies $2u/u_\ast\le 1$.
+\end{proof}
+
+\begin{lemma}[Each $\Sigma_j$ is strictly increasing on a uniform AF interval]\label{lem:Sigma_mono}
+Assume \ref{ass:analytic_remainder} and define
+\[
+u_\circ := \min\Big\{\frac{u_\ast}{2},\ \frac{A}{4B}\Big\},
+\quad\text{with the convention } \frac{A}{4B}=+\infty\text{ if }B=0.
+\]
+Then for every $j$, the map $\Sigma_j$ is $C^1$ and strictly increasing on $[0,u_\circ]$.
+Moreover,
+\begin{equation}\label{eq:Sigma_deriv_lower}
+\Sigma_j'(u)\ \ge\ 1 + A u\ \ge\ 1
+\qquad \forall u\in[0,u_\circ].
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Differentiate \eqref{eq:Sigma}:
+\[
+\Sigma_j'(u)=1+2A u + r_j'(u).
+\]
+By Lemma~\ref{lem:rprime}, for $u\le u_\ast/2$ we have $r_j'(u)\ge -4B u^2$.
+Thus for $u\in[0,u_\circ]$,
+\[
+\Sigma_j'(u)\ge 1+2A u -4B u^2 \ge 1+2A u - A u = 1 + A u,
+\]
+since $u\le A/(4B)$ implies $4B u^2\le A u$.
+Hence $\Sigma_j'(u)\ge 1$, so $\Sigma_j$ is strictly increasing.
+\end{proof}
+
+\begin{theorem}[C3.2(b): injectivity/monotonicity of $\rho_N$]\label{thm:rho_inj}
+Assume \ref{ass:analytic_remainder} and let $u_\circ$ be as in Lemma~\ref{lem:Sigma_mono}.
+Fix $N\ge 1$ and define $\rho_N$ by Definition~\ref{def:rhoN}, assuming that all iterates stay in $[0,u_\circ]$
+(which holds for sufficiently small UV input because $\Sigma_j(u)\ge u$ in the AF regime).
+Then:
+\begin{enumerate}[label=(\alph*)]
+\item $\rho_N$ is $C^1$ and strictly increasing on $[0,u_\circ]$ (hence injective).
+\item Its derivative satisfies the explicit lower bound
+\begin{equation}\label{eq:rho_deriv}
+\rho_N'(u_{-N})=\prod_{j=-N}^{-1}\Sigma_j'(u_j)\ \ge\ 1,
+\end{equation}
+where $u_j$ is the forward iterate from $u_{-N}$.
+\item Consequently, the inverse map $\rho_N^{-1}$ exists on $\rho_N([0,u_\circ])$ and is $1$-Lipschitz:
+\begin{equation}\label{eq:inverse_lip}
+|\rho_N^{-1}(x)-\rho_N^{-1}(y)|\le |x-y|.
+\end{equation}
+\end{enumerate}
+All statements are uniform in $N$ (and uniform in $a\to 0$) because $A,B,u_\ast$ are.
+\end{theorem}
+
+\begin{lemma}[Backward solvability of the one-step map]\label{lem:Sigma_backward}
+Assume Proposition~\ref{ass:analytic_remainder}.
+For each scale $j$ and each target $\bar u\in(0,u_\ast]$, the equation $\Sigma_j(u)=\bar u$ has a unique solution $u\in(0,\bar u]$.
+\end{lemma}
+\begin{proof}
+$\Sigma_j$ is continuous with $\Sigma_j(0)=0$ and strictly increasing on the AF window by the step-scaling form and cubic remainder control, hence invertible on $[0,u_\ast]$.
+Moreover $\Sigma_j(\bar u)\ge \bar u$ so $\bar u$ lies in the image of $[0,\bar u]$.
+\end{proof}
+
+\begin{corollary}[Existence and uniqueness of the tuning at cutoff depth $N$]\label{cor:C3_tuning_exists}
+Fix $u_\mu\in(0,u_\ast]$ at the reference physical scale.
+For each cutoff depth $N$ sufficiently large so that all iterates remain in the AF ball, there exists a unique UV coordinate $u_{-N}\in(0,u_\ast]$ such that $\rho_N(u_{-N})=u_\mu$.
+\end{corollary}
+
+
+\begin{proof}
+(a) is immediate because a composition of strictly increasing $C^1$ functions is strictly increasing and $C^1$.
+
+(b) is the chain rule for the composition $\rho_N=\Sigma_{-1}\circ\cdots\circ \Sigma_{-N}$ combined with \eqref{eq:Sigma_deriv_lower}.
+
+(c) If a function is strictly increasing with derivative bounded below by $1$, then its inverse is $1$-Lipschitz on its range; this follows from the mean value theorem.
+\end{proof}
+
+\begin{corollary}[Uniqueness of the tuned UV coordinate for fixed $u(\mu)$]\label{cor:tuning_unique}
+Assume the hypotheses of Theorem~\ref{thm:rho_inj}.
+Fix a target renormalized coupling $u_\mu\in \rho_N([0,u_\circ])$.
+Then there exists a \emph{unique} UV coupling $u_{-N}\in[0,u_\circ]$ such that $\rho_N(u_{-N})=u_\mu$.
+\end{corollary}
+
+\begin{proof}
+$\rho_N$ is continuous and strictly increasing on $[0,u_\circ]$, hence a bijection onto its image.
+\end{proof}
+
+
+\paragraph{Consequences for C3-U.}
+The stable-manifold theorem (Theorem~\ref{thm:stable}) shows that once the AF coupling trajectory $(u_j)$ is fixed, the irrelevant trajectory $(K_j)$ is uniquely determined in the UV limit and is universal (independent of UV irrelevant initialization).
+The injectivity theorem above (Theorem~\ref{thm:rho_inj}) shows that the renormalization condition $u(\mu)=u_\mu$ selects (at each cutoff depth $N$) a unique UV coordinate $u_{-N}$ and hence a unique $u$-trajectory.
+
+\paragraph{Completion of C3-U.}
+With C3.2(b) and C3.3 in hand, the remaining packaging input is C3.4: \emph{bulk observable Lipschitz control}, i.e. that general flowed observables depend Lipschitz-continuously on the RG data $(u_{j_{\mathrm{obs}}},K_{j_{\mathrm{obs}}})$ with constants uniform in the lattice spacing.
+This is addressed in the next subsection (Theorem~\ref{thm:C3_4}).

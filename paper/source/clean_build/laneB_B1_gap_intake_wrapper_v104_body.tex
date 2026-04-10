@@ -1,0 +1,136 @@
+\begin{quote}
+\emph{Lane B1 is the downstream OS intake wrapper: it converts a Euclidean exponential clustering estimate into a spectral-gap statement for the OS Hamiltonian. It is included as a reformulation of the vacuum-gap statement already proved on the primary Route~1 spine in Appendix~F.}
+\end{quote}
+
+\paragraph{OS input state (unflowed/local).}
+Throughout Lane~B we work with the standard OS-positive Euclidean state provided by the Wilson (unflowed) construction.
+Concretely, let $\omega$ be the continuum limit state on the unflowed gauge-invariant local algebra whose
+positive-time subalgebra $\mathcal A_+$ satisfies reflection positivity as in Section~\ref{sec:patching}.
+No reflection-positivity property is assumed (or needed) for the auxiliary flowed observable sector.
+
+\paragraph{OS Hilbert space and Hamiltonian.}
+Let $\Theta$ be Euclidean time reflection composed with complex conjugation.
+For $F,G\in\mathcal A_+$ define the OS sesquilinear form
+\[
+(F,G)_{\mathrm{OS}}:=\omega\big(\Theta F\,G\big).
+\]
+Reflection positivity implies $(F,F)_{\mathrm{OS}}\ge 0$.
+Let $\mathcal H$ be the Hilbert space completion of $\mathcal A_+ / \{\|\cdot\|_{\mathrm{OS}}=0\}$.
+Euclidean time translation on $\mathcal A_+$ induces a contraction semigroup $\{T_t\}_{t\ge 0}$ on $\mathcal H$,
+so that $T_t=e^{-tH}$ for a self-adjoint $H\ge 0$ with vacuum vector $\Omega=[1]$.
+
+\paragraph{Spectral gap.}
+We say that $H$ has a (mass) gap $m>0$ if
+\[
+P_{(0,m)}=0
+\qquad\text{and}\qquad
+\ker(H)=\mathbb C\Omega,
+\]
+where $P_I$ denotes the spectral projection of $H$ onto a Borel set $I\subset\mathbb R$.
+
+\paragraph{Euclidean two-point input.}
+For $F\in\mathcal A_+$ write $\widetilde F:=F-\omega(F)$ and let $\tau_s$ denote Euclidean time translation.
+Lane~B uses a theorem-level Euclidean exponential clustering input on a dense centered core in $\Omega^\perp$.
+Concretely, we assume given a family $\mathcal G\subset\mathcal A_+$ and set
+\[
+\mathcal D:=\mathrm{span}\{[\widetilde F]:F\in\mathcal G\}\subset\Omega^\perp.
+\]
+Lane~B is formulated abstractly in terms of the existence of such a dense-core Euclidean clustering theorem for the same OS-positive state: namely, that $\overline{\mathcal D}=\Omega^\perp$ and that there exists a dense unbounded set $\mathbb D\subset[0,\infty)$ with $0\in\mathbb D$ such that for every $F\in\mathcal G$ there exists $C_F<\infty$ with
+\[
+\big|\,\omega\big(\Theta\widetilde F\,\tau_s\widetilde F\big)\,\big|\ \le\ C_F\,e^{-ms},
+\qquad s\in\mathbb D.
+\]
+Appendix~F verifies this input for the sharp-local state downstream of the already established Route~1 spectral gap by OS spectral calculus
+(Theorem~\ref{thm:route1_E2_internal}).
+
+\paragraph{From Euclidean clustering to a spectral gap.}
+We record a fully explicit spectral-calculus derivation of the gap from Euclidean exponential decay on a family whose centered classes are dense in $\Omega^\perp$; the vacuum is handled separately.
+
+\begin{proposition}[Dense-core Euclidean exponential clustering on a dense time set $\Rightarrow$ spectral gap]\label{prop:R1_E2_to_R1_HS}
+Assume reflection positivity on $\mathcal A_+$.
+Suppose there exist $m>0$, a dense unbounded set $\mathbb D\subset[0,\infty)$ with $0\in\mathbb D$, and a family $\mathcal G\subset\mathcal A_+$ such that
+\[
+\mathcal D:=\mathrm{span}\{[\widetilde F]:F\in\mathcal G\}
+\]
+is dense in $\Omega^\perp\subset\mathcal H$, and such that for every $F\in\mathcal G$ and every $s\in\mathbb D$,
+\[
+\big|\,\omega\big(\Theta\widetilde F\,\tau_s\widetilde F\big)\,\big|\ \le\ C_F\,e^{-ms}.
+\]
+Then $H$ has a spectral gap at least $m$.
+\end{proposition}
+
+\begin{proof}
+By OS reconstruction, for every $F\in\mathcal A_+$ and every $s\ge 0$ one has the semigroup identity
+\begin{equation}\label{eq:OS_semigroup_identity_B1}
+\langle [\widetilde F],e^{-sH}[\widetilde F]\rangle_{\mathcal H}
+=\omega(\Theta\widetilde F\,\tau_s\widetilde F).
+\end{equation}
+
+Let
+\[
+\mathcal D:=\mathrm{span}\{[\widetilde F]:F\in\mathcal G\}\subset \Omega^\perp.
+\]
+By hypothesis, $\overline{\mathcal D}=\Omega^\perp$. Moreover, if
+\(\psi=\sum_{i=1}^n a_i[\widetilde F_i]\in\mathcal D\), then for every $s\in\mathbb D$ the semigroup identity, Cauchy--Schwarz, and the diagonal decay bounds give
+\begin{align}
+\langle \psi,e^{-sH}\psi\rangle
+&=\sum_{i,j=1}^n \overline{a_i}a_j\,\langle [\widetilde F_i],e^{-sH}[\widetilde F_j]\rangle\notag\\
+&\le \sum_{i,j=1}^n |a_i|\,|a_j|\,\bigl(\langle [\widetilde F_i],e^{-sH}[\widetilde F_i]\rangle\,\langle [\widetilde F_j],e^{-sH}[\widetilde F_j]\rangle\bigr)^{1/2}\notag\\
+&\le \Bigl(\sum_{i=1}^n |a_i|\sqrt{C_{F_i}}\Bigr)^2 e^{-ms}
+=:C_\psi e^{-ms}.
+\label{eq:B1_dense_decay}
+\end{align}
+
+\smallskip
+\noindent\textbf{Step 1: elimination of spectrum in $(0,m)$ on $\Omega^\perp$.}
+Fix $\psi\in\mathcal D$ and let $\mu_\psi$ be its spectral measure, i.e.\ the unique finite Borel measure on $[0,\infty)$ such that
+\begin{equation}\label{eq:B1_spectral_measure}
+\langle \psi,e^{-sH}\psi\rangle\ =\ \int_{[0,\infty)} e^{-s\lambda}\,d\mu_\psi(\lambda),\qquad s\ge 0.
+\end{equation}
+If $\mu_\psi((0,m))>0$, then there exists $\varepsilon\in(0,m)$ such that $\mu_\psi([0,m-\varepsilon])>0$.
+For all $s\ge 0$,
+\[
+\langle \psi,e^{-sH}\psi\rangle\ \ge\ \int_{[0,m-\varepsilon]} e^{-s\lambda}\,d\mu_\psi(\lambda)
+\ \ge\ e^{-s(m-\varepsilon)}\,\mu_\psi([0,m-\varepsilon]).
+\]
+Choose any sequence $s_k\in\mathbb D$ with $s_k\to\infty$. Dividing by $e^{-ms_k}$ and letting $k\to\infty$ contradicts \eqref{eq:B1_dense_decay}. Hence $\mu_\psi((0,m))=0$ for every $\psi\in\mathcal D$, equivalently
+\[
+P_{(0,m)}\psi=0 \qquad (\psi\in\mathcal D).
+\]
+Since $P_{(0,m)}$ is bounded and $\mathcal D$ is dense in $\Omega^\perp$, it follows that
+\[
+P_{(0,m)}\big|_{\Omega^\perp}=0.
+\]
+Because $H\Omega=0$, one also has $P_{(0,m)}\Omega=0$. Therefore
+\[
+P_{(0,m)}=0 \quad \text{on all of } \mathcal H=\mathbb C\Omega\oplus\Omega^\perp.
+\]
+
+\smallskip
+\noindent\textbf{Step 2: uniqueness of the vacuum.}
+Let $P_0:=P_{\{0\}}$ denote the spectral projection onto $\ker(H)$.
+For every $\psi\in\mathcal H$, the spectral theorem gives
+\[
+\lim_{s\to\infty}\langle \psi,e^{-sH}\psi\rangle\ =\ \|P_0\psi\|^2.
+\]
+If $\psi\in\mathcal D$, then along any sequence $s_k\in\mathbb D$ with $s_k\to\infty$, \eqref{eq:B1_dense_decay} implies the left-hand side tends to $0$, hence $P_0\psi=0$ for all $\psi\in\mathcal D$.
+By boundedness of $P_0$ and density of $\mathcal D$ in $\Omega^\perp$, this implies
+\[
+P_0\big|_{\Omega^\perp}=0.
+\]
+Since $\Omega\in\ker(H)$, we have $\mathbb C\Omega\subset \ker(H)$; the previous display shows there is no additional zero mode in $\Omega^\perp$.
+Thus
+\[
+\ker(H)=\mathbb C\Omega.
+\]
+
+Combining Step~1 and Step~2 yields
+\[
+\mathrm{Spec}(H)\subset \{0\}\cup[m,\infty),\qquad \ker(H)=\mathbb C\Omega,
+\]
+i.e.\ a spectral gap of size at least $m$ above the vacuum.
+\end{proof}
+
+\paragraph{Status of the Route~1 input.}
+Appendix~F already supplies the unconditional one-shot entrance theorem, the full fixed-lattice gap chain, and the resulting continuum spectral gap used in the front-facing proof.
+The dense-core Euclidean-clustering theorem is retained there as a secondary bridge; accordingly Lane~B is now a downstream Hilbert-space reformulation rather than a missing theorem-level intake.

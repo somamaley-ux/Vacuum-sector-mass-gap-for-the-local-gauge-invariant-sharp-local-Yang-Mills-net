@@ -1,0 +1,582 @@
+\section{Proof certification note, dependency guide, and theorem map}
+\label{app:referee_audit}
+
+This appendix is the theorem-facing certification note for the public theorem spine.
+It adds no analytic input.
+Its purpose is to reduce Theorem~\ref{thm:main} to the ten public theorem packets named in Section~\ref{sec:roadmap}, to record one primary manuscript location for each packet, to isolate the genuinely hard nodes that still merit concentrated reading, and to distinguish internal theorems, imported standard background families, illustrative sample audits, and downstream reformulations.
+Appendix~\ref{app:executive_proof_sketch} is the synchronized companion sketch following the same ten-packet docket.
+
+\paragraph{Reserve-material status.}
+This file is retained only as a routing aid. It adds no mathematics, carries no unique proof step, and is not part of the live proof burden of the hardened four-root suite. If any theorem-local implication appears only here, it must be moved back into one of the four compiled roots before the suite is considered synchronized.
+
+
+\begin{theorem}[Proof-spine certification note]
+\label{thm:proof_spine_certification}
+
+
+Theorem~\ref{thm:main} follows from the ten public packets in Table~\ref{tab:load_bearing_graph} together with the frozen lane roles in Remark~\ref{rem:frozen_spine_scope}.
+More precisely, Packets~1--2 imply \Cref{thm:main}(A); Packets~4--7 construct the continuum sharp-local state, the full inductive-union sharp-local algebra, and the bounded-base cyclicity needed for \Cref{thm:main}(C); Packets~3 and~8 yield \Cref{thm:main}(D); Packet~9 supplies the dense-core Euclidean clustering reformulation in \Cref{thm:main}(B) together with the OS/Wightman existence, field-correspondence, and non-triviality dossier; and Packet~10 fixes the exact theorem-level local-net endpoint of the theorem.
+The only additional certification theorem not on this public docket is \Cref{thm:weak_window_sufficiency}, whose role is to certify that every surviving weak-window use factors through the repaired curvature-sector package of \S\,F.22.2.
+\end{theorem}
+
+\begin{proof}
+This is a bookkeeping reduction.
+Each implication is exactly the package-level theorem statement named in Table~\ref{tab:load_bearing_graph}; no additional analytic input enters here.
+The weak-window sufficiency theorem \Cref{thm:weak_window_sufficiency} records that the only live weak-window input feeding the Route~1 packets is the repaired curvature-sector package isolated in the final Appendix~F chain.
+The only imported theorem families still used on this public theorem spine are the KP/Dobrushin entrance-to-clustering machinery inside Appendix~F and the standard Osterwalder--Schrader reconstruction / analytic-continuation / uniqueness family used inside Appendices~\ref{app:axioms_package} and~\ref{app:global_form_resolution}.
+\end{proof}
+
+\paragraph{How to use this appendix.}
+A first-pass certification can now be done in four theorem-facing steps.
+Read Section~\ref{sec:roadmap} for the public claim and the lane roles, read Theorem~\ref{thm:proof_spine_certification} together with Table~\ref{tab:load_bearing_graph} below for the ten-packet docket, check the hard-node note immediately afterward to see where concentrated scrutiny still belongs, and then use Table~\ref{tab:theorem_file_map} for a section-by-section guide to the detailed arguments.
+The weak-window certificate, import/status ledger, and reading routes below answer three practical questions: which repaired weak-window package is live, which theorems are internal versus imported, and where the main Route~1 / Lane~A / scope nodes are actually proved.
+
+\paragraph{Full-docket release-audit status.}
+The public draft has now been synchronized against six theorem-facing checks.
+Statement/proof alignment is frozen at the front-end Packet~1 certification note in Appendix~\ref{app:A1_compact_simple}, \S\ref{subsec:A1_packet1_certification}, the Packet~3/8 transport ledger \Cref{rem:route1_packet38_transport_certification}, the Packet~5--7 interface table in Appendix~\ref{app:normalization_crosscheck}, \S\ref{subsec:LaneA_packet_interface_map}, and the Packet~9/10 provenance ledgers in Appendices~\ref{app:axioms_package} and~\ref{app:global_form_resolution}.
+Interface alignment is read from \Cref{rem:route1_packet38_transport_certification} and Table~\ref{tab:LaneA_packet_interface_map}; provenance alignment is read from Tables~\ref{tab:packet9_provenance_ledger} and~\ref{tab:packet10_provenance_ledger}; scope alignment is synchronized among Section~\ref{sec:roadmap}, the present appendix, and Appendix~\ref{app:executive_proof_sketch}; PDF hygiene removes non-public scaffolding from the public draft; and the packet-summary pages together with the appendix front-end ledgers have been visually re-rendered after each hardening pass.
+This paragraph is certification only: it adds no analytic input.
+
+\subsection{Certified theorem packets and package roles}
+\label{subsec:load_bearing_graph}
+
+\begingroup
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{@{}
+>{\RaggedRight\arraybackslash}p{0.08\textwidth}
+>{\RaggedRight\arraybackslash}p{0.29\textwidth}
+>{\RaggedRight\arraybackslash}p{0.39\textwidth}
+>{\RaggedRight\arraybackslash}p{0.155\textwidth}@{}}
+\toprule
+\textbf{Packet} & \textbf{Public theorem package} & \textbf{What the packet certifies} & \textbf{Primary proof location}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Packet} & \textbf{Public theorem package} & \textbf{What the packet certifies} & \textbf{Primary proof location}\\
+\midrule
+\endhead
+1 & Theorem~\ref{thm:A1_compact_simple_internal}, Corollary~\ref{cor:A1_compact_simple_spine} & closes the compact-simple A1 gate and fixes the explicit $(G,\rho)$-indexed ultraviolet constants used downstream on Route~1; the front-end certification note in Appendix~\ref{app:A1_compact_simple}, \S\ref{subsec:A1_packet1_certification}, records the theorem chain, the group-only/$(G,\rho)$ constant split, and the exceptional-group closure point & Appendix~\ref{app:A1_compact_simple}\\[0.4em]
+
+2 & Proposition~\ref{prop:route1_QE1} & one-shot entrance into the KP/Dobrushin basin together with the bounded physical entrance scale along the tuned dyadic sequence & Appendix~\ref{app:route1}\\[0.4em]
+
+3 & Proposition~\ref{prop:route1_QE2} & the tuned-sequence full fixed-lattice OS gap used as the lattice-side input to the continuum theorem & Appendix~\ref{app:route1}\\[0.4em]
+
+4 & Theorem~\ref{thm:C3U}, Corollary~\ref{cor:flow_state}, Corollary~\ref{cor:C3U_Aplus_tuned} & the unique flowed continuum state and the tuned bounded positive-time base state that Lane~A extends & Section~\ref{sec:rg}, final Lane~C closure block\\[0.4em]
+
+5 & Theorem~\ref{thm:LaneA_associated_graded_identity}, Theorem~\ref{thm:LaneA_block_coefficient_theorem}, Theorem~\ref{thm:canonical_block_one_shell_increment}, Theorem~\ref{thm:finite_truncation_inverse_control}, Corollary~\ref{cor:finite_truncation_SFTE} & basis-free exact-dimension breadth, one-shell transport, and the unconditional finite-truncation inverse / remainder package for arbitrary quotient blocks, not merely sample sectors; see Table~\ref{tab:LaneA_packet_interface_map} for the exact Packet~5--7 role split & Appendix~\ref{app:normalization_crosscheck} and the Lane~A inverse-control block in Section~\ref{sec:sharp_local}\\[0.4em]
+
+6 & Theorem~\ref{thm:finite_cap_flowed_sector_bridge}, Theorem~\ref{thm:LaneA_closure}, Corollary~\ref{cor:LaneA_bounded_state_restriction}, Corollary~\ref{cor:LaneA_full_scope} & the first mixed-correlator bridge at finite cap, then the capwise sharp-local extension and bounded-state compatibility, and only afterward the extension from the already-constructed Lane~C state on $\mathcal A_{\mathrm{flow}}$ to the full inductive-union sharp-local algebra & Appendix~\ref{app:route1}, mixed-channel bridge block, together with the final Lane~A closure block in Section~\ref{sec:sharp_local}\\[0.4em]
+
+7 & Theorem~\ref{thm:LaneA_bounded_base_cyclic} & cyclicity of the bounded positive-time base algebra in the full reconstructed sharp-local Hilbert space & Section~\ref{sec:sharp_local}, final Lane~A closure block\\[0.4em]
+
+8 & Theorem~\ref{thm:Wilson_patch_transport}, Theorem~\ref{thm:continuum_tightness}, Theorem~\ref{thm:continuum_time_OS_upgrade}, Theorem~\ref{thm:phys_gap_noncollapse}, Corollary~\ref{cor:route1_QE3_gap} & the Wilson-to-continuum transport package and the final continuum sharp-local vacuum gap & Appendix~\ref{app:route1} together with the same-scale Wilson transport theorem in Section~\ref{sec:reflection}\\[0.4em]
+
+9 & Theorem~\ref{thm:route1_E2_internal}, Theorem~\ref{thm:R1_HS}, Theorem~\ref{thm:OS_axioms_package}, Theorem~\ref{thm:OS_to_Wightman}, Corollary~\ref{cor:field_correspondence}, Theorem~\ref{thm:nontriviality_package} & dense-core clustering as a downstream reformulation, together with the Euclidean/OS/Wightman existence dossier, the explicit field-correspondence statement, and the non-triviality witness; the front-end provenance ledger in Appendix~\ref{app:axioms_package}, \S\ref{subsec:packet9_provenance_ledger}, separates the imported OS reconstruction / analytic-continuation / uniqueness background from the earlier internal Euclidean inputs and the new appendix endpoints & Appendix~\ref{app:axioms_package} together with the downstream Lane~B reformulation in Appendix~\ref{app:route1} and Section~\ref{sec:mass_gap_intake}\\[0.4em]
+
+10 & Theorem~\ref{thm:faithful_Wilson_uniform_hypotheses}, Theorem~\ref{thm:faithful_Wilson_rep_universality}, Corollary~\ref{cor:faithful_rho_gap_ledger}, Theorem~\ref{thm:global_form_local_endpoint}, Corollary~\ref{cor:global_form_main_scope} & faithful-Wilson uniformity for the action-family universality hypotheses, faithful-$\rho$ universality of the continuum local theory, the $\rho$-indexed status of the explicit Route~1 ledger, and the exact theorem-level local-net endpoint excluding extended-support sector data from the theorem claim; the front-end provenance ledger in Appendix~\ref{app:global_form_resolution}, \S\ref{subsec:packet10_provenance_ledger}, separates earlier internal universality / descent inputs from the imported OS uniqueness clause used in faithful-Wilson universality, the new endpoint theorems, and the AQFT commentary remarks & Appendix~\ref{app:global_form_resolution}\\
+\bottomrule
+\caption{Ten certified theorem packets sufficient for a first-pass certification of Theorem~\ref{thm:main}.}\label{tab:load_bearing_graph}
+\end{longtable}
+\endgroup
+
+\paragraph{Route~1 in theorem-level terms.}
+The load-bearing mass-gap lane is the chain Theorem~\ref{thm:A1_compact_simple_internal} $\Longrightarrow$ Proposition~\ref{prop:route1_QE1} $\Longrightarrow$ Proposition~\ref{prop:route1_QE2} $\Longrightarrow$ Theorem~\ref{thm:Wilson_patch_transport}, Theorem~\ref{thm:continuum_tightness}, Theorem~\ref{thm:continuum_time_OS_upgrade}, Theorem~\ref{thm:phys_gap_noncollapse}, and Corollary~\ref{cor:route1_QE3_gap}.
+The only live weak-window input on this chain is the repaired package certified by \Cref{thm:weak_window_sufficiency}; Lane~B is not used anywhere on the proof of the gap itself.
+
+\paragraph{Lane~A in theorem-level terms.}
+The sharp-local reconstruction lane is the chain Theorem~\ref{thm:C3U} and Corollary~\ref{cor:C3U_Aplus_tuned} $\Longrightarrow$ Theorem~\ref{thm:LaneA_associated_graded_identity}, Theorem~\ref{thm:LaneA_block_coefficient_theorem}, Theorem~\ref{thm:canonical_block_one_shell_increment}, Theorem~\ref{thm:finite_truncation_inverse_control}, and Corollary~\ref{cor:finite_truncation_SFTE} $\Longrightarrow$ Theorem~\ref{thm:finite_cap_flowed_sector_bridge} $\Longrightarrow$ Theorem~\ref{thm:LaneA_closure}, Corollary~\ref{cor:LaneA_bounded_state_restriction}, Corollary~\ref{cor:LaneA_full_scope}, and Theorem~\ref{thm:LaneA_bounded_base_cyclic}.
+Table~\ref{tab:LaneA_packet_interface_map} records the exact role split on that chain: the finite-cap bridge is the first mixed-correlator closure node; Theorem~\ref{thm:LaneA_closure}(b) is only the finite-cap OS-structure theorem; Corollary~\ref{cor:LaneA_bounded_state_restriction} is only the bounded-state compatibility node later consumed on the QE3 seam; the inductive-union passage occurs only at Corollary~\ref{cor:LaneA_full_scope}; and bounded-base cyclicity appears only at Theorem~\ref{thm:LaneA_bounded_base_cyclic}.
+This is the only load-bearing route from the flowed probe state to the full sharp-local Hilbert space used by the continuum gap theorem and by the Appendix~\ref{app:axioms_package} dossier; the later theorem-level Lane~A exports consumed there are Theorem~\ref{thm:LaneA_temperedness_verification}, Theorem~\ref{thm:LaneA_bounded_base_cyclic}, and Theorem~\ref{thm:LaneA_nontriviality_witness}, with QE3 using only the cyclicity branch.
+
+\paragraph{Remaining hard nodes for concentrated audit.}
+For a concentrated first pass, the only places still worth especially close scrutiny are the compact-simple ultraviolet gate in Packet~1, the fixed-lattice-to-continuum seam split across Packets~3 and~8, and the exact-dimension-to-inductive-union Lane~A closure split across Packets~5--7.
+The point of the packet table is that these are now explicit and isolated.
+For Packet~1 in particular, the front of Appendix~\ref{app:A1_compact_simple} now tells the referee exactly what has to be audited first: the low-/high-regime theorem chain, the group-only versus $(G,\rho)$ constant ledger, and the fact that no separate exceptional-family appendix is load-bearing for the public scope.
+
+\subsection{Packet~6 note on the mixed-channel seam}
+\label{subsec:packet6_mixed_channel_note}
+
+This note isolates the only load-bearing seam in Packet~6 that previously had to be reconstructed across several proof blocks.
+It is explanatory only: it records the theorem routing, chronology, and displayed estimates for the mixed-channel clause without adding analytic input.
+The natural local citation point is \hyperref[par:finite_cap_mixed_channel_certification]{the local certification paragraph immediately following Theorem~\ref{thm:finite_cap_flowed_sector_bridge}(i)}; the present note mirrors that paragraph and gives a synchronized theorem guide to the same manuscript locations.
+
+\paragraph{Frozen theorem spine.}
+The single-slot bounded-word estimate is now the chain
+\[
+\text{Theorem~\ref{thm:ins_to_OS}}
+\Longrightarrow
+\text{Corollary~\ref{cor:ins_to_OS_bounded_word}}
+\Longrightarrow
+\text{Proposition~\ref{prop:finite_cap_bounded_factor_insertion}}.
+\]
+The actual mixed-channel telescoping summands are then handled by
+\[
+\text{Theorem~\ref{thm:finite_truncation_inverse_control}}
+\Longrightarrow
+\text{Lemma~\ref{lem:finite_cap_mixed_channel_reduction}}
+\Longrightarrow
+\text{Theorem~\ref{thm:finite_cap_flowed_sector_bridge}(i)}.
+\]
+The mixed bounded-family packaging/covariance node used there is Corollary~\ref{cor:finite_cap_mixed_family_packaging}; in Theorem~\ref{thm:finite_cap_flowed_sector_bridge}, the notation
+\(
+\omega_{\mathrm{cap,bnd}}^{(u_{\mathrm{ren}})}
+\)
+is used only as a local shorthand, after the relevant finite family has been fixed, for the compatible family of finite-family packaged bounded capwise states furnished by that corollary.
+Corollary~\ref{cor:finite_truncation_SFTE} and Lemma~\ref{lem:finite_cap_mixed_channel_reduction} are the precursor finite-cap reduction nodes; downstream closure statements cite only Theorem~\ref{thm:finite_cap_flowed_sector_bridge}(i) for the mixed-correlator closure input, while the theorem-facing finite-cap state/positivity bridge is consumed next by Theorem~\ref{thm:LaneA_closure}.
+For theorem-facing bookkeeping, the fixed-word dependence is recorded through the support ledger $K_W$, the packaged insertion constant $C_W^{\mathrm{ins}}$, and the finite truncation data; expanding $C_W^{\mathrm{ins}}$ recovers the explicit factor $\|W\|_{\mathrm{bnd}}:=\prod_r \|B_r\|_\infty$ together with the normalized-word constant from Corollary~\ref{cor:ins_to_OS_bounded_word}.
+For the closure statements that consume this seam, the role split is now frozen explicitly: Theorem~\ref{thm:LaneA_closure}(b) is only the finite-cap sharp-local OS-structure theorem, Corollary~\ref{cor:LaneA_bounded_state_restriction} is only the bounded-state compatibility node later consumed by QE3, and Corollary~\ref{cor:LaneA_full_scope} is the separate inductive-union passage. No theorem-facing note on this route treats Corollary~\ref{cor:LaneA_bounded_state_restriction} as the inductive-union theorem.
+
+\paragraph{Chronology of the bounded-state packaging.}
+Proposition~\ref{prop:finite_cap_bounded_factor_insertion} is state-free: it is proved on the finite-cap common core
+\(\mathcal D^{(\le \Delta_{\max})}_{\mathrm{flow}}\) for arbitrary vectors \(\Psi,\Phi\).
+The compatible family of finite-family packaged bounded capwise states, written locally in Theorem~\ref{thm:finite_cap_flowed_sector_bridge} as
+\(\omega_{\mathrm{cap,bnd}}^{(u_{\mathrm{ren}})}\), is packaged separately by Corollary~\ref{cor:finite_cap_mixed_family_packaging}, which works one finite mixed bounded family at a time and is imported into Theorem~\ref{thm:finite_cap_flowed_sector_bridge} by explicit citation.
+Only after that packaging node is fixed does part~(i) specialize Proposition~\ref{prop:finite_cap_bounded_factor_insertion} to the vacuum channel \(\Psi=\Phi=\Omega_{\mathrm{cap}}\).
+Thus the chronology is one-way: state-free estimate first, finite-family bounded-state packaging second.
+
+\paragraph{Displayed estimates used on the page.}
+Abbreviate
+\[
+F_t:=\mathcal R_i^{(\le \Delta_{\max})}(t;f;\mu)-r_i^{(\le \Delta_{\max})}(t;f;\mu),
+\qquad
+\mathcal O_i^{\mathrm{app}}(u;f):=\mathcal O_i^{\mathrm{app},(\le \Delta_{\max})}(u;f;\mu).
+\]
+Proposition~\ref{prop:finite_cap_bounded_factor_insertion} gives
+\[
+\Big|
+\langle \Psi,B_0F_tB_1\cdots B_q\Phi\rangle_{\mathrm{cap}}
+\Big|
+\le
+C_{\Psi,\Phi,K_{B,f},i,\Delta_{\max},\mu}
+\Bigl(\prod_{r=0}^q\|B_r\|_\infty\Bigr)t^{\eta_{\Delta_{\max}}},
+\]
+and, after subtracting the centered finite-cap SFTE identities at scales \(t,s\),
+\[
+\begin{aligned}
+&\Big|
+\langle \Psi,
+B_0\bigl(\mathcal O_i^{\mathrm{app}}(t;f)-\mathcal O_i^{\mathrm{app}}(s;f)\bigr)
+B_1\cdots B_q\Phi
+\rangle_{\mathrm{cap}}
+\Big|\\
+&\qquad\le
+C'_{\Psi,\Phi,K_{B,f},i,\Delta_{\max},\mu}
+\Bigl(\prod_{r=0}^q\|B_r\|_\infty\Bigr)
+\bigl(t^{\eta_{\Delta_{\max}}}+s^{\eta_{\Delta_{\max}}}\bigr).
+\end{aligned}
+\]
+For theorem-facing bookkeeping we package the single-slot word dependence into $C_W^{\mathrm{ins}}$; expanding that shorthand recovers the explicit sup-norm product together with the normalized-word insertion constant $C_{\mathrm{word}}(K_{W,f};W^{\sharp})$ from Corollary~\ref{cor:ins_to_OS_bounded_word}.
+Lemma~\ref{lem:finite_cap_mixed_channel_reduction} then rewrites each literal telescoping summand as
+\[
+T_r(\mathbf t,\mathbf s)
+=
+\sum_{\alpha\in\mathcal A_r}
+ c_{r,\alpha}(\mathbf t,\mathbf s)\,
+B_{r,\alpha,0}(\mathbf t,\mathbf s)
+\bigl(
+\mathcal O_{i_{r,\alpha}}^{\mathrm{app}}(t_r;f_r)
+-
+\mathcal O_{i_{r,\alpha}}^{\mathrm{app}}(s_r;f_r)
+\bigr)
+B_{r,\alpha,1}(\mathbf t,\mathbf s)\cdots B_{r,\alpha,q_{r,\alpha}}(\mathbf t,\mathbf s),
+\]
+with
+\[
+|c_{r,\alpha}(\mathbf t,\mathbf s)|
+\le
+C_{r,\alpha,W_+}
+\prod_{\ell<r}\big\|\big(C^{(\le \Delta_{\max})}(t_\ell,\mu)\big)^{-1}\big\|_{\mathrm{op}}
+\prod_{\ell>r}\big\|\big(C^{(\le \Delta_{\max})}(s_\ell,\mu)\big)^{-1}\big\|_{\mathrm{op}}.
+\]
+Theorem~\ref{thm:finite_truncation_inverse_control} is exactly the theorem that bounds the last line by the polylogarithmic coefficient envelope recorded in Lemma~\ref{lem:finite_cap_mixed_channel_reduction}.
+Equation~\eqref{eq:finite_cap_literal_summand_o1} is the displayed slotwise $o(1)$ handoff obtained from that envelope, and Equation~\eqref{eq:finite_cap_flowed_sector_bridge_lambda_o1} is the corresponding finite-cap functional difference estimate used in Theorem~\ref{thm:finite_cap_flowed_sector_bridge}(i).
+
+\paragraph{Seam-specific theorem guide.}
+Everything later in the theorem-facing closure and roadmap sketches is citation only for this seam.
+The relevant manuscript locations are the following.
+
+\begingroup
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}
+>{\RaggedRight\arraybackslash}p{0.27\textwidth}
+>{\RaggedRight\arraybackslash}p{0.31\textwidth}
+>{\RaggedRight\arraybackslash}p{0.30\textwidth}@{}}
+\toprule
+\textbf{Load-bearing node} & \textbf{Statement(s)} & \textbf{Where to read it}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Load-bearing node} & \textbf{Statement(s)} & \textbf{Where to read it}\\
+\midrule
+\endhead
+Insertion-seminorm to bounded-word OS transfer & Theorem~\ref{thm:ins_to_OS} and Corollary~\ref{cor:ins_to_OS_bounded_word} & Section~\ref{sec:sharp_local}, insertion-to-OS block\\[0.35em]
+
+State-free single-slot bounded-factor channel & Proposition~\ref{prop:finite_cap_bounded_factor_insertion} & Appendix~\ref{app:route1}, mixed-channel bridge block\\[0.35em]
+
+Literal reduction of the actual mixed-channel telescoping summands & Lemma~\ref{lem:finite_cap_mixed_channel_reduction} & Appendix~\ref{app:route1}, mixed-channel bridge block\\[0.35em]
+
+Finite mixed bounded-family packaging on a finite truncation & Corollary~\ref{cor:finite_cap_mixed_family_packaging} & Appendix~\ref{app:route1}, mixed-channel bridge block\\[0.35em]
+
+Local theorem-facing certification paragraph for the seam & The local certification paragraph immediately following Theorem~\ref{thm:finite_cap_flowed_sector_bridge}(i) & Appendix~\ref{app:route1}, immediately after Theorem~\ref{thm:finite_cap_flowed_sector_bridge}(i)\\[0.35em]
+
+Finite-family packaged bounded-state closure and mixed-channel limit & Theorem~\ref{thm:finite_cap_flowed_sector_bridge}(i) & Appendix~\ref{app:route1}, Theorem~\ref{thm:finite_cap_flowed_sector_bridge}(i)\\
+\bottomrule
+\caption{Packet~6 mixed-channel seam: theorem guide to the manuscript locations used on the public proof spine.}\label{tab:packet6_seam_file_map}
+\end{longtable}
+\endgroup
+
+\paragraph{Scope of this note.}
+No new RG theorem, insertion estimate, or state-construction mechanism is introduced here.
+Corollary~\ref{cor:ins_to_OS_bounded_word} simply writes the fixed bounded-word consequence already latent in Theorem~\ref{thm:ins_to_OS}; Proposition~\ref{prop:finite_cap_bounded_factor_insertion} reformulates the same single-slot remainder argument as a state-free matrix-element bound; Lemma~\ref{lem:finite_cap_mixed_channel_reduction} expands the literal multilinear telescoping summands using the inverse-flow representation already present in Lane~A and the finite-truncation inverse-control theorem already on the public theorem spine; and Theorem~\ref{thm:finite_cap_flowed_sector_bridge} packages those ingredients at the point where the finite-family packaged bounded capwise states are actually needed.
+This note therefore changes only proof visibility and dependency routing, not the underlying analytic content.
+
+\paragraph{Summary of the theorem package.}
+For the mixed-channel seam, the current theorem package now has theorem-scope alignment at Proposition~\ref{prop:finite_cap_bounded_factor_insertion}, an explicit mixed bounded-family packaging/covariance node at Corollary~\ref{cor:finite_cap_mixed_family_packaging}, displayed slotwise-to-functional $o(1)$ handoffs in Equations~\eqref{eq:finite_cap_literal_summand_o1} and~\eqref{eq:finite_cap_flowed_sector_bridge_lambda_o1}, synchronized theorem-facing bookkeeping through $K_W$, $C_W^{\mathrm{ins}}$, and the finite truncation data, and a frozen role split in which Theorem~\ref{thm:LaneA_closure}(b) gives only the finite-cap OS structure, Corollary~\ref{cor:LaneA_bounded_state_restriction} gives only bounded-state compatibility, and Corollary~\ref{cor:LaneA_full_scope} is the separate inductive-union passage.
+Corollary~\ref{cor:finite_cap_mixed_family_packaging} now states positivity, overlap compatibility, and translation covariance, and its proof visibly establishes each of those inherited properties on the page.
+Theorem~\ref{thm:finite_cap_flowed_sector_bridge} uses only the packaged finite-family states $\omega_{\mathcal W,\mathrm{cap,bnd}}^{(u_{\mathrm{ren}})}$ or the explicitly declared local shorthand $\omega_{\mathrm{cap,bnd}}^{(u_{\mathrm{ren}})}$ after the relevant finite family has been fixed.
+Every use of the packaged mixed-family state or its translation symmetry now points back to Corollary~\ref{cor:finite_cap_mixed_family_packaging}, and every use of the actual mixed-channel $o(1)$ handoff points back to Equations~\eqref{eq:finite_cap_literal_summand_o1} and~\eqref{eq:finite_cap_flowed_sector_bridge_lambda_o1}.
+Packet~6, Section~\ref{sec:roadmap}, Appendix~\ref{app:executive_proof_sketch}, and the local certification paragraph after Theorem~\ref{thm:finite_cap_flowed_sector_bridge}(i) now record the same proof chains, scope statement, and constant bookkeeping.
+The present note is therefore only a synchronized summary of an already fixed theorem package; it changes no analytic content.
+
+
+\subsection{Analytic hostile-referee packet for the mass-gap constant route}
+\label{subsec:analytic_gap_packet}
+
+This note isolates the only remaining high-risk analytic attack after the packet-routing and provenance ledgers have been synchronized.
+It is certification only: it adds no new estimate and no new theorem.
+Its purpose is to let a hostile reader audit, in one place, the theorem-level route by which the positive lower bound is formed, transported through the continuum passage, and then reused at the Packet~9 Minkowski endpoint without any hidden capwise or fixed-positive-time loss.
+
+\paragraph{Single claim-facing attack line.}
+The remaining dangerous objection is that the manuscript proves only a fixed-lattice, finite-cap, or fixed-positive-flow-time gap and then informally reads that result as a continuum sharp-local vacuum gap.
+The theorem-facing answer is the chain
+\[
+\begin{aligned}
+&\text{Theorem~\ref{thm:A1_compact_simple_internal}}
+\Longrightarrow
+\text{Proposition~\ref{prop:route1_QE1}}
+\Longrightarrow
+\text{Proposition~\ref{prop:route1_QE2}}\\
+&\Longrightarrow
+\text{Theorem~\ref{thm:phys_gap_noncollapse}}
+\Longrightarrow
+\text{Corollary~\ref{cor:route1_QE3_gap}}\\
+&\Longrightarrow
+\text{Corollary~\ref{cor:OS_cluster_vacuum}}
+\Longrightarrow
+\text{Corollary~\ref{cor:Minkowski_gap_from_OS}}.
+\end{aligned}
+\]
+At the level of constants, the same route is
+\[
+\begin{aligned}
+c_{\mathrm{A1}}(G,\rho)>0
+&\Longrightarrow q_\ast(G,\rho)\in(0,1)
+\Longrightarrow m_{\mathrm{blk}}(G,\rho):=-\log q_\ast(G,\rho)>0,\\
+m_{\mathrm{blk}}(G,\rho)>0
+&\Longrightarrow \mathfrak m_\ast(G,\rho;u_{\mathrm{ren}})
+:=\frac{m_{\mathrm{blk}}(G,\rho)}{2C_{\mathrm{ent}}(G,\rho)\ell_0}>0,\\
+\mathfrak m_\ast(G,\rho;u_{\mathrm{ren}})>0
+&\Longrightarrow \mathrm{Spec}(H)\subset\{0\}\cup[\mathfrak m_\ast,\infty).
+\end{aligned}
+\]
+Theorem~\ref{thm:continuum_time_OS_upgrade} is part of the transport spine but does not weaken this constant: it supplies the continuum-time OS semigroup on the full sharp-local state, while Theorem~\ref{thm:phys_gap_noncollapse} is the node that actually transports the fixed-lattice lower bound to the continuum Hilbert space.
+
+\paragraph{Three seam answers that close the classic constructive-QFT failure modes.}
+The finite-cap / engineering-cutoff seam is answered by the chain
+\[
+\begin{aligned}
+&\text{Theorem~\ref{thm:finite_truncation_inverse_control}}
+\Longrightarrow
+\text{Corollary~\ref{cor:LaneA_all_finite_truncations}}
+\Longrightarrow
+\text{Theorem~\ref{thm:LaneA_closure}}\\
+&\Longrightarrow
+\text{Corollary~\ref{cor:LaneA_full_scope}}
+\Longrightarrow
+\text{Corollary~\ref{cor:sharp_base_dense_in_full_H}}
+\Longrightarrow
+\text{Lemma~\ref{lem:QE3_core_topology}}\\
+&\Longrightarrow
+\text{Theorem~\ref{thm:phys_gap_noncollapse}}.
+\end{aligned}
+\]
+The cap-dependent inverse constants construct each finite-cap state and its graph-core approximants, but they do not enter the final lower bound~$\mathfrak m_\ast$.
+The positive-flow-time seam is answered by
+\[
+\begin{aligned}
+\text{Theorem~\ref{thm:finite_cap_flowed_sector_bridge}(i)}
+&\Longrightarrow
+\text{Theorem~\ref{thm:LaneA_closure}(a)}\\
+&\Longrightarrow
+\text{Theorem~\ref{thm:LaneA_bounded_base_cyclic}(i)}
+\Longrightarrow
+\text{Lemma~\ref{lem:QE3_core_topology}},
+\end{aligned}
+\]
+which is exactly the chain that removes the auxiliary flow parameter before the final spectral theorem is read.
+The continuum-limit seam is answered by
+\[
+\begin{aligned}
+\text{Corollary~\ref{cor:route1_bounded_physical_entrance}}
+&\Longrightarrow
+\text{Proposition~\ref{prop:route1_QE1}}
+\Longrightarrow
+\text{Proposition~\ref{prop:route1_QE2}}\\
+&\Longrightarrow
+\text{Theorem~\ref{thm:phys_gap_noncollapse}}
+\Longrightarrow
+\text{Corollary~\ref{cor:route1_QE3_gap}},
+\end{aligned}
+\]
+where the auxiliary entrance scale $B(\beta)$ is absorbed into the theorem-level constant $C_{\mathrm{ent}}$, and Corollary~\ref{cor:route1_QE3_gap} explicitly instantiates Theorem~\ref{thm:phys_gap_noncollapse} with the same lower bound~$\mathfrak m_\ast$ read from Proposition~\ref{prop:route1_QE2}.
+
+\paragraph{Endpoint scope and what this packet does \emph{not} claim.}
+The faithful-Wilson endpoint theorem remains qualitative at the level of explicit constants.
+Theorem~\ref{thm:faithful_Wilson_rep_universality} identifies the continuum local theory for any two faithful regularizations of the same compact simple group, but Corollary~\ref{cor:faithful_rho_gap_ledger} records that the present manuscript still states its explicit Route~1 lower-bound ledger through the chosen faithful regularization~$\rho$.
+This packet therefore closes the remaining analytic attack on constant survival without upgrading the manuscript to a faithful-$\rho$-uniform quantitative gap theorem.
+
+\paragraph{Theorem-facing guide to the analytic attack line.}
+Everything later in the claim-facing summaries is citation only for this issue.
+The relevant manuscript locations are the following.
+
+\begingroup
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}
+>{\RaggedRight\arraybackslash}p{0.27\textwidth}
+>{\RaggedRight\arraybackslash}p{0.31\textwidth}
+>{\RaggedRight\arraybackslash}p{0.30\textwidth}@{}}
+\toprule
+\textbf{Analytic attack line} & \textbf{Decisive theorem-level answer} & \textbf{Where to read it}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Analytic attack line} & \textbf{Decisive theorem-level answer} & \textbf{Where to read it}\\
+\midrule
+\endhead
+Does the paper prove only a fixed-lattice or prelimit gap? & Proposition~\ref{prop:route1_QE2}, Theorem~\ref{thm:phys_gap_noncollapse}, and Corollary~\ref{cor:route1_QE3_gap} & Appendix~\ref{app:route1}, tuned fixed-lattice gap block and continuum non-collapse block\\[0.35em]
+
+Can the finite-cap inverse constants $C_{\Delta_{\max},\mathrm{inv}}$ and $p_{\Delta_{\max}}$ kill the final gap as $\Delta_{\max}\to\infty$? & Theorem~\ref{thm:finite_truncation_inverse_control}, Corollary~\ref{cor:LaneA_all_finite_truncations}, Corollary~\ref{cor:sharp_base_dense_in_full_H}, and Lemma~\ref{lem:QE3_core_topology} & Section~\ref{sec:sharp_local}, finite-truncation inverse block and the QE3 topology block in Appendix~\ref{app:route1}\\[0.35em]
+
+Is the final theorem only a fixed-positive-flow-time statement? & Theorem~\ref{thm:finite_cap_flowed_sector_bridge}(i), Theorem~\ref{thm:LaneA_closure}(a), and Theorem~\ref{thm:LaneA_bounded_base_cyclic}(i) & Appendix~\ref{app:route1}, mixed-channel bridge block, together with the final Lane~A closure block in Section~\ref{sec:sharp_local}\\[0.35em]
+
+Does the OS/Wightman passage weaken the rate after QE3? & Corollary~\ref{cor:route1_QE3_gap}, Corollary~\ref{cor:OS_cluster_vacuum}, and Corollary~\ref{cor:Minkowski_gap_from_OS} & Appendix~\ref{app:axioms_package}, clustering and Minkowski-gap corollaries\\[0.35em]
+
+Does faithful-Wilson universality overclaim a faithful-$\rho$-uniform quantitative gap? & Theorem~\ref{thm:faithful_Wilson_rep_universality} together with Corollary~\ref{cor:faithful_rho_gap_ledger} & Appendix~\ref{app:global_form_resolution}, faithful-Wilson endpoint block\\
+\bottomrule
+\caption{Analytic hostile-referee packet: theorem guide to the manuscript locations that answer the remaining mass-gap constant attack.}\label{tab:analytic_gap_packet_file_map}
+\end{longtable}
+\endgroup
+
+\paragraph{Scope of this note.}
+No new ultraviolet bound, Lane~A estimate, continuum transport theorem, or OS reconstruction lemma is introduced here.
+The note only compresses, in one theorem-facing place, the load-bearing constant route already proved in Packets~1--10 and the three seam answers already available on the page.
+Its purpose is to make the last dangerous analytic attack auditable without forcing the referee to reconstruct the Route~1 / Lane~A / Packet~9 interface from dispersed manuscript locations.
+
+\subsection{Weak-window repair certificate and dependency table}
+\label{subsec:weak_window_dependency_table}
+
+The repaired weak-window branch is now short enough to certify explicitly.
+Theorem~\ref{thm:weak_window_sufficiency} in Appendix~\ref{app:route1} is the theorem-level closure statement;
+Table~\ref{tab:weak_window_dependency_table} records the direct downstream citations that make that theorem easy to audit.
+In particular, the table isolates exactly where weak-window information still enters and where it no longer enters at all.
+
+\begingroup
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}
+>{\RaggedRight\arraybackslash}p{0.24\textwidth}
+>{\RaggedRight\arraybackslash}p{0.29\textwidth}
+>{\RaggedRight\arraybackslash}p{0.27\textwidth}
+>{\RaggedRight\arraybackslash}p{0.12\textwidth}@{}}
+\toprule
+\textbf{Downstream statement} & \textbf{Direct live inputs} & \textbf{Certified role of the repaired package} & \textbf{Old edge-Hessian residue?}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Downstream statement} & \textbf{Direct live inputs} & \textbf{Certified role of the repaired package} & \textbf{Old edge-Hessian residue?}\\
+\midrule
+\endhead
+Section~\ref{subsec:step_scaling} export to Lane~C & Theorem~\ref{thm:b0_coefficient_extraction}; Lemma~\ref{lem:b0_positive}; Proposition~\ref{ass:A2_identification}; the beta-remainder file states the remainder proof is internal to chart-truncated Lane~C & Only the sign input $b_0>0$ is imported from Appendix~F; that sign is now closed by the explicit squared-kernel formula \eqref{eq:b0_shell_integral}, and the dyadic beta-remainder proof itself uses no weak-window convexity statement & No\\[0.35em]
+
+Weak-window step-scaling theorem & Lemma~\ref{lem:flow_energy_expansion} $\Rightarrow$ Proposition~\ref{prop:stepscaling_control_proved} & The two-sided cubic remainder is derived from localization plus curvature Brascamp--Lieb only & No\\[0.35em]
+
+Bare/flow comparison at fixed physical scale & Lemma~\ref{lem:weak_localization}, Proposition~\ref{prop:curvature_BL}, Lemma~\ref{lem:h49_flow_coeff_majorant}, Lemma~\ref{lem:h49_bad_event_absorb} $\Rightarrow$ Theorem~\ref{thm:h49_bare_flow_window} & Sole live weak-window identification used later in the tuned dyadic normalization & No\\[0.35em]
+
+Tuned UV recursion & Proposition~\ref{prop:stepscaling_control_proved}, Lemma~\ref{lem:stepscaling_continuous}, Theorem~\ref{thm:h49_bare_flow_window} $\Rightarrow$ Proposition~\ref{prop:h59_uv_tuning_exists} & This is the only place where the weak-window step-scaling package is turned into a physical tuning sequence & No\\[0.35em]
+
+Bounded physical entrance scale & Proposition~\ref{prop:h59_uv_tuning_exists} and Proposition~\ref{prop:h51_kbeta_opt} $\Rightarrow$ Corollary~\ref{cor:route1_bounded_physical_entrance} & This corollary is the only live weak-window input consumed by the primary Route~1 gap lane & No\\[0.35em]
+
+One-shot KP entrance theorem & Theorem~\ref{thm:gluing_KP_entrance}, Proposition~\ref{prop:h51_kbeta_opt}, Corollary~\ref{cor:TBmix_reference_budget_closed} $\Rightarrow$ Theorem~\ref{thm:h60_one_shot_entrance} & Independent of the weak-window repair; uses no weak-window convexity statement at all & No\\[0.35em]
+
+Primary Route~1 package & Proposition~\ref{prop:route1_QE1}, Proposition~\ref{prop:route1_QE2}, Theorem~\ref{thm:phys_gap_noncollapse}, Corollary~\ref{cor:route1_QE3_gap}, Theorem~\ref{thm:route1_laneB_package} & Weak-window information enters only through Corollary~\ref{cor:route1_bounded_physical_entrance}; the remainder of the primary gap lane and its downstream Lane~B reformulation are independent of any edge-Hessian claim & No\\
+\bottomrule
+\caption{Statement-by-statement dependency table for the repaired weak-window branch.}
+\label{tab:weak_window_dependency_table}
+\end{longtable}
+\endgroup
+
+\subsection{Theorem guide by section and appendix}
+\label{subsec:theorem_file_map}
+
+\begingroup
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}
+>{\RaggedRight\arraybackslash}p{0.18\textwidth}
+>{\RaggedRight\arraybackslash}p{0.29\textwidth}
+>{\RaggedRight\arraybackslash}p{0.31\textwidth}
+>{\RaggedRight\arraybackslash}p{0.14\textwidth}@{}}
+\toprule
+\textbf{Claim / module} & \textbf{Statement label(s)} & \textbf{Primary section / appendix} & \textbf{Reading note}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Claim / module} & \textbf{Statement label(s)} & \textbf{Primary section / appendix} & \textbf{Reading note}\\
+\midrule
+\endhead
+Main theorem statement and public proof roles & Theorem~\ref{thm:main}, Remark~\ref{rem:frozen_spine_scope} & Section~\ref{sec:roadmap} & Read first. No hidden lane changes remain on the public theorem spine.\\[0.35em]
+
+Appendix~F public Route~1 package & Proposition~\ref{prop:route1_QE1}, Proposition~\ref{prop:route1_QE2}, Theorem~\ref{thm:phys_gap_noncollapse}, Corollary~\ref{cor:route1_QE3_gap}, Theorem~\ref{thm:route1_laneB_package} & Appendix~\ref{app:route1}; detailed proofs in Appendix~\ref{app:route1}, main Route~1 proof body & Primary gap lane.\\[0.35em]
+
+Weak-window repair certificate & Theorem~\ref{thm:weak_window_sufficiency} & Appendix~\ref{app:route1}; referee summary in Table~\ref{tab:weak_window_dependency_table} & Certifies that the repaired curvature-sector package is the only live weak-window input.\\[0.35em]
+
+One-shot entrance theorem & Theorem~\ref{thm:h60_one_shot_entrance}, Corollary~\ref{cor:route1_bounded_physical_entrance} & Appendix~\ref{app:route1}, main Route~1 proof body & First hard Route~1 checkpoint.\\[0.35em]
+
+Full fixed-lattice gap & Lemma~\ref{lem:block_decay_to_micro}, Corollary~\ref{cor:fixed_n_decay_criterion}, Theorem~\ref{thm:physical_gap_from_gluing} & Appendix~\ref{app:route1}, main Route~1 proof body & Common-rate statement for the whole fixed-lattice local algebra.\\[0.35em]
+
+Continuum-time transport and full-Hilbert-space gap & Theorem~\ref{thm:continuum_time_OS_upgrade}, Corollary~\ref{cor:sharp_base_dense_in_full_H}, Lemma~\ref{lem:QE3_core_topology}, Theorem~\ref{thm:phys_gap_noncollapse}, and \Cref{rem:route1_packet38_transport_certification} & Appendix~\ref{app:route1}, continuum transport block, with cyclicity/core input from Section~\ref{sec:sharp_local} & This is the only load-bearing continuum gap route; the local Packet~3/8 ledger names the only live weak-window certificate and the first Lane~A theorem-level dependency.\\[0.35em]
+
+Lane~A breadth theorem and finite-cap mixed-channel bridge & Theorem~\ref{thm:LaneA_associated_graded_identity}, Theorem~\ref{thm:canonical_block_one_shell_increment}, Theorem~\ref{thm:finite_truncation_inverse_control}, Theorem~\ref{thm:finite_cap_flowed_sector_bridge}, Theorem~\ref{thm:LaneA_closure}, Corollary~\ref{cor:LaneA_bounded_state_restriction}, Corollary~\ref{cor:LaneA_full_scope} & Appendix~\ref{app:normalization_crosscheck}, Appendix~\ref{app:route1}, \S\ref{subsec:packet6_mixed_channel_note}, and the main Lane~A proof blocks in Section~\ref{sec:sharp_local} & Downstream closure statements cite only Theorem~\ref{thm:finite_cap_flowed_sector_bridge}(i); the theorem-facing role split is Theorem~\ref{thm:LaneA_closure}(b) for finite-cap OS structure, Corollary~\ref{cor:LaneA_bounded_state_restriction} for bounded-state compatibility, and Corollary~\ref{cor:LaneA_full_scope} for the inductive-union passage.\\[0.35em]
+
+Bounded-base cyclicity export & Theorem~\ref{thm:LaneA_bounded_base_cyclic} & Section~\ref{sec:sharp_local}, final Lane~A closure block & Feeds QE3 via Corollary~\ref{cor:sharp_base_dense_in_full_H} and also enters the Packet~9 OS dossier.\\[0.35em]
+
+Temperedness export & Theorem~\ref{thm:LaneA_temperedness_verification} & Appendix~\ref{app:route1}, inductive-union local-field block & Separate OS$_0$/temperedness export consumed directly by Theorem~\ref{thm:OS_axioms_package}.\\[0.35em]
+
+Non-trivial witness export & Theorem~\ref{thm:LaneA_nontriviality_witness} & Section~\ref{sec:sharp_local}, with normalization support from Appendix~\ref{app:normalization_crosscheck} & Used later only by Appendix~M, namely Theorem~\ref{thm:nontriviality_package}.\\[0.35em]
+
+OS / Wightman / Haag--Kastler package & Theorem~\ref{thm:OS_axioms_package}, Theorem~\ref{thm:OS_to_Wightman}, Corollary~\ref{cor:field_correspondence}, Corollary~\ref{cor:Minkowski_gap_from_OS} & Appendix~\ref{app:axioms_package} & Read after Route~1 and the Lane~A closure / temperedness / cyclicity exports.\\[0.35em]
+
+Non-triviality package & Theorem~\ref{thm:nontriviality_package} & Appendix~\ref{app:axioms_package} with witness input from Section~\ref{sec:sharp_local}, final Lane~A closure block & Rules out the zero/identity theory in the vacuum sector.\\[0.35em]
+
+Compact-simple group scope & Theorem~\ref{thm:A1_compact_simple_internal}, Corollary~\ref{cor:A1_compact_simple_spine} & Appendix~\ref{app:A1_compact_simple}, especially \S\ref{subsec:A1_packet1_certification} and Table~\ref{tab:A1_packet1_constant_ledger} & The classical-family appendices are no longer load-bearing for this scope; the front-end note records the exceptional-group closure point and the constant split.\\[0.35em]
+
+Faithful-$\rho$ universality / local-net endpoint & Theorem~\ref{thm:faithful_Wilson_uniform_hypotheses}, Theorem~\ref{thm:faithful_Wilson_rep_universality}, Corollary~\ref{cor:faithful_rho_gap_ledger}, Theorem~\ref{thm:global_form_local_endpoint}, Corollary~\ref{cor:global_form_main_scope} & Appendix~\ref{app:global_form_resolution}, especially \S\ref{subsec:packet10_provenance_ledger} & Closes the uniform-hypothesis gap for Packet~10, fixes the exact theorem-level local-net endpoint, records that the explicit Route~1 ledger is still faithful-$\rho$ indexed, records the imported OS uniqueness clause used in faithful-Wilson universality, and isolates the AQFT commentary as downstream of the theorem packet.\\[0.35em]
+
+Lane~B downstream reformulation & Theorem~\ref{thm:R1_HS} together with the Lane~B wrapper statements & Section~\ref{sec:mass_gap_intake} and the downstream Lane~B wrapper block & Downstream only. Not used to prove Theorem~\ref{thm:main}.\\[0.35em]
+
+Classical-family sample audits & Appendices~\ref{app:A1_Sp}--\ref{app:A1_Spin_even} & Appendices~\ref{app:A1_Sp}--\ref{app:A1_Spin_even} & Explicit worked examples retained for audit trail, not for public group scope.\\[0.35em]
+
+Archival material moved off the spine & Supplementary Route~1 notes & Supplementary Route~1 archive & Explicitly non-load-bearing after the proof-spine freeze.\\
+\bottomrule
+\caption{Theorem guide by section and appendix for the load-bearing statements on the public theorem spine.}\label{tab:theorem_file_map}
+\end{longtable}
+\endgroup
+
+\subsection{Status ledger: unconditional, imported, illustrative, downstream}
+\label{subsec:status_ledger}
+
+\begingroup
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}
+>{\RaggedRight\arraybackslash}p{0.24\textwidth}
+>{\RaggedRight\arraybackslash}p{0.17\textwidth}
+>{\RaggedRight\arraybackslash}p{0.35\textwidth}
+>{\RaggedRight\arraybackslash}p{0.16\textwidth}@{}}
+\toprule
+\textbf{Material} & \textbf{Status} & \textbf{Role on the public spine} & \textbf{Where recorded}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Material} & \textbf{Status} & \textbf{Role on the public spine} & \textbf{Where recorded}\\
+\midrule
+\endhead
+Route~1 one-shot entrance / full fixed-lattice gap / continuum vacuum gap & Unconditional internal theorem & Primary gap lane used by Theorem~\ref{thm:main}(A), (D) & Appendix~\ref{app:route1}, especially Proposition~\ref{prop:route1_QE1}, Proposition~\ref{prop:route1_QE2}, \Cref{rem:route1_packet38_transport_certification}, Theorem~\ref{thm:phys_gap_noncollapse}, and Corollary~\ref{cor:route1_QE3_gap}\\[0.35em]
+
+Weak-window curvature-sector repair certificate & Unconditional internal theorem/certificate & Records that every live step-scaling / tuning / intake use factors through the repaired curvature package and not through any edge-Hessian placeholder & Theorem~\ref{thm:weak_window_sufficiency} in Appendix~\ref{app:route1}; Table~\ref{tab:weak_window_dependency_table} in the present appendix\\[0.35em]
+
+Lane~A exact-dimension breadth theorem and full sharp-local closure & Unconditional internal theorem & Primary reconstruction lane used by Theorem~\ref{thm:main}(C) and by QE3; now includes the arbitrary-block coefficient-extraction theorem rather than only sample-sector certificates & Section~\ref{sec:sharp_local}, Appendix~\ref{app:normalization_crosscheck}\\[0.35em]
+
+OS/Wightman reconstruction, field correspondence, and non-triviality package & Packaged corollary/theorem from the constructive core & Consolidates the existence, field-identification, and non-triviality outputs in theorem-facing form; the front-end provenance ledger isolates the imported OS reconstruction / analytic-continuation / uniqueness background from the earlier internal Euclidean input & Appendix~\ref{app:axioms_package}, especially \S\ref{subsec:packet9_provenance_ledger}\\[0.35em]
+
+Compact-simple low-Casimir multiplier node & Unconditional internal theorem from the shifted-torus Laplace package, with traced ledger constants & Supplies the low-Casimir branch of Theorem~\ref{thm:A1_compact_simple_internal} by an internal parabolic-window contour-shift argument rather than by any imported compact-group multiplier theorem & Theorem~\ref{thm:A1_compact_group_semiclassical_multiplier_exact}, Theorem~\ref{thm:A1_low_regime_background}, Corollary~\ref{cor:A1_low_regime_ledger_constants}, Lemma~\ref{lem:A1_low_multiplier_normalization}, and Lemma~\ref{lem:A1_shifted_torus_integral} in Appendix~\ref{app:A1_compact_simple}\\[0.35em]
+
+Compact-simple high-Casimir real-analytic Peter--Weyl decay & Audited internal theorem from the torus-strip coefficient-extraction package & Supplies the high-Casimir branch of Theorem~\ref{thm:A1_compact_simple_internal} by an explicit Weyl-denominator/Fourier-strip argument & Theorem~\ref{thm:A1_high_regime_background}, Lemma~\ref{lem:A1_torus_strip_extension}, Lemma~\ref{lem:A1_weyl_denominator_coeff_extract}, and Lemma~\ref{lem:A1_torus_strip_fourier} in Appendix~\ref{app:A1_compact_simple}\\[0.35em]
+
+KP / Dobrushin cluster-expansion machinery & Imported standard background theorem family & Converts explicit entrance-scale smallness into uniqueness and exponential decay inside the KP basin & Appendix~\ref{app:route1}, especially Theorem~\ref{thm:clustering} and Theorem~\ref{thm:gluing_KP_entrance}\\[0.35em]
+
+OS reconstruction / analytic continuation / uniqueness family & Imported standard background theorem family & Supplies the standard reconstruction step in Theorem~\ref{thm:OS_axioms_package}, the Minkowski continuation in Theorem~\ref{thm:OS_to_Wightman}, and the uniqueness clause reused by Theorem~\ref{thm:faithful_Wilson_rep_universality} & Appendices~\ref{app:axioms_package} and~\ref{app:global_form_resolution}, especially Theorems~\ref{thm:OS_axioms_package}, \ref{thm:OS_to_Wightman}, and~\ref{thm:faithful_Wilson_rep_universality}\\[0.35em]
+
+Lane~B dense-core spectral-calculus route & Downstream reformulation & Repackages the already proved gap; not used to prove it & Section~\ref{sec:mass_gap_intake}, Appendix~\ref{app:route1}\\[0.35em]
+
+Classical-family one-plaquette appendices & Illustrative audited examples & Keep explicit worked proofs for standard $\Sp/\Spin$ choices of $\rho$ & Appendices~\ref{app:A1_Sp}--\ref{app:A1_Spin_even}\\[0.35em]
+
+Supplementary archival Route~1 notes & Archival / non-load-bearing & Historical material retained for record but moved off the theorem spine & Supplementary Route~1 archive\\
+\bottomrule
+\caption{Status ledger for the material most likely to require concentrated first-pass scrutiny.}\label{tab:status_ledger}
+\end{longtable}
+\endgroup
+
+\subsection{Satellite extracts for the three hard modules}
+\label{subsec:hard_module_extracts}
+
+\paragraph{Extract A: Appendix~F / Route~1.}
+A focused first-pass reading of the primary mass-gap lane can be done in the following order.
+Read first \Cref{rem:route1_packet38_transport_certification}, which freezes the chain Corollary~\ref{cor:A1_compact_simple_spine} $\Rightarrow$ Proposition~\ref{prop:route1_QE1} $\Rightarrow$ Proposition~\ref{prop:route1_QE2} $\Rightarrow$ Theorem~\ref{thm:Wilson_patch_transport} $\Rightarrow$ Theorem~\ref{thm:continuum_tightness} $\Rightarrow$ Theorem~\ref{thm:continuum_time_OS_upgrade} $\Rightarrow$ Theorem~\ref{thm:phys_gap_noncollapse} $\Rightarrow$ Corollary~\ref{cor:route1_QE3_gap}, records Theorem~\ref{thm:weak_window_sufficiency} as the only live weak-window certificate, identifies Corollary~\ref{cor:LaneA_bounded_state_restriction} as the first Lane~A theorem-level compatibility input on the transport route, states explicitly that this corollary is not the inductive-union theorem, records Theorem~\ref{thm:LaneA_closure}(b) as the finite-cap sharp-local OS-structure input, records Corollary~\ref{cor:LaneA_full_scope} as the separate inductive-union passage, points to Corollary~\ref{cor:sharp_base_dense_in_full_H} and Lemma~\ref{lem:QE3_core_topology} for the later density/core handoff, and states that Lane~B is downstream only.
+Then read the package-level statements Proposition~\ref{prop:route1_QE1}, Proposition~\ref{prop:route1_QE2}, Theorem~\ref{thm:phys_gap_noncollapse}, Corollary~\ref{cor:route1_QE3_gap}, and Theorem~\ref{thm:route1_laneB_package}.
+Then audit the actual closure steps in this order:
+Theorem~\ref{thm:weak_window_sufficiency};
+Theorem~\ref{thm:h60_one_shot_entrance};
+Corollary~\ref{cor:route1_bounded_physical_entrance};
+Theorem~\ref{thm:gluing_KP_entrance};
+Lemma~\ref{lem:route1_probe_geometry};
+Lemma~\ref{lem:block_decay_to_micro};
+Corollary~\ref{cor:fixed_n_decay_criterion};
+Theorem~\ref{thm:physical_gap_from_gluing};
+Theorem~\ref{thm:continuum_tightness};
+Theorem~\ref{thm:continuum_time_OS_upgrade};
+Corollary~\ref{cor:sharp_base_dense_in_full_H};
+Lemma~\ref{lem:QE3_core_topology};
+Theorem~\ref{thm:phys_gap_noncollapse}.
+The downstream dense-core route, Theorem~\ref{thm:route1_E2_internal} and Theorem~\ref{thm:R1_HS}, should be read only afterward.
+
+\paragraph{Extract B: Lane~A breadth theorem and Packet~6 seam.}
+For the Packet~6 mixed-channel clause, first read the Packet~6 note in \S\ref{subsec:packet6_mixed_channel_note}.
+The shortest audit route for the full sharp-local closure is:
+Definition~\ref{def:local_operator_spaces};
+Lemma~\ref{lem:LaneA_flow_substitution_filtered};
+Theorem~\ref{thm:LaneA_associated_graded_identity};
+Theorem~\ref{thm:canonical_block_one_shell_increment};
+Corollary~\ref{cor:graded_triangular_transport_all_blocks};
+Proposition~\ref{prop:canonical_block_uv_identity};
+Theorem~\ref{thm:canonical_block_polylog};
+Theorem~\ref{thm:finite_truncation_inverse_control};
+Theorem~\ref{thm:finite_cap_flowed_sector_bridge};
+Theorem~\ref{thm:LaneA_closure};
+Corollary~\ref{cor:LaneA_bounded_state_restriction};
+Corollary~\ref{cor:LaneA_full_scope};
+Theorem~\ref{thm:LaneA_bounded_base_cyclic}.
+The scalar/tensor/loop sample sectors, including Theorems~\ref{thm:cS}, \ref{thm:cQ}, \ref{thm:dS}, \ref{thm:cT_block}, and~\ref{thm:D6_block}, are retained as audited examples and normalization cross-checks rather than as the primary breadth theorem.
+
+\paragraph{Extract C: axioms, non-triviality, and final scope.}
+Once Route~1 and Lane~A are audited, the final claim packets can be checked in the following theorem-level order:
+Theorem~\ref{thm:OS_axioms_package};
+Theorem~\ref{thm:OS_to_Wightman};
+Corollary~\ref{cor:field_correspondence};
+Theorem~\ref{thm:nontriviality_package};
+Theorem~\ref{thm:A1_compact_simple_internal};
+Corollary~\ref{cor:A1_compact_simple_spine};
+Theorem~\ref{thm:faithful_Wilson_uniform_hypotheses};
+Theorem~\ref{thm:faithful_Wilson_rep_universality};
+Corollary~\ref{cor:faithful_rho_gap_ledger};
+Theorem~\ref{thm:global_form_local_endpoint};
+Corollary~\ref{cor:global_form_main_scope}.
+This isolates the final dossier: Euclidean existence, Minkowski reconstruction, explicit field correspondence, non-triviality, compact-simple group scope, faithful-Wilson universality, the present quantitative-ledger status, and the local-net endpoint. The front-end provenance ledgers in Appendices~\ref{app:axioms_package} and~\ref{app:global_form_resolution} make explicit, theorem by theorem, what is imported background, what is earlier internal input, and what is a new endpoint.
+
+\begin{remark}[What a first-pass reader no longer needs to reconstruct]
+With the present packetization, a reader does not need to recover the proof architecture by searching the entire manuscript for every appearance of ``Route~1, ``Lane~A, or ``Lane~B.
+The public theorem spine is now explicit in Theorem~\ref{thm:main}, Theorem~\ref{thm:route1_laneB_package}, Table~\ref{tab:load_bearing_graph}, the Packet~6 seam note in \S\ref{subsec:packet6_mixed_channel_note}, and Appendix~\ref{app:executive_proof_sketch}; the present appendix also records exactly which materials are sample-sector audits, which are imported background, which are downstream reformulations, and which are archival only.
+\end{remark}

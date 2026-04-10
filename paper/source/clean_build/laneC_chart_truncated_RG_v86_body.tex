@@ -1,0 +1,244 @@
+We define the one-step fluctuation integration operator used in the RG map with an explicit chart truncation,
+and we show that the truncation error is exponentially small in $\beta_{\min}$ (hence superpolynomially small in the asymptotic-freedom window).
+This permits uniform (in scale $j$) control of the one-step Taylor remainders in the dyadic seminorm topology,
+once the fluctuation cumulant bounds and the $\kappa<1$ contraction input are established on the fixed exponential chart.
+
+\paragraph{What this module does.}
+We define the one-step fluctuation integration operator used in the RG map to be the \textbf{chart-truncated} operator (Definition~\ref{def:trunc_measure}).
+This has three concrete effects:
+\begin{enumerate}[label=(\roman*)]
+\item all fluctuation estimates are proved on a fixed exponential chart, so there is no ``off-chart'' leakage in the one-step cumulant bounds;
+\item the analytic Lane~C closure is carried out entirely for the chart-truncated map $\mathcal R_j^{\mathrm{good}}$, so every scale-by-scale constant is uniform and explicit on the AF window;
+\item the later Wilson identification is handled separately in Section~\ref{sec:patching}, after the exact Wilson recursion has been identified and the bad-event contribution has been estimated at the \emph{averaged Wilson-state level}.
+\end{enumerate}
+
+Fix $\varepsilon\in(0,1]$ and let $G_{\mathcal Q}(\varepsilon)$ be the good-block event on a unit coarse block $\mathcal Q$:
+all plaquette angles in $\mathcal Q$ are $\le\varepsilon$.
+
+\begin{definition}[Truncated one-step fluctuation measure]\label{def:trunc_measure}
+Let $\mu_{j+1}$ be the exact Wilson one-step conditional fluctuation factor on a unit coarse block at scale $j+1$, with the block-skeleton/coarse field held fixed as in Theorem~\ref{thm:wilson_one_step_factorization}.
+Define the truncated measure
+\[
+\mu_{j+1}^{\mathrm{good}}(dU)\ :=\ \frac{\mathbf 1_{G_{\mathcal Q}(\varepsilon)}(U)}{\mu_{j+1}(G_{\mathcal Q}(\varepsilon))}\ \mu_{j+1}(dU).
+\]
+Define the truncated expectation operator $\mathbb E_{j+1}^{\mathrm{good}}[\cdot]$ as expectation with respect to $\mu_{j+1}^{\mathrm{good}}$.
+\end{definition}
+
+\paragraph{Global product structure.}
+By Theorem~\ref{thm:wilson_one_step_factorization}, the exact Wilson one-step conditional law is already a block-product law once the block-skeleton field is frozen.  Because the good-block event factorizes blockwise, $\mu_{j+1}^{\mathrm{good}}$ extends to the global fluctuation field simply by taking the product of the truncated block measures.  No additional finite-range surrogate is required.
+
+We record the deterministic local comparison lemma and then separate it from the later Wilson-state transport argument.
+
+\begin{lemma}[Expectation difference bound for bounded local observables]\label{lem:exp_diff}
+Let $F$ be a local functional supported in one unit coarse block with $\|F\|_{L^\infty}\le 1$.
+Then, with $\mu_{j+1}^{\mathrm{good}}$ as in Definition~\ref{def:trunc_measure},
+\[
+\big|\mathbb E_{\mu_{j+1}}[F]-\mathbb E_{\mu_{j+1}^{\mathrm{good}}}[F]\big|
+\ \le\ 2\,\mu_{j+1}(G_{\mathcal Q}(\varepsilon)^c).
+\]
+\end{lemma}
+
+The project seminorms $\|\cdot\|_j$ control a finite list of derivatives and polymer weights.
+Since the underlying field space is compact at fixed block size, local functionals occurring at one-step level are bounded by a constant multiple of their seminorm.
+We record this as an explicit norm equivalence.
+
+\begin{proposition}[Local sup bound from the seminorm (proved in Proposition~\ref{ass:seminorm_axioms})]\label{ass:sup_from_seminorm}
+There exists $C_{\infty}>0$ (scale independent) such that for every local functional $F$ supported in one unit coarse block,
+\[
+\|F\|_{L^\infty}\ \le\ C_{\infty}\,\|F\|_{\mathrm{loc}}
+\]
+where $\|\cdot\|_{\mathrm{loc}}$ denotes the local part of the project seminorm (finite list of derivatives and weights).
+\end{proposition}
+
+\begin{corollary}[Pointwise local truncation estimate]\label{cor:trunc_seminorm}
+Assume \ref{ass:sup_from_seminorm}. Then for such $F$,
+\[
+\big|\mathbb E_{\mu_{j+1}}[F]-\mathbb E_{\mu_{j+1}^{\mathrm{good}}}[F]\big|
+\ \le\ 2C_\infty\,\|F\|_{\mathrm{loc}}\ \mu_{j+1}(G_{\mathcal Q}(\varepsilon)^c).
+\]
+\end{corollary}
+
+\paragraph{Calibration.}
+Corollary~\ref{cor:trunc_seminorm} is the \emph{pointwise conditional} chart estimate used to define $\mathcal R_j^{\mathrm{good}}$.
+The theorem-level return to the physical Wilson theory is isolated later in Section~\ref{sec:patching}: Theorem~\ref{thm:Wilson_patch_transport} folds exact Wilson recursion, the actual chart-truncated recursion, and the averaged good-block transport estimate into one same-scale statement on the fixed test class used downstream.
+Accordingly, the analytic Lane~C closure below uses only the chart-truncated map $\mathcal R_j^{\mathrm{good}}$, while the Wilson comparison itself is cited there by theorem number rather than by caveat.
+
+\begin{definition}[Chart-truncated RG step]\label{def:RG_good}
+Define the one-step RG map $\mathcal R_j^{\mathrm{good}}$ by replacing the fluctuation expectation $\mathbb E_{j+1}$ in the bulk RG definition by
+$\mathbb E_{j+1}^{\mathrm{good}}$ from Definition~\ref{def:trunc_measure}, blockwise.
+
+All subsequent operations (reblocking/rescaling and exact extraction/reparametrization of the marginal coordinates) are unchanged.
+The corresponding untruncated map exists formally as the exact blocked Wilson step written in the $(u,K)$ coordinates of \eqref{eq:RG_density_form};
+however the analytic Lane~C arguments below use only $\mathcal R_j^{\mathrm{good}}$.
+Section~\ref{sec:patching} later identifies the exact Wilson recursion and compares its averaged outputs with the chart-truncated recursion.
+\end{definition}
+
+For a finite family $\Lambda$ of $j$-scale half-open blocks, let $\operatorname{Par}(\Lambda)$ denote the family of half-open $(j+1)$-blocks whose interiors meet at least one block of $\Lambda$.
+
+\begin{lemma}[Support of the chart-truncated fluctuation operator]\label{lem:RGgood_support_T}
+Let $H$ be a bounded observable depending only on links contained in a finite family $\Lambda$ of $j$-scale half-open blocks.
+Then the fluctuation operator $T_{j+1}^{\mathrm{good}}$ from Definition~\ref{def:RG_good} satisfies
+\[
+\operatorname{supp}\bigl(T_{j+1}^{\mathrm{good}}H\bigr)\subseteq \operatorname{Par}(\Lambda).
+\]
+\end{lemma}
+
+\begin{proof}
+Freeze the $(j+1)$-skeleton field $U_{\Sigma}$.
+By Theorem~\ref{thm:wilson_one_step_factorization}, the chart-truncated fluctuation operator has the explicit block-product form
+\[
+(T_{j+1}^{\mathrm{good}}H)(U_{\Sigma})
+=
+\int \prod_{\mathcal Q\in\mathcal B_{j+1}}\mu^{\mathrm{good}}_{j+1,\mathcal Q}(dU_{\mathcal Q}\mid U_{\Sigma}|_{\partial\mathcal Q})\;H\bigl(U_{\Sigma},\{U_{\mathcal Q}\}_{\mathcal Q\in\mathcal B_{j+1}}\bigr).
+\]
+If $\mathcal Q\notin \operatorname{Par}(\Lambda)$, then $H$ is independent of the interior links $U_{\mathcal Q}$.
+The integral over such a block therefore contributes the factor
+\[
+\int \mu^{\mathrm{good}}_{j+1,\mathcal Q}(dU_{\mathcal Q}\mid U_{\Sigma}|_{\partial\mathcal Q})\cdot 1 =1.
+\]
+Thus every block outside $\operatorname{Par}(\Lambda)$ disappears from the product, and the remaining dependence is only through parent blocks meeting $\Lambda$.
+Hence
+\[
+\operatorname{supp}(T_{j+1}^{\mathrm{good}}H)\subseteq \operatorname{Par}(\Lambda).
+\]
+\end{proof}
+
+\begin{lemma}[Support preservation under deterministic reblocking/rescaling]\label{lem:RGgood_support_scale}
+If a bounded observable $H$ is supported in a finite family $\Lambda$ of half-open $(j+1)$-blocks, then the deterministic map $\mathsf{Scale}_j$ appearing in Definition~\ref{def:RG_good} is blockwise and satisfies
+\[
+\operatorname{supp}\bigl(\mathsf{Scale}_j H\bigr)\subseteq \Lambda.
+\]
+\end{lemma}
+
+\begin{proof}
+Write the deterministic reblocking/rescaling map blockwise as
+\[
+(\mathsf{Scale}_jH)(\{\widehat U_{\mathcal Q}\}_{\mathcal Q\in\Lambda})
+:=
+H\bigl(\{S_{\mathcal Q}^{-1}\widehat U_{\mathcal Q}\}_{\mathcal Q\in\Lambda}\bigr),
+\]
+where $S_{\mathcal Q}$ is the fixed coordinate rescaling on the single parent block $\mathcal Q$.
+No variable belonging to a block outside $\Lambda$ appears on the right-hand side, and no neighboring block is mixed into $S_{\mathcal Q}^{-1}\widehat U_{\mathcal Q}$.
+Therefore the index set of occupied blocks is unchanged:
+\[
+\operatorname{supp}(\mathsf{Scale}_jH)\subseteq \Lambda.
+\]
+\end{proof}
+
+\begin{lemma}[Support preservation under exact extraction/reparametrization]\label{lem:RGgood_support_ext}
+If a bounded observable $H$ is supported in a finite family $\Lambda$ of half-open $(j+1)$-blocks, then the exact extraction/reparametrization map $\mathsf{Ext}_j$ from Definition~\ref{def:RG_good} cannot introduce support outside $\Lambda$:
+\[
+\operatorname{supp}\bigl(\mathsf{Ext}_j H\bigr)\subseteq \Lambda.
+\]
+\end{lemma}
+
+\begin{proof}
+By Definition~\ref{def:dim_extract}, the extraction part of $\mathsf{Ext}_j$ removes only local monomials of engineering dimension $\le 4$ supported on already occupied polymers/blocks.
+Equivalently, for an observable supported in $\Lambda$ one may write
+\[
+\mathsf{Ext}_jH
+=
+H-\sum_{X\subseteq \Lambda}\Pi^{\le 4}_{j,X}H,
+\]
+where each projector $\Pi^{\le 4}_{j,X}$ extracts the dimension-$\le 4$ local counterterm supported in the occupied polymer/block $X$.
+Every summand on the right-hand side is therefore supported inside $X\subseteq \Lambda$.
+The analytic reparametrization of the marginal coordinate $u$ is a scalar coordinate change and does not attach new block variables.
+Hence no block outside $\Lambda$ can be introduced, and
+\[
+\operatorname{supp}(\mathsf{Ext}_jH)\subseteq \Lambda.
+\]
+\end{proof}
+
+\begin{proposition}[One-step support map for the actual chart-truncated RG operator]\label{prop:RGgood_support_one_step}
+Let $H$ be a bounded observable supported in a finite family $\Lambda$ of half-open $j$-scale blocks.
+Write the actual one-step Lane~C operator as
+\[
+\mathcal R_j^{\mathrm{good}}=\mathsf{Ext}_j\circ \mathsf{Scale}_j\circ T_{j+1}^{\mathrm{good}}.
+\]
+Then each concrete component has the following support action:
+\begin{align*}
+\operatorname{supp}(T_{j+1}^{\mathrm{good}}H)&\subseteq \operatorname{Par}(\Lambda) &&\text{by Lemma~\ref{lem:RGgood_support_T}},\\
+\operatorname{supp}(\mathsf{Scale}_jT_{j+1}^{\mathrm{good}}H)&\subseteq \operatorname{Par}(\Lambda) &&\text{by Lemma~\ref{lem:RGgood_support_scale}},\\
+\operatorname{supp}(\mathsf{Ext}_j\mathsf{Scale}_jT_{j+1}^{\mathrm{good}}H)&\subseteq \operatorname{Par}(\Lambda) &&\text{by Lemma~\ref{lem:RGgood_support_ext}}.
+\end{align*}
+Consequently,
+\begin{equation}\label{eq:RGgood_support_one_step}
+\operatorname{supp}(\mathcal R_j^{\mathrm{good}}H)\subseteq \operatorname{Par}(\Lambda).
+\end{equation}
+No support enlargement beyond the dyadic parent hull occurs at any other stage of the actual one-step Lane~C map.
+\end{proposition}
+
+\begin{proof}
+Compose the three support inclusions proved in Lemmas~\ref{lem:RGgood_support_T}--\ref{lem:RGgood_support_ext} in the order in which the actual operator $\mathcal R_j^{\mathrm{good}}$ is defined.
+Because the deterministic maps $\mathsf{Scale}_j$ and $\mathsf{Ext}_j$ preserve the support set produced by $T_{j+1}^{\mathrm{good}}$, the final support is exactly contained in the parent hull of the original occupied blocks.
+This yields \eqref{eq:RGgood_support_one_step}.
+\end{proof}
+
+\begin{remark}[Where the Wilson comparison is closed]\label{prop:RG_diff}
+Corollary~\ref{cor:trunc_seminorm} is the one-step conditional chart estimate used internally in Lane~C.
+The fixed-scale return to the physical Wilson theory is recorded later as Theorem~\ref{thm:Wilson_patch_transport}, stated in the test norm $\|\cdot\|_{\mathrm{test}}=\|\cdot\|_{L^\infty}$ on bounded observables with controlled block support.
+The internal Lane~C beta-remainder estimates below are therefore statements about the chart-truncated map $\mathcal R_j^{\mathrm{good}}$ itself, with the Wilson seam closed at one explicit theorem-level location.
+\end{remark}
+
+
+On the truncated measure, the good-block event holds deterministically. By the geometric chart lemma (tree gauge), choosing $\varepsilon\le \delta/C_{\mathrm{geo}}$
+ensures all links admit exponential coordinates with $\|A\|\le \delta$.
+Therefore the uniform convexity theorem applies directly to $H_{j+1}$ under $\mu_{j+1}^{\mathrm{good}}$, yielding a uniform $\varrho>0$,
+hence BL/LSI, hence uniform polynomial cumulants.
+
+\begin{corollary}[Uniform fluctuation cumulant bounds hold for $\mu^{\mathrm{good}}$]\label{cor:cumulants_good}
+Fix $\varepsilon\le \delta/C_{\mathrm{geo}}$ and use the chart-truncated RG step $\mathcal R_j^{\mathrm{good}}$.
+Then the cumulant bound hypothesis (uniform in $j$) holds with constants depending on $(\varrho,p_{\max},n_{\max})$ as in Theorem~\ref{thm:poly_cumulant},
+where $\varrho$ is given explicitly by:
+\[
+\varrho=\alpha_{\min}\beta_{\min}\,\frac{m(r_\ast)\lambda_\ast}{8}.
+\]
+\end{corollary}
+
+Using Lemma~\ref{lem:Delta_min}, extracting all local components of engineering dimension $\le 4$ yields $\Delta_{\min}=2$ and deterministic rescaling factor $1/4$.
+Under $\mathcal R_j^{\mathrm{good}}$, the integration bound constant $C_E$ can be bounded uniformly in scale using the uniform convexity $\varrho$ (moments are controlled),
+as outlined in Corollary~\ref{cor:CE_mech}. Thus for $\beta_{\min}$ sufficiently large, one may ensure $C_E<4$ and hence $\kappa=C_E/4<1$.
+
+\paragraph{Safe alternative (recommended if one wants to avoid $C_E<4$).}
+Extract all components of dimension $\le 6$ instead. Then $\Delta_{\min}=4$ and the deterministic factor becomes $1/16$.
+Contraction $\kappa=C_E/16<1$ holds under the much weaker condition $C_E<16$.
+
+We now assemble the chain with the patched RG step.
+
+\begin{theorem}[Uniform dyadic beta remainder bound (patched RG)]\label{thm:beta_remainder_closed}
+Assume:
+\begin{enumerate}[label=(H\arabic*)]
+\item the dyadic RG step is defined as the chart-truncated map $\mathcal R_j^{\mathrm{good}}$ (Definition~\ref{def:RG_good});
+\item extraction removes all relevant/marginal components up to dimension $\le 4$ (or $\le 6$ if using the safe alternative);
+\item the identification of the quadratic coefficient $A_2=2b_0\log2$ holds (with $b_0>0$);
+\item the project seminorm axioms (product and counting) hold with scale-independent constants from Proposition~\ref{ass:seminorm_axioms}.
+\end{enumerate}
+Then there exist $u_0,B>0$ independent of scale $j$ (hence independent of $a/L$) such that for all dyadic scales in the AF window and all $u\in[0,u_0]$,
+the dyadic beta function satisfies
+\[
+\big|\beta^{(2)}(u)+2b_0 u^2\big|\ \le\ B\,u^3.
+\]
+Moreover, $B$ can be chosen explicitly in terms of the RG constants $C_u,C_K,\kappa,D$ as given by the following explicit choice:
+\[
+B=\frac{C_u(1+M)}{\log2},\qquad M=\max\Big\{D,\frac{2C_K}{1-\kappa}\Big\},
+\]
+and no further scale-dependent input is required once the chart-truncated constants are fixed.
+\end{theorem}
+
+\begin{proof}
+Corollary~\ref{cor:cumulants_good} provides the required one-step polynomial cumulant bounds under the chart-truncated fluctuation measure.
+With the chosen extraction depth, Lemma~\ref{lem:Delta_min} supplies the scaling gap $\Delta_{\min}$ and hence, together with the one-step expectation bound (Lemma~\ref{lem:E_bounded}), the contraction $\kappa=C_E2^{-\Delta_{\min}}<1$ (Lemma~\ref{lem:kappa}).
+The analytic one-step RG expansion and Lipschitz bounds of Theorem~\ref{thm:RG_analytic_bounds} therefore hold with constants uniform in the dyadic scale $j$.
+Applying the explicit beta-remainder bookkeeping in that theorem yields the bound
+$\big|\beta^{(2)}(u)+2b_0u^2\big|\le Bu^3$ with the displayed choice of $B$.
+
+The theorem is therefore a statement about the chart-truncated step $\mathcal R_j^{\mathrm{good}}$ itself.
+The later Wilson-state identification is handled separately in Section~\ref{sec:patching} and is not needed for the internal Lane~C beta-remainder bookkeeping.
+\end{proof}
+
+With the preceding lemmas in place, the beta-remainder estimate reduces to fixing a finite list of explicit implementation constants:
+(i) the small-curvature chart parameters $(\varepsilon,\delta)$ and the associated geometric constant $C_{\mathrm{geo}}$ for the unit-block chart lemma;
+(ii) the finite extraction depth (e.g.\ dimension $\le 4$, or the safer cutoff $\le 6$);
+and (iii) the fluctuation moment constant $C_E$ under the chart-truncated measure (bounded uniformly for $\beta\ge\beta_{\min}$ by the Brascamp--Lieb control).
+Once these constants are chosen, no additional scale-dependent estimates are needed for the beta-remainder bound.
+

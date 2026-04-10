@@ -1,0 +1,294 @@
+\section{A1 for \texorpdfstring{$\Spin(2n)$}{Spin(2n)}: explicit one-plaquette coefficient bounds}
+\label{app:A1_Spin_even}
+
+This appendix proves \Cref{prop:A1_Spin_even}.
+As in Appendix~\ref{app:A1_Spin_odd}, the Wilson weight factors through $\SO(2n)$,
+so only representations with $\pi(-\mathbf 1)=\mathbf 1$ contribute.
+We therefore work on $\SO(2n)$ and restrict to dominant integral highest weights (the ``tensor'' sector).
+
+\subsection{Maximal torus and Wilson weight}
+\label{subsec:A1_Spin_even_setup}
+
+Fix $n\ge 4$ and set $G=\Spin(2n)$.
+On $\SO(2n)$, every conjugacy class meets the maximal torus with eigenvalues
+\begin{equation}
+\label{eq:SO_even_eigs}
+\{e^{\pm i\theta_1},\dots,e^{\pm i\theta_n}\},\qquad \theta_j\in[0,\pi].
+\end{equation}
+For the defining $2n$-dimensional representation $\rho$,
+\begin{equation}
+\label{eq:SO_even_trace}
+\Re\Tr_{\rho}(U)=2\sum_{j=1}^n \cos\theta_j.
+\end{equation}
+Hence, up to normalization,
+\Cref{eq:one_plaq_measure_general} corresponds on the torus to the symbol
+\begin{equation}
+\label{eq:SO_even_symbol}
+W_t(\theta):=\exp\Big(t\sum_{j=1}^n \cos\theta_j\Big),
+\qquad t:=\frac{\alpha\beta}{n}.
+\end{equation}
+
+\subsection{Determinantal coefficient formula}
+\label{subsec:A1_Spin_even_determinant}
+
+Irreducible representations of $\SO(2n)$ in the tensor sector are indexed by dominant integral highest weights.
+For the present A1 gate it suffices to label them by partitions $\lambda=(\lambda_1\ge\cdots\ge\lambda_n\ge 0)$;
+representations on which $-\mathbf 1\in\Spin(2n)$ acts nontrivially (spinor sector) do not appear in the Wilson expansion.
+
+Define the type-$D_n$ shifts
+\begin{equation}
+\label{eq:SO_even_bi}
+ b_i:=n-i\qquad(1\le i\le n),
+\end{equation}
+so that the Weyl vector has components $\rho_i=b_i$.
+Define
+\begin{equation}
+\label{eq:SO_even_Ai}
+A_i(\lambda):=\lambda_i+b_i=\lambda_i+n-i\in\N_0.
+\end{equation}
+
+We record the determinant-form Weyl character and Weyl integration formulas for the tensor sector of $\SO(2n)$,
+since these are the only group-specific inputs needed to reduce the one-plaquette coefficients to moment determinants
+(and they avoid any reliance on Toeplitz$+$Hankel machinery).
+
+\begin{lemma}[Weyl character formula for $\SO(2n)$ in cosine-determinant form (tensor sector)]
+\label{lem:SOeven_character_cosine}
+Let $U\in T$ have eigenangles $\theta=(\theta_1,\dots,\theta_n)$ as in \eqref{eq:SO_even_eigs}.
+For a tensor-sector irreducible representation indexed by a partition $\lambda$ of length at most $n$,
+\begin{equation}
+\label{eq:SOeven_character_formula}
+\chi_{\lambda}(\theta)
+=\frac{\det\big(\cos(A_i(\lambda)\,\theta_j)\big)_{1\le i,j\le n}}
+        {\det\big(\cos(b_i\,\theta_j)\big)_{1\le i,j\le n}},
+\qquad b_i=n-i,\quad A_i(\lambda)=\lambda_i+b_i.
+\end{equation}
+\end{lemma}
+
+\begin{lemma}[Weyl integration formula in determinant form for $\SO(2n)$]
+\label{lem:SOeven_weyl_integration}
+There exists a constant $c_{D}(n)>0$ such that for every continuous class function $F$ on $\SO(2n)$,
+\begin{equation}
+\label{eq:SOeven_weyl_integration}
+\int_{\SO(2n)}F(U)\,d\mu_{\mathrm{Haar}}(U)
+= c_{D}(n)\int_{[0,\pi]^n}F(\theta)\,
+\det\big(\cos(b_i\,\theta_j)\big)_{1\le i,j\le n}^{\,2}\,d\theta_1\cdots d\theta_n,
+\qquad b_i=n-i.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+This is the Weyl integration formula for type $D_n$ written using the determinant presentation of the Weyl denominator.
+Concretely, the type-$D_n$ Weyl denominator is
+\(
+\prod_{1\le i<j\le n}2\sin\big(\frac{\theta_i-\theta_j}{2}\big)\,2\sin\big(\frac{\theta_i+\theta_j}{2}\big)
+\),
+and the identity
+\(
+2\sin\big(\frac{\theta_i-\theta_j}{2}\big)\,2\sin\big(\frac{\theta_i+\theta_j}{2}\big)
+= \cos\theta_j-\cos\theta_i
+\)
+shows that (up to a constant) it equals the Vandermonde
+
+\paragraph{Denominator-minor convention (TN ratios).}
+At several points below we form Vandermonde-normalized minor ratios (or equivalent determinant ratios) and invoke the TN one-row shift tool from Appendix~\ref{app:TP_tools}.
+Whenever a would-be denominator minor can vanish, we apply the zero-case clause from Lemma~J.5:
+if the pivot entry (hence the denominator minor) vanishes, then the corresponding numerator determinant also vanishes and the desired inequality is trivial; otherwise we work in the strictly-positive regime and proceed with the ratio bound.
+
+
+ determinant in the variables $\cos\theta_j$.
+Since $\cos(b\,\theta)$ is a degree-$b$ polynomial in $\cos\theta$ with nonzero leading coefficient, the determinant
+$\det(\cos(b_i\theta_j))$ is a nonzero constant multiple of this Vandermonde, and squaring yields \eqref{eq:SOeven_weyl_integration}.
+\end{proof}
+
+\begin{proposition}[Determinantal formula for one-plaquette coefficients on $\SO(2n)$]
+\label{prop:SOeven_det_formula}
+Let $\lambda$ be a partition of length at most $n$.
+Define the cosine moment kernel
+\begin{equation}
+\label{eq:SOeven_kernel_def}
+M_t^{D}(p,q)
+:=\frac{2}{\pi}\int_0^{\pi} e^{t\cos\theta}\,\cos(p\theta)\,\cos(q\theta)\,d\theta,
+\qquad p,q\in\N_0.
+\end{equation}
+Let
+\begin{equation}
+\label{eq:SOeven_Dlambda_def}
+D_{\lambda}^{D}(t)
+:=\det\Big(M_t^{D}\big(A_i(\lambda),\,b_j\big)\Big)_{1\le i,j\le n}.
+\end{equation}
+Then with $t=\alpha\beta/n$,
+\begin{equation}
+\label{eq:SOeven_coeff_det_ratio}
+ a_{\lambda}(\beta,\alpha)
+=\E_{\nu_{\beta,\alpha}}\Big[\frac{\chi_{\lambda}(U)}{\dim\lambda}\Big]
+=\frac{1}{\dim\lambda}\,\frac{D_{\lambda}^{D}(t)}{D_{\varnothing}^{D}(t)}.
+\end{equation}
+Moreover, for every $p,q\in\N_0$,
+\begin{equation}
+\label{eq:SOeven_kernel_bessel}
+M_t^{D}(p,q)=I_{|p-q|}(t)+I_{p+q}(t).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Insert \Cref{eq:SOeven_character_formula} and \Cref{eq:SO_even_symbol} into the general coefficient formula
+\Cref{eq:one_plaq_coeff_general} and use the Weyl integration formula \Cref{eq:SOeven_weyl_integration}.
+The denominator determinant in \Cref{eq:SOeven_character_formula} cancels one factor of the squared Weyl denominator,
+leaving the torus integral
+\begin{equation}
+\label{eq:SOeven_andreief_integral}
+\int_{[0,\pi]^n} W_t(\theta)\,
+\det\big(\cos(A_i(\lambda)\theta_j)\big)_{1\le i,j\le n}\,
+\det\big(\cos(b_i\theta_j)\big)_{1\le i,j\le n}\,d\theta_1\cdots d\theta_n.
+\end{equation}
+Apply Andr\'eief's identity to \Cref{eq:SOeven_andreief_integral} (with the common product measure $d\theta_1\cdots d\theta_n$)
+to obtain the determinant \Cref{eq:SOeven_Dlambda_def}.
+The same reduction with $\lambda=\varnothing$ gives the normalizing factor $D^D_{\varnothing}(t)$, yielding \Cref{eq:SOeven_coeff_det_ratio}.
+
+For \Cref{eq:SOeven_kernel_bessel}, use
+$\cos(p\theta)\cos(q\theta)=\tfrac12(\cos((p-q)\theta)+\cos((p+q)\theta))$ and
+$\int_0^{\pi} e^{t\cos\theta}\cos(m\theta)\,d\theta=\pi I_m(t)$.
+\end{proof}
+
+\subsection{One-box inequality and telescoping}
+\label{subsec:A1_Spin_even_one_box}
+
+\begin{lemma}[One-box multiplicative bound for type $D_n$]
+\label{lem:SOeven_one_box}
+Fix $t>0$.
+Let $\mu$ be a partition of length at most $n$ and let $i$ be an index such that $\mu+e_i$ is still a partition.
+Write $A_i:=A_i(\mu)=\mu_i+b_i$.
+Then
+\begin{equation}
+\label{eq:SOeven_one_box_bound}
+\frac{a_{\mu+e_i}}{a_{\mu}}\ \le\ \frac{I_{A_i+1}(t)}{I_{A_i}(t)}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\textbf{Step 1: TN row shift bound for determinants.}
+By Lemma~\ref{lem:moment_matrix_TN}(iii) the matrix $(M_t^{D}(p,q))_{p,q\ge 0}$ is TN.
+Apply Lemma~\ref{lem:TN_row_shift} with the increasing column tuple $C=(0,1,\dots,n-1)$.
+As before,
+\begin{equation}
+\label{eq:SOeven_det_shift}
+\frac{D^{D}_{\mu+e_i}(t)}{D^{D}_{\mu}(t)}
+\ \le\ \frac{\Delta(A(\mu+e_i))}{\Delta(A(\mu))}\,\frac{M_t^{D}(A_i+1,0)}{M_t^{D}(A_i,0)}.
+\end{equation}
+
+\textbf{Step 2: cancel the Vandermonde factor using the type-$D$ Weyl dimension ratio.}
+For type $D_n$ (tensor sector) one may write
+\begin{equation}
+\label{eq:SOeven_dim_formula}
+\dim\lambda
+=\prod_{1\le i<j\le n}\frac{A_i(\lambda)^2-A_j(\lambda)^2}{b_i^2-b_j^2}.
+\end{equation}
+Hence, for $\mu\mapsto\mu+e_i$,
+\begin{equation}
+\label{eq:SOeven_dim_ratio}
+\frac{\dim(\mu+e_i)}{\dim(\mu)}
+=\prod_{j\ne i}\frac{(A_i+1)^2-A_j^2}{A_i^2-A_j^2}
+=\prod_{j\ne i}\frac{A_i+1-A_j}{A_i-A_j}\cdot\frac{A_i+1+A_j}{A_i+A_j}.
+\end{equation}
+Therefore
+\begin{equation}
+\label{eq:SOeven_dim_cancel}
+\frac{\dim(\mu)}{\dim(\mu+e_i)}\,\frac{\Delta(A(\mu+e_i))}{\Delta(A(\mu))}
+=\prod_{j\ne i}\frac{A_i+A_j}{A_i+1+A_j}\ \le\ 1.
+\end{equation}
+
+\textbf{Step 3: compute the kernel entry ratio at column $0$.}
+From \Cref{eq:SOeven_kernel_bessel},
+\begin{equation}
+\label{eq:SOeven_col0}
+M_t^{D}(p,0)=I_p(t)+I_p(t)=2I_p(t).
+\end{equation}
+Thus
+\begin{equation}
+\label{eq:SOeven_Mratio}
+\frac{M_t^{D}(A_i+1,0)}{M_t^{D}(A_i,0)}=\frac{I_{A_i+1}(t)}{I_{A_i}(t)}.
+\end{equation}
+
+\textbf{Step 4: combine.}
+Using \Cref{eq:SOeven_coeff_det_ratio} we have
+$\frac{a_{\mu+e_i}}{a_{\mu}}=\frac{\dim\mu}{\dim(\mu+e_i)}\cdot\frac{D^{D}_{\mu+e_i}}{D^{D}_{\mu}}$.
+Combine \Cref{eq:SOeven_det_shift}, \Cref{eq:SOeven_dim_cancel}, and \Cref{eq:SOeven_Mratio} to obtain \Cref{eq:SOeven_one_box_bound}.
+\end{proof}
+
+\begin{corollary}[Product bound over boxes]
+\label{cor:SOeven_telescoping}
+Let $\lambda$ be a nonempty partition of length at most $n$.
+Then
+\begin{equation}
+\label{eq:SOeven_product_over_boxes}
+0\le a_{\lambda}(\beta,\alpha)
+\ \le\ \prod_{(i,j)\in\lambda}\frac{I_{b_i+j}(t)}{I_{b_i+j-1}(t)},
+\qquad t=\frac{\alpha\beta}{n},\quad b_i=n-i.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Iterate \Cref{eq:SOeven_one_box_bound} along a one-box growth chain.
+At the moment the $j$th box in row $i$ is added, $A_i=b_i+(j-1)$.
+\end{proof}
+
+\subsection{Crossover bound in Casimir form}
+\label{subsec:A1_Spin_even_crossover}
+
+\begin{lemma}[Casimir in partition coordinates for type $D_n$]
+\label{lem:SOeven_casimir}
+Let $\lambda$ be a partition of length at most $n$.
+With the root-length convention of \Cref{def:metric_casimir},
+\begin{equation}
+\label{eq:SOeven_casimir_formula}
+C_2(\lambda)=\sum_{i=1}^n \lambda_i\big(\lambda_i+2b_i\big),\qquad b_i=n-i.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For type $D_n$, $\rho_i=b_i$ and $C_2(\lambda)=\langle\lambda,\lambda+2\rho\rangle$.
+\end{proof}
+
+\begin{proposition}[A1 crossover bound for $\Spin(2n)$]
+\label{prop:SOeven_A1_final}
+There exists an explicit constant $c_{D}(n)>0$ such that for every nontrivial $\lambda$ and every $\alpha\in[1/2,1]$, $\beta\ge 1$,
+\begin{equation}
+\label{eq:SOeven_A1_final}
+ a_{\lambda}(\beta,\alpha)
+\ \le\
+\exp\Big(-c_{D}(n)\,\frac{C_2(\lambda)}{\beta+\sqrt{C_2(\lambda)}}\Big).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The proof is identical to Appendix~\ref{subsec:A1_Sp_crossover} after replacing $b_i=n-i+1$ by $b_i=n-i$
+(and noting $t=\alpha\beta/n$ here as well).
+For completeness we record the final chain.
+
+By \Cref{eq:SOeven_product_over_boxes} and Lemma~\ref{lem:amos_upper_bound},
+\(\log a_{\lambda}\le -\sum_{(i,j)\in\lambda} \operatorname{arsinh}((b_i+j-\tfrac12)/t)\).
+As in \Cref{eq:Sp_asinh_lower_sum},
+\begin{equation}
+\label{eq:SOeven_asinh_lower}
+\sum_{(i,j)\in\lambda} \operatorname{arsinh}\Big(\frac{b_i+j-\tfrac12}{t}\Big)
+\ge \frac{\sum_{(i,j)\in\lambda}(b_i+j-\tfrac12)}{t+K_{\max}},
+\end{equation}
+with $K_{\max}=b_1+\lambda_1-\tfrac12\le (n-1)+\lambda_1$.
+Moreover
+\begin{align*}
+\sum_{(i,j)\in\lambda}(b_i+j-\tfrac12)
+&=\frac12\sum_{i=1}^n\big(\lambda_i^2+2b_i\lambda_i\big)+\frac12\sum_{i=1}^n\lambda_i
+\ge \frac12\,C_2(\lambda),
+\end{align*}
+using \Cref{eq:SOeven_casimir_formula} and $\lambda_i\ge 0$.
+Also $\lambda_1\le \sqrt{C_2(\lambda)}$.
+Combining these gives
+\begin{equation}
+\label{eq:SOeven_log_final}
+\log a_{\lambda}\ \le\ -\frac12\,\frac{C_2(\lambda)}{t+(n-1)+\sqrt{C_2(\lambda)}}.
+\end{equation}
+Finally $t\le \beta/n\le \beta$ and $\beta\ge 1$ imply
+$t+(n-1)+\sqrt{C_2}\le \beta+n+\sqrt{C_2}\le (n+1)(\beta+\sqrt{C_2})$.
+Thus \Cref{eq:SOeven_A1_final} holds with $c_{D}(n)=1/(2(n+1))$.
+\end{proof}
+

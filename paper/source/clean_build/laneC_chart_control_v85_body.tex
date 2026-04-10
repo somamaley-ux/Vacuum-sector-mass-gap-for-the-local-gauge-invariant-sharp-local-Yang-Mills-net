@@ -1,0 +1,225 @@
+This module provides the \emph{chart-control} input used in the fluctuation-cumulant bounds (Theorem~\ref{thm:poly_cumulant})
+(and hence the Brascamp--Lieb and log-Sobolev controls, Lemmas~\ref{lem:BL} and~\ref{lem:LSI}).
+It reduces the required \emph{uniform} estimates to two checks:
+\begin{enumerate}[label=(\roman*)]
+\item the one-step fluctuation measure is supported on (or effectively concentrated in) a fixed exponential chart $\|A_e\|\le \delta$
+so that the BCH derivative bounds of Lemma~\ref{lem:BCH_bounds} hold and the Hessian lower bound $\varrho>0$ of Theorem~\ref{thm:uniform_convexity} is valid; and
+\item the one-step integration constant $C_E$ (Lemma~\ref{lem:E_bounded}) and hence the linear contraction $\kappa=C_E2^{-\Delta_{\min}}$
+(with $\Delta_{\min}$ from Lemma~\ref{lem:Delta_min}) are controlled uniformly in the dyadic scale.
+\end{enumerate}
+
+We define a \emph{good-block} event $G_{\mathcal Q}(\varepsilon)$ that all plaquettes in a unit coarse block $\mathcal Q$ have small intrinsic curvature,
+measured by the distance-to-identity function
+\[
+\theta(U):=\mathrm{dist}_{G}(U,\mathbf 1),
+\]
+for the bi-invariant metric induced by the fixed inner product on $\mathfrak g$ (Definition~\ref{def:metric_casimir}).
+
+We prove:
+\begin{itemize}
+\item an explicit (in principle) \textbf{one-plaquette tail bound} under Wilson-class weights (uniform in $j$ through a uniform $\beta_{\min}$);
+\item a \textbf{small-curvature gauge chart} lemma: on $G_{\mathcal Q}(\varepsilon)$, tree gauge implies all remaining links satisfy $\|A_e\|\le C_{\mathrm{geo}}\varepsilon$;
+\item a \textbf{truncation stability} lemma: replacing the fluctuation measure by its restriction to $G_{\mathcal Q}(\varepsilon)$ changes the RG map by an exponentially small term in $\beta_{\min}$, hence negligible compared to any power of $u$ in the AF window.
+\end{itemize}
+
+\begin{definition}[Good-block event]\label{def:good_block}
+Fix $\varepsilon\in(0,1]$. For a unit coarse block $\mathcal Q$ (a $2^4$ hypercube in $j$-block units) define
+\[
+G_{\mathcal Q}(\varepsilon):=\bigcap_{p\in P(\mathcal Q)}\{\theta(U_p)\le \varepsilon\}.
+\]
+Let $N_p:=|P(\mathcal Q)|$ (a fixed constant, e.g.\ $N_p=24$ for the $2^4$ block).
+\end{definition}
+
+Consider the single-plaquette probability measure on $G$ with Wilson-class density associated to the fixed Wilson representation $\rho$ from \eqref{eq:families}:
+\[
+\mu_{\beta,\alpha}(dU)\ \propto\ \exp\!\Big(-\alpha\beta\,A_\rho(U)\Big)\,dU,\qquad 
+A_\rho(U):=1-\frac{1}{\dim(\rho)}\,\Re\Tr_{\rho}(U),\qquad \alpha\in[\alpha_{\min},1].
+\]
+(Up to the irrelevant multiplicative constant $e^{-\alpha\beta}$ this is equivalent to the more common weight
+$\exp\big(\frac{\alpha\beta}{\dim(\rho)}\,\Re\Tr_{\rho}(U)\big)$.)
+
+\begin{lemma}[One-plaquette tail bound (Wilson class)]\label{lem:plaq_tail}
+Let $d_G:=\dim(G)$ and fix $\alpha\in[\alpha_{\min},1]$.
+There exist constants
+\[
+\varepsilon_{\mathrm{plaq}}(G)\in(0,1],\qquad c_{\mathrm{plaq}}(G)>0,\qquad C_{\mathrm{plaq}}(G)\ge 1,
+\]
+depending only on $(G,\rho)$ and the fixed metric, such that for all $\beta>0$ and all $\varepsilon\in(0,\varepsilon_{\mathrm{plaq}}(G)]$,
+\begin{equation}\label{eq:plaq_tail}
+\mu_{\beta,\alpha}\big(\theta(U)\ge \varepsilon\big)\ \le\ C_{\mathrm{plaq}}(G)\;\varepsilon^{-d_G}\;
+\exp\!\Big(-c_{\mathrm{plaq}}(G)\,\alpha\beta\,\varepsilon^2\Big).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Write the tail ratio
+\[
+\mu_{\beta,\alpha}(\theta\ge\varepsilon)=\frac{\int_{\{\theta\ge\varepsilon\}} e^{-\alpha\beta A_\rho(U)}\,dU}{\int_{G} e^{-\alpha\beta A_\rho(U)}\,dU}.
+\]
+
+\paragraph{Local quadratic control of $A_\rho$ near the identity.}
+By Taylor expansion at $\mathbf 1$ (see Appendix~\ref{app:normalization_crosscheck}, Lemma~\ref{lem:wilson_quadratic_coefficient})
+there exist $\delta_0(G)\in(0,1]$ and constants $0<m_-(G)\le m_+(G)<\infty$ such that for all $U=\exp(X)$ with $\|X\|\le \delta_0(G)$,
+\begin{equation}\label{eq:A_rho_quad_bounds}
+m_-(G)\,\|X\|^2\ \le\ A_\rho(\exp X)\ \le\ m_+(G)\,\|X\|^2.
+\end{equation}
+Shrink $\delta_0(G)$ if needed so that $m_+(G)<4m_-(G)$.
+
+\paragraph{Uniform lower bound away from the identity.}
+Since $A_\rho$ is continuous and, under the effective-group convention (\Cref{rem:effective_group_convention,def:effective_group}),
+$A_\rho(U)=0$ only at $U=\mathbf 1$,
+\[
+a_{\mathrm{out}}(G):=\min\{A_\rho(U):\ \theta(U)\ge \delta_0(G)\}\ >\ 0.
+\]
+Define
+\[
+\varepsilon_{\mathrm{plaq}}(G):=\min\Big\{\delta_0(G),\ \sqrt{\frac{a_{\mathrm{out}}(G)}{m_-(G)}}\Big\}.
+\]
+Then for every $\varepsilon\in(0,\varepsilon_{\mathrm{plaq}}(G)]$ and every $U$ with $\theta(U)\ge \varepsilon$ we have the uniform bound
+\begin{equation}\label{eq:A_rho_lower_for_tail}
+A_\rho(U)\ \ge\ m_-(G)\,\varepsilon^2.
+\end{equation}
+
+\paragraph{Numerator.}
+Using \eqref{eq:A_rho_lower_for_tail} yields
+\[
+\int_{\{\theta\ge\varepsilon\}} e^{-\alpha\beta A_\rho(U)}\,dU\ \le\ \exp\!\big(-\alpha\beta\,m_-(G)\,\varepsilon^2\big).
+\]
+
+\paragraph{Denominator.}
+Restrict to $B(\varepsilon/2)$.
+For $\varepsilon\le\varepsilon_{\mathrm{plaq}}(G)\le\delta_0(G)$, on this ball \eqref{eq:A_rho_quad_bounds} gives
+$A_\rho(U)\le m_+(G)\,\theta(U)^2\le m_+(G)\,\varepsilon^2/4$. Hence
+\[
+\int_{G} e^{-\alpha\beta A_\rho(U)}\,dU\ \ge\ \mu_{\mathrm{Haar}}\big(B(\varepsilon/2)\big)\,
+\exp\!\big(-\alpha\beta\,m_+(G)\,\varepsilon^2/4\big).
+\]
+Using the small-ball estimate $\mu_{\mathrm{Haar}}(B(\delta))\ge c_{\mathrm{ball}}(G)\delta^{d_G}$ for $\delta$ small (see \eqref{eq:Haar_ball_lower}) yields
+\[
+\mu_{\beta,\alpha}(\theta\ge\varepsilon)
+\le
+c_{\mathrm{ball}}(G)^{-1}\,2^{d_G}\,\varepsilon^{-d_G}\,
+\exp\!\Big(-\alpha\beta\,\big(m_-(G)-m_+(G)/4\big)\,\varepsilon^2\Big).
+\]
+Since $m_+(G)<4m_-(G)$, the exponent is negative. This is of the form \eqref{eq:plaq_tail} with
+\[
+c_{\mathrm{plaq}}(G):=m_-(G)-m_+(G)/4,\qquad C_{\mathrm{plaq}}(G):=c_{\mathrm{ball}}(G)^{-1}\,2^{d_G}.
+\]
+\end{proof}
+
+\begin{corollary}[Good-block tail bound]\label{cor:block_tail}
+Let $d_G:=\dim(G)$. Under the product/finite-range fluctuation measure in one unit coarse block with plaquette weights
+$\exp(-\alpha_p\beta A_\rho(U_p))$ with $\alpha_p\in[\alpha_{\min},1]$, we have the union bound
+\[
+\mathbb P\big(G_{\mathcal Q}(\varepsilon)^c\big)\ \le\ N_p\,C_{\mathrm{plaq}}(G)\,\varepsilon^{-d_G}\,
+\exp\!\Big(-c_{\mathrm{plaq}}(G)\,\alpha_{\min}\beta\,\varepsilon^2\Big).
+\]
+\end{corollary}
+
+The uniform convexity analysis of Theorem~\ref{thm:uniform_convexity} uses exponential coordinates $U_e=\exp(A_e)$ with $\|A_e\|\le \delta$ in a \emph{fixed} gauge.
+We now connect the good-block event to the existence of such a chart.
+
+\begin{lemma}[Tree-gauge chart from small plaquettes]\label{lem:geo_chart}
+There exists a universal constant $C_{\mathrm{geo}}\ge 1$ (depending only on the unit block $\mathcal Q$, not on $j$)
+such that for every $\varepsilon\in(0,1]$ the following holds:
+
+If $G_{\mathcal Q}(\varepsilon)$ occurs, then in canonical tree gauge on $\mathcal Q$ all unfixed links satisfy
+\[
+\theta(U_e)\ \le\ C_{\mathrm{geo}}\,\varepsilon,
+\]
+and hence admit exponential coordinates $U_e=\exp(A_e)$ with $\|A_e\|\le C_{\mathrm{geo}}\varepsilon$.
+
+Consequently, choosing $\varepsilon\le \delta/C_{\mathrm{geo}}$ implies the chart condition $\|A_e\|\le \delta$
+required in Theorem~\ref{thm:uniform_convexity}. 
+
+\end{lemma}
+
+\begin{proof}
+In tree gauge all tree links are set to $\mathbf 1$. Every remaining link $e\notin T$ determines a fundamental cycle $\gamma_e$
+whose holonomy equals the product of plaquette holonomies over a spanning surface $\Sigma_e$ in the block:
+\[
+U_e\ =\ \prod_{p\in\Sigma_e} U_p^{\pm 1},
+\]
+with $|\Sigma_e|\le C_\Sigma$ for a universal constant $C_\Sigma$ (finite because $\mathcal Q$ is finite).
+
+On $G_{\mathcal Q}(\varepsilon)$ each $U_p$ lies in the $\varepsilon$-ball around $\mathbf 1$.
+Using the triangle inequality for the bi-invariant distance,
+\[
+\theta\Big(\prod_{i=1}^m V_i\Big)\ \le\ \sum_{i=1}^m \theta(V_i),
+\]
+we get $\theta(U_e)\le |\Sigma_e|\,\varepsilon\le C_\Sigma\varepsilon$.
+Take $C_{\mathrm{geo}}:=C_\Sigma$ (or any convenient universal upper bound).
+\end{proof}
+
+Define the truncated fluctuation measure $\mu_{j+1}^{\mathrm{good}}$ by restricting to $G_{\mathcal Q}(\varepsilon)$:
+\[
+\mu_{j+1}^{\mathrm{good}}(dU):=\frac{1}{\mathbb P(G_{\mathcal Q})}\,\mathbf 1_{G_{\mathcal Q}(\varepsilon)}(U)\,\mu_{j+1}(dU).
+\]
+
+\begin{lemma}[Truncation stability for local expectations]\label{lem:trunc_stability}
+Let $F$ be any local functional supported in one unit coarse block with $\|F\|_{L^\infty}\le 1$.
+Then
+\[
+\big|\mathbb E_{\mu_{j+1}}[F]-\mathbb E_{\mu_{j+1}^{\mathrm{good}}}[F]\big|
+\ \le\ 2\,\mathbb P_{\mu_{j+1}}\big(G_{\mathcal Q}(\varepsilon)^c\big).
+\]
+\end{lemma}
+
+\begin{proof}
+Write $\mathbb E_\mu[F]=\mathbb E_\mu[F\mathbf 1_G]+\mathbb E_\mu[F\mathbf 1_{G^c}]$ and use $|F|\le 1$.
+Since $\mathbb E_{\mu^{\mathrm{good}}}[F]=\mathbb E_\mu[F\mathbf 1_G]/\mathbb P(G)$ and $\mathbb P(G)\ge 1-\mathbb P(G^c)$,
+a short estimate gives the stated bound.
+\end{proof}
+
+\begin{proposition}[Chart truncation error is superpolynomially small in the AF window]\label{prop:chart_error_small}
+Fix $\varepsilon\in(0,1]$ and $\alpha_{\min}\in(0,1]$. Let $\beta_{\min}$ be a uniform lower bound on plaquette couplings along the dyadic RG trajectory
+(i.e.\ the AF window). Then there exists a constant $C_{\mathrm{chart}}(\varepsilon,G,N_p)$ such that for all $j$,
+\[
+\mathbb P_{\mu_{j+1}}\big(G_{\mathcal Q}(\varepsilon)^c\big)\ \le\ C_{\mathrm{chart}}\,
+\exp\!\big(-c_{\mathrm{plaq}}(G)\,\alpha_{\min}\beta_{\min}\,\varepsilon^2\big).
+\]
+In particular, if the coupling coordinate satisfies $u\asymp 1/\beta$ in the AF window, then for every $M\in\mathbb N$ there exists $u_0(M)>0$ such that
+for all $u\le u_0(M)$,
+\[
+\mathbb P(G_{\mathcal Q}(\varepsilon)^c)\ \le\ u^M.
+\]
+\end{proposition}
+
+\paragraph{Interpretation.}
+This justifies using the truncated, chart-supported fluctuation measure in the RG step:
+the error is negligible and can be absorbed into the irrelevant activity $K'$ (it is far smaller than the required $O(u^2)$ size).
+
+\begin{corollary}[Uniform convexity conditions hold on the good-block event]\label{cor:v84_on_good}
+Choose $\varepsilon\le \delta/C_{\mathrm{geo}}$ and work with the truncated fluctuation measure supported on $G_{\mathcal Q}(\varepsilon)$.
+Then all link coordinates satisfy $\|A_e\|\le \delta$ and, for $\delta$ chosen small enough, the BCH derivative bounds of Lemma~\ref{lem:BCH_bounds} hold on this chart domain.
+Therefore the uniform convexity bound of Theorem~\ref{thm:uniform_convexity} applies with
+\[
+\varrho=\alpha_{\min}\beta_{\min}\,\frac{m(r_\ast;G)\lambda_\ast}{8},
+\]
+where $r_\ast$ is now uniformly bounded on the chart domain.
+\end{corollary}
+
+\begin{corollary}[Controlling $C_E$ by large $\beta_{\min}$ (mechanism)]\label{cor:CE_mech}
+Under uniform convexity with constant $\varrho\asymp \beta_{\min}$ and truncation to the chart domain,
+all polynomial moments of fixed degree are bounded by constants $C_{\mathrm{mom}}(\varrho)$ that \emph{decrease} as $\varrho$ increases.
+Therefore the integration operator constant $C_E$ in Lemma~\ref{lem:E_bounded} can be chosen as a function
+$C_E=C_E(C_{\mathrm{count}},R_{\mathrm{fr}},C_{\mathrm{mom}}(\varrho))$ that is bounded uniformly in $j$.
+In particular, by Lemma~\ref{lem:CE_checkable} there exists an explicit $\varrho_\ast$ such that $\varrho\ge\varrho_\ast$ implies $C_E<4$; since $\varrho=\alpha_{\min}\beta_{\min} m(r_\ast)\lambda_\ast/8$ on the good-chart event, one may take
+\[
+\beta_\ast:=\frac{8\,\varrho_\ast}{\alpha_{\min} m(r_\ast)\lambda_\ast}.
+\]
+Then for $\beta_{\min}\ge \beta_\ast$ one has $C_E<4$, hence (with $\Delta_{\min}=2$ from Lemma~\ref{lem:Delta_min})
+\[
+\kappa=C_E/4<1.
+\]
+\end{corollary}
+
+\paragraph{Option if $C_E<4$ is inconvenient.}
+Increase the extraction depth to remove dimension $\le 6$ operators, giving $\Delta_{\min}=4$ and deterministic factor $2^{-\Delta_{\min}}=1/16$.
+Then $\kappa=C_E/16<1$ holds under a much weaker requirement $C_E<16$.
+
+\begin{itemize}
+\item Chart control is now reduced to one-plaquette tail bounds (Lemma~\ref{lem:plaq_tail}) and a finite-dimensional geometric chart lemma (Lemma~\ref{lem:geo_chart}).
+\item Truncation to the good-block event produces an exponentially small error in $\beta_{\min}$, negligible in the AF window.
+\item With truncation + convexity, uniform cumulant bounds follow and feed into the RG analytic map bounds (Theorem~\ref{thm:RG_analytic_bounds}) and the dyadic beta-remainder bound (Theorem~\ref{thm:beta_remainder_closed}).
+\end{itemize}
