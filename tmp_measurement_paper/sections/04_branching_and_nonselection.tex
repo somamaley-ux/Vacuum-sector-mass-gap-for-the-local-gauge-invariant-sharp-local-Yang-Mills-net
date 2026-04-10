@@ -1,0 +1,447 @@
+\section{The Everettian diagnosis}
+\label{sec:branching}
+
+This section introduces a minimal Everettian measurement package and asks whether bare unitary branching supplies the fixation bridge isolated in Section~\ref{sec:semanticcore}. It proves that Everettian physics is non-selective in the sense fixed in Section~\ref{sec:targetclass}, separates branch-local determinacy from diachronic reference, and shows that decoherence, centered descriptions, self-location, and decision theory do not by themselves fix the referent of pre-measurement discourse.
+
+\subsection{The Everettian base package}
+
+The paper needs only a small amount of quantum mechanics. For the present purpose an Everettian
+measurement episode can be modeled by a pre-measurement state, an entangling measurement
+interaction, and a decoherence regime that renders the resulting outcome-sectors approximately
+dynamically autonomous for the duration of the measurement record.
+
+\begin{definition}[Everettian base package for a measurement episode]
+\label{def:everett_base}
+A measurement episode satisfies the \emph{Everettian base package} when all of the following hold:
+\begin{enumerate}
+    \item \textbf{Unitary evolution.} The total post-interaction state is obtained by a unitary measurement interaction $U_M$ applied to the pre-measurement state.
+    \item \textbf{Outcome-sector multiplicity.} There exists a decomposition
+    \[
+    \Psi_M=\sum_{i\in I}\alpha_i\psi_i,
+    \qquad |I|\ge 2,
+    \qquad \alpha_i\neq 0 \text{ for each } i,
+    \]
+    where each $\psi_i$ is associated with a distinct stable record/outcome package $(\Cont_i,\Rec_i,o_i)$.
+    \item \textbf{Decoherence.} The sectors $\psi_i$ are pairwise approximately non-interfering for the purposes of the measurement record, so that each supports branch-local record stability.
+    \item \textbf{No selector in the bare physics.} No additional collapse postulate, hidden-variable actualization rule, or other branch-privileging physical structure is added to the bare unitary description.
+\end{enumerate}
+\end{definition}
+
+The definition deliberately builds in only what an Everettian appeals to when claiming that unitary
+quantum theory together with decoherence already explains measurement: global unitary evolution,
+multiple nonzero outcome-sectors, and record stability without a collapse or actualization rule
+\citep{everett1957,zurek2003,wallace2012}.
+
+\begin{lemma}[Branch-local determinacy]
+\label{lem:branch-local-determinacy}
+Suppose a measurement episode satisfies Definition~\ref{def:everett_base}. Then each decohered
+outcome-sector contains a determinate branch-local record and a determinate branch-local
+observer-state.
+\end{lemma}
+
+\begin{proof}
+By clause (2) of Definition~\ref{def:everett_base}, each sector $\psi_i$ is associated with a stable
+record/outcome package $(\Cont_i,\Rec_i,o_i)$. By clause (3), decoherence suppresses interference
+between the sectors for the purposes of the measurement record, so each such package is dynamically
+stable in the branch-local sense relevant to reporting, memory, and within-branch experience. Hence
+each decohered sector contains a determinate branch-local record and branch-local observer-state.
+\end{proof}
+
+\begin{lemma}[Unitary multiplicity lemma]
+\label{lem:unitary_multiplicity}
+Suppose a measurement episode satisfies Definition~\ref{def:everett_base}. Then the post-measurement
+state contains at least two nonzero physically realized outcome-sectors.
+\end{lemma}
+
+\begin{proof}
+By clause (2) of Definition~\ref{def:everett_base}, the post-measurement state has the form
+\[
+\Psi_M=\sum_{i\in I}\alpha_i\psi_i
+\]
+with $|I|\ge 2$ and $\alpha_i\neq 0$ for each $i\in I$. A nonzero coefficient means that the
+corresponding sector contributes nontrivially to the physical state-description of the episode. Since
+there are at least two such coefficients, the post-measurement state contains at least two nonzero
+outcome-sectors. By the intended Everettian reading, those sectors are physically realized parts of the
+same global state rather than merely hypothetical alternatives. Hence the episode contains at least two
+nonzero physically realized outcome-sectors.
+\end{proof}
+
+\begin{lemma}[Entanglement correlates without privileging]
+\label{lem:entangle_no_selector}
+Let a measurement episode satisfy Definition~\ref{def:everett_base}. Then the entangling measurement
+interaction correlates system, apparatus, and observer records across the distinct outcome-sectors,
+but does not by itself privilege one such sector as the unique diachronic continuation relevant to
+pre-measurement measurement discourse.
+\end{lemma}
+
+\begin{proof}
+In the Everettian package, the measurement interaction produces a correlated state of the schematic
+form
+\[
+\sum_{i\in I} \alpha_i\, \lvert s_i\rangle\lvert A_i\rangle\lvert O_i\rangle,
+\]
+where distinct system-outcome states are correlated with distinct apparatus and observer-record
+states. That establishes the correlation claim: each sector carries its own determinate branch-local
+triple and hence its own record/outcome package.
+
+What must be shown is the absence of privileging. The entangling state specifies, for each $i$, what
+the record is in that sector. It does not specify that one $i$ is the unique referent of pre-measurement
+first-person discourse. To privilege one sector, the physical theory would need an additional rule of the
+form: exactly one correlated sector is the continuation relevant to the pre-measurement subject. But
+clause (4) of Definition~\ref{def:everett_base} excludes any such added selector in the bare physics.
+Therefore entanglement supplies correlated multiplicity, not a unique diachronic referent.
+\end{proof}
+
+\begin{lemma}[Decoherence yields stability, not singularity]
+\label{lem:decoherence_stability_only}
+If a measurement episode satisfies Definition~\ref{def:everett_base}, then decoherence can explain the
+stability and effective autonomy of each branch-local record without thereby selecting which branch is
+the referent of pre-measurement diachronic discourse.
+\end{lemma}
+
+\begin{proof}
+By clause (3) of Definition~\ref{def:everett_base}, decoherence renders the sectors approximately
+non-interfering for the purposes of the measurement record. This yields the standard Everettian
+achievement: each sector supports a stable branch-local record and observer-state.
+
+However, branch-local stability is a within-sector property. It tells us that if a sector is taken as the
+relevant one, its record is robust enough for local memory and reporting. It does not add any physical
+fact of the form \enquote{sector $i$ rather than sector $j$ is the unique continuation relevant to
+pre-measurement discourse}. Such a fact would be a selector. Since clause (4) excludes selectors in the
+bare physics, decoherence yields stability but not singularity of referent.
+\end{proof}
+
+\begin{lemma}[No supervenient diachronic selector]
+\label{lem:physical-parity-under-nonselection}
+Let $T$ be physically non-selective with respect to a measurement process, and let $O_i$ and $O_j$
+be two post-measurement observer-successors realized by $T$. Suppose that $T$ supplies no physical
+law, state variable, dynamically privileged trajectory, or physically relevant asymmetry that distinguishes
+$O_i$ from $O_j$ with respect to diachronic continuation. Then no unique diachronic continuation
+relation privileging $O_i$ over $O_j$ supervenes on the physical facts delivered by $T$ alone.
+\end{lemma}
+
+\begin{proof}
+To say that a unique diachronic continuation relation supervenes on the physical facts delivered by $T$
+is to say that those facts suffice to determine, without further addition, that one successor is the
+privileged continuation rather than the other. But by hypothesis, the physical description delivered by
+$T$ contains no law, state variable, privileged trajectory, or other physically relevant asymmetry
+distinguishing $O_i$ from $O_j$ with respect to diachronic continuation. Any relation that nevertheless
+privileges $O_i$ over $O_j$ would therefore introduce an asymmetry not fixed by the physical facts
+supplied by $T$. Hence no such unique privileging relation supervenes on the physical facts delivered
+by $T$ alone.
+\end{proof}
+
+\begin{corollary}[Everettian non-selection]
+\label{cor:everettian-nonselection}
+\label{prop:no_selector_base}
+In a branching Everettian measurement model satisfying physical non-selection, the physical structure
+alone determines neither an explicit selector nor a supervenient unique diachronic referent for
+pre-measurement first-person discourse.
+\end{corollary}
+
+\begin{proof}
+By Lemma~\ref{lem:unitary_multiplicity}, the Everettian base package contains at least two nonzero
+physically realized outcome-sectors, each with its own branch-local record and continuant. By
+Definition~\ref{def:physical-nonselection}, the package contains no physical law, state variable, or
+dynamically privileged trajectory distinguishing one such successor as physically privileged. The
+absence of an explicit selector is therefore immediate. Applying Lemma~\ref{lem:physical-parity-under-nonselection}
+to any two such realized successors yields the absence of a supervenient unique diachronic referent.
+\end{proof}
+
+\begin{theorem}[Everettian non-selection theorem]
+\label{thm:everett_nonselection}
+Every measurement episode satisfying the Everettian base package is physically non-selective in the
+sense of Definition~\ref{def:physical-nonselection}.
+\end{theorem}
+
+\begin{proof}
+To be physically non-selective, a measurement episode must realize multiple stable successor histories
+while supplying no physical law, state variable, or dynamically privileged trajectory that singles out
+one such history as physically distinguished. The first condition follows from Lemma~\ref{lem:unitary_multiplicity};
+branch-local determinacy of the realized histories follows from Lemma~\ref{lem:branch-local-determinacy};
+and the absence of a physically distinguishing selector is built into clause (4) of
+Definition~\ref{def:everett_base} and then made explicit by Corollary~\ref{cor:everettian-nonselection}.
+Hence every measurement episode satisfying the Everettian base package is physically non-selective.
+\end{proof}
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=10mm and 10mm,
+    every node/.style={align=center},
+    box/.style={draw=accent, rounded corners=2pt, fill=softaccent, inner sep=5pt, text width=0.22\textwidth},
+    arrow/.style={-Latex, thick, draw=accent}
+]
+\node[box] (pre) {Pre-measurement subject $O_0$\\single anticipatory discourse\\single evidential target};
+\node[box, below left=of pre] (up) {Branch $b_{\uparrow}$\\stable record $\Rec_{\uparrow}$\\continuant $\Cont_{\uparrow}$};
+\node[box, below right=of pre] (down) {Branch $b_{\downarrow}$\\stable record $\Rec_{\downarrow}$\\continuant $\Cont_{\downarrow}$};
+\draw[arrow] (pre) -- node[left,midway,font=\small]{unitary evolution + decoherence} (up);
+\draw[arrow] (pre) -- node[right,midway,font=\small]{unitary evolution + decoherence} (down);
+\node[below=8mm of $(up)!0.5!(down)$, text width=0.68\textwidth] {The physical package yields multiplicity, correlation, and branch-local stability. What it still does \emph{not} yield is a selector fixing which post-measurement history is the referent of the pre-measurement subject's diachronic discourse.};
+\end{tikzpicture}
+\caption{Minimal branching diagram for the theorem ladder. The Everettian base package yields multiple stable post-measurement records, but it does not physically select which history is the diachronic referent of the pre-measurement discourse.}
+\label{fig:minimal-branching}
+\end{figure}
+
+\subsection{Branch-relative determinacy versus diachronic reference}
+
+Once the Everettian base package is in place, one may grant a great deal. Each realized branch can
+contain a determinate local observer, a determinate local record, and a determinate local outcome.
+What still does not follow is that the pre-measurement subject's diachronic discourse has a uniquely
+fixed referent.
+
+\begin{definition}[Successor-qualified history]
+A physically realized post-measurement history $b\in\B$ is \emph{successor-qualified} for the
+purposes of a given piece of diachronic discourse if it contains both
+\begin{enumerate}
+    \item a determinate measurement record $\Rec(b)$ appropriate to that discourse, and
+    \item a post-measurement continuant $\Cont(b)$ satisfying the continuity conditions presupposed by
+    the discourse between the pre-measurement subject and the future subject.
+\end{enumerate}
+\end{definition}
+
+\begin{lemma}[Multiplicity of successor-qualified histories yields multiplicity of admissible assignments]
+\label{lem:successorqualified}
+Let $\mathcal{M}$ be a physically non-selective measurement episode and let $d$ be a record-sensitive
+claim in its target discourse. If there exist distinct successor-qualified histories $b_i,b_j\in\B$ for $d$,
+then $\ARef(\mathcal{M})$ contains at least two distinct admissible reference assignments relevant to
+$d$.
+\end{lemma}
+
+\begin{proof}
+Because $b_i$ is successor-qualified for the discourse involving $d$, it satisfies the conditions that
+make the pair $(b_i,\Rec(b_i))$ eligible to serve as a referent for $d$. So there is an admissible
+assignment $\rho_i$ sending $d$ to $(b_i,\Rec(b_i))$. The same reasoning applies to $b_j$, yielding an
+admissible assignment $\rho_j$ sending $d$ to $(b_j,\Rec(b_j))$. Because $b_i\neq b_j$, the
+assignments are distinct. Therefore there are at least two admissible assignments relevant to $d$.
+\end{proof}
+
+\begin{lemma}[Branch-relative determinacy does not entail diachronic determinacy]
+\label{thm:branchlocal-not-diachronic}
+\label{lem:branchrelative-not-diachronic}
+The existence of determinate branch-relative post-measurement experiences does not determine which such branch-relative experience is the referent of pre-measurement diachronic first-person discourse.
+\end{lemma}
+
+\begin{proof}
+Consider a branching model in which two post-measurement successors $O_1$ and $O_2$ each possess determinate branch-local experiences and stable branch-relative records. Now consider two admissible assignments: one taking $O_1$ to be the referent of the pre-measurement subject's diachronic discourse, the other taking $O_2$ to be that referent. The branch-local determinacy of each successor remains unchanged across the two assignments. What changes is only the diachronic successor-reference relation. Hence branch-local determinacy does not entail diachronic referential determinacy.
+\end{proof}
+
+\begin{corollary}[Determinacy within branches is compatible with global referential underdetermination]
+A theory may deliver determinate experiences and records inside every realized branch while still
+failing to determine which branch-history is the referent of pre-measurement memory, anticipation,
+and evidential discourse.
+\end{corollary}
+
+\begin{proof}
+This is an immediate restatement of
+Theorem~\ref{thm:branchlocal-not-diachronic}. The theorem establishes that local determinacy in
+ each branch and diachronic determinacy across branches are distinct conditions. The first may hold
+while the second fails.
+\end{proof}
+
+\begin{proposition}[Successor multiplicity marks a structural distinction]
+The difference between branch-local determinacy and diachronic referential determinacy marks a structural difference between two explanatory questions:
+\begin{enumerate}
+    \item what records and observer-stages exist in each realized history; and
+    \item which such history is the referent of pre-measurement first-person and evidential discourse.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The first question is answered by the branch-local facts contained in each history: what outcome is
+recorded there, what observer-stage exists there, and what local memory state exists there. The second
+question is answered only if the theory determines which realized history is relevant to the
+pre-measurement subject's diachronic claims. A theory may answer the first question for every branch
+and still leave the second unanswered. That possibility is exactly what
+Theorem~\ref{thm:branchlocal-not-diachronic} shows. Therefore the distinction is structural.
+\end{proof}
+
+\subsection{Decoherence and remaining indeterminacy}
+
+All discussion of evidential and experiential reference in this section is conditional on the target
+explanatory burden fixed in Section~\ref{sec:targetclass}. The issue is not whether decoherence is
+useful or real. The issue is whether decoherence, by itself, fixes diachronic reference.
+
+\begin{definition}[Record stability under decoherence]
+A measurement episode $\mathcal{M}$ satisfies \emph{decoherence-based record stability} if for every
+physically realized history $b\in\B$, the record $\Rec(b)$ is dynamically stable enough to support
+branch-local memory and observational reliability, and the corresponding branch remains
+approximately non-interfering with the others for the purposes of the episode under discussion.
+\end{definition}
+
+\begin{proposition}[Decoherence stabilizes records without selecting referents]
+\label{prop:decoherence}
+Let $\mathcal{M}$ be a physically non-selective measurement episode satisfying decoherence-based
+record stability. Then decoherence stabilizes the records contained in each $b\in\B$ but does not by
+itself privilege one $b$ as the unique referent of pre-measurement diachronic discourse.
+\end{proposition}
+
+\begin{proof}
+By decoherence-based record stability, each history $b\in\B$ contains a dynamically stable record
+$\Rec(b)$ that may support branch-local memory and branch-local observational discourse. This is the
+positive achievement of decoherence.
+
+To show that decoherence does not by itself privilege a unique diachronic referent, suppose for
+contradiction that it does. Then decoherence would provide a selector: it would reduce the admissible
+reference possibilities relevant to the discourse to exactly one privileged assignment. But
+Decoherence-based record stability, as defined here, supplies only local stability and effective
+non-interference of the realized histories. It says that each realized branch carries a stable record; it
+does not say that one stable branch is physically privileged over the others as \emph{the}
+continuation relevant to pre-measurement discourse. Adding such a privilege would amount to adding
+a selector not already contained in the bare statement of decoherence-based stability. Therefore
+decoherence stabilizes records without by itself selecting referents.
+\end{proof}
+
+\begin{theorem}[Decoherence non-selection theorem]
+\label{thm:decoherence_nonselection}
+If a theory's post-measurement contribution to a measurement episode consists only of the physical
+realization of multiple branch-histories together with decoherence-based record stability, then the
+theory does not by that contribution alone fix diachronic reference for measurement records.
+\end{theorem}
+
+\begin{proof}
+Assume the theory's post-measurement contribution consists only of the physical realization of
+multiple histories together with decoherence-based record stability. By
+Proposition~\ref{prop:decoherence}, that contribution stabilizes the records in each realized history but
+does not itself provide a selector. If the episode is physically non-selective, then at least two
+admissible reference assignments remain available. Therefore the theory's post-measurement
+contribution, as specified, does not fix diachronic reference for the measurement records.
+\end{proof}
+
+\subsection{Centered descriptions, self-location, and decision theory}
+
+The most common way of resisting the previous result is to say that Everettian theory has resources for
+reasoning under multiplicity: centered-world semantics, self-locating uncertainty, and
+decision-theoretic branch weighting \citep{lewis1979,greaves2004,sebenscarroll2018}. The present claim is not that such resources are incoherent. The claim is that they presuppose a prior typing of successors.
+
+\begin{definition}[Centered continuation description]
+A \emph{centered continuation description} for a measurement episode $\mathcal{M}$ is a pair
+$(b,c_b)$ where $b\in\B$ is a physically realized post-measurement history and $c_b$ is a center-marker
+intended to treat the post-measurement continuant in $b$ as a candidate continuation of the
+pre-measurement subject for first-person or evidential discourse.
+\end{definition}
+
+\begin{definition}[Centered enrichment]
+A \emph{centered enrichment} of a physically non-selective measurement episode $\mathcal{M}$ is the
+passage from the uncentered history family $\B$ to a family of centered continuation descriptions
+\[
+\mathcal{C}_M=\{(b,c_b): b\in\B\}.
+\]
+The enrichment is \emph{selector-free} if it adds no rule that privileges exactly one center $(b,c_b)$ as
+the referent of pre-measurement diachronic discourse.
+\end{definition}
+
+\begin{lemma}[Centered enrichment preserves multiplicity]
+\label{lem:centered_preserves}
+Let $\mathcal{M}$ be a physically non-selective measurement episode and let $\mathcal{C}_M$ be a
+selector-free centered enrichment of $\mathcal{M}$. Then if $|\B|\ge 2$, the centered enrichment
+contains at least two distinct candidate centers.
+\end{lemma}
+
+\begin{proof}
+Because $\mathcal{M}$ is physically non-selective, $|\B|\ge 2$. So there exist distinct histories
+$b_i\neq b_j$ in $\B$. By definition of centered enrichment, both give rise to centered continuation
+descriptions $(b_i,c_{b_i})$ and $(b_j,c_{b_j})$. Since the underlying histories are distinct, these
+centered descriptions are distinct as well. Therefore the centered enrichment contains at least two
+distinct candidate centers.
+\end{proof}
+
+\begin{proposition}[Centered enrichment does not by itself select a referent]
+\label{prop:centered_not_enough}
+A selector-free centered enrichment of a physically non-selective measurement episode does not by
+itself determine which centered continuation description is the referent of pre-measurement diachronic
+measurement discourse.
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{lem:centered_preserves}, selector-free centered enrichment preserves multiplicity of
+candidate centers. To determine which centered continuation description is the referent of
+pre-measurement discourse, one would need a rule that singles out one center from the enriched set
+$\mathcal{C}_M$. But selector-free centered enrichment, by definition, adds no such rule. So the
+centered enrichment redescribes the multiplicity of candidate continuants; it does not eliminate that
+multiplicity or privilege one member of it as the unique referent.
+\end{proof}
+
+\begin{definition}[Typed successor set]
+A set $\Sigma_M$ of post-measurement continuants is a \emph{typed successor set} for a piece of
+diachronic measurement discourse iff each member of $\Sigma_M$ is already fixed as an admissible
+candidate continuation of the pre-measurement subject for the truth conditions of that discourse.
+\end{definition}
+
+\begin{lemma}[Self-locating uncertainty requires a typed successor set]
+\label{lem:selfloc_typed}
+A self-locating uncertainty rule can guide first-person credence only if it ranges over a typed
+successor set.
+\end{lemma}
+
+\begin{proof}
+A self-locating uncertainty rule distributes credence across candidate future centers or successors. For
+that distribution to be first-personally meaningful, the rule's domain must already consist of the
+candidates relevant to the subject whose uncertainty is in question. If the domain were not already
+typed in that way, the rule would distribute credence across a merely physical collection of
+post-measurement continuants without having fixed that these are the continuants relevant to the
+present subject's anticipatory discourse. In that case the rule would fail to determine the truth
+conditions of first-person claims such as \enquote{I will observe $o$}. So self-locating uncertainty
+requires a typed successor set.
+\end{proof}
+
+\begin{definition}[Decision-theoretic branching rule]
+A \emph{decision-theoretic branching rule} for a measurement episode $\mathcal{M}$ is any rule that
+assigns utilities, preferences, or credences across a set of candidate post-measurement continuants or
+records and is then used to guide pre-measurement deliberation.
+\end{definition}
+
+\begin{lemma}[Decision rules require typed successor events]
+\label{lem:typed_successors}
+A decision-theoretic branching rule can guide action only if the successor events or records to which it
+assigns utilities or credences are already typed as the relevant successors for the discourse being used by
+the agent.
+\end{lemma}
+
+\begin{proof}
+A decision-theoretic rule guides action only if its outputs bear on what the present agent should expect,
+prefer, or do. To have that bearing, the successor events or records over which the rule ranges must
+already be the successor events or records relevant to the present agent. If those items are not already
+typed as the relevant successors for the discourse in which the decision is being made, then the rule's
+outputs are not yet action-guiding in the intended first-person sense. The rule would at best distribute
+weights over an untyped collection of physical continuants without thereby determining which of them
+are the future experiences or records to which the present agent's claims refer. Therefore the decision
+rule requires successor events or records that are already referentially typed for the discourse in
+question.
+\end{proof}
+
+\begin{proposition}[Weights over branches are not selectors]
+\label{prop:weightsnotselectors}
+Assigning amplitudes, credences, utilities, or caring measures to realized branches does not by itself
+fix which history is the referent of pre-measurement diachronic discourse.
+\end{proposition}
+
+\begin{proof}
+A selector determines which realized history is the relevant referent. A weight assignment instead
+orders or measures the candidate histories while leaving the domain of candidates in place. Unless one
+already knows what the weighted items are the candidates \emph{for}, the weights do not fix which
+history the pre-measurement discourse is about. They therefore presuppose rather than provide the
+needed referential typing.
+\end{proof}
+
+\begin{theorem}[Everettian downstream theorem]
+\label{thm:downstream}
+Centered descriptions, self-locating uncertainty, and decision-theoretic branch-weighting are
+downstream of the Everettian non-selection problem. They presuppose successor typing and therefore
+cannot by themselves supply the diachronic reference fixation whose absence constitutes the problem
+identified in this paper.
+\end{theorem}
+
+\begin{proof}
+By Proposition~\ref{prop:centered_not_enough}, centered enrichment without a selector preserves
+rather than eliminates multiplicity of candidate continuants. By Lemma~\ref{lem:selfloc_typed}, any
+self-locating treatment can guide first-person credence only if its domain is already a typed successor
+set. By Lemma~\ref{lem:typed_successors}, a decision-theoretic branching rule can guide action only if
+its successor events are already typed as the relevant successors for the present agent's discourse. But
+Theorem~\ref{thm:everett_nonselection} and
+Theorem~\ref{thm:branchlocal-not-diachronic} show that the bare Everettian physical package leaves
+multiple realized histories in play without fixing which one is the relevant diachronic referent.
+Therefore centered descriptions, self-location, and decision theory begin only after the missing
+referential work has been done. They are downstream of the non-selection problem rather than solutions to it.
+\end{proof}
+
+Section~\ref{sec:branching} has established that the standard Everettian physical package yields multiple stable branch-local records and no unique diachronic referent, and that self-location and decision-theoretic replies presuppose rather than remove that problem. The next section turns to how measurement records function as evidential anchors and what happens to theory-level confirmation when admissible reference assignments diverge.

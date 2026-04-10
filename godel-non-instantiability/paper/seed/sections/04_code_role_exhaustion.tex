@@ -1,0 +1,57 @@
+\section{Governance-relevant code predicates are hidden gate work}
+\label{sec:code}
+
+\begin{theorem}[Code-predicate role exhaustion]
+\label{thm:code-role-exhaustion}
+Every same-domain code predicate falls into exactly one of four roles:
+\begin{enumerate}[label=(\roman*), leftmargin=2.5em]
+    \item inert bookkeeping;
+    \item extensional gate renaming;
+    \item illicit same-domain refinement of the positive or negative side of the gate; or
+    \item independent same-domain authorizer.
+\end{enumerate}
+Only the first two survive, and neither generates a new closure threat.
+\end{theorem}
+
+\begin{proof}
+Take any same-domain code predicate $P$. If readback of $P$ changes no standing classification and no coherent legal trajectory behavior, then by definition it is inert bookkeeping. If its positive and negative extension coincide exactly with the existing standing partition, it is extensional gate renaming.
+
+Suppose instead that $P$ matters nontrivially. By \cref{lem:closure-transmission}, it must change standing classification or coherent legal trajectory behavior. If it marks a nontrivial subset of what is already admitted or already rejected as specially governance-bearing, then it refines one side of the gate. But the kernel excludes second same-domain standing-bearing refinements: same-side refinements and second equivalence relations collapse. If $P$ instead purports to authorize or block original-domain acts independently of the existing standing partition, then it functions as an independent authorizer, which the kernel also excludes. These four cases exhaust the possibilities.
+\end{proof}
+
+\begin{corollary}[No independent governance-relevant code predicate]
+No code predicate survives on the fixed domain as an independent governance-relevant closure determinant.
+\end{corollary}
+
+\begin{proof}
+By \cref{thm:code-role-exhaustion}, only inert bookkeeping and extensional gate renaming survive. Neither yields an independent closure determinant.
+\end{proof}
+
+\begin{remark}[Why this is not mere syntax compression]
+\label{rem:syntax-compression}
+\Cref{thm:code-role-exhaustion} is not the claim that syntax is impossible or uninteresting. It is the claim that, inside the fixed domain, syntactic or coding distinctions matter to closure only by functioning as hidden gate work, extensional gate renaming, or inert bookkeeping. A purely formal difference with no governance-relevant readback is therefore not a same-domain threat.
+\end{remark}
+
+\begin{corollary}[Bare syntax is not standing]\label{cor:bare-syntax}
+A same-domain coding or proof inscription that does not survive readback into standing classification or coherent legal trajectory structure is syntax-only bookkeeping and not an incompleteness threat on the fixed domain.
+\end{corollary}
+
+\begin{proof}
+Immediate from \cref{thm:code-role-exhaustion}: any surviving governance-relevant code predicate must either collapse to the existing gate or illicitly attempt hidden gate work. If a coding difference survives neither standing classification nor coherent trajectory structure, it is inert bookkeeping.
+\end{proof}
+
+\begin{lemma}[Representational differences are either inert or inferential]
+A same-domain representational difference that matters to closure either changes standing classification / coherent legal trajectory structure or changes nothing governance-relevant at all.
+\end{lemma}
+
+\begin{proof}
+This is the immediate combination of \cref{lem:closure-transmission} with the skin-neutrality component of \cref{prop:kernel-record}.
+\end{proof}
+
+\begin{theorem}[No non-trivial admissible encoding multiplicity]
+There is no admissible same-domain multiplicity of encodings that preserves all original-domain standing and coherent legal trajectory behavior while still yielding a new governance-relevant closure distinction.
+\end{theorem}
+
+\begin{proof}
+Assume such an encoding multiplicity exists. If it preserves all original-domain standing and coherent legal trajectory behavior, then by \cref{lem:inferential-life-exhaustion} it preserves inferential life. Hence it yields no governance-relevant closure distinction. If it yields a governance-relevant closure distinction, then by \cref{lem:closure-transmission} it must change one of those loci after all. Contradiction.
+\end{proof}

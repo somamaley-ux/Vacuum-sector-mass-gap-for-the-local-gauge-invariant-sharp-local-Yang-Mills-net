@@ -1,0 +1,142 @@
+\section{Appendix: formal fixed-scope quotient presentation}
+\label{app:formal-quotient}
+
+This appendix gives a compact formal presentation of the quotient machinery used in the main body.
+Its job is narrow: to state in one place the fixed scope, the admissible assignment space, the standing
+ equivalence relation, the quotient universal property, and the reason confirmational-role divergence is
+quotient-relevant rather than semantic skin.
+
+\subsection{Fixed scope and admissible assignment space}
+
+Fix a physically non-selective measurement setting on the downstream substrate of
+Definition~\ref{def:fixed-downstream-substrate}. Let $\ARef$ be the set of admissible reference
+assignments from Definition~\ref{def:admissible-reference-assignment}. For each $\rho\in\ARef$ and
+for each claim $d\in\Dset$, let $\Val_\rho(d)$ denote the standing-bearing discourse value of $d$ on the
+fixed scope.
+
+\begin{definition}[Target-discourse profile map]
+\label{def:profile-map-appendix}
+The \emph{target-discourse profile map} is
+\[
+\Prof:\ARef\to \prod_{d\in\Dset} \mathcal V_d,
+\qquad
+\Prof(\rho):=\bigl(\Val_\rho(d)\bigr)_{d\in\Dset},
+\]
+where $\mathcal V_d$ is the codomain of the standing-bearing value attached to $d$.
+\end{definition}
+
+\begin{definition}[Standing equivalence on admissible assignments]
+\label{def:standing-equivalence-appendix}
+For $\rho,\sigma\in\ARef$, define
+\[
+\rho\MReq\sigma \iff \Prof(\rho)=\Prof(\sigma).
+\]
+The quotient of admissible assignments by this relation is written $\ARef/\MReq$.
+\end{definition}
+
+\subsection{Presentations and quotient uniqueness}
+
+\begin{definition}[Standing presentation]
+\label{def:standing-presentation-appendix}
+A \emph{standing presentation} for admissible measurement-reference content is a pair $(X,r)$ such
+that $r:\ARef\twoheadrightarrow X$ and every standing-bearing value on the fixed scope factors
+through $r$.
+\end{definition}
+
+\begin{lemma}[Automatic completeness]
+\label{lem:appendix-complete}
+Every standing presentation is complete: if $r(\rho)=r(\sigma)$, then $\rho\MReq\sigma$.
+\end{lemma}
+
+\begin{proof}
+If $r(\rho)=r(\sigma)$, then every standing-bearing value factors through the same point of $X$.
+Hence the values of every claim in $\Dset$ agree under $\rho$ and $\sigma$. So
+$\Prof(\rho)=\Prof(\sigma)$ and therefore $\rho\MReq\sigma$.
+\end{proof}
+
+\begin{lemma}[Automatic soundness on the fixed downstream substrate]
+\label{lem:appendix-sound}
+Every standing presentation is sound on the fixed downstream substrate: if $\rho\MReq\sigma$, then
+$r(\rho)=r(\sigma)$.
+\end{lemma}
+
+\begin{proof}
+Suppose $\rho\MReq\sigma$ but $r(\rho)\neq r(\sigma)$. Then the presentation distinguishes two
+same-scope contents that agree on every standing-bearing value in the target discourse. Within the
+fixed downstream substrate, any same-scope admissibility-bearing distinction must survive either into
+standing classification or into licensed continuation. Since no such difference survives by hypothesis,
+the distinction is not standing-bearing. Treating it as such therefore violates the fixed-domain
+uniqueness package. Hence $r(\rho)=r(\sigma)$.
+\end{proof}
+
+\begin{lemma}[Quotient universal property]
+\label{lem:appendix-q-up}
+Let $q:\ARef\to\ARef/\MReq$ be the quotient map. If $F:\ARef\to Y$ is constant on $\MReq$-classes,
+then there exists a unique map $\widetilde F:\ARef/\MReq\to Y$ such that $F=\widetilde F\circ q$.
+\end{lemma}
+
+\begin{proof}
+Define $\widetilde F([\rho]) := F(\rho)$. This is well-defined because $F$ is constant on the
+$\MReq$-classes. Uniqueness follows from surjectivity of $q$.
+\end{proof}
+
+\begin{theorem}[Quotient uniqueness]
+\label{thm:appendix-quotient-uniqueness}
+Let $(X,r)$ be any standing presentation for admissible measurement-reference content. Then there is
+a unique bijection
+\[
+\phi:\ARef/\MReq\longrightarrow X,
+\qquad
+\phi([\rho])=r(\rho).
+\]
+Hence $\ARef/\MReq$ is the unique same-scope content space for standing-bearing
+measurement-reference assignments, up to unique isomorphism.
+\end{theorem}
+
+\begin{proof}
+Completeness is Lemma~\ref{lem:appendix-complete} and soundness is
+Lemma~\ref{lem:appendix-sound}. The proof of bijectivity is then identical to the proof of
+Theorem~\ref{thm:measurement-reference-quotient}: soundness gives well-definedness, completeness
+gives injectivity, surjectivity comes from surjectivity of $r$, and uniqueness is the quotient universal
+property of Lemma~\ref{lem:appendix-q-up}.
+\end{proof}
+
+
+\begin{theorem}[Global equivalence collapse on the fixed scope]
+\label{thm:appendix-equivalence-collapse}
+Let $\approx$ be any same-scope equivalence relation on $\ARef$ through which every standing-bearing
+value factors. Then for all $\rho,\sigma\in\ARef$,
+\[
+\rho \approx \sigma \iff \rho \MReq \sigma.
+\]
+So there is no finer or coarser same-scope equivalence relation that preserves standing-bearing
+measurement-reference content.
+\end{theorem}
+
+\begin{proof}
+If $\approx$ were coarser than $\MReq$, it would identify assignments with different profile values, so the
+profile map would fail to factor through $\ARef/\approx$. If it were finer than $\MReq$, it would
+distinguish assignments that agree on every standing-bearing value, thereby introducing a second
+same-scope closure-relevant equivalence relation. Both are impossible on the fixed downstream
+substrate. Hence the relations coincide.
+\end{proof}
+
+\subsection{Why confirmational divergence is not semantic skin}
+
+\begin{corollary}[Confirmational-role divergence is quotient-relevant]
+\label{cor:appendix-confirmational-divergence}
+If two admissible assignments $\rho,\sigma\in\ARef$ disagree on the comparative confirmational role of
+any evidential claim, then they belong to distinct classes in $\ARef/\MReq$.
+\end{corollary}
+
+\begin{proof}
+Comparative confirmational role is one coordinate of the target-discourse profile. So a difference in
+that coordinate implies $\Prof(\rho)\neq\Prof(\sigma)$ and hence $\rho\not\MReq\sigma$.
+\end{proof}
+
+\begin{remark}
+This is the formal point that blocks the easiest philosophical dismissal of the paper. The manuscript
+is not merely claiming that two semantic descriptions feel different. It proves that if they differ in
+confirmational role, then the difference survives the unique same-scope quotient of admissible
+measurement-reference content. That is standing-bearing divergence, not semantic skin.
+\end{remark}

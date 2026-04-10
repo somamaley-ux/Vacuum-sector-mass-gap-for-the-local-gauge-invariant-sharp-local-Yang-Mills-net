@@ -242,3 +242,46 @@ The current Yang--Mills scaffold has dedicated axiom checks under
 The current repo-level workflow check is:
 
 - `.github/workflows/AxiomCheck.lean`
+
+## Unus Solus Possibilis Est formalization status
+
+This repository now also contains a completed no-axiom formalization track for the
+paper:
+
+`Unus Solus Possibilis Est: Corpus Closure and Uniqueness of the Admissible Interior`
+
+The current paper track is manuscript-facing and no-axiom on its certified
+surface. It does not yet claim a full derivational import of every upstream
+corpus dependency, but it already packages:
+
+- the manuscript source under `papers/unus_solus_possibilis_est/`
+- a verbatim section/result register
+- a lightweight apex-closure system interface
+- paper-facing statements for uniqueness, no-repair, transfer, and fixation
+- a summary surface that packages the current paper-proof entry point
+
+### Current Unus Solus surface
+
+The main entry points are:
+
+- `MaleyLean.Papers.UnusSolusPossibilisEst.Verbatim.TheoremRegister`
+- `MaleyLean.Papers.UnusSolusPossibilisEst.ManuscriptTheorems`
+- `MaleyLean.Papers.UnusSolusPossibilisEst.Surface.Summary`
+- `MaleyLean.UnusSolusPossibilisEstPaperSurfaceSummary`
+- `Checks/Axiom/UnusSolusPossibilisEstPaperSurfaceSummaryAxiomCheck.lean`
+
+The canonical top-level export theorem is
+`MaleyLean.UnusSolusPossibilisEstPaperSurfaceSummaryStatement`, with a matching
+paper-surface axiom audit in
+`Checks/Axiom/UnusSolusPossibilisEstPaperSurfaceSummaryAxiomCheck.lean`.
+
+### Unus Solus human-readable status artifacts
+
+- `MaleyLean/Papers/UnusSolusPossibilisEst/FormalizationStatus.md`
+- `MaleyLean/Papers/UnusSolusPossibilisEst/CoverageMatrix.md`
+
+### Unus Solus verification
+
+- `Checks/Axiom/UnusSolusPossibilisEstAxiomCheck.lean`
+- `Checks/Axiom/UnusSolusPossibilisEstTheoremRegisterAxiomCheck.lean`
+- `Checks/Axiom/UnusSolusPossibilisEstPaperStatementsAxiomCheck.lean`

@@ -1,0 +1,47 @@
+{
+  "phase": 6,
+  "gates": [
+    {
+      "gate": "Circularity gate",
+      "status": "PASS after audit",
+      "evidence": "Appendix A fixes the compact kernel floor before the body application. The body begins only after inferential-life exhaustion and same-domain threat requirements are fixed.",
+      "repair": "No theorem now uses the G\u00f6del application to define the regime it is meant to target."
+    },
+    {
+      "gate": "Syntax-compression gate",
+      "status": "PASS after repair",
+      "evidence": "Introduction now states that syntax, coding, and proof inscriptions matter only through same-domain readback. Section 4 adds a syntax-compression remark and a bare-syntax corollary.",
+      "repair": "Pure coding differences are explicitly classified as bookkeeping unless they alter standing or coherent trajectory structure."
+    },
+    {
+      "gate": "Provisional-practice gate",
+      "status": "PASS after repair",
+      "evidence": "The limits section now classifies seminar sketches, drafts, repaired proofs, and provisional codings as provisional practice until standing-bearing uptake, or else as fresh acts / explicit resets.",
+      "repair": "No-repair can no longer be misread as a ban on ordinary mathematical revision."
+    },
+    {
+      "gate": "Scope gate",
+      "status": "PASS after audit",
+      "evidence": "Abstract, introduction, body definitions, and limits all describe the same target: same-domain governance-relevant threat architectures inside a fixed kernel-relative regime.",
+      "repair": "No page-1 sentence now reads like a theorem about all calculi or every reasoning practice."
+    },
+    {
+      "gate": "G\u00f6del-specificity gate",
+      "status": "PASS after audit",
+      "evidence": "Sections 3--6 remain application-directed: threat requirements, code-role exhaustion, no same-domain diagonalization, rescue-route exhaustion, and terminal theorem.",
+      "repair": "The body still reads as a same-domain G\u00f6del-response paper rather than a general closure survey."
+    },
+    {
+      "gate": "Proof-economy gate",
+      "status": "PASS after repair",
+      "evidence": "The roadmap now names the exact eight-result visible body path and keeps the audit reservoir outside the primary reader path.",
+      "repair": "Shortest body dependency path is explicit rather than hidden inside the audit-edition reserve."
+    }
+  ],
+  "compile_targets": [
+    "main.tex",
+    "phase6_seed.tex",
+    "technical_appendix.tex",
+    "audit_companion/current_audit_edition_main.tex"
+  ]
+}

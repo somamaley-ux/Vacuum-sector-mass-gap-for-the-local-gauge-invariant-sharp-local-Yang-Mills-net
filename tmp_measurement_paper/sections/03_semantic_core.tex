@@ -1,0 +1,398 @@
+\section{Measurement-reference quotient and minimal formal setting}
+\label{sec:semanticcore}
+
+This section fixes the minimum formal vocabulary required by the proof bridge. The key upgrade is a
+quotient theorem. Admissible reference assignments are treated as a same-scope parameter space.
+Standing-bearing differences among them are then separated from semantic skin by an explicit
+quotient construction.
+
+We work with a fixed measurement setting consisting of a pre-measurement subject-stage $s_0$, a
+nonempty set $\B$ of physically realized post-measurement histories, a record map
+$\Rec: \B \to \Rset$, a continuant map $\Cont: \B \to \Cset$, a set $\Dset$ of diachronic
+measurement claims, a set $\Hset$ of rival hypotheses, a set $\Eset$ of evidential propositions,
+and a confirmational-role assignment
+\[
+\CR: \Eset \to (\Hset\times\Hset \to \{-1,0,1\}).
+\]
+Here $1$ means that the evidential proposition favors the first hypothesis over the second, $-1$
+means that it favors the second over the first, and $0$ means that it leaves their comparative
+ordering unchanged. This is only a minimal comparative scaffold; the paper does not presuppose a
+full confirmation theory.
+
+\begin{definition}[Measurement record]
+\label{def:measurement-record}
+A \emph{measurement record} is a physically realized structure that the target explanatory practice
+uses as an evidential anchor for claims about what outcome was observed.
+\end{definition}
+
+A \emph{diachronic measurement claim} is any claim whose truth conditions depend on a relation
+between the pre-measurement subject-stage $s_0$ and one or more post-measurement record-bearing
+histories. Typical examples are claims of the form
+\begin{center}
+``I will observe outcome $o$,'' \quad ``I remember observing outcome $o$,'' \quad or \quad
+``this record confirms $H_i$ over $H_j$.''
+\end{center}
+
+For a claim $d\in\Dset$, let $\Cand(d)\subseteq \B\times\Rset$ be the set of candidate
+branch-record pairs physically realized by the theory and eligible to serve as referents for $d$.
+
+\begin{definition}[Reference assignment]
+\label{def:reference-assignment}
+A \emph{reference assignment} is a rule
+\[
+\rho: \Dset \to \B\times\Rset
+\]
+that maps each diachronic measurement claim $d\in\Dset$ to a candidate branch-record pair
+$\rho(d)\in\Cand(d)$.
+\end{definition}
+
+\begin{definition}[Admissible reference assignment]
+\label{def:admissible-reference-assignment}
+A reference assignment $\rho$ is \emph{admissible} on the fixed scope of
+Definition~\ref{def:fixed-scope-paper} iff it satisfies all of the following.
+\begin{enumerate}
+    \item \textbf{Same-scope condition.} $\rho$ interprets the claims in $\Dset$ on the fixed downstream
+    substrate and does not rely on scope reset, fresh target gating, or post hoc domain change.
+    \item \textbf{Ontology-compatibility.} For every $d\in\Dset$, $\rho(d)$ selects only a physically
+    realized candidate in $\Cand(d)$.
+    \item \textbf{Discourse-compatibility.} $\rho$ is suitable to interpret the target explanatory practice,
+    namely truth-apt discourse involving measurement, memory, anticipation, deliberation, and
+    evidential confirmation.
+    \item \textbf{Non-question-begging use.} Admissibility of $\rho$ is not defined by stipulating in
+    advance the very confirmational conclusion the later theorems are meant to establish.
+    \item \textbf{No second classifier / no boundary selector.} The admissibility of $\rho$ does not
+    depend on introducing a second same-scope admissibility predicate, a boundary selector, or an
+    admissibility-relevant parameterization external to the fixed downstream substrate.
+\end{enumerate}
+The set of all admissible reference assignments for the fixed setting is written $\ARef$.
+\end{definition}
+
+Clause~(5) is the crucial strengthening. It prevents the assignment space from being widened by a
+same-scope selector principle or narrowed by a second admissibility classifier whose only role would
+be to manufacture uniqueness.
+
+\subsection{Standing-bearing profiles of admissible assignments}
+
+For $\rho\in\ARef$ and $d\in\Dset$, let $\Prop_\rho(d)\in\Eset$ denote the evidential proposition
+induced by taking $\rho(d)$ as the referent of $d$ whenever $d$ is used evidentially. More generally,
+let
+\[
+\Val_\rho(d)
+\]
+be the standing-bearing discourse value of $d$ under $\rho$: for ordinary truth-apt diachronic claims
+it is the induced truth value, and for evidential claims it is the induced comparative evidential role.
+The target-discourse profile of $\rho$ is
+\[
+\Prof(\rho):=\bigl(\Val_\rho(d)\bigr)_{d\in\Dset}.
+\]
+
+\begin{definition}[Confirmational-role equivalence]
+\label{def:confirmational-role-equivalence}
+Two admissible reference assignments $\rho,\sigma\in\ARef$ are \emph{confirmationally equivalent},
+written $\rho\RoleEq\sigma$, if for every evidential claim $d\in\Dset$,
+\[
+\CR(\Prop_\rho(d)) = \CR(\Prop_\sigma(d)).
+\]
+Equivalently, $\rho$ and $\sigma$ are confirmationally equivalent exactly when every theory-level
+evidential claim licensed under one assignment has the same comparative confirmational role under
+the other.
+\end{definition}
+
+\begin{lemma}[Confirmational-role equivalence is an equivalence relation]
+\label{lem:role-equivalence-relation}
+The relation $\RoleEq$ on $\ARef$ is reflexive, symmetric, and transitive.
+\end{lemma}
+
+\begin{proof}
+Reflexivity holds because for every admissible assignment $\rho$ and every evidential claim $d$, we
+have $\CR(\Prop_\rho(d))=\CR(\Prop_\rho(d))$. Symmetry is immediate because equality of
+confirmational roles is symmetric. Transitivity holds because if
+$\CR(\Prop_\rho(d))=\CR(\Prop_\sigma(d))$ and
+$\CR(\Prop_\sigma(d))=\CR(\Prop_\tau(d))$ for every relevant $d$, then
+$\CR(\Prop_\rho(d))=\CR(\Prop_\tau(d))$ for every such $d$.
+\end{proof}
+
+\begin{definition}[Measurement-reference standing equivalence]
+\label{def:mr-standing-equivalence}
+Two admissible reference assignments $\rho,\sigma\in\ARef$ are \emph{standing-equivalent for the
+target discourse}, written
+\[
+\rho \MReq \sigma,
+\]
+iff
+\[
+\Prof(\rho)=\Prof(\sigma).
+\]
+Thus $\rho \MReq \sigma$ exactly when the two assignments agree on every standing-bearing value of
+every claim in the target explanatory practice.
+\end{definition}
+
+\begin{definition}[Skin-equivalent versus standing-relevant divergence]
+\label{def:skin-vs-standing-divergence}
+A difference between admissible reference assignments is \emph{semantic skin} iff the assignments lie
+in the same $\MReq$-class. It is \emph{standing-relevant divergence} iff they lie in distinct $\MReq$-classes.
+\end{definition}
+
+\subsection{Presentations of measurement-reference content}
+
+\begin{definition}[Measurement-reference presentation]
+\label{def:mr-presentation}
+A \emph{measurement-reference presentation} is a triple $(X,r,\Val_X)$ where:
+\begin{enumerate}
+    \item $X$ is a set intended to serve as the standing-bearing content space for admissible
+    reference assignments on the fixed scope;
+    \item $r:\ARef\to X$ is a surjection; and
+    \item for every claim $d\in\Dset$ there exists a map
+    \[
+    \Val_X^d:X\to \mathcal V_d
+    \]
+    for some codomain $\mathcal V_d$ such that
+    \[
+    \Val_\rho(d)=\Val_X^d(r(\rho))
+    \qquad (\rho\in\ARef).
+    \]
+\end{enumerate}
+The presentation is \emph{sound} if $\rho\MReq\sigma$ implies $r(\rho)=r(\sigma)$, and \emph{complete}
+if $r(\rho)=r(\sigma)$ implies $\rho\MReq\sigma$.
+\end{definition}
+
+\begin{lemma}[Completeness of measurement-reference presentations]
+\label{lem:mr-complete}
+Every measurement-reference presentation is complete.
+\end{lemma}
+
+\begin{proof}
+Assume $r(\rho)=r(\sigma)$. Then for every $d\in\Dset$,
+\[
+\Val_\rho(d)=\Val_X^d(r(\rho))=\Val_X^d(r(\sigma))=\Val_\sigma(d).
+\]
+Hence $\Prof(\rho)=\Prof(\sigma)$ and therefore $\rho\MReq\sigma$.
+\end{proof}
+
+\begin{lemma}[Soundness forced by stable reference and fixed-domain uniqueness]
+\label{lem:mr-sound}
+Within the fixed downstream substrate, every measurement-reference presentation is sound.
+\end{lemma}
+
+\begin{proof}
+Assume $\rho\MReq\sigma$ but $r(\rho)\neq r(\sigma)$. Then the presentation distinguishes two putative
+same-scope standing-bearing contents that agree on every value in the target explanatory practice.
+By Definition~\ref{def:fixed-downstream-substrate} and Proposition~\ref{prop:substrate-consequences},
+any same-scope admissibility-bearing distinction must survive either into standing classification or into
+licensed continuation. But $\rho\MReq\sigma$ means that the assignments agree on the full target-discourse
+profile: there is no difference in standing-bearing use for memory, anticipation, deliberation, or
+confirmation. Treating $r(\rho)$ and $r(\sigma)$ as distinct therefore introduces an unwitnessed
+same-scope distinction. Within the fixed downstream substrate, such a distinction is either bookkeeping
+only or a scope change. Since $X$ is presented as a standing-bearing same-scope content space, only
+bookkeeping remains. Hence $r(\rho)=r(\sigma)$ is forced.
+\end{proof}
+
+\begin{lemma}[Quotient universal property]
+\label{lem:mr-quotient-universal}
+Let $q:\ARef\to\ARef/\MReq$ be the quotient map. If $F:\ARef\to Y$ is constant on $\MReq$-classes,
+then there exists a unique map $\widetilde F:\ARef/\MReq\to Y$ such that
+\[
+F=\widetilde F\circ q.
+\]
+\end{lemma}
+
+\begin{proof}
+Define $\widetilde F([\rho]) := F(\rho)$. This is well-defined because $F$ is constant on
+$\MReq$-classes. Uniqueness follows because $q$ is surjective.
+\end{proof}
+
+\begin{theorem}[Measurement-reference quotient theorem]
+\label{thm:measurement-reference-quotient}
+Let $(X,r,\Val_X)$ be any measurement-reference presentation on the fixed downstream substrate.
+Then $r$ is automatically sound and complete and induces a unique bijection
+\[
+\phi:\ARef/\MReq \longrightarrow X,
+\qquad
+\phi([\rho])=r(\rho).
+\]
+In particular, the quotient $\ARef/\MReq$ is the unique standing-bearing content space for admissible
+measurement-reference assignments on the fixed scope, up to unique isomorphism.
+\end{theorem}
+
+\begin{proof}
+Completeness is Lemma~\ref{lem:mr-complete}. Soundness is Lemma~\ref{lem:mr-sound}. Define
+$\phi([\rho]) := r(\rho)$. Soundness implies that $\phi$ is well-defined. Completeness implies that
+$\phi$ is injective. Surjectivity holds because $r$ is surjective. Uniqueness is exactly the quotient
+universal property of Lemma~\ref{lem:mr-quotient-universal}: $r$ is constant on $\MReq$-classes by
+soundness and therefore factors through $q$ uniquely.
+\end{proof}
+
+\begin{definition}[Admissibility-preserving equivalence relation]
+\label{def:admissibility-preserving-quotient}
+An equivalence relation $\approx$ on $\ARef$ is \emph{admissibility-preserving on the fixed scope} iff
+both of the following hold:
+\begin{enumerate}
+    \item every standing-bearing value on the fixed scope factors through the quotient map
+    \[
+    q_{\approx}:\ARef\to \ARef/{\approx};
+    \]
+    equivalently, $(\ARef/{\approx},q_{\approx},\Val_{\approx})$ is a same-scope measurement-reference
+    presentation in the sense of Definition~\ref{def:mr-presentation}; and
+    \item the quotient is still claimed to carry same-scope standing-bearing content rather than mere
+    bookkeeping.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Global equivalence-collapse theorem]
+\label{thm:equivalence-collapse}
+Let $\approx$ be any admissibility-preserving equivalence relation on $\ARef$. Then for all
+$\rho,\sigma\in\ARef$,
+\[
+\rho \approx \sigma \iff \rho \MReq \sigma.
+\]
+Equivalently, any admissibility-preserving same-scope equivalence relation on measurement-reference
+assignments coincides with standing-equivalence. The quotient $\ARef/\MReq$ is therefore forced,
+not chosen.
+\end{theorem}
+
+\begin{proof}
+Assume first that $\rho \approx \sigma$ but $\rho \not\MReq \sigma$. Then
+$\Prof(\rho)\neq \Prof(\sigma)$, so there exists a claim $d\in\Dset$ with
+$\Val_\rho(d)\neq \Val_\sigma(d)$. But by Definition~\ref{def:admissibility-preserving-quotient},
+every standing-bearing value on the fixed scope factors through $q_{\approx}$. Since
+$q_{\approx}(\rho)=q_{\approx}(\sigma)$, the induced value of $d$ would have to agree on
+$\rho$ and $\sigma$, contradiction. So $\approx$ cannot be strictly coarser than $\MReq$.
+
+Assume next that $\rho \MReq \sigma$ but $\rho \not\approx \sigma$. Then $\approx$ distinguishes two
+assignments that agree on every standing-bearing value in the target discourse. Treating that
+additional distinction as same-scope content would amount to a second closure-relevant equivalence
+relation finer than standing-equivalence. By the fixed downstream substrate and
+Theorem~\ref{thm:measurement-reference-quotient}, no such second same-scope equivalence survives:
+it is either bookkeeping only or a scope change. Since $\approx$ is assumed admissibility-preserving,
+that option is unavailable. So $\approx$ cannot be strictly finer than $\MReq$.
+
+Therefore neither a coarser nor a finer admissibility-preserving same-scope equivalence relation is
+possible, and the two relations coincide.
+\end{proof}
+
+\begin{corollary}[No coarser admissibility-preserving equivalence]
+\label{cor:no-coarser-equivalence}
+No admissibility-preserving same-scope equivalence relation on $\ARef$ can identify assignments that
+lie in distinct $\MReq$-classes.
+\end{corollary}
+
+\begin{proof}
+That would make the equivalence strictly coarser than $\MReq$, contradicting
+Theorem~\ref{thm:equivalence-collapse}.
+\end{proof}
+
+\begin{corollary}[No finer admissibility-preserving equivalence]
+\label{cor:no-finer-equivalence}
+No admissibility-preserving same-scope equivalence relation on $\ARef$ can distinguish assignments
+that lie in the same $\MReq$-class.
+\end{corollary}
+
+\begin{proof}
+That would make the equivalence strictly finer than $\MReq$, contradicting
+Theorem~\ref{thm:equivalence-collapse}.
+\end{proof}
+
+\begin{corollary}[Alternative same-scope equivalence relations collapse]
+\label{cor:alternative-equivalence-collapse}
+No same-scope equivalence relation on $\ARef$ can preserve standing-bearing measurement-reference
+content while remaining genuinely distinct from $\MReq$. Any such purported alternative either
+collapses to $\MReq$ or else ceases to be admissibility-preserving on the fixed scope.
+\end{corollary}
+
+\begin{proof}
+Immediate from Theorem~\ref{thm:equivalence-collapse} together with
+Corollaries~\ref{cor:no-coarser-equivalence} and \ref{cor:no-finer-equivalence}.
+\end{proof}
+
+\begin{corollary}[Confirmational divergence is quotient-relevant]
+\label{cor:confirmational-divergence-quotient-relevant}
+If there exist $\rho,\sigma\in\ARef$ and an evidential claim $d\in\Dset$ such that
+\[
+\CR(\Prop_\rho(d))\neq \CR(\Prop_\sigma(d)),
+\]
+then $[\rho]\neq[\sigma]$ in $\ARef/\MReq$. In particular, confirmational divergence is not semantic
+skin.
+\end{corollary}
+
+\begin{proof}
+If $[\rho]=[\sigma]$, then by definition $\rho\MReq\sigma$, so $\Prof(\rho)=\Prof(\sigma)$. That in
+particular forces equality of all confirmational-role values on evidential claims. The displayed
+inequality therefore implies $[\rho]\neq[\sigma]$.
+\end{proof}
+
+\subsection{Fixation as the bridge invariant}
+
+\begin{definition}[Lawful redescription of an evidential claim]
+\label{def:lawful-redescription-evidential}
+A \emph{lawful redescription} of an evidential claim $d\in\Dset$ is a same-scope re-expression of $d$
+that preserves its candidate set $\Cand(d)$, its target discourse role, and the fixed downstream
+substrate. In particular, lawful redescription introduces no new selector, no new admissibility
+classifier, and no scope reset.
+\end{definition}
+
+\begin{definition}[Fixation commutation]
+\label{def:fixation-commutation}
+Fixation \emph{commutes with admissible redescription} for an evidential claim $d$ iff every lawful
+redescription of $d$ preserves its measurement-reference quotient class. Equivalently, lawful
+redescription cannot move the evidential use of $d$ between distinct standing-bearing admissible
+assignment classes.
+\end{definition}
+
+\begin{lemma}[Failed fixation commutation is quotient movement]
+\label{lem:failed-fixation-is-quotient-movement}
+If fixation fails to commute with admissible redescription for an evidential claim $d$, then there
+exist lawful redescriptions of $d$ whose admissible uses lie in distinct $\MReq$-classes.
+\end{lemma}
+
+\begin{proof}
+This is just the negation of Definition~\ref{def:fixation-commutation}: failure of commutation means
+that lawful redescription moves the evidential use of $d$ between distinct standing-bearing admissible
+assignment classes.
+\end{proof}
+
+\begin{theorem}[Fixation-commutation necessity for theory-level confirmation]
+\label{thm:fixation-commutation-necessity}
+If fixation fails to commute with admissible redescription for an evidential claim $d$, then
+ theory-level confirmation through $d$ is undefined on the fixed scope.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:failed-fixation-is-quotient-movement}, failure of fixation commutation moves the
+admissible use of $d$ between distinct standing-bearing quotient classes. By
+Theorem~\ref{thm:equivalence-collapse}, that movement cannot be absorbed by an alternative
+same-scope equivalence relation; it is genuine standing-bearing divergence. A theory-level
+confirmational verdict, however, is supposed to be attributable to the theory on the fixed scope rather
+than to a further standing-bearing choice among admissible quotient classes. So once lawful
+redescription moves $d$ between distinct quotient classes, no theory-relative confirmational verdict is
+fixed. The right description is therefore undefinedness of theory-level confirmation on the fixed scope,
+not merely a weaker or relativized verdict.
+\end{proof}
+
+\begin{corollary}[Fixation commutation is the bridge invariant]
+\label{cor:fixation-central-hinge}
+On the fixed scope, quotient uniqueness and equivalence collapse become relevant to measurement only
+through fixation commutation: if lawful redescription preserves the measurement-reference quotient
+class of an evidential claim, then same-scope standing-bearing divergence is silent for that use; if it
+does not, theory-level confirmation is undefined by
+Theorem~\ref{thm:fixation-commutation-necessity}.
+\end{corollary}
+
+\begin{proof}
+The quotient theorem fixes the unique same-scope content space, and
+Theorem~\ref{thm:equivalence-collapse} closes alternative same-scope equivalences. The only
+remaining question for theory-level evidential use is whether lawful redescription preserves the
+relevant quotient class. When it does, same-scope standing-bearing divergence is silent for that use;
+when it does not, Theorem~\ref{thm:fixation-commutation-necessity} applies.
+\end{proof}
+
+\begin{remark}[Status of admissibility constraints]
+The admissibility condition is intentionally modest but not empty. Clause~(5) of
+Definition~\ref{def:admissible-reference-assignment} closes the easiest hostile move: enlarging or
+pruning the assignment space by smuggling in a second same-scope admissibility classifier or a
+boundary selector. Theorem~\ref{thm:measurement-reference-quotient} then shows that once the
+assignment space is typed that way, only quotient-level differences count as standing-bearing, and
+Theorem~\ref{thm:equivalence-collapse} shows that this quotient is not a discretionary choice among
+many same-scope quotients but the unique admissibility-preserving one. Theorem~\ref{thm:fixation-commutation-necessity}
+then makes fixation commutation the bridge from quotient structure to the evidential use of
+measurement records.
+\end{remark}

@@ -1,0 +1,594 @@
+\section{Interface forcing: AMetric boundary, bivalence, standing emergence, and conservation}
+\label{app:interface}
+
+This appendix reconstructs the interface-level theorem package in the stronger form required by the hardening plan. Once the kernel of Appendix~A is fixed, the same-domain admissibility interface has a forced shape. The proof order is strict: first the symmetry-based AMetric package, then failure-class exhaustion and prior-gate necessity, then same-side split collapse and the downstream standing architecture.
+
+\subsection{The full symmetry-based AMetric boundary package}
+
+\begin{definition}[Pre-admissible proposal space]
+A \emph{pre-admissible proposal space} is a nonempty set $P$ considered prior to admissibility fixation. At this layer no names, coordinates, indices, representatives, or privileged charts carry authority. Equality is the only authoritative structure on $P$.
+\end{definition}
+
+\begin{definition}[Nontrivial proposal regime]
+The proposal regime is \emph{nontrivial} if $|P|\ge 2$. When $|P|=1$, all impossibility claims below become vacuous.
+\end{definition}
+
+\begin{theorem}[Label-neutrality forces full relabeling symmetry]
+\label{thm:B-full-symmetry}
+For any pre-admissible proposal regime satisfying the preceding definitions, every bijection $\pi:P\to P$ preserves all admissibility-relevant structure available on the pre-admissible side. Hence the admissibility-relevant symmetry group of the pre-boundary presentation is the full symmetric group $\mathrm{Sym}(P)$.
+\end{theorem}
+
+\begin{proof}
+By definition, equality is the only authoritative pre-admissible structure. Every bijection preserves and reflects equality, hence is an automorphism of the full pre-boundary authoritative structure. No proper subgroup can be singled out without adding further admissibility-relevant authority in names, coordinates, representatives, charts, or selectors, exactly what the definition forbids.
+\end{proof}
+
+\begin{definition}[Relabeling symmetry]
+By \cref{thm:B-full-symmetry}, the relevant symmetry group on the pre-admissible side is the full symmetric group $\mathrm{Sym}(P)$ of bijections $\pi:P\to P$. Each $\pi\in\mathrm{Sym}(P)$ acts componentwise on tuples by
+\[
+\pi(x_1,\dots,x_n):=(\pi(x_1),\dots,\pi(x_n)).
+\]
+\end{definition}
+
+\begin{definition}[Pre-admissibly meaningful relation]
+For $n\ge 1$, an $n$-ary relation $R\subseteq P^n$ is \emph{pre-admissibly meaningful} if it is invariant under relabeling: for every $\pi\in\mathrm{Sym}(P)$ and every $\bar x\in P^n$,
+\[
+\bar x\in R \Longleftrightarrow \pi(\bar x)\in R.
+\]
+Likewise, a map $f:P\to A$ is meaningful when $f\circ \pi=f$ for all $\pi\in\mathrm{Sym}(P)$, and a selector $c:\mathcal P(P)\setminus\{\varnothing\}\to P$ is meaningful when it is equivariant:
+\[
+c(\pi(A))=\pi(c(A)) \qquad \text{for all }\pi\in\mathrm{Sym}(P),\ A\neq\varnothing.
+\]
+\end{definition}
+
+\begin{proposition}[Invariance is the minimal criterion of pre-boundary authority]
+\label{prop:B-invariance-minimal}
+On a proposal side satisfying the preceding definitions, any admissibility-relevant relation, grading, or selection rule must be preserved under relabelings that alter only labels and not proposal identity as proposals. Accordingly, symmetry-invariance is not an added semantic filter but the minimal formal expression of pre-boundary admissibility relevance.
+\end{proposition}
+
+\begin{proof}
+Suppose an admissibility-relevant rule were not preserved under such a relabeling. Then two presentations differing only by labels would receive different pre-boundary authority. That would make the labels, coordinates, or representatives themselves admissibility-relevant, contrary to the definition of the proposal space. So invariance is required before any stronger structural claim is made.
+\end{proof}
+
+\begin{definition}[Equality pattern]
+For a tuple $\bar x=(x_1,\dots,x_n)\in P^n$, the \emph{equality pattern} of $\bar x$ is the partition of $\{1,\dots,n\}$ whose blocks are the index sets of equal coordinates. Equivalently, $\bar x$ and $\bar y$ have the same equality pattern iff
+\[
+x_i=x_j \Longleftrightarrow y_i=y_j \qquad \text{for all } i,j\in\{1,\dots,n\}.
+\]
+\end{definition}
+
+\begin{lemma}[Transitivity and two-transitivity of $\mathrm{Sym}(P)$]
+\label{lem:B-two-transitive}
+Assume the proposal regime is nontrivial. Then:
+\begin{enumerate}[label=(\roman*), leftmargin=2.5em]
+    \item for any $x,y\in P$ there exists $\pi\in\mathrm{Sym}(P)$ with $\pi(x)=y$;
+    \item for any distinct $x,y,u,v\in P$ with $x\neq y$ and $u\neq v$, there exists $\pi\in\mathrm{Sym}(P)$ with $\pi(x)=u$ and $\pi(y)=v$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Part (i) is immediate: any bijection sending $x$ to $y$ and acting arbitrarily on the rest of $P$ lies in $\mathrm{Sym}(P)$. For part (ii), define a bijection on the two-point subset $\{x,y\}$ by $x\mapsto u$ and $y\mapsto v$; because the points are distinct, the partial map extends to a bijection of all of $P$.
+\end{proof}
+
+\begin{lemma}[Orbit classification by equality pattern]
+\label{lem:B-orbits}
+Fix $n\ge 1$. Two tuples $\bar x,\bar y\in P^n$ lie in the same $\mathrm{Sym}(P)$-orbit if and only if they have the same equality pattern.
+\end{lemma}
+
+\begin{proof}
+If $\bar y=\pi(\bar x)$ for some $\pi\in\mathrm{Sym}(P)$, then injectivity of $\pi$ preserves and reflects equality, so the equality patterns coincide. Conversely, assume the equality patterns agree. List the distinct values appearing among the coordinates of $\bar x$ as $a_1,\dots,a_k$. Because the equality patterns coincide, the coordinates of $\bar y$ also use exactly $k$ distinct values, say $b_1,\dots,b_k$, in matching positions. The partial map $a_r\mapsto b_r$ is therefore well-defined and injective, and it extends to a bijection $\pi:P\to P$ with $\pi(\bar x)=\bar y$.
+\end{proof}
+
+\begin{theorem}[Equality-pattern completeness]
+\label{thm:B-equality-pattern}
+Every pre-admissibly meaningful relation $R\subseteq P^n$ is completely determined by equality patterns. Equivalently, $R$ is a union of $\mathrm{Sym}(P)$-orbits, and those orbits are exactly the equality-pattern classes from \cref{lem:B-orbits}.
+\end{theorem}
+
+\begin{proof}
+Let $\bar x,\bar y\in P^n$ have the same equality pattern. By \cref{lem:B-orbits}, there is $\pi\in\mathrm{Sym}(P)$ with $\pi(\bar x)=\bar y$. If $R$ is meaningful, then
+\[
+\bar x\in R \Longleftrightarrow \pi(\bar x)\in R \Longleftrightarrow \bar y\in R.
+\]
+So membership depends only on the equality pattern. The converse is immediate because relabelings preserve equality patterns.
+\end{proof}
+
+\begin{corollary}[Unary collapse]
+\label{cor:B-unary-collapse}
+Every meaningful unary predicate $U\subseteq P$ is trivial: either $U=\varnothing$ or $U=P$. Equivalently, every meaningful map $f:P\to A$ is constant.
+\end{corollary}
+
+\begin{proof}
+For $n=1$ there is only one equality pattern. So \cref{thm:B-equality-pattern} forces every meaningful unary predicate to be constant on all of $P$. The map claim follows because the fibers of a meaningful map are meaningful unary predicates.
+\end{proof}
+
+\begin{proposition}[No nonconstant meaningful grading]
+\label{prop:B-no-grading}
+Let $A$ be any set with $|A|\ge 2$. Every meaningful map $f:P\to A$ is constant. In particular, there is no admissibility-relevant score, index, rank, or label on individual proposals.
+\end{proposition}
+
+\begin{proof}
+This is the map form of \cref{cor:B-unary-collapse}. For any $x,y\in P$, \cref{lem:B-two-transitive}(i) yields a relabeling $\pi$ with $\pi(x)=y$. Meaningfulness gives $f(y)=f(\pi(x))=f(x)$.
+\end{proof}
+
+\begin{proposition}[No nontrivial meaningful strict order]
+\label{prop:B-no-order}
+Let $R\subseteq P^2$ be a meaningful relation that is asymmetric. Then $R$ contains no ordered pair of distinct elements. In particular, there is no meaningful strict total order, strict weak order, or other admissibility-relevant asymmetric ranking on $P$.
+\end{proposition}
+
+\begin{proof}
+Suppose, toward contradiction, that $xRy$ for some distinct $x,y\in P$. Let $\pi$ be the transposition swapping $x$ and $y$. Because $R$ is meaningful and $\pi(x,y)=(y,x)$,
+\[
+xRy \Longleftrightarrow yRx,
+\]
+contradicting asymmetry.
+\end{proof}
+
+\begin{proposition}[No equivariant selector]
+\label{prop:B-no-selector}
+There is no meaningful selector
+\[
+c:\mathcal P(P)\setminus\{\varnothing\}\to P
+\]
+with $c(A)\in A$ for every nonempty $A$.
+\end{proposition}
+
+\begin{proof}
+Assume such a selector exists. Choose distinct $x,y\in P$ and set $A=\{x,y\}$. Let $\pi$ be the transposition swapping $x$ and $y$. Then $\pi(A)=A$, so equivariance gives
+\[
+c(A)=c(\pi(A))=\pi(c(A)).
+\]
+But $c(A)$ is either $x$ or $y$, and the transposition sends each of those to the other. So $c(A)\neq \pi(c(A))$, contradiction.
+\end{proof}
+
+\begin{theorem}[Metric collapse]
+\label{thm:B-metric-collapse}
+Let $d:P\times P\to \mathbb R_{\ge 0}$ be a meaningful metric. Then there exists a constant $\lambda>0$ such that
+\[
+d(x,x)=0 \quad\text{and}\quad d(x,y)=\lambda \text{ for all } x\neq y.
+\]
+So every meaningful metric is the discrete equality metric up to overall scale.
+\end{theorem}
+
+\begin{proof}
+Because $d$ is a metric, $d(x,x)=0$ for every $x$. Now take any distinct pairs $(x,y)$ and $(u,v)$. By \cref{lem:B-two-transitive}(ii), there is $\pi\in\mathrm{Sym}(P)$ with $\pi(x)=u$ and $\pi(y)=v$. Meaningfulness gives
+\[
+d(u,v)=d(\pi(x),\pi(y))=d(x,y).
+\]
+Hence every distance between distinct points has the same value, say $\lambda$. Positivity of the metric gives $\lambda>0$.
+\end{proof}
+
+\begin{theorem}[AMetric boundary]
+\label{thm:B-ametric}
+Assume a nontrivial pre-admissible proposal regime. Then every pre-admissibly meaningful relation on $P^n$ is determined solely by equality patterns. Consequently:
+\begin{enumerate}[label=(A\arabic*), leftmargin=2.8em]
+    \item there is no nonconstant meaningful grading or indexing of individual proposals;
+    \item there is no meaningful asymmetric ranking of distinct proposals;
+    \item there is no meaningful selector choosing a canonical representative from a nontrivial set of proposals; and
+    \item every meaningful metric collapses to the discrete equality metric and therefore contributes no graded admissibility content.
+\end{enumerate}
+In this precise sense the pre-admissible proposal regime is \emph{AMetric} and non-parameterized.
+\end{theorem}
+
+\begin{proof}
+The equality-pattern statement is \cref{thm:B-equality-pattern}. Items (A1)--(A4) are exactly \cref{prop:B-no-grading,prop:B-no-order,prop:B-no-selector,thm:B-metric-collapse}.
+\end{proof}
+
+\begin{corollary}[No admissibility-relevant parameterization]
+\label{cor:B-no-parameterization}
+There is no admissibility-relevant continuous or discrete parameter on the pre-admissible side that distinguishes multiple positive ways of crossing the boundary. Any purported such parameter either collapses to bookkeeping, reduces to trivial equality information, or imports post-fixation structure.
+\end{corollary}
+
+\begin{proof}
+A continuous or discrete parameter on individual proposals would be a meaningful map or grading and is ruled out by \cref{prop:B-no-grading}. A parameter based on distance or approach direction is ruled out by \cref{thm:B-metric-collapse}. A parameter based on selecting one candidate from many is ruled out by \cref{prop:B-no-selector}.
+\end{proof}
+
+\subsection{No deeper pre-boundary invariant and failure-class exhaustion}
+
+\begin{definition}[Purported deeper invariant]
+A \emph{purported deeper invariant} is a family of pre-admissibly meaningful relations on $P$ claimed to determine or constrain admissibility more fundamentally than the boundary classification itself. The claim of ``deeper'' means that the invariant is supposed to be operative before admissibility is fixed and yet strong enough to decide, or partly decide, which proposals qualify.
+\end{definition}
+
+\begin{lemma}[Constraint requires pre-boundary availability]
+\label{lem:B-preboundary}
+If a purported deeper invariant really constrains boundary classification, then it must be available and meaningful on the pre-admissible side. A purely post-fixation invariant cannot ground admissibility without circularity.
+\end{lemma}
+
+\begin{proof}
+If an invariant is available only after admissibility is already fixed, then using it to determine admissibility presupposes the very status under determination. So any genuinely constraining deeper invariant must already be available pre-admissibly.
+\end{proof}
+
+\begin{lemma}[Invariant data induce invariant unary criteria]
+\label{lem:B-unary-criteria}
+Let $Q$ be any collection of pre-admissibly meaningful relations on $P$. Any criterion $U(x)$ for single proposals that is defined solely from $Q$, without adding non-invariant constants, labels, or privileged representatives, is itself a meaningful unary predicate on $P$.
+\end{lemma}
+
+\begin{proof}
+The defining rule for $U$ uses only equality, logical operations, quantification over $P$, and membership in the relations from $Q$. Because each relation in $Q$ is meaningful, its truth values are preserved under relabeling, and equality is preserved as well. So for every $\pi\in\mathrm{Sym}(P)$ one has $U(x)\Leftrightarrow U(\pi(x))$.
+\end{proof}
+
+\begin{theorem}[No deeper pre-boundary invariant with independent constraining force]
+\label{thm:B-no-deeper-invariant}
+Let $Q$ be a purported deeper invariant. Then exactly one of the following holds:
+\begin{enumerate}[label=(D\arabic*), leftmargin=2.8em]
+    \item $Q$ relies on non-invariant labels, coordinates, selectors, or post-fixation structure, hence is an illicit import;
+    \item every unary admissibility criterion induced from $Q$ is trivial, so $Q$ has no independent constraining force on individual proposals; or
+    \item once admissibility is fixed, the only nontrivial constraining role played by $Q$ is extensionally identical to the boundary classification already being determined.
+\end{enumerate}
+There is no fourth option.
+\end{theorem}
+
+\begin{proof}
+By \cref{lem:B-preboundary}, any genuinely deeper invariant must be available pre-admissibly. If it is not meaningful under relabeling symmetry, then by \cref{prop:B-invariance-minimal} it assigns admissibility-relevant authority to label changes alone, so it uses extra structure and we are in case (D1). So assume $Q$ is meaningful. Any way of turning $Q$ into a criterion for whether an individual proposal should pass the boundary produces, by \cref{lem:B-unary-criteria}, a meaningful unary predicate on $P$. By \cref{cor:B-unary-collapse}, every such unary predicate is trivial. That yields (D2) unless extra structure is imported. The only remaining possibility is post-fixation extensional coincidence with the boundary classification itself, which is (D3).
+\end{proof}
+
+\begin{definition}[Failure classes]
+\label{def:B-failure-classes}
+Relative to a fixed domain $\domain$, the possible structural failures are:
+\begin{enumerate}[label=F\arabic*., leftmargin=2.5em]
+    \item \textbf{Silent redescription:} eligibility changes under lawful redescription without an explicit reset of target or criterion.
+    \item \textbf{Deferred validation:} an act enters licensed composition before its eligibility is fixed.
+    \item \textbf{Post-selection repair:} an ineligible evaluated act is later treated as eligible without fresh evaluation.
+    \item \textbf{Scope transport:} structure from a distinct domain or envelope is used to legalize an act on $\domain$.
+    \item \textbf{Parameter injection:} extra metric, probabilistic, scalar, or indexing structure is introduced to decide eligibility.
+\end{enumerate}
+\end{definition}
+
+\begin{lemma}[Locus reduction for admissibility evasion]
+\label{lem:B-locus}
+Any attempted violation of fixed-domain licensed reasoning must alter at least one of the following:
+\begin{enumerate}[label=(\roman*), leftmargin=2.5em]
+    \item redescription stability of admissibility-relevant verdicts;
+    \item the temporal order between evaluation and entry into licensed composition;
+    \item the identity-binding of a previously evaluated act under same-scope continuation;
+    \item the scope or envelope of authority under which the verdict is claimed to hold; or
+    \item the pre-boundary decision structure by introducing metric, ranking, selector, probabilistic, or comparable parameterization.
+\end{enumerate}
+These loci correspond respectively to F1--F5 of \cref{def:B-failure-classes}.
+\end{lemma}
+
+\begin{proof}
+Take any attempted evasion of a prior admissibility gate on a fixed domain. If lawful redescription alone can change the verdict, locus (i) is altered. If entry into licensed composition occurs before evaluation is fixed, locus (ii) is altered. If a previously evaluated act is later treated as eligible as the same act without fresh evaluation, locus (iii) is altered. If authority is borrowed from a different domain or evaluative envelope, locus (iv) is altered. If none of (i)--(iv) is altered yet eligibility is still decided in a nontrivial way before fixation, then the only remaining place for the evasion to enter is added pre-boundary decision structure, namely locus (v). These five loci are exactly F1--F5.
+\end{proof}
+
+\begin{theorem}[Failure-class exhaustion]
+\label{thm:B-failure-exhaustion}
+Every violation of reference-stable, irreversibility-respecting licensed reasoning instantiates at least one failure class in \cref{def:B-failure-classes}.
+\end{theorem}
+
+\begin{proof}
+By \cref{lem:B-locus}, any attempted violation must alter at least one of the five loci listed there. Those loci are exactly the failure classes F1--F5 from \cref{def:B-failure-classes}. So every violation instantiates at least one such class.
+\end{proof}
+
+\begin{theorem}[Collapse under each failure class]
+\label{thm:B-failure-collapse}
+Each class in \cref{def:B-failure-classes} destroys at least one of the following:
+\begin{enumerate}[label=(\alph*), leftmargin=2.5em]
+    \item stable reference under lawful redescription;
+    \item well-defined licensed composition; or
+    \item irreversible commitment.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+F1. Silent redescription directly violates stable reference under lawful redescription.
+
+F2. Deferred validation invokes licensing before the entry condition for licensing has been fixed. So composition is not well-defined as licensed composition.
+
+F3. Post-selection repair either treats the same evaluated act as newly eligible, in which case earlier rejection is not binding and irreversibility is undermined, or it silently changes identity, which violates stable reference.
+
+F4. Scope transport mixes envelopes with different admissibility conditions. That destroys either reference stability or the well-definedness of licensed composition on the target scope.
+
+F5. Parameter injection contradicts \cref{thm:B-ametric} by importing pre-boundary ranking or metric structure, so the gate is no longer well-defined on the neutral proposal regime.
+\end{proof}
+
+\subsection{Gate necessity, same-side split collapse, and standing emergence}
+
+\begin{definition}[Admissibility predicate on a fixed domain]
+Fix a domain $\domain$ with evaluated fragment $\Eval$. An admissibility predicate is a map
+\[
+\Adm_\domain:\Eval\to\{0,1\}
+\]
+read as admitted/not-admitted on the fixed scope.
+\end{definition}
+
+\begin{theorem}[Necessity of a prior admissibility gate]
+\label{thm:B-gate-necessity}
+Under the kernel floor of Appendix~A together with the pre-boundary symmetry package above, every non-degenerate same-domain reasoning regime induces an admissibility gate that is checked before licensed same-domain composition.
+\end{theorem}
+
+\begin{proof}
+Assume no such prior predicate exists. Then an act must enter licensed composition without evaluation, which is F2; or it must be legalized later by repair, which is F3; or it must be authorized by imported structure from elsewhere, which is F4; or it must be ranked or thresholded by injected parameters, which is F5. By \cref{thm:B-failure-collapse}, every route destroys one of the base goods the theorem assumes. Therefore a prior eligibility predicate is forced.
+\end{proof}
+
+\begin{definition}[Status interface]
+A \emph{status interface} on $\domain$ is a pair $(\mathrm{Status}_\domain,\Good_\domain)$ where $\mathrm{Status}_\domain:\Eval\rightharpoonup V_\domain$ assigns a status value to each evaluated act in its domain, and $\Good_\domain\subseteq V_\domain$ designates those values treated as eligible for commitment, reuse, or standing-bearing continuation on $\domain$. Write $\Bad_\domain:=V_\domain\setminus \Good_\domain$. The interface is \emph{admissibility-relevant} when the statuses it distinguishes affect present eligibility or later standing-bearing continuation on the fixed domain.
+\end{definition}
+
+\begin{definition}[Same-side split]
+A \emph{same-side split} for $(\mathrm{Status}_\domain,\Good_\domain)$ is a pair of distinct values $u\neq v\in V_\domain$ that lie on the same side of the interface: either both $u,v\in \Good_\domain$ or both $u,v\in \Bad_\domain$.
+\end{definition}
+
+\begin{definition}[Same-scope promotion]
+A \emph{same-scope promotion} occurs when an act that has already received a status in $\Bad_\domain$ on the fixed domain $\domain$ is later treated as eligible on that same domain without an explicit reset or scope change.
+\end{definition}
+
+\begin{lemma}[No same-scope repair or promotion]
+\label{lem:B-no-promotion}
+Under the kernel floor and same-domain scope discipline, no same-scope promotion is possible.
+\end{lemma}
+
+\begin{proof}
+Assume a same-scope promotion occurs. Then an act first treated as ineligible on $\domain$ is later treated as eligible on the same fixed domain without explicit reset. There are only three possibilities. (i) Reinterpretation: the later stage treats the act as having meant something different from what it meant earlier. That violates stable reference. (ii) Identity drift: the later stage silently switches the target or identity condition while preserving the appearance of continuity. That again violates stable reference. (iii) Undoing the earlier constraint effect: the later stage erases or bypasses the earlier negative effect in a way that restores admissible use on the same scope. That violates the irreversible-commitment regime. These cases exhaust same-scope repair mechanisms.
+\end{proof}
+
+\begin{definition}[Quotient interface for a same-side split]
+Let $(\mathrm{Status}_\domain,\Good_\domain)$ be a status interface and let $u\neq v$ be a same-side split. Write
+\[
+q_{u,v}:V_\domain\to V_\domain/(u\sim v)
+\]
+for the quotient map identifying $u$ and $v$ and leaving all other status values distinct. The corresponding quotient interface is
+\[
+(\mathrm{Status}^{u\sim v}_\domain,\Good^{u\sim v}_\domain):=(q_{u,v}\circ \mathrm{Status}_\domain,q_{u,v}(\Good_\domain)).
+\]
+\end{definition}
+
+\begin{definition}[Redescription-dependent, effective, and inert splits]
+Let $u\neq v$ be a same-side split for an admissibility-relevant status interface on a fixed domain $\domain$.
+\begin{enumerate}[label=(T\arabic*), leftmargin=2.8em]
+    \item \textbf{Redescription-dependent.} The split is redescription-dependent if there exist acts $a,b\in\Eval$ with $a\Law b$ but $\mathrm{Status}_\domain(a)\neq \mathrm{Status}_\domain(b)$, with one of the two values equal to $u$ and the other to $v$.
+    \item \textbf{Effective.} Assuming the split is not redescription-dependent, it is effective if passing to the quotient interface changes some admissibility-relevant verdict on the fixed domain. Because $u$ and $v$ lie on the same side of the interface, present eligibility cannot change; so effectiveness is equivalently the claim that quotienting changes some later admissibility-relevant reuse or continuation verdict on $\domain$.
+    \item \textbf{Inert.} Again assuming the split is not redescription-dependent, it is inert if passing to the quotient interface changes no admissibility-relevant verdict on the fixed domain.
+\end{enumerate}
+\end{definition}
+
+\begin{lemma}[Exhaustiveness of the trichotomy]
+\label{lem:B-trichotomy}
+Every same-side split is exactly one of the three kinds listed above.
+\end{lemma}
+
+\begin{proof}
+Take any same-side split $u\neq v$. Either the split changes under lawful redescription or it does not. If it does, it is redescription-dependent. If it does not, then quotienting the two values either changes some admissibility-relevant verdict on the fixed domain or it does not. These are exactly the effective and inert cases. The three cases are mutually exclusive by construction.
+\end{proof}
+
+\begin{proposition}[Redescription-dependent splits are impossible]
+\label{prop:B-no-redescription-split}
+No admissibility-relevant same-side split may be redescription-dependent.
+\end{proposition}
+
+\begin{proof}
+If $a\Law b$ but $\mathrm{Status}_\domain(a)\neq \mathrm{Status}_\domain(b)$, then the same standing-bearing content receives different admissibility-relevant classifications merely by presentation. That contradicts reference stability and lawful redescription invariance.
+\end{proof}
+
+\begin{lemma}[Quotient-sensitivity of effective same-side splits]
+\label{lem:B-quotient-sensitive}
+Let $u\neq v$ be a same-side split for an admissibility-relevant status interface $(\mathrm{Status}_\domain,\Good_\domain)$ on a fixed domain $\domain$. Then the split is effective if and only if identifying $u$ and $v$ in the quotient interface changes at least one admissibility-relevant verdict on that same fixed domain. Equivalently, a same-side split is effective exactly when quotienting away the split changes some later admissibility-relevant reuse or continuation verdict while leaving the underlying acts, contexts, and all non-$u/v$ status values unchanged.
+\end{lemma}
+
+\begin{proof}
+The forward direction is the definition of effectiveness. For the converse, if quotienting $u$ and $v$ together changes an admissibility-relevant verdict on the fixed domain, then passing from $(\mathrm{Status}_\domain,\Good_\domain)$ to $(\mathrm{Status}^{u\sim v}_\domain,\Good^{u\sim v}_\domain)$ changes some admissibility-relevant verdict on that same domain. Again by definition, this is exactly effectiveness. The final sentence just unpacks the fact that $u$ and $v$ lie on the same side of the interface, so present eligibility is unchanged and any nontrivial change must occur in later admissibility-relevant reuse or continuation verdicts.
+\end{proof}
+
+\begin{lemma}[Effective same-side splits perform hidden gate work]
+\label{lem:B-hidden-gate}
+Assume $u\neq v$ is a same-side split that is effective in the quotient-sensitive sense of \cref{lem:B-quotient-sensitive}. Then the changed verdict produced by passing to the quotient interface is attributable to the split itself rather than to ordinary act-level differences. Consequently:
+\begin{enumerate}[label=(\roman*), leftmargin=2.5em]
+    \item if $u,v\in \Good_\domain$, the split refines the admitted side in a way that changes later eligibility, hence constitutes deferred gate work or a second gate internal to the positive side; and
+    \item if $u,v\in \Bad_\domain$, the split marks at least one negative status as more promotion-susceptible than the other, hence opens a same-scope promotion channel.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+By \cref{lem:B-quotient-sensitive}, identifying $u$ and $v$ in the quotient interface changes at least one admissibility-relevant verdict on the same fixed domain. The quotient changes nothing except the $u/v$ distinction: it leaves the underlying acts, the available contexts, and every status value other than $u$ and $v$ untouched. So any changed same-domain verdict is attributable to the split itself rather than to ordinary act-level variation among the acts. If $u,v\in \Good_\domain$, then quotienting preserves current admission for acts carrying $u$ or $v$ while still changing some later admissibility-relevant continuation verdict. The split therefore performs gate work not exhausted by the initial admitted verdict, which is concealed deferred gate work or a second positive-side gate. If $u,v\in \Bad_\domain$, then quotienting preserves current rejection while changing some later admissibility-relevant verdict. So one negative status must differ from the other in promotion-susceptibility on the same scope, which is exactly a same-scope promotion channel.
+\end{proof}
+
+\begin{proposition}[Effective same-side splits are impossible]
+\label{prop:B-no-effective-split}
+Under the AMetric boundary, the prior-gate theorem, and the no-promotion result above, no admissibility-relevant same-side split may be effective.
+\end{proposition}
+
+\begin{proof}
+Let $u\neq v$ be an effective same-side split. By \cref{lem:B-hidden-gate}, the split itself performs hidden gate work. If $u,v\in \Good_\domain$, then the split refines the admitted side in a way that changes later eligibility on the same scope. That is deferred gate work or a second positive-side gate, and so it requires a hidden selector or parameter forbidden by \cref{thm:B-ametric,cor:B-no-parameterization}. If $u,v\in \Bad_\domain$, then the split opens a same-scope promotion channel. That is impossible by \cref{lem:B-no-promotion}. Hence no admissibility-relevant same-side split may be effective.
+\end{proof}
+
+\begin{proposition}[Inert same-side splits collapse extensionally]
+\label{prop:B-inert-collapse}
+If a same-side split is inert, then quotienting its two values together changes no admissibility-relevant fact on the fixed domain. The split is therefore bookkeeping rather than governance.
+\end{proposition}
+
+\begin{proof}
+By definition, replacing $(\mathrm{Status}_\domain,\Good_\domain)$ by the quotient interface $(\mathrm{Status}^{u\sim v}_\domain,\Good^{u\sim v}_\domain)$ changes no admissibility-relevant verdict on the fixed domain. Since $u$ and $v$ already lie on the same side of the interface, the quotient also preserves present eligibility. So identifying the two values changes notation only and performs no governance work.
+\end{proof}
+
+\begin{proposition}[Binary collapse is derived from arbitrary status interfaces]
+\label{prop:B-binary-derived}
+The bivalence argument does not assume binary status at the outset. It begins with an arbitrary admissibility-relevant status interface $(\mathrm{Status}_\domain,\Good_\domain)$ on a fixed domain and shows that any same-side refinement must be redescription-dependent, effective, or inert, hence impossible or extensionally eliminable.
+\end{proposition}
+
+\begin{proof}
+The arbitrariness of the starting point is built into the definition of admissibility-relevant status interface. The exhaustive trichotomy is \cref{lem:B-trichotomy}, and its branches are handled by \cref{prop:B-no-redescription-split,prop:B-no-effective-split,prop:B-inert-collapse}. So the binary form is derived from arbitrary status interfaces rather than assumed in advance.
+\end{proof}
+
+\begin{theorem}[Bivalence of the evaluated interface]
+\label{thm:B-bivalence}
+Let $(\mathrm{Status}_\domain,\Good_\domain)$ be any admissibility-relevant status interface on a fixed domain $\domain$. Then the interface is extensionally equivalent to a binary one. Equivalently, every admissibility-relevant status on $\domain$ falls into exactly one of two classes:
+\begin{enumerate}[label=(\roman*), leftmargin=2.5em]
+    \item admitted for commitment, reuse, or standing-bearing continuation on $\domain$; or
+    \item not admitted on $\domain$.
+\end{enumerate}
+Any additional same-side status distinctions are impossible or collapse to bookkeeping.
+\end{theorem}
+
+\begin{proof}
+Assume the interface is not extensionally binary. Then there exists at least one admissibility-relevant same-side split $u\neq v$. By \cref{lem:B-trichotomy}, the split is either redescription-dependent, effective, or inert. If it is redescription-dependent, \cref{prop:B-no-redescription-split} rules it out. If it is effective, \cref{prop:B-no-effective-split} rules it out. If it is inert, \cref{prop:B-inert-collapse} shows that it does no admissibility work and may be quotiented away. After collapsing every inert distinction, only two admissibility-relevant classes remain: eligible and ineligible.
+\end{proof}
+
+\begin{corollary}[Unique gate classification]
+\label{cor:B-unique-gate}
+Let $\Adm_\domain,\Adm'_\domain:\Eval\rightharpoonup \{0,1\}$ be two binary admissibility predicates on the same fixed domain $\domain$. Assume both are lawful-redescription invariant and both are claimed to govern commitment and reuse on that same scope. Then they agree extensionally on $\Eval$.
+\end{corollary}
+
+\begin{proof}
+Assume, toward contradiction, that they disagree on some evaluated act $a$. Then one gate treats $a$ as admitted while the other treats it as not admitted on the same fixed scope. If both verdicts are allowed to stand, the same act is simultaneously admitted and not admitted on the same scope, contradicting \cref{thm:B-bivalence}. If a higher-order rule decides which gate applies, then admissibility depends on a selector over gates. That selector is an admissibility-relevant parameter, forbidden by \cref{thm:B-ametric,cor:B-no-parameterization} unless one has declared an explicit scope change. So disagreement is impossible.
+\end{proof}
+
+\begin{definition}[Reuse-stable admissibility]
+An evaluated act is \emph{reuse-stably admissible} if it is admitted and every licensed same-scope continuation preserves the standing-relevant invariants of the target it is supposed to carry.
+\end{definition}
+
+\begin{proposition}[Admitted same-scope continuation preserves the standing-relevant invariant bundle]
+\label{prop:B-preserve-invariants}
+If an evaluated act is admitted on a fixed domain and later reused under a licensed same-scope continuation, then the continuation preserves the standing-relevant invariants of the target it is supposed to carry.
+\end{proposition}
+
+\begin{proof}
+Suppose admitted same-scope continuation fails to preserve the relevant invariant bundle. Because the continuation is scope-preserving, no explicit reset or domain change has been declared. So either the context silently retargets the act while presenting it as continuation of the same standing-bearing content, violating stable reference, or it consults some hidden selector or criterion that changes what counts as relevant midstream. The latter would reintroduce hidden gate work, which \cref{thm:B-ametric,thm:B-bivalence} exclude.
+\end{proof}
+
+\begin{theorem}[Standing emergence]
+\label{thm:B-standing}
+Let $\Stand_\domain$ be any predicate claimed to mark those evaluated acts on the fixed domain $\domain$ that are eligible for standing-bearing continuation, commitment, or licensed reuse. Then for every $a\in\Eval$,
+\[
+\Stand_\domain(a)=1 \Longleftrightarrow a \text{ is reuse-stably admissible on } \domain.
+\]
+Equivalently, standing is not an extra interface-level classifier beyond admissibility on a fixed scope. It is admissibility as preserved through licensed same-scope continuation.
+\end{theorem}
+
+\begin{proof}
+Suppose first that $\Stand_\domain(a)=1$. Because standing is claimed to govern eligibility for commitment and licensed reuse on the fixed scope, it is an admissibility-relevant status. By \cref{thm:B-bivalence,cor:B-unique-gate}, there is no additional admissibility-relevant classification on $\domain$ except the unique binary gate. So $\Adm_\domain(a)=1$. Moreover, if $a$ were not reuse-stable, some licensed same-scope continuation would alter the invariant bundle while still counting as continuation of the same standing-bearing content, contradicting \cref{prop:B-preserve-invariants}. So every standing-positive act is reuse-stably admissible.
+
+Conversely, assume that $a$ is reuse-stably admissible. Then $\Adm_\domain(a)=1$ by definition. Suppose nevertheless that $\Stand_\domain(a)=0$. Since standing is supposed to govern commitment or later licensed continuation, this would split admitted acts into two substantive subclasses: those merely admitted and those admitted-with-standing. If the split affects what may later be done on the fixed scope, then it is an admissibility-relevant same-side split on the positive side, forbidden by \cref{thm:B-bivalence}. If the split affects nothing, then it is inert bookkeeping. So denying standing to a reuse-stably admissible act is impossible as a substantive classification.
+\end{proof}
+
+\begin{corollary}[Standing is lawful-redescription invariant]
+If $a\Law b$, then standing agrees on $a$ and $b$.
+\end{corollary}
+
+\begin{proof}
+Lawful redescription preserves admissibility and the standing-relevant invariant bundle. So it preserves reuse-stable admissibility, and \cref{thm:B-standing} gives the result.
+\end{proof}
+
+\begin{theorem}[No same-act repair]
+\label{thm:B-no-repair}
+Let $a\in\Eval$. If $a$ is not standing-positive on the fixed domain, then no internal same-scope post-processing that still treats the output as the same evaluated act can restore standing. Any legitimate improvement must instead proceed by explicit reset and fresh evaluation of a new act.
+\end{theorem}
+
+\begin{proof}
+Assume an internal same-scope step repairs $a$ while still treating the result as the same evaluated act. If the repair changes admissibility, then one has a same-scope promotion from ineligible to eligible, impossible by \cref{lem:B-no-promotion}. If the repair leaves admissibility unchanged but changes standing, then by \cref{thm:B-standing} it changes reuse-stable admissibility. That can happen only by changing which invariant bundle is being preserved, which means silent retargeting, hidden reclassification of relevant invariants, or an undeclared reset. The first two contradict \cref{prop:B-preserve-invariants}; the third is not same-act repair.
+\end{proof}
+
+\begin{theorem}[No generators]
+\label{thm:B-no-generators}
+There is no internal operation $T$ and no act $a\in\Eval$ with standing-failure such that $T(a)$ is standing-positive as a consequence of $a$ alone and without fresh evaluation on $\domain$.
+\end{theorem}
+
+\begin{proof}
+If $T(a)$ is still treated as the same evaluated act as $a$, the claim is exactly same-act repair and is impossible by \cref{thm:B-no-repair}. If $T(a)$ is treated as a distinct act, then its positive standing depends on fresh evaluation of $T(a)$, not on the prior failed standing of $a$ alone. So no generator exists.
+\end{proof}
+
+\begin{definition}[Carrier attempt]
+A \emph{carrier attempt} on the fixed domain $\domain$ is any derived predicate $Q_\domain$ proposed to authorize standing independently of the unique admissibility gate. Formally, it is a rule of the form
+\[
+\Stand_\domain(a)=1 \text{ because } Q_\domain(a),
+\]
+where $Q_\domain$ is not merely an extensional renaming of reuse-stable admissibility.
+\end{definition}
+
+\begin{lemma}[Any putatively independent authorizer induces gate work]
+\label{lem:B-gatework}
+If a predicate $Q_\domain$ is used as an independent authorizer to decide whether an evaluated act may enter standing-bearing continuation on $\domain$, then $Q_\domain$ performs gate work. It either changes which acts are admitted for licensed reuse or refines the admitted side into a further substantive eligibility partition.
+\end{lemma}
+
+\begin{proof}
+If $Q_\domain$ changes whether an act may enter standing-bearing continuation, then it directly changes eligibility. If instead all acts admitted by $\Adm_\domain$ remain admitted but only some of them are counted by $Q_\domain$ as genuinely standing-positive, then $Q_\domain$ introduces a substantive same-side split among admitted acts. No third possibility exists.
+\end{proof}
+
+\begin{theorem}[No independent carriers]
+\label{thm:B-no-carriers}
+No carrier attempt $Q_\domain$ can serve as an independent authorizer of standing on the fixed domain $\domain$ except by coinciding extensionally with reuse-stable admissibility. Any admissible use of $Q_\domain$ must therefore be downstream bookkeeping inside an already gated interior.
+\end{theorem}
+
+\begin{proof}
+Let $Q_\domain$ be a carrier attempt. By \cref{lem:B-gatework}, if it is used as an independent authorizer then it performs gate work. If it changes who is admitted, it competes with the unique admissibility gate, contradicting \cref{cor:B-unique-gate}. If it leaves admission unchanged but refines the admitted side substantively, it creates an admissibility-relevant same-side split on the positive side, contradicting \cref{thm:B-bivalence}. The only remaining possibility is extensional coincidence with reuse-stable admissibility, in which case $Q_\domain$ is merely a renaming or bookkeeping layer.
+\end{proof}
+
+\begin{definition}[Admissible interior]
+For a fixed domain $\domain$, the admissible interior is the class
+\[
+\IntD_\domain:=\{a\in\Eval : a \text{ is standing-positive on } \domain\}.
+\]
+By \cref{thm:B-standing}, this is exactly the class of reuse-stably admissible acts on $\domain$.
+\end{definition}
+
+\begin{definition}[Lawful equivalence of interiors]
+Two subsets $I_1,I_2\subseteq \Eval$ are \emph{lawfully equivalent} if they determine the same subset of the quotient $\Eval/\Law$. Equivalently, after identifying lawfully equivalent presentations, they contain exactly the same standing-positive acts.
+\end{definition}
+
+\begin{lemma}[Difference of interiors yields a standing split]
+\label{lem:B-interior-split}
+Let $I_1,I_2\subseteq \Eval$ be closed under lawful redescription. If $I_1$ and $I_2$ are not lawfully equivalent, then there exists an evaluated act $a\in\Eval$ such that one interior treats $a$ as standing-positive and the other does not.
+\end{lemma}
+
+\begin{proof}
+If the two interiors are not lawfully equivalent, then their images in the quotient $\Eval/\Law$ differ. So some lawful-redescription class belongs to one image but not the other. Choose any representative $a$ of that class. Because both interiors are closed under lawful redescription, membership of the class is equivalent to membership of $a$ itself.
+\end{proof}
+
+\begin{theorem}[Unique admissible interior]
+\label{thm:B-interior-unique}
+For each fixed domain $\domain$, the admissible interior is unique up to lawful equivalence. More precisely, if $I_1$ and $I_2$ are two claimed admissible interiors for the same domain, then exactly one of the following holds:
+\begin{enumerate}[label=(\alph*), leftmargin=2.5em]
+    \item $I_1$ and $I_2$ are lawfully equivalent; or
+    \item one of $I_1,I_2$ contains inadmissible or reuse-unstable surplus.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Assume that neither interior contains inadmissible or reuse-unstable surplus. Then every member of either interior is standing-positive by \cref{thm:B-standing}. Suppose nevertheless that $I_1$ and $I_2$ are not lawfully equivalent. By \cref{lem:B-interior-split}, there exists an act $a$ such that one interior contains $a$ and the other does not. Because neither interior contains surplus, this means that $a$ receives two different standing verdicts on the same fixed domain. But standing is not an independent additional classifier beyond reuse-stable admissibility on the fixed interface. By \cref{thm:B-standing}, differing standing verdicts on the same fixed domain either amount to a second gate or to a substantive same-side split among admitted acts. Both are impossible by \cref{thm:B-bivalence,cor:B-unique-gate}.
+\end{proof}
+
+\begin{corollary}[No plural admissible cores]
+\label{cor:B-no-plural}
+There is no genuine plurality of admissible interiors, either discrete or continuously parameterized.
+\end{corollary}
+
+\begin{proof}
+A discrete plurality gives two non-equivalent interiors and contradicts \cref{thm:B-interior-unique}. A continuously parameterized plurality makes interior membership depend on an admissibility-relevant parameter, forbidden by \cref{thm:B-ametric,cor:B-no-parameterization}.
+\end{proof}
+
+\begin{theorem}[Standing conservation and no same-domain portability without fresh gating]
+\label{thm:B-conservation}
+For each fixed domain $\domain$, no internal operation of the licensed regime creates, amplifies, transfers, or recovers standing. Standing can only be preserved or destroyed.
+\end{theorem}
+
+\begin{proof}
+\emph{Recovery.} Recovering standing for the same evaluated act is impossible by \cref{thm:B-no-repair}.
+
+\emph{Creation.} Creating standing from a failed act without fresh evaluation is impossible by \cref{thm:B-no-generators}.
+
+\emph{Amplification.} Amplification would require standing to admit degrees, but the governing interface is binary by \cref{thm:B-bivalence}, and \cref{thm:B-standing} identifies standing with reuse-stable admissibility on that binary interface.
+
+\emph{Transfer.} Any internal transfer mechanism would need some predicate or object that carries standing from one act or context to another independently of fresh gating. That is exactly an attempt to introduce an independent carrier and is impossible by \cref{thm:B-no-carriers}.
+
+These four cases exhaust the standard ways of increasing standing. Therefore standing can only be preserved or destroyed.
+\end{proof}
+
+\begin{corollary}[No cross-domain portability without fresh gating]
+Standing in one domain does not by itself confer standing in another. Independent target gating on the target domain is required.
+\end{corollary}
+
+\begin{proof}
+Assume standing in one domain automatically confers standing in another without fresh target gating. Then either the source gate is being reused to evaluate acts on the target domain, which is illicit scope transport, or some derived property of ``having standing in the source domain'' is being used as an independent authorizer on the target domain, which is a carrier attempt. The first move is blocked by the same-domain scope discipline built into the fixed-domain setting; the second is blocked by \cref{thm:B-no-carriers}.
+\end{proof}
+
+\begin{proposition}[No semantic or infinitary standing import]
+\label{prop:B-no-semantic-import}
+Truth, satisfaction, ``all models,'', reflection, and infinitary rule-power cannot serve as independent same-domain standing-bearing authorizers on the original fixed domain.
+\end{proposition}
+
+\begin{proof}
+If such a resource changes no standing or continuation fact, it is inert bookkeeping. If it does change them, then it acts as an independent same-domain authorizer and is therefore an inadmissible carrier by \cref{thm:B-no-carriers}. If it can be made legitimate only after explicit scope enlargement, then it is a scope change rather than same-domain authority. These exhaust the possibilities.
+\end{proof}
+
+\begin{remark}[Role of Appendix~B]
+Appendix~B is the place where the fixed domain is shown to have only one admissibility architecture. Once the AMetric boundary, no-deeper-invariant result, failure-class exhaustion, same-side split collapse, standing emergence, and conservation law are in place, no same-domain room remains for hidden positive-side refinement, repair channels, or admissibility-relevant parameterization.
+\end{remark}
+
+\section{Standing quotient uniqueness and maximality}

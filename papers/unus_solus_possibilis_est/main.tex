@@ -1,0 +1,1149 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{microtype}
+\geometry{margin=1in}
+\hypersetup{pdfborder={0 0 0}}
+\title{Unus Solus Possibilis Est\\
+\large Corpus Closure \emph{and} Uniqueness of the Admissible Interior\\}
+\author{Amos Jay Maley}
+\date{February 9, 2026}
+
+\newtheorem{definition}{Definition}
+\newtheorem{axiom}{Axiom}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This paper is a standalone derivation of the apex closure claim of the Maley corpus at the apex consequence layer.
+Working conditionally within a standing-instantiated application regime, and from a minimal internal axiom set---intelligibility, non-degenerate irreversible commitment, unrestricted composition,
+scope discipline, meta-invariance of admissibility criteria, a \emph{binary and non-eventful} AMetric boundary,
+and bivalence without metricity---we derive an internally closed standing regime and prove uniqueness of the
+admissible interior (including explicit elimination of \emph{discrete} multiplicity).
+Every entry in the degeneracy-block matrix is justified by in-paper lemma/theorem pointers; Appendix~A supplies
+short proofs for each degeneracy class, and Appendix~B supplies an axiom minimality/independence analysis (dependency matrix,
+independence witnesses, and controlled weakenings).
+\end{abstract}
+
+\tableofcontents
+
+\section{Scope, Typing, and Fail-Closed Defaults}
+\label{sec:scope}
+
+This paper is \emph{fail-closed}. If the typed components below are not instantiated,
+standing defaults to \emph{undefined}. ``Undefined'' is not a value in $[0,1]$; it is
+\emph{non-instantiation} of the eligibility relation.
+
+\begin{definition}[Acts]
+An \emph{act} $a$ is any unit that purports to be standing-bearing: asserting a claim as truth-apt,
+invoking an admissibility criterion, transporting confirmation, upgrading performance to authority,
+transferring standing across domains, or proposing a regime translation.
+\end{definition}
+
+\begin{definition}[Typed domains]
+A \emph{domain} $D$ is a typed envelope
+\[
+D := (E,\ A,\ F,\ C,\ \mathrm{DAC}),
+\]
+where:
+\begin{itemize}[leftmargin=2.2em]
+  \item $E$ is the domain's admissible evidence carriers (reports, records, reference-bearers),
+  \item $A$ is the admissibility criterion class governing allowed transformations and descriptions,
+  \item $F$ is the domain's reference-fixation structure (what reports are about, and how this is preserved),
+  \item $C$ is the domain's truth-apt discriminator (confirmation discipline, if any),
+  \item $\mathrm{DAC}$ is domain-of-application closure (derived, not primitive).
+\end{itemize}
+\end{definition}
+
+\begin{definition}[Derived DAC (not primitive)]
+$\mathrm{DAC}$ holds in $D=(E,A,F,C,\mathrm{DAC})$ iff:
+\begin{enumerate}[label=(\alph*), leftmargin=2.2em]
+  \item (\emph{Evidence closure}) admissible redescriptions/transport map admissible reports to admissible reports (the admissible orbit of any $e\in E$ remains in $E$);
+  \item (\emph{Fixation totality}) $F$ is well-typed and invariant on the admissible orbit (no retargeting required to maintain aboutness);
+  \item (\emph{Discriminator totality}) $C$ is defined on the admissible orbit without importing post-hoc restrictions.
+\end{enumerate}
+Thus $\mathrm{DAC}$ abbreviates ``$(E,A,F,C)$ closes on itself as a standing-bearing envelope.''
+\end{definition}
+
+\begin{definition}[Domain individuation (non-stipulative)]
+Two domains $D_1=(E_1,A_1,F_1,C_1,\mathrm{DAC}_1)$ and $D_2=(E_2,A_2,F_2,C_2,\mathrm{DAC}_2)$ are distinct iff
+at least one component differs in a way that changes well-formedness, reference eligibility, or truth-apt discrimination.
+Topic labels, vocabulary shifts, and application rhetoric do not individuate domains.
+\end{definition}
+
+\begin{remark}[Application-regime anchor]
+\label{rem:app-anchor}
+The present paper is standalone only at the apex consequence layer. It does not attempt a lower derivation of admissibility, standing, reference, or irreversibility.
+Its application regime is the class of typed, standing-governed regimes in which non-degenerate reasoning is already operative.
+In the companion manuscripts \emph{Foundational Closure of Admissibility and Standing} (especially Theorem~2.14) and \emph{Necessity of Admissibility in Non-Degenerate Compositional Systems}
+(especially Theorem~5.7, Corollary~5.8, and Theorem~7.5), kernel instantiation, fixed-domain gate existence, and standing-instantiation are established at the upstream layers.
+The present paper therefore takes the standing-instantiated admissible side as fixed at application and derives the apex closure consequences internal to that already-instantiated regime.
+All existence claims in this manuscript are conditional on operation within that meaningful, non-degenerate application class; they are not offered here as a fresh lower derivation independent of the upstream kernel-instantiation results.
+\end{remark}
+
+\section{Axioms (Minimal Internal Premises of Application)}
+\label{sec:axioms}
+
+The apex theorem is conditional on the following internal axioms once the standing-instantiated application regime of Remark~\ref{rem:app-anchor} is fixed.
+
+\begin{axiom}[Intelligibility]
+\label{ax:intell}
+Meaningful discourse is intended: claim identity and evidential reference are required to be well-defined under admissible operations.
+\end{axiom}
+
+\begin{axiom}[Non-degenerate irreversible commitment]
+\label{ax:irr}
+The system contains irreversible commitment operations and intends non-degenerate reasoning under such operations. In particular,
+illicit acts cannot be repaired post hoc \emph{as the same act}.
+\end{axiom}
+
+\begin{axiom}[Unrestricted composition]
+\label{ax:comp}
+Admissible operations compose; ad hoc restrictions may not be introduced solely to block laundering.
+\end{axiom}
+
+\begin{axiom}[Scope discipline]
+\label{ax:scope}
+No post-hoc narrowing/expansion/reframing is permitted to legalize otherwise-illicit moves. Any envelope shift used as repair is inadmissible.
+\end{axiom}
+
+\begin{axiom}[Meta-invariance of admissibility criteria]
+\label{ax:miax}
+Admissibility criteria must be invariant under admissible redescription. Any criterion depending on privileged representations or silent redescription is null.
+\end{axiom}
+
+\begin{axiom}[Binary, non-eventful AMetric boundary]
+\label{ax:ametric}
+The boundary separating pre-admissible proposal space from admissible reasoning is \emph{binary} and \emph{non-eventful}.
+Binary: exactly two statuses exist (admissible / not admissible); no graded proximity or partial crossing.
+Non-eventful: crossing is not a process or trajectory.
+Therefore the boundary admits no admissibility-relevant parameterization, including discrete indexing of multiple admissible alternatives.
+\end{axiom}
+
+\begin{axiom}[Bivalence without metricity]
+\label{ax:biv}
+At this layer, eligibility statuses are bivalent: defined vs undefined, legitimate vs illegitimate.
+There is no ``almost'' legitimacy, no proximity-to-admissible, and no graded repair regime.
+\end{axiom}
+
+\section{Standing and Gates: Core Lemma Chain}
+\label{sec:gates}
+
+\subsection{Standing as a determinate evaluation}
+
+\begin{definition}[Standing and gate predicates]
+\label{def:standing}
+For each typed domain $D$, a \emph{gate predicate} is a predicate $G_D(a)$ intended to carve the acts into eligible vs ineligible acts.
+When $G_D$ is instantiated, standing is the induced bivalent evaluation
+\[
+L_D(a)=1 \iff G_D(a), \qquad L_D(a)=0 \iff \neg G_D(a).
+\]
+If $G_D$ is not instantiated (or $D$ is not typed), standing in $D$ is \emph{undefined}.
+\end{definition}
+
+\begin{lemma}[Gate existence is forced by irreversibility + intelligibility]
+\label{lem:gate-existence}
+Under Axioms~\ref{ax:intell} and \ref{ax:irr}, any non-degenerate domain must instantiate some gate predicate $G_D$.
+\end{lemma}
+
+\begin{proof}
+Axiom~\ref{ax:irr} demands that some acts be \emph{irreversibly} excluded: once excluded, they cannot become licit again \emph{as the same act}.
+For that demand to be meaningful, the system must be able to (i) \emph{state} which acts are excluded and (ii) preserve that status under admissible operations.
+If no gate predicate exists, then there is no internal predicate that distinguishes licit from illicit acts; exclusion cannot be expressed as a stable status.
+Then either: (a) every act is treated as licit (irreversibility is void), or (b) no act is eligible (discourse collapses), or (c) eligibility varies
+silently by representation, destroying claim identity and evidential reference (violating Axiom~\ref{ax:intell}). In all cases, non-degenerate reasoning fails.
+Therefore, any non-degenerate domain must instantiate some gate predicate.
+\end{proof}
+
+\begin{lemma}[Binary standing (when defined)]
+\label{lem:binary-standing}
+Under Axiom~\ref{ax:biv}, whenever standing in $D$ is defined, $L_D(a)\in\{0,1\}$ for all acts $a$.
+\end{lemma}
+
+\begin{proof}
+Axiom~\ref{ax:biv} forbids graded legitimacy. Thus the only eligible statuses (when standing is instantiated) are ``legitimate'' and ``illegitimate.''
+These correspond to the two truth values of the gate predicate. Hence $L_D(a)\in\{0,1\}$.
+\end{proof}
+
+\subsection{Binary AMetric boundary blocks parameterization}
+
+\begin{lemma}[No admissibility-relevant parameterization (including discrete indexing)]
+\label{lem:no-parameter}
+Under Axiom~\ref{ax:ametric}, the admissibility boundary admits no admissibility-relevant parameterization, including discrete indexing of multiple admissible alternatives.
+\end{lemma}
+
+\begin{proof}
+Suppose, for contradiction, that there exists an admissibility-relevant parameterization by an index set $I$ (possibly finite) such that ``admissible'' crossing
+comes in distinct indexed forms. Then (i) there must be a boundary-authoritative differentiator $\Delta(i)$ that selects which indexed admissible form applies, and (ii) that differentiator must matter for standing/admissibility.
+But then the boundary has at least three distinct boundary-relevant statuses: ``inadmissible'', ``admissible of type $i$'', and ``admissible of type $j\neq i$''.
+This contradicts boundary binarity. Moreover, a selection of $i$ would constitute a boundary transition mechanism, contradicting non-eventfulness.
+Therefore no such parameterization exists.
+\end{proof}
+
+\begin{remark}[Consequence]
+Lemma~\ref{lem:no-parameter} blocks not only continuous ``degrees'' of admissibility but also discrete plural admissible alternatives.
+This is the crucial ingredient in eliminating categorical multiplicity at the apex.
+\end{remark}
+
+\begin{lemma}[Uniqueness of admissibility classification (no competing gates)]
+\label{lem:unique-gate}
+Assume Axioms~\ref{ax:intell}, \ref{ax:ametric}, and \ref{ax:biv}. Let $G$ and $G'$ be two candidate gate predicates for the same typed domain $D$
+that are each claimed to determine admissibility/standing for acts in $D$. If there exists an act $a$ with $G(a)\neq G'(a)$, then either
+standing in $D$ is indeterminate (violating intelligibility) or the boundary admits an admissibility-relevant differentiator selecting between
+$G$ and $G'$ (contradicting Lemma~\ref{lem:no-parameter}). Therefore, within the intended regime, admissibility classification for a fixed domain is
+unique up to extensional equivalence of the gate predicate.
+\end{lemma}
+
+\begin{proof}
+If $G(a)\neq G'(a)$ for some act $a$, then the system has two incompatible admissibility classifications for the same act in the same domain.
+To maintain determinacy of standing (Axiom~\ref{ax:intell}), the system must specify which classification governs eligibility. Any such specification
+is an admissibility-relevant differentiator: it selects between admissibility outcomes for $a$. By Lemma~\ref{lem:no-parameter}, admissibility-relevant
+differentiators (including discrete index choices) are forbidden by the binary, non-eventful AMetric boundary. Hence no such disagreement is permissible.
+Therefore any two admissibility predicates for a fixed domain must coincide extensionally.
+\end{proof}
+
+
+\section{Kernel Closure: No Repairs, No Generators, No Carriers}
+\label{sec:kernel}
+
+\subsection{No repairs}
+
+\begin{theorem}[No repairs for an evaluated act]
+\label{thm:no-repairs}
+Assume standing is defined in $D$. If $L_D(a)=0$, then no internal post-processing operation on the \emph{same act} $a$
+yields $L_D(a)=1$. Any legitimate ``repair'' must produce a new act $a'$ that independently satisfies $G_D$.
+\end{theorem}
+
+\begin{proof}
+Let $a$ be an evaluated act with $L_D(a)=0$. Suppose an internal operation $R$ purports to make $a$ legitimate.
+There are only two cases.
+
+\textbf{Case 1 (identity-preserving).} $R$ preserves the identity of $a$ as an evaluated act (it is ``the same act'').
+Then $R$ changes $L_D(a)$ from $0$ to $1$ for the same act, which is exactly the post-hoc reversal forbidden by Axiom~\ref{ax:irr}.
+Therefore identity-preserving repair is impossible.
+
+\textbf{Case 2 (identity-changing).} $R$ produces a distinct act $a'$. Then $a'$ must be evaluated separately.
+By Definition~\ref{def:standing}, $L_D(a')=1$ holds iff $G_D(a')$ holds. Thus ``repair'' produces a new candidate act whose legitimacy is not inherited
+from $a$ but depends on fresh gating. In either case, the original act $a$ remains illegitimate.
+\end{proof}
+
+\subsection{No generators}
+
+\begin{theorem}[No generators]
+\label{thm:no-generators}
+There is no operation $T$ on acts such that, for some act $a$ with $L_D(a)=0$, one has $L_D(T(a))=1$ \emph{as a consequence of $a$ alone}
+without $T(a)$ constituting a fresh gated act in $D$.
+\end{theorem}
+
+\begin{proof}
+Let $a$ satisfy $L_D(a)=0$ and consider any operation $T$.
+
+If $T(a)$ is the same evaluated act as $a$, then $T$ is an identity-preserving ``repair,'' ruled out by Theorem~\ref{thm:no-repairs}.
+If $T(a)$ is a distinct act $a'$, then legitimacy of $a'$ is not a function of $a$ alone: $L_D(a')=1$ holds only if $G_D(a')$ holds.
+Thus there is no generator that converts an illegitimate act into a legitimate act \emph{by transformation alone}.
+\end{proof}
+
+\subsection{No carriers (numeric \emph{or} structural)}
+
+\begin{definition}[Carrier attempt]
+A \emph{carrier attempt} is any derived predicate $Q_D(a)$ proposed to substitute for gating as the primitive authorizer of standing,
+i.e.\ a rule of the form ``$L_D(a)=1$ because $Q_D(a)$'', where $Q_D$ is not merely a renaming of $G_D$.
+Carrier attempts include: scalar rules ($q>\tau$), probabilities and typicalities, confidence scores, losses/utility, information criteria,
+and also non-scalar invariants (algebraic, categorical, symmetry, embedding, etc.) proposed to authorize standing.
+\end{definition}
+
+\begin{lemma}[Any primitive authorizer is a gate predicate]
+\label{lem:authorizer-is-gate}
+If $Q_D$ is proposed to primitively authorize standing, then $Q_D$ is, extensionally, a gate predicate: it partitions acts into eligible vs ineligible.
+\end{lemma}
+
+\begin{proof}
+Primitive authorization means: the system uses $Q_D$ to decide which acts are eligible. That decision is a partition of acts into two classes.
+Under bivalence, there is no third class. Therefore $Q_D$ functions as a gate predicate, regardless of its internal form.
+\end{proof}
+
+\begin{theorem}[No carriers (numeric or structural)]
+\label{thm:no-carriers}
+Assume Axioms~\ref{ax:intell}, \ref{ax:miax}, \ref{ax:ametric}, and \ref{ax:biv}. Then no carrier attempt $Q_D$ can serve as a \emph{primitive} authorizer of standing (i.e.\ no $Q_D\not\equiv G_D$ can decide eligibility) except by coinciding extensionally with the unique gate predicate guaranteed by Lemma~\ref{lem:unique-gate}.
+Any admissible use of $Q_D$ must be downstream bookkeeping inside an already gated envelope and must have no authority over admissibility/standing.
+\end{theorem}
+
+\begin{proof}
+Let $Q_D$ be a carrier attempt. By Lemma~\ref{lem:authorizer-is-gate}, if $Q_D$ is used primitively to decide eligibility, then $Q_D$ is functioning as a gate predicate.
+
+We show that any nontrivial carrier attempt cannot be a legitimate primitive authorizer.
+
+\textbf{(1) Metric/probabilistic carriers.} If $Q_D$ is defined via metric proximity, measure, typicality, probabilities, rankings, convergence, or any
+``almost'' predicate that is meant to \emph{decide} eligibility, then admissibility becomes transmissive in metric/probabilistic structure.
+This contradicts Axiom~\ref{ax:ametric} (binary, non-eventful AMetric boundary).
+
+\textbf{(2) Representation-dependent carriers.} If $Q_D$ depends on a privileged encoding, coordinate, or redescription choice, then admissibility criteria vary under admissible redescription,
+contradicting Axiom~\ref{ax:miax}.
+
+\textbf{(3) Representation-invariant structural carriers.} Suppose $Q_D$ is claimed to be purely structural and representation-invariant.
+Then it is a candidate gate predicate. By Lemma~\ref{lem:unique-gate}, admissibility classification in a fixed domain is unique up to extensional equivalence of the gate.
+Therefore either:
+\begin{itemize}[leftmargin=2.2em]
+\item $Q_D$ coincides extensionally with the gate predicate $G_D$ (in which case it is not an additional primitive; it is merely the gate under a new name), or
+\item $Q_D$ disagrees with $G_D$ on some act, which would introduce a competing admissibility classification and is forbidden by Lemma~\ref{lem:unique-gate}.
+\end{itemize}
+
+In all cases, there is no primitive authorizer \emph{distinct} from the gate. Any admissible occurrence of $Q_D$ is therefore downstream bookkeeping inside an already gated domain, with no authority over eligibility.
+
+\end{proof}
+
+\begin{corollary}[Probability and typicality are not primitive]
+\label{cor:prob}
+No probabilistic typicality, measure dominance, Bayesian ranking, or thresholded confidence score can generate, repair, or authorize standing.
+\end{corollary}
+
+\begin{proof}
+Any such scheme is a carrier attempt of type (1) in Theorem~\ref{thm:no-carriers}, hence inadmissible as primitive authorization.
+\end{proof}
+
+\begin{corollary}[Explanation cannot be the primitive]
+\label{cor:explain}
+Explanation, unification, compression, or coherence cannot function as primitive authorizers of standing.
+\end{corollary}
+
+\begin{proof}
+If ``explanation'' is invoked to decide eligibility, it is either (i) a scalar/ordering surrogate (carrier attempt), or (ii) a scope/representation-dependent narrative (violating Axiom~\ref{ax:miax}),
+or (iii) a post-hoc transformation of an already evaluated act (forbidden by Theorem~\ref{thm:no-repairs}). Therefore explanation cannot be primitive authorization.
+\end{proof}
+
+\begin{corollary}[Legitimacy conservation (closed regime)]
+\label{cor:conservation}
+Within the axioms, standing is conserved: no internal operation creates, amplifies, transfers, or recovers standing.
+\end{corollary}
+
+\begin{proof}
+Creation/recovery would require a generator or repair, excluded by Theorems~\ref{thm:no-generators} and \ref{thm:no-repairs}.
+Amplification or transfer by derived criteria would require a carrier attempt, excluded by Theorem~\ref{thm:no-carriers}.
+\end{proof}
+
+\section{Scope Discipline and Cross-Domain Transfer}
+\label{sec:transfer}
+
+\begin{lemma}[No illicit scope transport]
+\label{lem:no-scope-transport}
+Under Axiom~\ref{ax:scope}, no post-hoc change in domain typing may be used to legalize an otherwise-illicit act.
+\end{lemma}
+
+\begin{proof}
+Axiom~\ref{ax:scope} states exactly this: an envelope shift used as repair is inadmissible. \end{proof}
+
+\begin{definition}[Transfer claim]
+A \emph{transfer claim} asserts that standing in a target domain $D_2$ is licensed on the basis of standing in a distinct source domain $D_1$,
+without independent instantiation of target gating and target DAC.
+\end{definition}
+
+\begin{theorem}[Transfer without standing]
+\label{thm:tws}
+Let $D_1$ and $D_2$ be distinct domains. Standing does not inherit from $D_1$ to $D_2$ by default.
+Standing in $D_2$ is defined only if $D_2$ independently instantiates a gate predicate and satisfies $\mathrm{DAC}_2$.
+Any attempt to import standing from $D_1$ without independent target gating is illicit scope transport or carrier laundering and is fail-closed.
+\end{theorem}
+
+\begin{proof}
+Assume a transfer claim licenses standing in $D_2$ from $D_1$ without independent target gating.
+
+Either (i) it uses $D_1$'s gate (or admissibility/closure) to evaluate acts in $D_2$. This is a post-hoc envelope substitution, violating Lemma~\ref{lem:no-scope-transport}.
+Or (ii) it uses a derived performance/similarity predicate to justify import. That predicate is a carrier attempt, forbidden as primitive authorization by Theorem~\ref{thm:no-carriers}.
+
+Therefore, absent independent target gating and DAC, standing in $D_2$ is undefined (fail-closed).
+\end{proof}
+
+\begin{remark}[Regime translation is not standing lift]
+Any ``translation'' or ``lift'' across regimes that is used to claim target standing without target gating is a transfer claim and is blocked by Theorem~\ref{thm:tws}.
+\end{remark}
+
+\section{Reference Fixation and Theory-Level Confirmation}
+\label{sec:ref}
+
+This section supplies the minimal standalone necessity claim linking standing to theory-level confirmation.
+
+\begin{definition}[Admissible redescription]
+An \emph{admissible redescription} is a transformation $d$ permitted by admissibility criteria $A$ within a domain.
+\end{definition}
+
+\begin{definition}[Fixation commutation]
+Fixation \emph{commutes} with an admissible redescription $d$ if transporting a report under $d$ preserves what the report is about (no retargeting).
+\end{definition}
+
+\begin{definition}[Theory-level confirmation (minimal)]
+A \emph{theory-level confirmation} claim is truth-apt only if the identity of the confirmed claim is invariant under admissible redescription.
+\end{definition}
+
+\begin{theorem}[Reference fixation is necessary for theory-level confirmation]
+\label{thm:ref-fix}
+If fixation fails to commute with admissible redescription, then theory-level confirmation is undefined. Predictive success alone cannot repair this failure.
+\end{theorem}
+
+\begin{proof}
+If fixation does not commute, then admissible redescriptions change what the evidence is about. Then the ``same'' confirmation claim does not have a fixed target:
+under admissible operations, different targets are being ``confirmed.'' This violates Axiom~\ref{ax:intell} (claim/evidence identity) or forces a representation-privileged choice,
+contradicting Axiom~\ref{ax:miax}. Under Axiom~\ref{ax:biv}, there is no partial regime where such identity failure yields ``weakened'' confirmation; the confirmation relation is undefined.
+
+Attempts to repair by success, probability, typicality, or any ranking surrogate are carrier attempts (Theorem~\ref{thm:no-carriers}) and are inadmissible at the boundary (Axiom~\ref{ax:ametric}).
+Thus reference fixation commutation is necessary.
+\end{proof}
+
+\begin{remark}[Existence is fixed at the application layer]
+\label{rem:interior-existence}
+By Remark~\ref{rem:app-anchor}, the present paper works only where the standing-governed admissible side is already instantiated.
+The uniqueness theorem below therefore does not attempt a lower derivation of admissible-side existence; it identifies the unique interior/closure of that already-instantiated admissible side.
+\end{remark}
+
+\section{Uniqueness of the Admissible Interior (No Discrete Multiplicity)}
+\label{sec:unique}
+
+\begin{definition}[Admissible interior]
+\label{def:interior}
+In the standing-instantiated regime fixed here, an \emph{admissible interior} $I$ is the closure of the already-instantiated standing-positive admissible side under admissibility-preserving operations.
+Equivalently, it is the standing-governed admissible class closed under admissibility-preserving continuation inside the regime, maximal in the induced sense that no further same-regime admissible act may be added without leaving that standing-governed closure.
+Two interiors $I_1$ and $I_2$ are distinct only if there exists a witness act $a$ such that $a\in I_1$ and $a\notin I_2$ (or vice versa).
+\end{definition}
+
+\begin{definition}[Admissible distinguishability]
+Two purported interiors $I_1$ and $I_2$ are \emph{admissibly distinguishable} iff there exists an admissible act/predicate that witnesses their difference.
+If no admissible witness exists, the interiors are admissibly indistinguishable.
+\end{definition}
+
+\begin{lemma}[Discrete multiplicity elimination (gate-form)]
+\label{lem:discrete-elim}
+Let $I_1$ and $I_2$ be purported admissible interiors (maximal admissible closures) for the same standing-governed regime.
+Then $I_1=I_2$. In particular, discrete (categorical) plurality of admissible interiors is impossible.
+\end{lemma}
+
+\begin{proof}
+Assume for contradiction that $I_1\neq I_2$. By extensionality of set difference there exists an act $a$ such that $a\in I_1$ and $a\notin I_2$ (or vice versa).
+Define two candidate admissibility classifiers (gate predicates) for the same typed regime:
+\[
+G_1(x)\;:\!\!\iff\; x\in I_1,\qquad G_2(x)\;:\!\!\iff\; x\in I_2.
+\]
+By construction, $G_1(a)\neq G_2(a)$.
+
+But Lemma~\ref{lem:unique-gate} states that within the intended regime (Axioms~\ref{ax:intell}, \ref{ax:ametric}, \ref{ax:biv}) there cannot exist two competing admissibility
+classifications for the same domain/regime that disagree on any act: disagreement forces either indeterminate standing (violating intelligibility) or an admissibility-relevant selector
+at the boundary (contradicting binary non-eventfulness and Lemma~\ref{lem:no-parameter}). Therefore $G_1$ and $G_2$ must coincide extensionally, contradicting $G_1(a)\neq G_2(a)$.
+Hence $I_1=I_2$.
+\end{proof}
+
+\begin{theorem}[Uniqueness of the admissible interior]
+\label{thm:unique}
+In the standing-instantiated application regime fixed here, exactly one admissible interior exists.
+\end{theorem}
+
+\begin{proof}
+By Remark~\ref{rem:app-anchor}, the present paper works only where the standing-governed admissible side is already instantiated.
+In particular, the standing-positive admissible set is nonempty in the application regime under study, since non-degenerate reasoning is already operative there and standing is already instantiated at the upstream kernel layer.
+Definition~\ref{def:interior} then names the closure of that already-instantiated standing-positive admissible side under admissibility-preserving operations, so an admissible interior exists in the regime under study.
+If there were two distinct admissible interiors, Lemma~\ref{lem:discrete-elim} would be violated.
+Therefore exactly one admissible interior exists.
+\end{proof}
+
+\section{Apex Standalone Closure Theorem}
+\label{sec:apex}
+
+\begin{theorem}[Apex Standalone Closure Theorem]
+\label{thm:apex}
+Under the standing-instantiated application regime of Remark~\ref{rem:app-anchor} and Axioms~\ref{ax:intell}--\ref{ax:biv}, the standing--admissibility regime is closed and unique:
+\begin{enumerate}[label=(\roman*), leftmargin=2.2em]
+\item \textbf{Closed standing regime:} standing is bivalent when defined (Lemma~\ref{lem:binary-standing}), gate-existence is forced (Lemma~\ref{lem:gate-existence}),
+and there are no repairs (Theorem~\ref{thm:no-repairs}), no generators (Theorem~\ref{thm:no-generators}), and no primitive carriers (Theorem~\ref{thm:no-carriers}).
+\item \textbf{Scope discipline:} no illicit scope transport (Lemma~\ref{lem:no-scope-transport}); no standing transfer without target gating and target DAC (Theorem~\ref{thm:tws}).
+\item \textbf{Confirmation discipline:} theory-level confirmation requires reference fixation commutation; otherwise confirmation is undefined (Theorem~\ref{thm:ref-fix}).
+\item \textbf{Uniqueness:} exactly one admissible interior exists, including elimination of discrete plural interiors (Theorem~\ref{thm:unique}).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (i)--(iii) follow from the cited results. Item (iv) follows from Theorem~\ref{thm:unique}.
+\end{proof}
+
+\section{Degeneracy-Block Matrix (Proof Pointers)}
+\label{sec:matrix}
+
+\subsection{Matrix}
+\label{subsec:matrix}
+
+Each degeneracy class is blocked by at least one lemma/theorem proved above. The ``Blocked by'' column is therefore a proof pointer.
+
+\setlength{\LTpre}{0pt}
+\setlength{\LTpost}{0pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.10\linewidth} >{\raggedright\arraybackslash}p{0.52\linewidth} >{\raggedright\arraybackslash}p{0.33\linewidth}}
+\toprule
+\textbf{ID} & \textbf{Degeneracy class (failure mode)} & \textbf{Blocked by (this paper)} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{ID} & \textbf{Degeneracy class (failure mode)} & \textbf{Blocked by (this paper)} \\
+\midrule
+\endhead
+
+D1 & Graded standing / partial repair / ``almost legitimate.'' & Axiom~\ref{ax:biv}; Lemma~\ref{lem:binary-standing} \\
+D2 & Metric/proximity transmissivity into gating; ``near-admissible.'' & Axiom~\ref{ax:ametric}; Lemma~\ref{lem:no-parameter}; Theorem~\ref{thm:no-carriers} \\
+D3 & Probability/typicality as primitive authorization. & Corollary~\ref{cor:prob}; Theorem~\ref{thm:no-carriers} \\
+D4 & Thresholded carrier authorization ($q>\tau$) or any scalar ranking surrogate. & Theorem~\ref{thm:no-carriers} \\
+D5 & ``Transformational-invariant'' distribution preservation used as authorization. & Theorem~\ref{thm:no-carriers}; Axiom~\ref{ax:miax} \\
+D6 & Post-hoc scope transport repair (narrow/expand/reframe to legalize failure). & Axiom~\ref{ax:scope}; Lemma~\ref{lem:no-scope-transport} \\
+D7 & Cross-domain inheritance of standing (benchmark-to-world upgrades). & Theorem~\ref{thm:tws} \\
+D8 & Standing accumulation/amplification (repetition/consensus/explanation/unification increases standing). & Theorem~\ref{thm:no-generators}; Theorem~\ref{thm:no-repairs}; Corollary~\ref{cor:explain} \\
+D9 & Repair-by-explanation (explanation as primitive authorizer). & Corollary~\ref{cor:explain}; Theorem~\ref{thm:no-carriers} \\
+D10 & Repair-by-unification/embedding (standing lift by consolidation). & Lemma~\ref{lem:no-scope-transport}; Theorem~\ref{thm:tws} \\
+D11 & Silent redescription / privileged representation criterion. & Axiom~\ref{ax:miax}; Theorem~\ref{thm:no-carriers} \\
+D12 & Cross-fixation relational transport or global structure from local articulation (scope smuggling). & Lemma~\ref{lem:no-scope-transport}; Definition of domain individuation \\
+D13 & Boundary mutation / treating boundary descriptors as generative. & Axiom~\ref{ax:ametric}; Lemma~\ref{lem:no-parameter} \\
+D14 & Continuous-parameter laundering (parameters become standing carriers). & Lemma~\ref{lem:no-parameter}; Theorem~\ref{thm:no-carriers} \\
+D15 & Locality-violating ``extensions'' rescued by scope repair. & Lemma~\ref{lem:no-scope-transport} \\
+D16 & Confirmation without reference fixation; predictive success treated as evidence absent fixed referent. & Theorem~\ref{thm:ref-fix} \\
+D17 & Ordering reversal treated as weakened confirmation. & Axiom~\ref{ax:biv}; Theorem~\ref{thm:ref-fix} \\
+D18 & Standing-collapse equivocation (confirmation failure vs standing loss). & Definition~\ref{def:standing}; Theorem~\ref{thm:ref-fix} \\
+D19 & Identity drift misused as license for reference ambiguity. & Theorem~\ref{thm:ref-fix}; Axiom~\ref{ax:miax} \\
+D20 & Non-transmissive recognition shortcut (authority by proposition alone). & Theorem~\ref{thm:tws}; Lemma~\ref{lem:no-scope-transport} \\
+D21 & Regime translation misread as standing lift. & Remark in Section~\ref{sec:transfer}; Theorem~\ref{thm:tws} \\
+D22 & Anchor vacuum / definitional admissibility triviality. & Lemma~\ref{lem:gate-existence}; Axiom~\ref{ax:intell} \\
+D23 & Discrete plural admissible interiors (categorical multiplicity). & Lemma~\ref{lem:discrete-elim}; Theorem~\ref{thm:unique} \\
+\bottomrule
+\end{longtable}
+
+\appendix
+\section{Degeneracy Proof Appendix (By Cases)}
+\label{app:deg}
+
+This appendix provides a short proof for each degeneracy class D1--D23, showing it violates at least one axiom or proved theorem.
+
+\begin{proposition}[D1: Graded standing]
+Any graded-standing regime contradicts Axiom~\ref{ax:biv}.
+\end{proposition}
+\begin{proof}
+Axiom~\ref{ax:biv} excludes ``almost'' legitimacy. Therefore any graded regime violates the axiom. \end{proof}
+
+\begin{proposition}[D2: Metric transmissivity]
+Any metric/proximity grounding of gating contradicts Axiom~\ref{ax:ametric} and Theorem~\ref{thm:no-carriers}.
+\end{proposition}
+\begin{proof}
+Such grounding supplies an admissibility-relevant graded differentiator at the boundary, forbidden by Axiom~\ref{ax:ametric}; it is a carrier attempt blocked by Theorem~\ref{thm:no-carriers}. \end{proof}
+
+\begin{proposition}[D3: Probability primitive]
+Probability/typicality as primitive authorization is inadmissible.
+\end{proposition}
+\begin{proof}
+Immediate from Corollary~\ref{cor:prob}. \end{proof}
+
+\begin{proposition}[D4: Thresholded carriers]
+Any $q>\tau$ authorization is a carrier attempt and is blocked.
+\end{proposition}
+\begin{proof}
+It is a carrier attempt by definition and is excluded by Theorem~\ref{thm:no-carriers}. \end{proof}
+
+\begin{proposition}[D5: Distribution-preservation authorization]
+Any ``admissible iff preserves distribution'' rule is a carrier attempt and violates MIAX.
+\end{proposition}
+\begin{proof}
+It substitutes a derived predicate for gating (Theorem~\ref{thm:no-carriers}). If the distribution depends on representation, MIAX is violated. \end{proof}
+
+\begin{proposition}[D6: Post-hoc scope transport]
+Post-hoc narrowing/expansion used as repair is inadmissible.
+\end{proposition}
+\begin{proof}
+Immediate from Axiom~\ref{ax:scope} and Lemma~\ref{lem:no-scope-transport}. \end{proof}
+
+\begin{proposition}[D7: Cross-domain inheritance]
+Standing does not inherit across distinct domains without target gating and DAC.
+\end{proposition}
+\begin{proof}
+Immediate from Theorem~\ref{thm:tws}. \end{proof}
+
+\begin{proposition}[D8: Accumulation/amplification]
+No repetition/consensus/explanation can amplify standing.
+\end{proposition}
+\begin{proof}
+Amplification would create new legitimacy from old; this is excluded by Theorems~\ref{thm:no-generators}, \ref{thm:no-repairs} and Corollary~\ref{cor:explain}. \end{proof}
+
+\begin{proposition}[D9: Explanation as repair]
+Explanation cannot repair illegitimacy or authorize standing.
+\end{proposition}
+\begin{proof}
+Immediate from Corollary~\ref{cor:explain} and Theorem~\ref{thm:no-repairs}. \end{proof}
+
+\begin{proposition}[D10: Unification/embedding repair]
+Unification used as standing lift is illicit.
+\end{proposition}
+\begin{proof}
+It is either scope transport (Lemma~\ref{lem:no-scope-transport}) or a transfer claim without target gating (Theorem~\ref{thm:tws}). \end{proof}
+
+\begin{proposition}[D11: Privileged representation]
+Any privileged-encoding criterion violates MIAX.
+\end{proposition}
+\begin{proof}
+Immediate from Axiom~\ref{ax:miax}. \end{proof}
+
+\begin{proposition}[D12: Cross-fixation transport]
+Cross-fixation comparability by silent envelope shift is scope transport.
+\end{proposition}
+\begin{proof}
+If the comparison requires altering $F$ or $C$ without retyping the domain, it is illicit scope transport (Lemma~\ref{lem:no-scope-transport}). \end{proof}
+
+\begin{proposition}[D13: Boundary mutation]
+Treating boundary descriptors as generative violates binary AMetric boundary.
+\end{proposition}
+\begin{proof}
+It makes boundary structure authoritative for gating, contradicting Axiom~\ref{ax:ametric} and Lemma~\ref{lem:no-parameter}. \end{proof}
+
+\begin{proposition}[D14: Continuous-parameter laundering]
+Continuous parameters cannot be used as standing carriers.
+\end{proposition}
+\begin{proof}
+Any such use introduces admissibility-relevant parameterization (Lemma~\ref{lem:no-parameter}) and is a carrier attempt (Theorem~\ref{thm:no-carriers}). \end{proof}
+
+\begin{proposition}[D15: Scope-rescued extensions]
+Extensions rescued by scope repair are inadmissible.
+\end{proposition}
+\begin{proof}
+They are post-hoc envelope shifts, excluded by Lemma~\ref{lem:no-scope-transport}. \end{proof}
+
+\begin{proposition}[D16: Confirmation without fixation]
+Theory-level confirmation is undefined without fixation commutation.
+\end{proposition}
+\begin{proof}
+Immediate from Theorem~\ref{thm:ref-fix}. \end{proof}
+
+\begin{proposition}[D17: ``Weakened'' confirmation]
+Non-invariant confirmation is undefined, not weakened.
+\end{proposition}
+\begin{proof}
+Axiom~\ref{ax:biv} excludes partial confirmation at this layer; Theorem~\ref{thm:ref-fix} yields undefinedness under fixation failure. \end{proof}
+
+\begin{proposition}[D18: Standing/confirmation equivocation]
+Standing undefinedness and illegitimacy are distinct and cannot be conflated.
+\end{proposition}
+\begin{proof}
+By Definition~\ref{def:standing}, undefinedness is non-instantiation, not a graded value. Theorem~\ref{thm:ref-fix} shows confirmation may be undefined without asserting any standing value change. \end{proof}
+
+\begin{proposition}[D19: Identity drift misuse]
+Identity drift cannot license reference ambiguity for confirmation.
+\end{proposition}
+\begin{proof}
+Using drift to permit retargeting violates MIAX and triggers the fixation non-commutation condition of Theorem~\ref{thm:ref-fix}. \end{proof}
+
+\begin{proposition}[D20: Recognition shortcut]
+Authority cannot be transmitted by proposition alone without target gating.
+\end{proposition}
+\begin{proof}
+It is a transfer claim in disguise; blocked by Theorem~\ref{thm:tws}. \end{proof}
+
+\begin{proposition}[D21: Regime translation as standing lift]
+Translation is not authorization; it cannot lift standing.
+\end{proposition}
+\begin{proof}
+If used to claim standing without target gating, it is a transfer claim blocked by Theorem~\ref{thm:tws}. \end{proof}
+
+\begin{proposition}[D22: Anchor vacuum]
+If no gate is instantiated, standing-bearing discourse collapses.
+\end{proposition}
+\begin{proof}
+Lemma~\ref{lem:gate-existence} forces gate existence under intelligibility and irreversibility; otherwise non-degenerate discourse fails. \end{proof}
+
+\begin{proposition}[D23: Discrete plural admissible interiors]
+Discrete multiplicity of admissible interiors is impossible.
+\end{proposition}
+\begin{proof}
+Immediate from Lemma~\ref{lem:discrete-elim} and Theorem~\ref{thm:unique}. \end{proof}
+
+\section{Axiom Minimality and Independence Appendix}
+\label{app:minindep}
+
+This appendix has two functions.
+
+\begin{enumerate}[label=(\alph*), leftmargin=2.2em]
+\item \textbf{Minimality.} Identify which axioms are truly required for each lemma/theorem in the main text (including transitive dependencies through cited results).
+\item \textbf{Independence.} Provide witness constructions showing that, for each axiom, dropping it while keeping the others admits at least one degeneracy class (D1--D23) or breaks at least one derived theorem.
+\end{enumerate}
+
+\subsection{Axiom--Result Dependency Matrix}
+\label{app:dep}
+
+The application-regime anchor of Remark~\ref{rem:app-anchor} is an upstream scope condition rather than an additional internal axiom of the present paper.
+Accordingly, the matrix below tracks only the internal axioms of Section~\ref{sec:axioms}; whenever existence of the admissible side is needed, that requirement is treated as fixed at application rather than encoded as an extra matrix column.
+
+We use the shorthand:
+\[
+\mathbf{I}=\text{Intelligibility (Axiom~\ref{ax:intell})},\;
+\mathbf{R}=\text{Irreversibility (Axiom~\ref{ax:irr})},\;
+\mathbf{C}=\text{Composition (Axiom~\ref{ax:comp})},\;
+\mathbf{S}=\text{Scope discipline (Axiom~\ref{ax:scope})},\;
+\mathbf{M}=\text{MIAX (Axiom~\ref{ax:miax})},\;
+\mathbf{A}=\text{AMetric boundary (Axiom~\ref{ax:ametric})},\;
+\mathbf{B}=\text{Bivalence (Axiom~\ref{ax:biv})}.
+\]
+Kernel instantiation / non-vacuity is inherited from the application-regime note in Section~\ref{sec:axioms} rather than introduced here as a local axiom.
+The matrix below therefore tracks only \emph{local axiom use} inside this standalone consequence derivation.
+A checkmark indicates that the axiom is required by the result \emph{as a consequence of its proof chain} (i.e.\ including dependencies on cited lemmas/theorems).
+
+\newcommand{\X}{\checkmark}
+
+\setlength{\LTpre}{0pt}
+\setlength{\LTpost}{0pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.33\linewidth}ccccccc}
+\toprule
+\textbf{Result} & $\mathbf{I}$ & $\mathbf{R}$ & $\mathbf{C}$ & $\mathbf{S}$ & $\mathbf{M}$ & $\mathbf{A}$ & $\mathbf{B}$\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Result} & $\mathbf{I}$ & $\mathbf{R}$ & $\mathbf{C}$ & $\mathbf{S}$ & $\mathbf{M}$ & $\mathbf{A}$ & $\mathbf{B}$\\
+\midrule
+\endhead
+
+Lemma~\ref{lem:gate-existence} (gate existence) & \X & \X &  &  &  &  &  \\
+Lemma~\ref{lem:binary-standing} (binary standing) &  &  &  &  &  &  & \X \\
+Lemma~\ref{lem:no-parameter} (no parameterization) &  &  &  &  &  & \X &  \\
+Lemma~\ref{lem:unique-gate} (no competing gates) & \X &  &  &  &  & \X & \X \\
+Theorem~\ref{thm:no-repairs} (no repairs) &  & \X &  &  &  &  &  \\
+Theorem~\ref{thm:no-generators} (no generators) &  & \X &  &  &  &  &  \\
+Lemma~\ref{lem:authorizer-is-gate} (authorizer $\Rightarrow$ gate) &  &  &  &  &  &  & \X \\
+Theorem~\ref{thm:no-carriers} (no carriers) & \X &  &  &  & \X & \X & \X \\
+Corollary~\ref{cor:prob} (probability not primitive) & \X &  &  &  & \X & \X & \X \\
+Corollary~\ref{cor:explain} (explanation not primitive) & \X & \X &  &  & \X & \X & \X \\
+Corollary~\ref{cor:conservation} (conservation) & \X & \X &  &  & \X & \X & \X \\
+Lemma~\ref{lem:no-scope-transport} (no scope transport) &  &  &  & \X &  &  &  \\
+Theorem~\ref{thm:tws} (transfer without standing) & \X &  &  & \X & \X & \X & \X \\
+Theorem~\ref{thm:ref-fix} (fixation necessary) & \X &  &  &  & \X & \X & \X \\
+Lemma~\ref{lem:discrete-elim} (no discrete interiors) & \X &  &  &  &  & \X & \X \\
+Theorem~\ref{thm:unique} (uniqueness) & \X &  &  &  &  & \X & \X \\
+Theorem~\ref{thm:apex} (apex closure) & \X & \X &  & \X & \X & \X & \X \\
+\bottomrule
+\end{longtable}
+
+\begin{remark}[About the composition axiom]
+As packaged here, Axiom~\ref{ax:comp} is not required in any proof chain because MIAX (Axiom~\ref{ax:miax}) is assumed as primitive.
+In the corpus, composition plays a deeper role: it is part of the route by which MIAX is forced rather than assumed.
+Accordingly, \emph{for this standalone derivation}, $\mathbf{C}$ is non-minimal; see Proposition~\ref{prop:comp-nonminimal}.
+\end{remark}
+
+\begin{proposition}[Composition is non-minimal in the standalone derivation]
+\label{prop:comp-nonminimal}
+In the standalone proof architecture of this paper, Axiom~\ref{ax:comp} is not required by any derived result.
+\end{proposition}
+
+\begin{proof}
+Inspection of the dependency matrix shows that no lemma, theorem, or corollary proved in the main text depends on Axiom~\ref{ax:comp}. In this standalone package, MIAX is assumed directly as Axiom~\ref{ax:miax}; composition therefore does not enter any proof chain, even though it remains part of the broader corpus route by which MIAX is forced.
+\end{proof}
+
+\subsection{Minimal axiom sets per result}
+\label{app:minsets}
+
+For each derived result, we record a minimal \emph{internal} axiom subset sufficient for the proof chain once the standing-instantiated application regime of Remark~\ref{rem:app-anchor} is fixed.
+
+\begin{itemize}[leftmargin=2.2em]
+\item Lemma~\ref{lem:gate-existence}: $\{\mathbf{I},\mathbf{R}\}$.
+\item Lemma~\ref{lem:binary-standing}: $\{\mathbf{B}\}$.
+\item Lemma~\ref{lem:no-parameter}: $\{\mathbf{A}\}$.
+\item Lemma~\ref{lem:unique-gate}: $\{\mathbf{I},\mathbf{A},\mathbf{B}\}$.
+\item Theorem~\ref{thm:no-repairs}: $\{\mathbf{R}\}$ (with standing defined).
+\item Theorem~\ref{thm:no-generators}: $\{\mathbf{R}\}$ via Theorem~\ref{thm:no-repairs}.
+\item Lemma~\ref{lem:authorizer-is-gate}: $\{\mathbf{B}\}$.
+\item Theorem~\ref{thm:no-carriers}: $\{\mathbf{I},\mathbf{M},\mathbf{A},\mathbf{B}\}$ plus Lemmas~\ref{lem:no-parameter} and \ref{lem:unique-gate}.
+\item Corollary~\ref{cor:prob}: Theorem~\ref{thm:no-carriers} (hence $\{\mathbf{I},\mathbf{M},\mathbf{A},\mathbf{B}\}$).
+\item Corollary~\ref{cor:explain}: Theorem~\ref{thm:no-carriers} plus Theorem~\ref{thm:no-repairs} (hence $\{\mathbf{I},\mathbf{R},\mathbf{M},\mathbf{A},\mathbf{B}\}$).
+\item Corollary~\ref{cor:conservation}: Theorems~\ref{thm:no-repairs}, \ref{thm:no-generators}, \ref{thm:no-carriers} (hence $\{\mathbf{I},\mathbf{R},\mathbf{M},\mathbf{A},\mathbf{B}\}$).
+\item Lemma~\ref{lem:no-scope-transport}: $\{\mathbf{S}\}$.
+\item Theorem~\ref{thm:tws}: $\{\mathbf{S}\}$ plus Theorem~\ref{thm:no-carriers} (hence $\{\mathbf{I},\mathbf{S},\mathbf{M},\mathbf{A},\mathbf{B}\}$).
+\item Theorem~\ref{thm:ref-fix}: $\{\mathbf{I},\mathbf{M},\mathbf{A},\mathbf{B}\}$ plus Theorem~\ref{thm:no-carriers}.
+\item Lemma~\ref{lem:discrete-elim}: $\{\mathbf{I},\mathbf{A},\mathbf{B}\}$ via Lemma~\ref{lem:unique-gate} (no competing admissibility classifications).
+\item Theorem~\ref{thm:unique}: application-regime anchor (Remark~\ref{rem:app-anchor}) plus Lemma~\ref{lem:discrete-elim}; internally, $\{\mathbf{I},\mathbf{A},\mathbf{B}\}$ suffice for the uniqueness part once existence is fixed at application.
+\item Theorem~\ref{thm:apex}: application-regime anchor plus $\{\mathbf{I},\mathbf{R},\mathbf{S},\mathbf{M},\mathbf{A},\mathbf{B}\}$.
+\end{itemize}
+
+\subsection{Independence models in a fixed signature (explicit \texorpdfstring{$\Sigma$}{Sigma}-structures)}
+\label{app:indep}
+
+\paragraph{What is proved here.}
+We define a \emph{single} finite parametric family of first-order $\Sigma$-structures $\mathcal{M}(\theta)$ indexed by a one-place ``toggle'' parameter
+\[
+\theta\in \Theta:=\{\varnothing,\mathbf{I},\mathbf{R},\mathbf{C},\mathbf{S},\mathbf{M},\mathbf{A},\mathbf{B}\}.
+\]
+The base setting $\theta=\varnothing$ satisfies $T_0$ and all formal axiom cores $(X_\Sigma)$.
+For each nonempty $X\in\Theta$, the specialization $\mathcal{M}(X)$ satisfies $T_0$ and all cores except $(X_\Sigma)$, and in addition satisfies a designated
+formal degeneracy formula $(D^X_\Sigma)$ witnessing a reopened failure mode.
+Thus independence is shown \emph{in the intended nontrivial class} $T_0$ by \emph{controlled perturbations} of one fixed base model (Section~\ref{app:paramfam}),
+not by vacuous empty-sort models and not by unrelated hand-built structures.
+
+\paragraph{Adequacy note.}
+The schemata $(X_\Sigma)$ below are \emph{formal cores} of the corresponding informal axioms in the main text: they isolate precisely the structure actually used in the closure proofs.
+Appendix~\ref{app:indep} therefore establishes independence of these cores. (No claim is made that the full informal axioms are \emph{equivalent} to their cores.)
+
+\subsubsection{Common signature \texorpdfstring{$\Sigma$}{Sigma} with functions}
+
+We use one fixed first-order signature $\Sigma$ with sort-predicates (unary predicates) and with \emph{functions} for standing value and metric score:
+\begin{itemize}[leftmargin=2.2em]
+\item Sort-predicates: $\mathrm{Dom}(x)$, $\mathrm{Act}(x)$, $\mathrm{Tar}(x)$, $\mathrm{Val}(x)$, $\mathrm{Ev}(x)$.
+\item Constants:
+\[
+d_1,d_2;\quad a_0,a_1,a_2,a_3;\quad e_0,e_1,e_2;\quad t_0,t_1;\quad v_0,v_1,v_h,\tau.
+\]
+\item Relations:
+  \begin{itemize}[leftmargin=2.2em]
+  \item $\mathrm{Eval}(d,a)$: act $a$ is evaluated in domain $d$.
+  \item $\mathrm{Red}(x,y)$: $y$ is an admissible redescription of $x$ (used for both evidence and acts).
+  \item $\mathrm{Same}(a,b)$: $a$ and $b$ are treated as the ``same act'' (identity-preserving continuation).
+  \item $\mathrm{Sub}(d',d)$: $d'$ is a post-hoc narrowing (sub-envelope) of $d$.
+  \item $\mathrm{About}(e,t)$: evidence-act $e$ is about target $t$.
+  \item $\mathrm{LT}(v,w)$: ordering on values (used to express threshold rules).
+  \end{itemize}
+\item Functions:
+  \begin{itemize}[leftmargin=2.2em]
+  \item $sv(d,a)$: the standing value assigned to act $a$ in domain $d$.
+  \item $score(a)$: a metric/probabilistic score assigned to act $a$.
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Background nontriviality theory \texorpdfstring{$T_0$}{T0}}
+\label{app:T0}
+
+$T_0$ forces the signature to be non-degenerate and ensures the axioms are not satisfied vacuously:
+\begin{itemize}[leftmargin=2.2em]
+\item \textbf{Typed constants and distinctness:}
+\[
+\mathrm{Dom}(d_1)\wedge \mathrm{Dom}(d_2)\wedge d_1\neq d_2,
+\]
+\[
+\bigwedge_{i=0}^3 \mathrm{Act}(a_i)\;\wedge\; \bigwedge_{0\le i<j\le 3} a_i\neq a_j,
+\]
+\[
+\bigwedge_{i=0}^2 \mathrm{Ev}(e_i)\;\wedge\; \bigwedge_{0\le i<j\le 2} e_i\neq e_j,
+\]
+\[
+\mathrm{Tar}(t_0)\wedge \mathrm{Tar}(t_1)\wedge t_0\neq t_1,
+\]
+\[
+\mathrm{Val}(v_0)\wedge \mathrm{Val}(v_1)\wedge \mathrm{Val}(v_h)\wedge \mathrm{Val}(\tau)\wedge (v_0\neq v_1)\wedge (v_h\neq v_0)\wedge (v_h\neq v_1).
+\]
+\item \textbf{Nontrivial evaluation and scope:} $\mathrm{Sub}(d_2,d_1)$ and $\mathrm{Eval}(d_k,a_i)$ for all $k\in\{1,2\}$ and all $i\in\{0,1,2,3\}$.
+\item \textbf{Nontrivial redescription chains:} $\mathrm{Red}(e_0,e_1)\wedge \mathrm{Red}(e_1,e_2)$ and $\mathrm{Red}(a_0,a_1)\wedge \mathrm{Red}(a_1,a_2)$.
+\item \textbf{Nontrivial order:} $\mathrm{LT}(v_0,\tau)\wedge \mathrm{LT}(\tau,v_1)$.
+\end{itemize}
+
+\subsubsection{Formal axiom cores in \texorpdfstring{$\Sigma$}{Sigma}}
+
+\begin{itemize}[leftmargin=2.2em]
+\item \textbf{(I$_\Sigma$) Intelligibility core.} Fixation commutes under admissible redescription for evidence:
+\[
+\forall e,e',t\;\big(\mathrm{Ev}(e)\wedge \mathrm{Ev}(e')\wedge \mathrm{Red}(e,e') \rightarrow (\mathrm{About}(e,t)\leftrightarrow \mathrm{About}(e',t))\big).
+\]
+\item \textbf{(R$_\Sigma$) Irreversibility core.} Standing is invariant under ``same act'' continuation:
+\[
+\forall d,a,a'\;\big(\mathrm{Dom}(d)\wedge \mathrm{Act}(a)\wedge \mathrm{Act}(a')\wedge \mathrm{Eval}(d,a)\wedge \mathrm{Eval}(d,a')\wedge \mathrm{Same}(a,a')\rightarrow sv(d,a)=sv(d,a')\big).
+\]
+\item \textbf{(C$_\Sigma$) Composition core.} Admissible redescription composes (transitivity):
+\[
+\forall x,y,z\;(\mathrm{Red}(x,y)\wedge \mathrm{Red}(y,z)\rightarrow \mathrm{Red}(x,z)).
+\]
+\item \textbf{(S$_\Sigma$) Scope discipline core.} No post-hoc narrowing can legalize (or otherwise change) standing:
+\[
+\forall d,d',a\;\big(\mathrm{Dom}(d)\wedge \mathrm{Dom}(d')\wedge \mathrm{Act}(a)\wedge \mathrm{Sub}(d',d)\wedge \mathrm{Eval}(d,a)\wedge \mathrm{Eval}(d',a)\rightarrow sv(d',a)=sv(d,a)\big).
+\]
+\item \textbf{(M$_\Sigma$) MIAX core.} Standing is invariant under admissible redescription of acts:
+\[
+\forall d,a,a'\;\big(\mathrm{Dom}(d)\wedge \mathrm{Act}(a)\wedge \mathrm{Act}(a')\wedge \mathrm{Eval}(d,a)\wedge \mathrm{Eval}(d,a')\wedge \mathrm{Red}(a,a')\rightarrow sv(d,a)=sv(d,a')\big).
+\]
+\item \textbf{(A$_\Sigma$) AMetric core.} The score structure is non-discriminative (constant on acts):
+\[
+\forall a,b\;\big(\mathrm{Act}(a)\wedge \mathrm{Act}(b)\rightarrow score(a)=score(b)\big).
+\]
+\item \textbf{(B$_\Sigma$) Bivalence core.} Only $v_0$ and $v_1$ occur as standing values for evaluated acts:
+\[
+\forall d,a\;\big(\mathrm{Dom}(d)\wedge \mathrm{Act}(a)\wedge \mathrm{Eval}(d,a)\rightarrow (sv(d,a)=v_0\vee sv(d,a)=v_1)\big).
+\]
+\end{itemize}
+
+\subsubsection{Formal degeneracy formulas used in the independence claims}
+
+We use the following $\Sigma$-formulas as ``reopened degeneracies'' (one per axiom-drop witness):
+
+\begin{itemize}[leftmargin=2.2em]
+\item \textbf{(D$^{\mathbf{I}}_\Sigma$)} Fixation drift (D16-type):
+\[
+\exists e,e'\;\big(\mathrm{Ev}(e)\wedge \mathrm{Ev}(e')\wedge \mathrm{Red}(e,e')\wedge \mathrm{About}(e,t_0)\wedge \mathrm{About}(e',t_1)\big).
+\]
+\item \textbf{(D$^{\mathbf{R}}_\Sigma$)} Same-act repair (D1/No-Repairs failure):
+\[
+\exists d\;\big(\mathrm{Dom}(d)\wedge \mathrm{Same}(a_2,a_3)\wedge \mathrm{Eval}(d,a_2)\wedge \mathrm{Eval}(d,a_3)\wedge sv(d,a_2)=v_0\wedge sv(d,a_3)=v_1\big).
+\]
+\item \textbf{(D$^{\mathbf{C}}_\Sigma$)} Non-composition of redescription:
+\[
+\mathrm{Red}(e_0,e_1)\wedge \mathrm{Red}(e_1,e_2)\wedge \neg \mathrm{Red}(e_0,e_2).
+\]
+\item \textbf{(D$^{\mathbf{S}}_\Sigma$)} Scope legalization (D6-type):
+\[
+\mathrm{Sub}(d_2,d_1)\wedge \mathrm{Eval}(d_1,a_3)\wedge \mathrm{Eval}(d_2,a_3)\wedge sv(d_1,a_3)=v_0\wedge sv(d_2,a_3)=v_1.
+\]
+\item \textbf{(D$^{\mathbf{M}}_\Sigma$)} Redescription-variant standing (D11-type):
+\[
+\exists d\;\big(\mathrm{Dom}(d)\wedge \mathrm{Red}(a_0,a_1)\wedge \mathrm{Eval}(d,a_0)\wedge \mathrm{Eval}(d,a_1)\wedge sv(d,a_0)=v_0\wedge sv(d,a_1)=v_1\big).
+\]
+\item \textbf{(D$^{\mathbf{A}}_\Sigma$)} Threshold carrier authorizes standing (D4-type):
+\[
+\exists d\;\Big(\mathrm{Dom}(d)\wedge \neg \mathrm{LT}(\tau,score(a_0))\wedge \mathrm{LT}(\tau,score(a_3))\wedge
+\forall x\big(\mathrm{Act}(x)\wedge \mathrm{Eval}(d,x)\rightarrow (sv(d,x)=v_1\leftrightarrow \mathrm{LT}(\tau,score(x)))\big)\Big).
+\]
+\item \textbf{(D$^{\mathbf{B}}_\Sigma$)} Third standing value (graded/ternary standing):
+\[
+\exists d\;\big(\mathrm{Dom}(d)\wedge \mathrm{Eval}(d,a_3)\wedge sv(d,a_3)=v_h\big).
+\]
+\end{itemize}
+
+\subsubsection{A base model \texorpdfstring{$\mathcal{M}_0$}{M0} satisfying \texorpdfstring{$T_0$}{T0} and all cores}
+
+We first define one concrete finite structure $\mathcal{M}_0$ that satisfies $T_0$ and all $(X_\Sigma)$.
+Let the universe be
+\[
+U=\{d_1,d_2,a_0,a_1,a_2,a_3,e_0,e_1,e_2,t_0,t_1,v_0,v_1,v_h,\tau\}.
+\]
+Interpret the sort predicates by:
+\[
+\mathrm{Dom}^{\mathcal{M}_0}=\{d_1,d_2\},\;
+\mathrm{Act}^{\mathcal{M}_0}=\{a_0,a_1,a_2,a_3\},\;
+\mathrm{Ev}^{\mathcal{M}_0}=\{e_0,e_1,e_2\},\;
+\mathrm{Tar}^{\mathcal{M}_0}=\{t_0,t_1\},\;
+\mathrm{Val}^{\mathcal{M}_0}=\{v_0,v_1,v_h,\tau\}.
+\]
+Set:
+\[
+\mathrm{Sub}^{\mathcal{M}_0}=\{(d_2,d_1)\},\qquad
+\mathrm{Eval}^{\mathcal{M}_0}=\{(d_k,a_i)\;:\;k\in\{1,2\},\, i\in\{0,1,2,3\}\}.
+\]
+Let the redescription relation be the transitive closure of the required chains:
+\[
+\mathrm{Red}^{\mathcal{M}_0}=\{(e_0,e_1),(e_1,e_2),(e_0,e_2)\}\cup\{(a_0,a_1),(a_1,a_2),(a_0,a_2)\}.
+\]
+Let $\mathrm{Same}^{\mathcal{M}_0}=\emptyset$ (no nontrivial same-act identifications in the base model).
+Let aboutness be fixation-preserving:
+\[
+\mathrm{About}^{\mathcal{M}_0}=\{(e_0,t_0),(e_1,t_0),(e_2,t_0)\}.
+\]
+Let the order relation include the nontrivial threshold facts:
+\[
+\mathrm{LT}^{\mathcal{M}_0}=\{(v_0,\tau),(\tau,v_1)\}.
+\]
+Finally define the functions:
+\[
+score^{\mathcal{M}_0}(a)=v_0\ \text{for all}\ a\in \mathrm{Act}^{\mathcal{M}_0},\qquad
+sv^{\mathcal{M}_0}(d,a)=v_0\ \text{for all}\ d\in \mathrm{Dom}^{\mathcal{M}_0},\, a\in \mathrm{Act}^{\mathcal{M}_0}.
+\]
+It is immediate that $\mathcal{M}_0\models T_0$ and $\mathcal{M}_0\models \bigwedge_X (X_\Sigma)$.
+
+\subsubsection{Uniform parametric witness family \texorpdfstring{$\mathcal{M}(\theta)$}{M(theta)} (controlled perturbations)}
+\label{app:paramfam}
+
+Rather than presenting seven unrelated hand-tuned countermodels, we package the entire independence appendix as a \emph{single} finite parametric
+$\Sigma$-structure family $\mathcal{M}(\theta)$ with one ``toggle'' parameter $\theta$.
+Each nontrivial setting of $\theta$ flips \emph{exactly one} axiom-core $(X_\Sigma)$ while preserving $T_0$ and all remaining cores.
+
+\paragraph{Toggle set.}
+Let
+\[
+\Theta:=\{\varnothing,\mathbf{I},\mathbf{R},\mathbf{C},\mathbf{S},\mathbf{M},\mathbf{A},\mathbf{B}\},
+\]
+where $\varnothing$ means ``no perturbation'' (the base model) and each nonempty element indicates \emph{which} core axiom is to be violated.
+
+\paragraph{Definition of \texorpdfstring{$\mathcal{M}(\theta)$}{M(theta)}.}
+Fix the universe, sorts, and the interpretations of $\mathrm{Sub}$, $\mathrm{Eval}$, and $\mathrm{LT}$ to be exactly those of $\mathcal{M}_0$.
+All symbols not listed below are interpreted as in $\mathcal{M}_0$.
+The varying symbols are $\mathrm{Red}$, $\mathrm{Same}$, $\mathrm{About}$, and the functions $score(\cdot)$ and $sv(\cdot,\cdot)$, defined by cases:
+
+\begin{itemize}[leftmargin=2.2em]
+\item \textbf{Redescription:}
+\[
+\mathrm{Red}^{\mathcal{M}(\theta)} :=
+\begin{cases}
+\mathrm{Red}^{\mathcal{M}_0}\setminus\{(e_0,e_2)\}, & \text{if }\theta=\mathbf{C},\\
+\mathrm{Red}^{\mathcal{M}_0}, & \text{otherwise.}
+\end{cases}
+\]
+\item \textbf{Same-act relation:}
+\[
+\mathrm{Same}^{\mathcal{M}(\theta)} :=
+\begin{cases}
+\{(a_2,a_3)\}, & \text{if }\theta=\mathbf{R},\\
+\emptyset, & \text{otherwise.}
+\end{cases}
+\]
+\item \textbf{Aboutness (fixation):}
+\[
+\mathrm{About}^{\mathcal{M}(\theta)} :=
+\begin{cases}
+\{(e_0,t_0),(e_1,t_0),(e_2,t_0),(e_2,t_1)\}, & \text{if }\theta=\mathbf{I},\\
+\{(e_0,t_0),(e_1,t_0),(e_2,t_0)\}, & \text{otherwise.}
+\end{cases}
+\]
+\item \textbf{Score function:}
+\[
+score^{\mathcal{M}(\theta)}(x):=
+\begin{cases}
+v_1, & \text{if }\theta=\mathbf{A}\ \text{and}\ x=a_3,\\
+v_0, & \text{otherwise (in particular for all acts if }\theta\neq \mathbf{A}\text{).}
+\end{cases}
+\]
+\item \textbf{Standing-value function:} for $d\in\mathrm{Dom}$ and $x\in\mathrm{Act}$,
+\[
+sv^{\mathcal{M}(\theta)}(d,x):=
+\begin{cases}
+v_1, & \text{if }\theta=\mathbf{A}\ \text{and}\ \mathrm{LT}(\tau,score^{\mathcal{M}(\theta)}(x)),\\
+v_0, & \text{if }\theta=\mathbf{A}\ \text{and}\ \neg \mathrm{LT}(\tau,score^{\mathcal{M}(\theta)}(x)),\\[4pt]
+v_h, & \text{if }\theta=\mathbf{B}\ \text{and}\ x=a_3,\\
+v_1, & \text{if }\theta=\mathbf{R}\ \text{and}\ x=a_3,\\
+v_1, & \text{if }\theta=\mathbf{S}\ \text{and}\ d=d_2\ \text{and}\ x=a_3,\\
+v_1, & \text{if }\theta=\mathbf{M}\ \text{and}\ x=a_1,\\
+v_0, & \text{otherwise.}
+\end{cases}
+\]
+\end{itemize}
+
+\paragraph{Uniform witness theorem.}
+The family $\mathcal{M}(\theta)$ supplies, by controlled perturbation, all axiom-drop witnesses.
+
+\begin{theorem}[Uniform independence by controlled perturbations]
+\label{thm:uniform-indep}
+For every $\theta\in\Theta$, $\mathcal{M}(\theta)\models T_0$. Moreover:
+\begin{enumerate}[label=(\alph*), leftmargin=2.2em]
+\item $\mathcal{M}(\varnothing)=\mathcal{M}_0$ and $\mathcal{M}(\varnothing)\models \bigwedge_{X\in\{\mathbf{I},\mathbf{R},\mathbf{C},\mathbf{S},\mathbf{M},\mathbf{A},\mathbf{B}\}} (X_\Sigma)$.
+\item For each $X\in\{\mathbf{I},\mathbf{R},\mathbf{C},\mathbf{S},\mathbf{M},\mathbf{A},\mathbf{B}\}$:
+\[
+\mathcal{M}(X)\models T_0\ \wedge\ \bigwedge_{Y\neq X}(Y_\Sigma)\ \wedge\ \neg (X_\Sigma)\ \wedge\ (D^X_\Sigma).
+\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+$T_0$ is preserved for all $\theta$ because the interpretations of all symbols appearing in $T_0$ are either fixed as in $\mathcal{M}_0$
+(sorts, $\mathrm{Dom}$/$\mathrm{Act}$/$\mathrm{Ev}$/$\mathrm{Tar}$/$\mathrm{Val}$, constants, $\mathrm{Sub}$, $\mathrm{Eval}$, the required chain facts
+$\mathrm{Red}(e_0,e_1)$, $\mathrm{Red}(e_1,e_2)$, $\mathrm{Red}(a_0,a_1)$, $\mathrm{Red}(a_1,a_2)$, and $\mathrm{LT}(v_0,\tau)$, $\mathrm{LT}(\tau,v_1)$),
+or are modified in a way that does not remove the required $T_0$ instances (the only modification to $\mathrm{Red}$ is removal of $(e_0,e_2)$, which is not required by $T_0$).
+
+For part (a), this is by construction: $\varnothing$ triggers none of the case-clauses, so all interpretations coincide with $\mathcal{M}_0$.
+
+For part (b), check each $X$:
+
+\textbf{$X=\mathbf{I}$.} $\theta=\mathbf{I}$ changes only $\mathrm{About}$ so that $\mathrm{Red}(e_1,e_2)$ holds while $\mathrm{About}(e_1,t_0)$ and $\mathrm{About}(e_2,t_1)$, hence $(I_\Sigma)$ fails and $(D^{\mathbf{I}}_\Sigma)$ holds. All other cores remain true because $\mathrm{Same}$ is empty, $\mathrm{Red}$ is transitive, $sv$ is constant $v_0$, and $score$ is constant $v_0$.
+
+\textbf{$X=\mathbf{R}$.} $\theta=\mathbf{R}$ changes only $\mathrm{Same}$ and $sv$ so that $\mathrm{Same}(a_2,a_3)$ and $sv(d,a_2)=v_0\neq v_1=sv(d,a_3)$, hence $(R_\Sigma)$ fails and $(D^{\mathbf{R}}_\Sigma)$ holds. MIAX holds because all redescription-related acts $a_0,a_1,a_2$ still have standing $v_0$; scope discipline holds because $sv$ is domain-invariant; the remaining cores are unchanged.
+
+\textbf{$X=\mathbf{C}$.} $\theta=\mathbf{C}$ changes only $\mathrm{Red}$ by removing $(e_0,e_2)$ while retaining $\mathrm{Red}(e_0,e_1)$ and $\mathrm{Red}(e_1,e_2)$, hence $(C_\Sigma)$ fails and $(D^{\mathbf{C}}_\Sigma)$ holds. The other cores are unaffected since they quantify only over existing $\mathrm{Red}$ pairs (intelligibility remains true for the remaining $\mathrm{Red}$ links), and $sv$/$score$ are as in $\mathcal{M}_0$.
+
+\textbf{$X=\mathbf{S}$.} $\theta=\mathbf{S}$ changes only $sv(d_2,a_3)$ to $v_1$ while keeping $sv(d_1,a_3)=v_0$, hence $(S_\Sigma)$ fails using $\mathrm{Sub}(d_2,d_1)$ and $(D^{\mathbf{S}}_\Sigma)$ holds. All other cores remain true: MIAX is preserved on the redescription chain $a_0\to a_1\to a_2$ (all remain $v_0$), bivalence holds, and $\mathrm{Same}=\emptyset$ keeps $(R_\Sigma)$ true.
+
+\textbf{$X=\mathbf{M}$.} $\theta=\mathbf{M}$ changes only $sv(d,a_1)$ to $v_1$, while $\mathrm{Red}(a_0,a_1)$ holds and $sv(d,a_0)=v_0$, so $(M_\Sigma)$ fails and $(D^{\mathbf{M}}_\Sigma)$ holds. Scope discipline remains true because the standing change is domain-invariant; other cores are unchanged.
+
+\textbf{$X=\mathbf{A}$.} $\theta=\mathbf{A}$ changes $score(a_3)$ to $v_1$ (others $v_0$) and sets standing by the threshold rule, so $(A_\Sigma)$ fails and $(D^{\mathbf{A}}_\Sigma)$ holds by definition. MIAX remains true because redescription-linked acts $a_0,a_1,a_2$ all have $score=v_0$ and hence $sv=v_0$; scope discipline holds because the threshold rule is domain-invariant; bivalence holds since $sv\in\{v_0,v_1\}$.
+
+\textbf{$X=\mathbf{B}$.} $\theta=\mathbf{B}$ sets $sv(d,a_3)=v_h$, so $(B_\Sigma)$ fails and $(D^{\mathbf{B}}_\Sigma)$ holds. All other cores remain true since the only altered standing values are identical across domains (preserving scope discipline), do not interact with $\mathrm{Same}$ (empty), and do not violate MIAX on the redescription chain (which does not involve $a_3$ in $T_0$).
+\end{proof}
+
+
+\subsubsection{Minimal-change property in a Hamming metric}
+\label{app:minchange}
+
+\begin{definition}[Hamming distance on $\Sigma$-interpretations]
+Fix the universe $U$ and constant/sort interpretations as in $\mathcal{M}_0$.
+For two $\Sigma$-structures $\mathcal{N},\mathcal{N}'$ on $U$, define
+\[
+d(\mathcal{N},\mathcal{N}'):=\sum_{R\in\mathrm{Rel}(\Sigma)} \big|R^{\mathcal{N}}\triangle R^{\mathcal{N}'}\big|
+\;+\;
+\sum_{f\in\mathrm{Fun}(\Sigma)} \big|\{\bar u\in U^{\mathrm{arity}(f)}:\ f^{\mathcal{N}}(\bar u)\neq f^{\mathcal{N}'}(\bar u)\}\big|.
+\]
+This is the Hamming distance on relation-graphs and function-graphs (with symmetric difference $\triangle$ for relations).
+\end{definition}
+
+\begin{lemma}[Minimal-change toggles]
+\label{lem:minchange}
+Let $X\in\{\mathbf{I},\mathbf{R},\mathbf{C},\mathbf{S},\mathbf{M},\mathbf{A},\mathbf{B}\}$ and define:
+\[
+\begin{array}{c|ccccccc}
+X & \mathbf{I} & \mathbf{R} & \mathbf{C} & \mathbf{S} & \mathbf{M} & \mathbf{A} & \mathbf{B}\\
+\hline
+k_X & 1 & 3 & 1 & 1 & 2 & 3 & 2
+\end{array}
+\]
+Then:
+\begin{enumerate}[label=(\alph*), leftmargin=2.2em]
+\item $d(\mathcal{M}_0,\mathcal{M}(X))=k_X$.
+\item For any $\Sigma$-structure $\mathcal{N}$ on $U$ satisfying
+\[
+\mathcal{N}\models T_0\ \wedge\ \bigwedge_{Y\neq X}(Y_\Sigma)\ \wedge\ \neg(X_\Sigma)\ \wedge\ (D^X_\Sigma),
+\]
+one has $d(\mathcal{M}_0,\mathcal{N})\ge k_X$.
+\end{enumerate}
+Hence each toggle $\mathcal{M}(X)$ changes the \emph{fewest possible} ground facts (in Hamming distance from $\mathcal{M}_0$)
+needed to flip exactly one core axiom while preserving $T_0$ and the remaining cores and witnessing the designated reopened degeneracy.
+\end{lemma}
+
+\begin{proof}
+We argue case-by-case, using that $T_0$ fixes $\mathrm{Sub}(d_2,d_1)$, $\mathrm{Eval}(d_k,a_i)$ for all $k,i$, and the required redescription-chain facts.
+
+\textbf{$X=\mathbf{I}$.}
+In $\mathcal{M}_0$, $\mathrm{About}(e,t_1)$ is false for every evidence $e$.
+But $(D^{\mathbf{I}}_\Sigma)$ requires $\mathrm{About}(e',t_1)$ for some evidence $e'$ with a redescription link.
+Thus any such $\mathcal{N}$ must differ from $\mathcal{M}_0$ on at least one ground $\mathrm{About}$-tuple, so $d(\mathcal{M}_0,\mathcal{N})\ge 1$.
+The model $\mathcal{M}(\mathbf{I})$ differs from $\mathcal{M}_0$ only by adding $\mathrm{About}(e_2,t_1)$, hence achieves distance $1$.
+
+\textbf{$X=\mathbf{C}$.}
+Since $(D^{\mathbf{C}}_\Sigma)$ requires $\mathrm{Red}(e_0,e_1)$ and $\mathrm{Red}(e_1,e_2)$ (both fixed true by $T_0$) but $\neg\mathrm{Red}(e_0,e_2)$,
+and since $\mathrm{Red}^{\mathcal{M}_0}(e_0,e_2)$ is true, any witness must remove at least that one ground $\mathrm{Red}$-tuple.
+Thus $d(\mathcal{M}_0,\mathcal{N})\ge 1$, and $\mathcal{M}(\mathbf{C})$ achieves equality by deleting exactly $(e_0,e_2)$.
+
+\textbf{$X=\mathbf{S}$.}
+$(D^{\mathbf{S}}_\Sigma)$ explicitly requires $sv(d_2,a_3)=v_1$ while $sv^{\mathcal{M}_0}(d_2,a_3)=v_0$.
+Therefore any witness must change at least one function-value of $sv$, giving $d(\mathcal{M}_0,\mathcal{N})\ge 1$.
+The model $\mathcal{M}(\mathbf{S})$ changes exactly the single value $sv(d_2,a_3)$, so the bound is tight.
+
+\textbf{$X=\mathbf{M}$.}
+$(D^{\mathbf{M}}_\Sigma)$ requires $sv(d,a_1)=v_1$ for some domain $d$, whereas $\mathcal{M}_0$ has $sv(d,a_1)=v_0$ for all $d$.
+Thus at least one $sv$-value must change. But $(S_\Sigma)$ is preserved in this case and, since $\mathrm{Sub}(d_2,d_1)$ and all evaluations hold by $T_0$,
+$(S_\Sigma)$ forces $sv(d_1,a_1)=sv(d_2,a_1)$. Hence changing one domain forces changing both: $d(\mathcal{M}_0,\mathcal{N})\ge 2$.
+$\mathcal{M}(\mathbf{M})$ changes exactly these two values, so $k_{\mathbf{M}}=2$ is minimal.
+
+\textbf{$X=\mathbf{B}$.}
+$(D^{\mathbf{B}}_\Sigma)$ requires $sv(d,a_3)=v_h$ for some domain $d$.
+Preserving $(S_\Sigma)$ and using $T_0$ yields $sv(d_1,a_3)=sv(d_2,a_3)$; thus $sv(d,a_3)=v_h$ for one domain forces it for both.
+Since $\mathcal{M}_0$ assigns $v_0$ everywhere, at least two $sv$-graph entries must change, so $d(\mathcal{M}_0,\mathcal{N})\ge 2$.
+$\mathcal{M}(\mathbf{B})$ achieves this bound.
+
+\textbf{$X=\mathbf{R}$.}
+$(D^{\mathbf{R}}_\Sigma)$ requires $\mathrm{Same}(a_2,a_3)$, but $\mathrm{Same}^{\mathcal{M}_0}=\emptyset$, so at least one ground $\mathrm{Same}$-tuple must change.
+It also requires $sv(d,a_3)=v_1$ for some domain $d$, while $\mathcal{M}_0$ has $sv(d,a_3)=v_0$ for all $d$.
+Preserving $(S_\Sigma)$ again forces the $sv$-change to occur in \emph{both} domains, contributing at least $2$ function-graph changes.
+Hence $d(\mathcal{M}_0,\mathcal{N})\ge 1+2=3$, and $\mathcal{M}(\mathbf{R})$ achieves equality.
+
+\textbf{$X=\mathbf{A}$.}
+$(D^{\mathbf{A}}_\Sigma)$ requires $\neg\mathrm{LT}(\tau,score(a_0))$ and $\mathrm{LT}(\tau,score(a_3))$.
+In $\mathcal{M}_0$, $score(a_0)=score(a_3)=v_0$ and $\neg\mathrm{LT}(\tau,v_0)$ holds by $T_0$.
+Thus achieving $\mathrm{LT}(\tau,score(a_3))$ while keeping $\neg\mathrm{LT}(\tau,score(a_0))$ forces $score(a_3)\neq score(a_0)$,
+hence at least one $score$-graph entry must change: $d(\mathcal{M}_0,\mathcal{N})\ge 1$.
+Moreover, the defining conjunct in $(D^{\mathbf{A}}_\Sigma)$ enforces, for some domain $d$, the threshold equivalence
+$sv(d,x)=v_1\leftrightarrow \mathrm{LT}(\tau,score(x))$ for all evaluated acts $x$.
+Since $\mathrm{LT}(\tau,score(a_3))$ holds, this forces $sv(d,a_3)=v_1$, whereas $\mathcal{M}_0$ has $sv(d,a_3)=v_0$.
+Preserving $(S_\Sigma)$ forces the $sv$-change to occur in both domains, contributing at least $2$ $sv$-graph changes.
+Therefore $d(\mathcal{M}_0,\mathcal{N})\ge 1+2=3$.
+$\mathcal{M}(\mathbf{A})$ achieves this bound by changing exactly $score(a_3)$ and the two corresponding $sv$-values.
+\end{proof}
+
+
+\begin{remark}[Uniformity guarantee]
+The definition of $\Theta$ as a \emph{single-valued} toggle set forces the ``flip exactly one core axiom at a time'' condition:
+there is no parameter setting in this appendix in which two distinct perturbations are simultaneously active.
+\end{remark}
+
+\end{document}

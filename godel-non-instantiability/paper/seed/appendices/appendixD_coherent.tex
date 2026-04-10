@@ -1,0 +1,36 @@
+\section{Compact Appendix D: coherent reasoning, irrecoverability, and the hardest attack}
+\label{app:coherent}
+
+This appendix records the trajectory-theoretic consequences of the fixed kernel. It is the technical place where the hardest hidden-path attack is closed.
+
+\begin{definition}[Coherent legal trajectory]
+A legal same-scope trajectory is coherent exactly when every state along it preserves standing. Equivalently, coherence is pointwise standing-preservation along legal same-scope history.
+\end{definition}
+
+\begin{theorem}[No deferred coherence]
+If an incoherent prefix occurs along a legal same-scope trajectory, then every admissible continuation extending that prefix remains incoherent.
+\end{theorem}
+
+\begin{proof}
+An incoherent prefix contains a standing failure witness. Because the continuation retains that prefix as part of the same same-scope lineage, the failure witness is not erased by later extension. Under the fixed irrecoverability discipline, later same-scope continuation cannot turn that failed lineage back into a coherent one.
+\end{proof}
+
+\begin{theorem}[Endpoint certification]
+For legal same-scope trajectories, terminal standing fully certifies coherence. There is no hidden coherence that appears only later and no hidden incoherence that can remain absent from terminal standing in a retained lineage.
+\end{theorem}
+
+\begin{proof}
+If a legal trajectory is coherent, every state on it has standing and so in particular the terminal state has standing. Conversely, if the terminal state has standing while an earlier failure had occurred, irrecoverability would force that failure to persist to the terminal state. Therefore terminal standing certifies the entire legal lineage.
+\end{proof}
+
+\begin{corollary}[Tensor-determined trajectory structure]
+Coherent-trajectory structure is determined by pointwise standing-preservation and therefore by tensor content rather than skin. Skin-level reformulation cannot create, defer, or repair coherence.
+\end{corollary}
+
+\begin{proof}
+Standing is tensor-determined, and coherence is just pointwise standing-preservation along legal trajectories. So any skin-only change leaves coherence unchanged. In particular, restatement, repackaging, or proof-theoretic skin does not create a third inferential locus beyond the tensor-determined trajectory structure already fixed by the kernel.
+\end{proof}
+
+\begin{remark}[Why this defeats the hardest hidden-path attack]
+The strongest hostile attack says that a same-domain Godel threat might matter only through intermediate derivation-path structure, proof-theoretic strength, or deferred coherence, without surfacing in standing classification or terminal behavior. The results above close that route. In the fixed kernel, coherence is already pointwise standing-preservation; no deferred coherence exists; terminal standing certifies the whole legal lineage; and every coherence-relevant distinction is tensor-determined rather than skin-dependent. There is therefore no third governance-relevant hiding place inside the regime.
+\end{remark}

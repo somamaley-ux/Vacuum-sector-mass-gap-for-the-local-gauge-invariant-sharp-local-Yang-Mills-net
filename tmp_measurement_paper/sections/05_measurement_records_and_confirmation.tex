@@ -1,0 +1,210 @@
+\section{Measurement records as evidential anchors and the structure of theory-level confirmation}
+\label{sec:confirmation}
+
+Section~\ref{sec:semanticcore} isolated the quotient structure of admissible reference assignments and
+identified fixation commutation as the bridge invariant. The present section uses that bridge to turn the
+quotient into a measurement theorem about evidence. Measurement records are evidential anchors; once
+that role is explicit, divergence among admissible quotient classes is no longer a semantic curiosity but
+a question about whether the theory fixes its own evidential output.
+
+\begin{claimbox}
+\textbf{Central hinge.} The quotient theorem identifies which divergences among admissible reference
+assignments are standing-bearing, and Section~\ref{sec:semanticcore} proves that fixation commutation
+is the bridge invariant for theory-level evidential use. The present section therefore asks a narrower
+question: when quotient-relevant divergence survives into comparative evidential roles, does the theory
+fix its own evidential output?
+\end{claimbox}
+
+\subsection{Measurement records as evidential anchors}
+
+\begin{definition}[Evidential anchor]
+A measurement record $r\in\Rset$ is an \emph{evidential anchor} for a diachronic measurement claim
+$d\in\Dset$ just in case the theory-level use of $d$ depends on taking $r$ as the referent of $d$ and
+then using the induced evidential proposition $\Prop_\rho(d)$ to compare rival hypotheses in
+$\Hset$.
+\end{definition}
+
+\begin{definition}[Theory-level confirmation]
+\label{def:theory-level-confirmation}
+A \emph{theory-level confirmation verdict} is a comparative confirmational verdict attributable to the
+theory on the fixed scope rather than to an unresolved choice among admissible reference
+assignments. Equivalently, a theory-level confirmation verdict is well-defined only if the theory's
+admissible use does not leave the comparative evidential role of its measurement records unsettled
+across admissible standing-equivalence classes.
+\end{definition}
+
+\begin{definition}[Comparative hypothesis ordering induced by a record]
+Let $d\in\Dset$ be an evidential claim and let $\rho\in\ARef$ be an admissible reference assignment.
+The \emph{comparative hypothesis ordering induced by $d$ under $\rho$} is the function
+\[
+\Ord_\rho^d(H_i,H_j):=\CR(\Prop_\rho(d))(H_i,H_j)
+\qquad (H_i,H_j\in\Hset).
+\]
+A theory-level confirmation claim built from $d$ is theory-relative only if this ordering is invariant
+on the admissible quotient classes relevant to $d$.
+\end{definition}
+
+\begin{proposition}[Evidential use of records is assignment-sensitive]
+\label{prop:assignment-sensitive}
+Let $d\in\Dset$ be a diachronic measurement claim used as an evidential anchor. Then every
+admissible reference assignment $\rho\in\ARef$ determines a corresponding comparative hypothesis
+ordering $\Ord_\rho^d$ on $\Hset$. Therefore any unresolved variation among admissible quotient
+classes is already variation in evidential use unless all such orderings coincide.
+\end{proposition}
+
+\begin{proof}
+By definition of admissible reference assignment, $\rho(d)$ is a physically realized and admissible
+branch-record pair for $d$. By definition of the induced evidential proposition, $\rho(d)$ determines
+$\Prop_\rho(d)\in\Eset$. By definition of confirmational role, $\CR(\Prop_\rho(d))$ is a function on
+ordered pairs of hypotheses. So $\Ord_\rho^d$ is well-defined for every admissible assignment. If
+different admissible quotient classes induce different orderings, then the record is doing different
+comparative evidential work under those classes. Hence unresolved variation among admissible
+quotient classes is already variation in evidential use unless all orderings coincide.
+\end{proof}
+
+\subsection{The semantic hinge}
+
+\begin{lemma}[Two-case exhaustion for evidential reference]
+\label{thm:two-case-exhaustion}
+\label{lem:dichotomy-admissible-assignments}
+Let $d\in\Dset$ be used evidentially. Then exactly one of the following holds:
+\begin{enumerate}
+    \item all admissible reference assignments lie in a single $\MReq$-class on the evidential use of
+    $d$; or
+    \item there exist admissible reference assignments whose evidential values for $d$ lie in distinct
+    $\MReq$-classes.
+\end{enumerate}
+No third same-scope case exists.
+\end{lemma}
+
+\begin{proof}
+Either the admissible assignments agree on the standing-bearing evidential value of $d$, or they do
+not. If they do, then they lie in one $\MReq$-class on that use. If they do not, then there exist at
+least two distinct $\MReq$-classes. By
+Definition~\ref{def:fixed-downstream-substrate} and Proposition~\ref{prop:substrate-consequences},
+no third same-scope standing-bearing locus remains.
+\end{proof}
+
+\begin{theorem}[No auxiliary parameterization of theory-level confirmation]
+\label{thm:no-auxiliary-parameterization}
+Let $T$ be a theory and let $\ARef$ be the class of its admissible reference assignments for the fixed
+measurement setting. If comparative confirmational verdicts for $T$ vary across admissible
+$\MReq$-classes, then those verdicts are not attributable to $T$ as such. They are attributable only to
+the pair consisting of $T$ together with the selected quotient class. Consequently, such verdicts do not
+constitute theory-level confirmation in the sense relevant to the target explanatory practice.
+\end{theorem}
+
+\begin{proof}
+By Definition~\ref{def:theory-level-confirmation}, a theory-level confirmation verdict must be
+attributable to the theory on the fixed scope rather than to a further unresolved choice among
+admissible reference assignments. Suppose instead that distinct admissible $\MReq$-classes yield
+different comparative orderings for some evidential claim $d$. Then the comparative support relation
+between hypotheses is not fixed by $T$ alone. It varies with the chosen admissible quotient class. In
+that case the verdict is attributable only to $(T,[\rho])$ for some chosen class $[\rho]\in\ARef/\MReq$,
+not to $T$ as such. Such verdicts are therefore assignment-parameterized rather than theory-level.
+\end{proof}
+
+\begin{theorem}[Theory-level confirmation criterion]
+\label{thm:theory-level-confirmation-criterion}
+For an evidential claim $d\in\Dset$, theory-level confirmation is well-defined if and only if the map
+\[
+[\rho] \longmapsto \Ord_\rho^d
+\]
+from $\ARef/\MReq$ to comparative hypothesis orderings is constant. Equivalently, if there exist
+admissible assignments whose comparative confirmational roles differ, then no theory-level
+confirmation verdict is fixed by the theory as such.
+\end{theorem}
+
+\begin{proof}
+If the displayed map is constant, then all admissible assignments induce the same comparative
+ordering for $d$, so the verdict is attributable to the theory on the fixed scope rather than to a
+selected admissible quotient class. Conversely, if the map is not constant, then there exist admissible
+assignments inducing different comparative orderings. By Corollary~\ref{cor:confirmational-divergence-quotient-relevant},
+that divergence is quotient-relevant and therefore standing-bearing rather than semantic skin. By
+Theorem~\ref{thm:no-auxiliary-parameterization}, the resulting verdict is attributable only to the pair
+consisting of the theory together with a chosen admissible quotient class. Hence no theory-level
+confirmation verdict is fixed by the theory as such.
+\end{proof}
+
+\begin{corollary}[Confirmational consequence]
+\label{thm:confirmational-consequence}
+\label{cor:confirmation-collapse}
+If there exist admissible reference assignments that differ in comparative confirmational role, then
+confirmation is assignment-relative rather than theory-relative on the fixed scope.
+\end{corollary}
+
+\begin{proof}
+Immediate from Theorem~\ref{thm:theory-level-confirmation-criterion}.
+\end{proof}
+
+\subsection{Fixation as the bridge invariant}
+
+Definitions~\ref{def:lawful-redescription-evidential} and \ref{def:fixation-commutation}, together with
+Theorem~\ref{thm:fixation-commutation-necessity} and
+Corollary~\ref{cor:fixation-central-hinge}, were established already in
+Section~\ref{sec:semanticcore}. They are placed there because fixation is the bridge invariant between
+quotient structure and all later applications. The present section uses that bridge to state the
+confirmation criterion and the stabilization consequence for physically non-selective theories.
+
+\begin{theorem}[Reference-stabilization necessity]
+\label{thm:reference-stabilization-necessity}
+\label{cor:stabilization-requirement}
+If a physically non-selective theory is used to underwrite theory-level confirmation and truth-apt
+diachronic discourse whose measurement records function as evidential anchors, then the theory or
+its admissible interpretive completion must restrict admissible reference assignments strongly enough
+that fixation commutes with admissible redescription on the target discourse.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:dichotomy-admissible-assignments}, admissible assignments either collapse into a
+single standing-bearing class on the target discourse or they do not. If they do not, then by
+Theorem~\ref{thm:theory-level-confirmation-criterion} and
+Theorem~\ref{thm:fixation-commutation-necessity}, theory-level confirmation through measurement
+records is undefined on the fixed scope. But the standing conditional of
+Section~\ref{sec:targetclass} assumes that the theory is being used to underwrite theory-level
+confirmation and truth-apt diachronic discourse in which measurement records function as evidential
+anchors. Therefore the role-divergent case is incompatible with the theory's intended explanatory use.
+The only remaining option is that the theory or its admissible interpretive completion restricts
+admissible reference assignments strongly enough for fixation to commute with admissible
+redescription on the target discourse.
+\end{proof}
+
+\begin{proposition}[Selector and semantic-infrastructure normal form]
+\label{prop:selector-normal-form}
+Any successful stabilization strategy for admissible measurement-record reference takes exactly one of
+two normal forms:
+\begin{enumerate}
+    \item \emph{selector form}, in which singular reference is fixed by selecting one history or one
+    successor-relation as privileged; or
+    \item \emph{semantic-infrastructure form}, in which admissible assignments remain multiple but are
+    restricted strongly enough to collapse into one standing-equivalence class on the target
+    discourse.
+\end{enumerate}
+No third same-scope stabilization form remains.
+\end{proposition}
+
+\begin{proof}
+If a successful stabilization strategy fixes a unique referent outright, it has selector form. If it does
+not fix a unique referent outright but still preserves theory-level confirmation, then by
+Theorem~\ref{thm:reference-stabilization-necessity} it must restrict admissible assignments strongly
+enough that fixation commutes and the assignments collapse into one standing-equivalence class on the
+target discourse. That is semantic-infrastructure form. By
+Proposition~\ref{prop:substrate-consequences}, no third same-scope locus of admissibility-bearing
+work remains.
+\end{proof}
+
+\begin{proposition}[Scope of the main theorem]
+\label{prop:primary-scope-confirmation}
+Theorems~\ref{thm:theory-level-confirmation-criterion} and
+\ref{thm:reference-stabilization-necessity} concern theory-level confirmation on the fixed scope. They
+do not deny that branch-internal discourse may be perfectly determinate once a branch is taken as
+fixed.
+\end{proposition}
+
+\begin{proof}
+The hypotheses of Definitions~\ref{def:theory-level-confirmation} and
+\ref{def:fixation-commutation} explicitly concern theory-level evidential use on the fixed downstream
+substrate. Nothing in those definitions denies local branch-internal determinacy once a particular
+branch-history is held fixed. The theorems only state that such local determinacy does not by itself
+suffice for theory-level confirmation on the fixed scope.
+\end{proof}

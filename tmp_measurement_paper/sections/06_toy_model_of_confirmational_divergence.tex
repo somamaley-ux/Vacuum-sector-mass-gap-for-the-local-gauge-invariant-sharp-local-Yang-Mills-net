@@ -1,0 +1,105 @@
+\section{A toy model of confirmational divergence}
+\label{sec:toy}
+
+Abstract theorems are necessary, but here a concrete toy model helps show exactly what the problem looks like in practice. The goal is not to model a realistic laboratory in every detail. The goal is to exhibit, in the smallest possible setting, how a single branching measurement episode can generate opposed theory-level confirmation claims when admissible reference assignments are left unresolved.
+
+\subsection{The model}
+
+\begin{definition}[Toy branching confirmation model]
+\label{def:toy-model}
+A \emph{toy branching confirmation model} is a measurement scenario $\mathcal{M}_{\mathrm{toy}}$ with the following data:
+\begin{enumerate}
+    \item two rival hypotheses $\Hset=\{H_U,H_D\}$;
+    \item two physically realized post-measurement histories $\B=\{b_U,b_D\}$;
+    \item two corresponding branch records $r_U:=\Rec(b_U)$ and $r_D:=\Rec(b_D)$;
+    \item a single diachronic claim $d\in\Dset$ whose intended English gloss is \enquote{this is the measurement record I am using as evidence};
+    \item two admissible reference assignments $\rho_U,\rho_D\in\ARef(\mathcal{M}_{\mathrm{toy}})$ with
+    \[
+    \rho_U(d)=(b_U,r_U),\qquad \rho_D(d)=(b_D,r_D);
+    \]
+    \item induced evidential propositions $E_U:=\Prop_{\rho_U}(d)$ and $E_D:=\Prop_{\rho_D}(d)$ with confirmational roles satisfying
+    \[
+    \CR(E_U)(H_U,H_D)=1,
+    \qquad
+    \CR(E_D)(H_U,H_D)=-1.
+    \]
+\end{enumerate}
+\end{definition}
+
+Intuitively, $E_U$ is a record that favors $H_U$ over $H_D$, while $E_D$ favors $H_D$ over $H_U$. The physical non-selectivity of the scenario is represented by the fact that both branch-record pairs are realized and both are admissible assignments for the same diachronic claim $d$.
+
+\begin{proposition}[Hypothesis-order instability witness]
+\label{prop:toy-role-divergent}
+\label{prop:hypothesis-order-instability-witness}
+Let $H_U,H_D$ be rival hypotheses, let $d$ be the fixed measurement claim in a toy branching
+confirmation model, and let $\rho_U,\rho_D$ be admissible reference assignments mapping that same
+pre-measurement discourse to realized records $r_U,r_D$. If under $\rho_U$ the induced evidential
+proposition favors $H_U$ over $H_D$, while under $\rho_D$ the induced evidential proposition favors
+$H_D$ over $H_U$, then comparative confirmation is not fixed by the theory alone.
+\end{proposition}
+
+\begin{proof}
+By Definition~\ref{def:toy-model}, $\rho_U$ and $\rho_D$ are admissible reference assignments for
+the same diachronic claim $d$, and
+\[
+\CR(\Prop_{\rho_U}(d))(H_U,H_D)=1,
+\qquad
+\CR(\Prop_{\rho_D}(d))(H_U,H_D)=-1.
+\]
+So under $\rho_U$ the record referred to by $d$ favors $H_U$ over $H_D$, while under $\rho_D$ the
+record referred to by $d$ favors $H_D$ over $H_U$. The comparative ordering of the hypotheses
+therefore depends on which admissible assignment is used. Hence comparative confirmation is not
+fixed by the theory alone.
+\end{proof}
+
+\begin{theorem}[Hypothesis-order reversal in the toy model]
+\label{thm:toy-reversal}
+In every toy branching confirmation model, the comparative ordering of $H_U$ and $H_D$ reverses across admissible reference assignments. Consequently, the theory-level confirmation claim built from $d$ is reference-relative rather than theory-relative.
+\end{theorem}
+
+\begin{proof}
+By Definition~\ref{def:toy-model},
+\[
+\Ord_{\rho_U}^d(H_U,H_D)=\CR(E_U)(H_U,H_D)=1
+\]
+and
+\[
+\Ord_{\rho_D}^d(H_U,H_D)=\CR(E_D)(H_U,H_D)=-1.
+\]
+So under $\rho_U$, the relevant record favors $H_U$ over $H_D$, whereas under $\rho_D$, the relevant record favors $H_D$ over $H_U$. The comparative ordering is therefore reversed across admissible assignments.
+
+Suppose the theory-level confirmation claim built from $d$ were theory-relative. Then, by Definition~\ref{def:theory-level-confirmation} and Theorem~\ref{thm:theory-level-confirmation-criterion}, the induced comparative ordering would have to be invariant across admissible assignments. But it is not. Therefore the claim is reference-relative rather than theory-relative.
+\end{proof}
+
+\begin{corollary}[The same physical branching episode can support opposed confirmation claims]
+\label{cor:toy-opposed}
+In the toy model, the same physical branching episode supports both of the following claims under different admissible assignments:
+\begin{center}
+\enquote{the record referred to by $d$ confirms $H_U$ over $H_D$}
+\qquad and \qquad
+\enquote{the record referred to by $d$ confirms $H_D$ over $H_U$}.
+\end{center}
+\end{corollary}
+
+\begin{proof}
+The first claim is true under $\rho_U$ because $\Ord_{\rho_U}^d(H_U,H_D)=1$. The second claim is true under $\rho_D$ because $\Ord_{\rho_D}^d(H_U,H_D)=-1$, which is equivalent to saying that the record favors $H_D$ over $H_U$. By Theorem~\ref{thm:toy-reversal}, both verdicts arise from the same branching episode under different admissible assignments.
+\end{proof}
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}p{0.24\textwidth} >{\raggedright\arraybackslash}p{0.23\textwidth} >{\raggedright\arraybackslash}p{0.23\textwidth}}
+\toprule
+Assignment & Record referred to by $d$ & Induced evidential proposition & Comparative role on $(H_U,H_D)$ \\
+\midrule
+$\rho_U$ & $(b_U,r_U)$ & $E_U$ & favors $H_U$ over $H_D$ \\
+$\rho_D$ & $(b_D,r_D)$ & $E_D$ & favors $H_D$ over $H_U$ \\
+\bottomrule
+\end{tabular}
+\caption{The toy model makes the danger concrete: the same branching measurement episode supports opposite comparative hypothesis orderings when admissible reference assignments remain unresolved.}
+\label{tab:toy-model}
+\end{table}
+
+\begin{remark}
+Table~\ref{tab:toy-model} is not a replacement for the theorem ladder; it is a visibility aid. The point of the toy model is to make plain that the problem is not some exotic semantic subtlety. If admissible assignments are allowed to diverge in confirmational role, the same physical episode can be used to support opposed claims about which hypothesis the evidence favors.
+\end{remark}

@@ -1,0 +1,17 @@
+{
+  "phase": "phase5",
+  "primary_root": "main.tex",
+  "seed_root": "phase5_seed.tex",
+  "technical_appendix_root": "technical_appendix.tex",
+  "audit_root": "audit_companion/current_audit_edition_main.tex",
+  "report_root": "phase5_report.tex",
+  "kernel_focus": true,
+  "coherent_reasoning_attack_defeater": true,
+  "appendices": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ]
+}

@@ -1,0 +1,93 @@
+\label{app:quotient}
+
+This appendix reconstructs the quotient layer used by the main G\"odel result. It is formulated abstractly enough to apply to any fixed domain $\domain$.
+
+\begin{definition}[Admissible histories and standing equivalence]
+Let $\Hist$ be the closure of primitive admissible tests on $\domain$ under admissible same-scope continuation. For evaluated acts $a,b\in\Eval$, define
+\[
+a\Law b \quad :\Longleftrightarrow \quad \Pred(h;a)=\Pred(h;b) \text{ for all } h\in\Hist.
+\]
+This is the standing-equivalence relation of the fixed domain.
+\end{definition}
+
+\begin{definition}[Standing presentation]
+A standing presentation for $\domain$ is a triple $(X,r,\Pred_X)$ where:
+\begin{enumerate}[label=(\roman*), leftmargin=2.5em]
+    \item $X$ is a set intended to represent standing states of $\domain$;
+    \item $r:\Eval\to X$ is a surjection; and
+    \item for every admissible history $h\in\Hist$ there is a prediction map $\Pred_X(h;\cdot):X\to Y_h$ such that
+    \[
+    \Pred(h;a)=\Pred_X(h;r(a))\qquad (a\in\Eval).
+    \]
+\end{enumerate}
+The presentation is \emph{sound} if $a\Law b\Rightarrow r(a)=r(b)$, and \emph{complete} if $r(a)=r(b)\Rightarrow a\Law b$.
+\end{definition}
+
+\begin{lemma}[Completeness of standing presentations]
+\label{lem:C-complete}
+Every standing presentation is complete.
+\end{lemma}
+
+\begin{proof}
+If $r(a)=r(b)$, then for every admissible history $h$,
+\[
+\Pred(h;a)=\Pred_X(h;r(a))=\Pred_X(h;r(b))=\Pred(h;b).
+\]
+So $a\Law b$ by definition.
+\end{proof}
+
+\begin{lemma}[Soundness forced by stable reference]
+\label{lem:C-sound}
+Assume the kernel of Appendix~A. Then every standing presentation is sound.
+\end{lemma}
+
+\begin{proof}
+Suppose $a\Law b$ but $r(a)\neq r(b)$. Then the presentation treats two acts that are indistinguishable under every admissible history as different standing states. Maintaining that distinction requires either privileged representation or hidden unwitnessed structure. Both contradict the stable reference component of the kernel proved in Appendix~A. Hence $r(a)=r(b)$.
+\end{proof}
+
+\begin{lemma}[Quotient universal property]
+\label{lem:C-universal}
+Let $q:\Eval\to \Eval/\Law$ be the quotient map. If $F:\Eval\to Y$ is constant on standing-equivalence classes, then there exists a unique map $\widetilde F:\Eval/\Law\to Y$ with $F=\widetilde F\circ q$.
+\end{lemma}
+
+\begin{proof}
+Define $\widetilde F([a])=F(a)$. This is well-defined because $F$ is constant on equivalence classes. Uniqueness follows because $q$ is surjective.
+\end{proof}
+
+\begin{theorem}[Uniqueness of the standing quotient]
+\label{thm:C-quotient-unique}
+For the fixed domain $\domain$, the standing quotient $\Quot:=\Eval/\Law$ is the unique same-domain standing state space compatible with admissible histories, up to unique isomorphism. More precisely, if $(X,r,\Pred_X)$ is any standing presentation, then there exists a unique bijection
+\[
+\phi:\Quot\to X,
+\qquad \phi([a])=r(a),
+\]
+compatible with all admissible-history predictions.
+\end{theorem}
+
+\begin{proof}
+By \cref{lem:C-sound}, $r$ is constant on equivalence classes, so by \cref{lem:C-universal} it factors uniquely through the quotient as $r=\phi\circ q$. The induced map is injective by \cref{lem:C-complete}: if $\phi([a])=\phi([b])$, then $r(a)=r(b)$, hence $a\Law b$, so $[a]=[b]$. It is surjective because $r$ is surjective. Compatibility with admissible-history predictions follows from the definition of standing presentation.
+\end{proof}
+
+\begin{definition}[Same-domain standing-preserving map]
+A map $F:\Eval\to Y$ is \emph{same-domain standing-preserving} if $a\Law b$ implies $F(a)=F(b)$ and if $F$ changes neither standing classification nor admissible-history prediction on the fixed domain.
+\end{definition}
+
+\begin{theorem}[Factorization through the standing quotient]
+\label{thm:C-factor}
+Every same-domain standing-preserving map factors uniquely through the standing quotient $\Quot$.
+\end{theorem}
+
+\begin{proof}
+If $F$ is standing-preserving, then it is constant on standing-equivalence classes by definition. Apply \cref{lem:C-universal}.
+\end{proof}
+
+\begin{theorem}[No proper same-domain standing-preserving extension]
+\label{thm:C-no-proper-extension}
+There is no proper same-domain standing-preserving extension beyond the standing quotient. Equivalently: any allegedly richer same-domain structure either factors through the quotient and adds no new standing content, or else violates standing-equivalence and is not same-domain standing-preserving.
+\end{theorem}
+
+\begin{proof}
+Let $F$ be an allegedly richer same-domain standing-preserving map. By \cref{thm:C-factor}, it factors uniquely through the quotient. Hence every standing-relevant distinction carried by $F$ is already determined by the quotient classes. So $F$ adds no new standing content beyond the quotient. If it did distinguish acts inside a quotient class, then it would not be constant on standing-equivalence classes and therefore would not be standing-preserving.
+\end{proof}
+
+\section{Trajectory closure and irrecoverability}

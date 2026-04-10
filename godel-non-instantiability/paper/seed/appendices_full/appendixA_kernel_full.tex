@@ -1,0 +1,684 @@
+\section{Kernel closure: necessity floor, non-derivability, and minimality}
+\label{app:kernel}
+
+This appendix reconstructs the necessity floor needed by the main theorem. Its role is not merely to record a preferred starting vocabulary. It proves that, for the target phenomenon of inferentially governed proposition-bearing reasoning under presentation-stable admissibility-invariant use, admissibility, standing, reference, and irreversibility are already forced, mutually closed, and not faithfully derivable from below within the same meaningful regime. The attachment point is Level~2 inferential governance rather than the stronger Level~3 closure-stable certification layer. Every later appendix and every theorem in the main body works downstream of that floor.
+
+For hostile reading, Appendix~A may be traversed in the following order: first the displayed-package layer and the claim that packages do not yet determine uptake-space; second the proof that uptake possibilities are still not inferential roles; third the realization criterion that fixes inferential governance only under package-stability, anti-drift, anti-repair, and downstream-sensitivity; fourth the concrete failure-family and weaker-uptake exclusion theorems; fifth the attachment of the kernel at Level~2 inferential governance; and finally the separation between Level~2 inferential governance and Level~3 closure-stable certification. This roadmap is expository only; it adds no new assumptions.
+
+The argumentative posture of Appendix~A is eliminative rather than reductive or stipulative. It does not claim a substrate more primitive than displayed-package use and then redescribe it in preferred vocabulary. Instead it proves that bare trace-classification, displayed packages, displayed uptake possibilities, and structurally weaker uptake regimes are all insufficient, and that what survives those exclusions is inferential governance in the precise sense fixed below. The force of the appendix is therefore in ruling out weaker verdict-regimes, not in stipulating a preferred description of ordinary proof practice or reducing governance to a thinner syntactic surrogate.
+
+\begin{definition}[Meaningful regime and non-degenerate reasoning]
+A regime is \emph{meaningful} for the present target if its outputs are assessable as inferentially governed proposition-bearing reasoning acts under admissibility-invariant use rather than as bare symbol traces, encodings, or bookkeeping records. A reasoning act is \emph{non-degenerate} if the following hold together:
+\begin{enumerate}[label=(\roman*), leftmargin=2.5em]
+    \item \textbf{Reference:} claims refer determinately rather than equivocally or vacuously;
+    \item \textbf{Standing:} claims are licit claim-making acts rather than mere inscriptions; and
+    \item \textbf{Irreversibility:} invalid claim-acts cannot be repaired post hoc into valid ones while remaining the same act.
+\end{enumerate}
+Admissibility is not a fifth independent ingredient beside these three; it names the governance boundary under which they are jointly enforceable on the same reasoning act.
+\end{definition}
+
+\begin{definition}[Governance-valid derivation]
+A derivation is \emph{governance-valid} if its steps are themselves admissible reasoning acts: each step preserves determinate reference, carries standing, and is governed by irreversibility with respect to invalidity.
+\end{definition}
+
+\begin{definition}[Lawful equivalence and same meaningful regime]
+Two governance conditions $P$ and $Q$ are \emph{lawfully equivalent}, written $P\equiv_{\mathrm{law}} Q$, if replacing $P$ by $Q$ leaves the class of governance-valid derivations unchanged. Two presentations, proof systems, or meta-systems count as occurring in the \emph{same meaningful regime} only when translation between them preserves governed target, standing-bearing act-status, the admissibility boundary between licensed continuation and prohibited repair, and the class of governance-valid derivations up to lawful equivalence.
+\end{definition}
+
+\begin{definition}[Derivable from below and the kernel]
+A governance condition $P$ is \emph{derivable from below} if there exists a governance-valid derivation of $P$ whose validity does not already presuppose $P$, any lawfully equivalent condition, or any condition whose own governance-validity already requires $P$. The \emph{kernel} of non-degenerate reasoning is the set
+\[
+K:=\{\Adm,\Stand,\mathrm{Ref},\mathrm{Irr}\},
+\]
+where $\Adm$ abbreviates admissibility, $\Stand$ standing, $\mathrm{Ref}$ reference, and $\mathrm{Irr}$ irreversibility.
+\end{definition}
+
+
+\begin{definition}[Formal calculus, derivation-check, and claim-bridge]
+\label{def:A-formal-calculus}
+A \emph{formal calculus} is a presentation-level object consisting of strings, formation rules, axiom schemata or primitive judgements, and step rules generating finite derivation-traces. A \emph{derivation-check} is the finite verification problem ``does this trace conform to the calculus?'' and yields only presentation-relative rule-conformity. A \emph{claim-bridge} is the inferential-entitlement role by which a calculus-internal verdict is used to license proposition-bearing assertion, rejection, critique, provisional reuse, or downstream inferential extension. It is not a mandatory second event after syntax; it may be realized directly by a licensed syntactic verdict. But whether a verdict genuinely realizes that role is not settled by syntax alone: it is fixed only under the invariance constraints proved below.
+\end{definition}
+
+\begin{definition}[Three assessment levels: trace, governance, certification]
+\label{def:A-bare-trace}
+A derivation-trace is \emph{bare} when it is assessed only for presentation-relative rule-conformity. It is an \emph{inferentially governed reasoning act} when, through a claim-bridge, it is used as a licit claim-bearing step whose result is treated as proposition-bearing content fit for assertion, rejection, critique, provisional reuse, or downstream inferential extension. It is \emph{closure-stable} when, in addition, its inferential status is fixed at act-time and remains stable under lawful redescription and retained-lineage continuation. Thus trace-assessment, inferential governance, and closure-stable certification are distinct levels rather than a single undifferentiated notion of reasoning.
+\end{definition}
+
+
+
+\begin{remark}[Where the kernel first attaches]
+Level~1 bare trace-assessment does not yet carry the kernel. The kernel first attaches at Level~2 inferential governance, where traces are used as proposition-bearing inferential licenses under admissibility-invariant use. Level~3 then adds closure-stable certification and retained-lineage hardening without relocating that attachment point.
+\end{remark}
+
+\begin{definition}[Governance-valid act identity]
+\label{def:A-act-identity}
+The \emph{governance-valid identity} of an act is its identity as a licensed claim-bearing contribution at act-time, not its merely historical, typographic, archival, or theorem-directed identity. Accordingly, two inscriptions may be historically grouped as ``the same proof'' while differing in governance-valid act identity whenever one owes its validity to a later correction, replacement, or supplementary step not available at the original act-time.
+\end{definition}
+
+
+\begin{definition}[Displayed presentation package; package-preserving reformulation; drift events]
+\label{def:A-redescription}
+A \emph{displayed presentation package} is a quintuple
+\[
+P=(T,B,R,S,I)
+\]
+consisting of: a displayed conclusion-token $T$; a displayed support basis $B$ of premises, prior lines, or cited dependencies; a displayed rule/dependency specification $R$ recording the route or rule applications explicitly displayed in the presentation; a scope tag $S$ fixing the presentation-regime within which the package is displayed; and a presentation-identity marker $I$ individuating this displayed package as this package rather than another. The package is presentation-level only: it records what is explicitly displayed, not yet whether the package is licensed for inferential uptake.
+
+A \emph{package-preserving reformulation} is a reformulation that alters only notation, variable naming, layout, ordering of purely expository material, punctuation, line-label style, or other skin-level display features while leaving the displayed package $P=(T,B,R,S,I)$ fixed.
+
+A \emph{target drift} is any untracked change in $T$; a \emph{support drift} is any untracked change in $B$ or $R$; a \emph{scope drift} is any untracked change in $S$; an \emph{identity drift} is any untracked change in $I$; and a \emph{verdict drift} is any change in the licensed/unlicensed verdict attached to a fixed displayed package under package-preserving reformulation.
+
+A \emph{downstream uptake profile} for a displayed package $P$ is a publicly typed downstream treatment of $P$, such as citing $P$ as available support, marking $P$ as unavailable support, opening $P$ for local critique or decomposition, or extending a derivation under the assumption that $P$ is available. A verdict mechanism is \emph{trajectory-sensitive} on $P$ if a difference between positive and negative verdict on $P$ changes at least one downstream uptake profile available for that same displayed package.
+
+A redescription of candidate inferential uses is \emph{lawful} when, relative to a fixed displayed presentation package $P$, package-preserving reformulation leaves fixed the displayed package itself and does not induce target drift, support drift, scope drift, identity drift, or verdict drift. It is \emph{role-preserving} when it does not promote mere syntax, bookkeeping, parameters, formatting, or redundancy into target-determining support, and does not demote target-determining support to them. A \emph{silent redescription} is any untracked target, support, scope, identity, or verdict drift without explicit re-admission or identity reset.
+\end{definition}
+
+\begin{theorem}[Syntax--Standing Separation]
+\label{thm:A-syntax-standing}
+Well-formed syntax is neither sufficient nor presumptive for standing. Formally, for any expression $E$,
+\[
+\mathrm{WellFormed}(E) \nRightarrow \Stand(E).
+\]
+Standing requires admissible grounding together with preservation of reference under lawful redescription.
+\end{theorem}
+
+\begin{proof}
+Syntax produces well-formed expressions but does not, by itself, enforce referent existence, identity, persistence, or admissibility-invariant inferential use. Standing requires that what is being claimed remain stable under lawful redescription in the sense of \cref{def:A-redescription}. No purely syntactic property entails such invariance. Therefore syntax alone neither generates standing nor entitles one to presume it.
+\end{proof}
+
+\begin{lemma}[Derivation-checking alone does not yet yield inferentially governed reasoning]
+\label{lem:A-check-not-enough}
+A derivation-check on a formal calculus, by itself, determines only presentation-relative conformity to rules. It does not yet determine that the checked trace is an inferentially governed reasoning act rather than a bare trace in the sense of \cref{def:A-bare-trace}.
+\end{lemma}
+
+\begin{proof}
+A derivation-check answers a syntactic question: whether a finite sequence is well-formed relative to a stated calculus. From that answer alone one obtains only conformity-to-rules within the presentation. One does not yet obtain, without further invariance conditions, (i) which propositions are being displayed as opposed to merely encoded, (ii) that the checked lines are licit claim-steps rather than admissible inscriptions in a game of symbol manipulation, or (iii) that a positive verdict is entitled to govern later critique, reuse, or extension. Those stronger roles are exactly what the claim-bridge names. So derivation-checking alone is insufficient for inferentially governed reasoning acts, even though it may suffice for assessment of bare derivation objects.
+\end{proof}
+
+\begin{theorem}[Non-vacuity of syntactic exclusion]
+\label{thm:A-nonvacuity}
+There exist syntactic verdict mechanisms on formal calculi that fail the governance-realization test. Consequently, the exclusion of non-qualifying syntactic gates is not vacuous.
+\end{theorem}
+
+\begin{proof}
+Fix any formal calculus admitting at least one rule-conformant derivation-trace and display it as a package $P=(T,B,R,S,I)$. Define a verdict mechanism $V_{\mathrm{fmt}}$ by: $V_{\mathrm{fmt}}(P)$ is positive exactly when the underlying trace is rule-conformant and the final displayed line is boldfaced. Now remove the boldface while leaving $T,B,R,S,I$ fixed. This yields a package-preserving reformulation of the same displayed package. Ordinary rule-conformity is unchanged, but the verdict of $V_{\mathrm{fmt}}$ flips. So $V_{\mathrm{fmt}}$ is syntactic yet fails package-preserving verdict stability. Therefore not every syntactic gate qualifies.
+\end{proof}
+
+\begin{theorem}[Syntactic conformity is weaker than governance realization]
+\label{thm:A-syntax-weaker}
+Package-preserving agreement in rule-conformity does not by itself entail inferential governance. There exist verdict mechanisms and package-preserving reformulations on which ordinary derivability is unchanged while licensed/unlicensed status differs.
+\end{theorem}
+
+\begin{proof}
+Immediate from \cref{thm:A-nonvacuity}. In the construction there, ordinary rule-conformity remains fixed across a package-preserving reformulation, yet the verdict changes. So syntactic conformity under a calculus is strictly weaker than governance realization.
+\end{proof}
+
+\begin{theorem}[Inferential governance requires downstream sensitivity]
+\label{thm:A-trajectory-sensitive}
+A verdict mechanism can affect inferential governance for a displayed package only if a difference between positive and negative verdict on that package changes at least one downstream uptake profile available for that same package. If verdict differences leave all downstream uptake profiles unchanged, the verdict remains bookkeeping rather than governance.
+\end{theorem}
+
+\begin{proof}
+Inferential governance concerns whether a displayed package may actually be taken up in later mathematical use. If positive and negative verdicts make no difference to any downstream uptake profile for the same package, then the verdict governs nothing beyond the trace-classification already supplied by the presentation. In that case the verdict is bookkeeping only. So downstream sensitivity is necessary for inferential governance.
+\end{proof}
+
+\begin{lemma}[Formal-calculus uptake is bridge-directed]
+\label{lem:A-bridge-dependent}
+Whenever a formal calculus is actually used to license conclusions, reject alternatives, certify proofs, support critique, provisionally deploy results, or govern downstream mathematical reuse, that use is no longer mere trace-classification. It is bridge-directed inferential governance in the sense of \cref{def:A-formal-calculus}. Whether that bridge is genuinely realized is then settled by the realization criterion below.
+\end{lemma}
+
+\begin{proof}
+To use a calculus to license conclusions is to move from an internal rule-conformity verdict to a same-regime entitlement: the result is now taken as available for assertion, rejection, critique, provisional reuse, or further proof. That inferential-entitlement function is precisely the claim-bridge role. Without it, the calculus remains an object of study whose traces may be classified as derivable or underivable while no proposition-bearing inferential entitlement follows. Hence any live inferential use of a calculus is bridge-directed even before one has shown that the bridge-role is stably realized.
+\end{proof}
+
+\begin{theorem}[Displayed packages do not determine uptake-space]
+\label{thm:A-package-not-uptake}
+A displayed package $P=(T,B,R,S,I)$ does not by itself determine any unique space of downstream uptake possibilities. Any assignment of possible downstream treatments to $P$ is a further structural assignment beyond the mere display of the package itself.
+\end{theorem}
+
+\begin{proof}
+The displayed package fixes only what is explicitly shown: conclusion-token, support basis, displayed rule/dependency specification, scope tag, and presentation identity. Nothing in that display alone determines which later uses are to count as available, unavailable, defeasibly available, critique-open, or extension-licensing. Distinct uptake-spaces may be paired with the same displayed package without altering the package itself. Therefore uptake-space is not fixed by package-display alone but requires an additional structural assignment.
+\end{proof}
+
+\begin{theorem}[Displayed uptake possibilities are not yet inferential roles]
+\label{thm:A-uptake-possibilities-not-roles}
+Let $P=(T,B,R,S,I)$ be a displayed package together with a publicly displayed list of possible downstream uptake profiles for $P$. By \cref{thm:A-package-not-uptake}, the assignment of that list is already a further structural layer beyond the package itself. Still, the mere listing of those possibilities is descriptive bookkeeping about how $P$ might later be used. It is not yet inferential governance, because no licit/unlicensed restriction on those possibilities has yet been fixed by a verdict mechanism under package-stability and anti-drift constraints.
+\end{theorem}
+
+\begin{proof}
+A displayed list of possible uptake profiles for $P$ records only candidate downstream treatments of the package. By \cref{thm:A-package-not-uptake}, this is already an added structural assignment rather than something fixed by the package itself. But even with that assignment in place, one has not yet determined which uptake possibilities are licensed, which are blocked, or whether the resulting classification is stable under package-preserving reformulation and anti-drift constraints. So the listing of uptake possibilities is still presentation-level bookkeeping rather than inferential governance.
+\end{proof}
+
+\begin{theorem}[Presentation-Package Stability Governance Realization Theorem]
+\label{thm:A-realization-criterion}
+Let $V$ be a verdict mechanism, including a syntactic derivation-check, associated with a formal calculus $\Sigma$. Let $P=(T,B,R,S,I)$ be a displayed package of $\Sigma$ together with publicly displayed downstream uptake possibilities for $P$. By \cref{thm:A-uptake-possibilities-not-roles}, the mere display of those possibilities is not yet inferential governance. Then $V$ counts as governance-bearing for $P$ if and only if:
+\begin{enumerate}[label=(\roman*), leftmargin=2.5em]
+    \item every package-preserving reformulation of $P$ leaves fixed the licensed/unlicensed verdict attached to $P$;
+    \item any target drift, support drift, scope drift, or identity drift requires explicit re-admission or identity reset before the old verdict may be reused for the resulting package;
+    \item $V$ is trajectory-sensitive on $P$ in the sense of \cref{def:A-redescription}; and
+    \item no use of $V$ permits role-shift or silent redescription to repair, replace, or reinterpret the displayed package while the result is still being treated as that same package.
+\end{enumerate}
+If any one of these conditions fails, $V$ remains a presentation-relative classifier of traces or drift-tolerant bookkeeping and does not suffice for inferential governance.
+\end{theorem}
+
+\begin{proof}
+By \cref{thm:A-syntax-standing,thm:A-syntax-weaker,thm:A-uptake-possibilities-not-roles}, syntactic well-formedness, ordinary rule-conformity, and the bare public listing of uptake possibilities are still not enough for inferential governance. A displayed package $P=(T,B,R,S,I)$ remains a presentation-level object until a verdict mechanism stably governs which uptake possibilities are licit for that very package. If condition (i) fails, verdict drift occurs under package-preserving reformulation even though the same displayed package remains fixed; the verdict is therefore presentation bookkeeping rather than governance. If condition (ii) fails, target, support, scope, or identity drift may be treated as though the same package were still in play, so the verdict does not fix a stable object of uptake. By \cref{thm:A-trajectory-sensitive}, condition (iii) is necessary: if positive and negative verdict make no difference to any downstream uptake possibility for the same package, then the verdict governs nothing. If condition (iv) fails, then role-shift or silent redescription can repair or reinterpret the package while it is still being treated as that same package, contrary to \cref{def:A-redescription}. Conversely, if (i)--(iv) all hold, then the verdict on $P$ does more than accompany a public display of uptake possibilities: it stably governs which uptake possibilities are licit for that same package, and any genuine package change requires re-admission or reset rather than reinterpretive drift. In that case $V$ counts as governance-bearing for that use.
+\end{proof}
+
+
+\begin{theorem}[Failure of governance realization under package drift]
+\label{thm:A-drift-failure}
+Let $V$ be a verdict mechanism on displayed packages. If, for some displayed package $P$, either
+\begin{enumerate}[label=(\roman*), leftmargin=2.5em]
+    \item a package-preserving reformulation of $P$ changes the licensed/unlicensed verdict,
+    \item target, support, scope, or identity drift is permitted without explicit re-admission or identity reset,
+    \item verdict differences on $P$ leave all downstream uptake profiles unchanged, or
+    \item role-shift or silent redescription is permitted to repair, replace, or reinterpret $P$ while it is still treated as that same package,
+\end{enumerate}
+then $V$ fails to realize inferential governance for that use.
+\end{theorem}
+
+\begin{proof}
+Clause (i) is verdict drift under package-preserving reformulation, so the verdict is presentation bookkeeping rather than governance. Clause (ii) allows package drift to be treated as though the same package were still in play, so the verdict no longer fixes a stable object of uptake. By \cref{thm:A-trajectory-sensitive}, clause (iii) leaves the verdict without governance force because positive and negative verdicts govern nothing downstream. Clause (iv) permits precisely the reinterpretive repair and silent-redescription routes excluded by \cref{def:A-redescription}. In each case at least one constitutive condition of \cref{thm:A-realization-criterion} fails. Therefore $V$ does not realize inferential governance for that use.
+\end{proof}
+
+\begin{theorem}[Concrete failure family for syntactic verdict mechanisms]
+\label{thm:A-concrete-failure-family}
+There are mathematically recognizable and explicitly definable families of syntactic verdict mechanisms that fail inferential governance realization. In particular:
+\begin{enumerate}[label=(\alph*), leftmargin=2.5em]
+    \item for each $k\in\mathbb{N}$, let $V^{(k)}_{\mathrm{fmt}}$ return a positive verdict exactly when the underlying trace is rule-conformant and the $k$-th displayed line is boldfaced; then $V^{(k)}_{\mathrm{fmt}}$ fails inferential governance realization;
+    \item for each nontrivial permutation $\pi$ of the displayed support basis, let $V^{\pi}_{\mathrm{sup}}$ return a positive verdict exactly when the underlying trace is rule-conformant and the displayed support basis occurs in the privileged order fixed by $\pi$; then $V^{\pi}_{\mathrm{sup}}$ fails inferential governance realization;
+    \item any verdict mechanism whose output depends on context-sensitive retargeting conventions fails inferential governance realization;
+    \item any verdict mechanism permitting support-basis substitutions not marked by re-admission fails inferential governance realization; and
+    \item any verdict mechanism whose positive/negative output leaves all downstream uptake possibilities unchanged fails inferential governance realization.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+For (a), fix a displayed package $P=(T,B,R,S,I)$ whose underlying trace is rule-conformant and whose $k$-th displayed line is boldfaced. Remove the boldface while leaving $T,B,R,S,I$ fixed. This is a package-preserving reformulation of the same package. Ordinary rule-conformity is unchanged, but the verdict of $V^{(k)}_{\mathrm{fmt}}$ flips. Hence clause (i) of \cref{thm:A-realization-criterion} fails.
+
+For (b), fix a displayed package $P=(T,B,R,S,I)$ with support basis $B=(b_1,\ldots,b_n)$ and a nontrivial permutation $\pi$ of $\{1,\ldots,n\}$. Let $V^{\pi}_{\mathrm{sup}}$ return a positive verdict exactly when the underlying trace is rule-conformant and the displayed support basis occurs in the privileged order $(b_{\pi(1)},\ldots,b_{\pi(n)})$. Reordering the support basis while preserving its extensional members and the same displayed derivation target is a package-preserving reformulation at the level of inferential content, but the verdict of $V^{\pi}_{\mathrm{sup}}$ flips solely because support order has been privileged without re-admission. Hence either clause (i) or clause (ii) of \cref{thm:A-realization-criterion} fails.
+
+For (c), context-sensitive retargeting conventions fail clause (ii) of \cref{thm:A-realization-criterion}, because the same displayed package is treated as licensing a different target without explicit re-admission. For (d), support-basis substitutions not marked by re-admission likewise constitute support drift and so fail clause (ii). For (e), downstream-insensitive verdict mechanisms fail clause (iii) by \cref{thm:A-trajectory-sensitive}, since positive and negative verdicts leave all downstream uptake possibilities unchanged. Therefore each listed family fails inferential governance realization.
+\end{proof}
+
+\begin{proposition}[Decomposition of weaker uptake competitors by package-governance constraint]
+\label{prop:A-weaker-uptake-decomposition}
+Any weaker competitor to inferential governance must weaken at least one of exactly four package-governance constraints:
+\begin{enumerate}[label=(\roman*), leftmargin=2.5em]
+    \item verdict stability under package-preserving reformulation;
+    \item anti-drift for target, support, scope, identity, and verdict;
+    \item anti-repair for same-package reinterpretation and silent redescription; or
+    \item support fixation together with downstream sensitivity of verdict differences.
+\end{enumerate}
+No weaker competitor can depart from inferential governance without weakening at least one of these four constraints.
+\end{proposition}
+
+\begin{proof}
+By \cref{thm:A-realization-criterion}, inferential governance for a displayed package is realized only if verdicts are stable under package-preserving reformulation, package drift is excluded absent re-admission or reset, same-package reinterpretive repair and silent redescription are excluded, and verdict differences govern at least one downstream uptake possibility for the same package. Any purported weaker competitor must therefore fail at least one of these requirements. If none were weakened, the competitor would simply satisfy the realization criterion and would not be weaker. So every weaker competitor weakens at least one of exactly these four package-governance constraints.
+\end{proof}
+
+\begin{theorem}[Exhaustion of minimal weaker uptake competitors]
+\label{thm:A-weaker-uptake-exhaustion}
+The minimal structurally distinct weaker competitors to inferential governance are exactly the following four classes: trace-only uptake, drift-tolerant uptake, revision-tolerant same-package uptake, and support-flexible uptake. No fifth minimal weaker competitor remains.
+\end{theorem}
+
+\begin{proof}
+By \cref{prop:A-weaker-uptake-decomposition}, any weaker competitor must weaken at least one of exactly four package-governance constraints. Minimality then yields four and only four minimal structurally distinct competitors.
+
+If verdict stability is weakened while no further drift or reinterpretive latitude is added, the verdict remains at the level of bare trace-classification; this is trace-only uptake. If anti-drift is weakened, verdict use may permit target, support, scope, identity, or verdict drift without re-admission; this is drift-tolerant uptake. If anti-repair is weakened while the same package is still treated as in play, later reinterpretive repair or same-package revision is allowed; this is revision-tolerant same-package uptake. If support fixation together with downstream sensitivity is weakened, the support basis may be treated as flexibly substitutable or verdict differences may fail to govern any downstream uptake possibility; this is support-flexible uptake. Any purported fifth minimal weaker competitor would have to weaken one of the four package-governance constraints already listed and so would collapse into one of these four classes. Hence no fifth minimal weaker competitor remains.
+\end{proof}
+
+\begin{theorem}[Exclusion of weaker uptake forms]
+\label{thm:A-weaker-uptake-exclusion}
+The kernel does not attach to every form of syntactic uptake. The weaker uptake competitors isolated in \cref{thm:A-weaker-uptake-exhaustion} all fail to realize inferential governance and therefore do not carry the kernel.
+\end{theorem}
+
+\begin{proof}
+Trace-only uptake fails by \cref{lem:A-check-not-enough}: it leaves the verdict at the level of bare trace-classification. Drift-tolerant uptake fails by \cref{thm:A-drift-failure}, since target, support, scope, identity, or verdict drift is permitted without re-admission. Revision-tolerant same-package uptake fails because later reinterpretive repair of what is still treated as the same package is exactly the silent-redescription route barred by clause (iv) of \cref{thm:A-realization-criterion}. Support-flexible uptake fails because support substitutions not marked by re-admission constitute support drift. By \cref{thm:A-weaker-uptake-exhaustion}, these are the minimal weaker competitors. Since each fails inferential governance, the realization of governance at Level~2 is reached by elimination rather than by a stipulative definition of uptake.
+\end{proof}
+
+\begin{theorem}[Level~2/Level~3 separation]
+\label{thm:A-level-separation}
+Level~2 inferential governance and Level~3 closure-stable certification are distinct. Level~2 is realized when a verdict mechanism governs downstream uptake for a displayed package under \cref{thm:A-realization-criterion}. Level~3 is realized only when that governed package also satisfies the stronger retained-lineage and no-deferred-repair constraints needed for closure-stable certification. Thus Level~3 strengthens Level~2; it does not first create it.
+\end{theorem}
+
+\begin{proof}
+By \cref{thm:A-realization-criterion}, Level~2 is reached once downstream uptake is stably governed for a displayed package under package-preserving reformulation, anti-drift, trajectory sensitivity, and no silent redescription. But \cref{thm:A-provisional-social-governance,thm:A-provisional-not-closure} already show that provisional inferential governance need not settle closure-stable certification. Conversely, closure-stable certification presupposes Level~2 because retained-lineage hardening strengthens an already governed package rather than first creating governance out of bare traces. Therefore the levels are distinct and ordered.
+\end{proof}
+
+\begin{corollary}[Not all syntactic gates qualify for inferential governance]
+\label{cor:A-not-all-gates}
+A syntactic derivation-check counts as governance-bearing only when its inferential use satisfies the presentation-package stability conditions of \cref{thm:A-realization-criterion}. Otherwise it is a trace-classifier or drift-tolerant bookkeeping and not a generator of inferentially governed reasoning acts.
+\end{corollary}
+
+\begin{proof}
+By \cref{thm:A-nonvacuity}, there exist syntactic gates that fail the realization test. By \cref{thm:A-realization-criterion}, failure of that test prevents inferential governance.
+\end{proof}
+
+\begin{proposition}[Characterization of inferential governance]
+\label{prop:A-characterize-governance}
+A verdict mechanism counts as governance-bearing for a displayed package if and only if:
+\begin{enumerate}[label=(\roman*), leftmargin=2.5em]
+    \item it stably partitions licit and unlicensed downstream uptake possibilities for that displayed package;
+    \item the partition is preserved under package-preserving reformulation;
+    \item target, support, scope, identity, and verdict drift, together with silent reinterpretation or same-package repair, are excluded absent explicit re-admission or reset; and
+    \item positive and negative verdicts alter at least one downstream uptake possibility for that package.
+\end{enumerate}
+Equivalently, inferential governance is exactly package-stable, drift-free, uptake-sensitive licit/unlicensed partitioning of downstream use for displayed packages.
+\end{proposition}
+
+\begin{proof}
+The forward direction is just the content of \cref{thm:A-realization-criterion}: package-preserving verdict stability gives (i) and (ii), anti-drift and anti-repair give (iii), and trajectory sensitivity gives (iv). Conversely, if (i)--(iv) hold, then the verdict mechanism does more than accompany a displayed package or a list of candidate uptake possibilities: it fixes which uptake profiles are licit for that very package, does so stably under package-preserving reformulation, forbids reinterpretive drift and repair, and makes positive/negative verdict differences matter downstream. That is precisely the role filled by inferential governance in Appendix~A.
+\end{proof}
+
+\begin{remark}[Why this is not stipulation]
+The preceding theorem should not be read as a verbal re-description of syntax. Its content is eliminative: bare trace-checkability, displayed-package identity, displayed uptake-space, drift-tolerant verdicts, same-package repair, and weaker uptake competitors have all been ruled out beforehand. The characterization theorem therefore names the strongest verdict-regime left standing after those exclusions, rather than stipulating a privileged vocabulary for proof practice.
+
+This appendix is eliminative, not reductive. It does not claim a substrate more primitive than displayed-package use from which governance is recovered by reduction. It claims instead that, once weaker verdict-regimes are excluded, what remains is inferential governance in the exact sense characterized above.
+\end{remark}
+
+\begin{lemma}[Syntactic licensing does not eliminate standing; under the criterion it instantiates it]
+\label{lem:A-standing-realized}
+If, in a formal calculus, syntactic rule-conformity is what makes a step count as licit inferentially, and if that licensed/unlicensed use satisfies \cref{thm:A-realization-criterion}, then standing is not absent. Rather, standing is realized extensionally by that very licit-status condition. Therefore ``standing is just rule-licensed stephood'' is not a counterexample to standing but an identification of its local realization under admissibility-invariant use.
+\end{lemma}
+
+\begin{proof}
+By \cref{thm:A-syntax-standing}, syntax alone is insufficient for standing. But if a given calculus takes rule-conformity to be exactly the condition under which a line counts as inferentially licit, and if that licit/unlicensed use passes the governance realization test of \cref{thm:A-realization-criterion}, then the calculus has not eliminated standing; it has first realized inferential governance by a verdict that stably governs downstream uptake for the same package, and standing is realized there as the licit/unlicensed role in that inferential architecture. What is realized is a role in use, not a second post-syntactic event.
+\end{proof}
+
+\begin{theorem}[Provisional governance, social grouping, and closure-stable certification are distinct]
+\label{thm:A-provisional-social-governance}
+Provisional inferential governance, social or historical grouping of proof episodes, and closure-stable certification are pairwise non-identical. In particular:
+\begin{enumerate}[label=(\roman*), leftmargin=2.5em]
+    \item a draft, seminar sketch, blackboard argument, or early posting may already be inferentially governed---that is, critiqued, decomposed, or provisionally reused---without thereby being closure-stable or finally certified;
+    \item a community may socially group multiple stages under one heading (``the proof of theorem $T$'') without thereby preserving governance-valid act identity across those stages; and
+    \item closure-stable certification concerns whether the act, as performed at its own act-time and throughout retained-lineage continuation, was already licensed under lawful-redescription and no-silent-redescription constraints.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Provisional inferential governance is stronger than bare trace-assessment because the item is already being used to support critique, decomposition, or defeasible downstream reasoning. But it is weaker than closure-stable certification, since later clarification, supplementation, or replacement may still be needed before the act's validity is fixed without remainder. Social or historical grouping is coarser still: it tracks theorem-lineage, archival continuity, authorship, or communal reference under one heading. Closure-stable certification asks a narrower question: whether the act, as performed at its own act-time, was already licensed in the repair-sensitive sense relevant to the present paper. Therefore the three notions are distinct.
+\end{proof}
+
+\begin{theorem}[Kernel attachment at Level~2 inferential governance]
+\label{thm:A-kernel-attachment}
+The kernel $K=\{\Adm,\Stand,\mathrm{Ref},\mathrm{Irr}\}$ attaches already at Level~2 inferential governance, but only after weaker uptake forms have been excluded. More precisely: once a verdict mechanism stably governs which downstream uptake profiles are licit for a displayed package and survives the exclusions of \cref{thm:A-weaker-uptake-exclusion}, determinate reference, standing, irreversibility, and the admissibility boundary governing their joint enforceability are already in play. Level~3 adds only the stronger closure-stable certification constraints needed for retained-lineage hardening; it does not introduce the kernel for the first time.
+\end{theorem}
+
+\begin{proof}
+By \cref{thm:A-weaker-uptake-exclusion}, weaker uptake forms do not realize inferential governance and therefore do not carry the kernel. What remains is the Level~2 case in which a verdict mechanism governs downstream uptake for a fixed displayed package and satisfies \cref{thm:A-realization-criterion}. At that point package drift and silent reinterpretation are excluded, so determinate reference is already at issue. Because the verdict now governs licit/unlicensed downstream uptake, standing is already at issue. Because reinterpretive same-package repair is excluded, irreversibility is already live. Admissibility is then the governance boundary under which those conditions are jointly enforceable. So the kernel attaches at Level~2 by elimination of weaker uptake forms, not by stipulation. By \cref{thm:A-level-separation}, Level~3 contributes stricter retained-lineage and closure-stability conditions, but not the first appearance of the kernel.
+\end{proof}
+
+\begin{remark}[Seminar and blackboard practice]
+Seminar sketches, blackboard arguments, and exploratory proof attempts may fall inside the present target when they are inferentially governed under admissibility-invariant use. What is excluded is not provisionality as such, but silent redescription, role-shift, and repair-by-reinterpretation.
+\end{remark}
+
+\begin{theorem}[Provisional inferential governance does not entail closure-stable certification]
+\label{thm:A-provisional-not-closure}
+An act may be inferentially governed at Level~2 of \cref{def:A-bare-trace} without yet being closure-stable at Level~3. Provisional inferential governance is therefore stronger than bare trace-assessment but weaker than closure-stable certification.
+\end{theorem}
+
+\begin{proof}
+By definition, inferential governance already requires that the act be used to license assertion, rejection, critique, provisional reuse, or downstream extension under the realization criterion. So it exceeds bare trace-assessment and already carries the kernel roles at Level~2. But by \cref{thm:A-provisional-social-governance}, such provisional governance need not settle that the act was already closure-stable at act-time and throughout retained-lineage continuation. Therefore inferential governance and closure-stable certification are distinct levels.
+\end{proof}
+
+\begin{remark}[Syntax is useful but not standing as such]
+The claim of this appendix is not that syntax is dispensable or always merely bookkeeping. It is that syntax is not standing \emph{as such}. A syntactic verdict counts as governance-bearing only under the presentation-package stability constraints of \cref{thm:A-realization-criterion}; otherwise it remains a presentation-relative classifier of traces.
+\end{remark}
+
+\begin{lemma}[Proof-system uptake trichotomy]
+\label{lem:A-formalist-trichotomy}
+Let $\Sigma$ be a formal calculus equipped with derivation-checking. Then exactly one of the following holds:
+\begin{enumerate}[label=(\roman*), leftmargin=2.5em]
+    \item $\Sigma$ is studied only at the level of bare traces, in which case it is not yet inferentially governed reasoning for the present target;
+    \item $\Sigma$ is inferentially governed and its verdict mechanism survives the package-stability and weaker-uptake exclusion theorems, so that a verdict mechanism can function within inferential governance for displayed packages only after the package-stability and weaker-uptake exclusion tests have been passed; syntax alone never suffices; or
+    \item $\Sigma$ permits later reclassification, repair-by-reinterpretation, or silent redescription of inferential status, in which case irreversibility becomes a live issue rather than an eliminated one.
+\end{enumerate}
+So no formal calculus supplies a counterexample merely by exhibiting derivation-checkability. The alleged fourth case in which ``syntax just is the full governance role'' without qualification is absorbed into case~(ii) only when the verdict passes the presentation-package stability test of \cref{thm:A-realization-criterion}; when it does not, the case collapses into trace-classification or reinterpretive drift.
+\end{lemma}
+
+\begin{proof}
+If $\Sigma$ is not used to license assertion, rejection, critique, provisional reuse, or downstream extension, we are in case~(i) by \cref{lem:A-check-not-enough}. If it is so used, \cref{lem:A-bridge-dependent} yields bridge-directed inferential governance. When the inferential use of its verdict satisfies \cref{thm:A-realization-criterion} and survives \cref{thm:A-weaker-uptake-exclusion}, we are in case~(ii): a verdict mechanism can function within inferential governance for displayed packages only after the presentation-package stability and weaker-uptake exclusion tests have been passed. Syntax alone is never sufficient by \cref{thm:A-syntax-standing,thm:A-syntax-weaker}. If instead inferential significance changes under later reinterpretation, role-shift, silent target/support drift, or verdict reclassification, then the criterion fails and irreversibility remains contested, giving case~(iii). These cases are exhaustive.
+\end{proof}
+
+\begin{theorem}[Inferential governance is not optional for proposition-bearing reasoning in the present sense]
+\label{thm:A-inferential-uptake}
+Let $\Sigma$ be a formal calculus. Suppose verdicts of $\Sigma$ are used to license assertion, rejection, critique, provisional reuse, or downstream inferential extension. Then $\Sigma$ is not functioning merely as a trace-classifier. It is being used as inferential governance at Level~2. If, moreover, that use satisfies \cref{thm:A-realization-criterion}, then inferential governance is realized there, and with it the standing/admissibility roles attach there as well, even when they are realized directly by the licensed syntactic verdict itself under the presentation-package stability test.
+\end{theorem}
+
+\begin{proof}
+If verdicts of $\Sigma$ are used to license assertion, rejection, critique, provisional reuse, or downstream extension, then some derivation-traces are being treated as entitled for inferential deployment and others are not. That is already a licit/unlicensed distinction at the level of use, so $\Sigma$ is not functioning merely as a trace-classifier. By \cref{lem:A-bridge-dependent}, its use is bridge-directed. When that inferential use satisfies the invariance conditions of \cref{thm:A-realization-criterion}, the verdict counts as governance-bearing in use. By \cref{thm:A-kernel-attachment}, the standing/admissibility roles attach there as well. So inferential governance is not optional decoration on top of reasoning; it is part of what makes the calculus function as proposition-bearing reasoning in the present sense.
+\end{proof}
+
+\begin{theorem}[Trace-validity alone does not fix inferentially governed act-status]
+\label{thm:A-trace-not-enough}
+Derivation-checkability by itself does not determine inferentially governed act-status. More precisely: from the fact that a finite sequence is rule-conformant in a formal calculus, it does not yet follow, without admissibility-invariant inferential use, (i) that the sequence functions as a claim-bearing act, (ii) that its conclusion is licensed for critique, provisional reuse, or downstream extension, or (iii) that later correction-sensitive validity questions are settled at act-time.
+\end{theorem}
+
+\begin{proof}
+A derivation-check returns only a presentation-relative verdict of conformity to a stated calculus. From that verdict alone one obtains, at most, that the sequence matches formation and rule-schema constraints internal to the presentation. Whether that verdict is being used to authorize a claim, bind a conclusion for later critique or reuse, or distinguish valid continuation from later rescue is not fixed by rule-conformity alone. By \cref{thm:A-syntax-standing,thm:A-realization-criterion}, those stronger statuses arise only under admissibility-invariant inferential use. Therefore trace-validity alone does not determine inferentially governed act-status.
+\end{proof}
+
+\begin{theorem}[Act-time validity is stricter than theorem-lineage validity]
+\label{thm:A-acttime-stricter}
+A theorem may remain historically supported through later correction, supplementation, or replacement while the original act that first purported to prove it remains invalid at its own act-time. Therefore theorem-lineage preservation does not entail governance-valid act preservation.
+\end{theorem}
+
+\begin{proof}
+Let a theorem-claim $T$ be associated historically with an original proof-attempt $\pi$ and a later corrected proof $\pi'$. It may be true that the mathematical community continues to group $\pi$ and $\pi'$ together under the heading ``the proof of $T$''. But this historical grouping tracks theorem-lineage, not whether $\pi$ was already licensed at the time it was performed. If $\pi'$ supplies material not available to $\pi$ at act-time, then the validity of $\pi'$ does not retroactively make $\pi$ valid as the same act. Any contrary claim would require an untracked reinterpretation of what the original act already licensed, i.e. a silent redescription in the sense of \cref{def:A-redescription}. So theorem-lineage preservation is strictly weaker than governance-valid act preservation.
+\end{proof}
+
+\begin{theorem}[Same-act repair and lineage-successor correction are disjoint]
+\label{thm:A-repair-disjoint}
+Any later correction that changes the material required for validity either
+(i) leaves the original act invalid, or
+(ii) yields a governance-distinct successor act.
+No third possibility preserves both original invalidity and same-act validity.
+\end{theorem}
+
+\begin{proof}
+Suppose a later correction changes the material required for validity. If the original act remains exactly the same governance-valid act, then its validity would have to have been fixed at act-time without the later material, contradicting the hypothesis that the later correction was needed. If one instead claims that the original act becomes valid by reinterpretation of what it always licensed, then one is invoking silent redescription of reference, role-assignment, or admissibility classification, contrary to \cref{def:A-redescription}. So either the original act remains invalid, or the corrected item is a distinct governance-valid successor. There is no third case in which an act both needed later correction and was already valid as that same act.
+\end{proof}
+
+\begin{remark}[Historical grouping and act-time validity]
+Historical grouping of proof-attempts tracks theorem-lineage or community memory, not necessarily governance-valid act-status at act-time. Later correction may preserve theorem-lineage while failing to preserve same-act validity.
+\end{remark}
+
+\begin{lemma}[Reference is necessary for determinate propositional output]
+\label{lem:A-reference}
+If a purported reasoning act lacks determinate reference, then it does not yield a determinate proposition of the regime.
+\end{lemma}
+
+\begin{proof}
+A proposition must be propositionally about something in a fixed way in order to bear governed inferential status. If the act's expressions refer equivocally or vacuously, then no single governed content is fixed: different readings, or none at all, remain equally compatible with the same mark sequence. What remains is a string, not a determinate proposition.
+\end{proof}
+
+\begin{lemma}[Standing is necessary for derivational stephood]
+\label{lem:A-standing}
+If a purported step lacks standing, it does not function as a step in reasoning, but only as an unsupported inscription or transition.
+\end{lemma}
+
+\begin{proof}
+A derivational step is not merely something that occurs between two inscriptions; it purports to advance a claim under some licensed inferential status. Without standing there is no licit claim-act whose inferential role can be assessed. The item may still be written or computed, and may even be certified as rule-conforming inside a calculus, but by \cref{lem:A-check-not-enough,lem:A-standing-realized} that is either bare trace classification or the local realization of standing rather than its elimination. So absent standing there is no reasoning step in the present sense.
+\end{proof}
+
+\begin{lemma}[Irreversibility is necessary for stable derivational status]
+\label{lem:A-irreversibility}
+If invalid steps are repairable post hoc without loss, then the distinction between valid derivation and retrospective rescue is not stably fixed at act-time.
+\end{lemma}
+
+\begin{proof}
+Suppose invalidity could later be removed while preserving the same act as fully valid. Then whether a purported step counted as licensed when performed would remain hostage to later repair. But a derivation whose status is not fixed at act-time has no stable difference between continuation and rescue. Its validity conditions therefore collapse into retrospective redescription. Ordinary mathematical compression of an original proof and a later corrigendum into ``the same proof'' does not refute this, because by \cref{def:A-act-identity,thm:A-provisional-social-governance} historical identity is coarser than governance-valid act identity.
+\end{proof}
+
+\begin{lemma}[Admissibility is the governance boundary of joint enforceability]
+\label{lem:A-adm-boundary}
+Whenever determinate reference, standing, and irreversibility are jointly enforceable on the same reasoning acts, admissibility is already in force there as the governance boundary of that joint enforceability.
+\end{lemma}
+
+\begin{proof}
+If determinate reference, standing, and irreversibility are jointly enforceable on the same acts, then the regime already distinguishes licensed from non-licensed claim-acts and distinguishes valid continuation from retrospective rescue. That governance boundary is exactly what admissibility names. This need not be an extra mechanism layered over syntax: in a formal calculus with inferential governance under admissibility-invariant use it may be realized by the licit/unlicensed role played by rule-governed derivability, but only when that use satisfies the realization criterion of \cref{thm:A-realization-criterion}. Conversely, a regime lacking that boundary cannot jointly enforce the three conditions on the same acts.
+\end{proof}
+
+\begin{theorem}[Assessability of bare derivation objects]
+\label{thm:A-bare-trace-assessability}
+Bare derivation objects are assessable under weaker conditions than inferentially governed reasoning
+acts under admissibility-invariant use. In particular, presentation-relative rule-conformity of finite traces may be checked without
+thereby fixing claim-status, inferential entitlement, or repair-sensitive act-validity.
+\end{theorem}
+
+\begin{proof}
+This is exactly the distinction established above. A derivation-check settles only whether a trace
+conforms to the presentation-level rules of a calculus. By \cref{thm:A-trace-not-enough}, that
+does not yet settle whether the checked item functions as a claim-bearing reasoning act, whether
+its conclusion is licensed for critique, provisional reuse, or downstream extension, or whether its validity is fixed at act-time in
+the repair-sensitive sense relevant to governed derivation. Therefore bare trace-assessability is
+strictly weaker than reasoning-act assessability.
+\end{proof}
+
+\begin{theorem}[Minimal assessability boundary for inferentially governed reasoning acts under admissibility-invariant use]
+\label{thm:A-assessability}
+Let $R$ be any system whose outputs are treated not merely as checked traces but as inferentially governed proposition-bearing
+reasoning acts under admissibility-invariant use, including assertion, rejection, critique, provisional deployment, provisional reuse, or downstream inferential extension. Then
+determinate reference, claim-bearing standing, and non-repairable invalidity are jointly necessary
+and minimal for that evaluability. More exactly:
+\begin{enumerate}[label=(\roman*), leftmargin=2.5em]
+    \item if determinate reference is removed, proposition identity is lost and the outputs are no
+    longer evaluable as determinate proposition-bearing content;
+    \item if standing is removed, no transition qualifies as a licit claim-bearing step and the outputs
+    are no longer evaluable as inferentially governed reasoning acts under admissibility-invariant use;
+    \item if irreversibility is removed, there is no stable distinction between valid continuation and
+    retrospective rescue at act-time; and
+    \item if an additional condition is imposed as an independent governance requirement beyond
+    those three, then the regime is governed more tightly than inferentially governed evaluability itself
+    requires.
+\end{enumerate}
+Accordingly, determinate reference, standing, and irreversibility mark the minimal assessability
+boundary for inferentially governed reasoning acts under presentation-stable admissibility-invariant use. The kernel therefore attaches already at Level~2 inferential governance; closure-stable certification adds stronger retained-lineage constraints without moving the attachment point.
+\end{theorem}
+
+\begin{proof}
+Item (i) is \cref{lem:A-reference}. Item (ii) is \cref{lem:A-standing}, now read in light of
+\cref{thm:A-syntax-standing,thm:A-realization-criterion,thm:A-inferential-uptake,thm:A-trace-not-enough}: trace-checkability is insufficient, and inferential governance requires a licit/unlicensed distinction that survives admissibility-invariant use. Item (iii) follows from \cref{lem:A-irreversibility,thm:A-acttime-stricter,thm:A-repair-disjoint}: theorem-lineage correction does not settle governance-valid act-status retroactively, and same-act repair is blocked once silent redescription is excluded. For minimality, suppose an additional condition $Q$ is imposed as an independent governance requirement on every inferentially governed reasoning act under admissibility-invariant use. If $Q$ is already enforced by the joint assessability work of reference, standing, and irreversibility, then it is not additional. If it excludes some act-sequences that already satisfy those three conditions, then it contributes further governance beyond what inferentially governed evaluability itself requires. So the three conditions are jointly necessary and minimal.
+\end{proof}
+
+\begin{remark}
+\Cref{thm:A-bare-trace-assessability,thm:A-assessability} block the formalist equivocation
+between two different assessment targets: the checkability of derivation-objects and the evaluability
+of inferentially governed reasoning acts under admissibility-invariant use. The present paper concerns the second, because closure,
+critique, reuse, extension, and same-domain threat are questions about inferential life rather than about
+trace classification alone.
+\end{remark}
+
+\begin{corollary}[Non-arbitrariness of the target class]
+\label{cor:A-target-class}
+The class of meaningful regimes is not defined by pre-selecting the kernel. It is exactly the class of systems in which inferentially governed proposition-bearing reasoning under presentation-stable admissibility-invariant use is assessable as reasoning for the present target. Restriction to that class is therefore not protective but forced by the target of inquiry.
+\end{corollary}
+
+\begin{proof}
+By \cref{thm:A-assessability}, determinate reference, standing, and irreversibility are not optional entry criteria appended in advance of the argument. They are the minimal conditions under which inferentially governed proposition-bearing outputs and transitions are evaluable as reasoning acts under admissibility-invariant use at all, whereas bare trace-assessment remains a weaker phenomenon by \cref{thm:A-bare-trace-assessability}. So to restrict attention to regimes in which those conditions are assessable is simply to restrict attention to the subject matter of the paper rather than to protect the thesis from counterexample by fiat.
+\end{proof}
+
+\begin{theorem}[Non-degenerate reasoning forces the kernel]
+\label{thm:A-kernel}
+If a meaningful regime admits inferentially governed non-degenerate reasoning under admissibility-invariant use, then admissibility, standing, reference, and irreversibility are already in force in that regime.
+\end{theorem}
+
+\begin{proof}
+Let $R$ be a meaningful regime admitting inferentially governed non-degenerate reasoning under admissibility-invariant use. By \cref{thm:A-assessability}, the target here is not bare trace-checkability but inferentially governed reasoning-act assessability under admissibility-invariant use. So any regime in which outputs are assessable as inferentially governed proposition-bearing reasoning acts already requires determinate reference, claim-bearing standing, and irreversibility as the minimal assessability boundary of that evaluability. By \cref{lem:A-adm-boundary}, the joint enforceability of those conditions already places admissibility in force as the governance boundary constituted by their coherence on the same acts. Hence $R$ already enforces the full kernel $K$.
+\end{proof}
+
+\begin{corollary}[No non-degenerate regime below the kernel]
+\label{cor:A-no-below-kernel}
+No meaningful regime can both support inferentially governed non-degenerate reasoning under admissibility-invariant use and generate any member of $K$ from a strictly lower governance-free basis within the same meaningful regime.
+\end{corollary}
+
+\begin{proof}
+Assume some meaningful regime supports inferentially governed non-degenerate reasoning under admissibility-invariant use and nevertheless generates some $P\in K$ from a strictly lower governance-free basis. By \cref{thm:A-kernel}, the full kernel $K$ is already in force in that regime before any such generation begins. So the alleged generator does not produce $P$ from below; it operates only within a regime whose meaningfulness already depends on $P$.
+\end{proof}
+
+\begin{lemma}[Derivation presupposes admissibility]
+\label{lem:A-der-adm}
+If a governance-valid derivation of any proposition $P$ exists, then admissibility is already in force.
+\end{lemma}
+
+\begin{proof}
+By definition, a governance-valid derivation is a licit reasoning act-sequence rather than a bare formal trace. Its steps therefore count as steps only under an admissibility regime.
+\end{proof}
+
+\begin{lemma}[Derivation presupposes standing]
+\label{lem:A-der-stand}
+If a governance-valid derivation of any proposition $P$ exists, then standing is already in force.
+\end{lemma}
+
+\begin{proof}
+A derivation with no standing would be a sequence of acts with no licit claim-bearing status. Such a sequence might be written down, but it would not count as a derivation of anything.
+\end{proof}
+
+\begin{lemma}[Derivation presupposes reference]
+\label{lem:A-der-ref}
+If a governance-valid derivation of any proposition $P$ exists, then determinate reference is already in force.
+\end{lemma}
+
+\begin{proof}
+A derivation whose expressions fail to refer determinately does not derive a determinate conclusion. It supplies marks, not governed content. Since governance-valid derivation names a derivation of a proposition rather than a mere syntactic trail, reference is presupposed.
+\end{proof}
+
+\begin{lemma}[Derivation presupposes irreversibility]
+\label{lem:A-der-irr}
+If a governance-valid derivation of any proposition $P$ exists, then irreversibility is already in force.
+\end{lemma}
+
+\begin{proof}
+Without irreversibility, invalid steps could be repaired retroactively into acceptable ones, and the distinction between valid continuation and post hoc rescue would collapse. In that case the derivation would not possess a stable governance status at all.
+\end{proof}
+
+\begin{corollary}[Global presupposition lemma]
+\label{cor:A-global-presupposition}
+For every proposition $P$, if there is a governance-valid derivation of $P$, then the full kernel $K$ is already in force.
+\end{corollary}
+
+\begin{proof}
+Combine \cref{lem:A-der-adm,lem:A-der-stand,lem:A-der-ref,lem:A-der-irr}.
+\end{proof}
+
+\begin{theorem}[Kernel non-derivability]
+\label{thm:A-kernel-nonderivable}
+No member of $K$ is derivable from below.
+\end{theorem}
+
+\begin{proof}
+Let $P\in K$. Suppose, toward contradiction, that $P$ is derivable from below. Then there exists a governance-valid derivation of $P$ whose validity does not already presuppose $P$, any lawfully equivalent condition, or any condition whose own governance-validity already requires $P$. But by \cref{cor:A-global-presupposition}, every governance-valid derivation already presupposes the full kernel $K$, hence $P$ itself. This is exactly the forbidden circularity in derivability from below.
+\end{proof}
+
+\begin{theorem}[No lower generator / structural non-derivability]
+\label{thm:A-structural-nonderivability}
+Let $P\in K$. There exists no system or meaningful regime supporting inferentially governed non-degenerate reasoning under admissibility-invariant use in which $P$ is generated from any purportedly lower governance condition or package within the same meaningful regime. Equivalently, the non-derivability of $P$ is structural, not merely a defect of one stipulated proof format.
+\end{theorem}
+
+\begin{proof}
+Assume, for contradiction, that some meaningful regime supports inferentially governed non-degenerate reasoning under admissibility-invariant use and nevertheless generates some $P\in K$ from a purportedly lower governance package within the same meaningful regime. By \cref{thm:A-kernel}, the full kernel $K$ is already in force in that regime, and hence $P$ is already in force there. So the alleged lower package does not generate $P$ from below; it operates only inside a regime whose meaningfulness already depends on $P$.
+\end{proof}
+
+\begin{theorem}[Proof-system uptake trichotomy]
+\label{thm:A-proofsystem-trichotomy}
+Let $\Sigma$ be any proof system, meta-system, or external presentation proposed as a candidate
+lower generator for some member of the kernel $K$. Then exactly one of the following holds:
+\begin{enumerate}[label=(\roman*), leftmargin=2.5em]
+    \item $\Sigma$ functions only as a trace-classifier for derivation-objects;
+    \item $\Sigma$ is used with inferential governance, and its verdict mechanism survives the package-stability and weaker-uptake exclusion tests, so that it can function as inferential governance for displayed packages;
+    \item $\Sigma$ permits later reclassification, repair-by-reinterpretation, or silent redescription of act-status, in which case irreversibility remains live rather than eliminated.
+\end{enumerate}
+No fourth candidate lower-generator type remains. In particular, the alleged case in which ``syntax just is the full governance role'' without qualification is absorbed into case~(ii) when the realization criterion is satisfied and collapses into case~(i) or case~(iii) when it is not.
+\end{theorem}
+
+\begin{proof}
+If $\Sigma$ is not used to license assertion, rejection, critique, provisional reuse, or downstream extension, then it is only a trace-classifier by \cref{thm:A-trace-not-enough}. If it is so used, then by \cref{thm:A-inferential-uptake} the system is being used as inferential governance rather than mere trace-classification. When that inferential use satisfies \cref{thm:A-realization-criterion} and survives \cref{thm:A-weaker-uptake-exclusion}, the verdict mechanism can function as inferential governance for displayed packages, giving case~(ii). If instead inferential significance may later be altered by reinterpretation, role-shift, or silent redescription while purporting to preserve the same governance-valid act, then by \cref{thm:A-acttime-stricter,thm:A-repair-disjoint} irreversibility has not been removed but made contested, giving case~(iii). These cases are exhaustive.
+\end{proof}
+
+\begin{theorem}[Regime-invariant non-derivability]
+\label{thm:A-regime-invariant}
+Let $P\in K$. There exists no derivation of $P$ from any proof system, meta-system, or external presentation $\Sigma$ that both
+\begin{enumerate}[label=(\roman*), leftmargin=2.5em]
+    \item fails to have derivation-validity conditions already enforcing $P$, a lawfully equivalent condition, or a condition whose own derivation-validity already requires $P$, and
+    \item nevertheless purports to support non-degenerate reasoning in the same meaningful regime.
+\end{enumerate}
+Changing formal dress, moving to a meta-theory, or recoding the language therefore does not remove the need for the governance work named by $P$.
+\end{theorem}
+
+\begin{proof}
+Let $P\in K$, and suppose some system $\Sigma$ is offered as a derivation system for $P$. By \cref{thm:A-proofsystem-trichotomy}, every candidate $\Sigma$ falls into one of three classes.
+
+In class (i), $\Sigma$ functions only as a trace-classifier. Then it is not yet a generator of inferentially governed proposition-bearing reasoning acts under admissibility-invariant use, and so it cannot derive $P$ from below within the same meaningful regime.
+
+In class (ii), $\Sigma$ is used with inferential governance and, by \cref{thm:A-realization-criterion}, already realizes the standing/admissibility roles extensionally in its licensed/unlicensed use. If the validity conditions under which a $\Sigma$-derivation counts as a derivation already enforce $P$, a lawfully equivalent condition, or a condition whose own validity already requires $P$, then $\Sigma$ does not generate $P$ from below. It begins under the very governance it purports to derive.
+
+In class (iii), $\Sigma$ permits later reclassification or repair-sensitive revision of act-status. Then by \cref{thm:A-acttime-stricter,thm:A-repair-disjoint} irreversibility has not been removed but remains live rather than eliminated.
+
+So no candidate lower generator removes the need for the governance work named by $P$. A non-kernel-respecting $\Sigma$ is, at best, an external coding, a meta-level bookkeeping device, or a purely formal trace; it is not a derivation of $P$ from below within the same meaningful regime.
+\end{proof}
+
+\begin{theorem}[Calculus plurality does not undercut role necessity]
+\label{thm:A-calculus-plurality}
+Differences among Hilbert, natural-deduction, sequent, type-theoretic, or comparable formal
+presentations do not by themselves remove the need for claim-status, inferential governance, and
+repair-sensitive act-validity whenever those systems are used as inferentially governed reasoning under admissibility-invariant use.
+Accordingly, presentation plurality does not supply a lower generator of the kernel.
+\end{theorem}
+
+\begin{proof}
+The relevant distinction is not which proof calculus is chosen, but whether the chosen calculus is
+being treated merely as a trace-classifier or as licensing inferentially governed acts under admissibility-invariant use. By
+\cref{thm:A-proofsystem-trichotomy}, every such calculus falls into trace-only use, extensional
+realization of the standing/admissibility roles only under the realization criterion, or a regime in which irreversibility remains live.
+Changing presentation therefore does not by itself remove the roles isolated in the kernel.
+\end{proof}
+
+\begin{proposition}[Admissibility requires standing]
+\label{prop:A-adm-requires-stand}
+Any regime lacking standing is not an admissibility regime.
+\end{proposition}
+
+\begin{proof}
+A regime without standing does not distinguish licit claim-making from unsupported utterance. It therefore lacks the governance force required to count as admissibility. At best it describes transitions; it does not govern reasoning.
+\end{proof}
+
+\begin{proposition}[Standing requires reference]
+\label{prop:A-stand-requires-ref}
+Standing without determinate reference is incoherent.
+\end{proposition}
+
+\begin{proof}
+Standing is the licitness of a claim. But where reference is indeterminate, there is no determinate claim whose licitness could be assessed. A purported standing relation with no reference relation underneath it licenses emptiness or equivocation, not governed reasoning.
+\end{proof}
+
+\begin{proposition}[Governed reference requires irreversibility]
+\label{prop:A-ref-requires-irr}
+The reference relevant to non-degenerate reasoning is not bare denotation but reference fixed for governed inferential use at act-time. That form of reference cannot be maintained if invalid claim-acts are repairable post hoc without loss.
+\end{proposition}
+
+\begin{proof}
+A symbol may still bear a denotational relation under later reinterpretation or repair, but that is not yet the kernel notion of reference. If later repair can retroactively convert the same invalid act into a fully valid one without loss, then the inferential status under which the act's target is fixed is not settled at act-time. What remains may be denotation, but not governed reference in the sense required for non-degenerate reasoning.
+\end{proof}
+
+\begin{proposition}[Governance irreversibility requires admissibility]
+\label{prop:A-irr-requires-adm}
+The irreversibility relevant here is not mere temporal one-wayness or procedural non-rewindability. It is the governance distinction between licensed continuation and prohibited repair, and that distinction is available only under an admissibility boundary.
+\end{proposition}
+
+\begin{proof}
+Without admissibility there is no principled governance boundary by which a continuation counts as licensed and a modification counts as illicit repair. One can still speak of sequence or alteration, but not of governance-irreversible invalidity.
+\end{proof}
+
+\begin{theorem}[Mutual closure of the kernel]
+\label{thm:A-mutual-closure}
+The members of $K$ form a mutually closed necessity set: none can be coherently asserted while denying the governance role of the others.
+\end{theorem}
+
+\begin{proof}
+\Cref{prop:A-adm-requires-stand,prop:A-stand-requires-ref,prop:A-ref-requires-irr,prop:A-irr-requires-adm} exhibit a governance-specific necessity loop: admissibility requires standing, standing requires reference, governed reference requires irreversibility, and governance irreversibility requires admissibility. The loop is not merely terminological. By \cref{thm:A-assessability}, each member is required for inferentially governed reasoning-act assessability under admissibility-invariant use, and by \cref{thm:A-proofsystem-trichotomy} apparent eliminations of one member either collapse to trace-only classification, realize the role only under the realization criterion, or leave the disputed condition still live. Hence no member can be detached from the rest while retaining its intended governance content.
+\end{proof}
+
+\begin{theorem}[Minimality of the kernel]
+\label{thm:A-minimality}
+The kernel $K$ is minimal for non-degenerate reasoning: no proper subset of $K$ suffices for non-degenerate reasoning.
+\end{theorem}
+
+\begin{proof}
+Assume a proper subset $K_0\subsetneq K$ suffices for non-degenerate reasoning. A purported proper subset may still suffice for bare trace-checkability by \cref{thm:A-bare-trace-assessability}, but that is not yet the target phenomenon. Let $P\in K\setminus K_0$ be an omitted member. Since inferentially governed non-degenerate reasoning under admissibility-invariant use allegedly remains possible, either $P$ is unnecessary or $P$ is generated from the remaining members. The first option contradicts \cref{thm:A-mutual-closure}, since the governance role of each member depends on the rest. The second contradicts \cref{thm:A-kernel-nonderivable}, since $P$ would then be derivable from below from a lower basis. So for inferentially governed reasoning acts, omission of a kernel member either destroys the target class or reintroduces the omitted role only under the realization criterion. Both possibilities fail.
+\end{proof}
+
+\begin{corollary}[No faithful lower generator in the same meaningful regime]
+\label{cor:A-no-lower-generator}
+There exists no faithful lower generator for admissibility, standing, reference, or irreversibility within the same meaningful regime; and no faithful same-domain extension reopens that possibility.
+\end{corollary}
+
+\begin{proof}
+The internal claim is \cref{thm:A-structural-nonderivability}. The faithful-extension-stable claim is \cref{thm:A-regime-invariant}. Together with \cref{thm:A-minimality}, they show that primitive status here means structural non-derivability within the same fixed-domain meaningful regime rather than merely a presentational decision to stop derivation.
+\end{proof}
+
+\begin{remark}[Role of Appendix~A]
+Appendix~A no longer functions as background staging. It proves the necessity floor for the target class itself. In particular it does not concede a counterexample from Hilbert-style, natural-deduction, type-theoretic, or comparable calculi merely because those calculi admit mechanical proof-checking: the appendix distinguishes bare trace classification from inferential governance and closure-stable certification, shows that inferential governance realizes the standing/admissibility roles only under the presentation-package stability governance realization theorem, separates historical proof identity from governance-valid act identity, and proves that presentation plurality does not supply a lower generator of the kernel. Every later appendix and every theorem in the main body works downstream of the in-paper facts that inferentially governed proposition-bearing reasoning under presentation-stable admissibility-invariant use has a minimal assessability boundary, that non-degenerate reasoning forces the full kernel, and that no faithful same-regime or faithful same-domain extension derives that kernel from below.
+\end{remark}
+

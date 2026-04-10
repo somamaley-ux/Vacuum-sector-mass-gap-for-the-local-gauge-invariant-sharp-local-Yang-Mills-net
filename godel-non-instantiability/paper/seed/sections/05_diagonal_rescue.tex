@@ -1,0 +1,52 @@
+\section{Diagonalization and rescue-route failure}
+\label{sec:diagonal}
+
+\begin{theorem}[No same-domain diagonalization]
+\label{thm:no-diagonalization}
+No admissible same-domain negative fixed-point route that is governance-relevant on the fixed domain is instantiable inside the coherent-reasoning kernel.
+\end{theorem}
+
+\begin{proof}
+Assume such a route exists. Then, by \cref{thm:godel-prerequisites}, it requires a governance-relevant code predicate on the fixed domain. By \cref{thm:code-role-exhaustion}, that predicate must be inert bookkeeping, extensional gate renaming, illicit same-domain refinement, or independent authorizer.
+
+It cannot be inert, because then there is no threat. It cannot be an illicit refinement or independent authorizer, because the kernel excludes hidden gate-work beyond the already fixed standing and trajectory structure. If it is extensional gate renaming, then the alleged fixed point introduces no new closure-relevant distinction beyond the already-fixed standing partition. In that case the architecture may describe an external coding artifact, but it does not reopen inferential life on the original domain. Hence no governance-relevant same-domain negative fixed-point route remains.
+\end{proof}
+
+\begin{corollary}[No same-domain closure-relevant negative fixed point]
+There is no same-domain act, sentence, or content-token whose governance relevance on the fixed domain is secured by a negative fixed point over a same-domain provability-like predicate.
+\end{corollary}
+
+\begin{proof}
+Such an object would instantiate the route excluded by \cref{thm:no-diagonalization}.
+\end{proof}
+
+\section{Rescue-route exhaustion}
+\label{sec:rescue}
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.27\textwidth} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.26\textwidth}}
+\toprule
+\textbf{Route family} & \textbf{Why it fails inside the fixed domain} & \textbf{Disposition}\\
+\midrule
+Semantic truth / satisfaction / intended-model readback & imports new same-domain authority unless it is merely descriptive bookkeeping over the already-fixed standing partition & illicit authority import or inert bookkeeping\\
+Reflection / infinitary rule-power / transfinite closure & either compresses to a finite witness already captured by standing or trajectory structure, or else imports non-local authorizing power & captured already or illicit authority import\\
+Meta-foundational re-anchoring & changes what counts as authoritative from outside the fixed domain & explicit scope change or illicit authority import\\
+Richer same-domain extension & either adds no new closure-relevant distinction, or adds a second gate/equivalence, or silently changes the domain & inert, illicit refinement, or scope change\\
+\bottomrule
+\end{tabularx}
+\caption{Rescue routes after the kernel bridge.}
+\label{tab:rescue-routes}
+\end{table}
+
+\begin{theorem}[Rescue-route exhaustion]
+\label{thm:rescue-exhaustion}
+Every same-domain attempt to rescue a G\"odel-style incompleteness objection by semantic truth, satisfaction, intended-model semantics, reflection, infinitary rule-power, transfinite closure, meta-foundational re-anchoring, or richer same-domain extension collapses into one of three outcomes: closure-inert bookkeeping, illicit same-domain authority import, or explicit scope change.
+\end{theorem}
+
+\begin{proof}
+Take the route families in \cref{tab:rescue-routes}. A semantic rescue matters only if its readback changes inferential life on the original domain. By \cref{lem:closure-transmission}, that change must survive into standing or coherent legal trajectory behavior. If the semantic layer does not do that, it is inert bookkeeping. If it does, it becomes fresh same-domain authority, which the kernel excludes.
+
+The same argument applies to reflection and infinitary rule-power. If such machinery has no new closure-relevant effect, it is bookkeeping. If it does, then either its effect is already finitely captured by standing or trajectory structure, in which case it adds nothing, or it imports a new authorizing source not fixed by the kernel. Meta-foundational re-anchoring fails for the same reason, except that the imported authority is explicit. Finally, richer same-domain extension either preserves inferential life, in which case it is inert; or alters it, in which case it introduces illicit same-domain refinement or becomes explicit scope change. No fourth rescue outcome remains.
+\end{proof}

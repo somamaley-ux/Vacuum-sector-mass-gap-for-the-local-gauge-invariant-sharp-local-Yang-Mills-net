@@ -1,0 +1,194 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{array,booktabs,tabularx,longtable}
+\usepackage{enumitem}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric}
+\usepackage[numbers,sort&compress]{natbib}
+
+\hypersetup{
+  colorlinks=false,
+  linkcolor=blue!45!black,
+  citecolor=blue!45!black,
+  urlcolor=blue!45!black,
+  pdftitle={The Measurement Problem as a Problem of Reference: Determinacy, Measurement Records, and Physically Non-Selective Theories},
+  pdfauthor={Amos Jay Maley},
+  pdfsubject={Measurement problem, reference, and theory-level confirmation},
+  pdfcreator={pdfLaTeX}
+}
+\hypersetup{pdfborder={0 0 0}}
+\definecolor{accent}{HTML}{173B63}
+\definecolor{softaccent}{HTML}{EEF4FA}
+\definecolor{midgray}{HTML}{6F7B88}
+\definecolor{lightline}{HTML}{D7E0EA}
+
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.7em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{0.7em}{}
+
+\setlist[itemize]{leftmargin=1.5em,itemsep=0.35em,topsep=0.45em}
+\setlist[enumerate]{leftmargin=1.8em,itemsep=0.35em,topsep=0.45em}
+\setstretch{1.08}
+\renewcommand{\arraystretch}{1.18}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{midgray}{\textbar\ The Measurement Problem as a Problem of Reference}}
+\fancyhead[R]{\textcolor{midgray}{\thepage\ of \pageref*{LastPage}}}
+\renewcommand{\headrulewidth}{0.25pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{lightline}\leaders\hrule height \headrulewidth\hfill}}
+\setlength{\headheight}{24pt}
+
+\newtcolorbox{claimbox}[1][]{enhanced,breakable,colback=softaccent,colframe=accent,boxrule=0.6pt,arc=2pt,left=10pt,right=10pt,top=10pt,bottom=10pt,#1}
+\newtcolorbox{notegray}[1][]{enhanced,breakable,colback=white,colframe=lightline,boxrule=0.5pt,arc=2pt,left=10pt,right=10pt,top=8pt,bottom=8pt,#1}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{example}[definition]{Example}
+\theoremstyle{plain}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{corollary}[definition]{Corollary}
+
+\newcommand{\MainTitle}{The Measurement Problem as a Problem of Reference}
+\newcommand{\SubTitle}{Determinacy, Measurement Records, and Physically Non-Selective Theories}
+
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\Rset}{\mathcal{R}}
+\newcommand{\Cset}{\mathcal{C}}
+\newcommand{\Dset}{\mathcal{D}}
+\newcommand{\Hset}{\mathcal{H}}
+\newcommand{\Eset}{\mathcal{E}}
+\newcommand{\ARef}{\mathsf{ARef}}
+\newcommand{\Cand}{\mathsf{Cand}}
+\newcommand{\CR}{\mathsf{CR}}
+\newcommand{\RoleEq}{\mathrel{\approx_{\mathrm{role}}}}
+\newcommand{\MReq}{\mathrel{\approx_{\mathrm{MR}}}}
+\newcommand{\Prof}{\mathsf{Prof}}
+\newcommand{\Val}{\mathsf{Val}}
+\newcommand{\Sel}{\mathsf{Sel}}
+\newcommand{\Rec}{\mathsf{Rec}}
+\newcommand{\Cont}{\mathsf{Cont}}
+\newcommand{\Prop}{\mathsf{Prop}}
+\newcommand{\Ord}{\mathsf{Ord}}
+
+\begin{document}
+\hypersetup{pageanchor=false}
+
+\begin{titlepage}
+\centering
+\vspace*{1.25cm}
+
+{\huge\bfseries \MainTitle\par}
+\vspace{0.28cm}
+{\Large\itshape \SubTitle\par}
+\vspace{0.9cm}
+{\large Amos Jay Maley\par}
+\vspace{0.15cm}
+{\normalsize Manuscript\par}
+\vspace{0.7cm}
+
+\begin{claimbox}[width=0.93\textwidth]
+\textbf{Overview.} This manuscript treats the measurement problem as a fixed-domain problem of
+reference to measurement records. The theorem ladder proves a measurement-reference quotient
+theorem, an equivalence-collapse theorem for same-scope content spaces, an Everettian non-selection
+theorem, a fixation-commutation hinge theorem for theory-level confirmation, a diachronic
+inheritance theorem for memory/anticipation/agency, and a selector-exhaustion theorem for
+interpretation packages.
+\end{claimbox}
+
+\vfill
+
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.29\textwidth}p{0.58\textwidth}}
+
+\end{tabular}
+
+\vfill
+
+{\small\color{midgray}The paper is conditional on an explicit fixed downstream substrate. The
+appendices make the quotient presentation, the imported structural package, and the audit path
+explicit; they do not replace the main theorem ladder.}
+\end{titlepage}
+
+\hypersetup{pageanchor=true}
+
+\begin{abstract}
+The measurement problem is usually framed as a problem about outcome definiteness, state reduction,
+or probability. This paper treats it instead as a fixed-domain problem of reference to measurement
+records. Work throughout on a downstream regime in which admissibility is already forced, standing
+is bivalent on the evaluated fragment, same-scope admissibility classification is unique, the admissible
+interior is unique up to lawful equivalence, and standing is conserved. Within that regime, define
+admissible reference assignments for diachronic measurement-record discourse and prove a
+measurement-reference quotient theorem: any admissibility-preserving presentation of the
+standing-bearing content of such discourse factors uniquely through a quotient of admissible
+assignments by standing-equivalence. Differences that do not survive that quotient are semantic skin;
+differences that do survive it are standing-relevant.
+
+The paper then proves an Everettian non-selection theorem for the bare unitary, entangling,
+decohering package; an equivalence-collapse theorem showing that any same-scope content quotient
+that preserves standing-bearing use collapses to the measurement-reference quotient; a confirmation
+criterion stating that theory-level confirmation is well-defined only when lawful redescription preserves
+that quotient; a fixation-commutation hinge theorem showing that without admissible-redescription
+commutation theory-level confirmation is undefined rather than merely weakened; a toy witness of
+hypothesis-order reversal under divergent admissible assignments; a diachronic inheritance theorem for
+memory, anticipation, deliberation, and confirmation; and an exhaustion theorem stating that
+interpretation packages can locate the work of singular-reference fixing at exactly one of four
+structural loci:
+dynamic selection, ontic privileging, semantic restriction, or discourse deflation.
+
+The paper does not derive the Born rule or alter the Hilbert-space formalism. Its narrower claim is
+that, on the target explanatory practice, the measurement problem is first a problem of referential
+determinacy for measurement records and only derivatively a problem of physical outcome production.
+\end{abstract}
+
+\begin{claimbox}
+\textbf{Main claim.} Measurement records are evidential anchors, not inert marks. On the fixed
+downstream substrate, admissible reference assignments for those records determine a unique
+standing-bearing quotient space. Bare Everettian unitary dynamics, entanglement, decoherence, and
+branch-local record stability do not by themselves collapse the admissible class to one quotient class
+for diachronic measurement discourse. If such collapse is not supplied elsewhere, theory-level
+confirmation, memory, anticipation, and deliberation become assignment-relative rather than
+theory-relative.
+\end{claimbox}
+
+\tableofcontents
+\newpage
+
+\input{sections/01_introduction}
+\input{sections/02_target_class_and_claim}
+\input{sections/03_semantic_core}
+\input{sections/04_branching_and_nonselection}
+\input{sections/05_measurement_records_and_confirmation}
+\input{sections/06_toy_model_of_confirmational_divergence}
+\input{sections/07_memory_anticipation_and_agency}
+\input{sections/08_selector_taxonomy}
+\input{sections/09_objections_and_replies}
+\input{sections/10_nonclaims_and_scope}
+\input{sections/11_conclusion}
+
+\appendix
+\input{sections/appendix_a_formal_remarks}
+\input{sections/appendix_b_relation_to_later_architecture}
+\input{sections/appendix_c_hostile_referee_materials}
+\input{sections/references_manual}
+
+\end{document}

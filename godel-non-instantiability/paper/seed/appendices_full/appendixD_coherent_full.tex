@@ -1,0 +1,75 @@
+\label{app:trajectory}
+
+This appendix reconstructs the trajectory layer. It formalizes the sense in which closure-relevant distinctions must matter \emph{in process}. The key dependency point is that legality is not introduced here as a second hidden governance act. It is the path-level realization of the already fixed same-domain licensing relation carried by the kernel-relative substrate.
+
+\begin{proposition}[Legality is substrate-fixed, not a second governance act]
+\label{prop:D-legality-fixed}
+Within the fixed substrate, the licensed same-domain continuation relation is already typed by the kernel, the interface forcing layer, and the quotient closure results. Accordingly, a legal same-domain trajectory does not introduce a new standing-bearing classifier beneath coherence; it records only a finite path through already licensed same-domain continuations. Any stricter admissibility-preserving attempt to refine legality on that same substrate would either refine standing beneath tensor content, introduce hidden gate work, depend on illicit redescription, or amount to a scope change.
+\end{proposition}
+
+\begin{proof}
+The kernel and interface layers already fix the same-domain standing/admissibility regime, lawful tensor-preserving redescription, licensed reuse, fail-closed enforcement, and no-repair/no-generator/no-carrier behavior; see Appendix~A and Appendix~B. Appendix~C then proves that any same-domain standing-preserving enrichment factors uniquely through the standing quotient and that no proper same-domain standing-preserving extension remains; see \cref{thm:C-factor,thm:C-no-proper-extension}. Therefore legality at the trajectory layer cannot be a fresh hidden classifier beneath coherence. If an allegedly stricter legality notion changed same-domain standing-bearing consequences, it would be hidden gate work or a refinement beneath the quotient; if it preserved all such consequences, it would be bookkeeping only. The remaining alternatives are illicit redescription or scope change. Hence legality is substrate-fixed at this layer.
+\end{proof}
+
+\begin{definition}[Legal same-domain trajectory]
+A legal same-domain trajectory is a finite nonempty sequence
+\[
+\tau=(a_0,a_1,\dots,a_n)
+\]
+of evaluated acts such that each adjacent step is a licensed same-domain continuation already fixed by the substrate. Thus legality is typed prior to the coherence definition and is not available for later hidden refinement on the same substrate.
+\end{definition}
+
+\begin{definition}[Coherent trajectory]
+A legal trajectory $\tau=(a_0,\dots,a_n)$ is \emph{coherent} if every state on the trajectory is standing-positive.
+\end{definition}
+
+\begin{lemma}[Prefix preservation]
+\label{thm:D-prefix}
+Every prefix of a coherent trajectory is coherent.
+\end{lemma}
+
+\begin{proof}
+A prefix of a legal trajectory is legal by restriction to a shorter sequence. If every state on the full trajectory is standing-positive, then every state on any prefix is standing-positive as well.
+\end{proof}
+
+\begin{lemma}[Failure witness characterization]
+\label{lem:D-failure}
+A legal trajectory is incoherent if and only if it contains at least one standing-failing state.
+\end{lemma}
+
+\begin{proof}
+Immediate from the definition of coherence.
+\end{proof}
+
+\begin{theorem}[No deferred coherence]
+\label{thm:D-no-deferred}
+If a legal trajectory has an incoherent prefix, then every legal extension of that prefix within the same lineage is incoherent.
+\end{theorem}
+
+\begin{proof}
+An incoherent prefix contains a standing-failing state by \cref{lem:D-failure}. Every extension that retains the prefix retains that state as part of its lineage. Hence the extension also contains a failure witness and is incoherent.
+\end{proof}
+
+\begin{theorem}[Irrecoverability under admissible continuation]
+\label{thm:D-irrecoverable}
+If a legal same-domain trajectory contains a standing-failing state at stage $i$, then every later stage in that trajectory is standing-failing.
+\end{theorem}
+
+\begin{proof}
+Suppose some later stage regained standing. Then a standing-failing lineage would be repaired by same-domain continuation, contradicting standing conservation and the no-generator/no-repair theorems \cref{thm:B-no-repair,thm:B-no-generators,thm:B-conservation}. Therefore failure propagates forward along the same legal lineage.
+\end{proof}
+
+\begin{theorem}[Terminal-state criterion]
+\label{thm:D-terminal}
+A legal trajectory is coherent if and only if its terminal state is standing-positive.
+\end{theorem}
+
+\begin{proof}
+If the trajectory is coherent, every state including the terminal one is standing-positive. Conversely, if the terminal state is standing-positive and some earlier state failed standing, then by \cref{thm:D-irrecoverable} the terminal state would fail standing too. Therefore no earlier failure exists, and the trajectory is coherent.
+\end{proof}
+
+\begin{remark}[Why Appendix~D matters to the G\"odel bridge]
+Appendix~D ensures that a closure-relevant distinction cannot be merely static or retrospective. To matter, it must alter what can be licensed in a same-domain inferential history. This is the trajectory side of the bridge used in \cref{lem:closure-transmission}.
+\end{remark}
+
+\section{Standing conservation as an identity-level invariant and the collapse of second equivalence relations}

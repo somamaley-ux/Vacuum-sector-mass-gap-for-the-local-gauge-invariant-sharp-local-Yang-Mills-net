@@ -1,0 +1,322 @@
+\section{Interpretation taxonomy: where is singular reference fixed?}
+\label{sec:taxonomy}
+
+The previous sections have now done enough work that the interpretation discussion can be stated as a
+same-scope exhaustion theorem. The relevant question is not simply which interpretation one prefers.
+It is this: \emph{where, if anywhere, is the work of fixing singular reference done strongly enough for
+measurement records to function as theory-level evidence on the fixed scope?}
+
+\subsection{Interpretation packages and the loci of reference-fixing work}
+
+\begin{definition}[Interpretation package]
+An \emph{interpretation package} for a measurement scenario $\mathcal{M}$ is a triple
+\[
+\mathfrak{I}=(T,\Lambda,\mathcal{D}^*),
+\]
+where:
+\begin{enumerate}
+    \item $T=(\Omega,\Delta)$ is the physical theory, with ontology or state-description $\Omega$ and
+    dynamics $\Delta$;
+    \item $\Lambda$ is the class of further resources appealed to in fixing the referents of measurement
+    discourse, including added ontology, semantic restrictions, or discourse-level policies; and
+    \item $\mathcal{D}^*$ is the class of diachronic measurement claims the package is intended to
+    underwrite.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Discourse-committing and discourse-deflationary packages]
+An interpretation package $\mathfrak{I}$ is \emph{discourse-committing} if it takes the claims in
+$\mathcal{D}^*$ to be truth-apt and confirmation-guiding through the measurement records of the
+scenario. It is \emph{discourse-deflationary} if it does not take the theory to underwrite those claims in
+the required truth-apt diachronic sense.
+\end{definition}
+
+\begin{definition}[Dynamic selection]
+A discourse-committing package realizes \emph{dynamic selection} if singular reference is fixed by the
+physical evolution law itself: for the relevant measurement episode, the dynamics $\Delta$ alone
+suppresses or removes outcome multiplicity strongly enough that exactly one post-measurement history
+remains eligible as the referent relevant to $\mathcal{D}^*$.
+\end{definition}
+
+\begin{definition}[Ontic privileging]
+A discourse-committing package realizes \emph{ontic privileging} if singular reference is fixed by
+additional ontological structure not determined by the bare dynamics alone. Equivalently, the
+physical description still requires an extra state variable, trajectory, configuration, or comparable
+ontic fact to designate which history is the actual referent.
+\end{definition}
+
+\begin{definition}[Semantic restriction]
+A discourse-committing package realizes \emph{semantic restriction} if the physical theory remains
+non-selective, but admissible reference assignments are restricted strongly enough that the surviving
+assignments form a single $\MReq$-class on the target discourse.
+\end{definition}
+
+\subsection{From stabilization to structural exhaustion}
+
+\begin{lemma}[Discourse commitment forces stabilization]
+\label{lem:discourse-commitment-stabilization}
+If an interpretation package $\mathfrak{I}$ is discourse-committing, then it must stabilize admissible
+reference assignments strongly enough to avoid the role-divergent case of
+Lemma~\ref{thm:two-case-exhaustion}.
+\end{lemma}
+
+\begin{proof}
+A discourse-committing package takes theory-level confirmation, memory, anticipation, deliberation,
+or some combination of them to be truth-apt and guided by measurement records. By
+Theorem~\ref{thm:reference-stabilization-necessity}, any such use requires admissible reference
+assignments to collapse strongly enough that fixation commutes with admissible redescription on the
+target discourse. So discourse commitment forces stabilization.
+\end{proof}
+
+\begin{definition}[Structural locus of singular-reference fixing]
+\label{def:selector-locus}
+A same-scope resource that purports to fix singular reference does its standing-bearing work at
+exactly one of the following loci:
+\begin{enumerate}
+    \item \textbf{boundary locus}: by acting as an admissibility-relevant selector or parameter at the
+    pre-admissible boundary;
+    \item \textbf{quotient locus}: by refining the quotient-level standing-bearing content itself through a
+    new invariant or privileged continuation relation; or
+    \item \textbf{representation locus}: by restricting how already-admissible representatives or uses are
+    allowed to count without changing the quotient-level physical package.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Structural locus trichotomy]
+\label{thm:selector-locus-trichotomy}
+Any admissibility-preserving same-scope selector must operate at exactly one of the loci in
+Definition~\ref{def:selector-locus}. No fourth same-scope locus exists.
+\end{theorem}
+
+\begin{proof}
+By Proposition~\ref{prop:substrate-consequences}, any same-scope admissibility-bearing difference
+must appear either in standing classification or in licensed continuation. The fixed downstream
+substrate closes any second same-scope invariant except as bookkeeping or scope change, and the
+role-decomposition results imported with that substrate leave no fourth admissibility-bearing role
+beside anchor-level, quotient/tensor-level, and representational/skin-level work. A selector that acts
+before quotient-level content is fixed therefore acts at the boundary; a selector that changes
+standing-bearing content acts on the quotient; and a selector that leaves quotient content untouched
+but changes how representatives may count acts via representation. If it does none of these, it is
+bookkeeping only and not a selector. So no fourth same-scope locus remains.
+\end{proof}
+
+\begin{corollary}[Boundary selectors are forbidden]
+\label{cor:boundary-selectors-forbidden}
+If a same-scope selector operates at the boundary locus, it introduces admissibility-relevant
+parameterization or selection and is therefore forbidden on the fixed scope.
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:selector-locus-trichotomy}, a boundary-locus selector acts before quotient-level
+content is fixed. But Theorem~\ref{thm:compressed-substrate-necessity} and
+Lemma~\ref{lem:bivalence-boundary-excludes-parameterization} exclude same-scope admissibility-
+relevant parameterization or selection at the boundary. So a boundary selector is forbidden.
+\end{proof}
+
+\begin{corollary}[Quotient refinements force new invariant structure]
+\label{cor:quotient-refinement-scope-change}
+If a same-scope selector operates at the quotient locus, then it refines standing-bearing content by a
+new invariant or privileged continuation relation. On the fixed scope that is not an additional neutral
+interpretation layer; it is a scope change relative to the non-selective base package.
+\end{corollary}
+
+\begin{proof}
+A quotient-locus selector changes which standing-bearing content counts as the relevant continuation.
+By Theorem~\ref{thm:equivalence-collapse}, no alternative same-scope admissibility-preserving
+quotient survives beside $\MReq$. So any quotient refinement either coincides with the existing
+quotient or introduces a new same-scope invariant. The latter is excluded by the fixed downstream
+substrate except as scope change.
+\end{proof}
+
+\begin{corollary}[Representation restrictions yield semantic restriction or deflation]
+\label{cor:representation-restriction-semantic-or-deflation}
+If a same-scope selector operates only at the representation locus while leaving the physical package
+non-selective, then either it restricts admissible representatives to one quotient class (semantic
+restriction) or it refuses the target truth-apt discourse (discourse deflation).
+\end{corollary}
+
+\begin{proof}
+A purely representational selector cannot change boundary status or quotient-level content without
+leaving the representation locus. If the target discourse remains truth-apt and theory-relative, the only
+way such a selector can matter is by restricting admissible representatives strongly enough that their
+use collapses into one quotient class; that is semantic restriction. If the target discourse is instead
+refused, the package is discourse-deflationary. No third representation-locus option remains.
+\end{proof}
+
+\begin{theorem}[Selector-exhaustion theorem]
+\label{thm:selector-exhaustion}
+Any admissibility-preserving selector must do exactly one of the following:
+\begin{enumerate}
+    \item introduce boundary parameterization or a boundary selector, which is forbidden;
+    \item refine standing-bearing quotient content by a new invariant or privileged continuation
+    relation, which is a scope change on the fixed substrate;
+    \item restrict representation so that admissible assignments collapse into one quotient class,
+    which is semantic restriction; or
+    \item refuse the target truth-apt discourse, which is discourse deflation.
+\end{enumerate}
+No fifth same-scope selector route exists.
+\end{theorem}
+
+\begin{proof}
+By Theorem~\ref{thm:selector-locus-trichotomy}, every same-scope selector operates at the boundary,
+on the quotient, or via representation. Boundary-locus selectors are forbidden by
+Corollary~\ref{cor:boundary-selectors-forbidden}. Quotient-locus selectors refine standing-bearing
+content and therefore introduce a new invariant or privileged continuation relation; by
+Corollary~\ref{cor:quotient-refinement-scope-change} this is a scope change on the fixed substrate.
+Representation-locus selectors fall under
+Corollary~\ref{cor:representation-restriction-semantic-or-deflation}: they are either semantic
+restriction or discourse deflation. These cases are exhaustive, so no fifth same-scope selector route
+remains.
+\end{proof}
+
+\begin{theorem}[Interpretation taxonomy]
+\label{thm:selector-taxonomy}
+Every interpretation package $\mathfrak{I}$ for a measurement scenario falls into exactly one of the
+following structural classes:
+\begin{enumerate}
+    \item \textbf{Dynamic selection.} Singular reference is fixed by physical dynamics.
+    \item \textbf{Ontic privileging.} Singular reference is fixed by added ontological structure or a
+    privileged trajectory.
+    \item \textbf{Semantic restriction.} The physical theory remains non-selective, but admissible
+    reference assignments are restricted to a single standing-equivalence class.
+    \item \textbf{Discourse deflation.} The package does not take the theory to underwrite the target
+    class of truth-apt diachronic measurement discourse.
+\end{enumerate}
+No fifth structural locus remains under the fixed downstream substrate.
+\end{theorem}
+
+\begin{proof}
+Take any interpretation package $\mathfrak{I}$. If it is not discourse-committing, it is discourse-
+deflationary and we are in class~(4).
+
+Assume instead that $\mathfrak{I}$ is discourse-committing. By
+Lemma~\ref{lem:discourse-commitment-stabilization}, it must stabilize admissible reference
+assignments strongly enough to avoid quotient-relevant divergence. If the stabilizing work is done by
+changing the physical dynamics so that only one continuation remains eligible, the package realizes
+dynamic selection. If the stabilizing work is done by additional ontological structure not fixed by the
+bare dynamics, the package realizes ontic privileging. If the physical theory remains non-selective and
+the stabilization is achieved only by restricting admissible representatives to one quotient class, the
+package realizes semantic restriction. By Theorem~\ref{thm:selector-exhaustion}, no fifth same-scope
+selector route exists. Hence the listed classes are exhaustive and mutually exclusive.
+\end{proof}
+\subsection{The comparative interpretation matrix}
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.31\textwidth}}
+\toprule
+\textbf{Class} & \textbf{Selector locus} & \textbf{What is fixed} & \textbf{Representative strategies} \\
+\midrule
+Dynamic selection & Physical dynamics & One continuation by law & Collapse dynamics, objective reduction \\
+Ontic privileging & Added ontology & One continuation by extra physical fact & Hidden-variable, actual-history, privileged trajectory \\
+Semantic restriction & Admissible reference assignments & One standing-equivalence class of admissible assignments & Everettian semantic-fixation programs, typed successor restrictions \\
+Discourse deflation & Nowhere inside the theory & The target discourse is refused & Instrumentalism, QBism, other deflationary responses \\
+\bottomrule
+\end{tabular}
+\caption{Comparative interpretation matrix. The classification question is not which interpretation is
+metaphysically best, but where the work of fixing singular reference is done if it is done at all.}
+\label{tab:selector-taxonomy}
+\end{table}
+
+\subsection{Where the familiar interpretations land}
+
+\begin{proposition}[Collapse strategies instantiate dynamic selection]
+\label{prop:collapse-dynamic}
+Collapse strategies such as GRW instantiate class~(1) of
+Theorem~\ref{thm:selector-taxonomy}: they place the work of singular-reference fixation in the
+physical dynamics itself.
+\end{proposition}
+
+\begin{proof}
+A collapse theory changes the dynamics so that, for the relevant measurement episode, one outcome
+history is physically singled out rather than multiple stable histories remaining equally realized.
+That is exactly dynamic selection.
+\end{proof}
+
+\begin{proposition}[Hidden-variable strategies instantiate ontic privileging]
+\label{prop:hidden-ontic}
+Hidden-variable or actual-history strategies instantiate class~(2) of
+Theorem~\ref{thm:selector-taxonomy}: they place the work of singular-reference fixation in added
+ontological structure rather than in the bare dynamics alone.
+\end{proposition}
+
+\begin{proof}
+Such strategies retain a multiplicity in the wavefunction-level description but add further structure ---
+for example an actual configuration or privileged trajectory --- that designates which history is the
+one relevant to diachronic discourse. That is ontic privileging.
+\end{proof}
+
+\begin{proposition}[Bare Everett is not yet a completed discourse-committing strategy]
+\label{prop:bare-everett-not-complete}
+The bare Everettian package is physically non-selective and therefore does not by itself realize class~(1),
+class~(2), or class~(3). To underwrite the target discourse, it must either be completed by semantic
+restriction or move to discourse deflation.
+\end{proposition}
+
+\begin{proof}
+Theorem~\ref{thm:everett_nonselection} and Corollary~\ref{cor:everettian-nonselection} show that the
+bare Everettian package is physically non-selective. So it does not realize dynamic selection. By
+construction it adds no extra ontology that privileges one branch, so it does not realize ontic
+privileging. It realizes semantic restriction only if admissible reference assignments are restricted
+strongly enough to collapse into one standing-equivalence class. Bare Everett alone does not do that.
+Therefore it is not yet a completed discourse-committing strategy. To underwrite the target discourse,
+it must either be completed by semantic restriction or retreat to discourse deflation.
+\end{proof}
+
+\begin{corollary}[Bare Everettian exclusion of the first three loci]
+\label{cor:bare-everett-exhaustion}
+If one retains the bare Everettian package without adding new dynamics, without adding ontological
+selection structure, and without imposing an admissible same-scope restriction on reference assignments,
+then the package realizes none of the first three loci of Theorem~\ref{thm:selector-exhaustion}. Relative
+to the target explanatory practice, only discourse deflation remains.
+\end{corollary}
+
+\begin{proof}
+Theorem~\ref{thm:everett_nonselection} excludes dynamic selection in the bare Everettian package.
+Proposition~\ref{prop:bare-everett-not-complete} excludes ontic privileging and shows that the bare
+package does not by itself collapse admissible assignments into a single standing-equivalence class.
+Therefore, absent additional same-scope structure, the bare package realizes none of the first three loci
+of Theorem~\ref{thm:selector-exhaustion}. If the target explanatory practice is nonetheless refused, the
+package moves to discourse deflation.
+\end{proof}
+
+\begin{proposition}[Everettian semantic-fixation strategies instantiate semantic restriction]
+\label{prop:everett-semantic}
+Any Everettian strategy that keeps the physical theory non-selective while restricting admissible
+diachronic reference strongly enough for records to function as evidence falls under class~(3) of
+Theorem~\ref{thm:selector-taxonomy}.
+\end{proposition}
+
+\begin{proof}
+Such a strategy leaves the underlying physical package non-selective, so it is neither dynamic selection
+nor ontic privileging. If it still underwrites theory-level confirmation, memory, anticipation, and
+agency, then by Lemma~\ref{lem:discourse-commitment-stabilization} it must stabilize admissible
+reference assignments. Since the work is not being done by a physical selector, it is being done by
+restricting admissible assignments themselves. That is exactly semantic restriction.
+\end{proof}
+
+\begin{proposition}[QBist and instrumentalist strategies instantiate discourse deflation]
+\label{prop:qbism-deflation}
+QBist and instrumentalist strategies \citep{fuchs2014} fall under class~(4) of
+Theorem~\ref{thm:selector-taxonomy} insofar as they do not take quantum theory to underwrite the
+target class of truth-apt diachronic measurement discourse.
+\end{proposition}
+
+\begin{proof}
+On QBist and related instrumentalist views, quantum states and outcomes are not taken to describe an
+objective diachronic measurement history in the sense needed by the standing conditional. Instead they
+organize expectations, betting commitments, or instrumental predictions. The package therefore does
+not aim to secure singular reference for the target discourse through the theory itself. That is not a
+failed stabilization strategy; it is a refusal of the target explanatory burden. Hence these views
+instantiate discourse deflation.
+\end{proof}
+
+\begin{remark}[Relational and perspectival views]
+Some relational or perspectival views may not advertise themselves under any of the four standard
+labels \citep{rovelli1996}. The present taxonomy still applies. If such a view is discourse-committing and
+physically non-selective, it must either supply semantic restriction or add physical selection. If it
+instead treats the relevant diachronic discourse as non-fundamental or merely perspective-bound in a
+way that refuses theory-level truth-aptness, it moves toward discourse deflation. The exact placement
+of particular relational programs is therefore an application question, not a challenge to the taxonomy.
+\end{remark}

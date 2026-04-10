@@ -1,0 +1,30 @@
+\label{app:equivalence}
+
+This appendix reconstructs the final equivalence layer. It proves that standing conservation is not an auxiliary rule but an invariant forced by the equivalence of admissibility and standing.
+
+\begin{theorem}[Standing conservation as an identity-level invariant]
+\label{thm:E-conservation}
+Once admissibility and standing are equivalent on the fixed domain, standing conservation is not an additional rule layered onto admissibility. It is an identity-level invariant of admissible classification itself. Equivalently, there exists no admissible determination that violates standing conservation, and no standing violation that preserves admissibility.
+\end{theorem}
+
+\begin{proof}
+Assume, for contradiction, that there exists an admissible determination that violates standing conservation. By Appendix~B, standing on the fixed domain is exactly reuse-stable admissibility. So an admissible determination implies standing, while a violation of standing implies inadmissibility. The assumed determination is therefore both admissible and inadmissible, impossible. Conversely, if one assumes a violation of admissibility that preserves standing, then standing would hold without admissibility, contradicting \cref{thm:B-standing}. Hence any violation of one is a violation of the other. Conservation is therefore not an auxiliary overlay; it is the invariant form of admissibility under the standing-admissibility equivalence.
+\end{proof}
+
+\begin{theorem}[No second closure-relevant equivalence relation]
+\label{thm:E-no-second-equivalence}
+There is no second closure-relevant equivalence relation on the fixed domain beside the standing-equivalence relation determined by admissible classification. Any alleged second closure-relevant equivalence either
+\begin{enumerate}[label=(\roman*), leftmargin=2.5em]
+    \item collapses extensionally to the standing quotient; or
+    \item violates the identity-level invariance of admissible classification and is therefore inadmissible.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Let $\approx$ be an alleged second closure-relevant equivalence relation. If $\approx$ is extensionally identical to standing-equivalence, then it is not a second relation at all, giving (i). Assume it is not identical. If it is finer than standing-equivalence, then it distinguishes two acts that admissible classification treats identically. That violates the identity-level invariance established by \cref{thm:E-conservation} unless the distinction is inert bookkeeping. If it is coarser than standing-equivalence, then it identifies two acts that admissible classification distinguishes, thereby collapsing an admissible standing difference and again violating \cref{thm:E-conservation}. In either non-identical case the relation is not an admissible closure-relevant equivalence. Hence no second closure-relevant equivalence survives.
+\end{proof}
+
+\begin{remark}[Role of Appendix~E]
+Appendix~E closes the final escape route for the main theorem. A hostile reader may try to say that the G\"odel distinction lives in a different equivalence relation than the standing quotient. \Cref{thm:E-no-second-equivalence} shows that no such second closure-relevant equivalence exists on the fixed domain.
+\end{remark}
+

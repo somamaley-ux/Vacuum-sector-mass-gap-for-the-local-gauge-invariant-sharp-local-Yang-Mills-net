@@ -1,0 +1,104 @@
+\section{Appendix: audit materials}
+\label{app:audit-materials}
+
+This appendix collects three audit aids: a dependency map, a denial-condition matrix, and a compact
+reading path. It adds no premises to the theorem ladder.
+
+\subsection{Dependency map for the theorem ladder}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=10mm and 10mm,
+  >=Latex,
+  every node/.style={font=\small},
+  box/.style={draw=accent, rounded corners=2pt, fill=softaccent, align=left, inner sep=6pt, text width=0.29\textwidth},
+  line/.style={-Latex, semithick, draw=accent}
+]
+\node[box] (substrate) {\textbf{Fixed downstream substrate}\\
+Definition~\ref{def:fixed-downstream-substrate} and Proposition~\ref{prop:substrate-consequences}.};
+\node[box, right=of substrate] (semantic) {\textbf{Measurement-reference quotient}\\
+Definitions~\ref{def:admissible-reference-assignment}--\ref{def:mr-presentation};
+Theorem~\ref{thm:measurement-reference-quotient}.};
+\node[box, below=of substrate] (everett) {\textbf{Everettian non-selection}\\
+Corollary~\ref{cor:everettian-nonselection} and Theorem~\ref{thm:everett_nonselection}.};
+\node[box, below=of semantic] (confirmation) {\textbf{Confirmation criterion}\\
+Theorems~\ref{thm:theory-level-confirmation-criterion}, \ref{thm:fixation-commutation-necessity}, and \ref{thm:reference-stabilization-necessity}.};
+\node[box, below=of confirmation] (toy) {\textbf{Toy witness}\\
+Theorem~\ref{thm:toy-reversal}.};
+\node[box, below=of everett] (lineage) {\textbf{Diachronic inheritance}\\
+Theorems~\ref{thm:identity-preserving-lineage} and \ref{thm:diachronic-practice}.};
+\node[box, right=of lineage] (taxonomy) {\textbf{Interpretation exhaustion}\\
+Theorem~\ref{thm:selector-taxonomy}.};
+\draw[line] (substrate) -- (semantic);
+\draw[line] (substrate) -- (everett);
+\draw[line] (semantic) -- (confirmation);
+\draw[line] (everett) -- (lineage);
+\draw[line] (confirmation) -- (toy);
+\draw[line] (confirmation) -- (taxonomy);
+\draw[line] (lineage) -- (taxonomy);
+\end{tikzpicture}
+\caption{Dependency map for the hardened theorem ladder. The quotient theorem and the Everettian
+non-selection theorem are the two main inputs to the confirmation and lineage theorems; the
+interpretation taxonomy is downstream of both.}
+\label{fig:dependency-map}
+\end{figure}
+
+\subsection{Denial-condition matrix}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}p{0.40\textwidth} >{\raggedright\arraybackslash}p{0.20\textwidth}}
+\caption{Denial-condition matrix for standard objections.}\\
+\toprule
+\textbf{Objection} & \textbf{To maintain it, one must deny} & \textbf{Where to look} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Objection} & \textbf{To maintain it, one must deny} & \textbf{Where to look} \\
+\midrule
+\endhead
+The framework is optional & The compressed substrate-necessity bridge or the standing conditional itself & Sec.~\ref{sec:targetclass} \\
+\addlinespace
+Different admissible assignments are just semantic packagings & The equivalence-collapse theorem or Corollary~\ref{cor:confirmational-divergence-quotient-relevant} & Sec.~\ref{sec:semanticcore}; App.~\ref{app:formal-quotient} \\
+\addlinespace
+Branch-local determinacy is enough & Lemma~\ref{thm:branchlocal-not-diachronic} & Sec.~\ref{sec:branching} \\
+\addlinespace
+Decision theory solves the problem & Theorem~\ref{thm:decision-theoretic-dependence} & Sec.~\ref{sec:diachronic_practice} \\
+\addlinespace
+Confirmation can be relativized without loss & Theorems~\ref{thm:theory-level-confirmation-criterion} and \ref{thm:fixation-commutation-necessity} & Sec.~\ref{sec:confirmation} \\
+\addlinespace
+Memory, anticipation, and agency are separate issues & Theorems~\ref{thm:identity-preserving-lineage} and \ref{thm:diachronic-inheritance} & Sec.~\ref{sec:diachronic_practice} \\
+\addlinespace
+There may be a fifth interpretive family & Theorem~\ref{thm:selector-exhaustion} & Sec.~\ref{sec:taxonomy} \\
+\addlinespace
+Instrumentalism or QBism refutes the theorem ladder & Proposition~\ref{prop:deflation-exit} & Sec.~\ref{sec:objections} \\
+\bottomrule
+\label{tab:attack-map}
+\end{longtable}
+
+\subsection{Compact reading path}
+
+A short but faithful route through the manuscript is:
+\begin{enumerate}
+    \item Section~\ref{sec:targetclass}: fixed downstream substrate, target discourse, and standing
+    conditional.
+    \item Section~\ref{sec:semanticcore}: Definitions~\ref{def:admissible-reference-assignment}--\ref{def:mr-presentation},
+    Theorem~\ref{thm:measurement-reference-quotient}, and
+    Corollary~\ref{cor:confirmational-divergence-quotient-relevant}.
+    \item Section~\ref{sec:branching}: Corollary~\ref{cor:everettian-nonselection} and
+    Theorem~\ref{thm:everett_nonselection}.
+    \item Section~\ref{sec:confirmation}: Theorems~\ref{thm:theory-level-confirmation-criterion},
+    \ref{thm:fixation-commutation-necessity}, and
+    \ref{thm:reference-stabilization-necessity}.
+    \item Section~\ref{sec:toy}: Theorem~\ref{thm:toy-reversal}.
+    \item Section~\ref{sec:diachronic_practice}: Theorems~\ref{thm:identity-preserving-lineage} and
+    \ref{thm:diachronic-practice}.
+    \item Section~\ref{sec:taxonomy}: Theorem~\ref{thm:selector-taxonomy}.
+    \item Section~\ref{sec:objections}: only the objection subsections still thought live after the first
+    seven steps.
+\end{enumerate}
+
+\subsection{Role of the appendix}
+
+This appendix is procedural. The dependency map, denial-condition matrix, and reading path expose
+the architecture of the argument without adding premises to it. Table~\ref{tab:strict-denial-table} in
+Section~\ref{sec:objections} is the main-text compression of the same hostile-referee logic.

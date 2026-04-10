@@ -1,0 +1,10 @@
+import MaleyLean.GodelVerbatimRegister
+
+namespace MaleyLean
+
+#print axioms PaperGodelUpdatedTitleRegisteredStatement
+#print axioms PaperGodelVerbatimSectionRegisterCompleteStatement
+#print axioms PaperGodelVerbatimTheoremRegisterCompleteStatement
+#print axioms PaperGodelVerbatimTerminalTheoremMatchesSurfaceStatement
+
+end MaleyLean
