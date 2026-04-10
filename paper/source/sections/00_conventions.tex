@@ -1,0 +1,100 @@
+\section{Conventions, normalizations, and hardening policy}
+\label{sec:conventions}
+
+This manuscript is written with the explicit goal that every load-bearing estimate can be audited line-by-line.
+To avoid ambiguity, we fix the following conventions once and for all.
+
+\subsection{Groups, representations, and metrics}
+\label{subsec:conventions_groups}
+
+Throughout the technical sections, after choosing an auxiliary ultraviolet Wilson regularization,
+\begin{equation}
+\label{eq:families}
+\begin{aligned}
+&G\ \text{is a compact connected simple Lie group},\\
+&\rho:G\to U(d_\rho)\ \text{is a fixed finite-dimensional unitary Wilson representation}.
+\end{aligned}
+\end{equation}
+Packet~10 later proves that the final continuum local theory is independent of the faithful choice of $\rho$, while a nonfaithful choice simply descends to the effective quotient $G_{\mathrm{eff}}:=G/\ker(\rho)$.
+We write $\mathfrak g$ for the Lie algebra of $G$.
+
+\begin{remark}[Effective global form determined by the Wilson action]
+\label{rem:effective_group_convention}
+The Wilson plaquette weight is defined from the fixed unitary representation $\rho$ in \eqref{eq:families}.
+If $\rho$ has a nontrivial central kernel $K_\rho=\ker(\rho)\subset Z(G)$, then all Wilson weights and all strictly local gauge-invariant observables
+considered in this manuscript factor through the quotient $G_{\mathrm{eff}}:=G/K_\rho$ (see also \Cref{lem:adjoint_local_generators}).
+Whenever convenient, we therefore replace $(G,\rho)$ by $(G_{\mathrm{eff}},\rho_{\mathrm{desc}})$ and continue to write $G,\rho$.
+This convention is made explicit in \S\ref{subsec:spin_vs_so} and is used to avoid spurious ``multiple minima'' artifacts when $K_\rho\neq\{\mathbf 1\}$.
+\end{remark}
+
+\begin{definition}[Metric and Casimir normalization]
+\label{def:metric_casimir}
+We equip $\mathfrak g$ with the positive definite inner product
+\begin{equation}
+\label{eq:metric_choice}
+\langle X,Y\rangle\ :=\ -\frac{1}{2g_{\mathrm{ad}}}\,\mathrm{Tr}_{\mathrm{ad}}(\mathrm{ad}(X)\,\mathrm{ad}(Y)),
+\end{equation}
+where $g_{\mathrm{ad}}>0$ is the constant chosen so that the shortest roots have squared length $2$.
+The associated bi-invariant Riemannian metric on $G$ defines the Laplace--Beltrami operator $\Delta$.
+For an irreducible unitary representation $\pi$, we denote by $C_2(\pi)>0$ the quadratic Casimir eigenvalue in this normalization,
+characterized by
+\begin{equation}
+\label{eq:casimir_eigen}
+\Delta\chi_{\pi}\ =\ -C_2(\pi)\,\chi_{\pi}.
+\end{equation}
+\end{definition}
+
+\subsection{Explicit-constant policy}
+\label{subsec:conventions_constants}
+
+All constants that constrain parameter choices are given names and recorded in the constant table in \S\ref{sec:roadmap_constants}.
+Whenever a constant varies along a Lie family or along the chosen Wilson representation, we either:
+\begin{itemize}
+\item track the dependence explicitly as a function $c(n)$, or
+\item record a uniform lower/upper bound valid for all admissible $n$.
+\end{itemize}
+No statement uses an unnamed ``small enough'' or ``large enough'' parameter.
+
+\subsection{One-plaquette coefficient gate (A1 shape)}
+\label{subsec:conventions_A1}
+
+A single group-dependent harmonic-analysis bound is used repeatedly in the dyadic RG closure:
+\emph{a crossover decay estimate for the one-plaquette character coefficients}.
+For clarity, we always state it in the following canonical form.
+
+\begin{proposition}[A1: canonical one-plaquette coefficient crossover bound]
+\label{prop:A1_template}
+Let $\rho$ be the fixed Wilson representation from \eqref{eq:families}.
+There exist constants $c_{\mathrm{A1}}(G,\rho)>0$ and $\beta_{\mathrm{A1}}(G,\rho)\ge 1$ such that for all $\beta\ge\beta_{\mathrm{A1}}(G,\rho)$,
+all $\alpha\in[1/2,1]$, and all nontrivial irreducible representations $\pi$ that occur in the character expansion of the Wilson plaquette weight,
+\begin{equation}
+\label{eq:A1_canonical}
+\big|a_{\pi}(\beta,\alpha)\big|
+\ \le\ 
+\exp\!\Big(-c_{\mathrm{A1}}(G,\rho)\,\frac{C_2(\pi)}{\beta+\sqrt{C_2(\pi)}}\Big).
+\end{equation}
+\end{proposition}
+
+\begin{theorem}[A1: one-plaquette coefficient crossover bound for compact connected simple groups]
+\label{thm:A1_one_plaq_compact_simple}\label{thm:A1_one_plaq_classical}
+Let $G$ and $\rho$ be as in \eqref{eq:families}, and pass if necessary to the effective quotient $G_{\mathrm{eff}}:=G/\ker(\rho)$ so that the descended representation is faithful.
+There exist constants $c_{\mathrm{A1}}(G,\rho)>0$ and $\beta_{\mathrm{A1}}(G,\rho)\ge 1$ such that for all $\beta\ge\beta_{\mathrm{A1}}(G,\rho)$,
+all $\alpha\in[1/2,1]$, and all nontrivial irreducible representations $\pi$ of $G_{\mathrm{eff}}$ occurring in the character expansion of the Wilson plaquette weight,
+\begin{equation}
+\label{eq:A1_canonical_Ahyp}
+\big|a_{\pi}(\beta,\alpha)\big|
+\ \le\ 
+\exp\!\Big(-c_{\mathrm{A1}}(G,\rho)\,\frac{C_2(\pi)}{\beta+\sqrt{C_2(\pi)}}\Big).
+\end{equation}
+Equivalently, when this statement is pulled back to the original pair $(G,\rho)$, the coefficient vanishes on irreducibles that do not descend through $G\twoheadrightarrow G_{\mathrm{eff}}$.
+\end{theorem}
+
+\begin{remark}[Status in this submission]
+Theorem~\ref{thm:A1_one_plaq_compact_simple} is proved in Appendix~\ref{app:A1_compact_simple}.
+Appendices~\ref{app:A1_Sp}--\ref{app:A1_Spin_even} are retained as direct audited classical-family examples for the standard $\Sp/\Spin$ choices of $\rho$.
+\end{remark}
+
+
+We emphasize that the naive ``uniform heat-kernel'' form $\exp(-c\,C_2(\pi)/\beta)$ cannot hold for all representations simultaneously
+(see the rank-one obstruction encoded in \Cref{rem:no_go_heatkernel_generic}).
+The crossover denominator $\beta+\sqrt{C_2(\pi)}$ is the sharp multiscale-compatible substitute.

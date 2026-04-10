@@ -1,0 +1,102 @@
+\section{Live dependency DAG and packet map}\label{sec:kernel-spine}
+
+The proof burden of \Cref{thm:main} is finite at theorem level. This section freezes the packet map used by the kernel and displays only the load-bearing theorem edges. Commentary branches, historical alternatives, Lane~B reformulations, and reserve routing notes are deliberately omitted.
+
+\begin{proposition}[Ten-packet proof kernel]\label{prop:packet-reduction}
+\Cref{thm:main} follows from ten public theorem packets together with one auxiliary certification theorem. More precisely:
+\begin{enumerate}[label=\textup{(\roman*)}]
+    \item Packets~1--2 imply part~\textup{(A)} of \cref{thm:main}.
+    \item Packets~4--7 construct the continuum sharp-local state, the full inductive-union sharp-local algebra, and the bounded-base cyclicity needed for part~\textup{(C)}.
+    \item Packet~3 together with Packet~8, with the Lane~A seam nodes consumed inside Packet~8, yield part~\textup{(D)}.
+    \item Packet~9 packages the downstream Euclidean clustering reformulation together with OS/Wightman existence, field correspondence, and non-triviality.
+    \item Packet~10 fixes the exact theorem-level local-net endpoint.
+\end{enumerate}
+The only additional certification theorem not on this public docket is the weak-window sufficiency certificate of Section~\ref{sec:route1}.
+\end{proposition}
+\proofhome{This kernel, Sections~\ref{sec:uv}--\ref{sec:assembly}, with the explicit companion proof homes carried by the individual packet theorems}
+
+\subsection{Frozen live dependency DAG}
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw,rounded corners,align=center,inner sep=4pt,minimum width=27mm,minimum height=10mm},
+  smallbox/.style={draw,rounded corners,align=center,inner sep=3pt,minimum width=24mm,minimum height=8mm},
+  arrow/.style={-{Latex[length=2.2mm]}, semithick}
+]
+\node[box] (p1) at (0,0) {Packet 1\\UV gate};
+\node[box] (p2) at (0,-1.6) {Packet 2\\Entrance};
+\node[box] (p3) at (0,-3.2) {Packet 3\\Fixed-lattice gap};
+\node[box] (p8) at (0,-6.4) {Packet 8\\QE3 transport};
+\node[box] (p9) at (0,-8.0) {Packet 9\\Reconstruction};
+\node[box] (p10) at (0,-9.6) {Packet 10\\Endpoint};
+
+\node[box] (p4) at (6.2,-1.6) {Packet 4\\Flowed state};
+\node[box] (p5) at (6.2,-3.2) {Packet 5\\Finite-truncation};
+\node[box] (p6) at (6.2,-4.8) {Packet 6\\Finite-cap closure};
+\node[box] (p7) at (6.2,-6.4) {Packet 7\\Cyclicity};
+
+\node[smallbox] (ww) at (-4.9,-6.4) {IV.4\\sole live weak-window\\certificate};
+
+\draw[arrow] (p1) -- (p2);
+\draw[arrow] (p2) -- (p3);
+\draw[arrow] (p3) -- (p8);
+\draw[arrow] (p8) -- (p9);
+\draw[arrow] (p9) -- (p10);
+
+\draw[arrow] (p4) -- (p5);
+\draw[arrow] (p5) -- (p6);
+\draw[arrow] (p6) -- (p7);
+\draw[arrow] (p4) -- (p8);
+\draw[arrow] (p6) -- (p8);
+\draw[arrow] (p7) -- (p8);
+\draw[arrow] (p5) -- (p9);
+\draw[arrow] (p6) -- (p9);
+\draw[arrow] (p7) -- (p9);
+
+\draw[arrow] (ww) -- (p8);
+\end{tikzpicture}
+\caption{Kernel dependency DAG. Packet~8 is not Route~1-internal: it reuses Packet~4 through the bounded positive-time base state and consumes the repaired Lane~A seam outputs Theorem~\ref{thm:finite-cap-extension}, Corollary~\ref{cor:full-inductive-union}, Theorem~\ref{thm:bounded-base-cyclicity}, Corollary~\ref{cor:density-bounded-base}, and Lemma~\ref{lem:qe3-graph-core}. Theorem~\ref{thm:weak-window-certificate} is the sole live weak-window certificate on the public spine. Lane~B is downstream only and does not appear in the kernel DAG.}
+\label{fig:kernel-dag}
+\end{figure}
+
+\subsection{Packet docket in dependency order}
+\begin{description}[leftmargin=2.2em,style=nextline]
+\item[Packet 1.] Compact-simple A1 ultraviolet gate and public group-scope export.
+\item[Packet 2.] One-shot entrance into the KP/Dobrushin basin at bounded physical scale.
+\item[Packet 3.] Tuned full fixed-lattice OS gap.
+\item[Packet 4.] Unique flowed continuum state, tuned bounded positive-time base state, and the dyadic OS matrix elements used later at QE3.
+\item[Packet 5.] Exact-dimension quotient control, one-shell transport, finite-truncation inverse control, and the capwise SFTE/remainder package.
+\item[Packet 6.] Finite mixed bounded-family packaging, mixed-correlator closure at fixed cap, the theorem-facing finite-cap positive/unital bridge, finite-cap sharp-local extension, and the later inductive-union passage.
+\item[Packet 7.] Bounded-base cyclicity in the reconstructed sharp-local Hilbert space.
+\item[Packet 8.] Same-scale Wilson return, bounded dyadic OS limit, continuum-time OS upgrade, density/graph-core handoff, continuum vacuum-gap transport, and the sharp-local vacuum-gap corollary.
+\item[Packet 9.] Downstream Euclidean clustering reformulation, Euclidean OS dossier, Wightman reconstruction, field correspondence, Minkowski-gap transfer, and non-triviality.
+\item[Packet 10.] Faithful-Wilson universality and the exact theorem-level local-net endpoint.
+\item[Auxiliary certificate.] Theorem~\ref{thm:weak-window-certificate}, the sole live weak-window sufficiency certificate on the public spine.
+\end{description}
+
+\subsection{Decisive seam nodes}
+\begin{description}[leftmargin=2.2em,style=nextline]
+\item[Theorem~\ref{thm:mixed-correlator-closure}.] Sole mixed-channel closure node at finite cap.
+\item[Companion-II bridge 5.74A.] The theorem-facing positive/unital finite-cap bridge packages exactly what the capwise extension theorem may use from the bounded-family and mixed-channel closure packet.
+\item[Theorem~\ref{thm:finite-cap-extension}.] Finite-cap sharp-local OS structure on the capwise algebra; this is the capwise OS input used before any inductive-union passage.
+\item[Companion-II Corollary~5.75.] Bounded-state restriction compatibility node on the QE3 seam; it is \emph{not} the inductive-union theorem.
+\item[Corollary~\ref{cor:full-inductive-union}.] Passage from capwise sharp-local reconstruction to the full inductive-union sharp-local algebra.
+\item[Theorem~\ref{thm:bounded-base-cyclicity}.] First theorem-level bounded-base cyclicity export on the Lane~A spine.
+\item[Lemma~\ref{lem:qe3-graph-core}.] Final QE3 density/graph-core handoff; closes the cap/flow-time seam with no hidden domain argument.
+\item[Theorem~\ref{thm:continuum-gap-transport}.] Unique transport node carrying the tuned full fixed-lattice lower bound to the continuum sharp-local Hilbert space.
+\item[Theorem~\ref{thm:weak-window-certificate}.] Sole live weak-window sufficiency certificate on the public Route~1 spine.
+\end{description}
+
+\subsection{Kernel seam-locality note}
+At the two highest-load Lane~A seams, this kernel is now self-contained at theorem level: Section~\ref{sec:laneA} writes out the overlap comparison used in Corollary~\ref{cor:full-inductive-union} on shared generators and inverse-flow representatives, and it also writes out the bounded approximating sequence and telescoping estimate used in Theorem~\ref{thm:bounded-base-cyclicity}. The companion proofs remain proof-home verification for those nodes, not hidden dependencies.
+
+\subsection{Kernel reading order}
+The live theorem spine consists of two named load-bearing chains. The shortest mass-gap compression is
+\[
+  \text{Packet 1}\Rightarrow \text{Packet 2}\Rightarrow \text{Packet 3}\Rightarrow \text{Packet 8}\Rightarrow \text{Packet 9}\Rightarrow \text{Packet 10},
+\]
+with the proviso that Packet~8 explicitly consumes the Lane~A seam outputs coming from Packets~6--7. The unique constructive chain is
+\[
+  \text{Packet 4}\Rightarrow \text{Packet 5}\Rightarrow \text{Packet 6}\Rightarrow \text{Packet 7}.
+\]
+A first-pass expert should therefore attack only three places: the ultraviolet/public-scope gate, the finite-cap to inductive-union Lane~A seam, and the QE3 transport seam that carries the fixed-lattice gap into the full sharp-local vacuum sector.

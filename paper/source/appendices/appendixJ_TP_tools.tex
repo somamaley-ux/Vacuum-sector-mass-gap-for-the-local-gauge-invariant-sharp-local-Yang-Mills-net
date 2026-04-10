@@ -1,0 +1,252 @@
+\section{Total positivity and Bessel-ratio tools used in Appendices~G--I}
+\label{app:TP_tools}
+
+This appendix collects the two analytic ``mechanisms'' used repeatedly in the one-plaquette A1 proofs
+for $\Sp(2n)$, $\Spin(2n{+}1)$, and $\Spin(2n)$:
+
+\begin{enumerate}[label=(\alph*)]
+\item total-nonnegativity (TN) and a one-row shift inequality for Vandermonde-normalized minors;
+\item explicit Amos-type bounds for adjacent modified-Bessel ratios.
+\end{enumerate}
+
+The purpose is (i) to avoid repeating the same TN and Bessel-ratio arguments in each family,
+(ii) to make the logical dependencies in the A1 proofs auditably explicit.
+
+\subsection{Modified Bessel functions: positivity, log-convexity, and Amos bounds}
+\label{subsec:TP_tools_bessel}
+
+We write $I_k(t)$ for the modified Bessel function of the first kind.
+For integer $k\in\Z$ and $t>0$ one has $I_{-k}(t)=I_k(t)>0$.
+
+\begin{lemma}[Bessel adjacent ratio monotonicity]
+\label{lem:bessel_ratio_monotone}
+Fix $t>0$ and define $q_k(t):=I_{k+1}(t)/I_k(t)$ for integers $k\ge 0$.
+Then $k\mapsto q_k(t)$ is nondecreasing.
+Equivalently, the sequence $k\mapsto I_k(t)$ is log-convex:
+\begin{equation}
+\label{eq:bessel_log_convex}
+I_{k}(t)^2\ \le\ I_{k-1}(t)\,I_{k+1}(t)\qquad(k\ge 1).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+This is a classical property of $I_k(t)$ as a function of the order $k$ for fixed $t>0$.
+One route is via total positivity: the bi-infinite Toeplitz matrix $(I_{i-j}(t))_{i,j\in\Z}$ is totally nonnegative
+(Lemma~\ref{lem:PF_infty_bessel_toeplitz} below), and $2\times 2$ minors give \eqref{eq:bessel_log_convex}.
+Monotonicity of $q_k(t)$ is equivalent to \eqref{eq:bessel_log_convex}.
+\end{proof}
+
+\begin{lemma}[Amos-type upper bound]
+\label{lem:amos_upper_bound}
+For every $t>0$ and every integer $k\ge 0$,
+\begin{equation}
+\label{eq:amos_upper_bound}
+q_k(t)=\frac{I_{k+1}(t)}{I_k(t)}
+\ \le\
+\frac{t}{\,k+\tfrac12+\sqrt{t^2+(k+\tfrac12)^2}\,}.
+\end{equation}
+Equivalently,
+\begin{equation}
+\label{eq:q_as_exp_asinh}
+q_k(t)\ \le\ \exp\Big(-\operatorname{arsinh}\big(\tfrac{k+\tfrac12}{t}\big)\Big).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Inequality \eqref{eq:amos_upper_bound} is an explicit uniform upper envelope for Bessel ratios; see e.g.\ \cite{Hornik2014}.
+The identity \eqref{eq:q_as_exp_asinh} follows from
+$u+\sqrt{1+u^2}=e^{\operatorname{arsinh}(u)}$ applied with $u=(k+\tfrac12)/t$.
+\end{proof}
+
+\subsection{TN structure and a one-row shift inequality for normalized minors}
+\label{subsec:TP_tools_TN_row_shift}
+
+We use the following standard definition.
+
+\begin{definition}[Totally nonnegative matrix]
+\label{def:TN_matrix}
+A real matrix $A$ (finite or infinite) whose rows and columns are indexed by totally ordered sets
+is \emph{totally nonnegative (TN)} if every minor of every finite submatrix is nonnegative.
+\end{definition}
+
+\begin{lemma}[PF$_\infty$ for the Gross--Witten/Bessel coefficients]
+\label{lem:PF_infty_bessel_toeplitz}
+Fix $t>0$.
+The bi-infinite Toeplitz matrix
+\begin{equation}
+\label{eq:bessel_toeplitz_matrix}
+\mathcal T_t\ :=\ \big(I_{i-j}(t)\big)_{i,j\in\Z}
+\end{equation}
+is totally nonnegative.
+\end{lemma}
+
+\begin{proof}
+We give a self-contained reduction to a finite-support Toeplitz criterion.
+
+\medskip
+\textbf{Step 1 (finite Laurent truncations).}
+Fix $m\in\N$ and define the Laurent polynomial
+\begin{equation}
+\label{eq:GW_laurent_truncation_Fm}
+F_m(z):=\Big(1+\frac{t}{2m}z\Big)^m\Big(1+\frac{t}{2m}z^{-1}\Big)^m
+=\sum_{k=-m}^{m} a_k^{(m)} z^k.
+\end{equation}
+Let $\mathcal T_t^{(m)}:=(a_{i-j}^{(m)})_{i,j\in\Z}$ be the associated bi-infinite Toeplitz matrix.
+
+\medskip
+\textbf{Step 2 ($\mathcal T_t^{(m)}$ is TN for every $m$).}
+The one-sided factor $P_m(z):=(1+\frac{t}{2m}z)^m$ has all its zeros equal to $-\frac{2m}{t}<0$.
+Hence its coefficient sequence has a totally positive Toeplitz matrix by the finite-support Toeplitz criterion
+\cite[Thm.~4.5]{Pinkus1996}.
+The second factor is the reversed polynomial $z^{-m}P_m(z^{-1})$; its coefficient sequence also has a totally positive Toeplitz matrix.
+Moreover, the Toeplitz matrix of the product $F_m=P_m\cdot z^{-m}P_m(z^{-1})$ is the product of the two Toeplitz matrices
+(equivalently, the coefficients $a_k^{(m)}$ are the convolution of the two one-sided coefficient sequences),
+and products of totally nonnegative matrices are totally nonnegative by Cauchy--Binet
+(see e.g.\ \cite[Prop.~1.4]{Pinkus1996}).
+Therefore $\mathcal T_t^{(m)}$ is totally nonnegative.
+
+\medskip
+\textbf{Step 3 (coefficientwise limit to $\mathcal T_t$).}
+For $z=e^{i\theta}$ we have
+\begin{equation}
+\label{eq:GW_pointwise_limit_on_circle}
+F_m(e^{i\theta})=\big|1+\tfrac{t}{2m}e^{i\theta}\big|^{2m}
+=\Big(1+\frac{t}{m}\cos\theta+\frac{t^2}{4m^2}\Big)^m\xrightarrow[m\to\infty]{}e^{t\cos\theta}
+\qquad(\theta\in[0,2\pi]).
+\end{equation}
+Also $0\le F_m(e^{i\theta})\le (1+\tfrac{t}{2m})^{2m}\le e^{t}$ for all $m$ and all $\theta$.
+Since $F_m$ is a finite Laurent polynomial, its coefficients are its Fourier coefficients:
+\begin{equation}
+\label{eq:GW_coeff_as_Fourier}
+a_k^{(m)}=\frac{1}{2\pi}\int_0^{2\pi} F_m(e^{i\theta})\,e^{-ik\theta}\,d\theta.
+\end{equation}
+Dominated convergence applied to \eqref{eq:GW_coeff_as_Fourier} and \eqref{eq:GW_pointwise_limit_on_circle} gives
+$a_k^{(m)}\to \frac{1}{2\pi}\int_0^{2\pi} e^{t\cos\theta}e^{-ik\theta}d\theta$.
+Using the standard cosine-Fourier representation
+\(
+I_k(t)=\frac{1}{\pi}\int_0^{\pi} e^{t\cos\theta}\cos(k\theta)\,d\theta
+\) (which is used repeatedly in Appendices~G--I),
+we obtain $a_k^{(m)}\to I_k(t)$ for every fixed $k\in\Z$.
+
+Finally, any finite minor of $\mathcal T_t$ depends on finitely many entries $I_{i-j}(t)$.
+For $m$ larger than the maximal index difference appearing in that minor, the corresponding minor of $\mathcal T_t^{(m)}$
+uses only coefficients $a_k^{(m)}$ with $|k|\le m$ and converges entrywise to the desired minor of $\mathcal T_t$.
+Since each $\mathcal T_t^{(m)}$ is TN, all such minors are nonnegative, and therefore the limit minor is nonnegative.
+This proves that $\mathcal T_t$ is totally nonnegative.
+\end{proof}
+
+The next lemma is the TN ``engine'' behind all one-box inequalities in Appendices~G--I.
+
+\begin{lemma}[One-row shift inequality for Vandermonde-normalized minors]
+\label{lem:TN_row_shift}
+Let $A$ be a TN matrix whose rows and columns are indexed by integers.
+Fix an integer $N\ge 1$ and a strictly increasing $N$-tuple of column indices
+\begin{equation}
+\label{eq:TN_fixed_columns}
+C=(c_1<c_2<\cdots<c_N).
+\end{equation}
+For every strictly increasing $N$-tuple of row indices
+\begin{equation}
+\label{eq:TN_rows_R}
+R=(r_1<\cdots<r_N)
+\end{equation}
+define the Vandermonde factor
+\begin{equation}
+\label{eq:TN_vandermonde}
+\Delta(R):=\prod_{1\le p<q\le N}(r_q-r_p)>0,
+\end{equation}
+and the normalized minor
+\begin{equation}
+\label{eq:TN_phi_def}
+\Phi_A(R):=\frac{\det(A[R,C])}{\Delta(R)}\ \ge\ 0.
+\end{equation}
+Fix an index $i\in\{1,\dots,N\}$ such that replacing $r_i$ by $r_i+1$ and reordering preserves strict increase.
+Let $R^+$ denote the resulting row tuple.
+Then
+\begin{equation}
+\label{eq:TN_row_shift_bound}
+\Phi_A(R^+)\ \le\ \frac{A[r_i+1,c_1]}{A[r_i,c_1]}\,\Phi_A(R).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+If $A[r_i,c_1]=0$ then $\det(A[R,C])=0$ (by TN and expansion along the first column), so \eqref{eq:TN_row_shift_bound} is trivial.
+Assume henceforth that $A[r,c_1]>0$ for all rows $r$ appearing in $R$ and $R^+$.
+
+Row-scaling by positive factors preserves total nonnegativity.
+Let $D$ be the diagonal matrix with entries $D[r,r]=1/A[r,c_1]$ and set $\widetilde A:=DA$.
+Then $\widetilde A$ is TN and satisfies $\widetilde A[\cdot,c_1]\equiv 1$ on the relevant rows.
+To invoke the standard node-monotonicity statement from total positivity, we reduce to the strictly totally positive case:
+by the Whitney density construction (see e.g.\ \cite[Thm.~2.6 and its proof]{Pinkus1996}),
+every finite TN submatrix is the entrywise limit of strictly totally positive matrices.
+Since the quantities in \eqref{eq:TN_row_shift_bound} depend continuously on the finitely many involved entries,
+it suffices to prove the desired inequality for strictly totally positive matrices.
+
+In the strictly totally positive case, for fixed columns $C$ the Vandermonde-normalized minors \eqref{eq:TN_phi_def} are generalized
+(Popoviciu--Karlin) divided differences associated with the corresponding discrete totally positive (Chebyshev) system,
+and they are monotone in each node.
+For an explicit modern statement with numbered results and a proof via Sylvester's determinant identity, see
+\cite[Cor.~3(ii)]{PalesRadacsi2018}; this monotonicity is traced there to \cite[Thm.~2]{Wasowicz2006}.
+Applying this one-step node monotonicity to the single-node shift $r_i\mapsto r_i+1$ gives
+\[
+\Phi_{\widetilde A}(R^+)\le \Phi_{\widetilde A}(R).
+\]
+Undoing the row scaling uses that for any row tuple $R$ one has
+\[
+\det(A[R,C])=\Big(\prod_{p=1}^N A[r_p,c_1]\Big)\det(\widetilde A[R,C])
+\quad\text{and hence}\quad
+\Phi_A(R)=\Big(\prod_{p=1}^N A[r_p,c_1]\Big)\Phi_{\widetilde A}(R),
+\]
+and similarly for $R^+$. Therefore
+\[
+\begin{aligned}
+\Phi_A(R^+)
+&=\Big(\prod_{p=1}^N A[r_p^+,c_1]\Big)\Phi_{\widetilde A}(R^+)\\
+&\le\Big(\prod_{p=1}^N A[r_p^+,c_1]\Big)\Phi_{\widetilde A}(R)\\
+&=\frac{\prod_{p=1}^N A[r_p^+,c_1]}{\prod_{p=1}^N A[r_p,c_1]}
+\,\Phi_A(R)\\
+&=\frac{A[r_i+1,c_1]}{A[r_i,c_1]}\,\Phi_A(R).
+\end{aligned}
+\]
+which is \eqref{eq:TN_row_shift_bound}.
+\end{proof}
+
+\subsection{TN of the classical-group Bessel moment matrices}
+\label{subsec:TP_tools_moment_matrices}
+
+Appendices~G--I use explicit moment matrices of the form
+\begin{equation}
+\label{eq:moment_matrix_template}
+M_t(p,q)=\frac{2}{\pi}\int_0^{\pi} e^{t\cos\theta}\,\psi_p(\theta)\,\psi_q(\theta)\,d\theta,
+\end{equation}
+for specific trigonometric systems $\psi_p$ (sine with integer or half-integer frequencies, or cosine).
+
+\begin{lemma}[TN of the moment matrices]
+\label{lem:moment_matrix_TN}
+Fix $t>0$.
+Let $\psi_p(\theta)$ be one of the three families:
+\begin{enumerate}[label=(\roman*)]
+\item $\psi_p(\theta)=\sin(p\theta)$ for $p\in\N$ (symplectic case);
+\item $\psi_p(\theta)=\sin\big((p+\tfrac12)\theta\big)$ for $p\in\N_0$ (odd orthogonal case);
+\item $\psi_p(\theta)=\cos(p\theta)$ for $p\in\N_0$ (even orthogonal case).
+\end{enumerate}
+Then the infinite matrix $(M_t(p,q))$ defined by \eqref{eq:moment_matrix_template} is totally nonnegative.
+\end{lemma}
+
+\begin{proof}
+The trigonometric kernels $(p,\theta)\mapsto \psi_p(\theta)$ in (i)--(iii) are strictly sign-regular kernels of all orders
+on the ordered sets $p\in\N$ or $\N_0$ and $\theta\in(0,\pi)$.
+A fundamental closure theorem in total positivity states that composing two sign-regular kernels against a strictly positive measure
+preserves sign-regularity (hence TN at the discrete level).
+Applying this to the composition
+\(M_t(p,q)=\int \psi_p(\theta)\psi_q(\theta)\,e^{t\cos\theta}d\theta\)
+with the strictly positive weight $e^{t\cos\theta}$ yields TN.
+We refer to \cite[Vol.~I, Ch.~3]{Karlin1968} for the sign-regularity of the sine/cosine kernels and the composition theorem.
+\end{proof}
+
+\paragraph{How this appendix is used.}
+In Appendices~G--I the matrices whose minors appear after Andr\'eief reduction are precisely of the form \eqref{eq:moment_matrix_template},
+so Lemma~\ref{lem:moment_matrix_TN} supplies the TN hypothesis needed in Lemma~\ref{lem:TN_row_shift}.
+Lemma~\ref{lem:amos_upper_bound} then provides the quantitative decay needed to turn the telescoping product over boxes
+into the crossover estimate \eqref{eq:A1_canonical}.
+

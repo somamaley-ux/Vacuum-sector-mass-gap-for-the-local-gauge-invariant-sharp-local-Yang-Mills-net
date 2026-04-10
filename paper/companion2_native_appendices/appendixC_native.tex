@@ -1,0 +1,158 @@
+\section{Native transcription of the support analytic files (source pp.~116--128)}
+This appendix replaces the former archival proof-page block from source pp.~116--128 with a native REV\TeX{} presentation of the continuum and lattice kernel infrastructure together with the insertion-multiplier support lemmas. In the proof architecture of the companion, these materials are support theorems rather than new packet endpoints: they supply the Gaussian kernel bounds, the uniform lattice heat-kernel estimates, the discrete parametrix bounds, and the one-step Lipschitz control that feed the Lane~A flow-localization and coefficient-transport files.
+
+\subsection{Continuum parametrix and Gaussian kernel bounds}
+The first support block establishes the continuum Gaussian kernel estimates used in the linearized DeTurck analysis.
+
+\begin{proposition}[Source Proposition~B.1: coefficient bounds on the good-flow chart]
+There exist constants $A_0,W_0,W_1\ge 0$ such that for all $\tau\in(0,t_\ast]$,
+\[
+\|A_\alpha(\tau,\cdot)\|_{L^\infty(\mathbb R^4)}\le A_0,
+\qquad
+\|W(\tau,\cdot)\|_{L^\infty(\mathbb R^4)}\le W_0 + W_1\tau^{-1/2}.
+\]
+These bounds are verified on the good-flow chart and are the coefficient input for the continuum parametrix.
+\end{proposition}
+
+\begin{lemma}[Source Lemma~B.3: derivative domination by a fatter Gaussian]
+For each integer $m\ge 0$ there exists a constant $C_m<\infty$ such that for all $\sigma>0$ and all $x\in\mathbb R^4$,
+\[
+|\nabla_x^m p(\sigma,x)|\le C_m\sigma^{-m/2}p(2\sigma,x),
+\]
+where $p(\sigma,x)$ is the four-dimensional heat kernel.
+\end{lemma}
+
+\begin{lemma}[Source Lemma~B.4: Volterra inequality for a Gaussian majorant]
+Under the coefficient bounds above, the Picard iterates for the continuum kernel satisfy a Volterra-type Gaussian majorant inequality with a universal constant $C^\sharp\ge 1$. This is the basic estimate that feeds the fractional Gr\"onwall argument.
+\end{lemma}
+
+\begin{lemma}[Source Lemma~B.5: fractional Gr\"onwall bound]
+If a nonnegative function obeys a Volterra inequality with a $(\tau-\rho)^{-1/2}$ singular kernel and a bounded zeroth-order term, then it admits an exponential majorant of the form required by the continuum parametrix argument.
+\end{lemma}
+
+\begin{theorem}[Source Theorem~B.6: continuum Gaussian upper bound with explicit dependence]
+Assume the good-flow coefficient bounds. Then the Picard iteration converges to a fundamental solution $K(t,s;x,y)$ of the continuum linearized system, and there exist universal constants $c\in(0,1)$ and $C\ge 1$ such that for all $0<s<t\le t_\ast$,
+\begin{align*}
+\|K(t,s;x,y)\|_{\mathrm{op}}
+&\le C (t-s)^{-2}
+\exp\!\Bigl(-c\,\frac{|x-y|^2}{t-s}\Bigr) \\
+&\quad\times
+\exp\!\Bigl(CA_0^2(t-s)+CW_0(t-s)+2CW_1(\sqrt t-\sqrt s)\Bigr).
+\end{align*}
+Moreover, for every integer $m\ge 1$ one has the corresponding derivative bound
+\begin{align*}
+\|\nabla_x^m K(t,s;x,y)\|_{\mathrm{op}}
+&\le C_m (t-s)^{-(2+m/2)}
+\exp\!\Bigl(-c\,\frac{|x-y|^2}{t-s}\Bigr) \\
+&\quad\times
+\exp\!\Bigl(CA_0^2(t-s)+CW_0(t-s)+2CW_1(\sqrt t-\sqrt s)\Bigr).
+\end{align*}
+\end{theorem}
+
+\proofsynopsis{The source proof rewrites the linearized DeTurck equation in divergence form, builds a Picard iteration around the free heat kernel, controls the nonlinear correction by a Gaussian Volterra majorant, and closes the iteration with a fractional Gr\"onwall bound. The theorem-facing output is the explicit Gaussian kernel estimate later invoked in the Lane~A flow-localization package.}
+
+\subsection{Uniform lattice heat-kernel bounds}
+The second support block translates the continuum Gaussian regime into a uniform-in-$a$ lattice estimate.
+
+\begin{lemma}[Source Lemma~C.1: scaling reduction to the unit lattice]
+Let $x=ax'$, $y=ay'$ with $x',y'\in\mathbb Z^d$ and set $\tau=t/a^2$. Then the lattice heat kernel satisfies
+\[
+p_t^{(a)}(x,y)=a^{-d}p_\tau^{(1)}(x',y'),
+\]
+and every lattice finite difference of order $m$ scales by an additional factor $a^{-m}$.
+\end{lemma}
+
+\begin{lemma}[Source Lemma~C.2: on-diagonal bound]
+There exists $C_d<\infty$ such that for all $t>0$,
+\[
+p_t(0)\le C_d (1+t)^{-d/2}.
+\]
+\end{lemma}
+
+\begin{lemma}[Source Lemma~C.3: tilt bound]
+For any $t>0$, $z\in\mathbb Z^d$, and any $\theta\in\mathbb R^d$,
+\[
+|p_t(z)|\le p_t(0)
+\exp\!\Bigl(-\theta\cdot z + 2t\sum_{j=1}^d(\cosh\theta_j-1)\Bigr).
+\]
+\end{lemma}
+
+\begin{proposition}[Source Proposition~C.4: Gaussian regime for $|z|\le t$]
+There exist constants $c_d,C_d<\infty$ such that for all $t>0$ and all $z\in\mathbb Z^d$ with $|z|\le t$,
+\[
+|p_t(z)|\le C_d t^{-d/2}\exp\!\Bigl(-c_d\frac{|z|^2}{t}\Bigr).
+\]
+\end{proposition}
+
+\begin{lemma}[Source Lemma~C.5: Fourier multipliers for finite differences]
+Every unit-lattice forward-difference operator of order $m$ acts on the Fourier representation of the lattice heat kernel by multiplication with a bounded symbol $M_\alpha(k)$ satisfying a polynomial growth estimate in $|k|$.
+\end{lemma}
+
+\begin{proposition}[Source Proposition~C.6: finite-difference Gaussian regime]
+Fix $m_{\max}\ge 0$. Then for every multi-index $\alpha$ with $|\alpha|=m\le m_{\max}$ there are constants $c_d,C_{d,m}$ such that for all $t>0$ and all $z\in\mathbb Z^d$ with $|z|\le t$,
+\[
+|\nabla^\alpha p_t(z)|\le C_{d,m} t^{-(d+m)/2}\exp\!\Bigl(-c_d\frac{|z|^2}{t}\Bigr).
+\]
+\end{proposition}
+
+\begin{theorem}[Source Theorem~C.7: uniform lattice heat-kernel bounds in continuum variables]
+Fix $d=4$, a time horizon $t_\ast>0$, a radius $R>0$, and an integer $m_{\max}\ge 0$. Then there exist $a_0\in(0,1)$, $c\in(0,1)$, and constants $C_m<\infty$ for $m=0,1,\dots,m_{\max}$ such that for all lattice spacings $a\in(0,a_0]$, all $0<s<t\le t_\ast$ with $t-s\ge a^2$, and all $x,y\in a\mathbb Z^4$ with $|x-y|\le R$,
+\[
+|p_{t-s}^{(a)}(x,y)|\le C_0 (t-s)^{-2}\exp\!\Bigl(-c\frac{|x-y|^2}{t-s}\Bigr),
+\]
+and
+\[
+|(\nabla^{(a)}_{x})^m p_{t-s}^{(a)}(x,y)|
+\le C_m (t-s)^{-(2+m/2)}\exp\!\Bigl(-c\frac{|x-y|^2}{t-s}\Bigr)
+\qquad (m\le m_{\max}).
+\]
+\end{theorem}
+
+The theorem-facing use of this block is direct: it supplies the lattice heat-kernel input needed to carry the continuum parametrix argument into the lattice DeTurck setting uniformly in the lattice spacing.
+
+\subsection{Lattice parametrix and one-step multiplier support}
+The remaining support block packages the discrete Duhamel / parametrix argument and the one-step Lipschitz estimate later used in the insertion multiplier file.
+
+\begin{proposition}[Source Proposition~D.1: uniform coefficient bounds in the bounded regime]
+Fix $0<s<t\le t_\ast$. Assume there exist constants $B_0,V_0,V_1\ge 0$ such that for all $r\in[s,t]$,
+\[
+\max_{1\le j\le 4}\|b_j(r,\cdot)\|_{\ell^\infty(a\mathbb Z^4)}\le B_0,
+\qquad
+\|V(r,\cdot)\|_{\ell^\infty(a\mathbb Z^4)}\le V_0 + V_1 r^{-1/2}.
+\]
+\end{proposition}
+
+\begin{lemma}[Source Lemma~D.2: existence/uniqueness in the bounded regime]
+Under the lattice coefficient bounds above, the discrete Volterra equation for the lattice fundamental solution has a unique kernel solution obtained by Picard iteration; the resulting kernel is absolutely summable in the second variable and defines a bounded operator on $\ell^\infty$.
+\end{lemma}
+
+\begin{theorem}[Source Theorem~D.3: lattice Gaussian upper bounds and finite-difference derivatives]
+Assume the lattice bounded-regime coefficient bounds. Fix an integer $m\ge 0$. Then there exist constants $C_m=C_m(B_0,V_0,V_1,t_\ast)$ and $c=c(B_0,t_\ast)>0$ such that for all $a\in(0,1]$, all $0<s<t\le t_\ast$, and all $x,y\in a\mathbb Z^4$,
+\[
+|(\nabla_x^{(a)})^m K_a(t,s;x,y)|
+\le C_m (t-s)^{-(2+m/2)}\exp\!\Bigl(-c\frac{|x-y|^2}{t-s}\Bigr).
+\]
+\end{theorem}
+
+\begin{lemma}[Source Lemma~E.1: one-step Lipschitz bound in $(u,K)$]
+Assume the bulk/insertion seminorm axioms and the insertion integration bound. Then there exist scale-independent constants $C_{\mathrm{Lip},u}$ and $C_{\mathrm{Lip},K}$ such that for every normalized insertion basis element $\Phi_{\ast,j}$,
+\[
+\bigl\|R^{\mathrm{ins,good}}_j(u,K,\Phi_{\ast,j}) - R^{\mathrm{ins,good}}_j(0,0,\Phi_{\ast,j})\bigr\|_{j+1}
+\le C_{\mathrm{Lip},u}u + C_{\mathrm{Lip},K}\|K\|_j
+\]
+throughout the asymptotically free polydisc.
+\end{lemma}
+
+\begin{proposition}[Source Proposition~5.48: one-step multiplier bounds]
+For each sector $\ast\in\{S,Q,W\}$ there exists a constant $C_{M,\ast}<\infty$ such that on the asymptotically free ball,
+\[
+|M_{\ast,j}-1|\le C_{M,\ast}u_j.
+\]
+After shrinking the small-coupling radius if necessary, one has $|M_{S,j}|,|M_{W,j}|\ge \tfrac12$ throughout the regime of interest.
+\end{proposition}
+
+\proofsynopsis{The source proof combines the uniform lattice heat-kernel estimates with the discrete Duhamel formula to obtain a lattice Gaussian parametrix bound, then uses the insertion integration and product estimates to prove a one-step Lipschitz control for normalized insertion basis elements. The multiplier estimate is a finite-dimensional corollary of this one-step Lipschitz bound and of the stable-manifold forcing estimate for the bulk activity.}
+
+\begin{remark}
+For the theorem-facing use in the core paper, the present appendix is support material only. It supplies the analytic estimates that make the Lane~A flow-localization, insertion transport, and coefficient-multiplier arguments uniform in the dyadic scale and in the lattice spacing; it does not introduce a new packet endpoint.
+\end{remark}

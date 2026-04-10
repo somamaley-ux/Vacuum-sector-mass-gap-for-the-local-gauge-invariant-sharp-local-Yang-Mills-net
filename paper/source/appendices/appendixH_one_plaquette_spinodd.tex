@@ -1,0 +1,309 @@
+\section{A1 for \texorpdfstring{$\Spin(2n{+}1)$}{Spin(2n+1)}: explicit one-plaquette coefficient bounds}
+\label{app:A1_Spin_odd}
+
+This appendix proves \Cref{prop:A1_Spin_odd}.
+The structure parallels Appendix~\ref{app:A1_Sp}, with the only genuine differences being:
+(i) the maximal-torus trace has an extra constant eigenvalue $1$,
+(ii) the Weyl shift is half-integral (type $B_n$),
+(iii) the resulting moment kernel has a $+1$ Hankel shift.
+
+\subsection{Maximal torus and Wilson weight}
+\label{subsec:A1_Spin_odd_setup}
+
+Fix $n\ge 2$ and set $G=\Spin(2n+1)$.
+Since the Wilson weight factors through the projection to $\SO(2n+1)$, only the sector $\pi(-\mathbf 1)=\mathbf 1$ contributes
+(\Cref{rem:center_vanish}).
+We therefore work on $\SO(2n+1)$.
+
+Every conjugacy class meets the maximal torus consisting of block-diagonal rotations
+with eigenvalues
+\begin{equation}
+\label{eq:SO_odd_eigs}
+\{1,e^{\pm i\theta_1},\dots,e^{\pm i\theta_n}\},\qquad \theta_j\in[0,\pi].
+\end{equation}
+In the defining $(2n+1)$-dimensional representation $\rho$,
+\begin{equation}
+\label{eq:SO_odd_trace}
+\Re\Tr_{\rho}(U)=1+2\sum_{j=1}^n \cos\theta_j.
+\end{equation}
+The constant term $1$ only contributes a global factor to the one-plaquette weight.
+Thus, up to normalization,
+\Cref{eq:one_plaq_measure_general} corresponds on the torus to
+\begin{equation}
+\label{eq:SO_odd_symbol}
+W_t(\theta):=\exp\Big(t\sum_{j=1}^n \cos\theta_j\Big),
+\qquad t:=\frac{2\alpha\beta}{2n+1}.
+\end{equation}
+
+\subsection{Type \texorpdfstring{$B_n$}{B\_n} Weyl character formula and Andr\'eief reduction}
+\label{subsec:A1_Spin_odd_determinant}
+
+Irreducible representations of $\SO(2n+1)$ are indexed by dominant integral highest weights,
+which we realize as partitions $\lambda=(\lambda_1\ge\cdots\ge\lambda_n\ge 0)$.
+Define integer shifts
+\begin{equation}
+\label{eq:SO_odd_bi_int}
+ b_i:=n-i\qquad(1\le i\le n),
+\end{equation}
+so that the type-$B_n$ Weyl vector has components
+\begin{equation}
+\label{eq:SO_odd_rho}
+\rho_i=b_i+\tfrac12=n-i+\tfrac12.
+\end{equation}
+Define the shifted integer indices
+\begin{equation}
+\label{eq:SO_odd_Ai}
+A_i(\lambda):=\lambda_i+b_i=\lambda_i+n-i\in\N_0.
+\end{equation}
+
+\begin{lemma}[Weyl character formula for $\SO(2n{+}1)$ in half-integer sine form]
+\label{lem:SOodd_character_sine}
+Let $U\in T$ have eigenangles $\theta=(\theta_1,\dots,\theta_n)$.
+Then
+\begin{equation}
+\label{eq:SOodd_character_formula}
+\chi_{\lambda}(\theta)
+=\frac{\det\Big(\sin\big((A_i(\lambda)+\tfrac12)\theta_j\big)\Big)_{1\le i,j\le n}}
+        {\det\Big(\sin\big((b_i+\tfrac12)\theta_j\big)\Big)_{1\le i,j\le n}}.
+\end{equation}
+\end{lemma}
+
+\begin{lemma}[Weyl integration formula in determinant form for $\SO(2n{+}1)$]
+\label{lem:SOodd_weyl_integration}
+There exists a constant $c_{B}(n)>0$ such that for every continuous class function $F$ on $\SO(2n+1)$,
+\begin{equation}
+\label{eq:SOodd_weyl_integration}
+\int_{\SO(2n+1)}F(U)\,d\mu_{\mathrm{Haar}}(U)
+= c_{B}(n)\int_{[0,\pi]^n}F(\theta)\,\det\Big(\sin\big((b_i+\tfrac12)\theta_j\big)\Big)^2\,d\theta.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+This is the Weyl integration formula for type $B_n$ written using the determinant representation of the Weyl denominator.
+\end{proof}
+
+\begin{proposition}[Determinantal formula for the one-plaquette coefficients on $\Spin(2n{+}1)$]
+\label{prop:SOodd_det_formula}
+Let $\lambda$ be a partition of length at most $n$.
+Define the half-integer sine moment kernel
+\begin{equation}
+\label{eq:SOodd_kernel_def}
+M_t^{B}(p,q)
+:=\frac{2}{\pi}\int_0^{\pi} e^{t\cos\theta}\,\sin\big((p+\tfrac12)\theta\big)\,\sin\big((q+\tfrac12)\theta\big)\,d\theta,
+\qquad p,q\in\N_0.
+\end{equation}
+Let
+\begin{equation}
+\label{eq:SOodd_Dlambda_def}
+D_{\lambda}^{B}(t)
+:=\det\Big(M_t^{B}\big(A_i(\lambda),\,b_j\big)\Big)_{1\le i,j\le n}.
+\end{equation}
+Then with $t=2\alpha\beta/(2n+1)$ one has
+\begin{equation}
+\label{eq:SOodd_coeff_det_ratio}
+ a_{\lambda}(\beta,\alpha)
+=\E_{\nu_{\beta,\alpha}}\Big[\frac{\chi_{\lambda}(U)}{\dim\lambda}\Big]
+=\frac{1}{\dim\lambda}\,\frac{D_{\lambda}^{B}(t)}{D_{\varnothing}^{B}(t)}.
+\end{equation}
+Moreover, for every $p,q\in\N_0$,
+\begin{equation}
+\label{eq:SOodd_kernel_bessel}
+M_t^{B}(p,q)=I_{|p-q|}(t)-I_{p+q+1}(t).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The proof is identical to the $\Sp(2n)$ case (Appendix~\ref{app:A1_Sp}) after replacing the type-$C$ determinant formulas
+by Lemmas~\ref{lem:SOodd_character_sine} and \ref{lem:SOodd_weyl_integration}.
+The cancellation of one Weyl-denominator factor and Andr\'eief's identity produce \Cref{eq:SOodd_Dlambda_def}.
+
+To compute the kernel, use
+\(\sin((p+\tfrac12)\theta)\sin((q+\tfrac12)\theta)=\tfrac12(\cos((p-q)\theta)-\cos((p+q+1)\theta))\)
+so that
+\begin{align*}
+M_t^{B}(p,q)
+&=\frac{1}{\pi}\int_0^{\pi} e^{t\cos\theta}\,\big(\cos((p-q)\theta)-\cos((p+q+1)\theta)\big)\,d\theta
+\\
+&=I_{|p-q|}(t)-I_{p+q+1}(t).
+\end{align*}
+\end{proof}
+
+\subsection{One-box inequality and telescoping}
+\label{subsec:A1_Spin_odd_one_box}
+
+\begin{lemma}[One-box multiplicative bound for type $B_n$]
+\label{lem:SOodd_one_box}
+Fix $t>0$.
+Let $\mu$ be a partition of length at most $n$ and let $i$ be an index such that $\mu+e_i$ is still a partition.
+Write $A_i:=A_i(\mu)=\mu_i+b_i$.
+Then
+\begin{equation}
+\label{eq:SOodd_one_box_bound}
+\frac{a_{\mu+e_i}}{a_{\mu}}\ \le\ \frac{I_{A_i+1}(t)}{I_{A_i}(t)}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\textbf{Step 1: TN row shift bound for determinants.}
+By Lemma~\ref{lem:moment_matrix_TN}(ii) the matrix $(M_t^{B}(p,q))_{p,q\ge 0}$ is TN.
+Apply Lemma~\ref{lem:TN_row_shift} with the increasing column tuple $C=(0,1,\dots,n-1)$
+(i.e. $b_n<b_{n-1}<\cdots<b_1$).
+As in Appendix~\ref{app:A1_Sp} this yields
+\begin{equation}
+\label{eq:SOodd_det_shift}
+\frac{D^{B}_{\mu+e_i}(t)}{D^{B}_{\mu}(t)}
+\ \le\ \frac{\Delta(A(\mu+e_i))}{\Delta(A(\mu))}\,\frac{M_t^{B}(A_i+1,0)}{M_t^{B}(A_i,0)}.
+\end{equation}
+
+\textbf{Step 2: cancel the Vandermonde factor using the type-$B$ Weyl dimension ratio.}
+
+\paragraph{Denominator-minor convention (TN ratios).}
+At several points below we form Vandermonde-normalized minor ratios (or equivalent determinant ratios) and invoke the TN one-row shift tool from Appendix~\ref{app:TP_tools}.
+Whenever a would-be denominator minor can vanish, we apply the zero-case clause from Lemma~J.5:
+if the pivot entry (hence the denominator minor) vanishes, then the corresponding numerator determinant also vanishes and the desired inequality is trivial; otherwise we work in the strictly-positive regime and proceed with the ratio bound.
+
+
+
+Write $a_i:=A_i+\tfrac12$ and $\rho_i:=b_i+\tfrac12$.
+The type-$B_n$ Weyl dimension formula can be written as
+\begin{equation}
+\label{eq:SOodd_dim_formula}
+\dim\lambda
+=\Bigg(\prod_{i=1}^n \frac{a_i(\lambda)}{\rho_i}\Bigg)
+\Bigg(\prod_{1\le i<j\le n}\frac{a_i(\lambda)^2-a_j(\lambda)^2}{\rho_i^2-\rho_j^2}\Bigg).
+\end{equation}
+Thus, under $\mu\mapsto\mu+e_i$ (so $a_i\mapsto a_i+1$ and $a_j$ fixed for $j\ne i$),
+\begin{equation}
+\label{eq:SOodd_dim_ratio}
+\frac{\dim(\mu+e_i)}{\dim(\mu)}
+=\frac{a_i+1}{a_i}\prod_{j\ne i}\frac{(a_i+1)^2-a_j^2}{a_i^2-a_j^2}
+=\frac{a_i+1}{a_i}\prod_{j\ne i}\frac{a_i+1-a_j}{a_i-a_j}\cdot\frac{a_i+1+a_j}{a_i+a_j}.
+\end{equation}
+Since $a_i-a_j=A_i-A_j$, the product over $(a_i+1-a_j)/(a_i-a_j)$ is exactly the Vandermonde ratio
+$\Delta(A(\mu+e_i))/\Delta(A(\mu))$.
+Therefore
+\begin{equation}
+\label{eq:SOodd_dim_cancel}
+\frac{\dim(\mu)}{\dim(\mu+e_i)}\,\frac{\Delta(A(\mu+e_i))}{\Delta(A(\mu))}
+=\frac{a_i}{a_i+1}\prod_{j\ne i}\frac{a_i+a_j}{a_i+1+a_j}\ \le\ \frac{a_i}{a_i+1}\ \le\ 1.
+\end{equation}
+
+\textbf{Step 3: bound the kernel entry ratio by an adjacent Bessel ratio.}
+Using \Cref{eq:SOodd_kernel_bessel} at column $0$,
+\begin{equation}
+\label{eq:SOodd_col0_entries}
+M_t^{B}(p,0)=I_p(t)-I_{p+1}(t)\qquad(p\ge 0).
+\end{equation}
+Hence
+\begin{equation}
+\label{eq:SOodd_Mratio}
+\frac{M_t^{B}(A_i+1,0)}{M_t^{B}(A_i,0)}
+=\frac{I_{A_i+1}-I_{A_i+2}}{I_{A_i}-I_{A_i+1}}.
+\end{equation}
+By Lemma~\ref{lem:bessel_ratio_monotone}, the ratio $I_{k+1}/I_k$ is nondecreasing in $k$.
+Thus $I_{A_i}I_{A_i+2}\ge I_{A_i+1}^2$, which is equivalent to
+$I_{A_i}(I_{A_i+1}-I_{A_i+2})\le I_{A_i+1}(I_{A_i}-I_{A_i+1})$.
+Dividing by the positive denominator $I_{A_i}(I_{A_i}-I_{A_i+1})$ yields
+\begin{equation}
+\label{eq:SOodd_Mratio_bound}
+\frac{M_t^{B}(A_i+1,0)}{M_t^{B}(A_i,0)}\ \le\ \frac{I_{A_i+1}(t)}{I_{A_i}(t)}.
+\end{equation}
+
+\textbf{Step 4: combine.}
+Using \Cref{eq:SOodd_coeff_det_ratio} we have
+$\frac{a_{\mu+e_i}}{a_{\mu}}=\frac{\dim\mu}{\dim(\mu+e_i)}\cdot\frac{D^{B}_{\mu+e_i}}{D^{B}_{\mu}}$.
+Combine \Cref{eq:SOodd_det_shift}, \Cref{eq:SOodd_dim_cancel}, and \Cref{eq:SOodd_Mratio_bound} to obtain
+\Cref{eq:SOodd_one_box_bound}.
+\end{proof}
+
+\begin{corollary}[Product bound over boxes]
+\label{cor:SOodd_telescoping}
+Let $\lambda$ be a nonempty partition of length at most $n$.
+Then
+\begin{equation}
+\label{eq:SOodd_product_over_boxes}
+0\le a_{\lambda}(\beta,\alpha)
+\ \le\ \prod_{(i,j)\in\lambda}\frac{I_{b_i+j}(t)}{I_{b_i+j-1}(t)},
+\qquad t=\frac{2\alpha\beta}{2n+1},\quad b_i=n-i.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Iterate \Cref{eq:SOodd_one_box_bound} along any one-box growth chain from $\varnothing$ to $\lambda$.
+At the moment the $j$th box in row $i$ is added, $A_i=b_i+(j-1)$.
+\end{proof}
+
+\subsection{Crossover bound in Casimir form}
+\label{subsec:A1_Spin_odd_crossover}
+
+\begin{lemma}[Casimir in partition coordinates for type $B_n$]
+\label{lem:SOodd_casimir}
+Let $\lambda$ be a partition of length at most $n$.
+With the root-length convention of \Cref{def:metric_casimir},
+\begin{equation}
+\label{eq:SOodd_casimir_formula}
+C_2(\lambda)=\sum_{i=1}^n \lambda_i\big(\lambda_i+2b_i+1\big),\qquad b_i=n-i.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For type $B_n$, $\rho_i=b_i+\tfrac12$ and $C_2(\lambda)=\langle\lambda,\lambda+2\rho\rangle$.
+Expanding yields \Cref{eq:SOodd_casimir_formula}.
+\end{proof}
+
+\begin{proposition}[A1 crossover bound for $\Spin(2n{+}1)$]
+\label{prop:SOodd_A1_final}
+There exists an explicit constant $c_{B}(n)>0$ such that for every nontrivial $\lambda$ and every $\alpha\in[1/2,1]$, $\beta\ge 1$,
+\begin{equation}
+\label{eq:SOodd_A1_final}
+ a_{\lambda}(\beta,\alpha)
+\ \le\
+\exp\Big(-c_{B}(n)\,\frac{C_2(\lambda)}{\beta+\sqrt{C_2(\lambda)}}\Big).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Fix $t=2\alpha\beta/(2n+1)$.
+Take logarithms of \Cref{eq:SOodd_product_over_boxes} and apply Lemma~\ref{lem:amos_upper_bound}:
+\begin{equation}
+\label{eq:SOodd_log_asinh}
+\log a_{\lambda}\ \le\ -\sum_{(i,j)\in\lambda}\operatorname{arsinh}\Big(\frac{b_i+j-\tfrac12}{t}\Big).
+\end{equation}
+As in Appendix~\ref{app:A1_Sp},
+$\operatorname{arsinh}(x)\ge x/(1+x)$ and $x/(1+x)\ge x/(t+K_{\max})$ give
+\begin{equation}
+\label{eq:SOodd_sum_lower}
+\sum_{(i,j)\in\lambda}\operatorname{arsinh}\Big(\frac{b_i+j-\tfrac12}{t}\Big)
+\ge \frac{\sum_{(i,j)\in\lambda}(b_i+j-\tfrac12)}{t+K_{\max}},
+\end{equation}
+with $K_{\max}=\max_{(i,j)\in\lambda}(b_i+j-\tfrac12)=b_1+\lambda_1-\tfrac12\le (n-1)+\lambda_1$.
+
+Compute the numerator:
+\begin{equation}
+\label{eq:SOodd_box_sum}
+\sum_{(i,j)\in\lambda}(b_i+j-\tfrac12)
+=\sum_{i=1}^n\sum_{j=1}^{\lambda_i}(b_i+j-\tfrac12)
+=\frac12\sum_{i=1}^n\big(\lambda_i^2+2b_i\lambda_i\big)
+=\frac12\big(C_2(\lambda)-|\lambda|\big),
+\end{equation}
+using \Cref{eq:SOodd_casimir_formula}.
+Since $\lambda_i^2+\lambda_i\ge 2\lambda_i$ for $\lambda_i\in\N$ and $b_i\ge 0$, we have
+$C_2(\lambda)=\sum_i(\lambda_i^2+2b_i\lambda_i+\lambda_i)\ge 2|\lambda|$.
+Thus $C_2(\lambda)-|\lambda|\ge \tfrac12 C_2(\lambda)$, so
+\begin{equation}
+\label{eq:SOodd_box_sum_ge_c2}
+\sum_{(i,j)\in\lambda}(b_i+j-\tfrac12)\ \ge\ \frac14\,C_2(\lambda).
+\end{equation}
+Also $\lambda_1\le \sqrt{C_2(\lambda)}$, hence
+$K_{\max}\le (n-1)+\sqrt{C_2(\lambda)}$.
+Substitute \Cref{eq:SOodd_box_sum_ge_c2} into \Cref{eq:SOodd_sum_lower} and then into \Cref{eq:SOodd_log_asinh}:
+\begin{equation}
+\label{eq:SOodd_log_final}
+\log a_{\lambda}\ \le\ -\frac14\,\frac{C_2(\lambda)}{t+(n-1)+\sqrt{C_2(\lambda)}}.
+\end{equation}
+Finally, since $t\le 2\beta/(2n+1)\le \beta$ and $\beta\ge 1$,
+$t+(n-1)+\sqrt{C_2}\le \beta+n+\sqrt{C_2}\le (n+1)(\beta+\sqrt{C_2})$.
+Therefore \Cref{eq:SOodd_log_final} implies \Cref{eq:SOodd_A1_final} with
+$c_{B}(n)=\frac{1}{4(n+1)}$.
+\end{proof}
+

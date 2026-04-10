@@ -1,0 +1,144 @@
+\section{Continuum flow-bundle state via dyadic renormalization group}
+\label{sec:rg}
+
+The analytic statements in this section are formulated for the chart-truncated Lane~C map $\mathcal R_j^{\mathrm{good}}$.
+The return from that fixed-chart surrogate to the physical Wilson theory is no longer left dispersed across local remarks: it is isolated once and for all in the same-scale Wilson-to-patched transport theorem, Theorem~\ref{thm:Wilson_patch_transport}, in Section~\ref{sec:patching}.
+Accordingly, every later use of the Wilson-versus-patched seam may cite that theorem as the primary main-text closure statement.
+
+\subsection{Group-uniform one-plaquette coefficient control}
+\label{subsec:one_plaq_control}
+
+The dyadic RG closure requires a uniform decay bound for the one-plaquette Fourier/character coefficients.
+This is the only step where global harmonic analysis on the gauge group enters.
+We therefore isolate it as the A1 gate (\Cref{prop:A1_template}).
+
+\subsubsection{Common definitions}
+\label{subsubsec:one_plaq_common_defs}
+
+Let $G$ and $\rho$ be as in \eqref{eq:families}.
+If $\rho$ has nontrivial central kernel, we pass to the effective quotient $G_{\mathrm{eff}}:=G/\ker(\rho)$ as in \Cref{rem:effective_group_convention}; all formulas below are unchanged after that descent, so we suppress the distinction in the notation.
+Define the one-plaquette Wilson action density
+\begin{equation}
+\label{eq:one_plaq_action_general}
+A(U)\ :=\ 1-\frac{1}{\dim\rho}\,\Re\Tr_{\rho}(U),\qquad U\in G.
+\end{equation}
+For $\beta>0$ and $\alpha\in[1/2,1]$ define the one-plaquette tilted measure
+\begin{equation}
+\label{eq:one_plaq_measure_general}
+ d\nu_{\beta,\alpha}(U)\ :=\ \frac{1}{Z_{\beta,\alpha}}\exp\big(-\alpha\beta\,A(U)\big)\,d\mu_{\mathrm{Haar}}(U),
+\qquad
+ Z_{\beta,\alpha}=\int_G \exp\big(-\alpha\beta\,A(U)\big)\,d\mu_{\mathrm{Haar}}(U).
+\end{equation}
+For an irreducible unitary representation $\pi$ of $G$, write
+\begin{equation}
+\label{eq:one_plaq_coeff_general}
+\varphi_{\pi}(U)\ :=\ \frac{1}{\dim\pi}\,\chi_{\pi}(U),
+\qquad
+a_{\pi}(\beta,\alpha)\ :=\ \E_{\nu_{\beta,\alpha}}\big[\varphi_{\pi}(U)\big].
+\end{equation}
+
+\begin{remark}[Central quotients and vanishing coefficients]
+\label{rem:center_vanish}
+If $K_\rho:=\ker(\rho)$ is nontrivial, then the weight $\exp(-\alpha\beta A(U))$ factors through the quotient map $G\twoheadrightarrow G_{\mathrm{eff}}:=G/K_\rho$.
+Consequently, $a_{\pi}(\beta,\alpha)=0$ for any irrep $\pi$ of $G$ on which $K_\rho$ acts nontrivially.
+All character sums in the RG therefore automatically run over the descended irreducible spectrum of $G_{\mathrm{eff}}$.
+\end{remark}
+
+\begin{theorem}[Group-uniform A1 input used on the primary spine]
+\label{thm:rg_A1_group_uniform}
+For every compact connected simple $G$ and every fixed finite-dimensional unitary Wilson representation $\rho$, the one-plaquette coefficients satisfy the crossover bound of Theorem~\ref{thm:A1_one_plaq_compact_simple}.
+Equivalently, on the primary Route~1 spine every use of the A1 gate is available with group-dependent constants $(c_{\mathrm{A1}}(G,\rho),\beta_{\mathrm{A1}}(G,\rho))$ and no remaining Lie-type restriction.
+\end{theorem}
+
+\begin{proof}
+Appendix~\ref{app:A1_compact_simple} proves the compact-simple theorem directly from a faithful-reduction step, an internal low-Casimir shifted-torus Laplace theorem in the parabolic weight window, and high-Casimir real-analytic Peter--Weyl decay.
+\end{proof}
+
+\subsubsection{Audited classical-family examples: \texorpdfstring{$\Sp(2n)$}{Sp(2n)}}
+\label{subsec:Sp_2n_one_plaq}
+
+\begin{proposition}[A1 for $\Sp(2n)$]
+\label{prop:A1_Sp}
+Fix $n\ge 3$ and set $G=\Sp(2n)$.
+There exist constants $c_{\mathrm{A1}}(n)>0$ and $\beta_{\mathrm{A1}}(n)\ge 1$ such that for all $\beta\ge\beta_{\mathrm{A1}}(n)$,
+all $\alpha\in[1/2,1]$, and every nontrivial irrep $\pi$ of $G$,
+\begin{equation}
+\label{eq:A1_Sp_bound}
+\big|a_{\pi}(\beta,\alpha)\big|
+\ \le\ 
+\exp\!\Big(-c_{\mathrm{A1}}(n)\,\frac{C_2(\pi)}{\beta+\sqrt{C_2(\pi)}}\Big).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+See Appendix~\ref{app:A1_Sp}, which derives an explicit determinantal formula for $a_{\pi}$ via Weyl integration and Andr\'eief,
+then bounds the resulting minor ratios by a telescoping product of adjacent modified-Bessel ratios controlled by Amos-type inequalities.
+\end{proof}
+
+\subsubsection{Audited classical-family examples: \texorpdfstring{$\Spin(2n{+}1)$}{Spin(2n+1)}}
+\label{subsec:Spin_2n1_one_plaq}
+
+\begin{proposition}[A1 for $\Spin(2n{+}1)$]
+\label{prop:A1_Spin_odd}
+Fix $n\ge 2$ and set $G=\Spin(2n+1)$.
+There exist constants $c_{\mathrm{A1}}(n)>0$ and $\beta_{\mathrm{A1}}(n)\ge 1$ such that for all $\beta\ge\beta_{\mathrm{A1}}(n)$,
+all $\alpha\in[1/2,1]$, and every nontrivial irrep $\pi$ of $G$ with $\pi(-\1)=\1$,
+\begin{equation}
+\label{eq:A1_Spin_odd_bound}
+\big|a_{\pi}(\beta,\alpha)\big|
+\ \le\ 
+\exp\!\Big(-c_{\mathrm{A1}}(n)\,\frac{C_2(\pi)}{\beta+\sqrt{C_2(\pi)}}\Big).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+See Appendix~\ref{app:A1_Spin_odd}.
+\end{proof}
+
+\subsubsection{Audited classical-family examples: \texorpdfstring{$\Spin(2n)$}{Spin(2n)}}
+\label{subsec:Spin_2n_one_plaq}
+
+\begin{proposition}[A1 for $\Spin(2n)$]
+\label{prop:A1_Spin_even}
+Fix $n\ge 4$ and set $G=\Spin(2n)$.
+There exist constants $c_{\mathrm{A1}}(n)>0$ and $\beta_{\mathrm{A1}}(n)\ge 1$ such that for all $\beta\ge\beta_{\mathrm{A1}}(n)$,
+all $\alpha\in[1/2,1]$, and every nontrivial irrep $\pi$ of $G$ with $\pi(-\1)=\1$,
+\begin{equation}
+\label{eq:A1_Spin_even_bound}
+\big|a_{\pi}(\beta,\alpha)\big|
+\ \le\ 
+\exp\!\Big(-c_{\mathrm{A1}}(n)\,\frac{C_2(\pi)}{\beta+\sqrt{C_2(\pi)}}\Big).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+See Appendix~\ref{app:A1_Spin_even}.
+\end{proof}
+
+\subsection{Step scaling and the \texorpdfstring{$b_0$}{b0} coefficient in the dyadic GF scheme}
+\label{subsec:step_scaling}
+\input{clean_build/laneC_step_scaling_b0_v80_body.tex}
+
+\subsection{Uniform dyadic beta-remainder bound}
+\input{clean_build/laneC_beta_remainder_dyadic_v81_body.tex}
+
+\subsection{One-step RG analytic bounds in the dyadic seminorm topology}
+\input{clean_build/laneC_RG_analytic_bounds_v82_body.tex}
+
+\subsection{Uniform fluctuation bounds and linear contraction mechanisms}
+\input{clean_build/laneC_fluctuation_bounds_v83_body.tex}
+
+\subsection{Uniform convexity and extracted-irrelevant scaling gap}
+\input{clean_build/laneC_convexity_scaling_gap_v84_body.tex}
+
+\subsection{Uniform chart control and truncation error}
+\input{clean_build/laneC_chart_control_v85_body.tex}
+
+\subsection{Chart-truncated RG step and closure of the dyadic beta-remainder bound}
+\input{clean_build/laneC_chart_truncated_RG_v86_body.tex}
+
+\subsection{Uniqueness/universality: no-subsequence convergence of flowed expectations}
+\input{clean_build/laneC_C3_stable_manifold_v100_body.tex}
+\input{clean_build/laneC_C3_renorm_map_injectivity_v101_body.tex}
+\input{clean_build/laneC_C3_observable_Lipschitz_v102_body.tex}
+\input{clean_build/laneC_C3U_closure_v103_body.tex}

@@ -1,0 +1,252 @@
+The Lane~A1 lemma stack isolates the \emph{insertion RG map} as a distinct analytic burden.
+The main output of this subsection is the SFTE-style decomposition theorem (Theorem~\ref{thm:ins_decomp}), which decomposes a flowed insertion into finitely many renormalized local operators plus an extracted-irrelevant remainder that is small as $t\downarrow 0$.
+
+It interfaces explicitly with the chart truncation / de-patching mechanism of Section~\ref{sec:patching} and with the chart-truncated integration philosophy of Definitions~\ref{def:trunc_measure} and~\ref{def:RG_good}.
+
+\paragraph{What this subsection does.}
+
+\begin{enumerate}[label=(\roman*)]
+\item Define the Banach spaces of \emph{bulk} polymer activities $K_j$ and \emph{insertion} polymer activities $J_j$ at each dyadic scale.
+\item Define a \textbf{patched} one-step insertion integration operator $\mathcal E^{\mathrm{good}}_{j+1}(u_j,K_j)$ that uses the good-block (chart) truncation and,
+when flowed insertions are present, a local \emph{good-flow chart} truncation in the effective support region. On this event the deterministic hypotheses
+for flow quasi-locality and kernel bounds hold by Lemma~\ref{lem:chart_persist} (Section~\ref{sec:good_flow_chart}).
+\item Define the one-step \textbf{insertion RG map} $\mathcal R^{\mathrm{ins,good}}_j$ (integration + reblocking/rescaling + extraction).
+\item Prove the \textbf{extracted-irrelevant contraction} and the resulting \textbf{SFTE-style decomposition} after iterating to a matching scale $\mu$,
+with constants tracked.
+\end{enumerate}
+
+Fix dyadic scale factor $L=2$ and lattice spacing $a>0$. A \emph{$j$-block} is a cube of side $L^j a$.
+A \emph{$j$-polymer} $X$ is a finite connected union of $j$-blocks. Let $|X|_j$ be the number of $j$-blocks in $X$.
+
+\paragraph{Positive-time support.}
+All insertions are smeared against test functions supported in a compact $K\subset\{x_0\ge \varepsilon\}$, so OS positivity is preserved.
+
+We assume the chart-truncated dyadic RG map $\mathcal R^{\mathrm{good}}_j$ of Definition~\ref{def:RG_good} is available:
+\[
+(u_j,K_j)\ \mapsto\ (u_{j+1},K_{j+1}).
+\]
+We do \emph{not} reprove bulk RG bounds here; we only require the same seminorm infrastructure.
+
+\begin{proposition}[Bulk RG seminorm axioms (proved in Proposition~\ref{ass:seminorm_axioms} and Proposition~\ref{ass:fluctuation_bounds})]\label{ass:bulk_axioms}
+There exist scale-independent constants such that:
+\begin{enumerate}[label=(B\arabic*)]
+\item (\textbf{Product bound}) $\|FG\|_j\le C_{\mathrm{prod}}\|F\|_j\|G\|_j$ for local functionals on a $j$-polymer.
+\item (\textbf{Counting}) polymer sums satisfy a bound with constant $C_{\mathrm{count}}$.
+\item (\textbf{Integration bound}) the chart-truncated fluctuation expectation at step $j\to j+1$ defines a bounded linear operator on polymer activities with norm $\le C_E$.
+\item (\textbf{Extraction}) projection onto relevant/marginal directions is bounded with constant $C_{\mathrm{ext}}$.
+\end{enumerate}
+\end{proposition}
+
+Fix a symmetry sector and a finite operator basis $\{\mathcal O_i^{\mathrm{ren}}\}_{i=1}^M$ of gauge-invariant local operators
+with engineering dimensions $\Delta_i$ and fixed quantum numbers (e.g.\ CP-even scalar, CP-odd pseudoscalar).
+
+An \emph{insertion activity} at scale $j$ is a family
+\[
+J_j=\{J_j(X;f)\}_{X\in\mathscr P_j},
+\]
+where $\mathscr P_j$ is the set of $j$-polymers, each $J_j(X;f)$ is a local functional supported in $X$, and $J_j$ is \emph{linear} in the test function $f$.
+We restrict to insertion activities supported on polymers that intersect the $j$-neighborhood of $\mathrm{supp}(f)$.
+
+Fix $(k,K,\varepsilon)$ as in the OS seminorm. Define the insertion seminorm at scale $j$ by
+\begin{equation}\label{eq:ins_norm}
+\|J_j\|_{\mathrm{ins};j;k,K,\varepsilon}
+:=
+\sup_{\substack{f:\ \mathrm{supp}(f)\subset K\\ |f|_{C^k(K)}\le 1}}
+\ \sup_{X\in\mathscr P_j}\ 
+\Gamma_j(X)^{-1}\ \|J_j(X;f)\|_j,
+\end{equation}
+where $\|\cdot\|_j$ is the bulk local functional seminorm and $\Gamma_j(X)$ is the standard polymer weight (e.g.\ $\Gamma_j(X)=A^{|X|_j}$ with $A>1$).
+All constants are required to be uniform in $a$ on the AF window.
+
+\paragraph{Remark.}
+This norm is the insertion analogue of the bulk polymer norm.
+The additional supremum over $f$ integrates directly with the OS-seminorm topology used in Lemma~\ref{lem:ins_to_OS} and ultimately Theorem~\ref{thm:LaneA_closure}.
+
+Fix an \emph{extraction depth} $d_\ast\in\{4,6\}$ (recommended: $d_\ast=6$ for safety).
+Let $\mathcal V^{\le d_\ast}$ be the finite-dimensional span of basis operators with $\Delta_i\le d_\ast$ in the chosen sector.
+
+At each scale $j$ choose normalized insertion basis activities $\Phi_{i,j}$ representing $\mathcal O_i^{\mathrm{ren}}$ at scale $j$
+(e.g.\ block-localized versions with $\|\Phi_{i,j}\|_{\mathrm{ins};j}=1$).
+
+\begin{definition}[Insertion extraction operator]\label{def:Ext_ins}
+Define $\mathrm{Ext}^{\mathrm{ins}}_j$ as the bounded linear projection
+\[
+\mathrm{Ext}^{\mathrm{ins}}_j:\ J_j\ \mapsto\ \Big(\alpha_j,\ I_j\Big),
+\qquad
+J_j=\sum_{\Delta_i\le d_\ast}\alpha_{j,i}\,\Phi_{i,j}\ +\ I_j,
+\]
+where $I_j$ lies in the extracted-irrelevant insertion subspace (no components in $\mathcal V^{\le d_\ast}$).
+\end{definition}
+
+\begin{proposition}[Scaling gap after extraction (proved in Lemma~\ref{lem:Delta_min})]\label{ass:gap_ins}
+Let $\Delta_{\min}=d_{\mathrm{next}}-d_\ast$, where $d_{\mathrm{next}}$ is the minimal engineering dimension of the next gauge-invariant operator in the sector.
+Then under dyadic rescaling (block size doubled),
+\[
+\|\mathrm{Rescale}(I_j)\|_{\mathrm{ins};j+1}\ \le\ 2^{-\Delta_{\min}}\ \|I_j\|_{\mathrm{ins};j}.
+\]
+For pure gauge sectors: $d_\ast=4$ gives $\Delta_{\min}=2$; $d_\ast=6$ gives $\Delta_{\min}=4$.
+\end{proposition}
+
+At each step $j\to j+1$, the bulk RG uses a chart-truncated fluctuation expectation.
+For insertions involving flowed fields, we additionally enforce a local good-flow chart event $G_{\Lambda}(\varepsilon)$
+(Definition~\ref{def:good_plaq}) around the effective support region. On this event the bounded-regime bound \eqref{eq:bounds_B} holds
+by Lemma~\ref{lem:chart_persist}, hence the deterministic hypotheses of Theorem~\ref{thm:flow_local_v91} and Proposition~\ref{ass:gaussian_kernel}
+apply in the insertion neighborhood.
+
+\begin{definition}[Patched expectation operator for insertion step]\label{def:E_good_ins}
+Let $\mathbb E_{j+1}$ denote the original fluctuation expectation at step $j\to j+1$ and let $G_{j+1}$ denote the conjunction of:
+(i) the good-block (small-curvature) chart event on each unit coarse block at this step, and
+(ii) the local good-flow chart event $G_{\Lambda}(\varepsilon)$ in the insertion neighborhood (only needed when the insertion involves flowed fields).
+Define
+\[
+\mathbb E^{\mathrm{good}}_{j+1}[F]
+:=\frac{\mathbb E_{j+1}[F\,\mathbf 1_{G_{j+1}}]}{\mathbb E_{j+1}[\mathbf 1_{G_{j+1}}]}.
+\]
+\end{definition}
+
+\paragraph{De-patching estimate.}
+Lemma~\ref{lem:patch_error} bounds the difference between the unpatched and patched one-step insertion expectations in terms of $\mathbb P(G_{j+1}^c)$.
+The explicit tail estimate for $\mathbb P(G_{j+1}^c)$ required in the main proof is provided by Lemma~\ref{lem:local_tail} (via the plaquette threshold choice defining $G_{j+1}$).
+
+Let $Z_j(\varphi):=e^{-V_j(\varphi)}(1+K_j(\varphi))$ denote the bulk effective density at scale $j$ (in polymer form).
+For an insertion activity $J_j$, define the \emph{pre-rescaled} insertion after integrating the $(j+1)$-fluctuation field $\zeta$ by the ratio
+\begin{equation}\label{eq:ins_integration_ratio}
+\widetilde J_{j+1}(\varphi)
+:=
+\frac{\mathbb E_{j+1}^{\mathrm{good}}\!\big[J_j(\varphi+\zeta)\,Z_j(\varphi+\zeta)\big]}
+{\mathbb E_{j+1}^{\mathrm{good}}\!\big[Z_j(\varphi+\zeta)\big]}.
+\end{equation}
+In polymer coordinates, $\widetilde J_{j+1}$ is re-expanded as a $(j+1)$-scale insertion activity
+$\widetilde J_{j+1}=\{\widetilde J_{j+1}(Y;f)\}_{Y\in\mathscr P_{j+1}}$.
+
+\begin{definition}[One-step insertion integration operator]\label{def:E_ins}
+Define the (bulk-dependent) linear map
+\[
+\mathcal E^{\mathrm{good}}_{j+1}(u_j,K_j):\ J_j\ \mapsto\ \widetilde J_{j+1}
+\]
+by \eqref{eq:ins_integration_ratio} together with the standard polymer re-expansion (same combinatorics as in the bulk RG).
+\end{definition}
+
+\begin{lemma}[Boundedness of $\mathcal E^{\mathrm{good}}_{j+1}$ in insertion seminorm]\label{lem:Eins_bound}
+Assume the bulk RG ball conditions (small $u_j$ and small $\|K_j\|_j$) and the chart-truncated fluctuation bounds of Proposition~\ref{ass:fluctuation_bounds}.
+Then there exists a scale-independent constant $C_{E,\mathrm{ins}}$ such that
+\[
+\|\mathcal E^{\mathrm{good}}_{j+1}(u_j,K_j)J_j\|_{\mathrm{ins};j+1}
+\le C_{E,\mathrm{ins}}\ \|J_j\|_{\mathrm{ins};j},
+\]
+uniformly in $a$ and uniformly in $j$.
+\end{lemma}
+
+\paragraph{Comment (flowed insertions).}
+When the insertion involves flowed fields, the patched expectation in Definition~\ref{def:E_good_ins} includes the local good-flow chart event.
+On this event the deterministic hypotheses needed for the flow quasi-locality and kernel bounds are satisfied by Lemma~\ref{lem:chart_persist}
+(Section~\ref{sec:good_flow_chart}); the contribution of the complement is absorbed (at fixed $t$) by the truncation estimate
+Corollary~\ref{cor:superpoly_flow} together with Lemma~\ref{lem:patch_error}.
+
+\paragraph{Proof.}
+The proof is given in Proposition~\ref{prop:Eins_bound} (see the next subsection).
+
+\begin{definition}[Patched one-step insertion RG map]\label{def:RG_ins}
+Given $(u_j,K_j)$ and an insertion activity $J_j$, define:
+\begin{enumerate}[label=(\arabic*)]
+\item integrate: $\widetilde J_{j+1}=\mathcal E^{\mathrm{good}}_{j+1}(u_j,K_j)J_j$;
+\item extract: $(\alpha_{j+1},\widehat I_{j+1})=\mathrm{Ext}^{\mathrm{ins}}_{j+1}(\widetilde J_{j+1})$;
+\item rescale the remainder: $I_{j+1}=\mathrm{Rescale}(\widehat I_{j+1})$.
+\end{enumerate}
+Define the insertion RG map
+\[
+\mathcal R^{\mathrm{ins,good}}_j:\ (u_j,K_j;\alpha_j,I_j)\ \longmapsto\ (u_{j+1},K_{j+1};\alpha_{j+1},I_{j+1}),
+\]
+where $(u_{j+1},K_{j+1})$ is the bulk RG image under $\mathcal R^{\mathrm{good}}_j$.
+\end{definition}
+
+\begin{proposition}[One-step contraction on extracted-irrelevant insertion sector]\label{prop:ins_contract}
+Under Propositions~\ref{ass:bulk_axioms} and~\ref{ass:gap_ins}, and Lemma~\ref{lem:Eins_bound},
+the remainder map satisfies
+\[
+\|I_{j+1}\|_{\mathrm{ins};j+1}
+\le \kappa_{\mathrm{ins}}\ \|I_j\|_{\mathrm{ins};j},
+\qquad
+\kappa_{\mathrm{ins}}:=C_{E,\mathrm{ins}}\,2^{-\Delta_{\min}}.
+\]
+In particular, if $\kappa_{\mathrm{ins}}<1$ (achieved either by bounding $C_{E,\mathrm{ins}}$ or by choosing deeper extraction to increase $\Delta_{\min}$),
+then the extracted-irrelevant sector contracts uniformly in $j$ and uniformly in $a$.
+\end{proposition}
+
+Fix a renormalization scale $\mu>0$ and a flow time $t\in(0,t_\ast]$ with $t\gg a^2$.
+Let $n(t,\mu)$ be the number of dyadic steps needed so that the block size $L^{n}\sqrt t$ is comparable to $\mu^{-1}$:
+\begin{equation}\label{eq:n_def}
+n(t,\mu):=\Big\lceil \log_2\Big(\frac{1}{\mu\sqrt t}\Big)\Big\rceil.
+\end{equation}
+
+\begin{theorem}[Insertion RG decomposition at scale $\mu$]\label{thm:ins_decomp}
+Assume $\kappa_{\mathrm{ins}}<1$ and iterate the patched insertion RG map $\mathcal R^{\mathrm{ins,good}}$ for $n=n(t,\mu)$ steps.
+Then the flowed insertion $\mathcal O_{*,t}(f)$ admits a decomposition
+\[
+\mathcal O_{*,t}(f)=\sum_{\Delta_i\le d_\ast}\alpha_i(t,\mu)\,\mathcal O_i^{\mathrm{ren}}(f;\mu)\ +\ \mathcal R_{*,t}(f),
+\]
+where $\alpha_i(t,\mu)$ are the extracted coefficients at the matching scale and the remainder satisfies the insertion norm bound
+\begin{equation}\label{eq:rem_bound}
+\|\mathcal R_{*,t}\|_{\mathrm{ins};\mu;k,K,\varepsilon}
+\le C_{\mathrm{init}}\ \kappa_{\mathrm{ins}}^{\,n(t,\mu)}.
+\end{equation}
+Consequently,
+\begin{equation}\label{eq:rem_tpower}
+\|\mathcal R_{*,t}\|_{\mathrm{ins};\mu;k,K,\varepsilon}
+\le C_{\mathrm{init}}\,C_\mu\ (\mu^2 t)^{\eta},
+\qquad
+\eta:=\frac{\Delta_{\min}-\log_2 C_{E,\mathrm{ins}}}{2}\ >\ 0,
+\end{equation}
+with $C_\mu$ depending only on $\mu$ and fixed dyadic rounding constants.
+\end{theorem}
+
+\begin{proof}
+Iterate Proposition~\ref{prop:ins_contract} to obtain \eqref{eq:rem_bound}.
+Write $\kappa_{\mathrm{ins}}=C_{E,\mathrm{ins}}2^{-\Delta_{\min}}$ and use $2^{n(t,\mu)}\asymp 1/(\mu\sqrt t)$ to bound
+$C_{E,\mathrm{ins}}^{n}\le (2^{n})^{\log_2 C_{E,\mathrm{ins}}}\lesssim (\mu\sqrt t)^{-\log_2 C_{E,\mathrm{ins}}}$ and
+$2^{-\Delta_{\min}n}\lesssim (\mu\sqrt t)^{\Delta_{\min}}$.
+Combine to obtain \eqref{eq:rem_tpower}.
+\end{proof}
+
+\paragraph{Interpretation.}
+The effective exponent $\eta$ is the engineering scaling gap $\Delta_{\min}/2$ \emph{reduced} by the per-step integration-norm growth $\log_2 C_{E,\mathrm{ins}}/2$.
+Any $\eta>0$ suffices for the Lane~A closure theorem (Theorem~\ref{thm:LaneA_closure}). If one wants $\eta\ge 1$, choose extraction depth $d_\ast$ large enough (e.g.\ $d_\ast=6$ gives $\Delta_{\min}=4$)
+and/or improve the bound on $C_{E,\mathrm{ins}}$.
+
+Define the unpatched insertion integration operator $\mathcal E_{j+1}$ by replacing $\mathbb E^{\mathrm{good}}_{j+1}$ with $\mathbb E_{j+1}$ in \eqref{eq:ins_integration_ratio}.
+The difference is controlled by the probability of the complement of $G_{j+1}$.
+
+\begin{lemma}[Patched vs.\ unpatched one-step insertion expectations]\label{lem:patch_error}
+Let $G_{j+1}$ be any measurable ``good'' event and define the patched expectation
+\[
+\mathbb E^{\mathrm{good}}_{j+1}[F]
+:=\frac{\mathbb E_{j+1}[F\,\mathbf 1_{G_{j+1}}]}{\mathbb E_{j+1}[\mathbf 1_{G_{j+1}}]}.
+\]
+Then for any bounded local insertion functional $F$,
+\begin{equation}\label{eq:patch_error_general}
+\big|\mathbb E_{j+1}[F]-\mathbb E^{\mathrm{good}}_{j+1}[F]\big|
+\ \le\ 2\|F\|_\infty\,\sqrt{\mathbb P(G_{j+1}^c)}.
+\end{equation}
+In particular, choosing $G_{j+1}$ as a local plaquette-smallness event and applying Lemma~\ref{lem:local_tail}
+yields an explicit superpolynomially small error in the AF window (absorbed into the Lane~A remainder).
+\end{lemma}
+
+\begin{proof}
+Write
+\[
+\mathbb E_{j+1}[F]-\mathbb E^{\mathrm{good}}_{j+1}[F]
+=
+\frac{\mathbb E_{j+1}[F\,\mathbf 1_{G_{j+1}^c}]}{\mathbb E_{j+1}[\mathbf 1_{G_{j+1}}]}
+-
+\frac{\mathbb E_{j+1}[F]\,\mathbb P(G_{j+1}^c)}{\mathbb E_{j+1}[\mathbf 1_{G_{j+1}}]}.
+\]
+Using $\mathbb E_{j+1}[\mathbf 1_{G_{j+1}}]\ge 1-\mathbb P(G_{j+1}^c)\ge 1/2$ when $\mathbb P(G_{j+1}^c)\le 1/2$ (which is the regime of interest),
+and Cauchy--Schwarz gives $|\mathbb E_{j+1}[F\,\mathbf 1_{G_{j+1}^c}]|\le \|F\|_\infty\sqrt{\mathbb P(G_{j+1}^c)}$.
+The bound \eqref{eq:patch_error_general} follows.
+\end{proof}
+
+\begin{itemize}
+\item The insertion RG map $\mathcal R^{\mathrm{ins,good}}$ is defined in the same dyadic seminorm framework as the bulk RG, and its interface to the local bounded-flow truncation (used only for flowed insertions) is explicit.
+\item The extracted-irrelevant contraction depends on two explicit constants: the scaling gap $\Delta_{\min}$ (from the bulk RG) and the insertion integration bound $C_{E,\mathrm{ins}}$, bounded uniformly by Proposition~\ref{prop:Eins_bound}.
+\item The de-patching error between patched and unpatched expectations is controlled by Lemma~\ref{lem:patch_error} together with the explicit tail estimate Lemma~\ref{lem:local_tail}.
+\end{itemize}

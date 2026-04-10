@@ -1,0 +1,73 @@
+\section{Sharp local operator algebra and Lane~A reconstruction}
+\label{sec:sharp_local}
+
+This section is the constructive Lane~A packet on the frozen proof spine.
+Its output is used twice in the final claim: Appendix~\ref{app:axioms_package} consumes the inverse-flow, quotient-block, operator-domain, and cyclicity statements proved here in order to package the OS/Wightman existence and non-triviality theorem; Appendix~\ref{app:global_form_resolution} then uses the same Lane~A output to identify the exact local field content of the theorem-level endpoint.
+The OS/Wightman-strength axioms themselves are therefore promoted to a separate claim-facing packet in Appendix~\ref{app:axioms_package}; the present section supplies the constructive statements that make that packet load-bearing.
+
+\subsection{Auxiliary: quasi-locality of flowed probes}
+\input{clean_build/laneA_flow_localization_v91_body.tex}
+
+\subsection{Auxiliary: good-flow chart event and bounded-regime control}
+\label{sec:good_flow_chart}
+\input{clean_build/laneA_flow_chart_event_v92_body.tex}
+
+\subsection{Auxiliary: Gaussian kernel bounds for the linearized DeTurck operator}
+\input{clean_build/laneA_gaussian_kernel_v93_body.tex}
+
+\subsection{Auxiliary: insertion RG and OS-seminorm bounds}
+\input{clean_build/laneA_insertion_RG_v94_body.tex}
+\input{clean_build/laneA_insertion_integration_bound_v95_body.tex}
+\input{clean_build/laneA_ins_to_OS_v96_body.tex}
+
+
+\paragraph{Packet 5--7 certification note.}
+Appendix~\ref{app:normalization_crosscheck}, \S\ref{subsec:LaneA_packet_interface_map}, freezes the Lane~A packet interface in Table~\ref{tab:LaneA_packet_interface_map}.
+For the theorem-facing spine used later by Appendix~\ref{app:route1} and Appendix~\ref{app:axioms_package}, that table records three role boundaries that should not be blurred in prose: the present coefficient block exports only the finite-truncation inverse / SFTE package, Theorem~\ref{thm:finite_cap_flowed_sector_bridge} is the first mixed-correlator closure node, and the inductive-union extension plus bounded-base cyclicity appear only at Corollary~\ref{cor:LaneA_full_scope} and Theorem~\ref{thm:LaneA_bounded_base_cyclic}.
+
+\subsection{Auxiliary: coefficient matrix invertibility (diagonal blocks + finite triangular assembly)}
+Before entering the coefficient file, it is helpful to separate three roles that are easy to conflate on a first read.
+First, the scalar/tensor/loop sectors are retained as \emph{audited sample certificates}: they show concretely how the abstract inverse-control mechanism looks in familiar channels.
+For the first dim-$6$ loop block, the paper now writes the audited UV matrix explicitly,
+\[
+D_{6,\mathrm{tree}}^{PRC}=
+\begin{pmatrix}
+0&1/8\\[0.15em]
+1/24&0
+\end{pmatrix},
+\]
+rather than leaving the determinant certificate in symbolic form.
+Second, the load-bearing widening step is the \emph{canonical exact-dimension block formalism}:
+for each engineering dimension / CP parity / Euclidean tensor type, the local block is first formalized as an exact-dimension quotient space,
+Appendix~\ref{app:normalization_crosscheck} proves that the small-flow substitution induces the identity on that quotient before any basis is chosen,
+and only afterwards is the block written in a fixed complete-contraction basis and renormalized coherently across engineering caps.
+The auxiliary insertion-RG subsection now proves a \emph{basis-free one-shell transport theorem} for those canonical blocks,
+so the later finite-truncation theorem no longer appeals to a placeholder assumption about ``each fixed finite operator basis''.
+Third, those canonical blocks are assembled into finite engineering caps and then passed to the inductive union.
+Appendix~\ref{app:normalization_crosscheck} now records that basis/normalization protocol explicitly, so a referee can read the full-scope Lane~A statement without reconstructing the bookkeeping from earlier scalar examples.
+\input{clean_build/laneA_coeff_invertibility_v97_body.tex}
+
+\subsection{Lane A finite-cap extension theorem and inductive-union upgrade}
+On the frozen proof spine, Lane~A has two roles.
+First, it extends the already-constructed Lane~C continuum state on the flowed observable algebra $\mathcal A_{\mathrm{flow}}$ to the full adjoint-local sharp-local algebra by the theorem-facing packet chain
+\[
+\begin{aligned}
+\text{basis-free exact-dimension quotient blocks}
+&\Longrightarrow \text{one-shell transport + finite-truncation inverse / SFTE package}\\
+&\Longrightarrow \text{finite-cap flowed-sector bridge}
+\Longrightarrow \text{inductive union}.
+\end{aligned}
+\]
+The scalar/tensor/loop sample sectors remain in the paper only as audited illustrations and normalization cross-checks; they are not theorem-level inputs on this chain.
+The finite-cap bridge is the first mixed-correlator closure node on that chain, and the inductive-union passage occurs only after Theorem~\ref{thm:LaneA_closure} and Corollary~\ref{cor:LaneA_full_scope}.
+Second, it carries the bounded positive-time state used in Appendix~F into the continuum-time OS semigroup on the reconstructed sharp-local Hilbert space and proves that this same bounded base algebra is still cyclic there.
+The theorem below is therefore the intrinsic finite-cap inverse-flow/OS extension mechanism, now fed by unconditional finite-truncation inputs: the insertion-RG file provides the basis-free canonical one-shell increment theorem, Appendix~F supplies the finite-truncation SFTE/remainder package, and the coefficient file proves inverse control on every finite sharp-local truncation.
+It does not build a second independent continuum state on flowed observables: Theorem~\ref{thm:C3U} already furnishes that state, and Lane~A extends it capwise before Corollary~\ref{cor:LaneA_full_scope} passes to the full inductive-limit sharp-local algebra.
+\input{clean_build/laneA_closure_theorem_v88_body.tex}
+
+
+\subsection*{Packet 9 interface: axioms, field correspondence, and non-triviality}
+Section~\ref{sec:sharp_local} contains the constructive Lane~A inputs: RP-safe representatives, SFTE/inverse-flow identification, exact-dimension quotient control, finite-truncation inverse estimates, inductive-union closure, and bounded-base cyclicity in the full sharp-local reconstruction.
+On the public theorem spine, the later permitted Lane~A exports to Packet~9 are Theorem~\ref{thm:LaneA_closure}(b), Corollary~\ref{cor:LaneA_full_scope}, Theorem~\ref{thm:LaneA_temperedness_verification}, Theorem~\ref{thm:LaneA_bounded_base_cyclic}, and Theorem~\ref{thm:LaneA_nontriviality_witness}.
+Appendix~\ref{app:axioms_package} is Packet~9 on the public theorem docket and repackages the first four of those Lane~A exports together with the Route~1 vacuum-gap theorem into one theorem-level dossier proving the Euclidean OS axioms, positive-time clustering/vacuum uniqueness, the standard Poincar\'e-covariant Wightman/Haag--Kastler reconstruction, and the field correspondence for the gauge-invariant local differential polynomials represented by the sharp-local algebra; Theorem~\ref{thm:nontriviality_package} then consumes the separate witness export to rule out the zero/identity theory.
+For a first-pass Lane~A audit, Appendix~\ref{app:referee_audit}, Extract~B in \S\ref{subsec:hard_module_extracts}, and Stage~4 of Appendix~\ref{app:executive_proof_sketch} isolate exactly which quotient-space, transport, inverse-control, temperedness, cyclicity, and witness theorems are load-bearing.

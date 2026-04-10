@@ -1,0 +1,37 @@
+\begin{quote}
+\emph{The mass gap is a property of the OS Hamiltonian reconstructed from the OS-positive local/unflowed state.
+Appendix~F now closes the entire fixed-lattice-to-continuum passage in one theorem-level transfer statement: Theorem~\ref{thm:phys_gap_noncollapse} takes the tuned full fixed-lattice Wilson gap input, the same-scale Wilson-to-patched closure already packaged in Theorem~\ref{thm:Wilson_patch_transport}, the Wilson bounded-state / dyadic OS limit theorem~\ref{thm:continuum_tightness}, the continuum-time OS upgrade, and the explicit Lane~A density/core package, and outputs the sharp-local vacuum gap.
+The first Lane~A theorem-level compatibility input on this route is Corollary~\ref{cor:LaneA_bounded_state_restriction}; that corollary is not the inductive-union theorem. The finite-cap sharp-local OS structure comes from Theorem~\ref{thm:LaneA_closure}(b), the separate inductive-union passage comes from Corollary~\ref{cor:LaneA_full_scope}, and the later density/core handoff comes from Corollary~\ref{cor:sharp_base_dense_in_full_H} together with Lemma~\ref{lem:QE3_core_topology}. See \Cref{rem:route1_packet38_transport_certification} for the local Packet~3/8 transport ledger. Lane~B remains downstream only.}
+\end{quote}
+
+Let $(\mathcal H,\Omega,H)$ be the OS Hilbert space, vacuum, and Hamiltonian reconstructed from the sharp-local OS-positive continuum state on $\mathcal A_+$
+(Section~\ref{sec:patching}).
+
+\begin{theorem}[Lane~B restatement of the Route~1 sharp-local gap]\label{thm:gap_transfer}
+In the setting of Corollary~\ref{cor:route1_QE3_gap}, let $\omega^{(u_{\mathrm{ren}})}$ be the full sharp-local state furnished by Corollary~\ref{cor:LaneA_full_scope}.
+Then the OS Hamiltonian $H$ of the sharp-local theory satisfies
+\[
+\sigma(H)\subset\{0\}\cup[\mathfrak m_\ast,\infty),
+\qquad
+\ker(H)=\mathbb C\Omega,
+\qquad
+P_{(0,\mathfrak m_\ast)}=0.
+\]
+Equivalently,
+\[
+\|e^{-tH}\psi\|\le e^{-\mathfrak m_\ast t}\,\|\psi\|
+\qquad (t\ge 0,\ \psi\perp\Omega).
+\]
+In particular, for every centered renormalized local insertion $\mathcal O^{\mathrm{ren}}(f)$ one has
+\[
+P_{(0,\mathfrak m_\ast)}\,\mathcal O^{\mathrm{ren}}(f)\Omega=0.
+\]
+\end{theorem}
+
+\begin{proof}
+By Corollary~\ref{cor:LaneA_bounded_state_restriction}, the sharp-local state and the tuned-dyadic bounded Wilson base state agree on $\mathcal A_+$ and have the same positive-time OS matrix elements; that corollary supplies only the bounded-state compatibility input on this seam.
+The finite-cap sharp-local OS structure behind the reconstructed semigroup is the capwise statement of Theorem~\ref{thm:LaneA_closure}(b), while Corollary~\ref{cor:LaneA_full_scope} is the separate passage to the full sharp-local inductive union.
+Corollary~\ref{cor:route1_QE3_gap} is therefore already a statement about the actual sharp-local OS Hamiltonian reconstructed from this state.
+The explicit density/core passage needed to interpret that statement on sharp-local field vectors is exactly the package Corollary~\ref{cor:sharp_base_dense_in_full_H} and Lemma~\ref{lem:QE3_core_topology}; no further transport step is needed in Lane~B.
+The final display follows because $P_{(0,\mathfrak m_\ast)}=0$ as an operator on $\mathcal H$.
+\end{proof}

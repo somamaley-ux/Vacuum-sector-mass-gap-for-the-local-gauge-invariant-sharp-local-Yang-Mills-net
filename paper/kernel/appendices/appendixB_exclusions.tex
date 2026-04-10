@@ -1,0 +1,24 @@
+\section{What the kernel intentionally excludes, and why}\label{app:kernel-exclusions}
+
+This appendix records the material intentionally left out of the proof kernel. The exclusion rule is simple: if a file or theorem block does not carry a live theorem-level edge on the packet DAG of Section~\ref{sec:kernel-spine}, it does not belong in the kernel.
+
+\begin{center}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}p{3.1cm}p{5.8cm}p{3.4cm}@{}}
+\toprule
+\textbf{Excluded material} & \textbf{Why it is excluded from the kernel} & \textbf{Where it still lives if needed} \\
+\midrule
+Classical-family worked audits and sample computations & Illustrative only; they do not carry a unique live theorem edge once the compact-simple ultraviolet gate is proved in theorem-facing form. & Companion~I appendices and supporting audit files \\
+Historical Route~1 branches and reserve routing notes & They are organizational aids only after the Phase-I freeze and are not part of the proof burden. & \texttt{support/}; source appendices \texttt{appendixP} and \texttt{appendixQ} \\
+Lane~B and spectral-calculus wrappers & Downstream reformulations only; they do not prove the vacuum gap and therefore do not belong on the load-bearing route. & Source clean-build Lane~B files and reserve notes \\
+Long constant ledgers and support PDFs & They document calculations or synchronization work but add no theorem-local implication to the public spine. & Repository notes and \texttt{support/} \\
+Kernel-parametrix, insertion-RG, and long coefficient-matrix proofs in full detail & These are proof-home details needed for line-by-line verification inside the companions, not for the first-pass kernel route. The kernel cites the exact theorem nodes they support. & Companion~II appendices and source appendices B--D \\
+Extended AQFT commentary on sectors and field-algebra extensions & Outside the theorem-level endpoint. The kernel proves only the bounded-region local gauge-invariant sharp-local net and its vacuum-sector mass gap. & Companion~III endpoint discussion and source Appendix~O \\
+Build scripts, editorial memoranda, and phase notes & Organizational only; they neither supply a theorem nor close a seam. & Repository-root \texttt{*.md} notes and \texttt{latexmkrc} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+In short: the kernel is minimal in proof burden, not necessarily in page count. It includes every live theorem packet and the critical seam details, and it excludes everything that would force experts to spend time separating live mathematics from packaging.

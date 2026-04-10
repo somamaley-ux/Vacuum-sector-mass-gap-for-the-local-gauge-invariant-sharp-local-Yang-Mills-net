@@ -1,0 +1,263 @@
+\section{Faithful Wilson representation universality and the exact local-net endpoint}
+\label{app:global_form_resolution}
+
+This appendix is Packet~10 in the public theorem docket of Section~\ref{sec:roadmap}.
+It is invoked directly in the preamble of Theorem~\ref{thm:main} and supplies the final theorem-level local-net packet for the paper.
+Its theorem-level tasks are threefold: first, prove faithful-Wilson universality for the continuum sharp-local theory; second, identify the exact local net attached to a compact connected simple group together with its descent under nonfaithful ultraviolet choices; and third, prove that extended-support line/surface observables lie outside that bounded-region local algebra by localization alone.
+A separate AQFT commentary remark then records the standard sector interpretation of those excluded observables, and a short closing remark records how the theorem-level local-net endpoint matches the local-field reading of the Yang--Mills existence problem~\cite{JaffeWittenYM}.
+The provenance ledger in \S\ref{subsec:packet10_provenance_ledger} is the front-end audit map for this appendix: it separates earlier internal universality / descent inputs from the theorem-level endpoint theorems, the imported OS uniqueness clause used in faithful-Wilson universality, and the AQFT commentary that remains explicitly outside the theorem packet.
+
+\paragraph{Claim-hygiene summary.}
+Throughout this appendix, faithful-Wilson universality is qualitative only and is always understood within the admissible gradient-flow renormalization class and after coherent normalization. The explicit Packet~1 / Route~1 quantitative ledger remains auxiliary-regularization dependent, and extended-support line / surface sectors are excluded from the theorem-level endpoint by localization rather than by any additional sector analysis.
+
+\subsection{Packet~10 provenance ledger}
+\label{subsec:packet10_provenance_ledger}
+
+For this appendix the provenance bins are used in the following strict sense.
+\emph{Imported standard background family} means either the standard uniqueness clause of OS reconstruction used in Theorem~\ref{thm:faithful_Wilson_rep_universality} or the standard AQFT commentary used only in the closing remarks;
+\emph{earlier internal theorem} means a theorem already proved before Appendix~\ref{app:global_form_resolution};
+and \emph{new appendix endpoint/reformulation} means a theorem-level output first packaged here from those earlier ingredients.
+
+\paragraph{Packet~10 provenance ledger.}
+The provenance bins used in this appendix are as follows.
+\begin{description}[leftmargin=2.2em,style=nextline]
+\item[Lemma~\ref{lem:faithful_Wilson_action_class} (new auxiliary lemma):] consumes only Lemma~\ref{lem:A1_compact_simple_local_geom} and builds the common continuum-normalized faithful-Wilson comparison family.
+\item[Theorem~\ref{thm:faithful_Wilson_uniform_hypotheses} (new endpoint):] consumes Lemma~\ref{lem:faithful_Wilson_action_class}, Corollary~\ref{cor:A1_compact_simple_spine}, Proposition~\ref{prop:route1_QE1}, Corollary~\ref{cor:UV_matching_error}, and Theorems~\ref{thm:universality_on_Oell}, \ref{thm:universality_local_field_algebra}, \ref{thm:universality_full_inductive_limit}. It closes the uniform faithful-Wilson comparison-family hypotheses.
+\item[Theorem~\ref{thm:faithful_Wilson_rep_universality} (new endpoint):] consumes Theorem~\ref{thm:faithful_Wilson_uniform_hypotheses}, Corollary~\ref{cor:LaneA_full_scope}, Corollary~\ref{cor:field_correspondence}, and the standard OS uniqueness clause. It identifies all faithful Wilson regularizations with one continuum local theory.
+\item[Standard OS uniqueness clause~\cite{OS1,OS2} (imported background):] used only in Theorem~\ref{thm:faithful_Wilson_rep_universality}.
+\item[Corollary~\ref{cor:faithful_rho_gap_ledger} (new reformulation):] consumes Theorem~\ref{thm:faithful_Wilson_rep_universality}, Corollary~\ref{cor:A1_compact_simple_spine}, Proposition~\ref{prop:route1_QE1}, and Corollary~\ref{cor:route1_QE3_gap}. It records the faithful-$\rho$ indexing of the explicit Route~1 quantitative certificate.
+\item[Theorem~\ref{thm:global_form_local_endpoint} (new endpoint):] consumes Theorem~\ref{thm:faithful_Wilson_rep_universality}, Corollary~\ref{cor:field_correspondence}, Corollary~\ref{cor:LaneA_full_scope}, Lemma~\ref{lem:center_blindness_descent}, and Lemma~\ref{lem:adjoint_local_generators}. It fixes the exact local-net endpoint and separates extended-support data from the theorem claim.
+\item[Corollary~\ref{cor:global_form_main_scope} (new reformulation):] consumes Theorem~\ref{thm:faithful_Wilson_rep_universality} and Theorem~\ref{thm:global_form_local_endpoint}. It restates the endpoint in the group-only language of Theorem~\ref{thm:main}.
+\item[Standard AQFT sector interpretation~\cite{DHR1,DHR2,DoplicherRoberts1990} (imported background):] used only in the closing remarks following Theorem~\ref{thm:global_form_local_endpoint}; it is not a theorem-level input to the endpoint statements.
+\end{description}
+
+
+\noindent\emph{Direct inputs.} This appendix-specific comparison lemma uses only the compact-simple local-geometry input Lemma~\ref{lem:A1_compact_simple_local_geom}.\par
+
+\begin{lemma}[Faithful Wilson plaquette actions form a common continuum-normalized action family]
+\label{lem:faithful_Wilson_action_class}
+Let $G$ be compact connected simple and let $\rho_1,\rho_2$ be faithful finite-dimensional unitary Wilson representations.
+For $i=1,2$ define
+\[
+A_{\rho_i}(g):=1-\frac{1}{d_{\rho_i}}\Re\Tr_{\rho_i}(g).
+\]
+Then there exist constants $\kappa_{\rho_i}>0$ such that in exponential coordinates
+\begin{equation}\label{eq:faithful_rho_quadratic_expansion}
+A_{\rho_i}(e^X)=\frac{\kappa_{\rho_i}}{2}\|X\|^2+O(\|X\|^4)
+\qquad (\|X\|\to 0).
+\end{equation}
+Consequently, if one introduces two labeled plaquette slots $\gamma_1,\gamma_2$ supported on the same geometric plaquette, sets
+\[
+V_{\gamma_i}:=\kappa_{\rho_i}^{-1}A_{\rho_i},
+\qquad
+\mathbf c^{(1)}:=(1,0),
+\qquad
+\mathbf c^{(2)}:=(0,1),
+\]
+and lets $\mathcal C:=\{\mathbf c^{(1)},\mathbf c^{(2)}\}\subset [0,\infty)^2$, then the two faithful Wilson lattice actions are both members of one continuum-normalized action family in the sense of Definition~\ref{def:action_universality_class}.
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:A1_compact_simple_local_geom}, the quadratic Taylor coefficient of $A_{\rho_i}(e^X)$ is a positive definite $\Ad$-invariant quadratic form, hence equals $\frac{\kappa_{\rho_i}}{2}\|X\|^2$ for some $\kappa_{\rho_i}>0$.
+Because $d\rho_i(X)$ is skew-Hermitian, every odd power $d\rho_i(X)^{2m+1}$ is again skew-Hermitian and therefore has purely imaginary trace.
+Taking the real part of the exponential series for $\Tr_{\rho_i}(e^X)$ removes all odd terms, so the first omitted term after the quadratic contribution is quartic.
+This proves \eqref{eq:faithful_rho_quadratic_expansion}.
+Now choose the labeled plaquette slots and coefficient vectors exactly as stated.
+Each $V_{\gamma_i}$ has quadratic coefficient $1$, and for each coefficient vector one has $\sum_{\gamma}c_\gamma\kappa_\gamma=1$.
+Therefore both faithful Wilson actions belong to the same continuum-normalized compact action family.
+\end{proof}
+
+\noindent\emph{Direct inputs.} The uniform faithful-Wilson hypothesis theorem consumes Lemma~\ref{lem:faithful_Wilson_action_class}, Corollary~\ref{cor:A1_compact_simple_spine}, Proposition~\ref{prop:route1_QE1}, Corollary~\ref{cor:UV_matching_error}, and the action-family universality theorems cited in its statement.\par
+
+\begin{theorem}[Faithful Wilson comparison families satisfy the Route~1 universality hypotheses uniformly]
+\label{thm:faithful_Wilson_uniform_hypotheses}
+Let $G$ be compact connected simple and let $\rho_1,\rho_2$ be faithful finite-dimensional unitary Wilson representations.
+Form the finite continuum-normalized action family $\mathcal C=\{\mathbf c^{(1)},\mathbf c^{(2)}\}$ from Lemma~\ref{lem:faithful_Wilson_action_class}, and impose the same admissible gradient-flow renormalization prescription of Definition~\ref{def:admissible_scheme}.
+Then the non-collapse / one-shot entrance and UV-matching hypotheses required by Theorem~\ref{thm:universality_on_Oell} hold uniformly on this faithful-Wilson comparison family.
+Equivalently, the uniform entrance/non-collapse hypothesis invoked by Theorems~\ref{thm:universality_local_field_algebra} and~\ref{thm:universality_full_inductive_limit} is satisfied for this family.
+
+More concretely, for each $i=1,2$ let
+\[
+\beta_\ast^{(i)}:=\beta_\ast(G,\rho_i),
+\qquad
+q_\ast^{(i)}:=q_\ast(G,\rho_i),
+\qquad
+C_{\mathrm{ent}}^{(i)}:=C_{\mathrm{ent}}(G,\rho_i),
+\]
+and let $N_{\mathrm{ent}}^{(i)}(u_{\mathrm{ren}})$ be the tuned-sequence entry index attached to the faithful regularization $\rho_i$ by Proposition~\ref{prop:route1_QE1}.
+Then the uniform choices
+\[
+\beta_\ast^{\mathrm{fam}}:=\max\{\beta_\ast^{(1)},\beta_\ast^{(2)}\},
+\qquad
+q_\ast^{\mathrm{fam}}:=\max\{q_\ast^{(1)},q_\ast^{(2)}\}<1,
+\]
+\[
+C_{\mathrm{ent}}^{\mathrm{fam}}:=\max\{C_{\mathrm{ent}}^{(1)},C_{\mathrm{ent}}^{(2)}\},
+\qquad
+N_{\mathrm{ent}}^{\mathrm{fam}}(u_{\mathrm{ren}}):=\max\{N_{\mathrm{ent}}^{(1)}(u_{\mathrm{ren}}),N_{\mathrm{ent}}^{(2)}(u_{\mathrm{ren}})\}
+\]
+work simultaneously for both faithful regularizations, each at its own one-shot scale $B(\beta;G,\rho_i)$.
+Consequently the faithful-Wilson comparison family meets the hypotheses of
+Theorems~\ref{thm:universality_on_Oell}, \ref{thm:universality_local_field_algebra}, and~\ref{thm:universality_full_inductive_limit}.
+\end{theorem}
+
+\begin{proof}
+By Corollary~\ref{cor:A1_compact_simple_spine} and Proposition~\ref{prop:route1_QE1}, each faithful regularization $\rho_i$ separately satisfies the one-shot entrance and bounded-physical-entrance package with explicit constants
+\[
+\beta_\ast(G,\rho_i),\qquad q_\ast(G,\rho_i),\qquad C_{\mathrm{ent}}(G,\rho_i),
+\]
+and with its own entrance block scale $B(\beta;G,\rho_i)$.
+Because the comparison family is finite, taking maxima over $i=1,2$ yields common constants $\beta_\ast^{\mathrm{fam}}$, $C_{\mathrm{ent}}^{\mathrm{fam}}$, and $N_{\mathrm{ent}}^{\mathrm{fam}}(u_{\mathrm{ren}})$, while $q_\ast^{\mathrm{fam}}<1$ remains a strict contraction constant.
+Thus the non-collapse / one-shot entrance hypothesis required in Theorem~\ref{thm:universality_on_Oell} is uniform across the two faithful Wilson regularizations.
+
+For the UV-matching input, Corollary~\ref{cor:UV_matching_error} already proves the required entrance-scale matching estimate uniformly on any compact continuum-normalized action family.
+Here the coefficient set $\mathcal C=\{\mathbf c^{(1)},\mathbf c^{(2)}\}$ is finite, hence compact, so the same UV-matching estimate applies uniformly to the faithful-Wilson comparison family.
+This closes the hypotheses of Theorem~\ref{thm:universality_on_Oell}.
+Since Theorems~\ref{thm:universality_local_field_algebra} and~\ref{thm:universality_full_inductive_limit} invoke exactly that same uniform entrance/non-collapse package for the action class, they apply as well.
+\end{proof}
+
+
+\noindent\emph{Direct inputs.} The faithful-$\rho$ universality theorem consumes Theorem~\ref{thm:faithful_Wilson_uniform_hypotheses}, Corollary~\ref{cor:LaneA_full_scope}, Corollary~\ref{cor:field_correspondence}, and only the standard uniqueness clause of OS reconstruction as imported background.\par
+
+\begin{theorem}[Qualitative faithful Wilson representation universality]
+\label{thm:faithful_Wilson_rep_universality}
+Let $G$ be compact connected simple and let $\rho_1,\rho_2$ be faithful finite-dimensional unitary Wilson representations.
+Construct the corresponding continuum theories using the same admissible gradient-flow renormalization scheme of Definition~\ref{def:admissible_scheme} and the same coherent normalization conditions of Lemma~\ref{lem:coherent_Z}.
+Then there exists a unique $*$--algebra isomorphism
+\[
+\Phi_{\rho_1\to\rho_2}:\ \mathfrak A_{\mathrm{loc}}(G,\rho_1)\ \xrightarrow{\ \cong\ }\ \mathfrak A_{\mathrm{loc}}(G,\rho_2)
+\]
+which, on every finite engineering cap, sends the Lane~A renormalized field attached to an exact-dimension quotient label $[P]$ and test function $f$ to the renormalized field with the same label $[P]$ and the same test function $f$.
+The induced map intertwines all finite-family Schwinger functions, the regionwise local nets, the OS vacuum reconstructions, and the reconstructed Wightman fields.
+In particular, within the admissible gradient-flow renormalization class and after coherent normalization, the continuum local gauge-invariant sharp-local Yang--Mills theory and its vacuum gap depend only on $G$ and not on the faithful Wilson representation used to regularize the ultraviolet lattice theory.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:faithful_Wilson_action_class}, the two faithful Wilson plaquette actions belong to one continuum-normalized compact action family. For that family we impose the same admissible flow-based renormalization prescription and the same coherent normalization conditions. Theorem~\ref{thm:faithful_Wilson_uniform_hypotheses} verifies that this finite faithful-Wilson comparison family satisfies the uniform Route~1 entrance/non-collapse and UV-matching hypotheses required by Theorems~\ref{thm:universality_on_Oell}, \ref{thm:universality_local_field_algebra}, and~\ref{thm:universality_full_inductive_limit}. Hence the finite-family universality theorem for the renormalized local field algebra and its inductive-union upgrade apply simultaneously to the two faithful Wilson regularizations.
+
+Fix a finite engineering cap $\Delta_{\max}$ and a finite family of exact-dimension quotient labels $[P_1],\dots,[P_m]$ with test functions $f_1,\dots,f_m$. The cited universality theorems imply that the limiting Schwinger functions of the corresponding Lane~A renormalized fields agree for the two faithful regularizations:
+\[
+\omega_{\rho_1}\!\Big(\prod_{r=1}^m \mathcal O^{\mathrm{ren},\rho_1}_{[P_r]}(f_r)\Big)
+=
+\omega_{\rho_2}\!\Big(\prod_{r=1}^m \mathcal O^{\mathrm{ren},\rho_2}_{[P_r]}(f_r)\Big).
+\]
+Hence on that finite cap the assignment
+\[
+\mathcal O^{\mathrm{ren},\rho_1}_{[P]}(f)\longmapsto \mathcal O^{\mathrm{ren},\rho_2}_{[P]}(f)
+\]
+preserves all capwise field relations and all mixed moments. Corollary~\ref{cor:LaneA_full_scope} makes these capwise identifications compatible on overlaps of engineering caps, so they glue to a unique isomorphism of the inductive-union sharp-local algebra.
+
+Corollary~\ref{cor:field_correspondence} identifies both reconstructed Minkowski field families with the same gauge-invariant local differential polynomials in the curvature and its covariant derivatives, so this isomorphism is canonical at the theorem level. Because the full Schwinger families agree under this identification, the standard uniqueness clause of Osterwalder--Schrader reconstruction gives a unitary equivalence of the corresponding OS vacuum reconstructions and hence of the Wightman theories reconstructed in Appendix~\ref{app:axioms_package}. The vacuum Hamiltonians are therefore unitarily equivalent and have the same spectral gap; this is a qualitative universality theorem, not a representation-uniform quantitative comparison of the Route~1 constants.
+\end{proof}
+
+\dependencyledger
+  {Theorem~\ref{thm:faithful_Wilson_uniform_hypotheses}, Corollary~\ref{cor:LaneA_full_scope}, and Corollary~\ref{cor:field_correspondence}}
+  {the standard uniqueness clause of Osterwalder--Schrader reconstruction}
+  {all faithful Wilson regularizations of the same compact connected simple group determine one canonically identified continuum sharp-local local theory; the theorem does not claim representation-uniform quantitative Route~1 constants}
+  {Corollary~\ref{cor:faithful_rho_gap_ledger}, Theorem~\ref{thm:global_form_local_endpoint}, and Corollary~\ref{cor:global_form_main_scope}}
+
+\noindent\emph{Direct inputs.} This quantitative-status corollary consumes Theorem~\ref{thm:faithful_Wilson_rep_universality}, Corollary~\ref{cor:A1_compact_simple_spine}, Proposition~\ref{prop:route1_QE1}, and Corollary~\ref{cor:route1_QE3_gap}.\par
+
+\begin{corollary}[The explicit Route~1 ledger remains indexed by the auxiliary faithful regularization]
+\label{cor:faithful_rho_gap_ledger}
+Fix a compact connected simple group $G$ and choose a faithful finite-dimensional unitary Wilson regularization $\rho$.
+Theorem~\ref{thm:faithful_Wilson_rep_universality} identifies all faithful choices, within the admissible gradient-flow renormalization class and after coherent normalization, with the same continuum local theory
+\[
+\mathfrak A_{\mathrm{loc}}(G),
+\]
+but the explicit Packet~1 / Route~1 certificate retained in this manuscript is currently recorded through the $\rho$-indexed constants
+\[
+\beta_\ast(G,\rho),\qquad q_\ast(G,\rho),\qquad C_{\mathrm{ent}}(G,\rho),\qquad
+m_{\mathrm{blk}}(G,\rho),\qquad \mathfrak m_\ast(G,\rho;u_{\mathrm{ren}}).
+\]
+The manuscript does not claim that these quantitative ledgers are uniform over all faithful $\rho$.
+Different faithful Wilson regularizations yield canonically isomorphic continuum local theories, but may certify different explicit lower bounds on their common vacuum gap.
+\end{corollary}
+
+\begin{proof}
+Theorem~\ref{thm:faithful_Wilson_rep_universality} identifies the continuum local theory for any two faithful regularizations.
+On the other hand, the explicit constants listed above are read from the chosen faithful ultraviolet regularization through
+Corollary~\ref{cor:A1_compact_simple_spine}, Proposition~\ref{prop:route1_QE1}, and Corollary~\ref{cor:route1_QE3_gap}.
+No representation-uniform quantitative comparison theorem for those explicit ledgers is proved in the present manuscript.
+\end{proof}
+
+\noindent\emph{Direct inputs.} The exact endpoint theorem consumes Theorem~\ref{thm:faithful_Wilson_rep_universality}, Corollary~\ref{cor:field_correspondence}, Corollary~\ref{cor:LaneA_full_scope}, Lemma~\ref{lem:center_blindness_descent}, and Lemma~\ref{lem:adjoint_local_generators}; the AQFT sector interpretation enters only afterward in the commentary remark.\par
+
+\begin{theorem}[Exact local-net endpoint and exclusion of extended-support sector data]
+\label{thm:global_form_local_endpoint}
+Fix a compact connected simple gauge group $G$.
+Choose any faithful finite-dimensional unitary Wilson representation $\rho_{\mathrm{fid}}$ of $G$ and let
+\[
+\mathfrak A_{\mathrm{loc}}(G,\rho_{\mathrm{fid}}),
+\qquad
+(\mathcal H_{\mathrm{loc}}(G,\rho_{\mathrm{fid}}),\Omega_{\mathrm{loc}}(G,\rho_{\mathrm{fid}}),U_{G,\rho_{\mathrm{fid}}})
+\]
+be the sharp-local Euclidean/Wightman theory produced from that faithful ultraviolet regularization by
+Corollary~\ref{cor:LaneA_full_scope} and Appendix~\ref{app:axioms_package}.
+By Theorem~\ref{thm:faithful_Wilson_rep_universality}, different faithful choices of $\rho_{\mathrm{fid}}$ yield canonically isomorphic theories,
+so we may write
+\[
+\mathfrak A_{\mathrm{loc}}(G),
+\qquad
+(\mathcal H_{\mathrm{loc}}(G),\Omega_{\mathrm{loc}}(G),U_G)
+\]
+for that canonical faithful-$\rho$-independent local theory, always understood within the admissible gradient-flow renormalization class and after coherent normalization.
+Then:
+\begin{enumerate}[label=(\roman*),leftmargin=2.3em]
+\item by Corollary~\ref{cor:field_correspondence}, the local Wightman fields in this theory are precisely the renormalized gauge-invariant local differential polynomials in the curvature and its covariant derivatives represented by Lane~A;
+\item if $\rho$ is any finite-dimensional unitary Wilson representation of $G$ and $G_{\mathrm{eff}}:=G/\ker(\rho)$, then the local observable net obtained from the ultraviolet pair $(G,\rho)$ is canonically identified with
+\[
+\mathfrak A_{\mathrm{loc}}(G_{\mathrm{eff}}).
+\]
+In particular, for faithful $\rho$ this is just the canonical theory $\mathfrak A_{\mathrm{loc}}(G)$ of Theorem~\ref{thm:faithful_Wilson_rep_universality};
+\item line operators, surface defects, and other global-form-sensitive observables are not elements of the bounded-region local field algebra constructed in Appendix~\ref{app:axioms_package}, because their localization regions are extended rather than bounded.
+\end{enumerate}
+Consequently the theorem-level object constructed in this manuscript is, within the admissible gradient-flow renormalization class and after coherent normalization, the canonical local gauge-invariant sharp-local net $\mathfrak A_{\mathrm{loc}}(G)$ together with its OS/Wightman vacuum representation, and no extended-support nonlocal sector data enter that theorem-level existence-and-gap claim.
+\end{theorem}
+
+\begin{proof}
+Item~(i) is Corollary~\ref{cor:field_correspondence}, which identifies the reconstructed Minkowski fields with the renormalized gauge-invariant local differential polynomials represented by the Lane~A sharp-local algebra. For item~(ii), if $\rho$ is faithful then the claim is exactly Theorem~\ref{thm:faithful_Wilson_rep_universality}. If $\rho$ is not faithful, combine the descent-to-$G_{\mathrm{eff}}$ statement for the Wilson action and Schwinger functions (Lemma~\ref{lem:center_blindness_descent}) with the adjoint-local generator theorem (Lemma~\ref{lem:adjoint_local_generators}) and then apply Theorem~\ref{thm:faithful_Wilson_rep_universality} to the descended faithful representation on $G_{\mathrm{eff}}$.
+
+For item~(iii), Appendix~\ref{app:axioms_package} constructs operator-valued tempered distributions localized in bounded spacetime regions. A Wilson line, 't~Hooft line, or higher-dimensional defect depends on extended geometric support and is therefore outside that bounded-region local field algebra by localization alone. Thus the theorem-level object stops at the local net and its vacuum representation; any AQFT discussion of sectors built from extended-support observables is commentary downstream of this theorem, not part of its proof burden.
+\end{proof}
+
+\dependencyledger
+  {Theorem~\ref{thm:faithful_Wilson_rep_universality}, Corollary~\ref{cor:field_correspondence}, Corollary~\ref{cor:LaneA_full_scope}, Lemma~\ref{lem:center_blindness_descent}, and Lemma~\ref{lem:adjoint_local_generators}}
+  {none; the AQFT sector interpretation is commentary only and enters only in the following remark}
+  {the theorem-level object is the canonical bounded-region local gauge-invariant sharp-local net together with its OS/Wightman vacuum representation; extended-support observables are excluded from that theorem object by localization alone}
+  {Corollary~\ref{cor:global_form_main_scope} and the final framing of Theorem~\ref{thm:main}}
+
+\begin{remark}[AQFT commentary on the excluded extended-support observables]
+Theorem~\ref{thm:global_form_local_endpoint}(iii) stops at a theorem-level localization statement: the bounded-region local field algebra constructed in Appendix~\ref{app:axioms_package} does not contain observables whose geometric support is extended.
+In the standard algebraic-QFT description, such charged or nonlocal objects are then organized as sectors, representations, or field-algebra extensions over the same local observable net rather than as elements of the local observable net itself~\cite{DHR1,DHR2,DoplicherRoberts1990}.
+\end{remark}
+
+\noindent\emph{Direct inputs.} This main-theorem restatement consumes only Theorem~\ref{thm:faithful_Wilson_rep_universality} and Theorem~\ref{thm:global_form_local_endpoint}.\par
+
+\begin{corollary}[Main-theorem group-only local-net endpoint and non-claims]
+\label{cor:global_form_main_scope}
+Theorem~\ref{thm:main} is a theorem about the local gauge-invariant Yang--Mills theory attached to each compact connected simple gauge group $G$.
+Any faithful finite-dimensional unitary Wilson representation may be used as an auxiliary ultraviolet regularization and, within the admissible gradient-flow renormalization class and after coherent normalization, yields the same continuum local theory
+\[
+\mathfrak A_{\mathrm{loc}}(G).
+\]
+The explicit Route~1 certificate constants retained in Theorem~\ref{thm:main} remain indexed by the chosen faithful ultraviolet regularization, as recorded in Corollary~\ref{cor:faithful_rho_gap_ledger}.
+A nonfaithful ultraviolet choice yields instead the local theory of the effective quotient $G_{\mathrm{eff}}:=G/\ker(\rho)$.
+Differences between global forms survive only in nonlocal sector data not asserted by Theorem~\ref{thm:main}; differences between faithful ultraviolet Wilson representations survive only through the present quantitative certificate, not through the continuum local theory itself.
+\end{corollary}
+
+\begin{proof}
+This is immediate from Theorems~\ref{thm:faithful_Wilson_rep_universality} and~\ref{thm:global_form_local_endpoint}.
+\end{proof}
+
+\begin{remark}[How Packet~10 matches the local-field formulation]
+The official local-field formulation of the Yang--Mills existence problem asks for local quantum fields corresponding to the gauge-invariant local polynomials in the curvature $F$ and its covariant derivatives, together with axiomatic properties at least as strong as the OS/Wightman frameworks~\cite{JaffeWittenYM}.
+Theorem~\ref{thm:global_form_local_endpoint}(i) identifies exactly those local fields inside the canonical net $\mathfrak A_{\mathrm{loc}}(G)$, while Corollary~\ref{cor:global_form_main_scope} records that faithful Wilson regularizations produce that same local theory and that nonfaithful ultraviolet choices descend to the effective quotient.
+The theorem-level endpoint is therefore the local gauge-invariant Yang--Mills theory generated by flowed curvature composites, whereas extended-support line/surface observables remain downstream sector data over that same local net.
+\end{remark}
+
+\begin{remark}[Further sector completions lie downstream of the public theorem]
+The manuscript does not deny the mathematical interest of the global-form-sensitive sector problem.
+On the contrary, once the local net has been constructed with OS/Wightman strength and a vacuum mass gap, it is natural to ask for a sharper analysis of line/surface operators, charged sectors, and possible field-algebra completions.
+The point is only logical: those questions are downstream extensions of the local existence-and-gap theorem, not part of the theorem-level object already proved here.
+\end{remark}

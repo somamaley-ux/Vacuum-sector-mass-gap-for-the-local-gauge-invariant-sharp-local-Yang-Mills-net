@@ -1,0 +1,225 @@
+We now compare two norm/topology controls used in the construction:
+the dyadic insertion seminorm (a polymer/RG seminorm used to bound inserted observables scale-by-scale) and
+the Osterwalder--Schrader (OS) seminorm used for OS reconstruction.
+The key estimate is a one-way bound
+\[
+\|R_{*,t}\|_{\mathrm{OS};k,K,\varepsilon}\le C_{\mathrm{OS}\leftarrow\mathrm{ins}}\,
+\|R_{*,t}\|_{\mathrm{ins};\mu;k,K,\varepsilon},
+\]
+showing that insertion-seminorm control implies OS-seminorm control for the same remainder observable $R_{*,t}$.
+This is Lemma~\ref{lem:ins_to_OS} below.
+
+\paragraph{What proves.}
+Under the \emph{patched-chart} (good-block + good-flow) expectation state $\langle\cdot\rangle^{\mathrm{good}}$,
+we prove a uniform constant $C_{\mathrm{OS}\leftarrow\mathrm{ins}}$ (independent of scale $j$ and lattice spacing $a$) such that for any
+positive-time insertion activity $J$,
+\[
+\|F_J\|_{\mathrm{OS};k,K,\varepsilon}\ \le\ C_{\mathrm{OS}\leftarrow\mathrm{ins}}\ \|J\|_{\mathrm{ins};j;k,K,\varepsilon},
+\]
+where $F_J(f):=\sum_{X}J(X;f)$ is the associated observable.
+
+\paragraph{Interpretation.}
+The OS seminorm is controlled by a \emph{supremum} bound on $F_J$; under the patched-chart state the field space is compact on each relevant block,
+so the local functional seminorm controls the sup norm.
+Polymer weights and counting convert this local bound into a bound for the full summed observable.
+
+Let $\langle\cdot\rangle^{\mathrm{good}}$ be the patched-chart (good-event, chart-truncated) expectation state $\langle\cdot\rangle^{\mathrm{good}}$.
+Let $\Theta$ denote Euclidean time reflection and $\mathcal A_+$ the positive-time algebra.
+
+For $F\in\mathcal A_+$ define
+\[
+\|F\|_{\mathrm{OS}}:=\sqrt{\langle \Theta F\cdot F\rangle^{\mathrm{good}}}.
+\]
+Fix $\varepsilon>0$ and compact $K\subset\{x_0\ge \varepsilon\}$ and define the OS seminorm (Lane~A topology)
+\[
+\|F\|_{\mathrm{OS};k,K,\varepsilon}
+:=\sup\{\|F(f)\|_{\mathrm{OS}}:\ \mathrm{supp}(f)\subset K,\ |f|_{C^k(K)}\le 1\}.
+\]
+
+At dyadic scale $j$, an insertion activity is a family $J=\{J(X;f)\}_{X\in\mathscr P_j}$ supported on $j$-polymers.
+The insertion seminorm is
+\begin{equation}
+\|J\|_{\mathrm{ins};j;k,K,\varepsilon}
+:=
+\sup_{\substack{f:\ \mathrm{supp}(f)\subset K\\ |f|_{C^k(K)}\le 1}}
+\ \sup_{X\in\mathscr P_j}\ 
+\Gamma_j(X)^{-1}\ \|J(X;f)\|_j,
+\end{equation}
+with polymer weight $\Gamma_j(X)=A^{|X|_j}$ for some fixed $A>1$ and local functional seminorm $\|\cdot\|_j$.
+
+\begin{lemma}[OS bound by $L^\infty$]\label{lem:OS_by_sup}
+For any $F\in\mathcal A_+$,
+\[
+\|F\|_{\mathrm{OS}}\le \|F\|_{L^\infty(\Omega)},
+\]
+where the sup is over the underlying configuration space $\Omega$ on which the patched probability measure is supported.
+\end{lemma}
+
+\begin{proof}
+Since $\langle\cdot\rangle^{\mathrm{good}}$ is a probability expectation and $|\Theta F|=|F|$ pointwise,
+\[
+\|F\|_{\mathrm{OS}}^2=\langle \Theta F\cdot F\rangle^{\mathrm{good}}
+\le \langle |F|^2\rangle^{\mathrm{good}}
+\le \|F\|_\infty^2.
+\]
+Take square roots.
+\end{proof}
+
+On the patched-chart state, configurations in each unit block satisfy a fixed exponential chart bound, hence belong to a compact set.
+Local functionals are smooth functions on a finite-dimensional compact manifold.
+
+\begin{proposition}[Supremum control by the local seminorm (proved in Proposition~\ref{ass:seminorm_axioms})]\label{ass:sup_from_local}
+There exists a constant $C_\infty$ independent of $j$ and $a$ such that for any local functional $F$ supported in a single $j$-block,
+\[
+\|F\|_{\infty}\le C_\infty\,\|F\|_j.
+\]
+More generally, for $F$ supported in a $j$-polymer $X$,
+\[
+\|F\|_\infty\le C_\infty\,\Gamma_j(X)\,\|F\|_j,
+\]
+where $\Gamma_j(X)$ is the polymer weight used in the definition of $\|\cdot\|_j$.
+\end{proposition}
+
+now justified by compactness of the patched-chart configuration space.
+
+Given an insertion activity $J$, define the associated observable
+\[
+F_J(f):=\sum_{X\in\mathscr P_j} J(X;f),
+\]
+with the sum restricted to polymers intersecting the $j$-neighborhood of $\mathrm{supp}(f)$ (finite by construction).
+
+\begin{proposition}[Marked-polymer counting (proved in Proposition~\ref{ass:seminorm_axioms})]\label{ass:counting}
+There exists $C_{\mathrm{count}}$ independent of $j$ and $a$ such that for any polymer weights $\Gamma_j$,
+\[
+\sum_{X\ni x} \Gamma_j(X)\ \le\ C_{\mathrm{count}},
+\]
+uniformly in the lattice site $x$ and uniformly in $j$.
+(The same constant controls polymer sums for insertions supported near a fixed compact $K$.)
+\end{proposition}
+
+It is purely combinatorial.
+
+\begin{theorem}[Insertion seminorm $\Rightarrow$ OS seminorm]\label{thm:ins_to_OS}\label{lem:ins_to_OS}
+Assume \ref{ass:sup_from_local} and \ref{ass:counting}. Then for each dyadic scale $j$ and each insertion activity $J$ supported in the positive-time region,
+\[
+\|F_J\|_{\mathrm{OS};k,K,\varepsilon}
+\le C_{\mathrm{OS}\leftarrow\mathrm{ins}}\ \|J\|_{\mathrm{ins};j;k,K,\varepsilon},
+\]
+with explicit constant
+\begin{equation}\label{eq:C_OS_ins}
+C_{\mathrm{OS}\leftarrow\mathrm{ins}}
+:= C_\infty\,C_{\mathrm{count}}.
+\end{equation}
+The constant is independent of $j$ and independent of lattice spacing $a$ under the patched-chart construction.
+\end{theorem}
+
+\begin{proof}
+Fix $f$ with $\mathrm{supp}(f)\subset K$ and $|f|_{C^k}\le 1$.
+By Lemma~\ref{lem:OS_by_sup},
+\[
+\|F_J(f)\|_{\mathrm{OS}}\le \|F_J(f)\|_\infty \le \sum_X \|J(X;f)\|_\infty.
+\]
+Apply Proposition~\ref{ass:sup_from_local}:
+\[
+\|J(X;f)\|_\infty \le C_\infty\,\Gamma_j(X)\,\|J(X;f)\|_j.
+\]
+By the definition \eqref{eq:ins_norm},
+$\|J(X;f)\|_j\le \Gamma_j(X)\,\|J\|_{\mathrm{ins};j;k,K,\varepsilon}$.
+Hence
+\[
+\|F_J(f)\|_{\mathrm{OS}}
+\le C_\infty\,\|J\|_{\mathrm{ins};j;k,K,\varepsilon}\ \sum_X \Gamma_j(X).
+\]
+The sum is over polymers intersecting the fixed neighborhood of $K$; by Proposition~\ref{ass:counting} it is bounded by $C_{\mathrm{count}}$.
+Taking the supremum over $f$ yields the claim with constant $C_\infty C_{\mathrm{count}}$.
+\end{proof}
+
+
+
+\begin{corinsword}[Fixed bounded-word variant of Theorem~\ref{thm:ins_to_OS}]\label{cor:ins_to_OS_bounded_word}
+Fix a dyadic scale $j$, a compact $K_f\subset\{x_0\ge \varepsilon\}$, and an insertion activity
+$J=\{J(X;f)\}_{X\in\mathscr P_j}$ supported on polymers intersecting the $j$-neighborhood of $K_f$.
+Let
+\[
+\mathbf B=(B_0,\dots,B_q)
+\]
+be a fixed finite family of bounded positive-time cylinder / flowed observables, and let
+$K_{B,f}\subset\{x_0\ge \varepsilon\}$ be a compact neighborhood containing $K_f$ together with the supports of all $B_r$.
+For each scale $j$, choose a fixed finite $j$-polymer neighborhood $X_{B,f}(j)$ covering the additional support carried by the word $\mathbf B$ and define the bounded-word insertion activity by
+\[
+J^{\mathbf B}(X\cup X_{B,f}(j);f):=B_0\,J(X;f)\,B_1\cdots B_q.
+\]
+Then there exists a constant
+\[
+C_{\mathrm{word}}(K_{B,f};\mathbf B^{\sharp})\ge 1,
+\qquad
+\mathbf B^{\sharp}:=(B_0^{\sharp},\dots,B_q^{\sharp}),
+\]
+depending only on the normalized fixed word $\mathbf B^{\sharp}$ and on the support neighborhood $K_{B,f}$, but independent of $J$, $j$, and $a$, such that
+\begin{equation}\label{eq:ins_word_bound}
+\|J^{\mathbf B}\|_{\mathrm{ins};j;k,K_{B,f},\varepsilon}
+\le
+C_{\mathrm{supp}}(K_{B,f})\,
+C_{\mathrm{word}}(K_{B,f};\mathbf B^{\sharp})\,
+\Bigl(\prod_{r=0}^{q}\|B_r\|_\infty\Bigr)\,
+\|J\|_{\mathrm{ins};j;k,K_f,\varepsilon}.
+\end{equation}
+Consequently,
+\begin{equation}\label{eq:OS_word_bound}
+\|F_{J^{\mathbf B}}\|_{\mathrm{OS};k,K_{B,f},\varepsilon}
+\le
+C_{\mathrm{OS}\leftarrow\mathrm{ins}}\,
+C_{\mathrm{supp}}(K_{B,f})\,
+C_{\mathrm{word}}(K_{B,f};\mathbf B^{\sharp})\,
+\Bigl(\prod_{r=0}^{q}\|B_r\|_\infty\Bigr)\,
+\|J\|_{\mathrm{ins};j;k,K_f,\varepsilon}.
+\end{equation}
+\end{corinsword}
+
+\begin{proof}
+If one of the factors $B_r$ vanishes then both claims are immediate, so assume $B_r\neq 0$ and write
+\[
+B_r=\|B_r\|_\infty\,B_r^{\sharp},
+\qquad
+\|B_r^{\sharp}\|_\infty=1.
+\]
+Adjoining the fixed support carried by the bounded word enlarges every marked polymer only by the fixed finite neighborhood $X_{B,f}(j)$.
+Therefore the associated polymer weight changes by at most a uniform support factor,
+\[
+\Gamma_j\bigl(X\cup X_{B,f}(j)\bigr)
+\le
+C_{\mathrm{supp}}(K_{B,f})\,\Gamma_j(X),
+\]
+with $C_{\mathrm{supp}}(K_{B,f})$ depending only on the chosen support neighborhood and not on $J$, $j$, or $a$.
+On the patched-chart compact set, the fixed normalized factors $B_r^{\sharp}$ have bounded local seminorms on $K_{B,f}$; iterating the local product / regularity axioms therefore yields a constant
+$C_{\mathrm{word}}(K_{B,f};\mathbf B^{\sharp})$ such that for every marked polymer term,
+\[
+\bigl\|B_0\,J(X;f)\,B_1\cdots B_q\bigr\|_j
+\le
+C_{\mathrm{word}}(K_{B,f};\mathbf B^{\sharp})\,
+\Bigl(\prod_{r=0}^{q}\|B_r\|_\infty\Bigr)
+\|J(X;f)\|_j.
+\]
+Combining the last two displays and taking the supremum in the insertion norm \eqref{eq:ins_norm} gives \eqref{eq:ins_word_bound}.
+Applying Theorem~\ref{thm:ins_to_OS} to the modified activity $J^{\mathbf B}$ then gives \eqref{eq:OS_word_bound}.
+\end{proof}
+
+\begin{corollary}[OS control of the insertion RG remainder]\label{cor:A1_bridge}
+Let $\mathcal R_{*,t}$ be the insertion RG remainder at matching scale $\mu$ from Theorem~\ref{thm:ins_decomp}.
+Under the patched-chart state and the hypotheses of Theorem~\ref{thm:ins_to_OS},
+\[
+\|\mathcal R_{*,t}\|_{\mathrm{OS};k,K,\varepsilon}
+\le C_{\mathrm{OS}\leftarrow\mathrm{ins}}\ \|\mathcal R_{*,t}\|_{\mathrm{ins};\mu;k,K,\varepsilon}.
+\]
+Thus the insertion-norm remainder bound converts directly into the A1 OS-seminorm remainder bound.
+\end{corollary}
+
+\begin{remark}[End of the insertion-to-OS transfer]
+Theorem~\ref{thm:ins_to_OS}, Corollary~\ref{cor:ins_to_OS_bounded_word}, and Corollary~\ref{cor:A1_bridge} give an explicit comparison between the insertion seminorm
+and the OS seminorm for positive-time insertions supported in $K$, both in the basic single-insertion channel and after adjoining a fixed bounded positive-time word.  In particular, insertion-RG remainder bounds
+translate directly into OS-seminorm remainder bounds.
+Combined with the coefficient invertibility bounds of Section~4.7 (Corollary~\ref{cor:Lambda}), this completes the
+Lane-A small-flow-time convergence argument.  De-patching to the physical Wilson state is handled by
+Lemmas~\ref{lem:depatch_block} and \ref{lem:depatch_continuum} in Section~\ref{sec:patching}.
+\end{remark}
+

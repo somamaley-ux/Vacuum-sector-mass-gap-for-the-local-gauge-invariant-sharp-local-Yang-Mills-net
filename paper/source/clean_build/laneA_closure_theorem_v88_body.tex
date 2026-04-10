@@ -1,0 +1,535 @@
+\begin{quote}
+\emph{Lane A constructs the sharp local operator algebra and verifies the OS axioms for the limiting local state.
+The reflection-positivity input is taken from the unflowed Wilson state (Section~\ref{sec:patching});
+no reflection-positivity property is assumed for the auxiliary flowed observable sector.}
+\end{quote}
+
+\paragraph{OS-positive base state.}
+Fix a weak-window target value $u_{\mathrm{ren}}\in(0,u_\ast]$ and let
+\[
+a_n:=\ell_0 2^{-n},\qquad \beta_n:=\beta(a_n;u_{\mathrm{ren}})
+\]
+be the associated tuned dyadic trajectory.
+Theorem~\ref{thm:continuum_tightness} furnishes the bounded positive-time continuum Wilson state $\omega_{\mathrm{bd}}^{(u_{\mathrm{ren}})}$ on $\mathcal A_+$ together with the actual dyadic OS matrix elements needed downstream.
+This is the only reflection-positive base state used by Lane~A.
+
+\paragraph{Flowed probes.}
+Lane~C also provides continuum Schwinger functions for the flowed probe family $\mathcal A_{\mathrm{flow}}$ (Theorem~\ref{thm:C3U}).
+Because gradient flow smears in the Euclidean time direction, reflection positivity does not transfer to the full flowed algebra by a support argument,
+and we do not use (or require) reflection positivity at positive flow time.
+The role of flow in Lane~A is renormalization and identification: it produces UV-regular probes and a small-flow-time expansion that
+isolates the sharp local operators.
+
+\paragraph{Already-constructed Lane~C flowed state.}
+For the same tuned dyadic trajectory, Theorem~\ref{thm:C3U} already furnishes a unique continuum Euclidean state
+\[
+\omega_{\mathrm{flow}}^{(u_{\mathrm{ren}})}:\mathcal A_{\mathrm{flow}}\to\mathbb C.
+\]
+Lane~A does not construct a second state on flowed observables: it keeps $\omega_{\mathrm{flow}}^{(u_{\mathrm{ren}})}$ fixed on $\mathcal A_{\mathrm{flow}}$ and extends it to sharp-local insertions by inverse-flow limits plus quantitative inverse control.
+For brevity below, write $\omega_{\mathrm{flow}}:=\omega_{\mathrm{flow}}^{(u_{\mathrm{ren}})}$.
+
+\begin{lemma}[RP-safe positive-time representatives for flowed probes]\label{lem:RP_safe_flow_rep}
+Fix $\varepsilon>0$ and let $f$ be supported in $\{x_0\ge \varepsilon\}$.
+For $t\in(0,t_\ast]$ and $R\ge 1$ with $R\sqrt t\le \varepsilon/2$, define a truncation operator $T_{R,t}$ on lattice configurations
+by replacing the initial field outside the Euclidean neighborhood $B(\mathrm{supp}(f),R\sqrt t)$ by a fixed reference configuration.
+Set
+\[
+\mathcal O^{(R)}_{i,t}(f):=\mathcal O_{i,t}(f)\circ T_{R,t}.
+\]
+Then $\mathcal O^{(R)}_{i,t}(f)$ is a bounded cylinder functional depending only on underlying variables supported in $\{x_0>0\}$ and hence lies in the unflowed positive-time algebra $\mathcal A_+$.
+
+Moreover, for any bounded $G\in\mathcal A_+$,
+\[
+\big|\omega_a(\Theta G\,\mathcal O_{i,t}(f)) - \omega_a(\Theta G\,\mathcal O^{(R)}_{i,t}(f))\big|
+\le \|G\|_\infty\,\|\mathcal O_{i,t}(f)-\mathcal O^{(R)}_{i,t}(f)\|_\infty.
+\]
+By the flow quasi-locality bounds (Theorem~\ref{thm:tail_R}), the truncation error satisfies
+\[
+\|\mathcal O_{i,t}(f)-\mathcal O^{(R)}_{i,t}(f)\|_\infty\ \le\ C\,t^{-5}e^{-cR^2}
+\]
+(on the good-flow chart regime; Lemma~\ref{lem:bad_event_irrelevant} upgrades this to an unconditional bound in OS/RP pairings).
+Choosing $R=R(t)\asymp\sqrt{\log(1/t)}$ as in Corollary~\ref{cor:R_choice} yields an error $O(t^\eta)$ for any prescribed $\eta>0$.
+
+Consequently, every use of reflection positivity and OS inner products in this submission is applied only to elements of $\mathcal A_+$:
+whenever a flowed probe appears inside an OS/RP expression, it is understood to be replaced by a positive-time representative
+$\mathcal O^{(R(t))}_{i,t}(f)\in\mathcal A_+$ with a negligible error at the relevant scale.
+\end{lemma}
+
+\begin{proof}
+The inclusion $B(\mathrm{supp}(f),R\sqrt t)\subset\{x_0>0\}$ follows from $R\sqrt t\le \varepsilon/2$.
+The expectation difference bound is the trivial $\|G\|_\infty$ estimate.
+The stated truncation error is exactly the $L^\infty$ consequence of Theorem~\ref{thm:tail_R}; the power-saving choice of $R(t)$ is Corollary~\ref{cor:R_choice}.
+\end{proof}
+
+\begin{lemma}[Bad-event contribution is negligible in OS/RP pairings]\label{lem:bad_event_irrelevant}
+Fix $\varepsilon>0$ and let $f$ be supported in $\{x_0\ge\varepsilon\}$.
+Let $t\in(0,t_\ast]$ and $R\ge 1$ satisfy $R\sqrt t\le\varepsilon/2$, and let $\mathcal O^{(R)}_{i,t}(f)$ be the positive-time representative from
+Lemma~\ref{lem:RP_safe_flow_rep}.
+Let $\Lambda$ be the finite plaquette set in the neighborhood relevant for $f$ and set
+\[
+G_{\Lambda}(\varepsilon):=\bigcap_{p\in\Lambda}\{\theta(U_p)\le\varepsilon\}
+\]
+(as in Lemma~\ref{lem:local_tail}).
+Then for any bounded $G\in\mathcal A_+$,
+\begin{align}\label{eq:bad_event_irrelevant_bound}
+\big|\omega_a(\Theta G\,\mathcal O_{i,t}(f)) - \omega_a(\Theta G\,\mathcal O^{(R)}_{i,t}(f))\big|
+&\le \|G\|_\infty\Big( C\,t^{-5}e^{-cR^2} + 2\,\|\mathcal O_{i,t}(f)\|_\infty\,\mathbb P_{\omega_a}\big(G_{\Lambda}(\varepsilon)^c\big)\Big).
+\end{align}
+Moreover, Lemma~\ref{lem:local_tail} gives the explicit bound
+\[
+\mathbb P_{\omega_a}\big(G_{\Lambda}(\varepsilon)^c\big)
+\le |\Lambda|\,C_{\mathrm{tail}}(G)\,\varepsilon^{-2d_G/3}\,\exp\big(-c_{\mathrm{tail}}(G)\,\beta\,\varepsilon^2\big),
+\qquad d_G:=\dim(G),
+\]
+valid for $\varepsilon\le \varepsilon_{\mathrm{tail}}(G)$ as in Lemma~\ref{lem:local_tail}.
+In the AF window, $u\asymp \beta^{-1}$ along the tuned trajectory, so the stretched-exponential tail is \emph{superpolynomial} in $u$:
+for every $M$ there exists $u_0(M)>0$ such that $u\le u_0(M)$ implies
+\begin{equation}\label{eq:bad_event_prob_superpoly}
+\mathbb P_{\omega_a}\big(G_{\Lambda}(\varepsilon)^c\big)\le u^{2M}.
+\end{equation}
+Consequently, choosing $R=R(t)\asymp\sqrt{\log(1/t)}$ yields a power-saving $O(t^{\eta})$ truncation error from the good-event term.
+For the bad-event term, fix $t\in(0,t_\ast]$ and $\eta>0$, choose $M$ large, and then (along the tuned trajectory) take the continuum limit $a\downarrow 0$
+far enough into the AF window so that the corresponding weak coupling satisfies $u(a)^M\le t^{\eta}$.
+This makes the second term in \eqref{eq:bad_event_irrelevant_bound} also $O(t^{\eta})$ at that fixed $t$.
+In particular, all RP/OS pairings may be evaluated using the positive-time representatives with an unconditional $O(t^{\eta})$ error,
+and the subsequent SFTE argument then sends $t\downarrow 0$.
+\end{lemma}
+
+\begin{proof}
+Decompose the expectation difference into contributions from $G_{\Lambda}(\varepsilon)$ and its complement.
+On $G_{\Lambda}(\varepsilon)$, Theorem~\ref{thm:tail_R} gives the $L^\infty$ truncation bound
+$\|\mathcal O_{i,t}(f)-\mathcal O^{(R)}_{i,t}(f)\|_\infty\le C t^{-5}e^{-cR^2}$.
+On $G_{\Lambda}(\varepsilon)^c$, use the trivial bound
+$|\omega_a(\Theta G\,\mathcal O_{i,t}(f)) - \omega_a(\Theta G\,\mathcal O^{(R)}_{i,t}(f))|
+\le 2\|G\|_\infty\,\|\mathcal O_{i,t}(f)\|_\infty\,\mathbb P_{\omega_a}(G_{\Lambda}(\varepsilon)^c)$.
+This yields \eqref{eq:bad_event_irrelevant_bound}.
+The superpolynomial probability estimate \eqref{eq:bad_event_prob_superpoly} follows from Lemma~\ref{lem:local_tail} and the elementary calculus fact that $e^{-c/u}\le u^{2M}$ for all sufficiently small $u$ (with $c>0$ fixed).
+\end{proof}
+
+\paragraph{Small-flow-time expansion and inverse mixing.}
+Fix a finite sector-basis of flowed probes $\{\mathcal O_{i,t}(f)\}_{i=1}^{N}$ and a corresponding sector-basis of renormalized local operators
+$\{\mathcal O^{\mathrm{ren}}_{j}(f;\mu)\}_{j=1}^{N}$.
+The small-flow-time expansion (SFTE) asserts, for $t\downarrow 0$,
+\begin{equation}\label{eq:SFTE_matrix_LaneA}
+\mathcal O_{i,t}(f)
+=\sum_{j=1}^{N} C_{ij}(t;\mu)\,\mathcal O^{\mathrm{ren}}_{j}(f;\mu)
++\mathcal R_{i}(t;f;\mu),
+\end{equation}
+in the sense of mixed Schwinger functions against arbitrary finite collections of renormalized local insertions.
+For the closure theorem below we do \emph{not} use bare invertibility of $C(t;\mu)$ alone.
+Instead the abstract inverse-flow mechanism is that for the sector family under consideration there exist $t_0\in(0,t_\ast]$ and a scale-dependent quantitative inverse control function
+$\Lambda_{\mathrm{inv}}(t;\mu)\ge 1$ such that
+\begin{equation}\label{eq:LaneA_quant_inverse_bound}
+\max_{1\le i,j\le N}\big|\big(C(t;\mu)^{-1}\big)_{ij}\big|
+\le M_{\mathrm{inv}}(\mu)\,\Lambda_{\mathrm{inv}}(t;\mu)
+\qquad (0<t\le t_0),
+\end{equation}
+and such that the remainders become negligible after multiplication by the same inverse factor in all mixed correlator channels relevant to the target local state:
+\begin{equation}\label{eq:LaneA_inverse_remainder_compat}
+\Lambda_{\mathrm{inv}}(t;\mu)\,
+\Big|
+\omega\Big(
+\big(\mathcal R_i(t;f;\mu)-\omega(\mathcal R_i(t;f;\mu))\big)
+\prod_{\ell=1}^k \mathcal X_\ell
+\Big)
+\Big|
+\xrightarrow[t\downarrow 0]{}0.
+\end{equation}
+Here $\omega$ is only a placeholder for the eventual sharp-local extension functional in this abstract mechanism.
+The special case $\Lambda_{\mathrm{inv}}\equiv 1$ recovers the uniformly bounded inverse situation, but the theorem is designed to accommodate the
+polylogarithmic inverse growth established later in Section~\ref{sec:sharp_local}.
+For the public Lane~A theorem below, however, no provisional extension functional appears in the hypotheses:
+Theorem~\ref{thm:finite_truncation_inverse_control} and Corollary~\ref{cor:finite_truncation_SFTE} supply the capwise inverse bound and the remainder compatibility intrinsically on every finite engineering cap.
+In particular, Corollary~\ref{cor:finite_truncation_SFTE} rewrites the abstract condition \eqref{eq:LaneA_inverse_remainder_compat}
+as a concrete family of capwise OS/core matrix-element bounds, so the proof of Theorem~\ref{thm:LaneA_closure}
+never invokes an extension functional before the finite-cap state has been defined.
+
+Define the (centered) inverse-flow approximants
+\begin{equation}\label{eq:inverse_flow_approx}
+\mathcal O^{\mathrm{app}}_{j}(t;f;\mu)
+:=\sum_{i=1}^{N}\big(C(t;\mu)^{-1}\big)_{ji}\,\big(\mathcal O_{i,t}(f)-\omega_{\mathrm{flow}}(\mathcal O_{i,t}(f))\big),
+\end{equation}
+so the centering in the inverse-flow approximants is taken with respect to the already-constructed Lane~C flowed state.
+
+\paragraph{Lane A extension theorem.}
+The next statement is the intrinsic finite-cap Lane~A output needed downstream.
+
+\paragraph{How to read the full-scope statement.}
+There are three closure levels, and separating them makes the widened Lane~A theorem much easier to audit.
+\begin{enumerate}[label=(\roman*),leftmargin=2.3em]
+\item \emph{Finite audited sectors.} The scalar/tensor/loop examples show concretely how inverse control is verified, but after the quotient-block hardening they are illustrations rather than the source of the general breadth claim.
+\item \emph{Finite engineering truncations.} Corollary~\ref{cor:LaneA_all_finite_truncations} is the breadth input needed here:
+it says that both the quantitative inverse-control package and the SFTE/remainder-compatibility package hold intrinsically on every finite cap of the canonical sharp-local basis.
+Its blockwise input is now theorem-level: Appendix~\ref{app:normalization_crosscheck} proves the coefficient-extraction theorem for arbitrary exact-dimension quotient blocks,
+so the canonical diagonal UV problem is a literal finite-dimensional statement before the truncation assembly is invoked.
+\item \emph{Inductive union.} Corollary~\ref{cor:LaneA_full_scope} then uses the coherence of the normalization scheme to identify the same renormalized fields inside every larger cap and passes to the full sharp-local algebra.
+\end{enumerate}
+Thus the theorem below should be read as the finite-cap Lane~A extension mechanism with no extra sectorwise assumptions,
+while Corollary~\ref{cor:LaneA_full_scope} is the separate inductive-union upgrade to the full sharp-local algebra.
+
+\begin{theorem}[Lane~A finite-cap extension of the Lane~C flowed state]\label{thm:LaneA_closure}
+Fix a weak-window target value $u_{\mathrm{ren}}\in(0,u_\ast]$ and let
+\[
+a_n:=\ell_0 2^{-n},\qquad \beta_n:=\beta(a_n;u_{\mathrm{ren}})
+\]
+be the tuned dyadic trajectory.
+Let $\omega_{\mathrm{flow}}^{(u_{\mathrm{ren}})}$ be the already-constructed continuum Euclidean state on $\mathcal A_{\mathrm{flow}}$ furnished by Theorem~\ref{thm:C3U} along this same tuning, and let
+$\omega_{\mathrm{bd}}^{(u_{\mathrm{ren}})}$ be the bounded positive-time continuum Wilson state on $\mathcal A_+$.
+Let
+\[
+\mathcal K_{u_{\mathrm{ren}}}(F,G;s):=\lim_{n\to\infty}\omega_{a_n}(\Theta F\,\tau_s G)
+\qquad(F,G\in\mathcal A_+,\ s\in\mathbb D_{\mathrm{dyad}})
+\]
+be the dyadic OS matrix-element limits furnished by Theorem~\ref{thm:continuum_tightness}.
+
+Fix an engineering cutoff $\Delta_{\max}\ge 0$ and let
+\[
+\mathcal A_{\mathrm{flow}}^{(\le \Delta_{\max})}\subset\mathcal A_{\mathrm{flow}}
+\]
+denote the capwise bounded flowed subalgebra generated by the canonical flowed lifts entering that truncation.
+Let $\mathfrak A_{\mathrm{loc}}^{(\le \Delta_{\max})}$ be the $\ast$-algebra generated by $\mathcal A_{\mathrm{flow}}^{(\le \Delta_{\max})}$, $\mathcal A_+$, and all canonical renormalized local generators of engineering dimension $\le \Delta_{\max}$.
+Let
+\[
+\mathbf Y_t^{(\le \Delta_{\max})}(f)
+=
+C^{(\le \Delta_{\max})}(t;\mu)\,\mathbf O_{\mathrm{ren}}^{(\le \Delta_{\max})}(f;\mu)
++\mathbf R_t^{(\le \Delta_{\max})}(f;\mu)
+\]
+be the canonical finite-cap small-flow-time expansion furnished by Corollary~\ref{cor:finite_truncation_SFTE}, written in the capwise bases
+\[
+\begin{aligned}
+\mathbf Y_t^{(\le \Delta_{\max})}(f)
+&=\bigl(Y_{1,t}^{(\le \Delta_{\max})}(f),\dots,Y_{N,t}^{(\le \Delta_{\max})}(f)\bigr)^{\mathsf T},\\
+\mathbf O_{\mathrm{ren}}^{(\le \Delta_{\max})}(f;\mu)
+&=\bigl(O^{(1),\mathrm{ren}}_{\le \Delta_{\max}}(f;\mu),\dots,O^{(N),\mathrm{ren}}_{\le \Delta_{\max}}(f;\mu)\bigr)^{\mathsf T}.
+\end{aligned}
+\]
+For each capwise basis index $j$, define the centered inverse-flow approximant
+\[
+\mathcal O^{\mathrm{app},(\le \Delta_{\max})}_{j}(t;f;\mu)
+:=
+\sum_i \big((C^{(\le \Delta_{\max})}(t;\mu))^{-1}\big)_{ji}\,
+\big(Y^{(\le \Delta_{\max})}_{i,t}(f)-\omega_{\mathrm{flow}}^{(u_{\mathrm{ren}})}(Y^{(\le \Delta_{\max})}_{i,t}(f))\big).
+\]
+Then Theorem~\ref{thm:finite_cap_flowed_sector_bridge}, together with
+Theorem~\ref{thm:finite_truncation_inverse_control} and Corollary~\ref{cor:finite_truncation_SFTE}, defines a unique sharp-local continuum state
+\[
+\omega_{\le \Delta_{\max}}^{(u_{\mathrm{ren}})}
+\]
+on $\mathfrak A_{\mathrm{loc}}^{(\le \Delta_{\max})}$ extending the restriction of $\omega_{\mathrm{flow}}^{(u_{\mathrm{ren}})}$ to $\mathcal A_{\mathrm{flow}}^{(\le \Delta_{\max})}$.
+Equivalently, once the state has been constructed, the formal centered generators of Theorem~\ref{thm:finite_cap_flowed_sector_bridge} are written as
+\[
+\widehat O_j^{(\le \Delta_{\max})}(f;\mu)
+=
+O^{(j),\mathrm{ren}}_{\le \Delta_{\max}}(f;\mu)
+-\omega_{\le \Delta_{\max}}^{(u_{\mathrm{ren}})}\big(O^{(j),\mathrm{ren}}_{\le \Delta_{\max}}(f;\mu)\big).
+\]
+Then:
+\begin{enumerate}[label=(\alph*)]
+\item (\textbf{Sharp local identification}) For each capwise basis index $j$ and test function $f$, the inverse-flow approximants satisfy
+\[
+\begin{aligned}
+\lim_{t\downarrow 0}\, \omega_{\le \Delta_{\max}}^{(u_{\mathrm{ren}})}\Big(
+&\mathcal O^{\mathrm{app},(\le \Delta_{\max})}_{j}(t;f;\mu)
+\prod_{\ell=1}^{k} \mathcal X_{\ell}\Big)\\
+={}&\omega_{\le \Delta_{\max}}^{(u_{\mathrm{ren}})}\Big(
+\big(O^{(j),\mathrm{ren}}_{\le \Delta_{\max}}(f;\mu)
+-\omega_{\le \Delta_{\max}}^{(u_{\mathrm{ren}})}(O^{(j),\mathrm{ren}}_{\le \Delta_{\max}}(f;\mu))\big)
+\prod_{\ell=1}^{k} \mathcal X_{\ell}\Big).
+\end{aligned}
+\]
+for every finite collection of renormalized local insertions $\{\mathcal X_{\ell}\}$ drawn from the same cap.
+\item (\textbf{OS axioms for the finite-cap local state}) The Schwinger functions of these renormalized local fields satisfy the Osterwalder--Schrader axioms.
+In particular, OS reflection positivity holds on the capwise local positive-time algebra, and the associated field polynomials are realized on the explicit common invariant core of bounded flowed positive-time classes recorded in Lemma~\ref{lem:finite_cap_common_core}.
+\item (\textbf{Compatibility with the Lane~C flowed state and the tuned-dyadic bounded base state})
+The restriction of $\omega_{\le \Delta_{\max}}^{(u_{\mathrm{ren}})}$ to the capwise flowed subalgebra equals the already-constructed Lane~C state:
+\[
+\omega_{\le \Delta_{\max}}^{(u_{\mathrm{ren}})}\!\restriction_{\mathcal A_{\mathrm{flow}}^{(\le \Delta_{\max})}}
+=
+\omega_{\mathrm{flow}}^{(u_{\mathrm{ren}})}\!\restriction_{\mathcal A_{\mathrm{flow}}^{(\le \Delta_{\max})}}.
+\]
+On the bounded positive-time algebra, the extension agrees with $\omega_{\mathrm{bd}}^{(u_{\mathrm{ren}})}$:
+\[
+\omega_{\le \Delta_{\max}}^{(u_{\mathrm{ren}})}\!\restriction_{\mathcal A_+}
+=
+\omega_{\mathrm{bd}}^{(u_{\mathrm{ren}})}.
+\]
+Moreover, for every bounded $F,G\in\mathcal A_+$ and every dyadic shift $s\in\mathbb D_{\mathrm{dyad}}$,
+\[
+\omega_{\le \Delta_{\max}}^{(u_{\mathrm{ren}})}(\Theta F\,\tau_s G)=\mathcal K_{u_{\mathrm{ren}}}(F,G;s).
+\]
+\end{enumerate}
+\end{theorem}
+
+\paragraph{Mixed-channel downstream closure node.}
+For downstream Lane~A closure statements, the positive-time mixed-channel Cauchy clause enters only through Theorem~\ref{thm:finite_cap_flowed_sector_bridge}(i), with Corollary~\ref{cor:finite_cap_mixed_family_packaging} supplying the finite-family packaging/covariance node used there.
+Corollary~\ref{cor:finite_truncation_SFTE} and Lemma~\ref{lem:finite_cap_mixed_channel_reduction} contain the precursor finite-cap reductions; downstream closure statements cite only Theorem~\ref{thm:finite_cap_flowed_sector_bridge}(i).
+In the notation fixed there, $K_W$ denotes the associated support neighborhood, $C_W^{\mathrm{ins}}$ packages the fixed-word insertion dependence, and the finite truncation data record the remaining theorem-facing constants; expanding $C_W^{\mathrm{ins}}$ recovers $\|W\|_{\mathrm{bnd}}:=\prod_r \|B_r\|_\infty$ together with the normalized-word factor from Corollary~\ref{cor:ins_to_OS_bounded_word}.
+
+\begin{proof}
+Fix $\Delta_{\max}$ and abbreviate
+\[
+\mathfrak A_{\mathrm{loc}}^{(\le \Delta_{\max})}=:\mathcal A_{\mathrm{loc}}^{\mathrm{cap}},
+\qquad
+\omega_{\le \Delta_{\max}}^{(u_{\mathrm{ren}})}=:\omega^{(u_{\mathrm{ren}})}.
+\]
+Write
+\[
+Y_{i,t}(f):=Y^{(\le \Delta_{\max})}_{i,t}(f),
+\qquad
+O_i^{\mathrm{ren}}(f;\mu):=O^{(i),\mathrm{ren}}_{\le \Delta_{\max}}(f;\mu),
+\qquad
+C(t;\mu):=C^{(\le \Delta_{\max})}(t;\mu).
+\]
+Let
+\[
+\mathcal B_{\mathrm{cap}}^{(\le \Delta_{\max})}
+:=
+\ast\!\bigl(\mathcal A_{\mathrm{flow}}^{(\le \Delta_{\max})},\mathcal A_+\bigr)
+\]
+be the bounded capwise algebra used in Theorem~\ref{thm:finite_cap_flowed_sector_bridge}.
+
+\paragraph{Intrinsic capwise definition of the extension.}
+For the construction it is convenient to work first with the abstract centered capwise algebra generated by
+$\mathcal B_{\mathrm{cap}}^{(\le \Delta_{\max})}$ and the formal symbols
+$\widehat O_j^{(\le \Delta_{\max})}(f;\mu)$.
+After fixing the finite family of mixed bounded words used in the construction, Theorem~\ref{thm:finite_cap_flowed_sector_bridge}, together with Corollary~\ref{cor:finite_cap_mixed_family_packaging}, furnishes a unique positive unital functional on that abstract algebra, characterized by the inverse-flow limits against the corresponding finite-family packaged bounded capwise states.
+No universal mixed bounded capwise state is presupposed here; the bounded input is exactly that locally fixed finite-family package.
+We denote that functional by $\omega^{(u_{\mathrm{ren}})}$.
+Once the state has been fixed, the formal centered symbols are written as
+\[
+\widehat O_j^{(\le \Delta_{\max})}(f;\mu)
+=
+O_j^{\mathrm{ren}}(f;\mu)-\omega^{(u_{\mathrm{ren}})}\big(O_j^{\mathrm{ren}}(f;\mu)\big),
+\]
+which is exactly the notation used in the theorem statement.
+Thus existence of the capwise state has been reduced to the theorem-level mixed-correlator construction, and uniqueness will follow from the same characterization on the generating set.
+
+\paragraph{(a) Sharp local identification.}
+Fix $j$ and $f$ and let $\{\mathcal X_\ell\}_{\ell=1}^k$ be any finite family of renormalized local insertions from the cap.
+Write the product $\prod_{\ell=1}^k \mathcal X_\ell$ as the corresponding abstract centered capwise word.
+Theorem~\ref{thm:finite_cap_flowed_sector_bridge}(i)--(ii) defines the capwise mixed-correlator functional precisely so that replacing the slot
+$\widehat O_j^{(\le \Delta_{\max})}(f;\mu)$ by the bounded inverse-flow representative
+$\mathcal O_j^{\mathrm{app},(\le \Delta_{\max})}(t;f;\mu)$ changes the expectation by $o(1)$ as $t\downarrow 0$, against every fixed capwise word in the remaining slots.
+For this mixed-channel step we therefore cite only Theorem~\ref{thm:finite_cap_flowed_sector_bridge}(i), whose proof packages the upstream chain Theorem~\ref{thm:ins_to_OS}, Corollary~\ref{cor:ins_to_OS_bounded_word}, Proposition~\ref{prop:finite_cap_bounded_factor_insertion}, Theorem~\ref{thm:finite_truncation_inverse_control}, and Lemma~\ref{lem:finite_cap_mixed_channel_reduction}, together with Corollary~\ref{cor:finite_cap_mixed_family_packaging} for the finite-family packaging/covariance step; the fixed-word dependence is recorded there through $K_W$, $C_W^{\mathrm{ins}}$, and the finite truncation data.
+Because the same theorem gives independence of the relative rates in all local slots, one may use a common parameter $t$ for the whole finite insertion family.
+After identifying the centered symbol with
+$O_j^{\mathrm{ren}}(f;\mu)-\omega^{(u_{\mathrm{ren}})}(O_j^{\mathrm{ren}}(f;\mu))$, this is exactly the convergence claimed in part~(a).
+The same characterization fixes all mixed moments of the generating set and therefore gives uniqueness of the capwise extension.
+
+\paragraph{(b) OS axioms for the finite-cap local state.}
+We explain why the Schwinger functions of the renormalized local fields satisfy the OS axioms.
+
+\emph{Euclidean invariance and symmetry.}
+The finite-family packaged bounded capwise states entering Theorem~\ref{thm:finite_cap_flowed_sector_bridge} inherit the same Euclidean invariance on $\mathcal A_{\mathrm{flow}}^{(\le \Delta_{\max})}$ from Theorem~\ref{thm:C3U}, while Corollary~\ref{cor:finite_cap_mixed_family_packaging} records the translation covariance used in the mixed-channel step and the tuned Wilson limit supplies the bounded $\mathcal A_+$ identities.
+The local Schwinger functions are defined from those finite-family packaged states by pointwise inverse-flow limits, so the same algebraic identities persist for the limiting local correlators.
+Permutation symmetry is exact at finite lattice spacing for the bounded representatives and therefore survives the limit as well.
+
+\emph{Reflection positivity.}
+Fix $\varepsilon>0$ and consider the capwise local positive-time algebra generated by insertions $O_j^{\mathrm{ren}}(f;\mu)$ with $\mathrm{supp}(f)\subset\{x_0\ge\varepsilon\}$.
+Let $F$ be a finite linear combination of monomials in such generators.
+Choose $t\in(0,t_\ast]$ and $R\ge 1$ with $R\sqrt t\le \varepsilon/2$.
+Define $F_{t,R}$ by replacing each local generator $O_j^{\mathrm{ren}}(f;\mu)$ appearing in $F$ by its inverse-flow approximant and then replacing each flowed probe inside that approximant by the RP-safe positive-time representative from Lemma~\ref{lem:RP_safe_flow_rep}.
+By construction, $F_{t,R}\in\mathcal A_+$.
+Since $\omega_{\mathrm{bd}}^{(u_{\mathrm{ren}})}$ is reflection positive on $\mathcal A_+$ by Theorem~\ref{thm:continuum_tightness}, one has
+\[
+\omega_{\mathrm{bd}}^{(u_{\mathrm{ren}})}(\Theta F_{t,R}\cdot F_{t,R})\ge 0.
+\]
+Now let $t\downarrow 0$ and choose $R=R(t)\asymp\sqrt{\log(1/t)}$ as in Lemma~\ref{lem:RP_safe_flow_rep}.
+By Lemma~\ref{lem:RP_safe_flow_rep}, replacing flowed probes by their positive-time representatives changes mixed Schwinger functions by $o(1)$.
+By part~(a), the inverse-flow approximants converge in every fixed capwise channel to the corresponding centered local insertions.
+Hence
+\[
+\omega_{\mathrm{bd}}^{(u_{\mathrm{ren}})}(\Theta F_{t,R(t)}\cdot F_{t,R(t)})
+\xrightarrow[t\downarrow 0]{}
+\omega^{(u_{\mathrm{ren}})}(\Theta F\cdot F),
+\]
+and the limit is nonnegative.
+Thus OS reflection positivity holds on the capwise local positive-time algebra.
+
+\emph{Regularity and operator domain.}
+Theorem~\ref{thm:field_algebra_truncation} and Lemma~\ref{lem:finite_cap_common_core} provide the explicit dense core
+$\mathcal D^{(\le \Delta_{\max})}_{\mathrm{flow}}$ of bounded flowed positive-time classes on which all finite field polynomials are defined by graph-norm limits of bounded dyadic approximants.
+Corollary~\ref{cor:finite_truncation_SFTE} identifies those graph-norm limits with the Lane~A inverse-flow representatives, and
+Theorem~\ref{thm:finite_cap_flowed_sector_bridge}(iv) identifies the resulting positive-time OS/core matrix elements with the capwise mixed-correlator state just constructed.
+Thus the finite-cap local fields are realized on the explicit common invariant core appearing in the theorem statement.
+For regularity, the flowed correlators are bounded by the Lane~C moment/cumulant package together with the kernel bounds in Appendices~B--D; the capwise SFTE remainder bounds then pass those estimates to the renormalized local correlators, with only polylogarithmic inverse factors, which are harmless on a fixed cap.
+Hence the present finite-cap Schwinger functions satisfy OS$_0$.
+
+\paragraph{(c) Compatibility with the Lane~C flowed state and the tuned-dyadic bounded base state.}
+The restriction to $\mathcal A_{\mathrm{flow}}^{(\le \Delta_{\max})}$ is
+$\omega_{\mathrm{flow}}^{(u_{\mathrm{ren}})}\!\restriction_{\mathcal A_{\mathrm{flow}}^{(\le \Delta_{\max})}}$
+by Theorem~\ref{thm:finite_cap_flowed_sector_bridge}(ii).
+The same theorem also gives
+\[
+\omega^{(u_{\mathrm{ren}})}\!\restriction_{\mathcal A_+}=\omega_{\mathrm{bd}}^{(u_{\mathrm{ren}})}.
+\]
+Finally, for bounded $F,G\in\mathcal A_+$ and dyadic $s\in\mathbb D_{\mathrm{dyad}}$, Theorem~\ref{thm:continuum_tightness} already records the limiting matrix element
+$\mathcal K_{u_{\mathrm{ren}}}(F,G;s)$ along the tuned dyadic trajectory, so the same identity holds for the capwise extension:
+\[
+\omega^{(u_{\mathrm{ren}})}(\Theta F\,\tau_s G)=\mathcal K_{u_{\mathrm{ren}}}(F,G;s).
+\]
+This completes the proof.
+\end{proof}
+
+\begin{corollary}[Lane~A preserves the tuned-dyadic bounded base state]\label{cor:LaneA_bounded_state_restriction}
+Fix $u_{\mathrm{ren}}\in(0,u_\ast]$ and let $\omega^{(u_{\mathrm{ren}})}$ be the full sharp-local state furnished by Corollary~\ref{cor:LaneA_full_scope}.
+Then
+\[
+\omega^{(u_{\mathrm{ren}})}\!\restriction_{\mathcal A_+}=\omega_{\mathrm{bd}}^{(u_{\mathrm{ren}})}
+\]
+and, for bounded $F,G\in\mathcal A_+$ and dyadic $s\in\mathbb D_{\mathrm{dyad}}$,
+\[
+\omega^{(u_{\mathrm{ren}})}(\Theta F\,\tau_s G)=\mathcal K_{u_{\mathrm{ren}}}(F,G;s).
+\]
+\end{corollary}
+
+\begin{proof}
+Part~(c) of Theorem~\ref{thm:LaneA_closure} gives the stated restriction and dyadic matrix-element identity on every finite engineering cap.
+Corollary~\ref{cor:LaneA_full_scope} passes those compatible identities to the inductive union.
+\end{proof}
+
+\begin{remark}[Phase-II seam note for Corollaries~\ref{cor:LaneA_bounded_state_restriction}--\ref{cor:LaneA_full_scope}]
+Corollary~\ref{cor:LaneA_bounded_state_restriction} is the bounded-state compatibility theorem only.
+The finite-cap sharp-local OS structure belongs to Theorem~\ref{thm:LaneA_closure}(b), while the actual passage to the full sharp-local inductive union belongs only to Corollary~\ref{cor:LaneA_full_scope}.
+\end{remark}
+
+
+\begin{corollary}[Full sharp-local scope by finite truncations and inductive union]\label{cor:LaneA_full_scope}
+For each $\Delta_{\max}\ge 0$, let $\mathfrak A_{\mathrm{loc}}^{(\le \Delta_{\max})}$ be the finite truncation of the graded local operator basis from Definition~\ref{def:local_operator_spaces},
+and choose the canonical flowed lifts block-by-block as organized by Theorem~\ref{thm:LaneA_associated_graded_identity} and Proposition~\ref{prop:canonical_block_uv_identity}.
+Then Corollary~\ref{cor:LaneA_all_finite_truncations} implies that Lane~A applies unconditionally to every $\mathfrak A_{\mathrm{loc}}^{(\le \Delta_{\max})}$.
+The resulting finite-truncation sharp-local states are compatible under the natural inclusions
+\[
+\mathfrak A_{\mathrm{loc}}^{(\le \Delta_{\max})}\hookrightarrow \mathfrak A_{\mathrm{loc}}^{(\le \Delta_{\max}')}
+\qquad (\Delta_{\max}\le \Delta_{\max}'),
+\]
+and therefore define a unique state on the inductive union
+\[
+\mathfrak A_{\mathrm{loc}}:=\varinjlim_{\Delta_{\max}\to\infty}\mathfrak A_{\mathrm{loc}}^{(\le \Delta_{\max})}.
+\]
+This state extends $\omega_{\mathrm{bd}}^{(u_{\mathrm{ren}})}$ on $\mathcal A_+$ and satisfies the OS axioms on the full sharp-local algebra generated by flowed curvature composites.
+\end{corollary}
+
+\begin{proof}
+Fix $\Delta_{\max}$.
+By Corollary~\ref{cor:LaneA_all_finite_truncations}, the whole truncation $\mathfrak A_{\mathrm{loc}}^{(\le \Delta_{\max})}$ already satisfies both the quantitative inverse-control and the SFTE/remainder-compatibility inputs of Theorem~\ref{thm:LaneA_closure}.
+Hence Theorem~\ref{thm:LaneA_closure} applies to that truncation.
+If $\Delta_{\max}'\ge \Delta_{\max}$, the canonical flowed lifts and normalization conditions on the smaller truncation are the restrictions of those on the larger truncation,
+so the resulting Schwinger functions agree on the overlap.
+Any polynomial in sharp-local generators involves only finitely many basis elements, hence belongs to some finite truncation; define its expectation there.
+Compatibility makes this independent of the chosen truncation, and the OS axioms pass to the inductive union because every OS test polynomial is finite.
+The bounded-state restriction statement is inherited from Theorem~\ref{thm:LaneA_closure}(c) on each finite cap and therefore on the inductive union.
+\end{proof}
+
+
+\begin{theorem}[Bounded positive-time base algebra is cyclic in the full sharp-local reconstruction]\label{thm:LaneA_bounded_base_cyclic}
+Fix $u_{\mathrm{ren}}\in(0,u_\ast]$ and let $\omega^{(u_{\mathrm{ren}})}$ be the full sharp-local state furnished by Corollary~\ref{cor:LaneA_full_scope}.
+Let $(\mathcal H_{\mathrm{loc}},\Omega_{\mathrm{loc}},H_{\mathrm{loc}})$ be the OS reconstruction of this state from the full sharp-local positive-time algebra.
+Let $\mathcal P_{+,\mathrm{sharp}}$ denote the $\ast$-algebra of finite positive-time polynomials in the renormalized local generators
+$\mathcal O^{\mathrm{ren}}_j(f;\mu)$ with test functions supported in $\{x_0>0\}$.
+Then:
+\begin{enumerate}[label=(\roman*),leftmargin=2.3em]
+\item for every $P\in\mathcal P_{+,\mathrm{sharp}}$ there exists a family $P_t^{\mathrm{bnd}}\in\mathcal A_+$ such that
+\[
+\|[P_t^{\mathrm{bnd}}]-[P]\|_{\mathcal H_{\mathrm{loc}}}\xrightarrow[t\downarrow 0]{}0;
+\]
+\item the image of $\mathcal A_+$ is dense in $\mathcal H_{\mathrm{loc}}$, equivalently $\Omega_{\mathrm{loc}}=[1]$ is cyclic for the bounded positive-time base algebra inside the full sharp-local reconstruction;
+\item the centered bounded classes satisfy
+\[
+\overline{\mathrm{span}}\{[F-\omega^{(u_{\mathrm{ren}})}(F)]:F\in\mathcal A_+\}=\Omega_{\mathrm{loc}}^\perp.
+\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Let $P\in\mathcal P_{+,\mathrm{sharp}}$.
+Only finitely many sharp-local generators occur in $P$, so there exists an engineering cap $\Delta_{\max}$ such that
+$P\in\mathfrak A_{\mathrm{loc}}^{(\le \Delta_{\max})}$.
+By Corollary~\ref{cor:LaneA_all_finite_truncations}, Theorem~\ref{thm:LaneA_closure} applies unconditionally on that cap.
+Choose $\varepsilon>0$ so that every test function appearing in $P$ is supported in $\{x_0\ge \varepsilon\}$.
+For $t\in(0,t_\ast]$ choose $R(t)\ge 1$ with $R(t)\sqrt t\le \varepsilon/2$ and $R(t)\asymp\sqrt{\log(1/t)}$ as in Lemma~\ref{lem:RP_safe_flow_rep}.
+
+For each sharp-local generator $\mathcal O^{\mathrm{ren}}_j(f;\mu)$ appearing in $P$, let
+$\mathcal O^{\mathrm{app}}_j(t;f;\mu)$ be the centered inverse-flow approximant from \eqref{eq:inverse_flow_approx},
+and let $\mathcal O^{\mathrm{bnd}}_{j,t}(f;\mu)\in\mathcal A_+$ be obtained by replacing every flowed probe inside
+$\mathcal O^{\mathrm{app}}_j(t;f;\mu)$ by its RP-safe representative from Lemma~\ref{lem:RP_safe_flow_rep}.
+Now define $P_t^{\mathrm{bnd}}\in\mathcal A_+$ by evaluating the same noncommutative polynomial expression as $P$
+in the bounded representatives $\mathcal O^{\mathrm{bnd}}_{j,t}(f;\mu)$.
+Because $P$ contains only finitely many generators, $P_t^{\mathrm{bnd}}$ is a bounded positive-time cylinder observable for each fixed $t$.
+
+The proof of Theorem~\ref{thm:LaneA_closure}(b) already shows how to pass from convergence of the individual inverse-flow approximants
+to convergence of any fixed polynomial in them: expand the finitely many monomials, apply Theorem~\ref{thm:LaneA_closure}(a)
+for the SFTE/inverse-flow part, and use Lemmas~\ref{lem:RP_safe_flow_rep} and~\ref{lem:bad_event_irrelevant} to replace flowed probes by RP-safe representatives with an $o(1)$ error.
+Applying that argument to the finitely many monomials appearing in $P$, in $\Theta P\cdot P$, and in the mixed products with $P_t^{\mathrm{bnd}}$, one gets
+\[
+\omega^{(u_{\mathrm{ren}})}(\Theta P_t^{\mathrm{bnd}}\,P_t^{\mathrm{bnd}})\to \omega^{(u_{\mathrm{ren}})}(\Theta P\,P),
+\qquad
+\omega^{(u_{\mathrm{ren}})}(\Theta P_t^{\mathrm{bnd}}\,P)\to \omega^{(u_{\mathrm{ren}})}(\Theta P\,P).
+\]
+Therefore
+\begin{align*}
+\|[P_t^{\mathrm{bnd}}]-[P]\|_{\mathcal H_{\mathrm{loc}}}^2
+&=\omega^{(u_{\mathrm{ren}})}\!\big(\Theta(P_t^{\mathrm{bnd}}-P)(P_t^{\mathrm{bnd}}-P)\big)\\
+&=\omega^{(u_{\mathrm{ren}})}(\Theta P_t^{\mathrm{bnd}}\,P_t^{\mathrm{bnd}})
+-2\Re\,\omega^{(u_{\mathrm{ren}})}(\Theta P_t^{\mathrm{bnd}}\,P)
++\omega^{(u_{\mathrm{ren}})}(\Theta P\,P)
+\xrightarrow[t\downarrow 0]{}0,
+\end{align*}
+which proves~(i).
+
+For~(ii), by construction of the OS Hilbert space of the full sharp-local state, the span of classes $[P]$ with $P\in\mathcal P_{+,\mathrm{sharp}}$ is dense in $\mathcal H_{\mathrm{loc}}$.
+Part~(i) approximates each such class by classes of elements of $\mathcal A_+$, hence the image of $\mathcal A_+$ is dense.
+Since $[1]=\Omega_{\mathrm{loc}}$, this is exactly cyclicity of the bounded positive-time base algebra.
+Finally, for every bounded $F\in\mathcal A_+$,
+\[
+[F]=[F-\omega^{(u_{\mathrm{ren}})}(F)]+\omega^{(u_{\mathrm{ren}})}(F)\,\Omega_{\mathrm{loc}}.
+\]
+Thus the span of centered bounded classes together with $\Omega_{\mathrm{loc}}$ is dense, and orthogonal projection to $\Omega_{\mathrm{loc}}^\perp$ gives~(iii).
+\end{proof}
+
+
+\begin{theorem}[Canonical scalar non-triviality witness]\label{thm:LaneA_nontriviality_witness}
+Fix $u_{\mathrm{ren}}\in(0,u_\ast]$ and let $\omega^{(u_{\mathrm{ren}})}$ be the full sharp-local state from Corollary~\ref{cor:LaneA_full_scope}.
+Let $\mathcal E_{\mathrm{ren}}$ denote the centered CP-even dimension-$4$ scalar field constructed from the canonical scalar block,
+and let $\phi_{\ast,S}$ be the positive-time reference test function of Lemma~\ref{lem:LaneA_scalar_reference_norm}.
+Then
+\begin{equation}\label{eq:LaneA_nontriviality_norm_one}
+\omega^{(u_{\mathrm{ren}})}\big(\Theta\mathcal E_{\mathrm{ren}}(\phi_{\ast,S})\,\mathcal E_{\mathrm{ren}}(\phi_{\ast,S})\big)=1.
+\end{equation}
+Consequently the OS class $[\mathcal E_{\mathrm{ren}}(\phi_{\ast,S})]$ is nonzero in $\mathcal H_{\mathrm{loc}}$,
+$\mathcal E_{\mathrm{ren}}$ is not a multiple of the identity,
+and the full adjoint-local sharp-local theory is non-trivial in its vacuum sector.
+\end{theorem}
+
+\begin{proof}
+Fix any engineering cap containing the CP-even scalar block.
+By Lemma~\ref{lem:LaneA_scalar_reference_norm}, the centered scalar component $X^S_j(\phi_{\ast,S})$ of the finite-truncation renormalized multiplet
+has OS norm $1$ at every dyadic scale $t_j$.
+By Theorem~\ref{thm:field_algebra_truncation}, these dyadic approximants converge in $L^2$ and hence in OS norm to the limiting centered renormalized scalar field
+$\mathcal E_{\mathrm{ren}}(\phi_{\ast,S})$ inside that truncation.
+Passing to the limit in the norm identity therefore yields \eqref{eq:LaneA_nontriviality_norm_one} on the finite cap.
+Corollary~\ref{cor:LaneA_full_scope} and the cap-compatibility statement of Lemma~\ref{lem:LaneA_block_cap_compat}
+identify the same normalized scalar field inside every larger cap and hence on the full inductive-union algebra.
+Thus \eqref{eq:LaneA_nontriviality_norm_one} holds in the full sharp-local theory.
+A multiple of the identity has zero centered OS class, whereas \eqref{eq:LaneA_nontriviality_norm_one} shows that
+$[\mathcal E_{\mathrm{ren}}(\phi_{\ast,S})]$ has norm one.
+Hence the field is not a multiple of the identity and the vacuum sector is non-trivial.
+\end{proof}
+
+\begin{remark}[Why the inductive-limit step is only a compatibility argument]\label{rem:LaneA_inductive_compatibility}
+The only genuinely new bookkeeping input in Corollary~\ref{cor:LaneA_full_scope} is the coherent choice of basis and normalization.
+At each exact-dimension symmetry block, the local basis and flowed basis are written using the same complete-contraction formulas,
+and the normalization moments are fixed once and for all.
+When a larger engineering cap is introduced, Lemma~\ref{lem:coherent_Z} ensures that the fields already constructed in smaller caps are literally the same fields inside the larger cap.
+Hence the inductive-limit passage is a compatibility argument, not a second renormalization problem.
+\end{remark}
+
+\begin{remark}[Lane~A interface status]
+The role split for Packets~5--7 is frozen in Table~\ref{tab:LaneA_packet_interface_map} of Appendix~\ref{app:normalization_crosscheck}.
+Theorem~\ref{thm:finite_truncation_inverse_control} and Corollary~\ref{cor:finite_truncation_SFTE} provide only the unconditional finite-truncation inverse / remainder data;
+Theorem~\ref{thm:finite_cap_flowed_sector_bridge} is the first mixed-correlator closure node;
+Theorem~\ref{thm:LaneA_closure} and Corollary~\ref{cor:LaneA_full_scope} perform the capwise extension and then the inductive-union upgrade;
+and Theorem~\ref{thm:LaneA_bounded_base_cyclic} is the first theorem that adds bounded-base cyclicity.
+No later sentence should be read as re-proving that packet chain in prose.
+\end{remark}

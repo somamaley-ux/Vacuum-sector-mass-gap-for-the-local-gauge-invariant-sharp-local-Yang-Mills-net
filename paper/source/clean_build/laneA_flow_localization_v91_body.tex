@@ -1,0 +1,239 @@
+This section records the \emph{flow-time quasi-locality and derivative bounds}
+for the flowed composites $\mathcal O_{S,t}$ and $\mathcal O_{Q,t}$, in a form uniform in $a\to 0$ on the AF window.
+The deterministic hypotheses used here (a local chart/boundedness regime for the DeTurck flow) are verified on the
+good-flow chart event in Section~\ref{sec:good_flow_chart} (Lemma~\ref{lem:chart_persist}), and the contribution of the
+complement is absorbed in expectations by truncation stability (Corollary~\ref{cor:superpoly_flow}).
+
+\paragraph{Important correction (hardening).}
+The gradient flow is \emph{parabolic}; it does \emph{not} have finite propagation speed.
+Thus ``strict support in $B(x,c\sqrt t)$'' is false. What is true (and sufficient for the dyadic polymer/RG framework) is:
+\begin{itemize}
+\item \textbf{quasi-locality}: influence of initial data at distance $r$ is suppressed like $\exp(-c r^2/t)$;
+\item \textbf{derivative bounds}: functional derivatives of the flow map and of $\mathcal O_{S,t},\mathcal O_{Q,t}$ satisfy Gaussian off-diagonal bounds with
+explicit $t$-scaling factors;
+\item \textbf{local truncation}: by cutting off outside a ball of radius $R\sqrt t$ one incurs an error $\lesssim e^{-cR^2}$, which can be made $\le t^\eta$ by choosing $R\sim \sqrt{\log(1/t)}$.
+\end{itemize}
+
+This module replaces 's strict-support formulation with the correct quasi-local statement and makes the constants explicit.
+
+We work in Euclidean $\mathbb R^4$ (or a periodic box of side $L$ with $t\le t_\ast\ll L^2$ so boundary effects are negligible).
+Let $A_\mu(x)\in\mathfrak g$ be the initial gauge potential and $B_\mu(t,x)$ the gradient-flowed field for $t>0$.
+
+The standard (continuum) Yang--Mills gradient flow is
+\begin{equation}\label{eq:cov_flow}
+\partial_t B_\mu \ =\ D_\nu G_{\nu\mu},\qquad B_\mu(0,\cdot)=A_\mu,
+\end{equation}
+where $D_\nu=\partial_\nu+[B_\nu,\cdot]$ and $G_{\mu\nu}=\partial_\mu B_\nu-\partial_\nu B_\mu+[B_\mu,B_\nu]$.
+
+To access parabolic estimates we use the DeTurck gauge-fixing term:
+\begin{equation}\label{eq:deturck_flow}
+\partial_t B_\mu \ =\ D_\nu G_{\nu\mu} + D_\mu(\partial_\nu B_\nu),\qquad B_\mu(0,\cdot)=A_\mu.
+\end{equation}
+
+\begin{proposition}[Gauge equivalence and invariance of gauge-invariant composites]\label{prop:deturck_equiv}
+Solutions of \eqref{eq:cov_flow} and \eqref{eq:deturck_flow} are related by a (time-dependent) gauge transformation $g(t,x)\in G$:
+\[
+B^{\mathrm{cov}}_\mu(t)=g(t)\,B^{\mathrm{det}}_\mu(t)\,g(t)^{-1}-\partial_\mu g(t)\,g(t)^{-1}.
+\]
+Consequently, gauge-invariant local observables built from $G_{\mu\nu}(t)$, in particular
+$\mathcal O_{S,t}(x)=\tfrac14\mathrm{tr}\,G_{\mu\nu}(t,x)G_{\mu\nu}(t,x)$ and
+$\mathcal O_{Q,t}(x)=\tfrac14\mathrm{tr}\,G_{\mu\nu}(t,x)\widetilde G_{\mu\nu}(t,x)$,
+have identical values under the two flows.
+\end{proposition}
+
+\paragraph{Comment.}
+This is the standard DeTurck trick for Ricci/YM flows: the gauge-fixing term generates a compensating gauge transformation.
+Thus we may work with \eqref{eq:deturck_flow} without loss for gauge-invariant observables.
+
+To obtain uniform constants we work on a chart-controlled regime (consistent with the patched RG philosophy of Section~\ref{sec:patching}).
+
+\begin{proposition}[Bounded-regime hypothesis (verified on the good-flow chart event)]\label{ass:bounded_regime}
+Fix $t_\ast>0$. On the good-flow chart event $G_{\Lambda}(\varepsilon)$ of Definition~\ref{def:good_plaq} with initial chart extraction as in
+Lemma~\ref{lem:tree_chart_local}, the DeTurck-flow solution satisfies the scale-consistent bound
+\begin{equation}\label{eq:bounds_B}
+\sup_{0<t\le t_\ast}\Big(\|B(t)\|_{L^\infty}+ t^{1/2}\|\nabla B(t)\|_{L^\infty}\Big)\ \le\ M_0+M_1.
+\end{equation}
+In lattice language, this corresponds to a fixed exponential chart bound on link angles and plaquette angles (e.g.\ $\le\delta<\pi/4$) on the relevant scales.
+\end{proposition}
+
+\paragraph{Where this comes from.}
+Lemma~\ref{lem:chart_persist} (Section~\ref{sec:good_flow_chart}) gives a deterministic sufficient condition for
+\eqref{eq:bounds_B}: on $G_{\Lambda}(\varepsilon)$ the flow stays inside a fixed exponential chart up to time $t_\ast$ and the parabolic estimates
+control $\|B(t)\|_\infty$ and $t^{1/2}\|\nabla B(t)\|_\infty$ uniformly on $(0,t_\ast]$.
+In the main proof we invoke reflection positivity/OS only on unflowed positive-time observables; when flowed insertions appear in expectations,
+we enforce $G_{\Lambda}(\varepsilon)$ locally and absorb the complement by Corollary~\ref{cor:superpoly_flow}.
+
+Let $\mathcal F_t$ denote the DeTurck flow map $A\mapsto B(t)$.
+Let $\psi_\mu(t,x)$ denote the first variation of $B_\mu(t,x)$ under an infinitesimal perturbation of the initial data $A$.
+
+\begin{lemma}[Linearized DeTurck flow is uniformly parabolic]\label{lem:lin_parabolic}
+Under Proposition~\ref{ass:bounded_regime}, the first variation $\psi$ satisfies a linear parabolic system of the form
+\begin{equation}\label{eq:lin_system}
+\partial_t \psi \ =\ \Delta \psi + \sum_{\alpha} a_\alpha(t,x)\,\partial_\alpha \psi + b(t,x)\psi,
+\end{equation}
+where $\Delta$ is the Euclidean Laplacian acting componentwise and the coefficients satisfy the uniform bounds
+\[
+\begin{aligned}
+\|a_\alpha(t,\cdot)\|_{L^\infty(\mathbb R^4)}&\le C_{a,0}(M_0),\\
+\|b(t,\cdot)\|_{L^\infty(\mathbb R^4)}&\le C_{b,0}(M_0)+C_{b,1}(M_0,M_1)\,t^{-1/2},
+\qquad 0<t\le t_\ast.
+\end{aligned}
+\]
+\end{lemma}
+
+\paragraph{Meaning.}
+Equation \eqref{eq:lin_system} is uniformly parabolic; on any time slab $[s,t]\subset(0,t_\ast]$ the coefficients are bounded.
+The possible $t^{-1/2}$ singularity at $t\downarrow 0$ is time-integrable and is treated by the parametrix/Volterra majorant
+in Appendix~\ref{app:kernel_parametrix} (and uniformly in $a$ in Appendix~\ref{app:discrete_parametrix}).
+
+\begin{proposition}[Gaussian kernel bounds for the linearized operator (proved in Appendix~\ref{app:kernel_parametrix} and Appendix~\ref{app:discrete_parametrix})]\label{ass:gaussian_kernel}
+Let $K(t,s;x,y)$ be the fundamental solution (matrix kernel) of \eqref{eq:lin_system} on $0\le s<t\le t_\ast$.
+Assume there exist constants $c_0,c_1>0$ and for each integer $m\ge 0$ constants $C_m$ (depending only on $d=4$ and the coefficient bounds
+$C_{a,0},C_{b,0},C_{b,1}$ (and the corresponding finite set of derivative bounds used in the parametrix)) such that:
+\begin{align}
+\|K(t,s;x,y)\|_{\mathrm{op}}
+&\le c_0\,(t-s)^{-2}\exp\!\Big(-c_1\,\frac{|x-y|^2}{t-s}\Big),\label{eq:K_gauss}\\
+\|\nabla_x^m K(t,s;x,y)\|_{\mathrm{op}}
+&\le C_m\,(t-s)^{-(2+m/2)}\exp\!\Big(-c_1\,\frac{|x-y|^2}{t-s}\Big).\label{eq:K_der_gauss}
+\end{align}
+\end{proposition}
+
+On the lattice, an analogous statement holds for the discrete operator under uniform chart bounds; constants can be chosen independent of $a$ for $t\ge c a^2$.
+
+Let $\delta A$ be a perturbation supported near a point $y$.
+
+\begin{theorem}[First-variation quasi-locality of the flow map]\label{thm:first_var}
+Under the bounded-regime hypothesis~\ref{ass:bounded_regime} and the Gaussian kernel bounds~\ref{ass:gaussian_kernel},
+for $t\in(0,t_\ast]$ the Fr\'echet derivative of the flow map satisfies the kernel bound:
+\[
+\left\|\frac{\delta B_\mu(t,x)}{\delta A_\nu(y)}\right\|
+\ \le\ c_0\,t^{-2}\exp\!\Big(-c_1\,\frac{|x-y|^2}{t}\Big),
+\]
+and for spatial derivatives:
+\[
+\left\|\nabla_x^m\frac{\delta B_\mu(t,x)}{\delta A_\nu(y)}\right\|
+\ \le\ C_m\,t^{-(2+m/2)}\exp\!\Big(-c_1\,\frac{|x-y|^2}{t}\Big).
+\]
+Constants are those of Proposition~\ref{ass:gaussian_kernel} with $s=0$.
+\end{theorem}
+
+\begin{corollary}[First-variation bounds for field strength]\label{cor:first_var_G}
+Under the same assumptions, the field strength variation satisfies for $m\ge 0$:
+\[
+\left\|\nabla_x^m\frac{\delta G_{\rho\sigma}(t,x)}{\delta A_\nu(y)}\right\|
+\ \le\ C'_m\,t^{-(5/2+m/2)}\exp\!\Big(-c_1\,\frac{|x-y|^2}{t}\Big),
+\]
+where $C'_m$ depends on $C_{m+1}$ and $M_0$ (through commutator terms in $G$).
+\end{corollary}
+
+The polymer seminorms used in dyadic RG control derivatives up to a fixed finite order $r_{\max}$.
+We therefore state a finite-order induction hypothesis.
+
+\begin{proposition}[Finite-order higher derivative bounds (proved in Appendix~\ref{app:kernel_parametrix})]\label{ass:higher_der}
+Fix $r_{\max}\ge 1$.
+Assume that for each $1\le r\le r_{\max}$ there exist constants $C^{(B)}_{r,m}$ such that the $r$-th Fr\'echet derivative of the flow map obeys:
+\begin{equation}\label{eq:high_der_B}
+\left\|\nabla_x^m\frac{\delta^r B(t,x)}{\delta A(y_1)\cdots\delta A(y_r)}\right\|
+\ \le\ C^{(B)}_{r,m}\, t^{-(2+m/2+r)}\,
+\exp\!\Big(-c_1\,\frac{\mathrm{dist}(x;\{y_i\})^2}{t}\Big),
+\end{equation}
+where $\mathrm{dist}(x;\{y_i\})=\min_i |x-y_i|$.
+\end{proposition}
+
+\paragraph{Comment.}
+The exponent $2+m/2+r$ is a safe (nonoptimal) power count; any explicit polynomial bound in $t^{-1/2}$ is sufficient for the A1 insertion norms,
+because $r_{\max}$ is fixed and the ultimate SFTE remainder is controlled by extracting relevant/marginal parts and contracting irrelevants.
+Proposition~\ref{ass:higher_der} is proved by differentiating the flow equation $r$ times and applying Duhamel/Gr\"onwall with the Gaussian kernel bounds.
+
+\begin{corollary}[Higher derivative bounds for $\mathcal O_{S,t}$ and $\mathcal O_{Q,t}$]\label{cor:high_der_OSOQ}
+Assume~\ref{ass:bounded_regime},~\ref{ass:gaussian_kernel}, and~\ref{ass:higher_der}.
+Then for each $r\le r_{\max}$ there exist constants $C^{(S)}_{r}$ and $C^{(Q)}_{r}$ such that
+\begin{align}
+\left\|\frac{\delta^r \mathcal O_{S,t}(x)}{\delta A(y_1)\cdots\delta A(y_r)}\right\|
+&\le C^{(S)}_{r}\, t^{-(5+r)}\,
+\exp\!\Big(-c_1\,\frac{\mathrm{dist}(x;\{y_i\})^2}{t}\Big),\label{eq:der_OS}\\
+\left\|\frac{\delta^r \mathcal O_{Q,t}(x)}{\delta A(y_1)\cdots\delta A(y_r)}\right\|
+&\le C^{(Q)}_{r}\, t^{-(5+r)}\,
+\exp\!\Big(-c_1\,\frac{\mathrm{dist}(x;\{y_i\})^2}{t}\Big).\label{eq:der_OQ}
+\end{align}
+The constants depend on $M_0,M_1$ through the coefficient bounds and on the fixed derivative order $r$.
+\end{corollary}
+
+\paragraph{Remark.}
+The power $5+r$ is again safe (nonoptimal). The key structural feature is the Gaussian suppression $\exp(-c\,\mathrm{dist}^2/t)$.
+
+We now convert quasi-locality into a localization statement usable in the dyadic polymer framework.
+
+\begin{definition}[Ball truncation radius]\label{def:Rt}
+For $R\ge 1$ define the ball $B_R(x,t):=\{y:|y-x|\le R\sqrt t\}$.
+For a perturbation $\delta A$ supported in $B_R(x,t)^c$ define the Lipschitz seminorm
+\[
+\mathrm{Lip}^{(R)}_x(\mathcal O_{*,t})
+:=
+\sup_{\substack{\delta A\neq 0\\ \mathrm{supp}(\delta A)\subset B_R(x,t)^c}}
+\frac{|\mathcal O_{*,t}(x;A+\delta A)-\mathcal O_{*,t}(x;A)|}{\|\delta A\|_{L^\infty}}.
+\]
+\end{definition}
+
+\begin{theorem}[Exponential tail outside $B_R(x,t)$]\label{thm:tail_R}
+Under the first-variation bound of Theorem~\ref{thm:first_var} and the corresponding bound for $G$ (Corollary~\ref{cor:first_var_G}),
+the following exponential tail estimate holds.
+There exist constants $C_{\mathrm{tail}},c_{\mathrm{tail}}>0$ such that for $*\in\{S,Q\}$,
+\[
+\mathrm{Lip}^{(R)}_x(\mathcal O_{*,t})\ \le\ C_{\mathrm{tail}}\,t^{-5}\,\exp(-c_{\mathrm{tail}}R^2).
+\]
+Consequently, if two initial data sets agree on $B_R(x,t)$, then
+\[
+|\mathcal O_{*,t}(x;A)-\mathcal O_{*,t}(x;A')|
+\le C_{\mathrm{tail}}\,t^{-5}\,\exp(-c_{\mathrm{tail}}R^2)\,\|A-A'\|_{L^\infty}.
+\]
+\end{theorem}
+
+\begin{proof}
+Integrate the first functional derivative along the straight line path $A_\theta=A+\theta(A'-A)$ and use the Gaussian tail:
+\[
+\mathcal O_{*,t}(A')-\mathcal O_{*,t}(A)=\int_0^1 \int \frac{\delta \mathcal O_{*,t}}{\delta A(y)}(A_\theta)\,(A'-A)(y)\,dy\,d\theta.
+\]
+Restrict $y\in B_R^c$ and bound the derivative kernel by \eqref{eq:der_OS} or its $r=1$ version, then integrate the Gaussian tail:
+$\int_{|x-y|>R\sqrt t} t^{-2}e^{-c|x-y|^2/t}dy\lesssim e^{-c'R^2}$.
+\end{proof}
+
+\begin{corollary}[Choosing $R(t)$ to match a target power $t^\eta$]\label{cor:R_choice}
+Fix $\eta>0$. Choose
+\[
+R(t):=\sqrt{\frac{(\eta+6)\log(1/t)}{c_{\mathrm{tail}}}}\qquad (t\in(0,e^{-1}]).
+\]
+Then $t^{-5}e^{-c_{\mathrm{tail}}R(t)^2}\le t^{\eta+1}$.
+Hence the truncation error outside $B_{R(t)}(x,t)$ is $\le C_{\mathrm{tail}} t^{\eta+1}\|A-A'\|_\infty$.
+\end{corollary}
+
+\paragraph{Interpretation for A1.}
+Corollary~\ref{cor:R_choice} shows that, for any fixed target exponent $\eta$ (e.g.\ $\eta=1$ suffices for the SFTE remainder bookkeeping in Theorem~\ref{thm:ins_decomp}), one may treat $\mathcal O_{S,t}(x)$ and $\mathcal O_{Q,t}(x)$ as \emph{effectively supported} on a ball of radius $R(t)\sqrt t$,
+with an error that is smaller than the desired SFTE remainder scale.
+This is exactly what is needed to feed into the insertion RG map at scale $L_{j_t}\simeq \sqrt t$.
+
+We now state the flow-localization theorem used in this submission.
+
+\begin{theorem}[Flow quasi-locality and derivative bounds]\label{thm:flow_local_v91}
+Fix $t_\ast>0$ and a finite derivative order $r_{\max}$.
+Under the bounded-regime control of Proposition~\ref{ass:bounded_regime}
+(verified on the good-flow chart regime by Lemma~\ref{lem:chart_persist} and absorbed in expectations by Corollary~\ref{cor:superpoly_flow})
+and the Gaussian kernel bounds~\ref{ass:gaussian_kernel}
+(proved in Appendix~\ref{app:kernel_parametrix} and Appendix~\ref{app:discrete_parametrix}),
+the following quasi-local truncation estimate holds for $*\in\{S,Q\}$:
+\begin{enumerate}[label=(L\arabic*)]
+\item (\textbf{Quasi-locality}) The functional derivatives of $\mathcal O_{*,t}(x)$ with respect to the initial field at points $y$ obey Gaussian off-diagonal bounds of the form
+\eqref{eq:der_OS}--\eqref{eq:der_OQ} for all $1\le r\le r_{\max}$.
+\item (\textbf{Effective support}) For any $\eta>0$ there exists a radius function $R(t)\asymp \sqrt{\log(1/t)}$ such that
+modifying initial data outside $B_{R(t)}(x,t)$ changes $\mathcal O_{*,t}(x)$ by at most $O(t^{\eta})$ in sup norm.
+\item (\textbf{Uniformity}) All constants can be chosen independent of lattice spacing $a$ (for $t\ge c a^2$) provided the chart/boundedness hypothesis is uniform in $a$.
+\end{enumerate}
+\end{theorem}
+
+\paragraph{Status in this submission.}
+The bounded-regime/chart hypothesis~\ref{ass:bounded_regime} is verified on the good-flow chart event by
+Lemma~\ref{lem:chart_persist} (Section~\ref{sec:good_flow_chart}), and its complement is absorbed in expectations by
+Corollary~\ref{cor:superpoly_flow}.
+The Gaussian kernel bounds~\ref{ass:gaussian_kernel} are proved in Appendix~\ref{app:kernel_parametrix} (continuum parametrix)
+and Appendix~\ref{app:discrete_parametrix} (uniform discrete analogue).
+With these ingredients in place, all subsequent uses of ``flow localization'' in the insertion RG are bookkeeping.

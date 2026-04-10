@@ -1,0 +1,206 @@
+\label{app:kernel_parametrix}
+
+This appendix supplies a self-contained proof of the continuum Gaussian upper bounds used in Theorem~\ref{thm:gauss_continuum_parametrix} (Lane~A).
+The proof is based on a Picard/parametrix expansion around the heat kernel, with explicit dependence on the $L^\infty$ sizes of
+the first-order coefficients and the (time-integrable) potential.
+
+Fix $0<s<t\le t_\ast$ and set $T=t-s$.
+Let $V$ be a finite-dimensional real vector space with a fixed operator norm $\|\cdot\|_{\mathrm{op}}$ on $\mathrm{End}(V)$.
+Consider the linear parabolic system on $\mathbb R^4$:
+\begin{equation}\label{eq:model_op}
+\partial_\tau u(\tau,x)=\Delta u(\tau,x) + \sum_{\alpha=1}^4 \partial_\alpha\big(A_\alpha(\tau,x)\,u(\tau,x)\big) + W(\tau,x)\,u(\tau,x),
+\qquad \tau\in(s,t],
+\end{equation}
+where $A_\alpha(\tau,x),W(\tau,x)\in\mathrm{End}(V)$ are measurable.
+
+\begin{proposition}[Coefficient bounds (verified on the good-flow chart)]\label{ass:coef_bounds_app}
+There exist constants $\mathsf A_0,\mathsf W_0,\mathsf W_1\ge 0$ such that for all $\tau\in(0,t_\ast]$,
+\[
+\|A_\alpha(\tau,\cdot)\|_{L^\infty(\mathbb R^4)}\le \mathsf A_0,\qquad
+\|W(\tau,\cdot)\|_{L^\infty(\mathbb R^4)}\le \mathsf W_0+\mathsf W_1\,\tau^{-1/2}.
+\]
+\end{proposition}
+
+\begin{remark}[Relation to coefficients]
+In the main text, the linearized DeTurck operator is written as
+$\partial_\tau \psi=\Delta\psi+\sum_\alpha A_\alpha\,\partial_\alpha\psi+V\,\psi$.
+Writing $A_\alpha\partial_\alpha\psi=\partial_\alpha(A_\alpha\psi)-(\partial_\alpha A_\alpha)\psi$
+reduces it to \eqref{eq:model_op} with $W=V-\sum_\alpha\partial_\alpha A_\alpha$.
+On the good-flow chart regime (as constructed in Section~4), $\|\partial A_\alpha(\tau)\|_\infty\lesssim \|\nabla B(\tau)\|_\infty\lesssim \tau^{-1/2}$,
+so \ref{ass:coef_bounds_app} holds with $\mathsf W_1$ enlarged accordingly.
+\end{remark}
+
+Let $p(\sigma,x)=(4\pi\sigma)^{-2}\exp(-|x|^2/(4\sigma))$ be the $4$-dimensional heat kernel.
+We will use the following elementary derivative domination.
+
+\begin{lemma}[Derivative domination by a fatter Gaussian]\label{lem:heat_deriv_dom}
+For each integer $m\ge 0$ there exists a constant $C_m<\infty$ such that for all $\sigma>0$ and all $x\in\mathbb R^4$,
+\begin{equation}\label{eq:heat_deriv_dom}
+|\nabla_x^m p(\sigma,x)|\ \le\ C_m\,\sigma^{-m/2}\, p(2\sigma,x).
+\end{equation}
+Moreover, for the first derivative one may take $C_1=4/\sqrt{e}$:
+$|\nabla p(\sigma,x)|\le \frac{4}{\sqrt e}\,\sigma^{-1/2}p(2\sigma,x)$.
+\end{lemma}
+
+\begin{proof}
+Every derivative $\nabla^m p(\sigma,\cdot)$ equals a polynomial $P_m(x/\sqrt{\sigma})$ times $p(\sigma,x)$, with $\deg P_m\le m$.
+Using the inequality $|z|^k e^{-|z|^2/4}\le C_k e^{-|z|^2/8}$ for all $z\in\mathbb R^4$ and $k\le m$
+yields \eqref{eq:heat_deriv_dom} after rescaling.
+The explicit $C_1=4/\sqrt{e}$ follows from $|\nabla p(\sigma,x)|=\frac{|x|}{2\sigma}p(\sigma,x)$ and the bound
+\[
+\sup_{u\ge 0}\ 2u e^{-u^2/8}=\frac{4}{\sqrt e},
+\]
+attained at $u=2$ with $u=|x|/\sqrt{\sigma}$.
+\end{proof}
+
+We also use the Gaussian convolution identity: for all $\sigma_1,\sigma_2>0$,
+\begin{equation}\label{eq:gauss_conv}
+\int_{\mathbb R^4} p(\sigma_1,x-z)\,p(\sigma_2,z-y)\,dz = p(\sigma_1+\sigma_2,x-y).
+\end{equation}
+The same identity holds with $p$ replaced by $p(2\cdot)$.
+We will also use the elementary comparison: if $0<\sigma\le\Sigma$ then
+\begin{equation}\label{eq:gauss_compare}
+p(\sigma,x)\ \le\ \Big(\frac{\Sigma}{\sigma}\Big)^2\,p(\Sigma,x),\qquad x\in\mathbb R^4.
+\end{equation}
+We now write the Volterra integral equation for the kernel.
+Assume for the moment that a fundamental solution $K(\tau,s;x,y)\in \mathrm{End}(V)$ exists.
+Then the mild formulation of \eqref{eq:model_op} gives
+\begin{equation}\label{eq:parametrix}
+\begin{aligned}
+K(t,s;x,y)
+&= p(T,x-y)\,\mathrm{Id}_V \\
+&\quad +\sum_{\alpha=1}^4\int_s^t\!\!\int_{\mathbb R^4}\partial_\alpha p(t-r,x-z)\,A_\alpha(r,z)\,K(r,s;z,y)\,dz\,dr \\
+&\quad +\int_s^t\!\!\int_{\mathbb R^4} p(t-r,x-z)\,W(r,z)\,K(r,s;z,y)\,dz\,dr.
+\end{aligned}
+\end{equation}
+
+We use \eqref{eq:parametrix} as the \emph{definition} of $K$ by Picard iteration.
+
+Define $K^{(0)}(t,s;x,y)=p(T,x-y)\mathrm{Id}_V$ and inductively define $K^{(n+1)}$ by the right-hand side of \eqref{eq:parametrix}
+with $K$ replaced by $K^{(n)}$.
+Write
+\[
+\|K^{(n)}(t,s;x,y)\|_{\mathrm{op}}=:k_n(t,s;x,y).
+\]
+
+\begin{lemma}[Volterra inequality for a Gaussian majorant]\label{lem:volterra_maj}
+Assume \ref{ass:coef_bounds_app} and set $c_0:=2$.
+There exists a universal constant $C_\sharp\ge 1$ such that for every $n\ge 0$,
+\[
+ k_{n+1}(t,s;x,y)
+ \le
+ C_\sharp\,p(c_0T,x-y)\Big(1
+ + \mathsf A_0\int_s^t (t-r)^{-1/2}\,g_n(r,s)\,dr
+ + \int_s^t (\mathsf W_0+\mathsf W_1 r^{-1/2})\,g_n(r,s)\,dr\Big),
+\]
+where
+\[
+ g_n(r,s):=\sup_{z\in\mathbb R^4}\frac{k_n(r,s;z,y)}{p(c_0(r-s),z-y)}.
+\]
+\end{lemma}
+
+\begin{proof}
+Apply the operator norm to \eqref{eq:parametrix} and use \ref{ass:coef_bounds_app} to bound $\|A_\alpha\|_\infty$ and $\|W\|_\infty$.
+
+For the initial term, use \eqref{eq:gauss_compare} with $(\sigma,\Sigma)=(T,2T)$ to get
+$p(T,x-y)\le 4\,p(2T,x-y)=4\,p(c_0T,x-y)$.
+
+For the $A$-term, use Lemma~\ref{lem:heat_deriv_dom}:
+$|\partial_\alpha p(t-r,x-z)|\le C_1 (t-r)^{-1/2}p(2(t-r),x-z)$.
+Assume inductively that $k_n(r,s;z,y)\le g_n(r,s)\,p(2(r-s),z-y)$.
+Then the Gaussian convolution identity \eqref{eq:gauss_conv} gives
+\[
+\int_{\mathbb R^4} p(2(t-r),x-z)\,p(2(r-s),z-y)\,dz
+= p(2T,x-y)=p(c_0T,x-y).
+\]
+Thus the $A$-term is bounded by
+$C_1\mathsf A_0\,p(c_0T,x-y)\int_s^t (t-r)^{-1/2}g_n(r,s)\,dr$.
+
+For the $W$-term, use \eqref{eq:gauss_compare} with $(\sigma,\Sigma)=(t-r,2(t-r))$ to get
+$p(t-r,x-z)\le 4\,p(2(t-r),x-z)$.
+Then the same convolution yields a bound by
+$4\,p(c_0T,x-y)\int_s^t (\mathsf W_0+\mathsf W_1 r^{-1/2})\,g_n(r,s)\,dr$.
+
+Collect constants (e.g. take $C_\sharp:=4(1+C_1)$) to obtain the stated inequality.
+\end{proof}
+
+\begin{lemma}[Fractional Gr\"onwall bound]\label{lem:fractional_gronwall}
+Let $G:[0,T]\to[0,\infty)$ be locally integrable and suppose
+\[
+G(\tau)\ \le\ 1 + a\int_0^\tau (\tau-\rho)^{-1/2}G(\rho)\,d\rho + b\int_0^\tau G(\rho)\,d\rho
+\]
+for all $\tau\in[0,T]$, with $a,b\ge 0$.
+Then there exists a universal $C\ge 1$ such that
+\[
+G(\tau)\ \le\ C\,\exp\!\big(Ca^2\,\tau + Cb\,\tau\big)\qquad \forall \tau\in[0,T].
+\]
+\end{lemma}
+
+\begin{proof}
+Iterate the inequality and use the convolution identity
+\[
+\int_0^\tau (\tau-\rho)^{-1/2}\rho^{n/2}\,d\rho = \tau^{(n+1)/2}\,B\!\Big(\frac12,\frac{n}{2}+1\Big)
+= \tau^{(n+1)/2}\,\frac{\Gamma(1/2)\Gamma(n/2+1)}{\Gamma(n/2+3/2)}.
+\]
+This yields a series bound of the form
+\[
+G(\tau)\ \le\ \exp(b\tau)\sum_{n=0}^\infty \frac{(C'a\sqrt{\tau})^n}{\Gamma(n/2+1)}.
+\]
+The Mittag--Leffler bound $\sum_{n\ge 0}\frac{z^n}{\Gamma(n/2+1)}\le C e^{C z^2}$ for $z\ge 0$
+implies $G(\tau)\le C\exp(Ca^2\tau + Cb\tau)$.
+\end{proof}
+
+Define
+\[
+g(t,s):=\sup_{x,y}\frac{\|K(t,s;x,y)\|_{\mathrm{op}}}{p(c_0(t-s),x-y)}.
+\]
+Combining Lemma~\ref{lem:volterra_maj} with Lemma~\ref{lem:fractional_gronwall} yields the desired exponential dependence in $(\mathsf A_0^2,\mathsf W_0,\mathsf W_1)$.
+
+\begin{theorem}[Continuum Gaussian upper bound with explicit dependence]\label{thm:gauss_cont_proved}
+Assume \ref{ass:coef_bounds_app}. Then the Picard iteration converges and defines a fundamental solution $K(t,s;x,y)$ to \eqref{eq:model_op}.
+Moreover, there exist universal constants $c\in(0,1)$ and $C\ge 1$ such that for all $0<s<t\le t_\ast$,
+\begin{equation}\label{eq:gauss_app_main}
+\|K(t,s;x,y)\|_{\mathrm{op}}
+\le
+C\,(t-s)^{-2}\exp\!\Big(-c\,\frac{|x-y|^2}{t-s}\Big)\,
+\exp\!\Big(C\mathsf A_0^2(t-s)+C\mathsf W_0(t-s)+2C\mathsf W_1(\sqrt t-\sqrt s)\Big).
+\end{equation}
+In addition, for each integer $m\ge 1$ there exists $C_m$ such that
+\begin{equation}\label{eq:gauss_app_der}
+\begin{aligned}
+\|\nabla_x^m K(t,s;x,y)\|_{\mathrm{op}}
+\le{}&C_m\,(t-s)^{-(2+m/2)}
+\exp\!\Big(-c\,\frac{|x-y|^2}{t-s}\Big)\\
+&\times\exp\!\Big(C\mathsf A_0^2(t-s)+C\mathsf W_0(t-s)
++2C\mathsf W_1(\sqrt t-\sqrt s)\Big).
+\end{aligned}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Convergence of the Picard iteration follows from the majorant inequality in Lemma~\ref{lem:volterra_maj} and dominated convergence:
+the time singularity $(t-r)^{-1/2}$ is integrable and the exponential factor controls the series.
+The bound \eqref{eq:gauss_app_main} follows by taking $n\to\infty$ in Lemma~\ref{lem:volterra_maj} and applying Lemma~\ref{lem:fractional_gronwall}
+after factoring out the time-dependent potential term.
+Set $G(\tau):=g(s+\tau,s)$ on $[0,T]$ so that the $\mathsf W_1$-term appears as a variable coefficient
+$b(\rho):=C_\sharp(\mathsf W_0+\mathsf W_1(s+\rho)^{-1/2})$.
+Define $\widetilde G(\tau):=\exp(-\int_0^{\tau} b(\rho)\,d\rho)\,G(\tau)$.
+Then $\widetilde G$ satisfies the hypotheses of Lemma~\ref{lem:fractional_gronwall} with the same
+$a=C_\sharp\mathsf A_0$ and with $b=0$.
+Therefore $G(\tau)\le C\exp(\int_0^{\tau} b(\rho)\,d\rho)\exp(Ca^2\tau)$.
+Evaluating the integral gives
+$\int_0^{T} b(\rho)\,d\rho = C_\sharp\mathsf W_0 T + 2C_\sharp\mathsf W_1(\sqrt t-\sqrt s)$,
+which yields \eqref{eq:gauss_app_main} (absorbing universal constants into $C$).
+
+For derivatives, differentiate \eqref{eq:parametrix} in $x$.
+Derivatives fall only on the heat kernel factor $p(t-r,x-z)$ or $\partial_\alpha p(t-r,x-z)$, never on the coefficients (which depend on $z$).
+Apply Lemma~\ref{lem:heat_deriv_dom} with $m$ or $m+1$ derivatives and repeat the same Volterra majorant argument, gaining a factor $(t-s)^{-m/2}$.
+\end{proof}
+
+The same parametrix argument applies on $a\mathbb Z^4$ with $\Delta$ replaced by $\Delta_a$ and spatial derivatives replaced by finite differences.
+The only additional input is a Gaussian upper bound for the lattice heat kernel $p_a$ of $\Delta_a$ with constants uniform in $a$.
+One may take this as a standard discrete parabolic estimate (e.g.\ Delmotte-type bounds on $\mathbb Z^d$); once available,
+the Duhamel/Volterra argument above yields uniform-in-$a$ bounds for $K_a$ with the same dependence on
+$\mathsf A_0,\mathsf W_0,\mathsf W_1$.
+
+We keep the discrete heat kernel bound as an explicit cited lemma in the main text, since it is classical and independent of gauge theory.

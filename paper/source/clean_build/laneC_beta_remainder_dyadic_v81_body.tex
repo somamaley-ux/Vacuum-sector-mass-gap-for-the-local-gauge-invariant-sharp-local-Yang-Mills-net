@@ -1,0 +1,194 @@
+Fix the finite-volume gradient-flow coupling $u(L)=g^2_{\mathrm{GF}}(L)$ defined in \eqref{eq:gf_coupling_def}, and define the \emph{dyadic discrete beta function}
+\begin{equation}\label{eq:dyadic_beta_def}
+\beta^{(2)}(u)\ :=\ -\frac{\Sigma(u)-u}{\log 2},
+\end{equation}
+where $\Sigma$ is the step-scaling function for $L\mapsto 2L$.
+
+The multiscale construction requires a \emph{uniform} small-coupling remainder bound:
+\begin{equation}
+\exists u_0,B>0\ \ \forall u\in[0,u_0]\ \ \forall a/L\ \ 
+\big|\beta^{(2)}(u)+2b_0 u^2\big|\ \le\ B u^3,
+\end{equation}
+with constants $u_0,B$ independent of the regulator ratio $a/L$ along the dyadic scaling trajectory.
+This entire subsection is internal to the chart-truncated Lane~C coordinate map.
+The theorem-level return to the physical Wilson theory at the same fixed scale is recorded separately in Theorem~\ref{thm:Wilson_patch_transport}; no hidden Wilson-versus-patched comparison is being used inside the present beta-remainder estimate.
+Equivalently,
+\begin{equation}
+\big|\Sigma(u)-u-2b_0u^2\log 2\big|\ \le\ (B\log 2)\,u^3.
+\end{equation}
+
+\paragraph{Why dyadic RG is the right tool.}
+The dyadic RG produces the map $L\to 2L$ as a \emph{single RG step} with:
+\begin{itemize}
+\item a marginal coordinate $u$,
+\item an irrelevant activity $K$ controlled in a scale-dependent seminorm $\|\cdot\|_j$,
+\item a contraction estimate on the irrelevant sector and an analytic expansion of the RG map.
+\end{itemize}
+If these RG properties hold \emph{uniformly in scale}, then \eqref{eq:beta_remainder_goal} follows with explicit constants.
+
+Let $j\in\mathbb N$ index dyadic scale with physical length $L_j=2^j a$.
+At each scale $j$ we work in a coordinate chart $(u_j,K_j)$ where:
+\begin{itemize}
+\item $u_j\in\mathbb R$ is the marginal coupling coordinate (identified with $g^2_{\mathrm{GF}}(L_j)$ up to $O(u^2)$ reparametrization),
+\item $K_j$ is an irrelevant activity in a Banach space $(\mathscr K_j,\|\cdot\|_j)$ (polymer/finite-range functional space used in this section),
+\item the RG step map $\mathcal R_j:(u_j,K_j)\mapsto (u_{j+1},K_{j+1})$ is well-defined on a small ball.
+\end{itemize}
+
+\begin{definition}[Dyadic RG seminorm ball]\label{def:rg_ball}
+Fix $r>0$ and define
+\[
+\mathbb B_j(r):=\{(u,K): |u|\le r,\ \|K\|_j\le r^2\}.
+\]
+The scaling $\|K\|\le r^2$ matches the fact that irrelevant terms are generated at order $u^2$.
+\end{definition}
+
+All statements below are uniform in $j$ (hence uniform in $a/L_j$).
+
+\begin{proposition}[Analytic RG map with explicit Taylor remainder bounds (proved in Theorem~\ref{thm:RG_analytic_bounds})]\label{ass:RG_analytic_bounds}
+There exist constants
+\[
+r_0>0,\quad \kappa\in(0,1),\quad A_2\in\mathbb R,\quad C_u>0,\quad C_K>0,
+\]
+and linear operators $\mathcal L_j:\mathscr K_j\to\mathscr K_{j+1}$ with $\|\mathcal L_j\|_{\mathrm{op}}\le \kappa$,
+such that for all $j$ and all $(u,K)\in\mathbb B_j(r_0)$ the RG step satisfies:
+\begin{align}
+u'&=u+A_2 u^2+\delta_u(u,K),\label{eq:u_update}\\
+K'&=\mathcal L_j K+\delta_K(u,K),\label{eq:K_update}
+\end{align}
+with the explicit bounds
+\begin{align}
+|\delta_u(u,K)|&\le C_u\big(|u|^3+|u|\|K\|_j\big),\label{eq:du_bound}\\
+\|\delta_K(u,K)\|_{j+1}&\le C_K\big(|u|^2+\|K\|_j^2\big).\label{eq:dK_bound}
+\end{align}
+\end{proposition}
+
+\paragraph{Interpretation.}
+$A_2 u^2$ is the \emph{universal} quadratic contribution (one-loop coefficient in the chosen scheme).
+$\delta_u$ and $\delta_K$ are analytic remainders bounded in the RG seminorm topology.
+
+\begin{proposition}[Entrance estimate: irrelevant sector is $O(u^2)$ at a fixed entrance scale (proved in Theorem~\ref{thm:stable})]\label{ass:entrance}
+There exists an entrance scale $j_\ast$ (finite depth, uniform in $a$) and a constant $D>0$ such that
+\[
+\|K_{j_\ast}\|_{j_\ast}\le D\,u_{j_\ast}^2,
+\qquad |u_{j_\ast}|\le r_0/2.
+\]
+\end{proposition}
+
+\begin{proposition}[Quadratic coefficient identification ($b_0$) (proved in Proposition~\ref{prop:b0_scheme_invariant})]\label{ass:A2_identification}
+The RG marginal coefficient satisfies
+\[
+A_2=2b_0\log 2,
+\qquad b_0>0
+\]
+for pure $G$ Yang--Mills.
+The coefficient is scheme invariant by Proposition~\ref{prop:b0_scheme_invariant}, and the sign input $b_0>0$ is the only weak-window export used here; it is supplied by Theorem~\ref{thm:b0_coefficient_extraction} and Lemma~\ref{lem:b0_positive}, and certified on the live branch by Theorem~\ref{thm:weak_window_sufficiency}.
+\end{proposition}
+
+\begin{proposition}[Choice of marginal coordinate: identification with the gradient-flow coupling]
+\label{ass:coord_match}
+Throughout Lane~C we choose the RG marginal coordinate at scale $j$ to coincide with the finite-volume
+gradient-flow coupling:
+\[
+u_j \ :=\ u_{\mathrm{GF}}(L_j),\qquad L_j:=2^j a,
+\]
+where $u_{\mathrm{GF}}$ is defined in \eqref{eq:gf_coupling_def}.
+This is a choice of coordinate on the one-dimensional marginal manifold in the small-coupling window.
+Any other admissible marginal coordinate $\tilde u$ related near $0$ by an analytic reparametrization
+$\tilde u=u+O(u^2)$ leads to the same quadratic coefficient $b_0$ (scheme invariance) and only modifies the cubic remainder
+constants; see Proposition~\ref{prop:b0_scheme_invariant}.
+\end{proposition}
+
+\begin{lemma}[Irrelevant sector stays $O(u^2)$ with explicit constant]\label{lem:K_invariant}
+Assume \ref{ass:RG_analytic_bounds}. Fix $M>0$ and define the cone region
+\[
+\mathbb C_j(M):=\{(u,K)\in\mathbb B_j(r_0): \|K\|_j\le M u^2\}.
+\]
+If $M$ satisfies
+\begin{equation}\label{eq:M_choice}
+M\ \ge\ \frac{2C_K}{1-\kappa},
+\end{equation}
+and $r_0$ is small enough so that $C_K r_0^2\le (1-\kappa)M/2$ (automatic if \eqref{eq:M_choice} holds and $r_0\le 1$),
+then
+\[
+(u,K)\in\mathbb C_j(M)\quad\Longrightarrow\quad (u',K')\in\mathbb C_{j+1}(M).
+\]
+\end{lemma}
+
+\begin{proof}
+Assume $\|K\|_j\le M u^2$ and $|u|\le r_0$. By \eqref{eq:K_update}--\eqref{eq:dK_bound},
+\[
+\|K'\|_{j+1}\le \kappa \|K\|_j + C_K\big(u^2+\|K\|_j^2\big)
+\le \kappa M u^2 + C_K\big(u^2+M^2 u^4\big).
+\]
+Since $|u|\le r_0$ and $r_0\le 1$, $M^2 u^4\le M^2 u^2 r_0^2$ and hence
+\[
+\|K'\|_{j+1}\le \big(\kappa M + C_K + C_K M^2 r_0^2\big)u^2.
+\]
+Choose $r_0$ small enough so that $C_K M^2 r_0^2\le C_K M$ (e.g.\ $r_0^2\le 1/M$), giving
+\[
+\|K'\|_{j+1}\le (\kappa M + 2C_K)u^2.
+\]
+With $M\ge 2C_K/(1-\kappa)$, we have $\kappa M + 2C_K\le M$.
+Finally, since $u'=u+O(u^2)$, for small $r_0$ we have $u'^2\ge \tfrac12 u^2$, so $\|K'\|_{j+1}\le M u'^2$ as well.
+\end{proof}
+
+\begin{corollary}[Uniform irrelevant bound along the dyadic trajectory]\label{cor:K_uniform}
+Assume \ref{ass:RG_analytic_bounds} and \ref{ass:entrance}. Choose
+\[
+M:=\max\Big\{D,\ \frac{2C_K}{1-\kappa}\Big\}.
+\]
+Then for all $j\ge j_\ast$,
+\[
+\|K_j\|_j\le M u_j^2,
+\]
+provided $u_{j_\ast}\le r_0$ and the RG stays in $\mathbb B_j(r_0)$ (small-coupling window).
+\end{corollary}
+
+\begin{theorem}[Dyadic step remainder bound in RG seminorm topology]\label{thm:step_remainder_RG}
+Assume \ref{ass:RG_analytic_bounds} and \ref{ass:entrance}.
+Let $M$ be as in Corollary~\ref{cor:K_uniform}. Then for all $j\ge j_\ast$ and all $u_j$ sufficiently small so that $(u_j,K_j)\in\mathbb C_j(M)$,
+\begin{equation}\label{eq:step_remainder_bound}
+\big|u_{j+1}-u_j-A_2 u_j^2\big|\ \le\ C_\Sigma\,u_j^3,
+\qquad
+C_\Sigma:=C_u(1+M).
+\end{equation}
+The constant $C_\Sigma$ depends only on the RG constants $(C_u,C_K,\kappa,D)$ and is uniform in $j$ (hence uniform in $a/L_j$).
+\end{theorem}
+
+\begin{proof}
+By \eqref{eq:u_update} and \eqref{eq:du_bound},
+\[
+|u_{j+1}-u_j-A_2 u_j^2|=|\delta_u(u_j,K_j)|
+\le C_u\big(u_j^3+u_j\|K_j\|_j\big)
+\le C_u(1+M)u_j^3,
+\]
+using $\|K_j\|_j\le M u_j^2$ from Corollary~\ref{cor:K_uniform}.
+\end{proof}
+
+\begin{corollary}[Uniform dyadic beta-remainder bound]\label{cor:beta_remainder_RG}
+Assume \ref{ass:RG_analytic_bounds}, \ref{ass:entrance}, and \ref{ass:A2_identification}.
+Define the dyadic beta function by \eqref{eq:dyadic_beta_def} with $u=\!u_j$ and $\Sigma(u)=u_{j+1}$.
+Then for all $j\ge j_\ast$ and all sufficiently small $u_j$,
+\[
+\big|\beta^{(2)}(u_j)+2b_0 u_j^2\big|
+\le B\,u_j^3,
+\qquad
+B:=\frac{C_\Sigma}{\log 2}=\frac{C_u(1+M)}{\log 2}.
+\]
+All constants are uniform in $a/L_j$.
+\end{corollary}
+
+\begin{itemize}
+\item \textbf{Reduction (proved in this submission).}
+The uniform beta-remainder bound is obtained from the analytic RG estimates of Proposition~\ref{ass:RG_analytic_bounds}
+and the one-shot entrance Proposition~\ref{ass:entrance}; see the subsequent subsections for the proofs and the explicit constants.
+\item \textbf{Coefficient identification (proved).}
+The identity $A_2=2b_0\log 2$ is proved in Proposition~\ref{ass:A2_identification}.
+\end{itemize}
+
+\paragraph{Constant tracking summary.}
+\begin{itemize}
+\item Choose $M=\max\{D,2C_K/(1-\kappa)\}$.
+\item Then $C_\Sigma=C_u(1+M)$ and $B=C_\Sigma/\log2$.
+\item No hidden dependence on $a/L$ remains once the RG constants are uniform in $j$.
+\end{itemize}

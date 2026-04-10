@@ -1,0 +1,40 @@
+
+% Fixed-label bridge for external references appearing in Companion III.
+\makeatletter
+\newcommand{\DeclareFixedLabel}[2]{%
+  \begingroup
+  \protected@edef\@currentlabel{#2}%
+  \label{#1}%
+  \endgroup
+}
+\makeatother
+
+\DeclareFixedLabel{sec:roadmap}{2}
+\DeclareFixedLabel{sec:sharp_local}{5}
+\DeclareFixedLabel{app:route1}{F}
+\DeclareFixedLabel{app:referee_audit}{P}
+\DeclareFixedLabel{app:executive_proof_sketch}{Q}
+\DeclareFixedLabel{subsec:hard_module_extracts}{P.7}
+\DeclareFixedLabel{thm:main}{2.1}
+\DeclareFixedLabel{lem:center_blindness_descent}{2.5}
+\DeclareFixedLabel{lem:adjoint_local_generators}{2.6}
+\DeclareFixedLabel{cor:A1_compact_simple_spine}{N.21}
+\DeclareFixedLabel{prop:route1_QE1}{F.3}
+\DeclareFixedLabel{cor:LaneA_full_scope}{5.76}
+\DeclareFixedLabel{thm:LaneA_associated_graded_identity}{L.8}
+\DeclareFixedLabel{thm:LaneA_closure}{5.74}
+\DeclareFixedLabel{thm:LaneA_bounded_base_cyclic}{5.77}
+\DeclareFixedLabel{thm:LaneA_nontriviality_witness}{5.78}
+\DeclareFixedLabel{def:local_operator_spaces}{F.239}
+\DeclareFixedLabel{lem:finite_cap_common_core}{F.244}
+\DeclareFixedLabel{thm:LaneA_temperedness_verification}{F.247}
+\DeclareFixedLabel{def:action_universality_class}{F.253}
+\DeclareFixedLabel{cor:UV_matching_error}{F.257}
+\DeclareFixedLabel{thm:universality_on_Oell}{F.258}
+\DeclareFixedLabel{lem:coherent_Z}{F.267}
+\DeclareFixedLabel{thm:universality_full_inductive_limit}{F.268}
+\DeclareFixedLabel{def:admissible_scheme}{F.269}
+\DeclareFixedLabel{thm:universality_local_field_algebra}{F.249}
+
+\DeclareFixedLabel{lem:A1_compact_simple_local_geom}{N.1}
+\DeclareFixedLabel{cor:route1_QE3_gap}{F.5}

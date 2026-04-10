@@ -1,0 +1,70 @@
+% PAGE-BUDGET TARGET: 6 pages
+% HARD MAX: 7 pages
+\section{Route~1 lattice-side gap and weak-window closure}\label{sec:route1}
+
+This section isolates the entire lattice-side burden of the mass-gap proof. The goal is not to replay Appendix~F in miniature, but to state the three theorem-level facts that must be in hand before the continuum transport can begin: a tuned full fixed-lattice OS gap, a same-scale return to the physical Wilson theory, and a certificate that the repaired curvature-sector weak-window package is the only live downstream weak-window input.
+
+\subsection{Tuned full fixed-lattice OS gap}
+
+\begin{proposition}[Tuned full fixed-lattice OS gap]\label{prop:lattice-gap}
+Let $a_n=\ell_0 2^{-n}$ and $\beta_n=\beta(a_n;u_{\mathrm{ren}},G,\rho)$ be the tuned dyadic trajectory determined by the one-shot entrance data of Proposition~\ref{prop:one-shot-entrance}. Define
+\[
+  m_{\mathrm{blk}}(G,\rho):=-\log q^*(G,\rho),\qquad m_*(G,\rho;u_{\mathrm{ren}}):=\frac{m_{\mathrm{blk}}(G,\rho)}{2\,\mathrm{Cent}(G,\rho)\,\ell_0}.
+\]
+Then the full fixed-lattice OS Hamiltonian gap along the tuned sequence satisfies
+\[
+  \liminf_{n\to\infty}\frac{\Delta_{\mathrm{lat}}(\beta_n)}{a_n}\geq m_*(G,\rho;u_{\mathrm{ren}})>0.
+\]
+Equivalently, the lattice-side Route~1 proof yields a tuned-sequence full fixed-lattice lower bound that is already normalized at the physical scale required later by the continuum transport.
+\end{proposition}
+\proofhome{Companion~I, Section~3}
+\proofsynopsis{The full proof closes QE2$_{\mathrm{lat}}$ by combining exact terminal-block covariance transfer with entrance-scale block decay and then invoking the fixed-lattice spectral-gap theorem on the physical Wilson theory. The core paper keeps only the theorem-facing lower bound and the resulting definition of $m_*$.}
+
+\subsection{Same-scale return to the physical Wilson theory}
+
+\begin{theorem}[Same-scale Wilson-to-patched transport]\label{thm:wilson-return}
+Fix a support budget $M_{\mathrm{supp}}\in\mathbb N$ and a depth-growth constant $C_{\mathrm{depth}}>0$. For bounded cylinder observables supported in at most $M_{\mathrm{supp}}$ unit coarse blocks, let $E^{W}_{a,m}$ denote the exact Wilson evaluation obtained by the $m$-step blocked recursion and let $E^{\mathrm{good}}_{a,m}$ denote the parallel chart-truncated evaluation. Then for every integer $N\geq 1$ there exist $u_0(N,C_{\mathrm{depth}},M_{\mathrm{supp}})>0$ and $C_N(C_{\mathrm{depth}},M_{\mathrm{supp}})<\infty$ such that, whenever $u(a)\leq u_0$ and the dyadic depth satisfies
+\[
+  1\le m\le C_{\mathrm{depth}}\log\!\bigl(1/u(a)\bigr),
+\]
+one has
+\[
+  |E^{W}_{a,m}(H)-E^{\mathrm{good}}_{a,m}(H)|\leq C_N\,\|H\|_{L^\infty}\,u(a)^N,
+\]
+uniformly in the cutoff $a$, uniformly in all such depths $m$, and uniformly over the finite-volume/admissible-boundary-condition class used later in Route~1. In particular the same estimate applies at every fixed physical comparison scale $L=2^m a$, since then $m=O(\log(1/u(a)))$ on the asymptotically free window. The same estimate extends to fixed-scale covariances for bounded cylinder pairs whose product remains in the same fixed-scale test class (equivalently, whose common support hull occupies at most $M_{\mathrm{supp}}$ unit coarse blocks), and to flowed local observables after flow localization and the finite-depth local transport closure.
+\end{theorem}
+\proofhome{Companion~I, Section~4}
+\proofsynopsis{The companion proves the exact Wilson one-step block factorization, the nested blocked Wilson recursion, and the averaged good-event transport estimate, and then packages them into the same-scale comparison theorem. The point of the theorem in the core paper is not technical detail but theorem-facing closure: the Route~1 chain is again attached to the physical Wilson theory before the one-shot entrance and gap results are read, and the statement is uniform for the logarithmic dyadic depths actually used by the one-shot and fixed-physical-scale comparisons.}
+\dependencyledger
+  {exact Wilson one-step block factorization, the nested blocked Wilson recursion, the averaged good-event transport estimate, and the finite-depth local transport closure on the fixed-scale Route~1 test class}
+  {none}
+  {same-scale Wilson and chart-truncated evaluations agree up to $O(u(a)^N)$ uniformly for bounded-support observables and logarithmic dyadic depths $m=O(\log(1/u(a)))$; the same comparison holds for the fixed-scale covariance class and for flowed local observables after localization}
+  {Theorem~\ref{thm:weak-window-certificate}, Theorem~\ref{thm:bounded-wilson-os-limit}, and Theorem~\ref{thm:continuum-gap-transport}}
+
+\begin{remark}[Frozen depth regime on the Wilson-return theorem]
+The uniformity in \cref{thm:wilson-return} is exactly the logarithmic-depth window stated in its proof home: dyadic depths $m\le C_{\mathrm{depth}}\log(1/u(a))$. This is the regime later used for one-shot entrance, fixed physical comparison scales, and the bounded Wilson/dyadic OS limit. The theorem should therefore neither be paraphrased as a merely fixed-depth estimate nor overread as uniform for arbitrary depth families.
+\end{remark}
+
+
+\subsection{Weak-window closure and transport ledger}
+
+\begin{theorem}[Weak-window sufficiency certificate]\label{thm:weak-window-certificate}
+All live downstream weak-window uses in the manuscript factor through the repaired curvature-sector package $\mathrm{WW}_{\mathrm{curv}}$ and through nothing stronger. More precisely:
+\begin{enumerate}[label=\textup{\arabic*.}]
+    \item the only weak-window export to the dyadic beta-remainder analysis is the sign input $b_0>0$;
+    \item the one-shot entrance-scale comparison uses only the repaired package listed in the weak-window definition;
+    \item the tuned-sequence physical entrance corollary uses only that repaired package together with the explicit one-shot comparison theorem;
+    \item the one-shot entrance theorem itself does not use any weak-window convexity statement beyond the repaired package; and
+    \item consequently the load-bearing Route~1 package --- one-shot entrance, tuned fixed-lattice gap, and continuum vacuum-gap transport --- contains no hidden dependence on any edge-Hessian convexity hypothesis.
+\end{enumerate}
+\end{theorem}
+\proofhome{Companion~I, Section~5}
+\proofsynopsis{The full proof is a dependency audit rather than a new analytic derivation. It checks, theorem by theorem, that every live weak-window use factors only through the repaired curvature-sector package and that no historical placeholder branch re-enters the Route~1 chain.}
+
+\begin{remark}[Frozen Route~1 transport ledger]
+For theorem-facing use, the fixed-lattice-to-continuum gap route is frozen as follows:
+\tightdisplay{Corollary N.21 $\Rightarrow$ Proposition F.3 $\Rightarrow$ Proposition F.4 $\Rightarrow$ Theorem~\ref{thm:wilson-return} $\Rightarrow$ Theorem F.211 $\Rightarrow$ Theorem F.212 $\Rightarrow$ Theorem F.216 $\Rightarrow$ Corollary F.5.}
+In the completed core-paper renumbering this becomes the public Route~1 chain from the group-scope export and one-shot entrance theorem through the tuned fixed-lattice gap, the same-scale Wilson return, the QE3 transport theorem, and the final continuum-gap corollary. The only live weak-window input on that chain is \cref{thm:weak-window-certificate}, and Lane~B remains downstream only.
+\end{remark}
+
+At this stage the proof has a fixed-lattice lower bound attached to the physical Wilson theory and protected by a sole live weak-window certificate. No continuum conclusion is claimed yet. The next section turns to the only constructive route that carries this input into the full sharp-local algebra: Lane~A.

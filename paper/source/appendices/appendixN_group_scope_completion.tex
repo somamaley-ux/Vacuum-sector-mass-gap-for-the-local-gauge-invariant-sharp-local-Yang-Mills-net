@@ -1,0 +1,978 @@
+\section{Compact-simple A1 theorem packet and public group scope}
+\label{app:A1_compact_simple}
+
+This appendix is Packet~1 in the public theorem docket of Section~\ref{sec:roadmap}.
+It supplies the only genuinely Lie-type-dependent input on the primary proof spine at the level of an arbitrary compact connected simple gauge group.
+The public Route~1/Lane~A/Lane~B chain therefore no longer depends on the classical-family appendices for its theorem-level scope: those appendices remain in the manuscript as explicit audited examples for the standard $\Sp/\Spin$ choices of Wilson representation, but the load-bearing A1 theorem used by the main theorem is the compact-simple statement proved here.
+
+\subsection{Packet~1 certification note and constant ledger}
+\label{subsec:A1_packet1_certification}
+
+\paragraph{Frozen packet chain.}
+For first-pass auditing, Packet~1 can be read in the following order.
+The low-Casimir branch is closed internally by the shifted-torus Laplace theorem
+\Cref{thm:A1_compact_group_semiclassical_multiplier_exact}, exported to the Wilson coefficients by
+\Cref{thm:A1_low_regime_background}, and traced into ledger form by
+\Cref{cor:A1_low_regime_ledger_constants}.
+The complementary high-Casimir branch is closed by the torus-strip Peter--Weyl theorem
+\Cref{thm:A1_high_regime_background}.
+These two regime theorems are combined only in the compact-simple crossover theorem
+\Cref{thm:A1_compact_simple_internal}, and the public Route~1 / Lane~A / Lane~B docket then uses Packet~1 only through
+\Cref{cor:A1_compact_simple_spine} together with the synchronized $(G,\rho)$-ledger entries recorded in Appendix~K.
+
+\paragraph{Exceptional-type closure.}
+No separate exceptional-family appendix is needed on the public spine.
+The exceptional-group case is closed exactly where the arbitrary compact connected simple hypotheses first appear, namely in the two regime theorems
+\Cref{thm:A1_compact_group_semiclassical_multiplier_exact,thm:A1_high_regime_background}, and hence in the assembled compact-simple theorem
+\Cref{thm:A1_compact_simple_internal}.
+
+\paragraph{Status of the classical-family appendices.}
+Appendices~\ref{app:A1_Sp}--\ref{app:A1_Spin_even} are retained as explicit audited examples and classical-family sample calculations only.
+After \Cref{cor:A1_compact_simple_spine} they are explanatory rather than load-bearing for the public compact-simple group scope.
+
+\paragraph{Packet~1 constant ledger.}
+The front-end constants used downstream separate naturally into the following groups.
+\begin{description}[leftmargin=2.2em,style=nextline]
+\item[$(G)$-only data:] $d_G$, $r_G$, $N_+$, $\delta_{\mathrm W}$, $P_{\mathrm W}(\delta_{\mathrm W})$, $\kappa_\pm(G)$. These enter the weight/Casimir comparison and the regime-to-crossover assembly in
+\Cref{thm:A1_compact_group_semiclassical_multiplier_exact,thm:A1_high_regime_background,thm:A1_compact_simple_internal}.
+\item[$(G,\rho)$ local geometry:] $r_0$, $m_\pm$, $j_\pm$, $a_0$, $c_Z^\pm$, $\beta_Z$, $c_{\mathrm{hyp}}$, $r_{\mathrm{hyp}}$, $\beta_{\mathrm{hyp}}$. These control faithful local geometry, weak-coupling partition bounds, and the local Gaussian input consumed first by \Cref{thm:A1_compact_group_semiclassical_multiplier_exact}.
+\item[$(G,\rho)$ low-Casimir branch:] $r_{\mathrm{ph}}$, $c_{\mathrm{ph}}$, $C_{\mathrm{ph}}$, $\sigma_{\mathrm{sc}}$, $\beta_{\mathrm{sc}}$, $c_{\mathrm{lo}}$, $\beta_{\mathrm{lo}}$. These feed \Cref{thm:A1_low_regime_background} and the traced constant node \Cref{cor:A1_low_regime_ledger_constants}.
+\item[$(G,\rho)$ high-Casimir branch:] $r_{\mathrm{strip}}$, $c_{\mathrm{strip}}$, $C_{\mathrm{PW}}$, $r_{\mathrm{hi}}$, $c_{\mathrm{hi}}$, $\beta_{\mathrm{hi}}$. These feed the strip-based decay theorem \Cref{thm:A1_high_regime_background}.
+\item[Public Packet~1 output:] $c_{\mathrm{A1}}$, $\beta_{\mathrm{A1}}$. These are the public compact-simple packet output in \Cref{cor:A1_compact_simple_spine} and the explicit Route~1 ultraviolet ledger first read by Proposition~\ref{prop:route1_QE1}.
+\end{description}
+
+
+\subsection{Faithful reduction and local Wilson geometry}
+
+Fix a compact connected simple Lie group $G$ and a finite-dimensional unitary representation $\rho:G\to U(d_\rho)$.
+Set $K_\rho:=\ker(\rho)$ and let $G_{\mathrm{eff}}:=G/K_\rho$ be the effective quotient.
+By \Cref{rem:effective_group_convention,def:effective_group,lem:center_blindness_descent}, the Wilson plaquette weight and its character coefficients factor through $G_{\mathrm{eff}}$.
+Accordingly it suffices to prove the A1 bound for the descended \emph{faithful} representation on $G_{\mathrm{eff}}$.
+In this appendix we therefore work directly in the faithful case and suppress the descent notation.
+
+Recall the Wilson one-plaquette action density
+\[
+A_\rho(g):=1-\frac{1}{d_\rho}\Re\Tr_\rho(g),
+\qquad
+W_{\beta,\alpha}(g):=e^{-\alpha\beta A_\rho(g)},
+\qquad
+\nu_{\beta,\alpha}=Z_{\beta,\alpha}^{-1}W_{\beta,\alpha}(g)\,dg.
+\]
+
+\begin{lemma}[Faithful Wilson actions have a unique nondegenerate minimum]\label{lem:A1_compact_simple_local_geom}
+Assume $\rho$ is faithful.
+Then $A_\rho(g)\ge 0$ for all $g\in G$, with equality if and only if $g=e$.
+Moreover there exist constants
+\[
+r_0>0,
+\qquad
+0<m_-\le m_+<\infty,
+\qquad
+0<j_-\le j_+<\infty,
+\qquad
+a_0>0,
+\]
+depending only on $(G,\rho)$, such that in exponential coordinates $g=e^X$ with $\|X\|\le r_0$ one has
+\begin{equation}\label{eq:A1_local_quad_sandwich}
+\frac{m_-}{2}\|X\|^2\le A_\rho(e^X)\le \frac{m_+}{2}\|X\|^2,
+\qquad
+j_-\le J(X)\le j_+,
+\end{equation}
+where $dg=J(X)\,dX$, and such that
+\begin{equation}\label{eq:A1_local_outside_gap}
+A_\rho(g)\ge a_0\qquad (g\notin e^{B_{r_0}(0)}).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Because $\rho(g)$ is unitary, $|\Tr_\rho(g)|\le d_\rho$, hence $A_\rho(g)\ge 0$.
+If $A_\rho(g)=0$, then $\Re\Tr_\rho(g)=d_\rho$; for a unitary matrix this forces every eigenvalue to be $1$, hence $\rho(g)=I$.
+Faithfulness therefore gives $g=e$.
+Expanding $\rho(e^X)=I+d\rho(X)+\tfrac12 d\rho(X)^2+O(\|X\|^3)$ and using that $d\rho(X)$ is skew-Hermitian, one obtains
+\[
+A_\rho(e^X)=\frac{1}{2d_\rho}\Tr\!\bigl((-d\rho(X)^2)\bigr)+O(\|X\|^3).
+\]
+The quadratic form $X\mapsto -\Tr(d\rho(X)^2)$ is positive definite because $\rho$ is faithful, and it is $\Ad$-invariant because $\rho$ is a representation.
+Since $G$ is simple, every positive $\Ad$-invariant quadratic form is a positive scalar multiple of the fixed metric from \Cref{def:metric_casimir}.
+This yields the quadratic sandwich in sufficiently small exponential coordinates.
+The Jacobian bounds are standard on a compact manifold, and the positive lower bound away from the identity follows from continuity and the uniqueness of the minimum.
+\end{proof}
+
+\begin{lemma}[Wilson partition function in the weak-coupling window]\label{lem:A1_compact_simple_partition}
+Under the hypotheses of \Cref{lem:A1_compact_simple_local_geom}, there exist constants
+$c_Z^\pm(G,\rho)>0$ and $\beta_Z(G,\rho)\ge 1$ such that for all $\beta\ge\beta_Z(G,\rho)$ and all $\alpha\in[1/2,1]$,
+\begin{equation}\label{eq:A1_partition_beta_d2}
+c_Z^-(G,\rho)\,\beta^{-\dim G/2}
+\ \le\ Z_{\beta,\alpha}\ \le\ c_Z^+(G,\rho)\,\beta^{-\dim G/2}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The upper bound is immediate from \Cref{eq:A1_local_quad_sandwich,eq:A1_local_outside_gap} exactly as in \Cref{lem:h52_z2a_explicit_bound}.
+For the lower bound, integrate only over the ball $\|X\|\le r_0/\sqrt{\beta}$ and use the upper quadratic bound in \Cref{eq:A1_local_quad_sandwich} together with $J(X)\ge j_-$.
+Both estimates are uniform in $\alpha\in[1/2,1]$ because the factor $\alpha$ is bounded above and below away from $0$.
+\end{proof}
+
+
+
+\subsection{Audited low-Casimir input}
+
+Write
+\[
+f_{\beta,\alpha}(g):=Z_{\beta,\alpha}^{-1}W_{\beta,\alpha}(g),
+\qquad d_G:=\dim G.
+\]
+Fix once and for all a maximal torus $T\subset G$ with Lie algebra $\mathfrak t$, a choice of positive roots, the corresponding half-sum $\delta_{\mathrm W}$, and the Weyl denominator
+\[
+\Delta(\theta):=\prod_{\alpha>0}\bigl(e^{i\alpha(\theta)/2}-e^{-i\alpha(\theta)/2}\bigr),
+\qquad \theta\in \mathfrak t/(2\pi\Gamma).
+\]
+Set
+\[
+r_G:=\dim T,
+\qquad
+N_+:=|\Phi^+|=\frac{d_G-r_G}{2}.
+\]
+For every irreducible $\pi$ with highest weight $\lambda_\pi$, Weyl's character formula reads
+\begin{equation}\label{eq:A1_weyl_character_formula}
+\chi_\pi(\theta)\,\Delta(\theta)
+=
+\sum_{w\in W}\det(w)\,e^{i\langle w(\lambda_\pi+\delta_{\mathrm W}),\theta\rangle}.
+\end{equation}
+
+\begin{lemma}[Coefficient extraction for normalized Wilson coefficients]\label{lem:A1_weyl_denominator_coeff_extract}
+Let $F$ be a central real-analytic class function on $G$ with Peter--Weyl expansion
+\[
+F=\sum_{\pi} d_\pi c_\pi\,\chi_\pi,
+\qquad d_\pi:=\dim\pi,
+\]
+converging in the real-analytic topology.
+Then on the maximal torus,
+\begin{equation}\label{eq:A1_denominator_coeff_extract}
+F(\theta)\,\Delta(\theta)
+=
+\sum_{\pi} d_\pi c_\pi
+\sum_{w\in W}\det(w)e^{i\langle w(\lambda_\pi+\delta_{\mathrm W}),\theta\rangle}.
+\end{equation}
+In particular, the Fourier coefficient of $F\Delta$ at the dominant weight $\lambda_\pi+\delta_{\mathrm W}$ is exactly $d_\pi c_\pi$.
+Applied to $F=f_{\beta,\alpha}$ and $c_\pi=a_\pi(\beta,\alpha)$, this coefficient is $d_\pi a_\pi(\beta,\alpha)$.
+\end{lemma}
+
+\begin{proof}
+Multiply the Peter--Weyl expansion of $F$ by the Weyl denominator and use \Cref{eq:A1_weyl_character_formula} term by term.
+Because $\lambda_\pi+\delta_{\mathrm W}$ is strictly dominant, no other Weyl orbit contains it, so its Fourier coefficient occurs only in the $\pi$-summand and with coefficient $d_\pi c_\pi$.
+\end{proof}
+
+\begin{lemma}[Highest-weight/Casimir comparison]\label{lem:A1_weight_casimir_compare}
+Fix the norm $|\cdot|$ on dominant weights induced by the invariant metric from \Cref{def:metric_casimir}.
+Then there exist constants $0<\kappa_-\le \kappa_+<\infty$, depending only on $G$, such that for every nontrivial irreducible representation $\pi$ with highest weight $\lambda_\pi$,
+\begin{equation}\label{eq:A1_weight_casimir_compare}
+\kappa_-\,|\lambda_\pi|^2\ \le\ C_2(\pi)\ \le\ \kappa_+\,|\lambda_\pi|^2.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For the chosen invariant inner product, the quadratic Casimir eigenvalue is
+\[
+C_2(\pi)=\langle \lambda_\pi,\lambda_\pi+2\delta_{\mathrm W}\rangle,
+\]
+where $\delta_{\mathrm W}$ is the half-sum of positive roots.
+Because $\lambda_\pi$ and $\delta_{\mathrm W}$ lie in the closed dominant chamber, the cross term is nonnegative, so
+$C_2(\pi)\ge |\lambda_\pi|^2$; this gives the lower bound with $\kappa_-=1$.
+For the upper bound,
+\[
+C_2(\pi)\le |\lambda_\pi|^2+2|\delta_{\mathrm W}|\,|\lambda_\pi|.
+\]
+The dominant integral weights form a lattice, so
+\[
+\ell_0:=\min\{|\lambda|:\lambda\in\Lambda_+\setminus\{0\}\}>0.
+\]
+Hence $|\lambda_\pi|\ge \ell_0$ for every nontrivial $\pi$, and therefore
+$2|\delta_{\mathrm W}|\,|\lambda_\pi|\le 2|\delta_{\mathrm W}|\ell_0^{-1}|\lambda_\pi|^2$.
+This yields the upper bound with $\kappa_+:=1+2|\delta_{\mathrm W}|\ell_0^{-1}$.
+\end{proof}
+
+\begin{lemma}[Audited semiclassical hypotheses for the normalized Wilson family]\label{lem:A1_low_regime_hypotheses}
+There exist constants $c_{\mathrm{hyp}}(G,\rho)>0$, $r_{\mathrm{hyp}}(G,\rho)\in(0,r_0]$, and $\beta_{\mathrm{hyp}}(G,\rho)\ge 1$ with the following property.
+For every $\beta\ge \beta_{\mathrm{hyp}}(G,\rho)$ and every $\alpha\in[1/2,1]$:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $f_{\beta,\alpha}$ is a central real-analytic probability density on $G$;
+\item in exponential coordinates $g=e^X$ with $\|X\|\le r_{\mathrm{hyp}}$,
+\begin{equation}\label{eq:A1_low_local_gaussian_bound}
+f_{\beta,\alpha}(e^X)
+\le
+C_0(G,\rho)\,\beta^{d_G/2}
+\exp\!\bigl(-c_{\mathrm{hyp}}(G,\rho)\,\beta\|X\|^2\bigr);
+\end{equation}
+\item for every multi-index $\gamma$ there is a constant $C_\gamma(G,\rho)<\infty$ such that the rescaled profile
+\[
+F_{\beta,\alpha}(Y):=\beta^{-d_G/2}f_{\beta,\alpha}(e^{Y/\sqrt{\beta}})
+\]
+satisfies
+\begin{equation}\label{eq:A1_low_rescaled_derivative_bound}
+|\partial_Y^\gamma F_{\beta,\alpha}(Y)|
+\le
+C_\gamma(G,\rho)
+\exp\!\bigl(-c_{\mathrm{hyp}}(G,\rho)\,\|Y\|^2\bigr)
+\end{equation}
+whenever $\|Y\|\le \frac12 r_{\mathrm{hyp}}\sqrt{\beta}$;
+\item the tail outside the local chart is exponentially small:
+\begin{equation}\label{eq:A1_low_tail_bound}
+\int_{G\setminus e^{B_{r_{\mathrm{hyp}}}(0)}} f_{\beta,\alpha}(g)\,dg
+\le
+C_0(G,\rho)e^{-c_{\mathrm{hyp}}(G,\rho)\beta}.
+\end{equation}
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Centrality and real analyticity are immediate because $A_\rho$ is a central real-analytic class function and $f_{\beta,\alpha}$ is obtained from it by normalization.
+The probability-mass statement is the definition of $\nu_{\beta,\alpha}$.
+
+Choose $r_{\mathrm{hyp}}\le r_0$ so that the quadratic bounds of \Cref{lem:A1_compact_simple_local_geom} hold throughout $B_{r_{\mathrm{hyp}}}(0)$.
+Then for $\alpha\in[1/2,1]$ and $\|X\|\le r_{\mathrm{hyp}}$,
+\[
+\alpha\beta A_\rho(e^X)
+\ge
+\frac{\beta}{2}\cdot \frac{m_-}{2}\|X\|^2
+=
+\frac{m_-}{4}\beta\|X\|^2.
+\]
+Combining this with the lower bound $Z_{\beta,\alpha}\ge c_Z^-\beta^{-d_G/2}$ from \Cref{lem:A1_compact_simple_partition} gives \eqref{eq:A1_low_local_gaussian_bound} with
+$c_{\mathrm{hyp}}:=m_-/4$ and $C_0:=(c_Z^-)^{-1}$.
+
+For the rescaled profile,
+\[
+F_{\beta,\alpha}(Y)
+=
+\beta^{-d_G/2}Z_{\beta,\alpha}^{-1}
+\exp\!\Bigl(-\alpha\beta A_\rho\bigl(e^{Y/\sqrt{\beta}}\bigr)\Bigr).
+\]
+The prefactor $\beta^{-d_G/2}Z_{\beta,\alpha}^{-1}$ is uniformly bounded by \Cref{lem:A1_compact_simple_partition}.
+Because $A_\rho(e^X)$ is real-analytic in $X$ on $B_{r_{\mathrm{hyp}}}(0)$, every derivative of
+$\beta A_\rho(e^{Y/\sqrt{\beta}})$ is bounded on $\|Y\|\le \frac12 r_{\mathrm{hyp}}\sqrt{\beta}$ by a polynomial in $1+\|Y\|$ whose coefficients depend only on $(G,\rho)$ and the derivative order.
+Applying Fa\`a di Bruno's formula to the exponential therefore gives
+\[
+|\partial_Y^\gamma F_{\beta,\alpha}(Y)|
+\le
+P_\gamma(1+\|Y\|)
+\exp\!\Bigl(-\frac{m_-}{8}\|Y\|^2\Bigr)
+\]
+for a polynomial $P_\gamma$ depending only on $(G,\rho,\gamma)$.
+Absorbing the polynomial into the Gaussian yields \eqref{eq:A1_low_rescaled_derivative_bound} after slightly decreasing $c_{\mathrm{hyp}}$.
+
+Finally, on $G\setminus e^{B_{r_{\mathrm{hyp}}}(0)}$ one has $A_\rho\ge a_0$ by \Cref{eq:A1_local_outside_gap}, hence
+\[
+f_{\beta,\alpha}(g)
+\le
+(c_Z^-)^{-1}\beta^{d_G/2}e^{-\alpha\beta a_0}
+\le
+(c_Z^-)^{-1}\beta^{d_G/2}e^{-a_0\beta/2}.
+\]
+Integrating over the compact group and absorbing the polynomial factor in $\beta$ into the exponential by enlarging the weak-coupling threshold yields \eqref{eq:A1_low_tail_bound}.
+\end{proof}
+
+\begin{lemma}[Weyl dimension formula and local denominator factorization]\label{lem:A1_weyl_dimension_denominator}
+Let
+\[
+P_{\mathrm W}(\xi):=\prod_{\alpha>0}\langle \xi,\alpha^\vee\rangle,
+\]
+where roots and coroots are identified using the invariant metric from \Cref{def:metric_casimir}.
+Then for every irreducible representation $\pi$,
+\begin{equation}\label{eq:A1_weyl_dimension_formula}
+d_\pi=\frac{P_{\mathrm W}(\lambda_\pi+\delta_{\mathrm W})}{P_{\mathrm W}(\delta_{\mathrm W})}.
+\end{equation}
+Consequently there exist constants $0<d_{\dim}^-\le d_{\dim}^+<\infty$, depending only on $G$, such that
+\begin{equation}\label{eq:A1_dimension_growth_bounds}
+d_{\dim}^-\,(1+|\lambda_\pi|)^{N_+}
+\le d_\pi\le
+d_{\dim}^+\,(1+|\lambda_\pi|)^{N_+}.
+\end{equation}
+Moreover there exist $r_\Delta(G)\in(0,\pi]$ and a Weyl-invariant holomorphic function $B_\Delta$ on $|\zeta|<r_\Delta(G)$ such that
+\begin{equation}\label{eq:A1_local_delta_factorization}
+\Delta(hY)
+=
+h^{N_+}P_{\mathrm W}(Y)B_\Delta(hY)
+\end{equation}
+for every $0<h\le 1$ and every $Y\in \mathfrak t_\mathbb C$ with $|hY|<r_\Delta(G)$.
+Furthermore there are constants $0<c_\Delta^-\le c_\Delta^+<\infty$ such that
+\begin{equation}\label{eq:A1_local_delta_factorization_bounds}
+c_\Delta^-\le |B_\Delta(hY)|\le c_\Delta^+
+\qquad (|hY|\le r_\Delta(G)/2).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Formula \eqref{eq:A1_weyl_dimension_formula} is Weyl's dimension formula.
+The polynomial growth bounds \eqref{eq:A1_dimension_growth_bounds} are immediate because $P_{\mathrm W}$ is a homogeneous polynomial of degree $N_+$ and $\delta_{\mathrm W}$ is fixed.
+For the denominator, each factor satisfies
+\[
+e^{i\alpha(hY)/2}-e^{-i\alpha(hY)/2}
+=
+ih\,\alpha(Y)\,\Bigl(\frac{\sin(\alpha(hY)/2)}{\alpha(hY)/2}\Bigr),
+\]
+and the product of the analytic sine-quotients is a Weyl-invariant holomorphic function.
+After the metric identification between roots and coroots, all fixed normalization factors are absorbed into $B_\Delta$.
+Because $B_\Delta(0)\neq 0$, shrinking the radius if necessary yields \eqref{eq:A1_local_delta_factorization_bounds}.
+\end{proof}
+
+\begin{lemma}[Weyl anti-invariant divisibility]\label{lem:A1_weyl_antiinvariant_divisibility}
+Let $\Psi$ be a holomorphic Weyl anti-invariant function on a tube neighborhood of the origin in $\mathfrak t_\mathbb C$.
+Then there exists a unique Weyl-invariant holomorphic function $H$ on the same neighborhood such that
+\begin{equation}\label{eq:A1_antiinvariant_divisibility}
+\Psi(\xi)=P_{\mathrm W}(\xi)\,H(\xi).
+\end{equation}
+If, on a smaller tube, $\Psi$ satisfies a Gaussian bound
+\[
+|\Psi(\xi)|\le C(1+|\xi|)^m e^{-\sigma|\xi|^2},
+\]
+then $H$ satisfies a bound of the same form with possibly different constants depending only on $(G,m,\sigma)$.
+\end{lemma}
+
+\begin{proof}
+For every simple reflection $s_\alpha\in W$, anti-invariance gives
+$\Psi(s_\alpha\xi)=-\Psi(\xi)$, so $\Psi$ vanishes on the reflection hyperplane $\langle \xi,\alpha^\vee\rangle=0$.
+Because these zeros are simple and the defining linear forms are pairwise coprime, their product $P_{\mathrm W}(\xi)$ divides $\Psi$ holomorphically.
+The quotient is automatically Weyl-invariant.
+The Gaussian bound for $H$ follows by dividing on a smaller tube and using the lower bound for $P_{\mathrm W}(\xi)$ away from the reflection hyperplanes together with removability across the hyperplanes.
+\end{proof}
+
+\begin{lemma}[Complexified local phase control]\label{lem:A1_low_regime_complex_phase}
+There exist constants
+\[
+r_{\mathrm{ph}}(G,\rho)\in\Bigl(0,\min\{r_{\mathrm{hyp}}(G,\rho),r_\Delta(G),r_{\mathrm{strip}}(G,\rho)\}\Bigr],
+\qquad
+c_{\mathrm{ph}}(G,\rho)>0,
+\qquad
+C_{\mathrm{ph}}(G,\rho)<\infty,
+\]
+with the following property.
+For every $\alpha\in[1/2,1]$, every $0<h\le 1$, and every $Y,\eta\in\mathfrak t$ satisfying
+$|Y|,|\eta|\le r_{\mathrm{ph}}(G,\rho)h^{-1}$, the local phase
+\begin{equation}\label{eq:A1_local_complex_phase_def}
+Q_{h,\alpha}(Y+i\eta)
+:=
+\alpha h^{-2}\widetilde A_\rho\bigl(h(Y+i\eta)\bigr)
+\end{equation}
+is holomorphic and obeys
+\begin{equation}\label{eq:A1_local_complex_phase_bound}
+\Re Q_{h,\alpha}(Y+i\eta)
+\ge
+c_{\mathrm{ph}}(G,\rho)|Y|^2-C_{\mathrm{ph}}(G,\rho)|\eta|^2.
+\end{equation}
+Moreover the local amplitude
+\begin{equation}\label{eq:A1_local_amplitude_def}
+E_{h,\alpha}(Z)
+:=
+h^{d_G}Z_{h^{-2},\alpha}^{-1}B_\Delta(hZ)
+\end{equation}
+is holomorphic on the same tube and satisfies the uniform bound
+\begin{equation}\label{eq:A1_local_amplitude_bound}
+|E_{h,\alpha}(Y+i\eta)|\le C_{\mathrm{ph}}(G,\rho).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The torus extension $\widetilde A_\rho$ is holomorphic by \Cref{eq:A1_holomorphic_action_extension} below.
+Near the origin,
+\[
+\widetilde A_\rho(Z)=\frac12\langle H_\rho Z,Z\rangle+O(|Z|^3),
+\]
+with $H_\rho$ positive definite on $\mathfrak t$ by \Cref{lem:A1_compact_simple_local_geom}.
+Shrinking the radius and using $\alpha\in[1/2,1]$ gives
+\[
+\Re\widetilde A_\rho\bigl(h(Y+i\eta)\bigr)
+\ge
+\frac{c_{\mathrm{ph}}}{2}h^2|Y|^2-C_{\mathrm{ph}}h^2|\eta|^2,
+\]
+which is exactly \eqref{eq:A1_local_complex_phase_bound} after dividing by $h^2$.
+The bound \eqref{eq:A1_local_amplitude_bound} follows from \Cref{lem:A1_compact_simple_partition,eq:A1_local_delta_factorization_bounds} because
+$h^{d_G}Z_{h^{-2},\alpha}^{-1}=\beta^{-d_G/2}Z_{\beta,\alpha}^{-1}$ stays uniformly bounded and $B_\Delta$ is bounded on the chosen tube.
+\end{proof}
+
+\begin{theorem}[Internal low-Casimir kernel-to-multiplier theorem]\label{thm:A1_compact_group_semiclassical_multiplier_exact}
+Set
+\[
+L_0:=2\kappa_-^{-1/2}.
+\]
+There exist constants $\sigma_{\mathrm{sc}}(G,\rho)>0$ and $\beta_{\mathrm{sc}}(G,\rho)\ge 1$ such that for every $\beta\ge \beta_{\mathrm{sc}}(G,\rho)$, every $\alpha\in[1/2,1]$, and every nontrivial irreducible representation $\pi$ with
+\begin{equation}\label{eq:A1_sc_multiplier_window}
+|\lambda_\pi|\le L_0\beta,
+\end{equation}
+one has
+\begin{equation}\label{eq:A1_sc_multiplier_exact}
+|a_\pi(\beta,\alpha)|
+\le
+\exp\!\bigl(-\sigma_{\mathrm{sc}}(G,\rho)\,|\lambda_\pi|^2/\beta\bigr).
+\end{equation}
+Thus the parabolic low-Casimir window is closed internally, with no remaining imported compact-group harmonic-analysis theorem on Packet~1.
+\end{theorem}
+
+\begin{lemma}[Trivial-mode normalization for the local Weyl quotient]\label{lem:A1_low_multiplier_normalization}
+Fix
+\[
+L_0:=2\kappa_-^{-1/2}.
+\]
+Let $h\in(0,1]$, let $\alpha\in[1/2,1]$, and let $\widehat\Psi_{h,\alpha}$ be holomorphic on $|\xi|\le 2L_0h^{-1}$.
+Assume that
+\[
+|\widehat\Psi_{h,\alpha}(\xi)|
+\le
+C\exp\!\bigl(-2\sigma|\xi|^2\bigr)
+\qquad (|\xi|\le 2L_0h^{-1})
+\]
+for some $\sigma>0$, and that there is a Weyl-invariant holomorphic function $M_{h,\alpha}$ on the same ball with
+\[
+P_{\mathrm W}(i\partial_\xi)\widehat\Psi_{h,\alpha}(\xi)
+=
+P_{\mathrm W}(\xi)\,M_{h,\alpha}(\xi).
+\]
+Assume moreover that the localized coefficient extraction step has produced
+\begin{equation}\label{eq:A1_low_local_coefficient_formula}
+a_\pi(\beta,\alpha)
+=
+P_{\mathrm W}(\delta_{\mathrm W})\,M_{h,\alpha}(h\nu_\pi)+\mathcal E_{\pi,h,\alpha},
+\qquad
+|\mathcal E_{\pi,h,\alpha}|\le e^{-c\beta}/d_\pi,
+\end{equation}
+for every representation in the parabolic window, with $c>0$ independent of $(h,\alpha,\pi)$.
+Then, for all sufficiently large $\beta$, the trivial representation fixes the normalization explicitly:
+\begin{equation}\label{eq:A1_low_multiplier_trivial_mode}
+P_{\mathrm W}(\delta_{\mathrm W})\,M_{h,\alpha}(h\delta_{\mathrm W})
+=
+1+O(e^{-c\beta}).
+\end{equation}
+Consequently the normalized quotient
+\[
+M_{h,\alpha}^{\mathrm{norm}}(\xi)
+:=
+\frac{M_{h,\alpha}(\xi)}{P_{\mathrm W}(\delta_{\mathrm W})\,M_{h,\alpha}(h\delta_{\mathrm W})}
+\]
+is well defined, satisfies
+\[
+P_{\mathrm W}(\delta_{\mathrm W})\,M_{h,\alpha}^{\mathrm{norm}}(h\delta_{\mathrm W})=1,
+\]
+and, after shrinking $\sigma$ if necessary,
+\begin{equation}\label{eq:A1_low_multiplier_bound}
+|P_{\mathrm W}(\delta_{\mathrm W})\,M_{h,\alpha}^{\mathrm{norm}}(\xi)|
+\le
+\exp\!\bigl(-\sigma(|\xi|^2-|h\delta_{\mathrm W}|^2)\bigr)
+\qquad (|\xi|\le 2L_0h^{-1}).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For the trivial representation $\mathbf 1$ one has $\lambda_{\mathbf 1}=0$, $\nu_{\mathbf 1}=\delta_{\mathrm W}$, $d_{\mathbf 1}=1$, and
+$a_{\mathbf 1}(\beta,\alpha)=1$ because $f_{\beta,\alpha}$ is a probability density.
+Evaluating \eqref{eq:A1_low_local_coefficient_formula} at $\mathbf 1$ yields \eqref{eq:A1_low_multiplier_trivial_mode}, so the denominator in the definition of $M_{h,\alpha}^{\mathrm{norm}}$ is nonzero once $\beta$ is large.
+To estimate the quotient, run the same shifted-box contour argument used for the Gaussian transform bound, but anchor it at the trivial mode $h\delta_{\mathrm W}$.
+The shift $Y\mapsto Y+i\tau(\xi-h\delta_{\mathrm W})$ contributes the phase gain
+$-\tau(|\xi|^2-|h\delta_{\mathrm W}|^2)$, while the derivatives entering $P_{\mathrm W}(i\partial_\xi)$ only insert the fixed polynomial $P_{\mathrm W}(Y)$ in the Fourier integral.
+Since the factorization has already removed the linear Weyl-wall vanishing, \Cref{lem:A1_weyl_antiinvariant_divisibility} promotes the same anchored Gaussian estimate to the invariant quotient, after shrinking $\sigma$ if necessary.
+Finally divide by the trivial-mode value from \eqref{eq:A1_low_multiplier_trivial_mode}; the normalization makes the anchor value exactly $1$ and yields \eqref{eq:A1_low_multiplier_bound}.
+\end{proof}
+
+\begin{proof}
+Set $h:=\beta^{-1/2}$ and, for the chosen $\pi$, write
+\[
+\nu_\pi:=\lambda_\pi+\delta_{\mathrm W}.
+\]
+By \Cref{lem:A1_weyl_denominator_coeff_extract}, the Fourier coefficient of $f_{\beta,\alpha}\Delta$ at $\nu_\pi$ is exactly $d_\pi a_\pi(\beta,\alpha)$.
+Choose
+\[
+r_*:=\frac12 r_{\mathrm{ph}}(G,\rho).
+\]
+The contribution of $T\setminus B_{r_*}(0)$ to that Fourier coefficient is $O(e^{-c\beta})$, uniformly in $\alpha$, by \Cref{eq:A1_low_tail_bound} and the boundedness of $\Delta$ on the compact torus.
+On the local ball $|\theta|\le r_*$, write $\theta=hY$.
+Using \Cref{eq:A1_local_delta_factorization}, the identity $d_G=r_G+2N_+$, and the flat torus measure in exponential coordinates, the local coefficient becomes
+\begin{equation}\label{eq:A1_low_local_fourier_repr}
+d_\pi a_\pi(\beta,\alpha)
+=
+h^{-N_+}\Bigl[P_{\mathrm W}(i\partial_\xi)\widehat\Psi_{h,\alpha}(\xi)\Bigr]_{\xi=h\nu_\pi}
++O(e^{-c\beta}),
+\end{equation}
+where
+\[
+\Psi_{h,\alpha}(Y):=E_{h,\alpha}(Y)e^{-Q_{h,\alpha}(Y)}
+\]
+is Weyl-invariant and holomorphic on $|Y|<r_{\mathrm{ph}}h^{-1}$.
+Its Fourier transform on the local box,
+\[
+\widehat\Psi_{h,\alpha}(\xi)
+:=
+\int_{|Y|\le r_*h^{-1}}\Psi_{h,\alpha}(Y)e^{-i\langle \xi,Y\rangle}\,dY,
+\]
+extends holomorphically to $|\xi|\le 2L_0h^{-1}$.
+Indeed, if $|\xi|\le 2L_0h^{-1}$ and
+\[
+\eta:=\tau\xi,
+\qquad
+\tau:=\min\Bigl\{\frac{r_{\mathrm{ph}}(G,\rho)}{8L_0},\ \frac{1}{4C_{\mathrm{ph}}(G,\rho)}\Bigr\},
+\]
+then $|\eta|\le r_*h^{-1}$ and the contour shift $Y\mapsto Y+i\eta$ is admissible.
+Using \Cref{eq:A1_local_complex_phase_bound,eq:A1_local_amplitude_bound}, the side faces contribute only $O(e^{-c\beta})$, while on the shifted box one gets
+\[
+|\widehat\Psi_{h,\alpha}(\xi)|
+\le
+C\exp\!\bigl(-(\tau-C_{\mathrm{ph}}\tau^2)|\xi|^2\bigr).
+\]
+After shrinking the coefficient, we may therefore record the Gaussian transform bound
+\[
+|\widehat\Psi_{h,\alpha}(\xi)|
+\le
+C\exp\!\bigl(-2\sigma_{\mathrm{sc}}(G,\rho)|\xi|^2\bigr)
+\qquad (|\xi|\le 2L_0h^{-1}).
+\]
+Because $\Psi_{h,\alpha}$ is Weyl-invariant, $P_{\mathrm W}(i\partial_\xi)\widehat\Psi_{h,\alpha}(\xi)$ is Weyl anti-invariant.
+By \Cref{lem:A1_weyl_antiinvariant_divisibility}, there exists a Weyl-invariant holomorphic function $M_{h,\alpha}$ on $|\xi|\le 2L_0h^{-1}$ such that
+\begin{equation}\label{eq:A1_low_multiplier_factorization}
+P_{\mathrm W}(i\partial_\xi)\widehat\Psi_{h,\alpha}(\xi)
+=
+P_{\mathrm W}(\xi)\,M_{h,\alpha}(\xi).
+\end{equation}
+Evaluating \eqref{eq:A1_low_local_fourier_repr} at $\xi=h\nu_\pi$ and using
+$h^{-N_+}P_{\mathrm W}(h\nu_\pi)=P_{\mathrm W}(\nu_\pi)$ together with Weyl's dimension formula \eqref{eq:A1_weyl_dimension_formula}, we obtain \eqref{eq:A1_low_local_coefficient_formula}.
+Apply \Cref{lem:A1_low_multiplier_normalization} to the quotient above.
+After replacing $M_{h,\alpha}$ by the trivially normalized quotient furnished there
+(and absorbing the resulting scalar $1+O(e^{-c\beta})$ back into the tail term of \eqref{eq:A1_low_local_coefficient_formula}), we may assume
+$P_{\mathrm W}(\delta_{\mathrm W})M_{h,\alpha}(h\delta_{\mathrm W})=1$ and \Cref{eq:A1_low_multiplier_bound}.
+Then \Cref{eq:A1_low_multiplier_bound} gives
+\[
+|a_\pi(\beta,\alpha)|
+\le
+\exp\!\bigl(-\sigma_{\mathrm{sc}}(G,\rho)h^2(|\nu_\pi|^2-|\delta_{\mathrm W}|^2)\bigr)
++O(e^{-c\beta}).
+\]
+Since
+\[
+|\nu_\pi|^2-|\delta_{\mathrm W}|^2
+=
+|\lambda_\pi|^2+2\langle \lambda_\pi,\delta_{\mathrm W}\rangle
+\ge |\lambda_\pi|^2,
+\]
+and the window \eqref{eq:A1_sc_multiplier_window} implies $|\nu_\pi|\le 2L_0h^{-2}$, the tail term is smaller than
+$\exp(-2\sigma_{\mathrm{sc}}L_0^2\beta)$ after shrinking $\sigma_{\mathrm{sc}}$ once more.
+Enlarging $\beta_{\mathrm{sc}}(G,\rho)$ if necessary therefore absorbs the tail and yields \eqref{eq:A1_sc_multiplier_exact}.
+\end{proof}
+
+\begin{corollary}[Wilson-family entry and traced low-Casimir data]\label{cor:A1_low_regime_exact_theorem_entry}
+The constants $\sigma_{\mathrm{sc}}(G,\rho)$ and $\beta_{\mathrm{sc}}(G,\rho)$ of
+\Cref{thm:A1_compact_group_semiclassical_multiplier_exact} depend only on the audited Wilson-family data
+\[
+\kappa_\pm(G),\ c_Z^\pm(G,\rho),\ c_{\mathrm{hyp}}(G,\rho),\ r_{\mathrm{hyp}}(G,\rho),
+\ r_{\mathrm{ph}}(G,\rho),\ c_{\mathrm{ph}}(G,\rho),\ C_{\mathrm{ph}}(G,\rho),
+\ P_{\mathrm W}(\delta_{\mathrm W}),
+\]
+all of which are internal to Appendix~\ref{app:A1_compact_simple}.
+\end{corollary}
+
+\begin{proof}
+Every constant entering the proof of \Cref{thm:A1_compact_group_semiclassical_multiplier_exact} was defined in
+\Cref{lem:A1_compact_simple_local_geom,lem:A1_compact_simple_partition,lem:A1_low_regime_hypotheses,lem:A1_weyl_dimension_denominator,lem:A1_low_regime_complex_phase,lem:A1_low_multiplier_normalization}.
+No external compact-group multiplier theorem is invoked anywhere in that proof.
+\end{proof}
+
+\begin{remark}[Status of the low-Casimir node on the final public spine]\label{rem:A1_low_regime_status_after_gateA}
+The low-Casimir branch is now fully internal.
+Its load-bearing chain is:
+faithful Wilson local geometry,
+weak-coupling partition control,
+Weyl coefficient extraction,
+local denominator factorization plus Weyl divisibility,
+complexified local phase control,
+explicit trivial-mode multiplier normalization,
+and the internal kernel-to-multiplier theorem
+\Cref{thm:A1_compact_group_semiclassical_multiplier_exact}.
+The compact-simple A1 packet therefore no longer contains any imported harmonic-analysis theorem.
+\end{remark}
+
+\begin{theorem}[Audited low-Casimir Wilson coefficient estimate]\label{thm:A1_low_regime_background}
+Let $G$ be compact connected simple and let $\rho$ be faithful.
+Then there exist constants $c_{\mathrm{lo}}(G,\rho)>0$ and $\beta_{\mathrm{lo}}(G,\rho)\ge 1$ such that for all $\beta\ge \beta_{\mathrm{lo}}(G,\rho)$, all $\alpha\in[1/2,1]$, and all irreducibles $\pi$ satisfying $C_2(\pi)\le \beta^2$,
+\begin{equation}\label{eq:A1_low_regime_clean}
+|a_\pi(\beta,\alpha)|
+\le
+\exp\!\Big(-c_{\mathrm{lo}}(G,\rho)\,\frac{C_2(\pi)}{\beta}\Big).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Set
+\[
+c_{\mathrm{lo}}(G,\rho):=\frac{\sigma_{\mathrm{sc}}(G,\rho)}{\kappa_+(G)},
+\qquad
+\beta_{\mathrm{lo}}(G,\rho):=\max\{\beta_{\mathrm{hyp}}(G,\rho),\beta_{\mathrm{sc}}(G,\rho)\}.
+\]
+If $C_2(\pi)\le \beta^2$, then \Cref{lem:A1_weight_casimir_compare} yields
+$|\lambda_\pi|\le \kappa_-^{-1/2}\beta < 2\kappa_-^{-1/2}\beta$.
+Therefore \Cref{thm:A1_compact_group_semiclassical_multiplier_exact} implies
+\[
+|a_\pi(\beta,\alpha)|
+\le
+\exp\!\Bigl(-\sigma_{\mathrm{sc}}(G,\rho)\,\frac{|\lambda_\pi|^2}{\beta}\Bigr).
+\]
+Using again \Cref{lem:A1_weight_casimir_compare}, namely $C_2(\pi)\le \kappa_+(G)|\lambda_\pi|^2$, gives exactly \eqref{eq:A1_low_regime_clean}.
+\end{proof}
+
+\begin{corollary}[Ledger-ready low-Casimir constant chain]\label{cor:A1_low_regime_ledger_constants}
+The low-Casimir constants recorded in Appendix~\ref{app:parameter_schedule} are explicitly
+\[
+c_{\mathrm{lo}}(G,\rho)=\frac{\sigma_{\mathrm{sc}}(G,\rho)}{\kappa_+(G)},
+\qquad
+\beta_{\mathrm{lo}}(G,\rho)=\max\{\beta_{\mathrm{hyp}}(G,\rho),\beta_{\mathrm{sc}}(G,\rho)\},
+\]
+where $\sigma_{\mathrm{sc}}(G,\rho)$ and $\beta_{\mathrm{sc}}(G,\rho)$ are the fully internal constants returned by
+\Cref{thm:A1_compact_group_semiclassical_multiplier_exact}.
+\end{corollary}
+
+\begin{proof}
+This is exactly how $c_{\mathrm{lo}}(G,\rho)$ and $\beta_{\mathrm{lo}}(G,\rho)$ were defined in the proof of \Cref{thm:A1_low_regime_background}.
+\end{proof}
+
+\subsection{Audited torus-strip package and high-Casimir decay}
+
+\begin{lemma}[Holomorphic torus extension of the Wilson weight with quadratic strip loss]\label{lem:A1_torus_strip_extension}
+The torus restriction of $A_\rho$ admits the finite Fourier presentation
+\begin{equation}\label{eq:A1_weight_expansion_action}
+A_\rho(\theta)
+=
+1-\frac{1}{d_\rho}\sum_{\mu\in \mathrm{Wt}(\rho)} m_\mu\cos\langle \mu,\theta\rangle,
+\qquad \theta\in \mathfrak t/(2\pi\Gamma),
+\end{equation}
+where $\mathrm{Wt}(\rho)$ is the finite weight multiset of $\rho$ and $m_\mu$ its multiplicities.
+Consequently
+\begin{equation}\label{eq:A1_holomorphic_action_extension}
+\widetilde A_\rho(\zeta)
+:=
+1-\frac{1}{d_\rho}\sum_{\mu\in \mathrm{Wt}(\rho)} m_\mu\cos\langle \mu,\zeta\rangle,
+\qquad \zeta\in \mathfrak t_\mathbb C/(2\pi\Gamma),
+\end{equation}
+is a Weyl-invariant holomorphic extension of $A_\rho$.
+Moreover there exist constants $r_{\mathrm{strip}}(G,\rho)>0$ and $c_{\mathrm{strip}}(G,\rho)<\infty$ such that for all $\zeta=\theta+iy$ with $|y|\le r_{\mathrm{strip}}(G,\rho)$,
+\begin{equation}\label{eq:A1_strip_quadratic_loss}
+\Re\widetilde A_\rho(\theta+iy)
+\ge
+-c_{\mathrm{strip}}(G,\rho)\,|y|^2.
+\end{equation}
+Therefore the normalized density extends holomorphically to the same tube by
+\[
+\widetilde f_{\beta,\alpha}(\zeta)
+:=
+Z_{\beta,\alpha}^{-1}e^{-\alpha\beta \widetilde A_\rho(\zeta)},
+\]
+and for every $0<r\le r_{\mathrm{strip}}(G,\rho)$ one has the strip bound
+\begin{equation}\label{eq:A1_strip_sup_bound}
+\sup_{|\Im\zeta|\le r}
+|\widetilde f_{\beta,\alpha}(\zeta)|
+\le
+(c_Z^-)^{-1}\beta^{d_G/2}
+\exp\!\bigl(c_{\mathrm{strip}}(G,\rho)\,\beta r^2\bigr).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+On the maximal torus, the character of $\rho$ is the finite Fourier sum
+$\Tr_\rho(e^{i\theta})=\sum_\mu m_\mu e^{i\langle\mu,\theta\rangle}$, and taking real parts yields \eqref{eq:A1_weight_expansion_action}.
+Formula \eqref{eq:A1_holomorphic_action_extension} is therefore the evident holomorphic continuation obtained by replacing the real cosine by the complex cosine.
+
+For $\zeta=\theta+iy$,
+\[
+\Re\cos\langle\mu,\theta+iy\rangle
+=
+\cos\langle\mu,\theta\rangle\cosh\langle\mu,y\rangle.
+\]
+Hence
+\[
+\Re\widetilde A_\rho(\theta+iy)
+=
+A_\rho(\theta)
+-
+\frac{1}{d_\rho}
+\sum_\mu m_\mu \cos\langle\mu,\theta\rangle\bigl(\cosh\langle\mu,y\rangle-1\bigr).
+\]
+Using $|\cos\langle\mu,\theta\rangle|\le 1$ and the finite weight set of $\rho$, choose $r_{\mathrm{strip}}>0$ so small that
+$\cosh u-1\le 2u^2$ for $|u|\le \max_{\mu\in\mathrm{Wt}(\rho)}|\mu|\;r_{\mathrm{strip}}$.
+Then
+\[
+\Re\widetilde A_\rho(\theta+iy)
+\ge
+-
+\frac{2}{d_\rho}
+\sum_\mu m_\mu |\langle\mu,y\rangle|^2
+\ge
+-c_{\mathrm{strip}}(G,\rho)|y|^2
+\]
+for a suitable constant $c_{\mathrm{strip}}(G,\rho)$.
+This proves \eqref{eq:A1_strip_quadratic_loss}.
+Finally,
+\[
+|\widetilde f_{\beta,\alpha}(\zeta)|
+=
+Z_{\beta,\alpha}^{-1}
+\exp\!\bigl(-\alpha\beta\Re\widetilde A_\rho(\zeta)\bigr)
+\le
+(c_Z^-)^{-1}\beta^{d_G/2}e^{c_{\mathrm{strip}}\beta r^2},
+\]
+where we used $\alpha\le 1$ and the partition-function lower bound from \Cref{lem:A1_compact_simple_partition}.
+This is \eqref{eq:A1_strip_sup_bound}.
+\end{proof}
+
+\begin{lemma}[Strip Fourier bound for torus frequencies]\label{lem:A1_torus_strip_fourier}
+Let $g$ be a $2\pi\Gamma$-periodic holomorphic function on the tube
+\[
+\mathcal T_r:=\{\zeta\in\mathfrak t_\mathbb C/(2\pi\Gamma): |\Im\zeta|<r\}.
+\]
+Then every Fourier coefficient $\widehat g(\nu)$ of $g$ satisfies
+\begin{equation}\label{eq:A1_torus_strip_fourier_bound}
+|\widehat g(\nu)|
+\le
+\sup_{\mathcal T_r}|g|\;e^{-r|\nu|}
+\qquad (\nu\in \Gamma^\ast).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Write
+\[
+\widehat g(\nu)=\frac{1}{\mathrm{vol}(T)}\int_T g(\theta)e^{-i\langle\nu,\theta\rangle}\,d\theta.
+\]
+For $\nu\neq 0$, shift the contour to $\theta+i r\,\nu/|\nu|$; periodicity and holomorphy justify the shift, and the exponential factor contributes $e^{-r|\nu|}$.
+The case $\nu=0$ is immediate.
+\end{proof}
+
+
+\begin{lemma}[Shifted torus integral bound for the Wilson family]\label{lem:A1_shifted_torus_integral}
+Let
+\[
+r_G:=\mathrm{rank}(G),
+\qquad
+m_G:=|\Phi_+|=\frac{\dim G-r_G}{2}.
+\]
+There exist constants
+\[
+C_{\mathrm{shift}}(G,\rho)<\infty,
+\qquad
+c_{\mathrm{shift}}(G,\rho)<\infty,
+\qquad
+\beta_{\mathrm{shift}}(G,\rho)\ge 1,
+\]
+with the following property.
+For every $\beta\ge \beta_{\mathrm{shift}}(G,\rho)$, every $\alpha\in[1/2,1]$, and every $y\in\mathfrak t$ with $|y|\le r_{\mathrm{strip}}(G,\rho)/4$,
+\begin{equation}\label{eq:A1_shifted_torus_integral}
+\int_T \bigl|\widetilde f_{\beta,\alpha}(\theta+iy)\,\widetilde\Delta(\theta+iy)\bigr|\,d\theta
+\le
+C_{\mathrm{shift}}(G,\rho)
+\bigl(1+\sqrt\beta\,|y|\bigr)^{m_G}
+\exp\!\bigl(c_{\mathrm{shift}}(G,\rho)\,\beta |y|^2\bigr).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Choose torus coordinates $\theta\in\mathfrak t/(2\pi\Gamma)$ centered at the identity and shrink the local radius, still denoted $r_{\mathrm{strip}}$, so that three standard local facts hold simultaneously on
+$|\theta|\le r_{\mathrm{strip}}$ and $|y|\le r_{\mathrm{strip}}$:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item the torus restriction of $A_\rho$ has a nondegenerate quadratic minimum at $0$, hence
+\begin{equation}\label{eq:A1_local_complex_quad_lower}
+\Re\widetilde A_\rho(\theta+iy)
+\ge
+c_{\mathrm{tor}}(G,\rho)|\theta|^2-c_{\mathrm{tor}}'(G,\rho)|y|^2;
+\end{equation}
+\item away from the local chart one retains a positive action gap,
+\begin{equation}\label{eq:A1_local_complex_offchart_gap}
+\Re\widetilde A_\rho(\theta+iy)
+\ge
+\frac{a_0(G,\rho)}{2}-c_{\mathrm{strip}}(G,\rho)|y|^2
+\qquad(|\theta|\ge r_{\mathrm{strip}});
+\end{equation}
+\item the Weyl denominator satisfies the polynomial local bound
+\begin{equation}\label{eq:A1_weyl_denominator_local_size}
+|\widetilde\Delta(\theta+iy)|
+\le
+C_\Delta(G)\,(|\theta|+|y|)^{m_G}.
+\end{equation}
+\end{enumerate}
+Here \eqref{eq:A1_local_complex_quad_lower} is the torus restriction of the faithful local Wilson geometry, \eqref{eq:A1_local_complex_offchart_gap} combines the positive gap away from the identity with continuity of the holomorphic extension, and \eqref{eq:A1_weyl_denominator_local_size} is immediate from the product formula for $\Delta$.
+
+Split the torus integral into the local region $|\theta|\le r_{\mathrm{strip}}$ and its complement.
+On the complement, \Cref{eq:A1_local_complex_offchart_gap} together with the partition-function lower bound of \Cref{lem:A1_compact_simple_partition} gives
+\[
+\int_{|\theta|\ge r_{\mathrm{strip}}}
+\bigl|\widetilde f_{\beta,\alpha}(\theta+iy)\,\widetilde\Delta(\theta+iy)\bigr|\,d\theta
+\le
+C\,\beta^{d_G/2}
+\exp\!\Bigl(-\frac{a_0}{4}\beta+c_{\mathrm{strip}}\beta|y|^2\Bigr),
+\]
+which is absorbed into the right-hand side of \eqref{eq:A1_shifted_torus_integral} after enlarging the threshold because $|y|\le r_{\mathrm{strip}}/4$ and $(1+\sqrt\beta|y|)^{m_G}\ge 1$.
+
+On the local chart, use \Cref{eq:A1_local_complex_quad_lower,eq:A1_weyl_denominator_local_size} and again \Cref{lem:A1_compact_simple_partition}:
+\[
+\int_{|\theta|\le r_{\mathrm{strip}}}
+\bigl|\widetilde f_{\beta,\alpha}(\theta+iy)\,\widetilde\Delta(\theta+iy)\bigr|\,d\theta
+\le
+C\,\beta^{d_G/2}
+\exp\!\bigl(c_{\mathrm{tor}}'\beta|y|^2\bigr)
+\int_{|\theta|\le r_{\mathrm{strip}}} e^{-c_{\mathrm{tor}}\beta|\theta|^2}(|\theta|+|y|)^{m_G}\,d\theta.
+\]
+Rescale $\Theta:=\sqrt\beta\,\theta$.
+Since $d_G=r_G+2m_G$, the Jacobian cancellation is exactly
+\[
+\beta^{d_G/2}\,d\theta=\beta^{m_G/2}\,d\Theta,
+\qquad
+(|\theta|+|y|)^{m_G}=\beta^{-m_G/2}\bigl(|\Theta|+\sqrt\beta|y|\bigr)^{m_G}.
+\]
+Therefore
+\[
+\int_{|\theta|\le r_{\mathrm{strip}}}
+\bigl|\widetilde f_{\beta,\alpha}(\theta+iy)\,\widetilde\Delta(\theta+iy)\bigr|\,d\theta
+\le
+C\exp\!\bigl(c_{\mathrm{tor}}'\beta|y|^2\bigr)
+\int_{\mathbb R^{r_G}} e^{-c_{\mathrm{tor}}|\Theta|^2}\bigl(|\Theta|+\sqrt\beta|y|\bigr)^{m_G}\,d\Theta.
+\]
+The Gaussian moment integral is bounded by
+$C'(1+\sqrt\beta|y|)^{m_G}$, so the local contribution is bounded by the right-hand side of \eqref{eq:A1_shifted_torus_integral}.
+Combining the local and off-chart estimates proves the lemma.
+\end{proof}
+
+\begin{corollary}[Audited strip estimate for the Wilson coefficients]\label{cor:A1_a_pi_strip_estimate}
+There exists a constant $C_{\mathrm{PW}}(G,\rho)<\infty$ such that for every $0<r\le r_{\mathrm{strip}}(G,\rho)$,
+all $\beta\ge \beta_Z(G,\rho)$, all $\alpha\in[1/2,1]$, and all irreducibles $\pi$,
+\begin{equation}\label{eq:A1_a_pi_strip_estimate}
+|a_\pi(\beta,\alpha)|
+\le
+C_{\mathrm{PW}}(G,\rho)
+\,(\dim\pi)^{-1}\,\beta^{d_G/2}
+\exp\!\bigl(c_{\mathrm{strip}}(G,\rho)\beta r^2-r|\lambda_\pi|\bigr).
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Apply \Cref{lem:A1_weyl_denominator_coeff_extract} with $F=f_{\beta,\alpha}$.
+The Fourier coefficient of $f_{\beta,\alpha}\Delta$ at $\lambda_\pi+\delta_{\mathrm W}$ is therefore
+$d_\pi a_\pi(\beta,\alpha)$.
+By \Cref{lem:A1_torus_strip_fourier}, this coefficient is bounded by the strip sup of
+$\widetilde f_{\beta,\alpha}(\zeta)\widetilde\Delta(\zeta)$ times $e^{-r|\lambda_\pi+\delta_{\mathrm W}|}$.
+Because $\widetilde\Delta$ is a fixed trigonometric polynomial, its strip sup on $|\Im\zeta|\le r_{\mathrm{strip}}$ is a finite constant depending only on $G$.
+Insert the strip bound \eqref{eq:A1_strip_sup_bound}, divide by $d_\pi$, and use $|\lambda_\pi+\delta_{\mathrm W}|\ge |\lambda_\pi|$.
+\end{proof}
+
+\begin{theorem}[Audited high-Casimir analytic Peter--Weyl decay]\label{thm:A1_high_regime_background}
+Let $G$ be compact connected simple and let $\rho$ be faithful.
+There exist constants $c_{\mathrm{hi}}(G,\rho)>0$ and $\beta_{\mathrm{hi}}(G,\rho)\ge 1$ such that for all $\beta\ge \beta_{\mathrm{hi}}(G,\rho)$, all $\alpha\in[1/2,1]$, and all irreducibles $\pi$ with $C_2(\pi)\ge \beta^2$,
+\begin{equation}\label{eq:A1_high_regime_clean}
+|a_\pi(\beta,\alpha)|
+\le
+\exp\!\Big(-c_{\mathrm{hi}}(G,\rho)\,\sqrt{C_2(\pi)}\Big).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Choose once and for all
+\begin{equation}\label{eq:A1_choose_r_hi}
+r_{\mathrm{hi}}(G,\rho)
+:=
+\min\Big\{r_{\mathrm{strip}}(G,\rho),\;\frac{1}{4c_{\mathrm{strip}}(G,\rho)\sqrt{\kappa_+(G)}}\Big\}>0.
+\end{equation}
+Applying \Cref{cor:A1_a_pi_strip_estimate} with $r=r_{\mathrm{hi}}$ gives
+\[
+|a_\pi(\beta,\alpha)|
+\le
+C_{\mathrm{PW}}(G,\rho)\beta^{d_G/2}
+\exp\!\bigl(c_{\mathrm{strip}}\beta r_{\mathrm{hi}}^2-r_{\mathrm{hi}}|\lambda_\pi|\bigr).
+\]
+If $C_2(\pi)\ge \beta^2$, then \Cref{lem:A1_weight_casimir_compare} yields
+\[
+|\lambda_\pi|\ge \kappa_+(G)^{-1/2}\sqrt{C_2(\pi)}\ge \kappa_+(G)^{-1/2}\beta.
+\]
+By the choice of $r_{\mathrm{hi}}$ in \eqref{eq:A1_choose_r_hi},
+\[
+c_{\mathrm{strip}}\beta r_{\mathrm{hi}}^2
+\le
+\frac{r_{\mathrm{hi}}}{4\sqrt{\kappa_+}}\beta
+\le
+\frac{r_{\mathrm{hi}}}{4}|\lambda_\pi|.
+\]
+Therefore
+\[
+|a_\pi(\beta,\alpha)|
+\le
+C_{\mathrm{PW}}(G,\rho)\beta^{d_G/2}
+\exp\!\Bigl(-\frac34 r_{\mathrm{hi}}|\lambda_\pi|\Bigr).
+\]
+Enlarge the threshold to $\beta_{\mathrm{hi}}(G,\rho)$ so that for all $\beta\ge \beta_{\mathrm{hi}}(G,\rho)$,
+\[
+\log C_{\mathrm{PW}}(G,\rho)+\frac{d_G}{2}\log\beta
+\le
+\frac{r_{\mathrm{hi}}}{4\sqrt{\kappa_+(G)}}\beta.
+\]
+Since $|\lambda_\pi|\ge \beta/\sqrt{\kappa_+(G)}$ in the high-Casimir regime, the prefactor is absorbed and we get
+\[
+|a_\pi(\beta,\alpha)|
+\le
+\exp\!\Bigl(-\frac12 r_{\mathrm{hi}}|\lambda_\pi|\Bigr).
+\]
+Using again \Cref{lem:A1_weight_casimir_compare}, namely $|\lambda_\pi|\ge \kappa_+^{-1/2}\sqrt{C_2(\pi)}$, yields
+\eqref{eq:A1_high_regime_clean} with
+\[
+c_{\mathrm{hi}}(G,\rho):=\frac{r_{\mathrm{hi}}(G,\rho)}{2\sqrt{\kappa_+(G)}}.
+\]
+\end{proof}
+
+\subsection{The compact-simple A1 theorem}
+
+\begin{theorem}[Compact-simple A1 theorem]\label{thm:A1_compact_simple_internal}
+Let $G$ be compact connected simple and let $\rho$ be a finite-dimensional unitary Wilson representation.
+Then, after descent to $G_{\mathrm{eff}}=G/\ker(\rho)$, there exist constants $c_{\mathrm{A1}}(G,\rho)>0$ and $\beta_{\mathrm{A1}}(G,\rho)\ge 1$ such that for all $\beta\ge \beta_{\mathrm{A1}}(G,\rho)$, all $\alpha\in[1/2,1]$, and all nontrivial irreducible representations $\pi$ of $G_{\mathrm{eff}}$,
+\begin{equation}\label{eq:A1_compact_simple_goal}
+|a_\pi(\beta,\alpha)|
+\le
+\exp\!\Big(-c_{\mathrm{A1}}(G,\rho)\,\frac{C_2(\pi)}{\beta+\sqrt{C_2(\pi)}}\Big).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By the faithful-reduction discussion above, it suffices to treat the faithful descended representation.
+If $C_2(\pi)\le \beta^2$, then \Cref{thm:A1_low_regime_background} gives
+\[
+|a_\pi(\beta,\alpha)|
+\le
+\exp\!\Bigl(-c_{\mathrm{lo}}(G,\rho)\,\frac{C_2(\pi)}{\beta}\Bigr).
+\]
+Since in this regime $\beta+\sqrt{C_2(\pi)}\le 2\beta$, the right-hand side is bounded by
+\[
+\exp\!\Bigl(-2c_{\mathrm{lo}}(G,\rho)\,\frac{C_2(\pi)}{\beta+\sqrt{C_2(\pi)}}\Bigr).
+\]
+If instead $C_2(\pi)\ge \beta^2$, then \Cref{thm:A1_high_regime_background} gives
+\[
+|a_\pi(\beta,\alpha)|
+\le
+\exp\!\Bigl(-c_{\mathrm{hi}}(G,\rho)\,\sqrt{C_2(\pi)}\Bigr).
+\]
+Because $\beta+\sqrt{C_2(\pi)}\le 2\sqrt{C_2(\pi)}$ in this regime, this is at most
+\[
+\exp\!\Bigl(-2c_{\mathrm{hi}}(G,\rho)\,\frac{C_2(\pi)}{\beta+\sqrt{C_2(\pi)}}\Bigr).
+\]
+Choose
+\[
+c_{\mathrm{A1}}(G,\rho):=\min\{2c_{\mathrm{lo}}(G,\rho),2c_{\mathrm{hi}}(G,\rho)\}
+\]
+and let $\beta_{\mathrm{A1}}(G,\rho)$ dominate the thresholds from the two audited regime theorems.
+This yields \eqref{eq:A1_compact_simple_goal}, which is exactly the statement used on the primary Route~1 spine.
+\end{proof}
+
+\begin{corollary}[Public compact-simple group scope]\label{cor:A1_compact_simple_spine}
+Every place on the Route~1 / Lane~A / Lane~B proof spine that previously invoked the classical-family theorem \Cref{thm:A1_one_plaq_classical} may now invoke the compact-simple theorem \Cref{thm:A1_compact_simple_internal} instead.
+Consequently the ultraviolet theorem packet of the manuscript is valid for every compact connected simple gauge group for any chosen auxiliary Wilson regularization $\rho$.
+Appendix~\ref{app:global_form_resolution} later upgrades this auxiliary scope statement to the group-only theorem level by proving universality in the faithful choice of $\rho$ and descent for nonfaithful $\rho$.
+\end{corollary}
+
+\begin{proof}
+The rest of the manuscript uses the one-plaquette sector only through the crossover constants $c_{\mathrm{A1}}(G,\rho)$ and $\beta_{\mathrm{A1}}(G,\rho)$ attached to the chosen auxiliary Wilson regularization.
+Those constants are supplied for arbitrary compact connected simple $G$ by \Cref{thm:A1_compact_simple_internal}; Packet~10 later upgrades the continuum local theory to faithful-$\rho$ universality, but the explicit ultraviolet ledger itself remains indexed by the chosen faithful regularization.
+\end{proof}
+
+\begin{remark}[Status of the classical appendices on the public theorem packet]
+Appendices~\ref{app:A1_Sp}--\ref{app:A1_Spin_even} are no longer load-bearing for the public group scope of the paper.
+They remain useful for two reasons:
+(i) they provide direct worked proofs of the compact-simple A1 bound in the standard $\Sp/\Spin$ representations used in the earlier branches, and
+(ii) they keep the determinantal/total-positivity mechanism available as an explicit audit trail in the classical series.
+\end{remark}

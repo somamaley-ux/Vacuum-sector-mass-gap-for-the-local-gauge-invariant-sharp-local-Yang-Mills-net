@@ -1,0 +1,246 @@
+Yang--Mills Support Map
+
+Date: 2026-04-10
+
+Primary statement sources
+-------------------------
+
+Canonical manuscript source suite bundled here:
+
+- `paper/ym_manuscript_hardened_v2_source_anonymized.zip`
+- live roots:
+  `paper/core.tex`
+  `paper/companion1.tex`
+  `paper/companion2.tex`
+  `paper/companion3.tex`
+- expert-audit extraction:
+  `paper/proofkernel.tex`
+- supplied PDFs:
+  `paper/Companion_I__Ultraviolet_Gate_and_Route_1_Mass_Gap_Chain_Anon.pdf`
+  `paper/Companion II Lane A Sharp-Local Construction_Anon.pdf`
+  `paper/Companion_III__Reconstruction__Non_Triviality__and_Faithful_Wilson_Universality_Anon.pdf`
+  `paper/Vacuum_sector_mass_gap_for_the_local_gauge_invariant_sharp_local_Yang_Mills_net_Anon.pdf`
+  `paper/Vacuum_sector_mass_gap_for_the_local_gauge_invariant_sharp_local_Yang_Mills_net_Anon.zip`
+
+Lean support surface
+--------------------
+
+Primary Lean modules:
+
+- `MaleyLean/Papers/YangMills/Verbatim/TheoremRegister.lean`
+- `MaleyLean/Papers/YangMills/Verbatim/DependencySpineSimple.lean`
+- `MaleyLean/Papers/YangMills/Obligations/Inventory.lean`
+- `MaleyLean/Papers/YangMills/Obligations/PaperLedger.lean`
+- `MaleyLean/Papers/YangMills/Obligations/ClaimLedger.lean`
+- `MaleyLean/Papers/YangMills/Kernel/Register.lean`
+- `MaleyLean/Papers/YangMills/Kernel/PacketRegister.lean`
+- `MaleyLean/Papers/YangMills/Kernel/ConstructiveCore.lean`
+- `MaleyLean/Papers/YangMills/Kernel/VacuumGapCore.lean`
+- `MaleyLean/Papers/YangMills/Kernel/EndpointCore.lean`
+- `MaleyLean/Papers/YangMills/Kernel/ConstructiveSemanticBundle.lean`
+- `MaleyLean/Papers/YangMills/Kernel/VacuumGapSemanticBundle.lean`
+- `MaleyLean/Papers/YangMills/Kernel/EndpointSemanticBundle.lean`
+- `MaleyLean/Papers/YangMills/Kernel/ConstructiveRelationalInterface.lean`
+- `MaleyLean/Papers/YangMills/Kernel/VacuumGapRelationalInterface.lean`
+- `MaleyLean/Papers/YangMills/Kernel/EndpointRelationalInterface.lean`
+- `MaleyLean/Papers/YangMills/Kernel/NativeLawAssembly.lean`
+- `MaleyLean/Papers/YangMills/Kernel/NativeInterHeartCompatibility.lean`
+- `MaleyLean/Papers/YangMills/Kernel/NativeConstructiveVacuumGapLaw.lean`
+- `MaleyLean/Papers/YangMills/Kernel/NativeVacuumGapEndpointLaw.lean`
+- `MaleyLean/Papers/YangMills/Kernel/NativeConstructiveEndpointLaw.lean`
+- `MaleyLean/Papers/YangMills/Kernel/NativeCrossHeartLawObject.lean`
+- `MaleyLean/Papers/YangMills/Kernel/NativeCrossHeartLawConsequences.lean`
+- `MaleyLean/Papers/YangMills/Kernel/TheoremAssemblyNativeAlignment.lean`
+- `MaleyLean/Papers/YangMills/Kernel/TheoremAssemblyNativeInterHeartAlignment.lean`
+- `MaleyLean/Papers/YangMills/Kernel/TheoremAssemblyNativeCrossHeartLawAlignment.lean`
+- `MaleyLean/Papers/YangMills/Kernel/CanonicalVerifiedPayload.lean`
+- `MaleyLean/Papers/YangMills/Surface/AssemblyTopNativeSummary.lean`
+- `MaleyLean/Papers/YangMills/Surface/AssemblyTopNativeCrossHeartLawSummary.lean`
+
+Wrapper entry points:
+
+- `MaleyLean/YangMillsAssemblyTopNativeSummary.lean`
+- `MaleyLean/YangMillsAssemblyTopNativeCrossHeartLawSummary.lean`
+- `MaleyLean/YangMillsCanonicalVerifiedPayload.lean`
+
+Audit artifacts:
+
+- `Checks/Axiom/YangMillsDeepNativeBoundaryAxiomCheck.lean`
+- `reports/audits/yang_mills_axiom_audit.txt`
+
+Support correspondence
+----------------------
+
+Stage I: live proof surface and companion ownership
+
+- manuscript surface:
+  four live roots, one proof kernel, one closure gate, reserve/editorial packet
+- Lean witnesses:
+  `MaleyLean.YangMillsLiveProofSurfaceRootsStatement`
+  `MaleyLean.YangMillsKernelRoleStatement`
+  `MaleyLean.YangMillsClosureGateRoleStatement`
+  `MaleyLean.YangMillsReserveRootsStatement`
+  `MaleyLean.YangMillsCoreSectionOwnershipStatement`
+
+Stage II: verbatim theorem surface and dependency spine
+
+- manuscript surface:
+  theorem-facing core titles and the public dependency split over Route 1,
+  Lane A, QE3 transport, and endpoint packet
+- Lean witnesses:
+  `MaleyLean.YangMillsVerbatimTheoremSectionAlignmentStatement`
+  `MaleyLean.YangMillsVerbatimTheoremOwnershipStatement`
+  `MaleyLean.YangMillsRoute1TransportSpineStatement`
+  `MaleyLean.YangMillsLaneASpineOwnershipStatement`
+  `MaleyLean.YangMillsEndpointSpineOwnershipStatement`
+
+Stage III: paper/claim architecture
+
+- manuscript surface:
+  live theorem burden vs audit extraction vs organizational closure vs reserve
+  materials
+- Lean witnesses:
+  `MaleyLean.YangMillsInventoryCompleteStatement`
+  `MaleyLean.YangMillsPaperSectionLedgerCompleteStatement`
+  `MaleyLean.YangMillsClaimSupportClassificationStatement`
+  `MaleyLean.YangMillsVerbatimRegisterAgreesWithClaimLedgerStatement`
+
+Stage IV: proof-kernel reduction
+
+- manuscript surface:
+  kernel main theorem, ten-packet proof kernel, extracted live theorem nodes
+- Lean witnesses:
+  `MaleyLean.YangMillsKernelPackagingEntriesStatement`
+  `MaleyLean.YangMillsKernelLiveExtractionExamplesStatement`
+  `MaleyLean.YangMillsKernelLiveEntriesStayOnLiveClaimSideStatement`
+  `MaleyLean.YangMillsKernelAddsNoNewMathematicsStatement`
+
+Stage V: packet and seam structure
+
+- manuscript surface:
+  packets 1--10, auxiliary weak-window certificate, decisive seam nodes
+- Lean witnesses:
+  `MaleyLean.YangMillsTenPacketKernelStatement`
+  `MaleyLean.YangMillsPacketEdgeExamplesStatement`
+  `MaleyLean.YangMillsPacket8ContainsQE3SeamStatement`
+  `MaleyLean.YangMillsSeamBridgeNodesStatement`
+  `MaleyLean.YangMillsSeamPacketAlignmentStatement`
+  `MaleyLean.YangMillsSeamLiveNodeExamplesStatement`
+
+Stage VI: source-number crosswalk and reading order
+
+- manuscript surface:
+  canonical source labels, compressed reading routes, first-pass attack points
+- Lean witnesses:
+  `MaleyLean.YangMillsCrosswalkExamplesStatement`
+  `MaleyLean.YangMillsPacketCrosswalkExamplesStatement`
+  `MaleyLean.YangMillsSeamCrosswalkExamplesStatement`
+  `MaleyLean.YangMillsKernelReadingOrderStatement`
+  `MaleyLean.YangMillsAttackPointPacketStatement`
+  `MaleyLean.YangMillsAttackPointSeamStatement`
+
+Stage VII: load-bearing theorem hearts and witness exports
+
+- manuscript surface:
+  dedicated constructive, vacuum-gap, and endpoint cores; named witness
+  outputs visible across the three theorem hearts
+- Lean witnesses:
+  `MaleyLean.YangMillsLaneAConstructiveCoreStatement`
+  `MaleyLean.YangMillsRoute1VacuumGapCoreStatement`
+  `MaleyLean.YangMillsReconstructionEndpointCoreStatement`
+  `MaleyLean.YangMillsSpineFeedsAlignedMainTheoremPartsStatement`
+  `MaleyLean.YangMillsSpineFeedsAllAlignedMainTheoremPartsStatement`
+  `MaleyLean.YangMillsSpineFeedsAllNamedOutputsStatement`
+
+Stage VIII: witness ownership and source anchoring
+
+- manuscript surface:
+  named abstract witnesses assigned to primary packets, companion owners, and
+  canonical source labels
+- Lean witnesses:
+  `MaleyLean.YangMillsWitnessPacketOwnershipStatement`
+  `MaleyLean.YangMillsWitnessOwnerStatement`
+  `MaleyLean.YangMillsWitnessSourceLabelStatement`
+  `MaleyLean.YangMillsWitnessCrosswalkExamplesStatement`
+
+Stage IX: enriched Part C witness anchoring
+
+- manuscript surface:
+  additive witness crosswalk for finite-cap and sharp-local exports from the
+  richer constructive package
+- Lean witnesses:
+  `MaleyLean.YangMillsConstructiveWitnessPacketStatement`
+  `MaleyLean.YangMillsConstructiveWitnessOwnerStatement`
+  `MaleyLean.YangMillsConstructiveWitnessSourceLabelStatement`
+  `MaleyLean.YangMillsConstructiveWitnessCrosswalkExamplesStatement`
+
+Stage X: enriched endpoint witness anchoring
+
+- manuscript surface:
+  additive witness crosswalk for reconstruction and exact-endpoint exports from
+  the richer endpoint package
+- Lean witnesses:
+  `MaleyLean.YangMillsEndpointWitnessPacketStatement`
+  `MaleyLean.YangMillsEndpointWitnessOwnerStatement`
+  `MaleyLean.YangMillsEndpointWitnessSourceLabelStatement`
+  `MaleyLean.YangMillsEndpointWitnessCrosswalkExamplesStatement`
+
+Stage XI: enriched Part D witness anchoring
+
+- manuscript surface:
+  additive witness crosswalk for OS transport and transport-origin exports from
+  the richer vacuum-gap package
+- Lean witnesses:
+  `MaleyLean.YangMillsVacuumGapWitnessPacketStatement`
+  `MaleyLean.YangMillsVacuumGapWitnessOwnerStatement`
+  `MaleyLean.YangMillsVacuumGapWitnessSourceLabelStatement`
+  `MaleyLean.YangMillsVacuumGapWitnessCrosswalkExamplesStatement`
+
+Stage XII: unified theorem-heart witness summary
+
+- manuscript surface:
+  additive summary theorem bundling representative constructive, vacuum-gap,
+  and endpoint witness anchors together
+- Lean witnesses:
+  `MaleyLean.YangMillsWitnessHeartSummaryStatement`
+
+Stage XIII: structured witness bundle surface
+
+- manuscript surface:
+  structured witness bundle object for the three theorem hearts, re-exported at
+  surface level under explicit readiness hypotheses
+- Lean witnesses:
+  `MaleyLean.YangMillsWitnessBundleFromNamedOutputsStatement`
+  `MaleyLean.YangMillsSpineFeedsWitnessBundleStatement`
+  `MaleyLean.YangMillsWitnessBundleSummaryStatement`
+
+Stage XIV: unified semantic assembly surface
+
+- manuscript surface:
+  unified semantic assembly object for the three theorem hearts, re-exported at
+  surface level under explicit readiness hypotheses
+- Lean witnesses:
+  `MaleyLean.YangMillsSemanticAssemblyExistsStatement`
+  `MaleyLean.YangMillsSpineFeedsSemanticAssemblyStatement`
+  `MaleyLean.YangMillsSemanticAssemblySummaryStatement`
+
+Deep native boundary
+--------------------
+
+- Lean witness:
+  `MaleyLean.YangMillsAssemblyTopNativeSummaryExportStatement`
+  `MaleyLean.YangMillsAssemblyTopNativeCrossHeartLawSummaryExportStatement`
+  `MaleyLean.YangMillsCanonicalVerifiedPayloadTopExportStatement`
+
+Coverage note
+-------------
+
+This Lean layer certifies a deeper native Yang--Mills theorem boundary than the
+older structural paper-surface summary alone.
+
+It does not currently claim:
+
+- one fully closed canonical native proposition over a distinguished manuscript
+  instance of all route/core objects
+- total replacement of every analytic proof home by a parameter-free Lean
+  theorem statement

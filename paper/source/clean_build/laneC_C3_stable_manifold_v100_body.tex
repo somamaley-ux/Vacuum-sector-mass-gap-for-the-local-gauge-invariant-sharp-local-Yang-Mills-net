@@ -1,0 +1,250 @@
+\medskip
+\noindent\textbf{C3.3 (stable manifold / slaving of irrelevants).}
+In the patched dyadic RG, the irrelevant polymer activity $K$ is uniquely determined by the asymptotically free (AF) coupling trajectory $u$ in the UV limit,
+with quantitative contraction constants and uniformity in lattice spacing.
+
+\medskip
+\noindent\textbf{What ``stable manifold'' means here.}
+Fix a reference physical scale (call it $j=0$). A lattice spacing $a$ corresponds to a UV cutoff scale $j=-N(a)$ with $N(a)\to\infty$ as $a\to0$.
+Running the patched RG from $j=-N(a)$ to $j=0$ produces an effective irrelevant activity $K^{(a)}_0$ at the reference scale.
+C3.3 asserts that, once the AF coupling trajectory is fixed, the family $\{K^{(a)}_0\}_{a\downarrow0}$ converges and is \emph{universal}:
+it does not depend on microscopic irrelevant details (and in particular is independent of UV initialization in the irrelevant sector).
+
+Let $L=2$ be the dyadic factor. For each integer scale $j\in\mathbb Z$, let $\mathscr K_j$ denote the Banach space of $j$-scale polymer activities (irrelevant sector),
+equipped with the polymer norm $\|\cdot\|_j$.
+
+Let $u_j\in[0,\infty)$ denote the (dimensionless) gradient-flow coupling coordinate at scale $j$ in the AF regime.
+
+The patched dyadic RG defines, for each $j$, a map
+\[
+\mathcal R^{\mathrm{good}}_j:\ (u,K)\in [0,u_\ast]\times B_{\mathscr K_j}(0,r_\ast)\ \longmapsto\ (u',K')\in [0,u_\ast]\times B_{\mathscr K_{j+1}}(0,r_\ast),
+\]
+with
+\[
+(u',K')=\mathcal R^{\mathrm{good}}_j(u,K)=\big(\mathcal U_j(u,K),\ \mathcal K_j(u,K)\big).
+\]
+Here ``good'' means the chart-truncated (patched) construction of Definition~\ref{def:RG_good}, so all constants are uniform in $a\to0$.
+
+We isolate the specific quantitative properties of $\mathcal K_j$ needed for the stable-manifold argument.
+These are precisely the bounds that are implicit in the contraction/analyticity control, now packaged as a single assumption set.
+
+\begin{proposition}[Patched RG contraction data for $\mathcal K_j$ (derived from Theorem~\ref{thm:RG_analytic_bounds} and Lemma~\ref{lem:kappa})]\label{ass:RG_K}
+There exist constants
+\[
+u_\ast>0,\quad r_\ast>0,\quad \kappa\in(0,1),\quad L_u\ge 0,\quad C_F\ge 0,
+\]
+independent of scale $j$ and lattice spacing $a$, such that for every $j\in\mathbb Z$:
+\begin{enumerate}[label=(K\arabic*)]
+\item \textbf{(K-contraction)} For all $u\in[0,u_\ast]$ and all $K,\widetilde K\in B_{\mathscr K_j}(0,r_\ast)$,
+\begin{equation}\label{eq:K_contr}
+\|\mathcal K_j(u,K)-\mathcal K_j(u,\widetilde K)\|_{j+1}\ \le\ \kappa\,\|K-\widetilde K\|_{j}.
+\end{equation}
+\item \textbf{(Lipschitz in $u$)} For all $u,\widetilde u\in[0,u_\ast]$ and all $K\in B_{\mathscr K_j}(0,r_\ast)$,
+\begin{equation}\label{eq:K_Lipu}
+\|\mathcal K_j(u,K)-\mathcal K_j(\widetilde u,K)\|_{j+1}\ \le\ L_u\,|u-\widetilde u|.
+\end{equation}
+\item \textbf{(Quadratic forcing)} For all $u\in[0,u_\ast]$,
+\begin{equation}\label{eq:K_force}
+\|\mathcal K_j(u,0)\|_{j+1}\ \le\ C_F\,u^2.
+\end{equation}
+\item \textbf{(Domain invariance)} For all $(u,K)$ in the domain ball, $\mathcal K_j(u,K)$ lies in $B_{\mathscr K_{j+1}}(0,r_\ast)$.
+\end{enumerate}
+\end{proposition}
+
+\paragraph{Remarks.}
+\begin{itemize}
+\item (K1) is the key structural input: the $K$-update is a \emph{strict contraction} in $K$ with constant $\kappa<1$.
+\item (K3) is the UV summability input: because AF trajectories satisfy $\sum u_j^2<\infty$ toward the UV, the cumulative forcing remains finite.
+\item All constants are \emph{patched-uniform}: they do not depend on $a$.
+\end{itemize}
+
+We will treat the coupling trajectory $(u_j)_{j\le 0}$ as given (it is fixed later by the renormalization condition, once C3.2(b) is proved).
+The stable-manifold statement requires only a mild UV summability.
+
+\begin{definition}[Admissible AF trajectory]\label{def:admissible_u}
+A sequence $(u_j)_{j\le 0}$ is \emph{admissible} if:
+\begin{enumerate}[label=(U\arabic*)]
+\item $0\le u_j\le u_\ast$ for all $j\le 0$;
+\item $u_j\to 0$ as $j\to -\infty$;
+\item $\sum_{j=-\infty}^{-1} u_j^2 <\infty$.
+\end{enumerate}
+\end{definition}
+
+\paragraph{Verification of (U3) for asymptotically free step scaling.}
+For the dyadic step scaling recursion $u_{j+1}=u_j + A u_j^2 + O(u_j^3)$ with $A=2b_0\log 2>0$,
+the UV tail satisfies $u_j\sim 1/(A|j|)$ as $j\to -\infty$, hence $\sum u_j^2<\infty$.
+We record this as a lemma for later use.
+
+\begin{lemma}[AF step scaling implies $\sum u_j^2<\infty$]\label{lem:sum_u2}
+Assume there exist constants $A>0$ and $B\ge0$ such that for all $j\le -1$,
+\[
+u_{j+1}=u_j + A u_j^2 + r_j,\qquad |r_j|\le B u_j^3,
+\]
+and assume $u_j\le u_\ast$ with $B u_\ast\le A/2$.
+Then $u_j\downarrow 0$ as $j\to -\infty$ and
+\[
+\sum_{j=-\infty}^{-1} u_j^2\ \le\ \frac{4}{A}\,u_0.
+\]
+\end{lemma}
+
+\begin{proof}
+From $|r_j|\le (A/2)u_j^3$, we have $u_{j+1}\ge u_j + (A/2)u_j^2$.
+Rearrange:
+\[
+\frac{1}{u_j}-\frac{1}{u_{j+1}}=\frac{u_{j+1}-u_j}{u_j u_{j+1}}
+\ \ge\ \frac{(A/2)u_j^2}{u_j(u_j+(A/2)u_j^2)}=\frac{A/2}{1+(A/2)u_j}\ \ge\ \frac{A/2}{1+(A/2)u_\ast}.
+\]
+Thus $1/u_j$ grows at least linearly as $j\to -\infty$, so $u_j\to 0$.
+Moreover, using $u_{j+1}-u_j\ge (A/2)u_j^2$ gives $u_j^2\le \frac{2}{A}(u_{j+1}-u_j)$.
+Summing from $j=-M$ to $-1$ yields
+\[
+\sum_{j=-M}^{-1} u_j^2\le \frac{2}{A}(u_0-u_{-M})\le \frac{2}{A}u_0.
+\]
+A factor $2$ buffer yields the displayed bound $\frac{4}{A}u_0$.
+\end{proof}
+
+Fix an admissible $u$-trajectory $(u_j)_{j\le 0}$.
+For each UV cutoff depth $N\in\mathbb N$ (corresponding to lattice spacing $a$), define the truncated irrelevant trajectory
+$\{K^{(N)}_j\}_{-N\le j\le 0}$ by initializing at the UV cutoff and iterating forward:
+
+\begin{definition}[Truncated $K$-trajectory]\label{def:KN}
+Fix $N\ge 1$. Set $K^{(N)}_{-N}:=0\in \mathscr K_{-N}$ and for $j=-N,-N+1,\dots,-1$ define recursively
+\begin{equation}\label{eq:KN_rec}
+K^{(N)}_{j+1}:=\mathcal K_j(u_j,K^{(N)}_j).
+\end{equation}
+\end{definition}
+
+\begin{lemma}[Uniform bound for $K^{(N)}$]\label{lem:K_bound}
+Under Proposition~\ref{ass:RG_K}, for every $N$ and every $-N\le j\le 0$,
+\begin{equation}\label{eq:K_forcing_bound}
+\|K^{(N)}_j\|_{j}\ \le\ C_F\sum_{m=-N}^{j-1} \kappa^{\,j-1-m}\,u_m^2
+\ \le\ \frac{C_F}{1-\kappa}\,u_\ast^2.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+From the recursion \eqref{eq:KN_rec}, add and subtract $\mathcal K_j(u_j,0)$ and apply \eqref{eq:K_contr}--\eqref{eq:K_force}:
+\[
+\|K^{(N)}_{j+1}\|_{j+1}\le \kappa \|K^{(N)}_j\|_{j}+ C_F u_j^2.
+\]
+Iterate the discrete Gr\"onwall inequality starting from $K^{(N)}_{-N}=0$.
+\end{proof}
+
+\begin{theorem}[C3.3 stable manifold: existence, uniqueness, and UV universality]\label{thm:stable}
+Assume \ref{ass:RG_K}. Let $(u_j)_{j\le 0}$ be an admissible AF trajectory.
+Then:
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{(Existence of a limiting stable trajectory).}
+For each fixed $j\le 0$, the limit
+\[
+K^{(\infty)}_j\ :=\ \lim_{N\to\infty,\ N\ge |j|}\ K^{(N)}_j
+\]
+exists in $\mathscr K_j$.
+The limiting sequence $\{K^{(\infty)}_j\}_{j\le 0}$ satisfies the RG recursion
+\[
+K^{(\infty)}_{j+1}=\mathcal K_j(u_j,K^{(\infty)}_j)\qquad \forall j\le -1,
+\]
+and obeys the explicit bound
+\begin{equation}\label{eq:Kinf_bound}
+\|K^{(\infty)}_j\|_j\ \le\ C_F\sum_{m=-\infty}^{j-1}\kappa^{\,j-1-m}\,u_m^2.
+\end{equation}
+
+\item \textbf{(UV boundary condition).}
+$K^{(\infty)}_j\to 0$ in norm as $j\to -\infty$.
+
+\item \textbf{(Uniqueness).}
+If $\{\widetilde K_j\}_{j\le 0}$ is any other sequence in $\mathscr K_j$ satisfying
+$\widetilde K_{j+1}=\mathcal K_j(u_j,\widetilde K_j)$ for all $j\le -1$ and $\widetilde K_j\to 0$ as $j\to -\infty$,
+then $\widetilde K_j=K^{(\infty)}_j$ for all $j\le 0$.
+
+\item \textbf{(Universality with respect to UV initialization).}
+If in Definition~\ref{def:KN} we replace the UV initialization $K^{(N)}_{-N}=0$ by \emph{any} sequence of initial data
+$K^{(N)}_{-N}=K^{\mathrm{UV}}_{-N}$ with $\sup_N\|K^{\mathrm{UV}}_{-N}\|_{-N}\le r_\ast$, the resulting $K^{(N)}_j$ converge to the same limit $K^{(\infty)}_j$.
+Moreover, for each fixed $j\le 0$,
+\begin{equation}\label{eq:UV_rate}
+\|K^{(N)}_j-K^{(\infty)}_j\|_j\ \le\ C_F\sum_{m=-\infty}^{-N-1}\kappa^{\,j-1-m}\,u_m^2\ +\ \kappa^{\,j+N}\,\|K^{\mathrm{UV}}_{-N}\|_{-N}.
+\end{equation}
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Fix $j\le 0$ and consider $N'<N$ with $N'\ge |j|$.
+Compare $K^{(N)}$ and $K^{(N')}$ on the overlapping interval $[-N',j]$.
+At scale $-N'$ we have $K^{(N')}_{-N'}=0$ while $K^{(N)}_{-N'}$ is generated by iterating from $-N$ to $-N'$.
+By Lemma~\ref{lem:K_bound},
+\[
+\|K^{(N)}_{-N'}\|_{-N'}\le C_F\sum_{m=-N}^{-N'-1}\kappa^{-N'-1-m}u_m^2.
+\]
+For the difference $\Delta_\ell:=K^{(N)}_{\ell}-K^{(N')}_{\ell}$, the recursion gives
+\[
+\|\Delta_{\ell+1}\|_{\ell+1}\le \kappa\|\Delta_\ell\|_\ell,
+\]
+since $u$ is fixed and \eqref{eq:K_contr} applies. Hence
+\[
+\|K^{(N)}_j-K^{(N')}_j\|_j\le \kappa^{\,j+N'}\|K^{(N)}_{-N'}\|_{-N'}
+\le C_F\sum_{m=-N}^{-N'-1}\kappa^{\,j-1-m}u_m^2.
+\]
+Because $\sum_{m=-\infty}^{-1}u_m^2<\infty$ and $\kappa^{j-1-m}$ decays exponentially as $m\to-\infty$, the right-hand side tends to $0$ as $N,N'\to\infty$.
+Thus $\{K^{(N)}_j\}_N$ is Cauchy, proving (a) and \eqref{eq:Kinf_bound} by passing to the limit in \eqref{eq:K_forcing_bound}.
+
+(b) follows from \eqref{eq:Kinf_bound} and $u_m^2\to 0$.
+
+For (c), fix $j$ and compare $\widetilde K$ with $K^{(N)}$ at scale $-N$:
+$\|\widetilde K_{-N}-0\|_{-N}\to 0$ as $N\to\infty$ by the UV boundary condition.
+Propagate forward using contraction to obtain
+\[
+\|\widetilde K_j-K^{(N)}_j\|_j\le \kappa^{\,j+N}\|\widetilde K_{-N}\|_{-N}\to 0,
+\]
+then let $N\to\infty$ and use (a).
+
+For (d), the same difference recursion yields
+\[
+\|K^{(N)}_j-K^{(\infty)}_j\|_j\le \kappa^{\,j+N}\|K^{\mathrm{UV}}_{-N}\|_{-N} + \text{(tail forcing)},
+\]
+where the forcing tail is the difference between the infinite and truncated forcing sums, giving \eqref{eq:UV_rate}.
+\end{proof}
+
+For C3-U we will later need to compare two states corresponding to two nearby renormalization conditions.
+The stable manifold construction provides explicit Lipschitz dependence of the limiting $K^{(\infty)}$ on the $u$-trajectory.
+
+\begin{corollary}[Lipschitz dependence of $K^{(\infty)}$ on $u$]\label{cor:Lip}
+Assume \ref{ass:RG_K}. Let $(u_j)_{j\le 0}$ and $(\widetilde u_j)_{j\le 0}$ be two admissible trajectories, with corresponding stable sequences
+$K^{(\infty)}$ and $\widetilde K^{(\infty)}$.
+Then for each $j\le 0$,
+\begin{equation}\label{eq:Lip_uK}
+\|K^{(\infty)}_j-\widetilde K^{(\infty)}_j\|_j
+\ \le\ L_u\sum_{m=-\infty}^{j-1}\kappa^{\,j-1-m}\,|u_m-\widetilde u_m|.
+\end{equation}
+In particular, if $\sup_{m\le j-1}|u_m-\widetilde u_m|\le \delta$, then
+\[
+\|K^{(\infty)}_j-\widetilde K^{(\infty)}_j\|_j\ \le\ \frac{L_u}{1-\kappa}\,\delta.
+\]
+\end{corollary}
+
+\begin{proof}
+Let $\Delta_j:=K^{(\infty)}_j-\widetilde K^{(\infty)}_j$.
+Using the recursion and adding/subtracting,
+\[
+\|\Delta_{j+1}\|_{j+1}\le
+\|\mathcal K_j(u_j,K^{(\infty)}_j)-\mathcal K_j(u_j,\widetilde K^{(\infty)}_j)\|_{j+1}
++
+\|\mathcal K_j(u_j,\widetilde K^{(\infty)}_j)-\mathcal K_j(\widetilde u_j,\widetilde K^{(\infty)}_j)\|_{j+1}.
+\]
+Apply \eqref{eq:K_contr} and \eqref{eq:K_Lipu}:
+\[
+\|\Delta_{j+1}\|_{j+1}\le \kappa \|\Delta_j\|_{j}+ L_u|u_j-\widetilde u_j|.
+\]
+Iterate this inequality from the UV (where $\Delta_{-N}\to 0$ as $N\to\infty$ by (b) of Theorem~\ref{thm:stable}) to obtain \eqref{eq:Lip_uK}.
+\end{proof}
+
+Theorem~\ref{thm:stable} provides the rigorous ``stable manifold'' / ``slaving'' result promised in Proposition C3.3:
+given an AF coupling trajectory $(u_j)$, there exists a unique UV-stable irrelevant trajectory $(K_j)$ compatible with the patched RG,
+and the limit is independent of UV irrelevant initialization.
+
+\paragraph{Remaining C3 items (post-).}
+To conclude full C3-U uniqueness of the continuum \emph{state}, one must still:
+\begin{enumerate}[label=(C3.\arabic*)]
+\item prove injectivity/monotonicity of the renormalization map ( Lemma C3.2(b));
+\item package the Lipschitz dependence of \emph{bulk flowed observables} on the RG data $(u,K)$ ( Lemma C3.4).
+\end{enumerate}
+ closes the structural heart: uniqueness/universality of the irrelevant sector in the UV limit.

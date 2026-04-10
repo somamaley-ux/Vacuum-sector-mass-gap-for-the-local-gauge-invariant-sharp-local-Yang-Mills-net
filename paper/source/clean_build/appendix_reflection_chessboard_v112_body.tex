@@ -1,0 +1,163 @@
+% -----------------------------------------------------------------------------
+% Appendix A: Reflection positivity and chessboard bounds (G)
+% Hardened version: avoids unjustified absolute-convergence claims by truncation.
+% -----------------------------------------------------------------------------
+
+
+This appendix records a self-contained reflection-positivity argument for the Wilson action on a periodic torus.
+The only group input is the Peter--Weyl orthogonality of matrix coefficients and the fact that
+$\Re\Tr_{\rho}(U)$ is a real class function (for any fixed unitary representation $\rho$).
+
+\subsection*{A.1. A nonnegative character-expansion approximation}
+
+Fix a compact gauge group $G$ and fix a unitary representation $\rho$ (the representation used in the Wilson plaquette weight of the main text).
+By \Cref{rem:effective_group_convention,def:effective_group,lem:center_blindness_descent} we may and do assume without loss of generality that $\rho$ is faithful
+(replace $G$ by $G_{\mathrm{eff}}:=G/\ker(\rho)$ and descend $\rho$).
+Write $d_\rho:=\dim(\rho)$.
+Define the Wilson plaquette weight (up to an irrelevant constant factor)
+\begin{equation}\label{eq:Wilson_weight_def_appA}
+W_\beta(U):=\exp\!\Big(\frac{\beta}{d_\rho}\,\Re\Tr_{\rho}(U)\Big),\qquad \beta\ge 0.
+\end{equation}
+For $M\in\mathbb N$ define the truncated weight
+\begin{equation}\label{eq:Wilson_weight_trunc}
+W_{\beta}^{(M)}(U)
+:=\sum_{m=0}^{M}\frac{1}{m!}\Big(\frac{\beta}{2d_\rho}\Big)^{m}\big(\Tr_{\rho}(U)+\Tr_{\rho}(U^{-1})\big)^{m}.
+\end{equation}
+Then $W_{\beta}^{(M)}\to W_\beta$ \emph{uniformly} on $G$ as $M\to\infty$ (since the exponential series converges uniformly on a compact set).
+
+\begin{lemma}[Finite nonnegative character expansion]\label{lem:char_exp_G}
+For each $M\in\mathbb N$ there exist coefficients $c^{(M)}_{\lambda}(\beta)\ge 0$ such that
+\begin{equation}\label{eq:G_char_exp_trunc}
+W_{\beta}^{(M)}(U)
+=\sum_{\lambda\in\mathrm{Irr}(G)} c^{(M)}_{\lambda}(\beta)\,\chi_{\lambda}(U),
+\end{equation}
+where for each fixed $M$ only finitely many $\lambda$ appear (hence \eqref{eq:G_char_exp_trunc} is a finite sum).
+\end{lemma}
+
+\begin{proof}
+Expand
+\[
+\big(\Tr_{\rho}(U)+\Tr_{\rho}(U^{-1})\big)^{m}
+=\sum_{k=0}^{m}\binom{m}{k}\,\Tr_{\rho}(U)^k\,\Tr_{\rho}(U^{-1})^{m-k}.
+\]
+Let $\rho$ denote the fixed representation above.
+Then $\Tr_{\rho}(U)^k=\chi_{\rho^{\otimes k}}(U)$ and $\Tr_{\rho}(U^{-1})^{m-k}=\chi_{(\rho^*)^{\otimes (m-k)}}(U)$.
+Thus each summand is the character of the tensor product representation
+$\rho^{\otimes k}\otimes (\rho^*)^{\otimes (m-k)}$.
+Decompose it into irreducibles:
+\[
+\rho^{\otimes k}\otimes (\rho^*)^{\otimes (m-k)}\cong\bigoplus_{\lambda\in\mathrm{Irr}(G)} M^{(k,m-k)}_{\lambda}\,\lambda,
+\]
+with multiplicities $M^{(k,m-k)}_{\lambda}\in\mathbb N_0$.
+Taking characters gives
+\[
+\Tr_{\rho}(U)^k\,\Tr_{\rho}(U^{-1})^{m-k}
+=\sum_{\lambda} M^{(k,m-k)}_{\lambda}\,\chi_{\lambda}(U).
+\]
+Substituting into \eqref{eq:Wilson_weight_trunc} and collecting coefficients yields \eqref{eq:G_char_exp_trunc} with
+\[
+ c^{(M)}_{\lambda}(\beta)
+ :=\sum_{m=0}^{M}\frac{1}{m!}\Big(\frac{\beta}{2d_\rho}\Big)^{m}\sum_{k=0}^{m}\binom{m}{k}\,M^{(k,m-k)}_{\lambda}\ \ge\ 0.
+\]
+For fixed $M$ there are only finitely many $(m,k)$ pairs and each tensor product decomposes into finitely many irreps,
+so only finitely many $\lambda$ appear.
+\end{proof}
+
+\subsection*{A.2. Crossing plaquettes as sums of squares}
+
+Fix a reflection hyperplane in the periodic torus.
+Let $\Lambda_+$ (resp. $\Lambda_-$) denote the set of oriented links on the positive (resp. negative) side of the plane,
+with the convention that links on the plane itself are assigned to both sides.
+Let $\Theta$ be the induced reflection map on configurations, and define the involution on observables by
+\begin{equation}\label{eq:Theta_def_appA}
+(\Theta F)(U):=\overline{F(\Theta U)}.
+\end{equation}
+
+A plaquette $p$ that crosses the reflection plane factors as
+\begin{equation}\label{eq:Up_factor_crossing}
+U_p=U_p^+\,(U_p^-)^{-1},
+\end{equation}
+where $U_p^+$ (resp. $U_p^-$) depends only on link variables in $\Lambda_+$ (resp. $\Lambda_-$).
+
+\begin{lemma}[Crossing plaquette weight is a sum of squares]\label{lem:crossing_square}
+For each $M\in\mathbb N$ and each $\beta\ge 0$ there exists a representation
+\[
+W_{\beta}^{(M)}(U_p)=\sum_{\lambda\in\mathrm{Irr}(G)}\sum_{a,b=1}^{d_\lambda} (\Theta\Phi^{(M)}_{\lambda,a,b})\,\Phi^{(M)}_{\lambda,a,b},
+\]
+where $\Phi^{(M)}_{\lambda,a,b}$ depends only on variables in $\Lambda_+$ and
+\[
+\Phi^{(M)}_{\lambda,a,b}:=\sqrt{c^{(M)}_{\lambda}(\beta)}\,(\rho_\lambda(U_p^+))_{ab}.
+\]
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:char_exp_G},
+\[
+W_{\beta}^{(M)}(U_p)=\sum_{\lambda} c^{(M)}_{\lambda}(\beta)\,\chi_\lambda(U_p)
+=\sum_{\lambda} c^{(M)}_{\lambda}(\beta)\,\mathrm{Tr}\big(\rho_\lambda(U_p^+)\rho_\lambda(U_p^-)^{-1}\big).
+\]
+Since $\rho_\lambda$ is unitary, $\rho_\lambda(U_p^-)^{-1}=\rho_\lambda(U_p^-)^{\dagger}$, hence
+\[
+\mathrm{Tr}\big(\rho_\lambda(U_p^+)\rho_\lambda(U_p^-)^{\dagger}\big)
+=\sum_{a,b} (\rho_\lambda(U_p^+))_{ab}\,\overline{(\rho_\lambda(U_p^-))_{ab}}.
+\]
+Under reflection, $U_p^-$ is mapped to $U_p^+$, and complex conjugation is built into \eqref{eq:Theta_def_appA}.
+Therefore $\overline{(\rho_\lambda(U_p^-))_{ab}}=(\Theta (\rho_\lambda(U_p^+))_{ab})$.
+Multiplying by $c^{(M)}_{\lambda}(\beta)\ge 0$ and setting
+$\Phi^{(M)}_{\lambda,a,b}:=\sqrt{c^{(M)}_{\lambda}(\beta)}\,(\rho_\lambda(U_p^+))_{ab}$ gives the claim.
+\end{proof}
+
+\subsection*{A.3. Reflection positivity and chessboard inequality}
+
+Let $\mu_{\beta}^{(M)}$ denote the lattice gauge measure on the periodic torus with plaquette weight $W_{\beta}^{(M)}$.
+By uniform convergence, $\mu_{\beta}^{(M)}\Rightarrow \mu_{\beta}$ as $M\to\infty$ in the sense of expectations of bounded observables.
+
+\begin{theorem}[Reflection positivity for the Wilson $G$ action]\label{thm:reflection_pos}\label{thm:RP_Wilson_full}
+Let $\mu_\beta$ be the Wilson lattice gauge measure with plaquette weight $W_\beta$ from \eqref{eq:Wilson_weight_def_appA}.
+Then $\mu_\beta$ is reflection-positive with respect to reflections across coordinate hyperplanes:
+for every bounded observable $F$ depending only on link variables in $\Lambda_+$,
+\begin{equation}\label{eq:RP_quadratic_form}
+\int (\Theta F)\,F\ d\mu_\beta\ \ge\ 0.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Fix $M\in\mathbb N$.
+Write the (unnormalized) density of $\mu_{\beta}^{(M)}$ as a product over plaquettes,
+separating plaquettes into three classes: those entirely in $\Lambda_+$, entirely in $\Lambda_-$, and crossing plaquettes.
+For each crossing plaquette, apply Lemma~\ref{lem:crossing_square}.
+Expanding the product over crossing plaquettes yields
+\[
+(\Theta F)F\,\prod_{p\ \mathrm{crossing}} W_{\beta}^{(M)}(U_p)
+=\sum_{\mathbf i} \Theta(G_{\mathbf i})\,G_{\mathbf i},
+\]
+where each $G_{\mathbf i}$ is a product of $F$ with finitely many matrix-coefficient factors coming from the $\Phi^{(M)}$'s,
+hence depends only on variables in $\Lambda_+$.
+Integrating with respect to Haar measure over the link variables on the reflection plane produces a Gram form
+\[
+\int \Theta(G_{\mathbf i})\,G_{\mathbf j}\ d\nu\ =\ \langle G_{\mathbf i},G_{\mathbf j}\rangle_{L^2},
+\]
+which is positive semidefinite by construction.
+Summing over $\mathbf i$ gives
+$\int (\Theta F)F\ d\mu_{\beta}^{(M)}\ge 0$.
+
+Finally, let $M\to\infty$.
+Since $W_{\beta}^{(M)}\to W_\beta$ uniformly and $W_{\beta}^{(M)}\le e^{\beta}$, dominated convergence implies
+$\int (\Theta F)F\ d\mu_{\beta}^{(M)}\to \int (\Theta F)F\ d\mu_{\beta}$ for bounded $F$.
+Therefore \eqref{eq:RP_quadratic_form} holds.
+\end{proof}
+
+\begin{lemma}[Chessboard inequality]\label{lem:chessboard_app}
+Let $E$ be an event depending only on link variables in one fundamental block, and let $E^\#$ be its full reflection tiling over the torus.
+Then
+\[
+\mu_\beta(E)\ \le\ \mu_\beta(E^\#)^{1/|\mathcal T|},
+\]
+where $|\mathcal T|$ is the number of reflected tiles (equivalently, the number of blocks in the chessboard construction).
+\end{lemma}
+
+\begin{proof}
+Iterate reflection positivity (Theorem~\ref{thm:reflection_pos}) across each coordinate hyperplane in the usual chessboard construction.
+At each reflection step apply Cauchy--Schwarz to the positive quadratic form \eqref{eq:RP_quadratic_form}.
+After tiling the torus by $|\mathcal T|$ reflected copies of the base block, the resulting inequality is exactly the stated bound.
+\end{proof}

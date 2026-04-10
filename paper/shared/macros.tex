@@ -1,0 +1,57 @@
+\newcommand{\proofhome}[1]{\par\smallskip\noindent\emph{Proof home.} #1.\par\smallskip}
+\newcommand{\proofsynopsis}[1]{\par\smallskip\noindent\emph{Proof synopsis.} #1.\par\smallskip}
+\newcommand{\dependencyledger}[4]{%
+  \par\smallskip
+  \noindent\begingroup\footnotesize
+  \textbf{Dependency ledger.}\par
+  \textit{Hypotheses consumed.} #1\par
+  \textit{Imported standard background.} #2\par
+  \textit{Weakest accurate conclusion.} #3\par
+  \textit{Downstream live consumers.} #4\par
+  \endgroup\smallskip
+}
+\newcommand{\draftscope}[1]{}
+\newcommand{\draftnote}[1]{}
+\newcommand{\budgetnote}[2]{}
+\newcommand{\nonclaim}[1]{\par\smallskip\noindent\textbf{Non-claim.} #1\par}
+\newcommand{\packetrow}[4]{#1 & #2 & #3 & #4\\}
+\newcommand{\tightdisplay}[1]{\begin{quote}\small #1\end{quote}}
+\newcommand{\SuiteAuthorName}{Anonymous}
+\newcommand{\SuiteAffiliationText}{Affiliation withheld for anonymized distribution}
+\newcommand{\SuiteAuthorEmail}{}
+\newcommand{\SuiteDocumentDate}{4 April 2026}
+\newcommand{\SuiteDataAvailabilityStatement}{Data sharing is not applicable to this article as no new data were created or analyzed in this study.}
+\newcommand{\SuiteSetupMetadata}[1]{\hypersetup{pdftitle={#1},pdfauthor={Anonymous}}}
+\newcommand{\SuiteMakeFrontMatter}[1]{\title{#1}\author{\SuiteAuthorName}\affiliation{\SuiteAffiliationText}\date{\SuiteDocumentDate}}
+\newcommand{\SuiteDataAvailabilitySection}{\section*{Data Availability Statement}\SuiteDataAvailabilityStatement}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prob}{\mathbb P}
+\newcommand{\1}{\mathbf 1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\cO}{\mathcal O}
+\newcommand{\cA}{\mathcal A}
+\newcommand{\cH}{\mathcal H}
+\newcommand{\cS}{\mathcal S}
+\newcommand{\cR}{\mathcal R}
+\newcommand{\cK}{\mathcal K}
+\newcommand{\loc}{\mathrm{loc}}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\dist}{\mathrm{dist}}
+\newcommand{\MainPath}{}
+\newcommand{\AltPath}{}
+\newcommand{\Spin}{\mathrm{Spin}}
+\newcommand{\Sp}{\mathrm{Sp}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\supp}{\mathrm{supp}}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\diag}{diag}
+
+\newcommand{\Aflow}{\mathcal{A}_{\mathrm{flow}}}
+\newcommand{\Aloc}{\mathcal{A}_{\mathrm{loc}}}
+\newcommand{\flowstate}{\omega_{\mathrm{flow}}}
+\newcommand{\bdstate}{\omega_{\mathrm{bd}}}
+\newcommand{\sharpstate}{\omega_{\mathrm{sharp}}}

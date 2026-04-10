@@ -1,0 +1,355 @@
+% PAGE-BUDGET TARGET: 12 pages
+% HARD MAX: 13 pages
+% BLUEPRINT PHASE 3: Draft Sections 5--6.
+\section{Lane A: finite-cap sharp-local construction and inductive-union closure}\label{sec:laneA}
+\budgetnote{12}{13}
+
+Lane~A is the only load-bearing constructive route from the flowed continuum state to the full sharp-local inductive-union algebra. Its internal logic must therefore stay literal in the core paper: exact-dimension quotient control feeds one-shell transport and finite-truncation inverse control; that package feeds the first mixed-correlator bridge at finite cap and then the theorem-facing positive/unital finite-cap bridge into the capwise OS theorem; only afterward does the proof pass from capwise sharp-local states to the full inductive union and finally export bounded-base cyclicity. The section is long because those role boundaries are themselves part of the proof architecture.
+
+\paragraph{Phase-IV quantifier discipline.}
+Every Lane~A statement below is to be read with its exact scope frozen. The finite-cap theorems concern one fixed engineering cap at a time, and any constants, graph norms, or invariant cores may depend on that cap. Corollary~\ref{cor:full-inductive-union} is only the qualitative passage to the inductive union. Theorem~\ref{thm:bounded-base-cyclicity} is the first full sharp-local density export. No theorem in this section claims a quantitative estimate uniform over the entire inductive union unless that uniformity is stated explicitly.
+
+\subsection{Flowed continuum state and bounded positive-time base state}
+
+\begin{theorem}[Unique flowed continuum state]\label{thm:flowed-state}
+Fix a target renormalized coupling value $u(\mu)=u_\mu$ in the asymptotically free interval and, for each lattice spacing $a$, tune the ultraviolet coupling so that this renormalization condition holds. Then the chart-truncated dyadic RG outputs converge without subsequences on $\Aflow$, and the physical Wilson expectations converge to the same limit. More precisely, there exists a unique Euclidean-invariant state $\flowstate$ on $\Aflow$ such that for every $F\in\Aflow$,
+\[
+\flowstate(F)=\lim_{a\downarrow 0}\omega_a(F)=\lim_{a\downarrow 0}\omega_a^{\mathrm{RG}}(F).
+\]
+The limit is independent of ultraviolet irrelevant initialization once the renormalized coupling trajectory has been fixed.
+\end{theorem}
+
+\proofsynopsis{This is the packet-4 flowed-state closure theorem: no-subsequence convergence of the chart-truncated RG outputs yields the RG limit on $\Aflow$, and the Wilson$=$RG identification on $\Aflow$ is then supplied by the flowed de-patching seam proved in Companion~I. The core paper uses only the theorem-facing consequence that the flowed continuum state is already fixed before Lane~A begins.}
+\proofhome{Companion II, Section~1, together with the flowed de-patching seam in Companion~I, Section~3.}
+
+\begin{corollary}[Tuned bounded positive-time base state]\label{cor:bounded-base-state}
+Fix $u_{\mathrm{ren}}\in(0,u_*]$ and let
+\[
+a_n:=\ell_0 2^{-n},\qquad \beta_n:=\beta(a_n;u_{\mathrm{ren}})
+\]
+be the associated tuned dyadic trajectory. Then for every finite family $\mathcal F\subset A_+$ of bounded cylinder observables supported in $\{x_0>0\}$, the Wilson expectations $\{\omega_{a_n}(F)\}_{F\in\mathcal F}$ converge jointly as $n\to\infty$. In particular, for every $F\in A_+$ the limit
+\[
+\bdstate(F):=\lim_{n\to\infty}\omega_{a_n}(F)
+\]
+exists and defines a state on the bounded positive-time algebra.
+\end{corollary}
+
+\begin{proof}
+This is exactly the tuned bounded positive-time base-state corollary in Companion~II, Appendix~A (source Corollary~4.94). It uses the same no-subsequence convergence and observable-evaluation Lipschitz packet for finite bounded families in $A_+$, but it does not require the flowed de-patching seam.
+\end{proof}
+
+\subsection{Exact-dimension quotient blocks}
+
+\begin{theorem}[Exact-dimension quotient identity]\label{thm:exact-dimension-identity}
+For every exact-dimension symmetry block $V_{\Delta,\epsilon,\lambda}$ in the graded local-operator quotient, the descended small-flow substitution acts as the identity on the associated-graded block:
+\[
+\operatorname{gr}_{\Delta}(\Gamma_t)\!\upharpoonright_{V_{\Delta,\epsilon,\lambda}}=I_{V_{\Delta,\epsilon,\lambda}}.
+\]
+Equivalently, the tree-level small-flow matching on each exact-dimension quotient block is basis-free and exactly the identity.
+\end{theorem}
+
+\proofsynopsis{The proof passes to the exact-dimension quotient, observes that higher-dimension corrections carry explicit positive powers of $t$, and then projects to the associated-graded piece. The theorem is the basis-free diagonal-symbol statement consumed later by one-shell transport and finite-truncation inverse control.}
+\proofhome{Companion II, Section~2.}
+
+\begin{theorem}[Coefficient extraction on arbitrary quotient blocks]\label{thm:quotient-coefficient-extraction}
+Fix an exact-dimension symmetry block $V_{\Delta,\epsilon,\lambda}$ and choose the canonical local and flowed bases attached to that block. Let $C^{\mathrm{UV,tree}}_{\Delta,\epsilon,\lambda}$ be the tree-level exact-dimension diagonal block of the ultraviolet matching matrix obtained by coefficient extraction after small-flow substitution. Then
+\[
+C^{\mathrm{UV,tree}}_{\Delta,\epsilon,\lambda}=I.
+\]
+In particular, the exact-dimension diagonal ultraviolet matching problem on an arbitrary symmetry block is an intrinsic finite-dimensional linear-algebra problem attached to the quotient block itself, and the same matrix is seen in every engineering cap containing that block.
+\end{theorem}
+
+\proofsynopsis{Once the associated-graded identity of \cref{thm:exact-dimension-identity} has been proved, coefficient extraction on the canonical block basis simply reads off the standard basis vectors. The result is the theorem-level ultraviolet datum used in the later inverse-control step.}
+\proofhome{Companion II, Section~2.}
+
+\subsection{One-shell transport and finite-truncation inverse control}
+
+\begin{theorem}[One-shell transport on finite truncations]\label{thm:one-shell-transport}
+Fix an exact-dimension symmetry block $s=(\Delta,\epsilon,\lambda)$ with canonical local basis, canonical flowed basis, and canonical block norm. Let $Y_{s,j}(f)$ denote the vector of canonical flowed lifts at dyadic times $t_j=2^{-2j}t_0$, ordered in the fixed canonical basis. Then there exist scale-independent constants $C_s,C_{s,f}<\infty$ and canonically defined linear maps
+\[
+A_{s,j}:V_s\to V_s,\qquad B_{ss',j}:V_{s'}\to V_s\quad(s'\prec s),
+\]
+such that
+\[
+Y_{s,j+1}(f)=\bigl(I_s+u_jA_{s,j}\bigr)Y_{s,j}(f)+\sum_{s'\prec s}u_j B_{ss',j}Y_{s',j}(f)+Q_{s,j}(f),
+\]
+with
+\[
+\|A_{s,j}\|_{\mathrm{op,can}}+\sum_{s'\prec s}\|B_{ss',j}\|_{\mathrm{op,can}}\le C_s,
+\qquad
+\|Q_{s,j}(f)\|_{L^2(\|\cdot\|_{\mathrm{can}})}\le C_{s,f}u_j^2.
+\]
+Equivalently, after quotienting by lower blocks of the grading order, exact-dimension one-shell transport is $I_s+u_jA_{s,j}+O(u_j^2)$.
+\end{theorem}
+
+\proofsynopsis{Flow quasi-locality and the patched insertion decomposition write one shell difference as a finite sum of local terms. Exact-dimension contributions remain inside the same block, lower-dimension contributions land in strictly lower blocks, and the remainder is $O(u_j^2)$ in the capwise $L^2$ topology.}
+\proofhome{Companion II, Section~3.}
+
+\begin{theorem}[Finite-truncation inverse control]\label{thm:finite-truncation-inverse}
+Fix $\Delta_{\max}\ge 0$ and order the canonical symmetry blocks of engineering dimension at most $\Delta_{\max}$ by increasing engineering dimension and then by a fixed symmetry-type order. Let
+\[
+C^{(\le \Delta_{\max})}(t;\mu)
+\]
+be the full coefficient matrix from the canonical flowed lifts of that truncation to the corresponding renormalized local basis. Then, for all sufficiently small $t$:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.25em]
+\item $C^{(\le \Delta_{\max})}(t;\mu)$ is block lower triangular in the chosen grading order;
+\item each diagonal block satisfies the canonical polylogarithmic inverse bound;
+\item each off-diagonal block is uniformly bounded on $(0,t_0]$ by the insertion-integration and insertion-to-OS bounds together with finite-depth composition in the fixed truncation.
+\end{enumerate}
+Consequently there exist constants $C_{\Delta_{\max},\mathrm{inv}}<\infty$ and $p_{\Delta_{\max}}<\infty$ such that
+\[
+\bigl\|\bigl(C^{(\le \Delta_{\max})}(t;\mu)\bigr)^{-1}\bigr\|_{\mathrm{op}}
+\le
+C_{\Delta_{\max},\mathrm{inv}}\left(\frac{u(\mu)}{u(\mu_t)}\right)^{p_{\Delta_{\max}}}
+\qquad (0<t\le t_0),
+\]
+so the quantitative inverse-control hypothesis holds on every finite engineering-dimension truncation.
+\end{theorem}
+
+\proofsynopsis{Power counting gives the lower-triangular structure; canonical block inverse control handles the diagonal blocks; and the finitely many off-diagonal blocks are bounded by insertion integration and insertion-to-OS estimates. A finite lower-triangular assembly then yields the polylogarithmic inverse bound for the full truncation.}
+\proofhome{Companion II, Section~3.}
+\dependencyledger
+  {the exact-dimension quotient package of Theorems~\ref{thm:exact-dimension-identity} and~\ref{thm:quotient-coefficient-extraction}, the one-shell transport theorem~\ref{thm:one-shell-transport}, and the insertion-integration / insertion-to-OS bounds on each fixed truncation recorded in the proof home}
+  {none}
+  {every fixed engineering cap has a canonical block-lower-triangular coefficient matrix with a polylogarithmic inverse bound; no full-inductive-union uniformity is asserted}
+  {Corollary~\ref{cor:finite-truncation-sfte}, Theorem~\ref{thm:mixed-correlator-closure}, and Theorem~\ref{thm:finite-cap-extension}}
+
+\begin{corollary}[Finite-truncation SFTE/remainder package]\label{cor:finite-truncation-sfte}
+Fix $\Delta_{\max}\ge 0$ and the canonical blockwise basis. Then the canonical flowed lifts and the renormalized local fields on that truncation satisfy a small-flow-time expansion
+\[
+Y_t^{(\le \Delta_{\max})}(f)=C^{(\le \Delta_{\max})}(t;\mu)\,O_{\mathrm{ren}}^{(\le \Delta_{\max})}(f;\mu)+R_t^{(\le \Delta_{\max})}(f;\mu)
+\]
+with block-lower-triangular coefficient matrix. There exists $\eta_{\Delta_{\max}}>0$ such that every fixed capwise vacuum or mixed channel of the remainder is $O(t^{\eta_{\Delta_{\max}}})$, hence compatible with any polylogarithmic inverse bound. Equivalently, on every fixed finite cap the centered inverse-flow approximants are Cauchy as $t\downarrow 0$.
+\end{corollary}
+
+\begin{proof}
+This is the capwise remainder package produced by the canonical insertion-RG decomposition together with the finite-truncation inverse control of \cref{thm:finite-truncation-inverse}. The compatibility with polylogarithmic inverse factors is exactly what allows the finite-cap closure theorem to be stated without any extra sectorwise hypotheses.
+\end{proof}
+
+The explicit scalar, tensor, and loop sectors are retained only as audited illustrations and normalization cross-checks in Companion~II. They are not the load-bearing widening step in the core paper. What matters here is that \cref{thm:finite-truncation-inverse,cor:finite-truncation-sfte} provide unconditional finite-truncation inverse and remainder control on every canonical engineering cap.
+
+\subsection{Mixed-correlator bridge at finite cap}
+
+\begin{corollary}[Finite mixed bounded-family packaging]\label{cor:finite-mixed-family}
+Fix $u_{\mathrm{ren}}\in(0,u_*]$ and $\Delta_{\max}\ge 0$. Let
+\[
+B_{\mathrm{cap}}^{(\le \Delta_{\max})}:=\ast\bigl(A_{\mathrm{flow}}^{(\le \Delta_{\max})},A_+\bigr)
+\]
+be the bounded capwise algebra generated by the capwise flowed subalgebra and the bounded positive-time algebra. For every finite family $W\subset B_{\mathrm{cap}}^{(\le \Delta_{\max})}$ there is a unique packaged state
+\[
+\omega^{(u_{\mathrm{ren}})}_{W,\mathrm{cap,bnd}}
+\]
+on the finitely generated algebra $\operatorname{Alg}(W)$ such that:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.25em]
+\item tuned Wilson expectations of every finite family in $\operatorname{Alg}(W)$ converge jointly along the associated dyadic trajectory;
+\item the packaged state is positive, unital, and agrees with $\flowstate$ on $\operatorname{Alg}(W)\cap A_{\mathrm{flow}}^{(\le \Delta_{\max})}$ and with $\bdstate$ on $\operatorname{Alg}(W)\cap A_+$;
+\item the packaged states are compatible on overlaps and inherit the time-translation covariance later used at the mixed-channel seam.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+The finite-family algebra generated by a fixed bounded set is still a bounded finite observable set, so the same convergence, positivity, and overlap-compatibility arguments used earlier for the flowed and bounded positive-time states apply after packaging one finite family at a time.
+\end{proof}
+
+\begin{theorem}[First mixed-correlator closure at finite cap]\label{thm:mixed-correlator-closure}
+Fix $u_{\mathrm{ren}}\in(0,u_*]$ and $\Delta_{\max}\ge 0$. Let $A_{\mathrm{loc}}^{(\le \Delta_{\max})\wedge}$ be the abstract unital $\ast$-algebra generated by $B_{\mathrm{cap}}^{(\le \Delta_{\max})}$ together with the formal centered capwise local symbols
+\[
+\widehat O_j^{(\le \Delta_{\max})}(f;\mu).
+\]
+For every finite family of bounded words fixing the ambient mixed channel, the centered inverse-flow representatives are Cauchy as all flow parameters tend to $0$, and the resulting limits define a unique positive unital functional on $A_{\mathrm{loc}}^{(\le \Delta_{\max})\wedge}$. Equivalently, once the capwise state has been defined, every formal centered symbol is realized by the corresponding centered renormalized local insertion, and the mixed-channel limit is independent of the relative rates at which the local flow parameters tend to $0$.
+\end{theorem}
+
+\proofsynopsis{The theorem is the finite-cap mixed-channel closure node on the public spine. Corollary~\ref{cor:finite-truncation-sfte} supplies the remainder/inverse compatibility, Corollary~\ref{cor:finite-mixed-family} supplies the finite-family packaged bounded states, and the literal telescoping-summand reduction closes the mixed-channel Cauchy passage. Downstream arguments cite this node only, not the precursor chain.}
+\proofhome{Companion II, Section~4.}
+\dependencyledger
+  {Corollary~\ref{cor:finite-mixed-family}, Corollary~\ref{cor:finite-truncation-sfte}, Theorem~\ref{thm:finite-truncation-inverse}, and the fixed-cap telescoping reduction of mixed channels used in the proof home}
+  {none}
+  {for one fixed engineering cap and one fixed mixed channel, the centered inverse-flow representatives converge to a unique positive unital capwise functional on the abstract mixed algebra; the statement does not yet pass to the inductive union and does not yet assert bounded-base cyclicity}
+  {Theorem~\ref{thm:finite-cap-extension}}
+
+At the proof home, the next step is now theorem-facing: Companion~II promotes an explicit finite-cap state bridge into source Theorem~5.74 that packages exactly the positive/unital capwise functional extracted from the bounded-family and mixed-channel closure package. The same proof home now isolates the finite-cap positivity mechanism as a separate lemma: reflection positivity is read only through bounded positive-time representatives, and the inverse-flow replacement error tends to zero before the capwise OS theorem is invoked. The capwise OS-structure theorem then uses only that local package; the inductive-union passage and bounded-base cyclicity remain separate later exports.
+
+For referee navigation, the proof home now also publishes a short state-construction ledger in Companion~II, Section~7: tuned bounded Wilson base state on $A_+$, finite bounded-family packaging, mixed-correlator closure on one fixed cap, the promoted positive/unital capwise bridge, the capwise OS field realization, the inductive-union state, and finally bounded-base cyclicity. No later QE3 or endpoint theorem uses any hidden functional-backbone step outside that ledger.
+
+\subsection{Finite-cap sharp-local extension}
+
+\begin{theorem}[Finite-cap sharp-local extension]\label{thm:finite-cap-extension}
+Fix a weak-window target value $u_{\mathrm{ren}}\in(0,u_*]$ and an engineering cutoff $\Delta_{\max}\ge 0$. Let $A_{\mathrm{loc}}^{(\le \Delta_{\max})}$ be the $\ast$-algebra generated by the capwise flowed subalgebra, the bounded positive-time algebra, and the canonical renormalized local generators of engineering dimension at most $\Delta_{\max}$. Then \cref{thm:mixed-correlator-closure,thm:finite-truncation-inverse,cor:finite-truncation-sfte} define a unique capwise sharp-local continuum state
+\[
+\omega_{\le \Delta_{\max}}^{(u_{\mathrm{ren}})}
+\]
+on $A_{\mathrm{loc}}^{(\le \Delta_{\max})}$ such that:
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=2.25em]
+\item for every capwise basis index $j$ and test function $f$, the centered inverse-flow approximants converge in every mixed capwise channel to the centered renormalized local field;
+\item the Schwinger functions of these capwise renormalized local fields satisfy the Osterwalder--Schrader axioms, and the corresponding field polynomials are realized on the explicit common invariant core of bounded flowed positive-time classes;
+\item the restriction of $\omega_{\le \Delta_{\max}}^{(u_{\mathrm{ren}})}$ to the capwise flowed subalgebra equals $\flowstate$, while its restriction to $A_+$ equals $\bdstate$ and carries the same dyadic OS matrix elements.
+\end{enumerate}
+\end{theorem}
+
+\proofsynopsis{The theorem now uses the theorem-facing finite-cap bridge made explicit in Companion~II: \cref{thm:mixed-correlator-closure} provides the mixed-channel closure node, the promoted bridge packages the unique positive unital capwise functional, and the dedicated finite-cap positivity lemma states explicitly that reflection positivity is read only through bounded positive-time representatives and that the inverse-flow replacement error tends to zero before the capwise OS theorem is invoked. The present theorem then adds only the capwise sharp-local identification, OS field realization, and compatibility clauses later separated from the inductive-union passage. In particular, the bounded-state restriction compatibility consumed later at QE3 is not itself the inductive-union theorem.}
+\proofhome{Companion II, Section~5.}
+\dependencyledger
+  {Theorem~\ref{thm:mixed-correlator-closure}, Theorem~\ref{thm:finite-truncation-inverse}, Corollary~\ref{cor:finite-truncation-sfte}, and the theorem-facing finite-cap state bridge together with the dedicated positivity lemma isolated in the Companion~II proof home}
+  {none beyond the standard OS reconstruction step on each finite cap, applied only after the finite-cap reflection-positive state has been constructed theorem-locally in the proof home}
+  {one fixed engineering cap acquires a unique sharp-local state with capwise OS structure and bounded-state compatibility on the bounded subalgebras; the theorem does not yet assert the inductive-union passage or bounded-base cyclicity}
+  {Corollary~\ref{cor:full-inductive-union} and Theorem~\ref{thm:continuum-time-os-upgrade}}
+
+\subsection{Inductive union and bounded-base cyclicity}
+
+\begin{corollary}[Passage to the full sharp-local inductive union]\label{cor:full-inductive-union}
+For each $\Delta_{\max}\ge 0$, the finite truncation $A_{\mathrm{loc}}^{(\le \Delta_{\max})}$ satisfies the hypotheses of \cref{thm:finite-cap-extension}. The resulting capwise sharp-local states are compatible under the natural inclusions
+\[
+A_{\mathrm{loc}}^{(\le \Delta_{\max})}\hookrightarrow A_{\mathrm{loc}}^{(\le \Delta'_{\max})}
+\qquad (\Delta_{\max}\le \Delta'_{\max}),
+\]
+and therefore define a unique state on the inductive union
+\[
+\Aloc:=\varinjlim_{\Delta_{\max}\to\infty} A_{\mathrm{loc}}^{(\le \Delta_{\max})}.
+\]
+This state extends $\bdstate$ on $A_+$ and satisfies the OS axioms on the full sharp-local algebra generated by flowed curvature composites.
+\end{corollary}
+
+\begin{proof}
+For each engineering cutoff $\Delta_{\max}$, \cref{thm:finite-cap-extension} furnishes a capwise sharp-local state
+\[
+\omega_{\le \Delta_{\max}}^{(u_{\mathrm{ren}})}
+\]
+on $A_{\mathrm{loc}}^{(\le \Delta_{\max})}$. Fix $\Delta_{\max}\le \Delta'_{\max}$. We first prove the overlap identity on the smaller cap by reducing to the three generator classes that span it.
+
+\paragraph*{Step 1: overlap words in the bounded and flowed sectors.}
+If $W$ is a word built only from bounded positive-time observables and capwise flowed observables lying in $A_{\mathrm{loc}}^{(\le \Delta_{\max})}$, then \cref{thm:finite-cap-extension} part~\textup{(c)} identifies the restrictions of both capwise states with the same bounded base state $\bdstate$ on $A_+$ and with the same flowed state $\flowstate$ on the capwise flowed algebra. Hence
+\[
+\omega_{\le \Delta'_{\max}}^{(u_{\mathrm{ren}})}(W)=\omega_{\le \Delta_{\max}}^{(u_{\mathrm{ren}})}(W)
+\]
+for every such overlap word $W$.
+
+\paragraph*{Step 2: overlap words containing renormalized local generators.}
+Let
+\[
+W=Q(B_1,\dots,B_r,\,O_1,\dots,O_s)
+\]
+be a noncommutative word in which each $B_i$ belongs to the overlap of the bounded or flowed sectors and each $O_j$ is a renormalized local generator whose quotient label already appears below the smaller cap. The coherent normalization scheme fixes those quotient labels and normalized generators before the larger cap is chosen. For each $O_j$ choose the inverse-flow approximants $O_{j,t}$ supplied by \cref{thm:finite-cap-extension}; because the generator is already present in the smaller cap, the same approximating family $O_{j,t}$ is admissible in both caps. Set
+\[
+W_t:=Q(B_1,\dots,B_r,\,O_{1,t},\dots,O_{s,t}).
+\]
+Then $W_t$ lies in the overlap algebra generated by the bounded and flowed sectors, so Step~1 gives
+\[
+\omega_{\le \Delta'_{\max}}^{(u_{\mathrm{ren}})}(W_t)=\omega_{\le \Delta_{\max}}^{(u_{\mathrm{ren}})}(W_t)
+\qquad (t>0).
+\]
+Now \cref{thm:finite-cap-extension} part~\textup{(a)} identifies each $O_j$ as the mixed-channel limit of $O_{j,t}$ in both caps. Passing to the limit $t\downarrow 0$ therefore yields
+\[
+\omega_{\le \Delta'_{\max}}^{(u_{\mathrm{ren}})}(W)=\omega_{\le \Delta_{\max}}^{(u_{\mathrm{ren}})}(W)
+\]
+for every overlap word $W$ in the smaller cap.
+
+\paragraph*{Step 3: state equality on the overlap algebra.}
+Finite linear combinations of overlap words span $A_{\mathrm{loc}}^{(\le \Delta_{\max})}$. By Steps~1--2 the two capwise states agree on that spanning set, hence
+\[
+\omega_{\le \Delta'_{\max}}^{(u_{\mathrm{ren}})}\!\upharpoonright_{A_{\mathrm{loc}}^{(\le \Delta_{\max})}}=\omega_{\le \Delta_{\max}}^{(u_{\mathrm{ren}})}.
+\]
+Thus the finite-cap states are compatible under the natural inclusions.
+
+Now let $A_{\mathrm{loc}}^{\mathrm{alg}}:=\bigcup_{\Delta_{\max}}A_{\mathrm{loc}}^{(\le \Delta_{\max})}$ with the inductive-union algebra structure. Every algebra element lies in some finite cap, so define its expectation by evaluating it in any cap containing it. The compatibility just proved makes this cap-independent, and positivity / unitality are inherited capwise. This yields a well-defined state on
+\[
+\Aloc=\varinjlim_{\Delta_{\max}\to\infty} A_{\mathrm{loc}}^{(\le \Delta_{\max})}.
+\]
+Finally, every OS test polynomial involves only finitely many generators and therefore lies in one finite cap. For that polynomial, the Euclidean invariance, symmetry, and reflection-positivity clauses are exactly the clauses already proved for the corresponding capwise state in \cref{thm:finite-cap-extension}, so the OS axioms pass verbatim to the inductive union. The restriction to $A_+$ is the same bounded state on every cap and therefore equals $\bdstate$ on the full sharp-local algebra.
+\end{proof}
+
+\dependencyledger
+  {the capwise states of Theorem~\ref{thm:finite-cap-extension} together with the explicit overlap comparison on shared generators and inverse-flow representatives fixed by the coherent normalization scheme}
+  {none}
+  {the compatible finite-cap states glue to one qualitative sharp-local inductive-union state extending the bounded base state; this is only the passage to the full union and does not itself prove bounded-base cyclicity}
+  {Theorem~\ref{thm:bounded-base-cyclicity}, Theorem~\ref{thm:continuum-time-os-upgrade}, and Theorem~\ref{thm:euclidean-os-dossier}}
+\begin{remark}[Quantifier boundary at the inductive-union passage]
+Corollary~\ref{cor:full-inductive-union} is qualitative glueing only. It identifies the compatible finite-cap states on overlaps and defines the inductive-union sharp-local state, but it does not promote the capwise inverse-control, remainder, or graph-norm bounds to a statement uniform over the full union.
+\end{remark}
+
+
+\begin{theorem}[Bounded-base cyclicity in the reconstructed sharp-local Hilbert space]\label{thm:bounded-base-cyclicity}
+Fix $u_{\mathrm{ren}}\in(0,u_*]$ and let $\sharpstate$ be the full sharp-local state of Corollary~\ref{cor:full-inductive-union}. Let $(H_{\mathrm{loc}},\Omega_{\mathrm{loc}},\mathcal H_{\mathrm{loc}})$ be its OS reconstruction, and let $\mathcal P_{+,\mathrm{sharp}}$ be the $\ast$-algebra of finite positive-time polynomials in the renormalized local generators with test functions supported in $\{x_0>0\}$. Then:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.25em]
+\item for every $P\in\mathcal P_{+,\mathrm{sharp}}$ there exists a family $P_t^{\mathrm{bnd}}\in A_+$ such that
+\[
+\|[P_t^{\mathrm{bnd}}]-[P]\|_{\mathcal H_{\mathrm{loc}}}\longrightarrow 0\qquad (t\downarrow 0);
+\]
+\item the image of $A_+$ is dense in $\mathcal H_{\mathrm{loc}}$, equivalently $\Omega_{\mathrm{loc}}=[1]$ is cyclic for the bounded positive-time base algebra inside the full sharp-local reconstruction;
+\item the centered bounded classes satisfy
+\[
+\overline{\operatorname{span}}\{[F-\sharpstate(F)]:F\in A_+\}=\Omega_{\mathrm{loc}}^{\perp}.
+\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Fix $P\in\mathcal P_{+,\mathrm{sharp}}$. Only finitely many renormalized local generators occur in $P$, so there exists an engineering cap $\Delta_{\max}$ such that $P\in A_{\mathrm{loc}}^{(\le \Delta_{\max})}$. Write
+\[
+P=Q(O_1,\dots,O_r)
+\]
+for a fixed noncommutative polynomial $Q$ in capwise generators $O_1,\dots,O_r$. For each $O_\nu$, choose a sequence of RP-safe bounded positive-time representatives
+\[
+B_{\nu,n}\in A_+,\qquad n\in\mathbb N,
+\]
+obtained from the inverse-flow representatives in \cref{thm:finite-cap-extension} along any fixed sequence $t_n\downarrow 0$, so that
+\[
+\|[B_{\nu,n}]-[O_\nu]\|_{\mathcal H_{\mathrm{loc}}}\longrightarrow 0\qquad (n\to\infty)
+\]
+for each $\nu$. Define the bounded approximating sequence
+\[
+P_n^{\mathrm{bnd}}:=Q(B_{1,n},\dots,B_{r,n})\in A_+.
+\]
+
+Because the cap is fixed and $Q$ has finite degree, every factor appearing in $Q$ acts on the same finite-cap invariant core, and the remaining bounded factors stay uniformly controlled in the finitely many capwise graph norms relevant to $P$. Expanding the noncommutative polynomial difference by the usual telescoping identity gives
+\[
+P_n^{\mathrm{bnd}}-P=\sum_{\nu=1}^r T_{\nu,n}\bigl(B_{\nu,n}-O_\nu\bigr),
+\]
+where each $T_{\nu,n}$ is a finite linear combination of monomials in the other factors. The capwise bounds just noted therefore give a constant $C_P<\infty$, depending only on the chosen cap and on $P$, such that
+\[
+\|[P_n^{\mathrm{bnd}}]-[P]\|_{\mathcal H_{\mathrm{loc}}}
+\le C_P\sum_{\nu=1}^r \|[B_{\nu,n}]-[O_\nu]\|_{\mathcal H_{\mathrm{loc}}}.
+\]
+Since the right-hand side tends to $0$, we obtain
+\[
+\|[P_n^{\mathrm{bnd}}]-[P]\|_{\mathcal H_{\mathrm{loc}}}\longrightarrow 0\qquad (n\to\infty),
+\]
+which proves part~\textup{(i)}.
+
+To prove part~\textup{(ii)}, fix $\psi\in\mathcal H_{\mathrm{loc}}$ and $\varepsilon>0$. Choose a Cauchy sequence of positive-time sharp-local polynomials $P^{(m)}\in\mathcal P_{+,\mathrm{sharp}}$ whose OS classes converge to $\psi$. Pick $m$ so large that
+\[
+\|\psi-[P^{(m)}]\|_{\mathcal H_{\mathrm{loc}}}<\varepsilon/2.
+\]
+Applying part~\textup{(i)} to the single polynomial $P^{(m)}$, choose $n$ such that
+\[
+\|[P_n^{\mathrm{bnd}}]-[P^{(m)}]\|_{\mathcal H_{\mathrm{loc}}}<\varepsilon/2.
+\]
+Then $P_n^{\mathrm{bnd}}\in A_+$ and
+\[
+\|\psi-[P_n^{\mathrm{bnd}}]\|_{\mathcal H_{\mathrm{loc}}}<\varepsilon.
+\]
+Because $\psi$ and $\varepsilon$ were arbitrary, the image of $A_+$ is dense in $\mathcal H_{\mathrm{loc}}$. This proves cyclicity of the bounded positive-time base algebra.
+
+For part~\textup{(iii)}, every bounded class decomposes as
+\[
+[F]=[F-\sharpstate(F)] + \sharpstate(F)\,\Omega_{\mathrm{loc}}.
+\]
+Thus the closed linear span of $\Omega_{\mathrm{loc}}$ together with the centered bounded classes contains the dense image of $A_+$ and is therefore all of $\mathcal H_{\mathrm{loc}}$. Each centered bounded class is orthogonal to $\Omega_{\mathrm{loc}}$, so their closed linear span is contained in $\Omega_{\mathrm{loc}}^{\perp}$. Conversely, if $\eta\in\Omega_{\mathrm{loc}}^{\perp}$, approximate $\eta$ by bounded classes $[F_n]$ using part~\textup{(ii)} and replace each $[F_n]$ by the centered class $[F_n-\sharpstate(F_n)]$; orthogonality to $\Omega_{\mathrm{loc}}$ removes only the vacuum component. Hence
+\[
+\overline{\operatorname{span}}\{[F-\sharpstate(F)]:F\in A_+\}=\Omega_{\mathrm{loc}}^{\perp},
+\]
+which is exactly part~\textup{(iii)}.
+\end{proof}
+
+\proofsynopsis{The theorem now constructs an explicit bounded approximating sequence. For a fixed positive-time sharp-local polynomial $P=Q(O_1,\dots,O_r)$ in one engineering cap, choose RP-safe bounded representatives $B_{\nu,n}\in A_+$ for each generator $O_\nu$ and set $P_n^{\mathrm{bnd}}:=Q(B_{1,n},\dots,B_{r,n})$. A finite telescoping identity on the common invariant core then bounds $\|[P_n^{\mathrm{bnd}}]-[P]\|$ by a cap-dependent constant times $\sum_\nu \|[B_{\nu,n}]-[O_\nu]\|$, so every polynomial class is a norm limit of bounded classes. Approximating an arbitrary Hilbert vector first by a sharp-local polynomial class and then by its bounded sequence gives density; centering removes only the vacuum component.}
+\proofhome{Companion II, Section~6.}
+\dependencyledger
+  {the finite-cap inverse-flow representatives and RP-safe bounded approximants supplied by Theorem~\ref{thm:finite-cap-extension}, together with the full sharp-local state of Corollary~\ref{cor:full-inductive-union}}
+  {none}
+  {the bounded positive-time algebra is dense in the reconstructed full sharp-local Hilbert space and the closed linear span of its centered classes is the vacuum-orthogonal sector; no new gap statement is proved here}
+  {Corollary~\ref{cor:density-bounded-base} and Theorem~\ref{thm:euclidean-os-dossier}}
+\begin{remark}[First full-sharp-local export on Lane~A]
+Theorem~\ref{thm:bounded-base-cyclicity} is the first theorem that exports a full sharp-local density statement. In later QE3 uses every sharp-local polynomial vector is still handled one finite engineering cap at a time before this density conclusion is invoked. No full-union familywise graph-norm estimate is being asserted here.
+\end{remark}
+
+
+The output of Lane~A is now fixed in theorem-level form: a finite-cap sharp-local extension, an inductive-union passage to the full sharp-local algebra, and bounded-base cyclicity in the reconstructed sharp-local Hilbert space. Those are exactly the inputs later consumed at the QE3 seam and in the claim-facing endpoint packet; everything else in the larger manuscript that supports Lane~A has been pushed to Companion~II.

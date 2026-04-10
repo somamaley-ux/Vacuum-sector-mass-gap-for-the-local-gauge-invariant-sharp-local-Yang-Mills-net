@@ -1,0 +1,41 @@
+\section{Imported standard background and proof-home map}\label{app:kernel-imports}
+
+This kernel is self-contained at theorem level, but it intentionally boxes rather than re-proves a small amount of standard background. Everything not listed below is part of the internal manuscript proof burden and is either stated directly in the kernel or cited to an explicit companion proof home.
+
+\subsection*{Imported standard results}
+\begin{description}[leftmargin=2.2em,style=nextline]
+\item[KP/Dobrushin entrance-to-clustering package.] Used after the one-shot entrance theorem has already been established. It supplies the standard clustering mechanism once the exact blocked specification has entered the KP/Dobrushin basin; it is not a substitute for the Route~1 transport chain.
+\item[Standard OS reconstruction / analytic continuation / uniqueness theorem family.] Used after the constructive Euclidean packet has already produced the full sharp-local reflection-positive state and Schwinger family. It is invoked in Theorems~\ref{thm:continuum-time-os-upgrade}, \ref{thm:euclidean-os-dossier}, \ref{thm:wightman-reconstruction}, and \ref{thm:faithful-wilson-universality} only at the precise points where reconstruction or uniqueness becomes standard.
+\item[Spectral theorem and semigroup calculus.] Used in Theorem~\ref{thm:continuum-gap-transport} and its corollaries only through the local semigroup and Laplace-transform reformulations already isolated at the theorem-facing nodes.
+\end{description}
+
+\subsection*{Use-site matrix for the boxed imports}
+\begin{center}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}p{3.15cm}p{2.55cm}p{2.45cm}p{3.35cm}@{}}
+\toprule
+\textbf{Imported background} & \textbf{First kernel node allowed to use it} & \textbf{Last live node using it} & \textbf{Internal packet that must already be complete}\\
+\midrule
+KP/Dobrushin entrance-to-clustering package & Proposition~\ref{prop:one-shot-entrance} and its downstream clustering corollaries & Theorem~\ref{thm:main}(B) assembly & Packets~1--2; the blocked specification has already entered the KP/Dobrushin basin theorem-locally\\
+Standard OS reconstruction / analytic continuation / uniqueness theorem family & Theorem~\ref{thm:continuum-time-os-upgrade} for the semigroup upgrade, then Theorem~\ref{thm:euclidean-os-dossier}, Theorem~\ref{thm:wightman-reconstruction}, and Theorem~\ref{thm:faithful-wilson-universality} & Theorem~\ref{thm:faithful-wilson-universality} & Packets~4--9; the sharp-local reflection-positive state and Schwinger family already exist before reconstruction or uniqueness is invoked\\
+Spectral theorem and semigroup calculus & Theorem~\ref{thm:continuum-gap-transport} & Corollary~\ref{cor:continuum-vacuum-gap} and Corollary~\ref{cor:minkowski-gap} & Packet~8; the OS Hamiltonian and semigroup already exist before spectral reformulation is used\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Phase-VIII import discipline.}
+In the adversarial-verification program of Appendices~\ref{app:kernel-redteam}--\ref{app:kernel-issue-log}, any objection that tries to invoke one of these standard inputs earlier than the use-site matrix allows is treated as a closure-critical issue. The import is boxed only if the manuscript text itself already states the internal packet needed before that import may be read.
+
+\subsection*{Authoritative proof homes}
+\begin{description}[leftmargin=2.2em,style=nextline]
+\item[Companion~I.] Proof home for the compact-simple ultraviolet gate, one-shot entrance, same-scale Wilson return, weak-window sufficiency certificate, bounded dyadic OS limits, continuum-time OS upgrade, graph-core handoff, and continuum vacuum-gap transport.
+\item[Companion~II.] Proof home for the flowed continuum state, exact-dimension quotient packet, finite-truncation inverse/remainder control, the mixed-correlator finite-cap seam, the theorem-facing finite-cap bridge, finite-cap sharp-local extension, the inductive-union passage, and bounded-base cyclicity.
+\item[Companion~III.] Proof home for the Euclidean OS dossier, Wightman/Haag--Kastler reconstruction, field correspondence, Minkowski-gap transfer, non-triviality, faithful-Wilson universality, and the exact local-net endpoint.
+\end{description}
+
+\subsection*{Live-proof boundary}
+\begin{quote}\small
+The authoritative live proof surface of the hardened suite remains the four proof homes \texttt{core.tex}, \texttt{companion1.tex}, \texttt{companion2.tex}, and \texttt{companion3.tex}, together with the theorem-facing appendices compiled inside those roots. The present kernel is a synchronized expert-audit extraction from that live surface. It adds no new mathematics and introduces no alternate theorem route.
+\end{quote}
