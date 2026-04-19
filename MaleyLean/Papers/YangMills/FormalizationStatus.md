@@ -20,6 +20,19 @@ Relative to the Yang-Mills paper inventory encoded in this repository, the
 formalization currently appears complete at the manuscript-facing and
 load-bearing seam levels.
 
+The main mathematical win is the stronger analytical mechanization of the four
+critical seams that would attract the sharpest expert scrutiny:
+
+- the QE3 density / graph-core handoff
+- the dyadic / OS continuous-time upgrade
+- the continuum transport / sharp-gap bridge
+- the Section 8 endpoint / admissibility bridge
+
+In the current development, those seams are no longer represented only as broad
+route-level consequences. They are pushed into explicit extension files,
+reduced-payload interfaces, proof-home projections, source-route recoveries,
+and theorem-level reconstruction paths.
+
 In particular:
 
 - the live manuscript claim families are all represented in the encoded claim ledger,
@@ -31,8 +44,8 @@ In particular:
 
 More importantly for mathematical credibility, the highest-risk analytic seams
 are no longer represented only as broad theorem exports. The current extension
-stack now makes them explicit as reduced payloads, source-route recoveries, and
-theorem-level reconstructions:
+stack now makes them explicit as reduced payloads, source-route recoveries,
+proof-home projections, and theorem-level reconstructions:
 
 - the QE3 density / graph-core handoff is isolated and rebuilt from its own
   reduced source ingredients,

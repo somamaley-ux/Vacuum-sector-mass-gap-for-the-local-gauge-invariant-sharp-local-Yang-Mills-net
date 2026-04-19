@@ -6,6 +6,19 @@ The Yang--Mills project in this repository is now in a strong
 manuscript-facing structural state, and the load-bearing analytic seams are now
 mechanized much more deeply than a bare theorem-register summary would suggest.
 
+The headline result is the analytical mechanization of four critical seams:
+
+- the QE3 density / graph-core handoff
+- the dyadic-to-continuous-time OS upgrade
+- the continuum transport / sharp-gap bridge
+- the Section 8 endpoint / admissibility bridge
+
+These are the real mathematical-risk bottlenecks in the current
+manuscript-facing route, and the current export pushes them forward from vague
+high-level bridge claims into explicit Lean-visible seam objects, reduced
+payloads, proof-home projections, source recoveries, and theorem-level
+reconstructions.
+
 What is finished:
 
 - the live proof surface is encoded in Lean
@@ -53,7 +66,7 @@ What is not finished:
 The right human reading is therefore:
 
 - manuscript-facing formal completeness: strong
-- seam-level mechanization of the highest-risk transitions: strong
+- seam-level mechanization of the four highest-risk transitions: strong
 - full first-principles analytic replacement of all cited proof homes: not yet claimed
 
 ## Final manuscript-facing layers

@@ -3,6 +3,29 @@
 Standalone Lean snapshot for the Yang--Mills slice of the wider `MaleyLean`
 project, aligned with the current manuscript-facing native package boundary.
 
+## Main result
+
+The main win in this repository is not just a theorem register or a packaging
+cleanup. The real advance is that the four highest-risk analytic seams in the
+current Yang--Mills manuscript-facing route are now mechanized much more
+explicitly and much more locally than before.
+
+Those four critical seams are:
+
+- the QE3 density / graph-core handoff
+- the dyadic-to-continuous-time OS upgrade
+- the continuum transport / sharp-gap bridge
+- the Section 8 endpoint / admissibility bridge
+
+In the current export, those seams are no longer left as vague route-level
+transitions. They are exposed through reduced payloads, source-grounded
+projections, proof-home projections, route recoveries, and theorem-level
+reconstructions inside the standalone Lean package.
+
+That is the central human-facing message of this repo: the decisive seam logic
+is now isolated, named, crosswalked back to source ownership, and compiled into
+an axiom-free manuscript-facing package boundary.
+
 ## Start here
 
 If you are new to this repository, the naming split is:
@@ -68,6 +91,11 @@ boundary available in the source development: the constructive, vacuum-gap, and
 endpoint theorem-object, proof-home, law-atom, primitive, certificate, trace,
 and construction-stage layers tied together in
 `YangMillsFullManuscriptNativePackageExportStatement`.
+
+Most importantly, that package now foregrounds the analytical mechanization of
+the four critical seams listed above, so the hardest manuscript transitions are
+not only asserted globally but tracked through explicit local bridge objects and
+reconstruction paths.
 
 It also bundles the current manuscript tree rooted in `core.tex`,
 `companion1.tex`, `companion2.tex`, and `companion3.tex`, together with the
