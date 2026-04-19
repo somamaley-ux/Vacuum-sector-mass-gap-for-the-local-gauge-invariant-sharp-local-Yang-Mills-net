@@ -89,3 +89,6 @@ The honest claim is:
 - the extension stack is very close to a finished referee-facing package, but
   not yet at the point where every residual presentation choice has been fully
   flattened
+
+For the shorter near-finish summary, see
+`reports/status/yang_mills_extension_almost_finished.md`.

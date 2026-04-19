@@ -86,13 +86,14 @@ For the extension paper itself, the shortest human-readable route is:
 
 1. `README.md`
 2. `reports/status/yang_mills_extension_status.md`
-3. `reports/status/yang_mills_extension_referee_note.md`
-4. `reports/status/yang_mills_status.md`
-5. `MaleyLean/Papers/YangMills/FormalizationStatus.md`
-6. `MaleyLean/Papers/YangMills/Extension/EndpointFormalizationOverview.lean`
-7. `MaleyLean/Papers/YangMills/Extension/README.md`
-8. `reports/status/yang_mills_extension_finish_checklist.md`
-9. `reports/status/yang_mills_extension_implementation_agenda.md`
+3. `reports/status/yang_mills_extension_almost_finished.md`
+4. `reports/status/yang_mills_extension_referee_note.md`
+5. `reports/status/yang_mills_status.md`
+6. `MaleyLean/Papers/YangMills/FormalizationStatus.md`
+7. `MaleyLean/Papers/YangMills/Extension/EndpointFormalizationOverview.lean`
+8. `MaleyLean/Papers/YangMills/Extension/README.md`
+9. `reports/status/yang_mills_extension_finish_checklist.md`
+10. `reports/status/yang_mills_extension_implementation_agenda.md`
 
 Then, if you want the main seam files directly:
 
