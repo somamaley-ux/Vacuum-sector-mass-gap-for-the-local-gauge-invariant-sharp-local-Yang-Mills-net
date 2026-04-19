@@ -25,6 +25,17 @@ inductive YMExtendedSupportObject (S : YMManuscriptTheoremScope)
   | lineObj : S.LineSupport -> S.LineLabel -> YMExtendedSupportObject S
   | surfaceObj : S.SurfaceSupport -> S.SurfaceLabel -> YMExtendedSupportObject S
 
+/--
+Preferred paper-facing theorem-scope class for the extension manuscript.
+
+This is the concrete class carried through the current Lean formalization:
+theorem-scope extended-support objects are exactly labeled line supports or
+labeled surface supports over a fixed manuscript scope.
+-/
+abbrev YMPaperTheoremScopeClass
+    (S : YMManuscriptTheoremScope) : Type _ :=
+  YMExtendedSupportObject S
+
 namespace YMExtendedSupportObject
 
 variable {S : YMManuscriptTheoremScope}
@@ -78,6 +89,16 @@ structure YMManuscriptDeformationData (S : YMManuscriptTheoremScope) where
       surfaceDeformationEq x y ->
       surfaceDeformationEq y z ->
       surfaceDeformationEq x z
+
+/--
+Preferred paper-facing deformation package for the theorem-scope class.
+
+This is the concrete deformation/equivalence layer carried by the current
+extension formalization.
+-/
+abbrev YMPaperTheoremScopeDeformationData
+    (S : YMManuscriptTheoremScope) : Type _ :=
+  YMManuscriptDeformationData S
 
 namespace YMManuscriptDeformationData
 
@@ -181,5 +202,18 @@ def YMManuscriptSectorBridge
   Rep := R.Rep
   realized := R.realized
   transport := R.transport
+
+/--
+Preferred paper-facing abstract bridge built from the chosen theorem-scope
+class, its deformation package, and a realization package.
+
+Concrete realization choices refine this abstract bridge further downstream.
+-/
+abbrev YMPaperTheoremScopeBridge
+    (S : YMManuscriptTheoremScope)
+    (D : YMPaperTheoremScopeDeformationData S)
+    (R : YMManuscriptSectorRealization S D) :
+    YMTheoremScopeSectorBridge (YMPaperTheoremScopeClass S) :=
+  YMManuscriptSectorBridge S D R
 
 end MaleyLean

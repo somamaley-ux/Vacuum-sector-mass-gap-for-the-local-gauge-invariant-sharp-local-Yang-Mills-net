@@ -19,9 +19,10 @@ objects over a closed instantiated manuscript.
 
 At this stage every theorem-scope object is realized in the existing
 reconstructed-sector carrier supplied by the vacuum-gap semantic bundle. This is
-the concrete Lean form of the manuscript's current bridge: the realization seam
-is no longer hypothetical, but the finer classification of which object maps to
-which reconstructed sector remains isolated for later strengthening.
+an infrastructure-level concrete bridge: the realization seam is no longer
+hypothetical, but this constant-carrier route is not the final preferred
+paper-facing classification layer. That sharper role is carried downstream by
+the tagged realization package.
 -/
 def YMCompanionIIITheoremScopeRealization
     (I : YMClosedInstantiatedManuscript)
@@ -38,13 +39,17 @@ def YMCompanionIIITheoremScopeRealization
 
 /--
 Concrete theorem-scope bridge over a closed instantiated Yang--Mills manuscript.
+
+This is the baseline Companion III bridge over the preferred theorem-scope
+class. The current paper-facing route later sharpens this to the tagged bridge,
+which retains theorem-scope global-form data inside the realized datum.
 -/
 def YMCompanionIIITheoremScopeBridge
     (I : YMClosedInstantiatedManuscript)
     (S : YMManuscriptTheoremScope)
     (D : YMManuscriptDeformationData S) :
-    YMTheoremScopeSectorBridge (YMExtendedSupportObject S) :=
-  YMManuscriptSectorBridge S D (YMCompanionIIITheoremScopeRealization I S D)
+    YMTheoremScopeSectorBridge (YMPaperTheoremScopeClass S) :=
+  YMPaperTheoremScopeBridge S D (YMCompanionIIITheoremScopeRealization I S D)
 
 theorem YangMillsCompanionIIITheoremScopeSectorDatumExists
     (I : YMClosedInstantiatedManuscript)

@@ -13,7 +13,7 @@ abbrev YMCompanionIIIPreferredTheoremScopeBridge
     (I : YMClosedInstantiatedManuscript)
     (S : YMManuscriptTheoremScope)
     (D : YMManuscriptDeformationData S) :=
-  YMCompanionIIITaggedTheoremScopeBridge I S D
+  YMCompanionIIIPaperFacingTheoremScopeBridge I S D
 
 /--
 Preferred concrete Section 7 corollary: same local shadow but different

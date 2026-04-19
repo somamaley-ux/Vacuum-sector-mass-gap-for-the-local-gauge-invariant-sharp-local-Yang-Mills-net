@@ -75,6 +75,33 @@ def YMCompanionIIITaggedTheoremScopeBridge
     YMTheoremScopeSectorBridge (YMExtendedSupportObject S) :=
   YMManuscriptSectorBridge S D (YMCompanionIIITaggedTheoremScopeRealization I S D)
 
+/--
+Preferred paper-facing realization package for the theorem-scope class.
+
+This is the canonical current manuscript-facing realization layer: theorem-scope
+objects are carried together with their global-form data inside the realized
+datum, rather than only through the older constant-carrier infrastructure
+bridge.
+-/
+abbrev YMCompanionIIIPaperFacingTheoremScopeRealization
+    (I : YMClosedInstantiatedManuscript)
+    (S : YMManuscriptTheoremScope)
+    (D : YMPaperTheoremScopeDeformationData S) :=
+  YMCompanionIIITaggedTheoremScopeRealization I S D
+
+/--
+Preferred paper-facing theorem-scope bridge over a closed instantiated
+Yang--Mills manuscript.
+
+This is the canonical current theorem-scope bridge for the extension paper.
+-/
+abbrev YMCompanionIIIPaperFacingTheoremScopeBridge
+    (I : YMClosedInstantiatedManuscript)
+    (S : YMManuscriptTheoremScope)
+    (D : YMPaperTheoremScopeDeformationData S) :
+    YMTheoremScopeSectorBridge (YMPaperTheoremScopeClass S) :=
+  YMCompanionIIITaggedTheoremScopeBridge I S D
+
 theorem YMCompanionIIITaggedRep_has_globalForm
     (I : YMClosedInstantiatedManuscript)
     (S : YMManuscriptTheoremScope)
