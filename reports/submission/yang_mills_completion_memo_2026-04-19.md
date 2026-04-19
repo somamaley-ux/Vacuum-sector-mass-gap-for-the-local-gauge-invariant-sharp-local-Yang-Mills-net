@@ -78,6 +78,9 @@ The remaining residue is now narrow and mostly presentational:
 These are not the same kind of tasks as the seam mechanization work already
 completed.
 
+They are best read as presentation-only closeout residue around a package whose
+main analytic spine is already in place.
+
 ## Recommended use
 
 This memo should be read together with:

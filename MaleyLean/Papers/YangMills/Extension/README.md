@@ -107,3 +107,6 @@ The remaining abstraction is now relatively narrow:
   8 theorem is now named, but the compatibility layer still presents several
   equivalent patched theorem / bundle / bridge formulations that need to be
   further demoted behind that preferred route
+
+These are now best read as presentation-only residuals. They are no longer the
+same kind of burden as the four critical seam mechanizations above.
