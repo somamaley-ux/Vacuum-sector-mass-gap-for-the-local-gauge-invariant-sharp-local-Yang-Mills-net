@@ -156,7 +156,9 @@ Companion III-facing recovery theorem surface.
 This packages the exact remaining manuscript seam after the concrete bridge has
 been built: to obtain full Section 7 recovery, one still needs the distinction
 principle separating same-shadow / different-global-form objects at sector
-level.
+level. In the current post-freeze reading, this package should be treated as
+the fixed Section 7 recovery surface attached to the chosen theorem-scope
+bridge.
 -/
 abbrev YMCompanionIIIGlobalFormRecoveryPackage
     (I : YMClosedInstantiatedManuscript)
@@ -177,6 +179,9 @@ abbrev YMCompanionIIIGlobalFormRecoveryPackageOfPackage
 Companion III-facing recovery package instantiated from the concrete theorem
 that same-shadow / different-global-form objects determine distinct sector
 classes.
+
+This is the default realized Section 7 package for the current extension stack,
+not merely one optional reconstruction of the recovery surface.
 -/
 def YMCompanionIIIGlobalFormRecoveryPackageFromDistinction
     (I : YMClosedInstantiatedManuscript)

@@ -7,7 +7,9 @@ namespace MaleyLean
 Preferred concrete theorem-scope bridge for manuscript-facing corollaries.
 
 This points downstream users to the sharper tagged Companion III route rather
-than the earlier coarse constant-carrier realization.
+than the earlier coarse constant-carrier realization. Post-freeze, this is the
+bridge that should be read as the default Section 7 and Section 8 corollary
+surface.
 -/
 abbrev YMCompanionIIIPreferredTheoremScopeBridge
     (I : YMClosedInstantiatedManuscript)
@@ -49,6 +51,9 @@ theorem YMCompanionIIIPreferredSectorDistinction
 
 /--
 Manuscript-facing Section 7 alias for the preferred tagged route.
+
+This is the default Section 7 theorem surface readers should cite inside the
+current extension stack.
 -/
 theorem YMSection7_PreferredGlobalFormRecovery
     (I : YMClosedInstantiatedManuscript)
@@ -69,6 +74,9 @@ theorem YMSection7_PreferredGlobalFormRecovery
 
 /--
 Packaged manuscript-facing Section 7 alias for the preferred tagged route.
+
+This is the packaged Section 7 surface carried forward by the canonical
+theorem-scope package.
 -/
 theorem YMSection7_PreferredGlobalFormRecoveryOfPackage
     (I : YMClosedInstantiatedManuscript)
