@@ -413,9 +413,12 @@ The progression is:
     routes. With the packaged theorem-scope completion and endpoint surfaces
     now in place, the remaining Section 8 burden is no longer choosing whether
     the endpoint theorem lives on a canonical paper-facing package object; that
-    part is now fixed. What remains is demoting the several equivalent patched
-    theorem / bundle / bridge presentations so one manuscript-facing Section 8
-    compatibility route reads as the unique preferred endpoint theorem surface.
+    part is now fixed. The file now explicitly names the patched Route 1
+    second-seam theorem as the canonical manuscript-facing Section 8 theorem
+    surface and likewise names the canonical combined Section 7 plus Section 8
+    corollary. What remains is demoting the several equivalent patched theorem
+    / bundle / bridge presentations so they read purely as support and access
+    routes into that canonical theorem surface.
 26. `VacuumGapConcretePrimaryCoreProofHomeProjection`
     records that the two actual upstream source pairs carrying the primary QE3
     core already recover the bundled primary closure surfaces directly: native

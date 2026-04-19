@@ -64,6 +64,9 @@ Current state:
   and `EndpointClayConclusionFormalization.lean` now expose packaged
   completion-bridge and Clay-endpoint surfaces over the canonical
   theorem-scope package.
+- `EndpointConcretePreferredRouteCompatibility.lean` now explicitly names a
+  canonical manuscript-facing Section 8 theorem surface and a canonical
+  combined Section 7 plus Section 8 corollary.
 - the file already exposes several equivalent surfaces:
   the patched theorem statement, the structured bridge object, and the full
   manuscript-shaped assumption bundle.
@@ -78,8 +81,8 @@ To call this closed, we want:
 - the remaining "equivalent bridge shapes" demoted to support lemmas rather than
   still reading like live candidate endpoints
 - the docs updated so they describe the remaining Section 8 work as
-  compatibility-route standardization rather than as a still-missing endpoint
-  package layer
+  compatibility-route standardization rather than as choosing the endpoint
+  theorem surface itself
 
 Primary target files:
 

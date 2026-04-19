@@ -53,6 +53,8 @@ Progress:
 - the canonical theorem-scope package now reaches the Section 7 recovery,
   Section 8 completion bridge, Clay-endpoint package, and packaged manuscript
   corollary surfaces
+- the compatibility layer now names a canonical Section 8 theorem surface and a
+  canonical combined Section 7 plus Section 8 corollary
 - the remaining Workstream A burden is now the final paper-faithful closure of
   that class specification rather than the absence of a canonical route
 
@@ -101,7 +103,7 @@ Done condition:
 - one paper-facing Section 8 theorem is visibly canonical
 - one combined Section 7 plus Section 8 corollary is visibly canonical
 - the residual Section 8 language in the overview/status notes is reduced to
-  compatibility-route standardization rather than endpoint-package absence
+  compatibility-route standardization rather than endpoint-surface selection
 
 ## Workstream C
 

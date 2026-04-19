@@ -50,6 +50,9 @@ theorem object.
   ingredients through the preferred theorem layer.
 - The canonical paper-facing theorem-scope package now reaches the completion
   bridge, Clay-endpoint package, and packaged Section 7/8 corollary surfaces.
+- The compatibility layer now explicitly names a canonical manuscript-facing
+  Section 8 theorem surface and a canonical combined Section 7 plus Section 8
+  corollary.
 - The public docs now foreground this extension-paper interpretation rather
   than burying it inside broader archive summaries.
 
@@ -60,9 +63,10 @@ The remaining abstraction is narrower than before.
 - The most paper-faithful concrete instantiation of the theorem-scope
   extended-support class is still isolated as a strengthening target.
 - The final Section 8 residual is now more specific: the canonical packaged
-  endpoint surfaces exist, but the compatibility layer still foregrounds
-  several equivalent patched theorem / bundle / bridge formulations instead of
-  one uniquely standard paper-facing route.
+  endpoint surfaces exist, and the canonical theorem surface is named, but the
+  compatibility layer still foregrounds several equivalent patched theorem /
+  bundle / bridge formulations that need to be further demoted behind that
+  standard route.
 
 So the honest current reading is:
 
