@@ -112,6 +112,29 @@ abbrev YMCompanionIIIPaperFacingTheoremScopePackageBridge
     YMTheoremScopeSectorBridge (YMPaperTheoremScopePackage.Object P) :=
   YMCompanionIIIPaperFacingTheoremScopeBridge I P.scope P.deformation
 
+/--
+Canonical Section 4 theorem-scope bridge for the extension paper.
+
+This is the preferred manuscript-facing bridge from the fixed theorem-scope
+package into the tagged Companion III realization.
+-/
+abbrev YMSection4CanonicalTheoremScopeBridge
+    (I : YMClosedInstantiatedManuscript)
+    (S : YMManuscriptTheoremScope)
+    (D : YMPaperTheoremScopeDeformationData S) :
+    YMTheoremScopeSectorBridge (YMPaperTheoremScopeClass S) :=
+  YMCompanionIIIPaperFacingTheoremScopeBridge I S D
+
+/--
+Canonical Section 4 theorem-scope bridge over the packaged theorem-scope
+object.
+-/
+abbrev YMSection4CanonicalTheoremScopePackageBridge
+    (I : YMClosedInstantiatedManuscript)
+    (P : YMSection4CanonicalTheoremScopePackage) :
+    YMTheoremScopeSectorBridge (YMSection4CanonicalTheoremScopePackage.Object P) :=
+  YMCompanionIIIPaperFacingTheoremScopePackageBridge I P
+
 theorem YMCompanionIIITaggedRep_has_globalForm
     (I : YMClosedInstantiatedManuscript)
     (S : YMManuscriptTheoremScope)

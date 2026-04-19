@@ -119,6 +119,14 @@ structure YMPaperTheoremScopePackage where
   scope : YMManuscriptTheoremScope
   deformation : YMPaperTheoremScopeDeformationData scope
 
+/--
+Canonical Section 4 theorem-scope package for the current extension stack.
+
+At the current theorem surface this is the fixed manuscript-facing theorem-scope
+object carried through the Lean development.
+-/
+abbrev YMSection4CanonicalTheoremScopePackage := YMPaperTheoremScopePackage
+
 namespace YMPaperTheoremScopePackage
 
 /-- Preferred paper-facing extended-support class carried by the package. -/
@@ -130,6 +138,18 @@ abbrev Shadow (P : YMPaperTheoremScopePackage) : Type _ :=
   YMExtendedSupportObject.PaperLocalShadow P.scope
 
 end YMPaperTheoremScopePackage
+
+namespace YMSection4CanonicalTheoremScopePackage
+
+/-- Canonical Section 4 theorem-scope class carried by the package. -/
+abbrev Object (P : YMSection4CanonicalTheoremScopePackage) : Type _ :=
+  YMPaperTheoremScopePackage.Object P
+
+/-- Canonical Section 4 local-shadow class carried by the package. -/
+abbrev Shadow (P : YMSection4CanonicalTheoremScopePackage) : Type _ :=
+  YMPaperTheoremScopePackage.Shadow P
+
+end YMSection4CanonicalTheoremScopePackage
 
 namespace YMManuscriptDeformationData
 
