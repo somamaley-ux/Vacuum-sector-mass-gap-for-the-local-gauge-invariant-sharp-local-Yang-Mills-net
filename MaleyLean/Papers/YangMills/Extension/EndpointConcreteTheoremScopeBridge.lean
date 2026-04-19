@@ -51,6 +51,15 @@ def YMCompanionIIITheoremScopeBridge
     YMTheoremScopeSectorBridge (YMPaperTheoremScopeClass S) :=
   YMPaperTheoremScopeBridge S D (YMCompanionIIITheoremScopeRealization I S D)
 
+/--
+Baseline Companion III bridge over the packaged preferred theorem-scope object.
+-/
+abbrev YMCompanionIIITheoremScopePackageBridge
+    (I : YMClosedInstantiatedManuscript)
+    (P : YMPaperTheoremScopePackage) :
+    YMTheoremScopeSectorBridge (YMPaperTheoremScopePackage.Object P) :=
+  YMCompanionIIITheoremScopeBridge I P.scope P.deformation
+
 theorem YangMillsCompanionIIITheoremScopeSectorDatumExists
     (I : YMClosedInstantiatedManuscript)
     (S : YMManuscriptTheoremScope)

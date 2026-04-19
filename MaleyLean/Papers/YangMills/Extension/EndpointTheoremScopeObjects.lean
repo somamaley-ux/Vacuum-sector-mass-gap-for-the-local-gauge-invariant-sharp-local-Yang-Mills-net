@@ -45,6 +45,14 @@ inductive LocalShadow (S : YMManuscriptTheoremScope)
   | line : S.LineSupport -> LocalShadow S
   | surface : S.SurfaceSupport -> LocalShadow S
 
+/--
+Preferred paper-facing local-shadow class obtained from the theorem-scope
+extended-support class by forgetting labels.
+-/
+abbrev PaperLocalShadow
+    (S : YMManuscriptTheoremScope) : Type _ :=
+  LocalShadow S
+
 /-- The manuscript's local-shadow map. -/
 def localShadow : YMExtendedSupportObject S -> LocalShadow S
   | .lineObj l _ => .line l
@@ -99,6 +107,29 @@ extension formalization.
 abbrev YMPaperTheoremScopeDeformationData
     (S : YMManuscriptTheoremScope) : Type _ :=
   YMManuscriptDeformationData S
+
+/--
+Preferred paper-facing theorem-scope package for the extension manuscript.
+
+This packages together the chosen theorem-scope class and its deformation data
+so the paper-facing layer can treat them as one fixed object rather than as two
+loosely parallel parameters.
+-/
+structure YMPaperTheoremScopePackage where
+  scope : YMManuscriptTheoremScope
+  deformation : YMPaperTheoremScopeDeformationData scope
+
+namespace YMPaperTheoremScopePackage
+
+/-- Preferred paper-facing extended-support class carried by the package. -/
+abbrev Object (P : YMPaperTheoremScopePackage) : Type _ :=
+  YMPaperTheoremScopeClass P.scope
+
+/-- Preferred paper-facing local-shadow class carried by the package. -/
+abbrev Shadow (P : YMPaperTheoremScopePackage) : Type _ :=
+  YMExtendedSupportObject.PaperLocalShadow P.scope
+
+end YMPaperTheoremScopePackage
 
 namespace YMManuscriptDeformationData
 
@@ -215,5 +246,14 @@ abbrev YMPaperTheoremScopeBridge
     (R : YMManuscriptSectorRealization S D) :
     YMTheoremScopeSectorBridge (YMPaperTheoremScopeClass S) :=
   YMManuscriptSectorBridge S D R
+
+/--
+Preferred paper-facing abstract bridge over a packaged theorem-scope object.
+-/
+abbrev YMPaperTheoremScopePackageBridge
+    (P : YMPaperTheoremScopePackage)
+    (R : YMManuscriptSectorRealization P.scope P.deformation) :
+    YMTheoremScopeSectorBridge (YMPaperTheoremScopePackage.Object P) :=
+  YMPaperTheoremScopeBridge P.scope P.deformation R
 
 end MaleyLean

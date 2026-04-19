@@ -102,6 +102,16 @@ abbrev YMCompanionIIIPaperFacingTheoremScopeBridge
     YMTheoremScopeSectorBridge (YMPaperTheoremScopeClass S) :=
   YMCompanionIIITaggedTheoremScopeBridge I S D
 
+/--
+Preferred paper-facing theorem-scope bridge over the packaged theorem-scope
+object.
+-/
+abbrev YMCompanionIIIPaperFacingTheoremScopePackageBridge
+    (I : YMClosedInstantiatedManuscript)
+    (P : YMPaperTheoremScopePackage) :
+    YMTheoremScopeSectorBridge (YMPaperTheoremScopePackage.Object P) :=
+  YMCompanionIIIPaperFacingTheoremScopeBridge I P.scope P.deformation
+
 theorem YMCompanionIIITaggedRep_has_globalForm
     (I : YMClosedInstantiatedManuscript)
     (S : YMManuscriptTheoremScope)
