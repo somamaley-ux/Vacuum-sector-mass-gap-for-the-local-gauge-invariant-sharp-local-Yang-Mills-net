@@ -27,12 +27,13 @@ Concrete paper-faithful theorem-scope class
 Current state:
 
 - `MaleyLean/Papers/YangMills/Extension/EndpointAdmissibilityFormalization.lean`
-  explicitly says the current bridge does not yet instantiate the manuscript's
-  concrete extended-support class.
+  now presents the theorem-scope bridge as infrastructure while still leaving
+  the most paper-faithful closure of the class specification as a residual.
 - `MaleyLean/Papers/YangMills/Extension/EndpointConcreteTheoremScopeBridge.lean`
-  explicitly says every theorem-scope object is realized in the existing
-  reconstructed-sector carrier, while the finer classification of which object
-  maps to which reconstructed sector remains isolated for later strengthening.
+  now treats the constant-carrier route as baseline infrastructure rather than
+  the final paper-facing classification layer.
+- `MaleyLean/Papers/YangMills/Extension/EndpointTaggedTheoremScopeRealization.lean`
+  now provides the canonical current paper-facing theorem-scope bridge naming.
 
 To call this closed, we want:
 

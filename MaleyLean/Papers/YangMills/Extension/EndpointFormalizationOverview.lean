@@ -261,16 +261,18 @@ The progression is:
    larger Route 1 endpoint package.
 18. `EndpointTheoremScopeObjects`
    formalizes manuscript-side theorem-scope objects, local shadows, support
-   equivalence, deformation data, and abstract sector realizations.
+   equivalence, deformation data, and the preferred paper-facing theorem-scope
+   class carried by the current extension stack.
 19. `EndpointConcreteTheoremScopeBridge`
-   attaches those objects to the existing Companion III reconstructed-sector
-   carrier.
+   attaches that preferred theorem-scope class to the existing Companion III
+   reconstructed-sector carrier at the baseline infrastructure level.
 20. `EndpointGlobalFormRecoveryFormalization`
    packages the Section 7 distinction surface and the concrete Companion III
    global-form recovery theorem.
 21. `EndpointTaggedTheoremScopeRealization`
    sharpens the Companion III realization by retaining theorem-scope
-   global-form data inside the realized object.
+   global-form data inside the realized object, and this tagged route is now
+   the canonical current paper-facing theorem-scope bridge.
 22. `EndpointCompletionBridgeFormalization`
    formalizes the Section 8 bridge from sector realizations to scope-faithful
    admissible completions.

@@ -48,10 +48,12 @@ universe u v
 /--
 Abstract theorem-scope bridge package for the nonlocal endpoint manuscript.
 
-This does not yet instantiate the manuscript's concrete extended-support class.
-Instead, it isolates the remaining load-bearing seam: supplying a theorem-scope
-class together with its realization in the predecessor reconstruction-side
-sector package.
+This is the infrastructure-level bridge interface for the nonlocal endpoint
+manuscript. The current extension stack now carries a canonical paper-facing
+theorem-scope route built on top of this interface; what remains residual is
+not the existence of a theorem-scope class at all, but the final most
+paper-faithful closure of that class specification and its classification
+presentation.
 -/
 structure YMTheoremScopeSectorBridge (Xi : Type u) where
   SupportEq : Xi -> Xi -> Prop

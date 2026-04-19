@@ -23,11 +23,13 @@ reconstruction paths.
 The stack is organized in manuscript-facing terms:
 
 - `EndpointTheoremScopeObjects.lean` fixes the theorem-scope support/label
-  object layer.
+  object layer and now names the preferred paper-facing theorem-scope class.
 - `EndpointConcreteTheoremScopeBridge.lean` realizes that layer in the existing
-  reconstructed-sector carrier.
+  reconstructed-sector carrier at the baseline infrastructure level.
 - `EndpointGlobalFormRecoveryFormalization.lean` packages the Section 7
   same-local-shadow / different-global-form recovery surface.
+- `EndpointTaggedTheoremScopeRealization.lean` upgrades that bridge to the
+  canonical current paper-facing tagged realization route.
 - `EndpointCompletionBridgeFormalization.lean`,
   `EndpointClayConclusionFormalization.lean`, and
   `EndpointConcretePreferredRouteCompatibility.lean` carry the Section 8

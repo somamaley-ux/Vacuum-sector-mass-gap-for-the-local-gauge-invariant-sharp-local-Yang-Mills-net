@@ -45,6 +45,14 @@ Concrete deliverables:
 4. update overview/docs so they no longer call theorem-scope instantiation a
    remaining strengthening target
 
+Progress:
+
+- the preferred theorem-scope class and paper-facing bridge naming now exist in
+  code
+- the older constant-carrier bridge has been reframed as infrastructure
+- the remaining Workstream A burden is now the final paper-faithful closure of
+  that class specification rather than the absence of a canonical route
+
 Done condition:
 
 - the extension stack has one canonical paper-facing theorem-scope class
