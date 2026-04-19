@@ -12,6 +12,8 @@ This is the next strengthening step beyond merely carrying the concrete witness
 package and the tagged Clay-endpoint package side-by-side: it records an
 explicit theorem-level feed from the concrete upstream side conditions into the
 endpoint admissibility conclusion used by the manuscript-facing corollaries.
+Post-freeze, this package should be read as support infrastructure around the
+canonical Section 8 theorem surface rather than as a rival endpoint layer.
 -/
 structure YMConcretePreferredRouteCompatibility
     (W : YMConcreteEndpointSideConditions)
@@ -80,6 +82,10 @@ end YMConcretePreferredRouteCompatibility
 /--
 Concrete preferred Section 8 route with explicit compatibility: the upstream
 Yang--Mills witness bundle feeds the tagged endpoint admissibility conclusion.
+
+This is one of the main support-route interfaces retained for provenance and
+exactness tracking. It is not meant to displace the canonical Section 8 theorem
+surface chosen later in this file.
 -/
 theorem YMSection8_PreferredClayEndpointFromConcreteCompatibility
     {W : YMConcreteEndpointSideConditions}

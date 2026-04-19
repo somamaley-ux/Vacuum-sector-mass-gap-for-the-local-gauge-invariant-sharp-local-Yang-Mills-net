@@ -123,7 +123,10 @@ structure YMPaperTheoremScopePackage where
 Canonical Section 4 theorem-scope package for the current extension stack.
 
 At the current theorem surface this is the fixed manuscript-facing theorem-scope
-object carried through the Lean development.
+object carried through the Lean development. In the post-freeze reading of the
+extension paper, this should be treated as the canonical Section 4 package
+unless a stricter manuscript-faithfulness pass deliberately refines the
+presentation.
 -/
 abbrev YMSection4CanonicalTheoremScopePackage := YMPaperTheoremScopePackage
 
