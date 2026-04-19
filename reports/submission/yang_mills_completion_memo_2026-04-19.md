@@ -106,3 +106,6 @@ For the current hostile-referee objection map, see
 
 For the shortest objection-driven verification route, see
 `reports/submission/yang_mills_referee_checklist_2026-04-19.md`.
+
+For the fastest objection-to-evidence lookup table, see
+`reports/submission/yang_mills_referee_evidence_map_2026-04-19.md`.
