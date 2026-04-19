@@ -67,9 +67,11 @@ The remaining abstraction is narrower than before.
   most paper-faithful final manuscript presentation.
 - The final Section 8 residual is now more specific: the canonical packaged
   endpoint surfaces exist, and the canonical theorem surface is named, but the
-  compatibility layer still foregrounds several equivalent patched theorem /
+  compatibility layer still foregrounds a few equivalent patched theorem /
   bundle / bridge formulations that need to be further demoted behind that
-  standard route.
+  standard route. Several of the most visible structured, boundary-bridge, and
+  patched-assumption-bundle routes have already been explicitly collapsed back
+  onto the canonical theorem.
 
 So the honest current reading is:
 

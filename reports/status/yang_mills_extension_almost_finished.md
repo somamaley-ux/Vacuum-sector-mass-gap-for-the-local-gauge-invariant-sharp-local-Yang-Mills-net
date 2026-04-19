@@ -12,7 +12,8 @@ At the current theorem surface:
 - the Section 4 theorem-scope package and bridge are canonically named
 - the Section 8 endpoint theorem surface and combined Section 7 plus Section 8
   corollary are canonically named
-- several previously competing-looking Section 8 routes are now explicitly
+- several previously competing-looking Section 8 routes, including structured,
+  boundary-bridge, and patched-assumption-bundle routes, are now explicitly
   collapsed back onto that canonical theorem surface
 
 So the remaining gap is no longer "is the extension mathematically there?"
@@ -41,6 +42,7 @@ The following do not currently look like open mathematical seams:
 - the existence of a canonical theorem-scope object
 - the existence of a canonical Section 8 theorem surface
 - the endpoint proof-home / boundary-bridge / structured-bridge compatibility story
+- the patched-assumption-bundle route as a mathematically separate endpoint
 
 So the remaining work should be done with discipline, but it should not be
 misdescribed as rebuilding the extension paper from below.

@@ -17,8 +17,8 @@ The Section 8 compatibility layer now has:
 
 - one canonical manuscript-facing Section 8 theorem surface
 - one canonical combined Section 7 plus Section 8 corollary
-- multiple explicit equalities showing that the nearby structured and
-  boundary-bridge routes collapse back to that canonical theorem
+- multiple explicit equalities showing that nearby structured, boundary-bridge,
+  and patched-assumption-bundle routes collapse back to that canonical theorem
 
 So the remaining multiplicity is not "several possible endpoint theorems."
 It is "several access routes and exactness wrappers around one endpoint theorem."
@@ -72,8 +72,8 @@ Two residuals remain, but they are now narrower than before:
 
 - the theorem-scope class is now fixed in code, but still wants its most
   paper-faithful final manuscript presentation
-- some Section 8 access routes still read a little too much like standalone
-  theorem endpoints instead of obviously subordinate support lemmas
+- a few remaining Section 8 access routes still read a little too much like
+  standalone theorem endpoints instead of obviously subordinate support lemmas
 
 So the remaining work is mostly presentation discipline and final theorem-scope
 closure, not missing endpoint mathematics.
@@ -85,7 +85,8 @@ The honest claim is:
 - the four critical seams are mechanized
 - the Section 8 endpoint theorem surface is canonically fixed
 - the remaining alternate Section 8 formulations are now best read as support
-  infrastructure around that fixed theorem
+  infrastructure around that fixed theorem, with several of the most visible
+  routes already explicitly collapsed back to it
 - the extension stack is very close to a finished referee-facing package, but
   not yet at the point where every residual presentation choice has been fully
   flattened
