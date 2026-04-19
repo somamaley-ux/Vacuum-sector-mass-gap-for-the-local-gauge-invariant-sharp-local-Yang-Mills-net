@@ -4713,4 +4713,25 @@ theorem YMSection8_PreferredClayEndpointFromRoute1EndpointSecondSeamForcesAdmiss
         (I := I) (S := S) (D := D) (C := C) (P := P) hRoute1SecondSeam := by
   exact Subsingleton.elim _ _
 
+/--
+The structured-bridge access route likewise agrees with the canonical Section 8
+theorem surface once its target is supplied.
+-/
+theorem YMSection8_PreferredClayEndpointFromStructuredBridgeTarget_eq_canonical
+    {I : YMClosedInstantiatedManuscript}
+    {S : YMManuscriptTheoremScope}
+    {D : YMManuscriptDeformationData S}
+    {C : YMCompanionIIITaggedCompletionBridge I S D}
+    {P : YMCompanionIIITaggedClayEndpointPackage I S D C}
+    (hTarget :
+      YMSection8_Route1PaperSecondSeamBuildsStructuredBridgeTarget
+        I S D C P) :
+    YMSection8_PreferredClayEndpointFromStructuredBridgeTarget
+        (I := I) (S := S) (D := D) (C := C) (P := P) hTarget =
+      YMSection8_CanonicalPreferredClayEndpoint
+        (I := I) (S := S) (D := D) (C := C) (P := P)
+        (YMSection8_Route1PaperSecondSeamBuildsStructuredBridgeTarget.impliesPatchedStatement
+          (I := I) (S := S) (D := D) (C := C) (P := P) hTarget) := by
+  exact Subsingleton.elim _ _
+
 end MaleyLean
