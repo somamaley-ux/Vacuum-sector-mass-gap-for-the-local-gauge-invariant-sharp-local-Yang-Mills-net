@@ -35,6 +35,10 @@ theorem surfaces with source-level provenance and reconstruction equality.
 For the extension-paper-focused summary and reading order, see
 `reports/status/yang_mills_extension_status.md`.
 
+For the broader dossier-level statement of what now counts as deeply closed and
+what still remains presentation-only, see
+`reports/status/yang_mills_solution_dossier.md`.
+
 What is finished:
 
 - the live proof surface is encoded in Lean
