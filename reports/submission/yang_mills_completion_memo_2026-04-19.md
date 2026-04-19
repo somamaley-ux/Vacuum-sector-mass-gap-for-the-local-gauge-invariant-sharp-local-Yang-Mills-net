@@ -109,3 +109,6 @@ For the shortest objection-driven verification route, see
 
 For the fastest objection-to-evidence lookup table, see
 `reports/submission/yang_mills_referee_evidence_map_2026-04-19.md`.
+
+For the single front door to the referee-facing packet, see
+`reports/submission/yang_mills_referee_packet_2026-04-19.md`.
