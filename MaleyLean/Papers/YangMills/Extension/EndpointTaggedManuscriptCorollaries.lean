@@ -120,6 +120,22 @@ theorem YMSection8_PreferredClayEndpoint
   exact YMCompanionIIIPreferredClayEndpointOfRealization I S D C P xi r hPres
 
 /--
+Packaged manuscript-facing Section 8 alias for the preferred tagged route.
+-/
+theorem YMSection8_PreferredClayEndpointOfPackage
+    (I : YMClosedInstantiatedManuscript)
+    (Pscope : YMPaperTheoremScopePackage)
+    (C : YMCompanionIIITaggedCompletionBridge I Pscope.scope Pscope.deformation)
+    (P : YMCompanionIIITaggedClayEndpointPackage I Pscope.scope Pscope.deformation C)
+    (xi : YMPaperTheoremScopePackage.Object Pscope)
+    (r : (YMCompanionIIIPreferredTheoremScopePackageBridge I Pscope).Rep xi)
+    (hPres : P.preservesFixedTheory (C.completionOf xi r)) :
+    P.admissibilitySideConditionsSatisfied := by
+  exact
+    YMSection8_PreferredClayEndpoint
+      I Pscope.scope Pscope.deformation C P xi r hPres
+
+/--
 Section 8 preferred alias carrying both the concrete upstream Yang--Mills
 side-condition package and the tagged Clay-endpoint conclusion.
 -/
@@ -194,6 +210,33 @@ theorem YMSection7And8_PreferredEndpointCorollary
   exact
     YMCompanionIIIPreferredDistinctionAndClayEndpoint
       I S D C P hShadow hGF r hPres
+
+/--
+Packaged manuscript-facing combined Section 7 plus Section 8 alias for the
+preferred tagged route.
+-/
+theorem YMSection7And8_PreferredEndpointCorollaryOfPackage
+    (I : YMClosedInstantiatedManuscript)
+    (Pscope : YMPaperTheoremScopePackage)
+    (C : YMCompanionIIITaggedCompletionBridge I Pscope.scope Pscope.deformation)
+    (P : YMCompanionIIITaggedClayEndpointPackage I Pscope.scope Pscope.deformation C)
+    {xi eta : YMPaperTheoremScopePackage.Object Pscope}
+    (hShadow :
+      YMExtendedSupportObject.localShadow xi =
+        YMExtendedSupportObject.localShadow eta)
+    (hGF :
+      YMExtendedSupportObject.globalFormDatum xi ≠
+        YMExtendedSupportObject.globalFormDatum eta)
+    (r : (YMCompanionIIIPreferredTheoremScopePackageBridge I Pscope).Rep xi)
+    (hPres : P.preservesFixedTheory (C.completionOf xi r)) :
+    YMTheoremScopeSectorBridge.sectorAssignment
+        (YMCompanionIIIPreferredTheoremScopePackageBridge I Pscope) xi ≠
+      YMTheoremScopeSectorBridge.sectorAssignment
+        (YMCompanionIIIPreferredTheoremScopePackageBridge I Pscope) eta /\
+      P.admissibilitySideConditionsSatisfied := by
+  exact
+    YMSection7And8_PreferredEndpointCorollary
+      I Pscope.scope Pscope.deformation C P hShadow hGF r hPres
 
 /--
 Manuscript-facing combined Section 7 plus Section 8 alias carrying both the
