@@ -13,6 +13,7 @@ The following are already materially in place:
 - the Section 7 global-form recovery surface exists
 - the Section 8 endpoint/admissibility hierarchy exists
 - the main QE3 and endpoint source routes are reconstruction-explicit
+- canonical Section 4 and Section 8 theorem surfaces are now named in code
 - the remaining endpoint-side gap is documented in the code as packaging rather
   than new mathematical content
 
@@ -45,7 +46,8 @@ To call this closed, we want:
 - one clearly preferred realization statement explaining how that class lands in
   the reconstructed-sector carrier
 - the corresponding docs updated so they no longer describe this point as an
-  open object-selection target
+  open object-selection target, but only as final presentation cleanup around a
+  class that is already fixed in code
 
 Primary target files:
 
@@ -108,11 +110,13 @@ I would call the extension paper finished when all of the following are true:
 
 If we want the highest-value next pass, it is:
 
-1. choose the final preferred theorem-scope class presentation
-2. choose the final preferred Section 8 bridge statement
-3. collapse the remaining alternatives into lemmas/corollaries
-4. update the extension overview and status notes to mark the extension paper as
-   finished
+1. tighten the theorem-scope wording so the canonical Section 4 object reads as
+   the final manuscript class, not merely the current Lean package
+2. demote the last Section 8 alternate access routes into obviously subordinate
+   support lemmas/corollaries
+3. rerun the hostile-referee wording pass after that flattening
+4. write the true completion note only once those last presentation residuals
+   are gone
 
 For the implementation-level version of this closure plan, see
 `reports/status/yang_mills_extension_implementation_agenda.md`.

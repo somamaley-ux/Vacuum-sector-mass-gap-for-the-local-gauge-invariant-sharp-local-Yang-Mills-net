@@ -59,6 +59,8 @@ Progress:
   canonical combined Section 7 plus Section 8 corollary
 - the remaining Workstream A burden is now the final paper-faithful closure of
   that class specification rather than the absence of a canonical object or route
+- this workstream is now in final-presentation territory rather than object
+  selection territory
 
 Done condition:
 
@@ -106,6 +108,8 @@ Done condition:
 - one combined Section 7 plus Section 8 corollary is visibly canonical
 - the residual Section 8 language in the overview/status notes is reduced to
   compatibility-route standardization rather than endpoint-surface selection
+- the remaining non-canonical Section 8 access routes visibly read as support
+  infrastructure around that theorem
 
 ## Workstream C
 
@@ -139,22 +143,23 @@ Progress:
 - the code-side story is now strong enough to support a referee-facing note
   explaining why the remaining Section 8 multiplicity is no longer
   mathematically load-bearing
+- the repo now also has an almost-finished note stating clearly that the
+  remaining work is theorem-scope presentation cleanup plus flattening the last
+  non-load-bearing Section 8 access routes
 
 ## Recommended execution order
 
-1. complete Workstream A
-2. complete Workstream B
+1. finish the last theorem-scope presentation cleanup
+2. flatten the last Section 8 support-route multiplicity
 3. rerun the extension audit under hostile-referee assumptions
-4. update docs and completion notes only after the code-side canonicalization is done
+4. write the true completion note only after those presentation residuals are gone
 
-## Immediate next coding move
+## Immediate next move
 
-The best next implementation step is Workstream A.1:
+The best next implementation step is no longer choosing canonical objects.
+Those are now fixed.
 
-- add a clearly named preferred theorem-scope class layer in
-  `EndpointTheoremScopeObjects.lean`
-- then thread that preferred object through
-  `EndpointConcreteTheoremScopeBridge.lean`
-
-That is the smallest code-side move that directly reduces one of the two live
-residuals.
+- tighten the human-facing Section 4 wording so it reads as final manuscript
+  presentation rather than "current canonical Lean package"
+- or demote one more Section 8 access route so the compatibility layer reads
+  even more visibly as support around the canonical theorem surface
