@@ -4734,4 +4734,27 @@ theorem YMSection8_PreferredClayEndpointFromStructuredBridgeTarget_eq_canonical
           (I := I) (S := S) (D := D) (C := C) (P := P) hTarget) := by
   exact Subsingleton.elim _ _
 
+/--
+The closed-manuscript boundary-bridge route through the smaller Route 1
+second-seam interface also agrees with the canonical Section 8 theorem surface.
+-/
+theorem YMSection8_PreferredClayEndpointFromClosedManuscriptBoundaryBridgeViaRoute1EndpointSecondSeam_eq_canonical
+    {I : YMClosedInstantiatedManuscript}
+    {S : YMManuscriptTheoremScope}
+    {D : YMManuscriptDeformationData S}
+    {C : YMCompanionIIITaggedCompletionBridge I S D}
+    {P : YMCompanionIIITaggedClayEndpointPackage I S D C}
+    (hBridge :
+      YMSection8_ClosedManuscriptEndpointSatisfiesAdmissibilitySideConditions
+        I S D C P) :
+    YMSection8_PreferredClayEndpointFromClosedManuscriptBoundaryBridgeViaRoute1EndpointSecondSeam
+        (I := I) (S := S) (D := D) (C := C) (P := P) hBridge =
+      YMSection8_CanonicalPreferredClayEndpoint
+        (I := I) (S := S) (D := D) (C := C) (P := P)
+        (YMSection8_Route1PaperSecondSeamBuildsStructuredBridgeTarget.impliesPatchedStatement
+          (I := I) (S := S) (D := D) (C := C) (P := P)
+          (YMSection8_Route1PaperSecondSeamBuildsStructuredBridgeTarget_ofBoundaryBridge
+            (I := I) (S := S) (D := D) (C := C) (P := P) hBridge)) := by
+  exact Subsingleton.elim _ _
+
 end MaleyLean
