@@ -4628,4 +4628,89 @@ theorem YMSection7And8_PreferredEndpointCorollaryFromCanonicalPaperFlowAndRoute1
       YMSection8_PreferredClayEndpointFromCanonicalPaperFlowAndRoute1SecondSeamForcesAdmissibility
         hRoute1SecondSeam
 
+/--
+Canonical manuscript-facing Section 8 theorem surface.
+
+This fixes the patched Route 1 second-seam theorem as the preferred Section 8
+theorem surface for the current extension stack. The nearby paper-flow,
+structured-bridge, and bundle-target routes should now be read as exactness or
+compatibility routes into this theorem surface.
+-/
+abbrev YMSection8_CanonicalPreferredEndpointTheorem
+    (I : YMClosedInstantiatedManuscript)
+    (S : YMManuscriptTheoremScope)
+    (D : YMManuscriptDeformationData S)
+    (C : YMCompanionIIITaggedCompletionBridge I S D)
+    (P : YMCompanionIIITaggedClayEndpointPackage I S D C) : Prop :=
+  YMSection8_ClosedManuscriptRoute1EndpointSecondSeamForcesAdmissibilitySideConditions
+    I S D C P
+
+/--
+Canonical manuscript-facing Section 8 endpoint conclusion.
+
+The canonical endpoint conclusion is taken directly from the preferred patched
+Route 1 theorem surface. Nearby paper-flow, structured-bridge, and bundle-
+target routes should be read as support for or access to this theorem, not as
+competing endpoint forms.
+-/
+theorem YMSection8_CanonicalPreferredClayEndpoint
+    {I : YMClosedInstantiatedManuscript}
+    {S : YMManuscriptTheoremScope}
+    {D : YMManuscriptDeformationData S}
+    {C : YMCompanionIIITaggedCompletionBridge I S D}
+    {P : YMCompanionIIITaggedClayEndpointPackage I S D C}
+    (hCanonical :
+      YMSection8_CanonicalPreferredEndpointTheorem I S D C P) :
+    P.admissibilitySideConditionsSatisfied := by
+  exact
+    YMSection8_PreferredClayEndpointFromRoute1EndpointSecondSeamForcesAdmissibility
+      (I := I) (S := S) (D := D) (C := C) (P := P) hCanonical
+
+/--
+Canonical manuscript-facing combined Section 7 plus Section 8 corollary.
+-/
+theorem YMSection7And8_CanonicalPreferredEndpointCorollary
+    {I : YMClosedInstantiatedManuscript}
+    {S : YMManuscriptTheoremScope}
+    {D : YMManuscriptDeformationData S}
+    {C : YMCompanionIIITaggedCompletionBridge I S D}
+    {P : YMCompanionIIITaggedClayEndpointPackage I S D C}
+    {xi eta : YMExtendedSupportObject S}
+    (hShadow :
+      YMExtendedSupportObject.localShadow xi =
+        YMExtendedSupportObject.localShadow eta)
+    (hGF :
+      Not
+        (YMExtendedSupportObject.globalFormDatum xi =
+          YMExtendedSupportObject.globalFormDatum eta))
+    (hCanonical :
+      YMSection8_CanonicalPreferredEndpointTheorem I S D C P) :
+    Not
+        (YMTheoremScopeSectorBridge.sectorAssignment
+          (YMCompanionIIIPreferredTheoremScopeBridge I S D) xi =
+        YMTheoremScopeSectorBridge.sectorAssignment
+          (YMCompanionIIIPreferredTheoremScopeBridge I S D) eta) /\
+      P.admissibilitySideConditionsSatisfied := by
+  exact
+    YMSection7And8_PreferredEndpointCorollaryFromRoute1EndpointSecondSeamForcesAdmissibility
+      (I := I) (S := S) (D := D) (C := C) (P := P) hShadow hGF hCanonical
+
+/--
+The direct patched-theorem endpoint route agrees with the canonical paper-flow
+endpoint theorem surface.
+-/
+theorem YMSection8_PreferredClayEndpointFromRoute1EndpointSecondSeamForcesAdmissibility_eq_canonical
+    {I : YMClosedInstantiatedManuscript}
+    {S : YMManuscriptTheoremScope}
+    {D : YMManuscriptDeformationData S}
+    {C : YMCompanionIIITaggedCompletionBridge I S D}
+    {P : YMCompanionIIITaggedClayEndpointPackage I S D C}
+    (hRoute1SecondSeam :
+      YMSection8_CanonicalPreferredEndpointTheorem I S D C P) :
+    YMSection8_PreferredClayEndpointFromRoute1EndpointSecondSeamForcesAdmissibility
+        (I := I) (S := S) (D := D) (C := C) (P := P) hRoute1SecondSeam =
+      YMSection8_CanonicalPreferredClayEndpoint
+        (I := I) (S := S) (D := D) (C := C) (P := P) hRoute1SecondSeam := by
+  exact Subsingleton.elim _ _
+
 end MaleyLean
