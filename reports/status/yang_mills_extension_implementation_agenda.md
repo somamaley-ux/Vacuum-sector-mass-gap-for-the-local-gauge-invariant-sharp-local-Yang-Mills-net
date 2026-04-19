@@ -132,6 +132,12 @@ Concrete deliverables:
 2. produce one short final completion note explaining why the extension paper is
    now finished rather than merely strong
 
+Progress:
+
+- the code-side story is now strong enough to support a referee-facing note
+  explaining why the remaining Section 8 multiplicity is no longer
+  mathematically load-bearing
+
 ## Recommended execution order
 
 1. complete Workstream A
