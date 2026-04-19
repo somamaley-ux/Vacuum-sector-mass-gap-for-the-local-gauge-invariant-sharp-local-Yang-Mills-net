@@ -81,7 +81,9 @@ Preferred paper-facing realization package for the theorem-scope class.
 This is the canonical current manuscript-facing realization layer: theorem-scope
 objects are carried together with their global-form data inside the realized
 datum, rather than only through the older constant-carrier infrastructure
-bridge.
+bridge. Post-freeze, this is the realization layer that should be treated as
+the fixed Section 4 route unless a stricter manuscript-faithfulness pass
+deliberately refines it.
 -/
 abbrev YMCompanionIIIPaperFacingTheoremScopeRealization
     (I : YMClosedInstantiatedManuscript)
@@ -93,7 +95,9 @@ abbrev YMCompanionIIIPaperFacingTheoremScopeRealization
 Preferred paper-facing theorem-scope bridge over a closed instantiated
 Yang--Mills manuscript.
 
-This is the canonical current theorem-scope bridge for the extension paper.
+This is the canonical current theorem-scope bridge for the extension paper. It
+is the bridge readers should now treat as the default Section 4 realization
+surface, not merely as one candidate among several infrastructure bridges.
 -/
 abbrev YMCompanionIIIPaperFacingTheoremScopeBridge
     (I : YMClosedInstantiatedManuscript)
@@ -116,7 +120,9 @@ abbrev YMCompanionIIIPaperFacingTheoremScopePackageBridge
 Canonical Section 4 theorem-scope bridge for the extension paper.
 
 This is the preferred manuscript-facing bridge from the fixed theorem-scope
-package into the tagged Companion III realization.
+package into the tagged Companion III realization. In the current post-freeze
+reading, this is the fixed Section 4 bridge surface carried forward by the
+extension stack.
 -/
 abbrev YMSection4CanonicalTheoremScopeBridge
     (I : YMClosedInstantiatedManuscript)
