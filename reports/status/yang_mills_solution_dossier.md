@@ -97,3 +97,6 @@ For the extension-focused version of that claim, see
 
 For the boundary between this frozen state and any future work, see
 `reports/status/yang_mills_post_freeze_roadmap.md`.
+
+For the current objection-by-objection attack-surface map, see
+`reports/status/yang_mills_hostile_referee_audit.md`.

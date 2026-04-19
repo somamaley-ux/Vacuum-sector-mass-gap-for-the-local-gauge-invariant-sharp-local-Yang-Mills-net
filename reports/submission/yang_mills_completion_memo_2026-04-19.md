@@ -100,3 +100,6 @@ requirements justify reopening it.
 
 The corresponding next-phase boundary note is
 `reports/status/yang_mills_post_freeze_roadmap.md`.
+
+For the current hostile-referee objection map, see
+`reports/status/yang_mills_hostile_referee_audit.md`.

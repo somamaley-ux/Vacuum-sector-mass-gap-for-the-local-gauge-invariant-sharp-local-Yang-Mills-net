@@ -96,3 +96,6 @@ For the shorter near-finish summary, see
 
 For the stronger completion-in-substance summary, see
 `reports/status/yang_mills_extension_completion_note.md`.
+
+For the objection-by-objection hostile-referee map, see
+`reports/status/yang_mills_hostile_referee_audit.md`.
