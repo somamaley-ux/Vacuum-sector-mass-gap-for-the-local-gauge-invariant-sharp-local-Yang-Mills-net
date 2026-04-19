@@ -12,3 +12,10 @@
 /tmp_unus_zip.b64
 /tmpgitobj_unus/
 /tmpbuild/
+/.codex_git_objects/
+/.codex_tmp_branch_switch/
+/*.gitdata/
+/bivalence-non-degenerate-reasoning/
+/measurement-problem-reference/
+/reports/submission/
+*.bak_recovery

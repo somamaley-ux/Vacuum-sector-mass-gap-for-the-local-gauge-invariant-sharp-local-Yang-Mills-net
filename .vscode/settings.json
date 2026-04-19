@@ -1,0 +1,11 @@
+{
+  "git.ignoredRepositories": [
+    "D:/lean/MaleyLean/UnusSolusPossibilisEst-public",
+    "D:/lean/MaleyLean/tmp_unus_full_repo",
+    "D:/lean/MaleyLean/measurement-problem-reference",
+    "D:/lean/MaleyLean/bivalence-non-degenerate-reasoning",
+    "D:/lean/MaleyLean/ClosureByExhaustion-public",
+    "D:/lean/MaleyLean/NavierStokes-public-repo",
+    "D:/lean/MaleyLean/YangMills-public-anonymized-v5"
+  ]
+}
