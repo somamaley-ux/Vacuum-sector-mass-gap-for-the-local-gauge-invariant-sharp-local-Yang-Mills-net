@@ -19,6 +19,19 @@ high-level bridge claims into explicit Lean-visible seam objects, reduced
 payloads, proof-home projections, source recoveries, and theorem-level
 reconstructions.
 
+It also tracks the nonlocal endpoint paper in the right section-level shape:
+
+- Section 4 is represented by a frozen theorem-scope extended-support class
+  with explicit support, label, and deformation language
+- Section 7 is represented by the same-local-shadow / different-global-form
+  distinction problem and its sector-level recovery surface
+- Section 8 is represented by a scope-faithful extension/completion bridge over
+  the unchanged local vacuum theory
+
+So the present status is not just "there is a lot of Yang--Mills Lean code."
+The main analytical burden of the extension paper has been pushed into named
+theorem surfaces with source-level provenance and reconstruction equality.
+
 What is finished:
 
 - the live proof surface is encoded in Lean
@@ -62,6 +75,14 @@ What is not finished:
 - discharge in Lean of the analytic arguments cited by the manuscript proof
   homes
 - replacement of the companion/source proofs with native Lean proofs
+
+What remains residual on the extension side is narrower:
+
+- the most paper-faithful concrete instantiation of the theorem-scope
+  extended-support class is still isolated as a strengthening target
+- the final Section 8 bridge still has a manuscript-packaging residue, even
+  though the current route now documents that this is packaging rather than new
+  mathematical content
 
 The right human reading is therefore:
 

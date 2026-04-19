@@ -22,6 +22,22 @@ transitions. They are exposed through reduced payloads, source-grounded
 projections, proof-home projections, route recoveries, and theorem-level
 reconstructions inside the standalone Lean package.
 
+For the nonlocal endpoint manuscript specifically, the standalone export now
+also reflects the paper's section-level theorem posture much more closely:
+
+- Section 4's frozen theorem-scope extended-support class is represented as a
+  fixed support-and-label class with explicit support and deformation notions
+- Section 7's global-form recovery problem is represented as a same-local-shadow
+  versus different-global-form sector distinction problem
+- Section 8's endpoint bridge is represented as a scope-faithful completion and
+  admissibility bridge over the unchanged local vacuum theory
+
+That means the remaining abstraction is no longer "the hard seams are still
+informal." Those seams are now source-grounded, isolated, reconstructed, and
+promoted into named theorem surfaces. What remains more abstract is the final
+paper-faithful packaging of the theorem-scope class and the most manuscript-
+shaped Section 8 bridge presentation.
+
 That is the central human-facing message of this repo: the decisive seam logic
 is now isolated, named, crosswalked back to source ownership, and compiled into
 an axiom-free manuscript-facing package boundary.

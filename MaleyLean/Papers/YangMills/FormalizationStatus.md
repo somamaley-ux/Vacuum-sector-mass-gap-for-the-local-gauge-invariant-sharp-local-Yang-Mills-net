@@ -58,6 +58,27 @@ proof-home projections, and theorem-level reconstructions:
   endpoint proof-home and Route 1 endpoint-package ingredients all the way up
   through the preferred theorem layer.
 
+For the extension paper specifically, this means the current repo no longer
+looks like a generic sector-language placeholder. The manuscript's central
+human-facing burdens are now visibly encoded in Lean:
+
+- Section 4's extended-support class is formalized as a fixed theorem-scope
+  support-and-label class with explicit support and deformation equivalence
+- Section 7's global-form recovery surface is formalized as the distinction
+  problem between same-local-shadow / different-global-form objects
+- Section 8's endpoint theorem is formalized as a scope-faithful completion and
+  admissibility bridge over the unchanged local vacuum theory
+
+The remaining abstraction is therefore narrower than before. The repo still
+documents two residual manuscript-facing strengthening targets:
+
+- the most concrete paper-faithful instantiation of the theorem-scope
+  extended-support class
+- the final manuscript-shaped packaging of the Section 8 endpoint bridge
+
+Those are residual presentation and classification targets, not evidence that
+the four critical seams themselves remain unmechanized.
+
 The most recent verification sweep also strengthened the deepest kernel so that:
 
 - the constructive side points explicitly to the sharp-local assembly path,
