@@ -78,6 +78,7 @@ If you want the shortest route through the extension story, read:
 For the human-facing summary outside the code tree, see:
 
 - `reports/status/yang_mills_extension_status.md`
+- `reports/status/yang_mills_extension_finish_checklist.md`
 - `reports/status/yang_mills_status.md`
 - `MaleyLean/Papers/YangMills/FormalizationStatus.md`
 
