@@ -275,14 +275,21 @@ The progression is:
    the canonical current paper-facing theorem-scope bridge.
 22. `EndpointCompletionBridgeFormalization`
    formalizes the Section 8 bridge from sector realizations to scope-faithful
-   admissible completions.
+   admissible completions, and now also exposes packaged Companion III and
+   tagged Companion III completion-bridge surfaces over the canonical
+   paper-facing theorem-scope package.
 23. `EndpointClayConclusionFormalization`
    packages the Clay-facing endpoint surface and the concrete distinction plus
    endpoint inheritance theorems for both the coarse and tagged Companion III
-   routes.
+   routes. It now also exposes packaged tagged endpoint-package surfaces and a
+   packaged distinction-plus-endpoint theorem over that same canonical
+   theorem-scope object.
 24. `EndpointTaggedManuscriptCorollaries`
    exposes the tagged route as the preferred manuscript-facing corollary layer
-   for Section 7 distinction and Section 8 endpoint inheritance.
+   for Section 7 distinction and Section 8 endpoint inheritance. Its packaged
+   Section 8 and combined Section 7 plus Section 8 corollaries now land
+   directly on those packaged completion and Clay-endpoint surfaces rather than
+   bypassing them.
 25. `EndpointConcretePreferredRouteCompatibility`
     adds an explicit theorem-level compatibility package saying how a concrete
     upstream Yang--Mills witness bundle feeds the preferred tagged endpoint
@@ -403,7 +410,12 @@ The progression is:
     proof-home levels. At that same paper-faithful theorem layer, the two
     proof-home theorem routes are now also recorded as agreeing directly with
     one another, not only separately with the corresponding closed-manuscript
-    routes.
+    routes. With the packaged theorem-scope completion and endpoint surfaces
+    now in place, the remaining Section 8 burden is no longer choosing whether
+    the endpoint theorem lives on a canonical paper-facing package object; that
+    part is now fixed. What remains is demoting the several equivalent patched
+    theorem / bundle / bridge presentations so one manuscript-facing Section 8
+    compatibility route reads as the unique preferred endpoint theorem surface.
 26. `VacuumGapConcretePrimaryCoreProofHomeProjection`
     records that the two actual upstream source pairs carrying the primary QE3
     core already recover the bundled primary closure surfaces directly: native

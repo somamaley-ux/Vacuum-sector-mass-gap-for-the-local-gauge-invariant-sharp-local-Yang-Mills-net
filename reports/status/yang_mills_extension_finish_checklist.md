@@ -60,6 +60,10 @@ Current state:
 - `MaleyLean/Papers/YangMills/Extension/EndpointConcretePreferredRouteCompatibility.lean`
   already documents that the remaining Section 8 target is packaging rather than
   extra mathematical content.
+- `MaleyLean/Papers/YangMills/Extension/EndpointCompletionBridgeFormalization.lean`
+  and `EndpointClayConclusionFormalization.lean` now expose packaged
+  completion-bridge and Clay-endpoint surfaces over the canonical
+  theorem-scope package.
 - the file already exposes several equivalent surfaces:
   the patched theorem statement, the structured bridge object, and the full
   manuscript-shaped assumption bundle.
@@ -73,8 +77,9 @@ To call this closed, we want:
 - one preferred proof route to that surface chosen as the standard route
 - the remaining "equivalent bridge shapes" demoted to support lemmas rather than
   still reading like live candidate endpoints
-- the docs updated so they describe Section 8 as finished rather than as a
-  packaging residue
+- the docs updated so they describe the remaining Section 8 work as
+  compatibility-route standardization rather than as a still-missing endpoint
+  package layer
 
 Primary target files:
 

@@ -48,6 +48,8 @@ theorem object.
 - The Section 8 endpoint bridge is no longer only a downstream slogan; it is
   reconstructed from endpoint proof-home and Route 1 endpoint-package
   ingredients through the preferred theorem layer.
+- The canonical paper-facing theorem-scope package now reaches the completion
+  bridge, Clay-endpoint package, and packaged Section 7/8 corollary surfaces.
 - The public docs now foreground this extension-paper interpretation rather
   than burying it inside broader archive summaries.
 
@@ -57,9 +59,10 @@ The remaining abstraction is narrower than before.
 
 - The most paper-faithful concrete instantiation of the theorem-scope
   extended-support class is still isolated as a strengthening target.
-- The final Section 8 bridge still has a manuscript-packaging residue, even
-  though the current development now records that this is packaging rather than
-  extra mathematical content.
+- The final Section 8 residual is now more specific: the canonical packaged
+  endpoint surfaces exist, but the compatibility layer still foregrounds
+  several equivalent patched theorem / bundle / bridge formulations instead of
+  one uniquely standard paper-facing route.
 
 So the honest current reading is:
 

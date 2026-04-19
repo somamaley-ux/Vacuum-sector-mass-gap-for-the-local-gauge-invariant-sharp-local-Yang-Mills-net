@@ -33,7 +33,9 @@ The stack is organized in manuscript-facing terms:
 - `EndpointCompletionBridgeFormalization.lean`,
   `EndpointClayConclusionFormalization.lean`, and
   `EndpointConcretePreferredRouteCompatibility.lean` carry the Section 8
-  completion/admissibility bridge.
+  completion/admissibility bridge. The completion and Clay-endpoint layers now
+  also speak directly in terms of the canonical packaged theorem-scope object,
+  not only in raw theorem-scope parameters.
 
 On the QE3 side, the main seam files are:
 
@@ -91,6 +93,7 @@ The remaining abstraction is now relatively narrow:
 
 - the most paper-faithful concrete instantiation of the theorem-scope
   extended-support class is still a strengthening target
-- the final Section 8 bridge still has a manuscript-packaging residue, even
-  though the current development now records that this is packaging rather than
-  extra mathematical content
+- the final Section 8 residual is now narrower than before: the canonical
+  packaged endpoint surfaces exist, but the compatibility layer still presents
+  several equivalent patched theorem / bundle / bridge formulations instead of
+  one uniquely foregrounded paper-facing route
