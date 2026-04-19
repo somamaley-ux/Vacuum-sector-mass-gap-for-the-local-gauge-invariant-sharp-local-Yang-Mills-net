@@ -10,6 +10,31 @@ Authoritative compiled proof-home roots:
 
 The live proof burden is carried only by these four roots together with the theorem-facing appendices they compile.
 
+## Lean extension crosswalk
+
+The closest Lean-facing entry point for the nonlocal endpoint manuscript is:
+
+- `../MaleyLean/Papers/YangMills/Extension/README.md`
+
+That folder guide gives the shortest route from manuscript sections to Lean
+files. In particular, the current public Lean stack foregrounds four critical
+seams:
+
+- QE3 density / graph-core handoff
+- dyadic-to-continuous-time OS upgrade
+- continuum transport / sharp-gap bridge
+- Section 8 endpoint / admissibility bridge
+
+The quickest manuscript-to-Lean section map is:
+
+- Section 4: `../MaleyLean/Papers/YangMills/Extension/EndpointTheoremScopeObjects.lean`
+  and `../MaleyLean/Papers/YangMills/Extension/EndpointConcreteTheoremScopeBridge.lean`
+- Section 7: `../MaleyLean/Papers/YangMills/Extension/EndpointGlobalFormRecoveryFormalization.lean`
+  and `../MaleyLean/Papers/YangMills/Extension/EndpointTaggedManuscriptCorollaries.lean`
+- Section 8: `../MaleyLean/Papers/YangMills/Extension/EndpointCompletionBridgeFormalization.lean`,
+  `../MaleyLean/Papers/YangMills/Extension/EndpointClayConclusionFormalization.lean`,
+  and `../MaleyLean/Papers/YangMills/Extension/EndpointConcretePreferredRouteCompatibility.lean`
+
 ## Phase-VI proof kernel
 
 Expert-audit kernel root:
@@ -94,4 +119,3 @@ The project now includes a synchronized internal red-team dossier for Phase VIII
 - `PHASE8_SIGNOFF_CHECKLIST.md`
 
 This dossier records the internal adversarial-verification pass, the issue protocol, the resolved issue IDs, and the blocker-closure matrix. It is not an external independent specialist certification; that remains a later gate.
-
